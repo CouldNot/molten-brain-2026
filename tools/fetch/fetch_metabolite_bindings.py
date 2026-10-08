@@ -10,7 +10,7 @@
 Why this exists
 ---------------
 Each drug in ``tools/data/drugs_data.jsonl`` may carry active ``metabolites`` (see
-CLAUDE.md "Drugs" -> "Half-life + active metabolites"). Five of them are themselves
+docs/DRUGS.md "Drugs" -> "Half-life + active metabolites"). Five of them are themselves
 modeled drugs (``drug_id`` link) and reuse that drug's bindings; the rest carried a
 name + half-life only, their receptor bindings deferred to this pass. This script is
 that pass: for every *non-modeled* metabolite it mines the English Wikipedia for a
@@ -39,7 +39,7 @@ For each non-modeled metabolite:
    (paragraph lines naming an action verb), verbatim from the stored page text so a
    judge's quote gates cleanly.
 4. Write ``tools/generated_cache/metabolite_bindings_worklist.json`` for a single LLM
-   pass (see CLAUDE.md) that assigns each binding a target + action (or affinity-only),
+   pass (see docs/DRUGS.md) that assigns each binding a target + action (or affinity-only),
    consumed by ``tools/sourcing/apply_metabolite_bindings.py``.
 
 Usage (from the repo root; network unless ``--no-fetch``)::

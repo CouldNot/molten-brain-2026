@@ -168,7 +168,7 @@ and clicking the row enters the panel-only mode for this visit. Its controls: th
 (`#sim-metabolites`, persisted), the receptor plot's **Hide below** threshold
 (`#sim-threshold`, in axis units) and **Show unknown-direction bands** (`#sim-show-unknown`), then
 the solver's **Only these receptors** (`#sim-only-listed`) and **Max drugs** (`#sim-max-drugs`).
-Nothing here lights the 3D scene: it is pharmacology, not anatomy. See CLAUDE.md "Simulation
+Nothing here lights the 3D scene: it is pharmacology, not anatomy. See docs/DRUGS.md "Simulation
 (beta)" for what the model assumes.
 
 ### Data browser

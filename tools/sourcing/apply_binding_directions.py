@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Quote-gate the judged binding directions and write them onto ``drugs_data.jsonl``.
 
-The apply half of the binding-direction pass (see CLAUDE.md "Drugs" -> "Binding
+The apply half of the binding-direction pass (see docs/DRUGS.md "Drugs" -> "Binding
 directions"): ``tools/fetch/fetch_binding_directions.py`` offers candidate sentences
 from each drug's stored English Wikipedia article (corpus #9 ``wikipedia_pharm``), one
 LLM pass answers with the ones that state a direction, and this script decides whether

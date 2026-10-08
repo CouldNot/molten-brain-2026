@@ -12,7 +12,7 @@ Run under ``uv run`` (a ``beautifulsoup4`` dep) because it reuses
 imports BeautifulSoup at load time; no HTML is parsed here.
 
 
-This is the applier half of the metabolite-bindings pass (see CLAUDE.md "Drugs" ->
+This is the applier half of the metabolite-bindings pass (see docs/DRUGS.md "Drugs" ->
 "Half-life + active metabolites", and its fetcher ``tools/fetch/fetch_metabolite_bindings.py``).
 It is the SOLE writer of a non-modeled metabolite's ``bindings`` list, and idempotent:
 each run rebuilds that list entirely from the worklist + the judge's picks, so re-running
@@ -24,7 +24,7 @@ Pipeline (mirrors the brand / PK / Wikipedia-Ki passes)::
     <one LLM pass>                -> metabolite_bindings_judged.json     (per-metabolite actions)
     apply_metabolite_bindings.py  -> drugs_data.jsonl                    (this script)
 
-What a metabolite binding is made of (decision recorded in CLAUDE.md):
+What a metabolite binding is made of (decision recorded in docs/DRUGS.md):
 
 * **Target + action** come from the metabolite's OWN Wikipedia prose (corpus #9
   ``wikipedia_pharm``): the judge assigns an action (a ``DRUG_ACTIONS`` key) to a target

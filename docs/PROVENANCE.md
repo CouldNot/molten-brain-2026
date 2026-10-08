@@ -1,6 +1,6 @@
 # Source provenance
 
-How every node is graded and sourced, in full. Split out of `CLAUDE.md` (which keeps a terse summary) to keep that file small; this project is built with the help of Claude Code. Section names referenced below (Nodes, Drugs, Drug metabolism, ...) are sections of `CLAUDE.md`.
+How every node is graded and sourced, in full. Split out of `CLAUDE.md` (which keeps a terse summary) to keep that file small; this project is built with the help of Claude Code. Section names referenced below (Nodes, Drugs, Drug metabolism, ...) are sections of `CLAUDE.md`, whose full drug detail lives in [`DRUGS.md`](DRUGS.md).
 
 How every **node** (any sourceable datum, see Nodes) is graded + sourced. Every node's source/reference
 carries a **provenance grade** (the dataset is LLM-assisted, not yet human-checked), rendered as a

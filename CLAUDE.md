@@ -583,293 +583,45 @@ regions the owner already claims, never adding one.
 
 ## Drugs
 
-A focusable Drugs section showing, per drug, what it does to the brain. The psychiatric
-drugs come from **Stahl's Prescriber's Guide (8th ed.)**, extracted **strictly from the dump**
-(only interactions literally stated; gaps left as TODO / no binding); the `recreational`
-category (LSD, MDMA, ketamine, cocaine, nicotine, ...) and any future substance are **not**
-Stahl-bound, their bindings sourced from measured **PDSP Ki** instead. Adding a drug is just a
-new row in `drugs_data.jsonl` (see Changing the data), so the corpus is open-ended, not a
-fixed Stahl list.
+A focusable Drugs section showing, per drug, what it does to the brain. Drugs live in `tools/data/drugs_data.jsonl` (one row per drug, read by `_load_drugs`); vocabularies (`DRUG_CATEGORY_LABELS`, `DRUG_ACTIONS`, `DRUG_EFFECT_COLORS`, `DRUG_TARGETS`, ...) are defined once in `generate_data.py` / `tools/data_generators/drugs.py`.
 
 > [!NOTE]
-> **The roster's scope is CNS-active, not psychiatric.** Both growth routes so far were
-> psychiatry-shaped (Stahl's monographs, then the Wikipedia *psychotropic / psychiatric
-> medications* lists the roster pass diffed against), so whole CNS families were never
-> candidates and their absence looked deliberate when it was only an artefact of the
-> sources. The opioid analgesics closed the first such hole; the remaining families are
-> surveyed in `docs/SOURCING_GAPS.md`. A drug belongs here when it acts on a modeled
-> target, whatever specialty prescribes it.
+> **The roster's scope is CNS-active, not psychiatric.** A drug belongs here when it acts on a modeled target, whatever specialty prescribes it; the psychiatry-shaped sources left whole CNS families out by accident, surveyed in `docs/SOURCING_GAPS.md`.
 
-- **Data.** The drugs live in `tools/data/drugs_data.jsonl`, read by `_load_drugs`. Vocabularies are
-  defined once in `generate_data.py`: `DRUG_CATEGORY_LABELS`, `DRUG_ACTIONS` (action -> {label, net
-  `effect`}), `DRUG_EFFECT_COLORS`/`DRUG_EFFECT_LABELS` (boost/block/modulate), `DRUG_TARGETS`
-  (non-receptor targets, `type` a `TARGET_TYPE_LABELS` key). `_build_drug_targets` merges
-  `DRUG_TARGETS` with every receptor id (so a binding can target `sert` or `5ht2a`) ->
-  `meta.drug_targets`. `_drug_record` validates category/target/action/effect + rejects duplicate
-  ids. A binding's net `effect`: agonist / reuptake-inhibitor / releaser / enzyme-inhibitor / PAM ->
-  **boost**; antagonist / inverse-agonist / NAM / blocker -> **block**; partial-agonist / modulator
-  -> **modulate**.
-- **Animation** (`js/drug-anim.js`). Clicking a drug row (`buildDrugLegend`, grouped by category,
-  with the live `#drugs-filter`) focuses it: dims to the union of its targets' regions
-  (`selection.setCircuit(regionMeshes, flowArrows)`) + `createDrugAnimation.show(...)`, which
-  scatters a `buildGemCloud` coloured by net effect (pulsed per effect) under a `buildWashShell`
-  in the same colour, **one pair per (region, effect)**, not per binding: a region carrying many
-  of the drug's targets otherwise stacked a cloud + a full-surface wash per binding (26 on one
-  region for clozapine), which saturated it to flat white and paid that many shader passes for
-  one colour. The group keeps its strongest binding's `affinityWeight`, which scales dot density
-  (`buildGemCloud`'s `densityScale`), size and brightness (potent target reads denser/brighter),
-  and the wash gain is split between the effects on a region (`washScale`), so a region glows
-  like one wash however many effects it carries. Stopped via an `onIsolate` watcher (`.matches`).
-- **By-mechanism flow overlay** (reuses `js/circuit-anim.js`). The focus also rides beads along the
-  projections of the drug's target system(s). It is a **tone-setter + autoreceptor** model, split from
-  the dots: only *tone-setting* bindings drive flow (a reuptake/enzyme/vesicle target or a presynaptic
-  inhibitory autoreceptor), never a postsynaptic receptor (those stay dots). `js/data.js` gives each
-  binding a signed `toneSign` (`toneSignOf`: reuptake-inhibitor/releaser/MAO-inhibitor +, vesicular
-  (VMAT2)/vesicle-protein blocker − but a VMAT2 **substrate** (`vesicular_releaser`: the amphetamines,
-  MDMA, which dump the stores) +, autoreceptor agonist − / antagonist +; a `vesicular` flag + the α2
-  group's `sign`/`synaptic` come from `meta.drug_targets`) and an `affinityWeight` (0.35..1 pKi ramp
-  from the measured Ki, engagement not effect size). Per engaged kind it sums `toneSign*affinityWeight`
-  into `flowSystems` (`{direction, weight, rel}`): the sign is the flow direction (an SSRI drives serotonergic
-  **up**, buspirone's 5-HT1A agonism **down**, a VMAT2 blocker **down**), the clamped magnitude its absolute
-  `weight`, and `rel` the same normalized **per-drug** so the strongest engaged system = 1 (dosage varies, so
-  the overlay shows *relative* intensity across systems). `circuit-anim.js` `play(arrows, flowSystems)` streams
-  beads **continuously** end-to-end along each arc (a curated circuit keeps its sequential BFS volley; a drug
-  focus, signalled by a passed `flowSystems`, streams so the relative density + speed read), recolouring/scaling
-  per arrow off `rel` (boost = warm/bright/fast/dense, damp = cool/dim/slow/sparse). The system map is data: `system_flow_kinds`
-  (target `system` -> projection `kind`, the diffuse systems with a modeled source; glutamate/GABA
-  left out, and `melatonergic` is mapped for the group panel though its MT1/MT2 are postsynaptic so no
-  drug ever rides it). `focusDrug` filters arrows (`flowArrowsOf`), pins + `circuitAnim.play()`s
-  them; a purely postsynaptic drug sets no tone -> dots + wash only. **Caveat:** a D2-antagonist
-  antipsychotic reads dopaminergic-**up** (blocking the D2 *autoreceptor* disinhibits release); its
-  postsynaptic blockade shows in the block-coloured dots. (This is why the dataset carries the ascending
-  monoamine pathways.)
-- **Panel** (`showDrug`): the molecule image (when fetched), the class, the NbN, the description
-  (live-refreshed from Wikipedia, re-graded `sourced`), a Wikipedia link + the EMA / FDA / ClinPGx /
-  Drugs.com (+ Vidal in French) `appendLookupLink` searches, then the **Acts on** binding
-  list (each row: an effect glyph + target + action·note, "· speculative" when tentative, plus a
-  `bindingProvenancePill` = the binding's quote source, else its Ki (verified), else `NOSOURCE`, or the
-  orange ⚠ when it carries `uncertainty[]`, see Source provenance),
-  sorted strongest-affinity first. Below it a **Projections affected** list (only when `flowKinds`
-  non-empty): one row per ascending system whose tone the drug sets (jumps to that kind-mode group,
-  pilled with the strongest binding on the system), an out-/in-arrow per `flowSystems[kind].direction`
-  (raises / lowers tone); a *derived* inference from the tone-setter bindings (caption says so). Class +
-  Nomenclature are clickable (open search with a `class:`/`nbn:` filter) and each carries its grade
-  pill: the NbN quote source, and the class classification's `category_provenance` (its own node, kind
-  `drug_categories`, default `llm`, upgradeable via `DRUG_CATEGORY_PROVENANCE` / `category_sources`).
-- **Half-life + active metabolites (Stahl PK).** A drug carries an elimination `half_life`
-  (`{hours, hours_max?}`, its own graded node kind `drug_half_life`, source `half_life_sources`) and a
-  `metabolites[]` list, each an **active metabolite** (a `name`, its own `half_life`/`half_life_sources`,
-  and `sources`; graded node kind `drug_metabolites`; a `drug_id` when the metabolite is itself a modeled
-  drug so the panel links to it). `showDrug` renders T½ as an `hl-chip` (auto-scaled to min/h/days via
-  `formatHalfLife`, in a **Timing** section between the brands and the **Acts on** list, beside the Tmax
-  chip below) and an **Active metabolites** section
-  (each row its name + its own T½ chip, "a bit like the Ki"). In `buildDrugLegend` a default-on
-  **Show active metabolites** toggle (`#drugs-show-metabolites`, persisted `neurarium.metabolites`) adds
-  discreet indented `.metab-item` bullets under each parent (a bullet + its parent both stay visible
-  when the drugs filter or the global search matches the metabolite name). Pipeline mirrors the brand one:
-  `tools/fetch/fetch_pharmacokinetics.py` scans the Stahl page spans into `pk_worklist.json`, one LLM pass
-  writes `pk_judged.json`, and `tools/sourcing/apply_pharmacokinetics.py` quote-gates + merges T½/metabolites
-  into `drugs_data.jsonl` (idempotent, sole writer).
-- **Time-to-peak (Tmax, Wikipedia + Stahl + DailyMed).** A drug carries a `tmax` in the same `{hours, hours_max?}`
-  shape (kind `drug_tmax`, source `tmax_sources`), chipped beside the T½ in the panel's **Timing**
-  section. It is what turns the simulation's single assumed peak into a per-drug one
-  (`js/sim-model.js` `tmaxHours`): the T½ says how the curve falls, this says how it rises, and a drug
-  with no sourced peak keeps `TMAX_HOURS`. Four-step pipeline, over three corpora since none covers
-  the roster alone (see `docs/SOURCING_GAPS.md`): `tools/fetch/fetch_tmax.py` offers every peak-naming,
-  duration-carrying line of the drug's own Wikipedia article (#9), Stahl monograph (#1) and US
-  prescribing label (#14, the one that reaches the drugs the prose corpora never mention) into
-  `tmax_worklist.json` with **no verdict of its own**, one LLM pass answers by candidate **index** into
-  `tmax_judged.json`, `tools/sourcing/apply_tmax.py` gates it (drug offered; index resolves; the judged
-  hours are one the quote actually states, re-parsed by code, so the model never supplies a number;
-  `MAX_TMAX_HOURS` = 24 h, which is what rejects a depot or implant peaking in days; quote verbatim on
-  its page) and is the sole writer, then `recheck_quotes.py` stamps the judge. The drugbox is
-  deliberately not read: it has no Tmax row, and its `Onset of action` row is clinical onset on 60 of
-  its 76 rows.
-- **Non-modeled-metabolite receptor bindings (Wikipedia).** A metabolite that is not itself a modeled
-  drug carries its own `bindings[]` (kind `drug_metabolite_bindings`), sourced from the metabolite's own
-  English Wikipedia pharmacology (corpus #9 `wikipedia_pharm`) + the PDSP Ki database (corpus #5): **target
-  + action** from a quote-gated prose sentence; **affinity** prefers a PDSP measured Ki, else the Wikipedia
-  table value. PDSP is BOTH a target-discovery source (every modeled target with an active assay on the
-  metabolite's own name becomes a binding, so norfluoxetine gets its 11 measured sites even though its
-  Wikipedia article has no Ki table) AND the preferred Ki for a Wikipedia-found target; a discovered target
-  with no sourced action stays an `affinity_only` binding. A receptor's
-  Interacting-drugs list then shows the binder as "NAME (metab. of PRODRUG)" (`drug.metaboliteOf`, via
-  `drugsByTarget`). Pipeline: `tools/fetch/fetch_metabolite_bindings.py` (reuses
-  `fetch_wikipedia_pharmacology` as a library) mines each metabolite's own article (an allow-list of
-  confirmed own-articles) **and its parent drug's article** for prose (parent lines mention-filtered to the
-  metabolite so a parent-only claim can't leak; an own-article metabolite still draws on its parent because
-  a thin own article, e.g. Seproxetine for norfluoxetine, often omits the binding profile the parent states),
-  a quote gating against whichever read page holds it, into `metabolite_bindings_worklist.json`; one LLM pass writes
-  `metabolite_bindings_judged.json`; `tools/sourcing/apply_metabolite_bindings.py` quote-gates + merges
-  into `drugs_data.jsonl` (idempotent, sole writer of a metabolite's bindings). **Shared metabolite:** one
-  metabolite can be produced by several modeled drugs (desipramine by imipramine + lofepramine, mCPP by
-  nefazodone + trazodone), so it appears once under each parent; its bindings are a property of the
-  molecule, so the applier keys by metabolite name and writes an **identical** list to each parent, the
-  tally + viewer dedup it by folded name (counted / listed once, "metab. of A, B"), and `check_data` fails
-  loud if two parents' inline copies ever diverge (a hand-edit backstop).
-- **Binding directions (Wikipedia).** An `affinity_only` binding has a measured Ki and no `action`,
-  so what the drug *does* at that target is a NOSOURCE `drug_binding_action` node; a drug's own
-  English Wikipedia article (corpus #9) often states that direction in prose where no assay can.
-  Pipeline, the same four steps as the CYP one: `tools/fetch/fetch_binding_directions.py` offers, per
-  drug, the prose lines naming one of its affinity-only targets (`fetch_metabolite_bindings.action_lines`
-  over the stored page, then the shared alias matcher `tools/target_aliases.py`) into
-  `binding_directions_worklist.json` with **no verdict of its own**; one LLM pass answers by candidate
-  **index** into `binding_directions_judged.json`; `tools/sourcing/apply_binding_directions.py`
-  gates it (drug offered, index resolves, target is a **currently** affinity-only binding of that
-  drug, action in `DRUG_ACTIONS`, the quote names the target under the very matcher that offered it,
-  the quote verbatim on the page) and is the sole writer of the direction; `recheck_quotes.py`
-  then stamps the judge. **Confirm-only**: it never adds a binding and never revises a direction
-  another corpus states. A **second input** reaches the targets prose never discusses:
-  `tools/fetch/fetch_binding_direction_tables.py` reads the `Action` column of the article's own Ki
-  table (an exact-vocabulary cell, one verbatim table row as the quote, `extraction: "code"`, so no
-  judge and no recheck, exactly like the Ki in the same row) into `binding_directions_tables.json`,
-  applied by the same applier's `--tables` through the gates above. A binding neither the prose nor
-  the table states stays a NOSOURCE `drug_binding_action` node on purpose, which is most of them (an
-  article states a handful of directions, not a whole assay panel).
-- **Binding affinity (PDSP Ki).** A binding's `ki` (from `fetch_ki.py`) renders as a `kiChip`: the
-  median + `[min-max]` + human/non-human counts + a **verified** badge (tooltip = the representative
-  assay). Non-human-only is amber; an alias-borrowed value (`ki.mapped`) carries a "⚠ measured as
-  `<compound>`" warning. `affinity_only` bindings (a Ki, no known direction) list as "affinity only"
-  with a neutral glyph, no source pill, and never animate (excluded from `structureIds`/`flowKinds`);
-  the missing direction is its own NOSOURCE node (`drug_binding_action`, red ✕ on the action line).
-  A **combo** drug (name "A + B") leads with a warning box linking each constituent (`drug.combo`);
-  combos carry no Ki. A measured Ki backs `_binding_grade`, lifting the binding to `verified`.
-  `fetch_ki.py --apply` drops every PDSP assay >=10 uM as "inactive", so a genuine but weak binder
-  (caffeine at A2a) can only be recorded by hand; such a `ki.source` carries `"curated": true` so the
-  idempotent `--apply` refresh never strips it (`_is_curated_ki`). Where PDSP has no assay at all,
-  GtoPdb's curated interactions (corpus #11) fill in: a Ki for a Ki-less binding, and a
-  direction for an `affinity_only` one (see `apply_gtopdb_ki.py`). Such a binding is a binding
-  like any other: it animates, and its source pill names the corpus. The authored
-  `provisional_action` flag exists only for that applier's idempotency and is deliberately **not**
-  emitted (`sources` already carry the corpus, so it would be a derivable duplicate).
+- **Sourcing:** Stahl-covered drugs are extracted **strictly from the Stahl dump** (only interactions literally stated, gaps left TODO); `recreational` and any non-Stahl drug get bindings from measured **PDSP Ki**.
+- **Effect:** agonist / reuptake-inhibitor / releaser / enzyme-inhibitor / PAM -> **boost**; antagonist / inverse-agonist / NAM / blocker -> **block**; partial-agonist / modulator -> **modulate**.
+- **Flow overlay = tone-setter + autoreceptor model:** only *tone-setting* bindings (reuptake/enzyme/vesicle target, presynaptic inhibitory autoreceptor) drive beads along projections (`toneSignOf`, `flowSystems` in `js/data.js`); postsynaptic receptors stay dots. The target-system -> projection-kind map `system_flow_kinds` is data. Caveat: a D2-antagonist antipsychotic reads dopaminergic-**up** (autoreceptor blockade disinhibits release).
+- **The four-step sourcing pattern** used by every LLM-assisted drug pass: a fetcher builds a worklist of candidate sentences with **no verdict of its own** -> one LLM pass answers by candidate **index** (never a string) -> the applier gates + is the **sole writer** -> `tools/sourcing/recheck_quotes.py` stamps the judge. A code-extracted table path (`extraction: "code"`) needs no recheck. Passes:
+  - T½ + active metabolites (Stahl PK): `fetch/fetch_pharmacokinetics.py` -> `sourcing/apply_pharmacokinetics.py`.
+  - Tmax (Wikipedia + Stahl + DailyMed): `fetch/fetch_tmax.py` -> `sourcing/apply_tmax.py`.
+  - Non-modeled-metabolite bindings (Wikipedia + PDSP): `fetch/fetch_metabolite_bindings.py` -> `sourcing/apply_metabolite_bindings.py`.
+  - Binding directions (Wikipedia prose; table `Action` column via `fetch/fetch_binding_direction_tables.py` + `--tables`, code path): `fetch/fetch_binding_directions.py` -> `sourcing/apply_binding_directions.py`.
+  - CYP roles (Stahl + Wikipedia): `fetch/fetch_cyp_worklist.py` -> `sourcing/apply_cyp_sources.py` (see Drug metabolism).
+- **Shared metabolite** (desipramine from imipramine + lofepramine): its bindings are written as an **identical** list under each parent, deduped by folded name in the tally + viewer; `check_data` fails if the copies diverge.
+- A hand-recorded weak Ki (PDSP drops >= 10 uM) carries `ki.source.curated: true` so `fetch_ki.py --apply` never strips it. GtoPdb (corpus #11) fills Ki/direction where PDSP has no assay (`apply_gtopdb_ki.py`, confirm-only, PDSP-first).
+- 5 drugs stay unbound as genuinely non-receptor agents (lithium, disulfiram, l-methylfolate, triiodothyronine, caprylidene).
 
-5 drugs stay unbound as genuinely non-receptor agents (lithium, disulfiram, l-methylfolate,
-triiodothyronine, caprylidene). A book corpus carries no `url` key at all (there is no free landing
-page to link, and the grade, not the link, conveys provenance); a *present* corpus url must be a
-real link, which `check_data.py` enforces.
+Full detail (animation, panel, PK + metabolite + binding-direction pipelines, Ki chips): [`docs/DRUGS.md`](docs/DRUGS.md).
 
 ## Drug metabolism
 
-Which enzymes clear a drug, or have their activity changed by it. **Pharmacokinetics, so it
-has no anatomy**: a liver enzyme is not a brain region, and nothing here ever lights the 3D
-scene (the Enzymes section's caption says so, so a still scene reads as intended).
+Which enzymes clear a drug or have their activity changed by it (`drug_enzymes`: enzyme + role + ordinal strength). **Pharmacokinetics, so it has no anatomy**: nothing here ever lights the 3D scene.
 
-- **Data.** `ENZYMES` / `ENZYME_ROLES` (`substrate`/`inhibitor`/`inducer`, each with the
-  `direction` it moves a co-prescribed substrate's level) / `ENZYME_STRENGTHS` (`major`/`minor`
-  for a substrate, `strong`/`moderate`/`weak` for the rest) live in `tools/data_generators/drugs.py`,
-  emitted into `meta.enzymes*`. Field is `enzyme`, not `cyp`: the non-CYP routes (UGT, esterases,
-  MAO) will want the same one. Strength is **ordinal on purpose**: the AUC fold-changes behind
-  the regulatory tiers are not in the corpora (see `docs/SOURCING_GAPS.md`).
-- **Sourcing: the four-step pipeline**, over two corpora, writing two committed caches
-  `generate_data.py` merges (rows are NOT authored in `drugs_data.jsonl`); **Stahl wins** a
-  (enzyme, role) pair both state.
-  - `tools/fetch/fetch_cyp_worklist.py` -> `generated_cache/cyp_worklist.json`: the worklist
-    builder, and the only pass that reads a corpus. It offers candidate sentences with **no
-    verdict of its own**: Stahl's `Pharmacokinetics` bullets (via `fetch_cyp.py`) and the stored
-    English Wikipedia article's drugbox `Metabolism` row plus its isoform-naming sentences (via
-    `fetch_cyp_wikipedia.py`), each already confirmed verbatim on a real page. It vetoes nothing:
-    a negation or somebody else's drug is the judge's problem, not a regex's.
-  - The extract pass answers per drug with a candidate **index** plus `(enzyme, role, strength?)`
-    into `generated_cache/cyp_judged.json`. An index, never a string, so a paraphrase is not
-    expressible; the worst failure is picking the wrong true sentence, which gate 3 below catches.
-  - `tools/sourcing/apply_cyp_sources.py` -> `generated_cache/drug_enzymes.json` (Stahl) +
-    `drug_enzymes_wikipedia.json` (corpus #9), the **sole writer** of both. Five gates: drug and
-    index resolve; the triple is in the vocabulary; **the quote names the isoform the row claims**;
-    the quote is verbatim on the cited page under `check_data.normalize_for_match`; one
-    (enzyme, role) pair per drug per corpus, keeping the reading that carries a strength tier.
-  - Both fetchers are **libraries, not scripts**: they know where a corpus keeps its pages and how
-    its sentences are shaped, and state no claim.
-- **Which enzyme FORMS an active metabolite** is the mirror relation (there the drug is the
-  substrate, here the metabolite is the product) and its own node kind, so it is **hand-curated**
-  in `tools/data_generators/quotes/metabolism.py` (`METABOLITE_ENZYME_QUOTES`, keyed
-  `(drug_id, metabolite name)`) rather than grepped: the corpora state it as prose whose near
-  misses are all wrong the same way (an enzyme that *clears* the metabolite, or makes a different
-  one). 14 of the 36 metabolites are covered; the rest stay NOSOURCE. `reaction` is an optional
-  `ENZYME_REACTIONS` key (a closed, translated vocabulary), omitted when the source names the
-  enzyme but not the step. `generate_data.py` raises if a key matches no metabolite, so an
-  applier re-run cannot silently drop a node.
-- **Population variability** (corpus #13 PharmFreq). The rows above say which isoform clears a
-  drug; this says how fast *people* do, which is the only thing in the dataset that varies by who
-  is taking the drug. Per isoform, the frequency of each metabolizer phenotype (`METABOLIZER_PHENOTYPES`,
-  ordered slowest to fastest: PM/IM/NM/RM/UM) in each population group (`METABOLIZER_GROUPS`, both in
-  `data_generators/drugs.py`, emitted as `meta.metabolizer_*`). `tools/fetch/fetch_pharmfreq.py`
-  reshapes the export into `tools/generated_cache/enzyme_variability.json`, which
-  `build_enzymes()` merges onto the emitted `meta.enzymes`; deterministic, so `pipeline = machine`.
-  The export is the one corpus **committed** with the repo (`tools/data/pharmfreq/`, one TSV per
-  gene, small and freely redistributable), so its record declares `tsv_dir`, not `pages_dir`: the
-  quote is a sentence composed out of the table, so a page written from the same numbers could not
-  gate it. The cache pins each file's sha256 instead, `provenance.py` re-checks the pins at
-  generation time and `check_data.py` family 12 rebuilds every profile and quote from the files, so
-  this is the only quote gate that runs on a plain clone. Shared reader:
-  `data_generators/pharmfreq.py`.
-  5 of the 18 isoforms are covered, and an uncovered one simply has no `variability` key: CYP3A4 and
-  CYP1A2, the two this dataset leans on hardest, are absent from the source, which is a gap in the
-  corpus and not a claim that they do not vary.
-- **Viewer.** `showEnzyme` leads with **How fast people clear it** (one stacked bar per population
-  group, segments in phenotype order, its own grade pill on the heading) above the drug lists,
-  because it qualifies all of them: a "major substrate" row means something different to a poor
-  metabolizer. Nothing rounds or drops a band: each bar is drawn at the measured widths and a tip
-  on the **bar** (not on a segment, since a 1%-wide one is no hover target) names every speed with
-  its exact frequency. A PharmFreq lookup link sits beside the caption (`PHARMFREQ_URL`, a browse
-  link like PDSP's: the site is a Shiny app with no per-gene URL). The caption states the caveat
-  that carries the ethics of the section: these are frequencies across study cohorts, most groups
-  contain every speed, and only a genetic test says which one a person has. `showDrug` gains a **Metabolism** list (enzyme + role + strength + its own grade
-  pill, clickable to the enzyme, headed by a ClinPGx pathway-search link) and a **Drug interactions**
-  list, both **after** the anatomy sections
-  (pharmacokinetics lights nothing in the scene, so it does not interrupt Acts on -> Projections
-  affected -> Acts within); each **Active metabolites** row gains a `.metab-formed` "formed by
-  <enzyme>" line with its own pill. An **Enzymes** accordion section
-  (`buildEnzymeLegend`) opens `showEnzyme`: a ClinPGx search (the variant / poor-vs-ultra-rapid
-  metabolizer story this dataset does not model), the metabolites that isoform forms, then its drugs
-  grouped by role. Both ends share one `enzymeRow` builder (same node, either side).
-- **The drug -> drug edges are derived, never stored** (`pkInteractionsOf` in `js/data.js`, like
-  `flowSystems`): an inhibitor/inducer of an enzyme meets its substrates, one row per (other drug,
-  direction) naming every shared isoform. Rendered two ways from the same edges via a persisted
-  segmented control (`PK_GROUP_KEY`): **by drug** (the four `PK_DIRECTIONS` buckets as headings,
-  raises/lowers first, then raised-by/lowered-by) or **by enzyme** (one heading per isoform, so a
-  pair meeting at two isoforms appears under each, sub-grouped by those same four directions). A
-  row is the drug name alone: the direction is always a heading above it, never repeated per row.
-  Capped **per heading** (8) with the rest expandable in place, since a global cap would swallow
-  whole headings. Collapsed by default (a `disclosure` `<details>`,
-  summary = title + edge count, opening it scrolls itself to the top of the pane) so dozens of
-  derived rows don't bury the sourced sections above. Because the edges are an **inference**, every
-  string stays conditional ("could raise", never "raises"). The caption states it is a flag to check
-  with a prescriber, **never a contraindication**, and that a missing row is not a safety claim.
+- Rows come from the CYP four-step pass (Stahl wins a pair both corpora state) into committed caches, never authored in `drugs_data.jsonl`; metabolite-forming enzymes are hand-curated in `tools/data_generators/quotes/metabolism.py`.
+- **Drug -> drug edges are derived, never stored** (`pkInteractionsOf` in `js/data.js`); every string stays conditional ("could raise"), a flag to check with a prescriber, **never a contraindication**, and a missing row is not a safety claim.
+- **Population variability** (corpus #13 PharmFreq) covers only **5 of 18 isoforms**; an absent profile (CYP3A4, CYP1A2) is a gap in the corpus, not a claim that it does not vary.
+
+Full detail (vocabularies, gates, viewer sections, variability bars): [`docs/DRUGS.md`](docs/DRUGS.md).
 
 ## Simulation (beta)
 
-**Receptor occupancy, asked from both ends**: forward, what a combination of drugs engages, and
-backward, which combination would approach a profile the visitor describes. The only place in the
-app that **computes** a claim instead of reporting a sourced one, which is why the tab leads with
-what it answers and in what unit, then a box listing what the model does not know (stated as
-non-exhaustive, and every string in it conditional).
+Receptor occupancy asked from both ends (forward: what a combination engages; backward: NNLS over the same matrix for which drugs to add). The only place the app **computes** a claim rather than reporting a sourced one.
 
-**What it computes is an engagement index, never a percentage occupied**, and the distinction is
-load-bearing: occupancy is `(C/Ki)/(1 + Σ C/Ki)`, so a Ki supplies the denominators and the
-concentration at the receptor supplies everything else. Reaching a real C needs per-drug PK the
-dataset does not have (dose + molar mass, bioavailability, Vd, free fraction, unbound
-brain-to-plasma ratio, an absorption rate), plus two terms that are not PK at all (the endogenous
-transmitter the drug competes with, and efficacy). `js/sim-model.js`'s header point 5 spells this
-out; it is also why potencies add instead of competing, since competition is meaningless before
-every C is on one real scale and would break the linearity the inverse solve needs.
+- It computes an **engagement index, never a percentage occupied** (a real C needs PK the dataset lacks), so potencies **add, with no competition**.
+- An `affinity_only` binding is drawn as a hatched grey "binds, effect unknown" band, **not signed**, and stays out of the net.
+- Every shortcut is listed once in the `js/sim-model.js` header; the tab's warnings box renders that list.
 
-- The maths live in `js/sim-model.js`, whose header states each shortcut once (one assumed
-  time-to-peak for a drug with no sourced one, a range T½ collapsed to its midpoint, potencies added with no competition, a
-  fully-formed metabolite); the warnings box is that list rendered for the visitor, plus the
-  enzyme-sharing flags `pkFlags` derives from the picked drugs.
-- The tab is `js/simulation.js` (sections + state) over `js/sim-plots.js` (the two SVGs): a plasma
-  plot whose scrub position re-reads the receptor plot at that hour, and a receptor plot of boost /
-  block stacks split per ligand, grouped by neurotransmitter system. A bar is filled in its
-  receptor's **transmitter** colour (`meta.receptor_family_colors`, so a column reads as its
-  pathways do in the scene); the ligands sharing one bar are told apart by stepped opacity,
-  strongest first, since the hue is spoken for.
-- **A direction-less (`affinity_only`) binding is not signed**: it draws as a hatched grey "binds,
-  effect unknown" band above the boost stack and stays out of the net, so an occupied receptor
-  nobody sourced a direction for reads as a gap rather than disappearing.
-- The reverse question ("which drugs give me this profile?") is a non-negative least squares over
-  the same matrix, held to the drugs already listed, so it answers what to *add*.
-- URL: tab key `simulation:1` (a view, not a node, so `#simulation=1` is its legacy alias) plus
-  `sim=<id>[:<ratio>],...` for the picked list.
+Full detail (tab layout, plots, URL keys): [`docs/DRUGS.md`](docs/DRUGS.md).
 
 ## Addon nodes (panel annotations)
 

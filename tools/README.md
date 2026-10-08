@@ -181,7 +181,7 @@ network, idempotent, polite; each touches only what changed). Always finish with
    tools/sourcing/apply_cyp_sources.py` gates them and writes both
    `tools/generated_cache/drug_enzymes.json` and `drug_enzymes_wikipedia.json`;
    `generate_data.py` merges them Stahl-first. A drug whose article is not stored yet needs `uv run
-   tools/fetch/fetch_wikipedia_pharmacology.py --drug <id>` first. See CLAUDE.md Drug metabolism.
+   tools/fetch/fetch_wikipedia_pharmacology.py --drug <id>` first. See docs/DRUGS.md Drug metabolism.
 10. `python tools/generate_data.py` — regenerate `public/data/` from all of the above.
 11. `python tools/update_readme_stats.py` — refresh the README sourcing table
    (CI runs it `--check`).
@@ -297,7 +297,7 @@ Screenshots).
   claims; the quote is verbatim on the cited page under `check_data.normalize_for_match`; one
   (enzyme, role) pair per drug per corpus, keeping the reading that carries a strength tier.
   Stdlib, author-side (the gate needs the gitignored corpora). `--dry-run` reports, `--verbose`
-  lists every rejected row. See CLAUDE.md Drug metabolism. Every source it writes is stamped `llm` with the model that
+  lists every rejected row. See docs/DRUGS.md Drug metabolism. Every source it writes is stamped `llm` with the model that
   judged the file (`--llm`, default `opus`).
 - `tools/sourcing/recheck_quotes.py` — re-verifies every emitted verified quote with a stronger model
   (Sonnet) and stamps the sourcing LLM. `build --out <dir>` writes per-page batches (page text loaded
@@ -373,7 +373,7 @@ Screenshots).
   drug's own `INDEX.md` range), and writes `tools/generated_cache/cyp_worklist.json`: per drug, a
   numbered candidate list plus the enzyme/role/strength vocabularies the judge must answer in. It
   applies **no veto** and states no role: a negation or a sentence about another molecule is the
-  judge's to reject. `--only <ids>` scopes. See CLAUDE.md Drug metabolism.
+  judge's to reject. `--only <ids>` scopes. See docs/DRUGS.md Drug metabolism.
 - `tools/fetch/fetch_cyp.py` and `tools/fetch/fetch_cyp_wikipedia.py`: **libraries, not scripts**,
   imported by the worklist builder. Each knows how one corpus is shaped (Stahl: monograph page
   spans, the dump's `Pharmacokinetics` answers, the isoform vocabulary, the verbatim gate that
@@ -382,7 +382,7 @@ Screenshots).
   reference-list skip, the drugbox row). Neither decides whether a sentence supports a role.
 - `tools/fetch/fetch_ki.py` — parses the PDSP Ki CSV (`data_sources/books/pdsp_ki/`, author-side) into
   per-drug binding affinities; `--apply` writes each `ki` + adds median-stronger `affinity_only`
-  bindings. A curated `ALIAS` map recovers drugs PDSP lists under a related compound. See CLAUDE.md Drugs.
+  bindings. A curated `ALIAS` map recovers drugs PDSP lists under a related compound. See docs/DRUGS.md Drugs.
   **When adding one drug, scope every writer with its `--only`** (`fetch_ki.py`, `fetch_gtopdb_ki.py`,
   `fetch_molecules.py`, `fetch_brand_names.py`): an unscoped refresh legitimately rewrites every drug
   whose upstream rows moved, burying the one-drug change. A scoped run merges into the committed cache.
@@ -405,7 +405,7 @@ Screenshots).
   the pharmacodynamics binding table for a per-target Ki (adaptive multi-row-header grid + fuzzy target
   resolution reusing `fetch_ki`'s `norm`/`parse_ki`/`NAME_PATTERNS`). A Ki source's `quote` is the
   verbatim table row, so the normal quote gate applies. Preview by default; `--json`, `--no-fetch`. Fills
-  the Ki gap where PDSP has none (e.g. alpha1, non-psychiatric agents). See CLAUDE.md Drugs.
+  the Ki gap where PDSP has none (e.g. alpha1, non-psychiatric agents). See docs/DRUGS.md Drugs.
 - `tools/fetch/fetch_brand_names.py` — `uv run` (deps: beautifulsoup4). Resolves each drug's French
   Wikipedia article via the EN article's langlinks (reusing `fetch_wikipedia_pharmacology.py`), stores it
   author-side (`data_sources/wikipedia/pages_fr/<slug>.md`, corpus #10 `wikipedia_fr`), and writes a
@@ -418,11 +418,11 @@ Screenshots).
 - `tools/fetch/fetch_pharmacokinetics.py` — stdlib. Scans each drug's Stahl page span (from `INDEX.md`)
   for elimination half-life + active-metabolite lines, pre-parsing durations to hours, into a candidate
   worklist (`tools/generated_cache/pk_worklist.json`) for the LLM that extracts each drug's T½ +
-  metabolites. See CLAUDE.md Drugs (Half-life + active metabolites).
+  metabolites. See docs/DRUGS.md Drugs (Half-life + active metabolites).
 - `tools/sourcing/apply_pharmacokinetics.py` — merges the LLM-extracted T½ + metabolites
   (`pk_judged.json`) into `drugs_data.jsonl`, quote-gating each value verbatim on its Stahl page and
   resolving a metabolite's `drug_id` by norm-name match (never self-link). Idempotent, sole writer of
-  `half_life`/`metabolites`. See CLAUDE.md Drugs (Half-life + active metabolites).
+  `half_life`/`metabolites`. See docs/DRUGS.md Drugs (Half-life + active metabolites).
 - `tools/fetch/fetch_dailymed.py` — stdlib, network, resumable. Corpus #14 fetcher: searches DailyMed
   for each drug's US prescribing label, picks ONE (plain-oral forms preferred, since a modified-release
   product states a real Tmax for a different product; the first whose pharmacokinetics section actually
@@ -435,7 +435,7 @@ Screenshots).
   `{hours, hours_max?}` it states, into `tools/generated_cache/tmax_worklist.json`. States no verdict of
   its own: the LLM pass answers only which candidate **index** is the drug's own oral time-to-peak. The
   drugbox is deliberately not read (no Tmax row; its `Onset of action` is clinical onset). Importable as
-  a library, which is how the applier re-derives what was offered. See CLAUDE.md Drugs (Time-to-peak).
+  a library, which is how the applier re-derives what was offered. See docs/DRUGS.md Drugs (Time-to-peak).
 - `tools/sourcing/apply_tmax.py` — stdlib. Merges `tmax_judged.json` into `drugs_data.jsonl` behind six
   gates (drug in the dataset, drug offered by a fresh `fetch_tmax.build()`, index resolves, the judged
   hours equal a duration the quote states (re-parsed here, so the model supplies no number),
@@ -445,18 +445,18 @@ Screenshots).
   `fetch_wikipedia_pharmacology` as a library to mine each non-modeled active metabolite's own English
   Wikipedia article (an allow-list of confirmed own-articles; the rest fall back to the parent article
   for prose only, filtered to sentences naming the metabolite) into `metabolite_bindings_worklist.json`
-  (Ki-table rows + candidate action sentences) for the LLM pass. See CLAUDE.md Drugs.
+  (Ki-table rows + candidate action sentences) for the LLM pass. See docs/DRUGS.md Drugs.
 - `tools/sourcing/apply_metabolite_bindings.py` — `uv run` (deps: beautifulsoup4). Merges the
   LLM-extracted metabolite bindings (`metabolite_bindings_judged.json`) into `drugs_data.jsonl`:
   quote-gates each action sentence, resolves the target, attaches a Ki (PDSP measured preferred, else
   the Wikipedia table value), and adds every remaining Ki-table target as `affinity_only`. Idempotent,
-  sole writer of a metabolite's `bindings`. See CLAUDE.md Drugs.
+  sole writer of a metabolite's `bindings`. See docs/DRUGS.md Drugs.
 - `tools/fetch/fetch_binding_directions.py`: `uv run` (deps: beautifulsoup4, only because it imports
   `fetch_metabolite_bindings`; no HTML is parsed). Offline. The binding-direction worklist builder: for
   every drug with an `affinity_only` binding it reads the stored English Wikipedia article
   (`fetch_cyp_wikipedia.page_for`, which owns the redirect aliases) and offers the prose lines naming
   one of that drug's affinity-only targets, with **no verdict of its own**, into
-  `tools/generated_cache/binding_directions_worklist.json`. `--only <ids>` scopes. See CLAUDE.md Drugs
+  `tools/generated_cache/binding_directions_worklist.json`. `--only <ids>` scopes. See docs/DRUGS.md Drugs
   (Binding directions).
 - `tools/fetch/fetch_binding_direction_tables.py`: `uv run` (deps: beautifulsoup4). Offline once the
   articles are stored. The other direction input, a **code extraction**: it reuses
@@ -465,7 +465,7 @@ Screenshots).
   `DRUG_ACTIONS` (`Inhibitor`/`Blocker` typed by the target, a `ND` / glyph / percentage / slash reading
   reported and left alone, two rows that disagree skipped), for a target the drug currently binds
   `affinity_only`, into `tools/generated_cache/binding_directions_tables.json`. `--only <ids>` scopes.
-  See CLAUDE.md Drugs (Binding directions).
+  See docs/DRUGS.md Drugs (Binding directions).
 - `tools/sourcing/apply_binding_directions.py`: stdlib. Quote-gates the judged directions
   (`binding_directions_judged.json`, a candidate **index** per row, never a quote string) and is the
   **sole writer** of an `action` onto an `affinity_only` binding in `drugs_data.jsonl`. Six gates: the
@@ -478,7 +478,7 @@ Screenshots).
   to resolve, and gate 5 becomes "the row opens with its target cell and that cell resolves to the
   target claimed" under the fetcher's own resolver; the source is stamped `extraction: "code"`, so this
   input needs no `recheck_quotes.py` pass. Needs beautifulsoup4 on the path for that resolver.
-  See CLAUDE.md Drugs (Binding directions).
+  See docs/DRUGS.md Drugs (Binding directions).
 - `tools/target_aliases.py`: stdlib **library**, imported by both halves above: every name a modeled
   drug target goes by in prose (Greek folded to Latin, separator-tolerant, boundary-strict, so `d2`
   never fires on `CYP2D6` and `alpha2` never absorbs `alpha2A`). One definition, because a gate that
@@ -537,7 +537,7 @@ there is no node-level catch-all `sources` block.
   `enzymes` (metabolic isoform id -> {label, wikipedia}), `enzyme_roles`
   (role -> {label, `direction`: what it does to a co-prescribed substrate's level}) and
   `enzyme_strengths` + `enzyme_reactions` (the chemical step by which an enzyme makes an
-  active metabolite; see CLAUDE.md Drug metabolism),
+  active metabolite; see docs/DRUGS.md Drug metabolism),
   `target_type_labels`/`target_type_colors`, `source_corpora`, `uncertainty_reasons` (the closed
   vocabulary a node's `uncertainty[]` bullets draw from, each `{source, absence, args}`),
   `addon_slots` (the addon-node hook registry, slot -> the node kind whose panel it is in) +

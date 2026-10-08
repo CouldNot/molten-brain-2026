@@ -962,7 +962,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     // name shared across regions shows once, keeping its first/top-region source);
     // `primaryBrand` is the single most-iconic name shown after the drug name
     // everywhere (see drugDisplayName), `brandNames` the full list, `displayName` the
-    // name + primary. All brand names also feed search. See CLAUDE.md "Drugs".
+    // name + primary. All brand names also feed search. See docs/DRUGS.md "Drugs".
     const brandRank = (window.__I18N__ && window.__I18N__.lang === "fr")
       ? { fr: 0, eu: 1, na: 2 }
       : { na: 0, eu: 1, fr: 2 };
