@@ -66,7 +66,7 @@ the claims:** all 33 now carry an **uncertain** badge (orange `⚠`) in place of
 check, and its tooltip gives the reasons to doubt them, each reason itself a badged,
 quote-gated node (the sentence explains a side effect; it is printed on N other
 monographs; a measured Ki backs it, or there is none; Stahl never lists the action among
-the drug's mechanisms). See `CLAUDE.md` "Source provenance" for the badge, the tally
+the drug's mechanisms). See `docs/PROVENANCE.md` for the badge, the tally
 bucket and the bullet contract, and `tools/data_generators/quotes/uncertainty.py` for the
 vocabulary. The nodes stay *backed* (a real document does exist, so the headline is
 unchanged) but leave the green `verified` count.
@@ -285,7 +285,7 @@ one source shape everywhere:
 - **Attribution**: Hawrylycz 2012 in the About panel's sources block.
 - **Author-side `sources/allen/` tree** (gitignored: `raw/` download cache, `pages/<gene>.md`,
   `worklist.json`), documented in `CLAUDE.local.md` alongside the `sources/gtopdb/` tree.
-- **Docs**: `CLAUDE.md` (corpus #8 in Source provenance) + `tools/README.md` (Tool reference), this file, the
+- **Docs**: `docs/PROVENANCE.md` (corpus #8) + `tools/README.md` (Tool reference), this file, the
   `expression-source-options` memory (mark Phase 2 done), README stats refresh.
 
 **Sub-phasing (prove cheap, then scale).**

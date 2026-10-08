@@ -58,7 +58,7 @@ errors. Functions take loaded data as args (unit-testable). Thirteen families (n
   neighbouring drug's entry is verbatim on the page it cites and still says nothing
   about this drug, so only the range check can catch it. The subject-less gate **stands
   down** for a binding that declares `uncertainty[]`: the orange badge answers the same
-  question out loud instead of banning the quote (see CLAUDE.md Source provenance). Those
+  question out loud instead of banning the quote (see docs/PROVENANCE.md). Those
   bullets are then gated in turn: the `kind` must be in `meta.uncertainty_reasons`, each
   bullet source goes through the same verbatim quote check, and a bullet with no source
   must declare `absence: true` (a silent blank reads exactly like "the corpus is silent"
@@ -71,7 +71,7 @@ errors. Functions take loaded data as args (unit-testable). Thirteen families (n
   `generated_cache/quote_headers.json`, which would otherwise print a confident and wrong
   breadcrumb over a genuine quote.
   Every citation must also name a `pipeline` in `meta.quote_pipelines` (its chain of
-  custody, see CLAUDE.md Source provenance), and **no LLM-picked quote may ship unjudged**:
+  custody, see docs/PROVENANCE.md), and **no LLM-picked quote may ship unjudged**:
   a pipeline with an `extract_llm` step and no `judge_llm` step is an error, because a
   sentence a model chose out of prose is the one that can be chosen wrongly and nothing has
   yet said otherwise. The rule is read off the chains rather than restated as a list of

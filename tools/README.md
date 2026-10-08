@@ -150,17 +150,17 @@ network, idempotent, polite; each touches only what changed). Always finish with
    `interactions.csv` and rebuilds `data_sources/gtopdb/pages_ki/` (author-side) +
    `tools/generated_cache/gtopdb_ki.json`, then `python tools/sourcing/apply_gtopdb_ki.py`
    quote-gates + merges into `drugs_data.jsonl`. Run it **after** `fetch_ki.py`, since it only
-   fills what PDSP left empty. See CLAUDE.md Source provenance (corpus #11).
+   fills what PDSP left empty. See docs/PROVENANCE.md (corpus #11).
 5. **GtoPdb receptor expression** (the `receptor_locations` sources): `python
    tools/fetch/fetch_gtopdb.py` re-pulls each receptor's tissue comments (caches to
    `data_sources/gtopdb/`, author-side), then run the confirm-only judge over
    `data_sources/gtopdb/worklist.json` and `python tools/sourcing/apply_location_sources.py --judged <f>`
-   to merge new `verified` sources into `tools/generated_cache/location_sources.json`. See CLAUDE.md Source provenance (corpora #7/#8).
+   to merge new `verified` sources into `tools/generated_cache/location_sources.json`. See docs/PROVENANCE.md (corpora #7/#8).
 6. **Allen AHBA expression** (the `target_locations` + residual `receptor_locations`
    sources): `python tools/fetch/fetch_allen.py` re-pulls each donor's microarray PACall (caches
    to `data_sources/allen/`, author-side; ~2GB across donors), then `python
    tools/sourcing/apply_location_sources.py --corpus allen` merges the deterministic `verified`
-   sources (no judge) into `tools/generated_cache/location_sources.json`. See CLAUDE.md Source provenance (corpora #7/#8).
+   sources (no judge) into `tools/generated_cache/location_sources.json`. See docs/PROVENANCE.md (corpora #7/#8).
 7. **Allen AHBA expression density** (the `receptor_density` + `target_density` profiles): the same
    `fetch_allen.py` run also z-scores each gene's microarray intensity per region and writes
    `data_sources/allen/density.json` (pass `--skip-density` to opt out of the heavy
@@ -172,7 +172,7 @@ network, idempotent, polite; each touches only what changed). Always finish with
    `tools/generated_cache/gtopdb_class.json`), then `python
    tools/sourcing/apply_classification_sources.py` maps + quote-gates + merges the confirm-only
    `verified` sources (no judge) into `tools/generated_cache/classification_sources.json`. See
-   CLAUDE.md Source provenance (corpus #12).
+   docs/PROVENANCE.md (corpus #12).
 9. **Drug metabolism** (the `drug_enzymes` rows): `python tools/fetch/fetch_cyp_worklist.py`
    re-reads Stahl's per-drug `Pharmacokinetics` block and the stored English Wikipedia articles
    (`data_sources/wikipedia/pages/`, corpus #9) into `tools/generated_cache/cyp_worklist.json`,
@@ -272,21 +272,21 @@ Screenshots).
 - `tools/fetch/fetch_gtopdb.py` — fetches receptor tissue-distribution comments from the Guide to
   Pharmacology API (corpus #7 `gtopdb`), the source for **receptor expression regions**;
   `RECEPTOR_GENES` maps receptor->gene->targetId. Caches `data_sources/gtopdb/` + `worklist.json`
-  (each quote carries assay species). See CLAUDE.md Source provenance (corpora #7/#8).
+  (each quote carries assay species). See docs/PROVENANCE.md (corpora #7/#8).
 - `tools/fetch/fetch_allen.py` — fetches the Allen Human Brain Atlas microarray (corpus #8
   `allen_ahba`), the source for **target expression regions** + the receptor regions GtoPdb
   misses; a PACall detection-boolean vote per (gene, region), no judge. `TARGET_GENES` +
   `fetch_gtopdb.RECEPTOR_GENES` map owners to genes. Caches `data_sources/allen/` + `confirmed.json`.
   The same run also emits the **density** profiles into `data_sources/allen/density.json`
   (`--skip-density` opts out of the heavy MicroarrayExpression read; `DENSITY_MIN_R` is the
-  cross-donor reliability floor). See CLAUDE.md Source provenance (corpora #7/#8) + Expression density.
+  cross-donor reliability floor). See docs/PROVENANCE.md (corpora #7/#8) + Expression density.
 - `tools/sourcing/apply_expression_density.py` — re-gates each density profile's quote against
   `data_sources/allen/pages/<gene>.md`, trims it to the regions the owner claims, and writes
   `tools/generated_cache/expression_density.json` (loaded into `RECEPTOR_DENSITY` / `TARGET_DENSITY`).
   Idempotent. See CLAUDE.md Expression density.
 - `tools/sourcing/apply_location_sources.py` — merges accepted expression quotes into
   `tools/generated_cache/location_sources.json`, `--corpus {gtopdb,allen}` (gtopdb needs a judged file; allen is
-  deterministic). Idempotent. See CLAUDE.md Source provenance (corpora #7/#8).
+  deterministic). Idempotent. See docs/PROVENANCE.md (corpora #7/#8).
 - `tools/generated_cache/location_sources.json` — machine-written bulk location sources, loaded by
   `generate_data.py` into `RECEPTOR_LOCATION_SOURCES` / `TARGET_LOCATION_SOURCES`. Not served.
 - `tools/sourcing/apply_cyp_sources.py` — quote-gates the judged CYP roles
@@ -307,8 +307,7 @@ Screenshots).
   `quote_recheck_flagged.json` (quotes the recheck could not fully confirm, for review) +
   `quote_recheck_disputed.json` (quotes two models disagree about). Each batch item
   carries the quote's `heading` (below), which is the context the "supports" half of the verdict turns on.
-  Corpus -> page dir is read from `meta.source_corpora`, never restated. See CLAUDE.md
-  Source provenance ("The sourcing model"). Scope a pass with
+  Corpus -> page dir is read from `meta.source_corpora`, never restated. See docs/PROVENANCE.md ("The sourcing model"). Scope a pass with
   `--kinds`/`--unstamped`/`--stamped-by`/`--flagged`/`--disputed`, and
   `--max-page-chars` trims a page too long to be worth embedding whole (a stored
   Wikipedia article) to the neighbourhoods of the quotes cited on it; `apply`
@@ -366,8 +365,7 @@ Screenshots).
   the positional subsection, and the **section** from a subsection -> section majority vote over all 158
   monographs, because the extraction drops ~30 section headings and the nearest surviving one then leaks in
   from the previous section or drug. Capped to `MAX_TRAIL` levels. A book missing from the checkout keeps
-  its cached trails rather than dropping them. No LLM. `--dry-run` reports without writing. See CLAUDE.md
-  Source provenance ("Where a quote sits").
+  its cached trails rather than dropping them. No LLM. `--dry-run` reports without writing. See docs/PROVENANCE.md ("Where a quote sits").
 - `tools/fetch/fetch_cyp_worklist.py`: stdlib, offline. The `drug_enzymes` worklist builder, and the
   only pass that reads a corpus. Pulls Stahl's per-drug `Pharmacokinetics` bullets out of the
   author-side dump and the drugbox `Metabolism` row plus every isoform-naming sentence out of the
@@ -395,7 +393,7 @@ Screenshots).
   families), and writes one quotable row line per interaction into `data_sources/gtopdb/pages_ki/<slug>.md`
   (corpus #11 `gtopdb_ki`) + the proposals into `tools/generated_cache/gtopdb_ki.json`. Only a pKi/pKd
   becomes a Ki (`10^(9-pKi)` nM); a functional potency rides along as the direction's citation. No judge:
-  the CSV's own `type` column is the direction. See CLAUDE.md Source provenance (corpus #11).
+  the CSV's own `type` column is the direction. See docs/PROVENANCE.md (corpus #11).
 - `tools/sourcing/apply_gtopdb_ki.py` — merges those proposals into `drugs_data.jsonl`: confirm-only (never
   adds a target), PDSP-first (a `ki` only where there is none), and a `provisional_action` only on an
   `affinity_only` binding, so a stated direction always wins. A disagreement is reported, split into
@@ -413,10 +411,10 @@ Screenshots).
   author-side (`data_sources/wikipedia/pages_fr/<slug>.md`, corpus #10 `wikipedia_fr`), and writes a
   candidate trade-name-sentence worklist (`tools/generated_cache/brand_worklist.json`) for the LLM that
   extracts each drug's ordered European/French brands. EN is used only for the langlink (its pages are not
-  refetched, so no corpus #9 Ki gate can drift). See CLAUDE.md Source provenance (corpus #10).
+  refetched, so no corpus #9 Ki gate can drift). See docs/PROVENANCE.md (corpus #10).
 - `tools/sourcing/apply_brand_names.py` — merges the LLM-extracted eu/fr brands (`brand_judged.json`) into
   `drugs_data.jsonl`, quote-gating each name verbatim on its FR page and tagging the first `fr`, the rest
-  `eu` (na from Stahl is kept). Idempotent. See CLAUDE.md Source provenance (corpus #10).
+  `eu` (na from Stahl is kept). Idempotent. See docs/PROVENANCE.md (corpus #10).
 - `tools/fetch/fetch_pharmacokinetics.py` — stdlib. Scans each drug's Stahl page span (from `INDEX.md`)
   for elimination half-life + active-metabolite lines, pre-parsing durations to hours, into a candidate
   worklist (`tools/generated_cache/pk_worklist.json`) for the LLM that extracts each drug's T½ +
@@ -431,7 +429,7 @@ Screenshots).
   names a peak wins), and stores `data_sources/dailymed/raw/<setid>.xml` +
   `data_sources/dailymed/pages/<setid>.md` (the 12.3 / Clinical Pharmacology text only) plus the chosen
   label per drug in `generated_cache/dailymed_labels.json`. States no claim: it only puts pages on disk
-  for `fetch_tmax.py` to read. See CLAUDE.md Source provenance (corpus #14).
+  for `fetch_tmax.py` to read. See docs/PROVENANCE.md (corpus #14).
 - `tools/fetch/fetch_tmax.py` — stdlib. Offers, per drug, every line of its own stored Wikipedia article
   (#9), Stahl monograph (#1) and DailyMed label (#14) that names a PEAK and carries a duration, pre-parsed into every
   `{hours, hours_max?}` it states, into `tools/generated_cache/tmax_worklist.json`. States no verdict of
@@ -503,7 +501,7 @@ Screenshots).
 ## Data contract (emitted `public/data/`)
 
 The field list of each emitted file. The viewer reads exactly these shapes; the generator
-emits them. Every claim carries its own quote-level source (see CLAUDE.md Source provenance);
+emits them. Every claim carries its own quote-level source (see docs/PROVENANCE.md);
 there is no node-level catch-all `sources` block.
 
 > **Source quotes are externalized.** A quote-bearing source is emitted on the node as a bare
@@ -547,7 +545,7 @@ there is no node-level catch-all `sources` block.
   `addon_displays` + `addon_tones` (tone -> glyph),
   `density_min_reliability` (the
   cross-donor r floor every published profile clears), `provenance_stats` (the sourcing
-  tally; see CLAUDE.md Source provenance).
+  tally; see docs/PROVENANCE.md).
 - `translations.fr.json` — the deduplicated French side table, `{english: french}` with sorted
   keys, covering every emitted display string whose French differs from its English. Fetched by
   the viewer only in French (English users skip it); a missing key falls back to the English
@@ -600,7 +598,7 @@ there is no node-level catch-all `sources` block.
   (measured PDSP affinity)/`affinity_only:true` (Ki but no known direction, panel-only)/
   `uncertainty[]` (each: `kind` (a `meta.uncertainty_reasons` key), optional `args` (the i18n
   sentence's slots), and either `sources[]` or `absence:true`; non-empty = the orange ⚠ badge
-  takes the pill over, see CLAUDE.md Source provenance)),
+  takes the pill over, see docs/PROVENANCE.md)),
   optional `half_life` (`{hours, hours_max?}`, elimination T½) + `half_life_sources[]`,
   optional `tmax` (same shape, time to peak plasma concentration, kind `drug_tmax`) + `tmax_sources[]`,
   optional
@@ -614,7 +612,7 @@ there is no node-level catch-all `sources` block.
   kind `drug_metabolite_enzyme`, hand-curated in `data_generators/quotes/metabolism.py`),
   optional `wikipedia`(+prov), optional `structure_image` (vendored `data/molecules/<id>.svg`,
   only when the file exists), `focusable`. No drug-level source: provenance is per-claim (see
-  CLAUDE.md Source provenance).
+  docs/PROVENANCE.md).
 - `addons.jsonl` — **addon nodes**: a sourced annotation that carries its own insertion point.
   `id`, `owner_kind` (`drug`/`receptor`/`target`/`structure`/`section`), `owner` (that node's
   id; a structure anchors its hemisphere-less *base*, a `section` anchors a `meta.addon_sections`

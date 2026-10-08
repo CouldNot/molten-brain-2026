@@ -70,7 +70,7 @@ an LLM asserting something from memory is precisely *no document*). It emits
 `meta.provenance_stats`; the About panel and the README headline read it, so the
 "% sourced" figure is always a real programmatic count of the shipped data, never
 hand-typed. `check_data.py` re-derives the same numbers as a self-consistency gate.
-Full mechanics live in CLAUDE.md ("Nodes" + "Source provenance").
+Full mechanics live in CLAUDE.md ("Nodes") + [`PROVENANCE.md`](PROVENANCE.md).
 
 ## The three layers
 

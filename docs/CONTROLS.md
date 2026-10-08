@@ -139,7 +139,7 @@ through beats a nearer non-focused one.
   (`#legend-open-sourcing`). Wired by `wireLegendModal`.
 - **Sources & provenance** (`#sourcing-modal`, `wireSourcingModal`): the grade key + coverage
   tally (`#about-sourcing`, `buildAboutSourcing` from `data.meta.provenanceStats`). The single
-  place explaining the sourcing system (see Source provenance); NOT auto-shown on startup, opens
+  place explaining the sourcing system (see `docs/PROVENANCE.md`); NOT auto-shown on startup, opens
   only on demand (this button, the Legend/About links, the tour's Sources step).
   `buildAboutSourcing(null)` renders the static intro + key immediately, a second call fills the
   tally once loaded. Under the tally, a line names the **Data browser** and links it
@@ -300,7 +300,7 @@ whether first picked or re-shown. An empty-space click returns to Settings
 > (this is why the row markup lives in one place). Skipping this means a request made
 > for one panel silently misses the others.
 
-Every source shows a **provenance pill** (`makeProvenancePill`, see Source provenance) with a
+Every source shows a **provenance pill** (`makeProvenancePill`, see `docs/PROVENANCE.md`) with a
 hover/tap tooltip via `withTip(trigger, text)` (a present Wikipedia reference *link* is the
 exception: no pill). The bubble is appended to `document.body` (escaping the panel's overflow +
 dimming), `position: fixed`, re-placed on scroll/resize (`place()` / `fixedContainingBlock`).

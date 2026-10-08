@@ -47,7 +47,7 @@ Three steps (the middle one is the only LLM spend):
    is the book attributing a mechanism to that drug; the same sentence under *How Drug
    Causes Side Effects* is a rule printed with the mechanism, not the drug, as its
    subject, so it does not by itself say this drug has the action (that distinction is
-   what the "uncertain" badges rest on, see CLAUDE.md Source provenance). ``supports``
+   what the "uncertain" badges rest on, see docs/PROVENANCE.md). ``supports``
    should be false when the claim needs an attribution the section cannot give.
 
 3. ``python tools/sourcing/recheck_quotes.py apply --batches <dir> --verdicts <file> [--llm sonnet]``
