@@ -1,0 +1,7 @@
+# 3.92.0 (2026-10-08)
+
+## Data
+- 44 more drugs now show a sourced elimination half-life, bringing the total to 274 of 301. Caffeine, nicotine, MDMA, LSD, cocaine, methadone and the dopamine agonists had none at all until now: the half-life came from Stahl's monographs, and Stahl has no monograph for a drug nobody prescribes.
+    fr: 44 médicaments supplémentaires affichent une demi-vie d'élimination sourcée, ce qui porte le total à 274 sur 301. La caféine, la nicotine, la MDMA, le LSD, la cocaïne, la méthadone et les agonistes dopaminergiques n'en avaient aucune jusqu'ici : la demi-vie venait des monographies de Stahl, et Stahl n'a pas de monographie pour un médicament que personne ne prescrit.
+- Three more drugs had a half-life on screen with no source behind it (alpidem, flupenthixol, dimenhydrinate); each now carries a quote a second model confirmed. A fourth, L-methylfolate, deliberately keeps its unsourced value: the only sentence the corpora state is about the d,l racemate, not the L form the drug is.
+    fr: Trois autres médicaments affichaient une demi-vie sans source derrière elle (alpidem, flupenthixol, dimenhydrinate) ; chacun porte désormais une citation confirmée par un second modèle. Un quatrième, le L-méthylfolate, conserve volontairement sa valeur non sourcée : la seule phrase énoncée par les corpus porte sur le racémique d,l et non sur la forme L qu'est le médicament.

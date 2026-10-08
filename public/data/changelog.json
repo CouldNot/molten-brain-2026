@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "3.92.0",
+      "date": "2026-10-08",
+      "entries": [
+        {
+          "category": "data",
+          "text": "44 more drugs now show a sourced elimination half-life, bringing the total to 274 of 301. Caffeine, nicotine, MDMA, LSD, cocaine, methadone and the dopamine agonists had none at all until now: the half-life came from Stahl's monographs, and Stahl has no monograph for a drug nobody prescribes.",
+          "commits": []
+        },
+        {
+          "category": "data",
+          "text": "Three more drugs had a half-life on screen with no source behind it (alpidem, flupenthixol, dimenhydrinate); each now carries a quote a second model confirmed. A fourth, L-methylfolate, deliberately keeps its unsourced value: the only sentence the corpora state is about the d,l racemate, not the L form the drug is.",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.91.1",
       "date": "2026-09-17",
       "entries": [
