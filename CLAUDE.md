@@ -75,45 +75,19 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 
 ## Architecture
 
-Principles, three-layer data flow, module graph, boot sequence and the per-file detail behind the map below: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Full detail (principles, data flow, module graph, boot sequence, per-file map): [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Traps:
 
-**Mirroring.** A symmetric L/R region is defined once on the right in `generate_data.py` and mirrored. A symmetric pathway is emitted **once** in `projections.jsonl` with `mirror: true`; consumers flip `_R` <-> `_L` on both endpoints (`js/data.js` at load, `check_data.py` before its checks); `symmetric: False` opts out. So each pathway is one node in the tally. Generated files are committed.
+- `public/` is the only web-exposed dir; `docker/`, `tools/` (fetch/, sourcing/, generated_cache/; see [`tools/README.md`](tools/README.md)), `.env` are never reachable. Generated `public/data/` is committed.
+- Symmetric regions + projections are authored once on the right (`mirror: true`) and reflected by the consumer (`js/data.js`, `check_data.py`), so one pathway = one node.
+- Check `geometry_refinements/STATUS.md` before editing `data/shapes/*` or `shapes.js` geometry.
+- `sw.js` always revalidates conditionally (not stale-while-revalidate); bump `CACHE` when caching logic changes.
+- Caddy `encode` uses an explicit content-type list (a new asset type ships uncompressed until added) and pins `.webmanifest`/`.jsonl` types.
+- SEO canonical / `og:url` / `og:image` / JSON-LD URLs are hardcoded (4 spots in `index.html` + `sitemap.xml`/`robots.txt`).
+- UI-chrome colours are `--accent*` tokens in `index.html`; data colours live in `meta.json`.
+- A control is searchable via `data-search` in `index.html`; `js/url-state.js` writes nothing at defaults; `js/prefs.js` is the only `localStorage` touch for flags.
+- Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.
 
-**Project layout.** `public/` is the **only** web-exposed dir (Caddy's `/srv` and `tools/serve.py` root there), so `docker/`, `tools/`, `.git`, `.env`, `deploy.sh`, `CLAUDE.local.md` are never reachable. Authoring + dev tooling in `tools/` (fetchers `tools/fetch/`, appliers `tools/sourcing/`, caches `tools/generated_cache/`; reference + data contract in [`tools/README.md`](tools/README.md)), deployment in `docker/`.
-
-> [!NOTE]
-> `geometry_refinements/` (own `CLAUDE.md` + `STATUS.md`) is replacing the procedural shapes with an SDF atlas (`sdf` shape type). Check its `STATUS.md` before editing `data/shapes/*` or `shapes.js` geometry.
-
-### File map
-
-Viewer (`public/`):
-
-- `index.html`: page shell (import map, `#controls` panel, `.modal-overlay` popups, `#banners`, `#loading`, PWA wiring). UI-chrome colours are the `--accent*` tokens in `:root`; data/semantic colours live in `meta.json`, never here.
-- PWA: `manifest.webmanifest`, `sw.js`, icons. `sw.js` always revalidates online (conditional `If-None-Match`/`If-Modified-Since`, `304` from cache); the Cache-API copy is offline-only, NOT stale-while-revalidate. Bump `CACHE` when the caching logic changes.
-- SEO: `<head>` meta + JSON-LD, `robots.txt`, `sitemap.xml`, `og-image.png`. Canonical / `og:url` / `og:image` / JSON-LD URLs are hardcoded to the public domain (4 spots + `sitemap.xml`/`robots.txt`).
-- `js/data.js`: `loadBrainData`, fetch + normalize + rehydrate quotes (`rehydrateQuotes`); derived render props and reverse indexes (`drugsByTarget`, `targetsByStructure`, `projectionGroupsByKey`, `addonsBySlot`). No three.js.
-- `js/shapes.js`: `buildGeometry` (blob/curve/composite/sdf), Perlin `fractalNoise`, cel-shaded cortex swirl.
-- `js/mesh-codec.js` + `js/baked-meshes.js`: load the author-side baked SDF meshes (`tools/bake_meshes.mjs`; see [`docs/BAKED_MESHES.md`](docs/BAKED_MESHES.md)).
-- `js/arrows.js`: `ProjectionArrow`, curved tube+cone arrows (`update(fast)`, `setWidthScale`, `writeTube` in-place buffers; see Rendering).
-- `js/labels.js`: CSS2D floating region names.
-- `js/circuit-schedule.js` / `js/circuit-anim.js`: `scheduleCircuit` (BFS firing order) / `createCircuitAnimation` (beads + wash echo). See Circuit animation.
-- `js/receptor-markers.js`: `createReceptorMarkers`, exports `buildGemCloud`. `js/drug-anim.js`: `createDrugAnimation`. `js/surface-wash.js`: `buildWashShell`.
-- `js/anim-settings.js`: `animSettings` (`enabled`, `quality`, `speed`), shared by every animated module.
-- `js/wiki.js`: `fetchWikiLead(url, lang)`, live Wikipedia lead.
-- `js/tour.js`: `createTour`, generic three.js-free coach-mark engine; the app's step list lives in `js/main.js`.
-- `js/changelog.js`: `createChangelog`, the "What's new" popup (see Versioning).
-- `js/main.js`: scene, controls, `createInfoPanel`, search, legend builders, on-demand render loop.
-- `app-config.js`: `window.__APP_CONFIG__`, local-dev fallback; the container serves an env-filled copy from `/gen`.
-- `js/node-browser.js`: `createNodeBrowser`, the Data browser tab.
-- `js/sim-model.js` / `js/simulation.js` / `js/sim-plots.js`: Simulation (beta) maths / tab / SVG plots.
-- `js/url-state.js`: `createUrlState`, URL fragment registry; a view at its default writes nothing (keys in [`docs/RUNNING.md`](docs/RUNNING.md)).
-- `js/prefs.js`: `loadFlag` / `saveFlag`, the only `localStorage` touch point for on/off flags.
-- Single-purpose: `js/i18n.js`, `js/app-init.js`, `js/dev-banner.js`, `js/error-banner.js`, `js/theme.js`, `js/loading.js`, `version.js`, `js/render-order.js`.
-- A control is searchable when it carries `data-search` in `index.html` (see Controls).
-
-Deployment (`docker/`): `docker-compose.yml`, `Dockerfile` (xcaddy + `caddy-ratelimit`), `Caddyfile`, `entrypoint.sh`, `env.example`. Caddy pins the content-type of `.webmanifest`/`.jsonl`, and `encode` uses an explicit content-type list (a new asset type ships uncompressed until added).
-
-Uncommitted, gitignored: `deploy.sh`, `CLAUDE.local.md` (deploy procedure, source-book locations).
+Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
 
 ## Running
 

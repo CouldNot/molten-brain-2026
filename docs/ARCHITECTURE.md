@@ -308,6 +308,8 @@ under "Deployment", "Analytics", "Content-Security-Policy", and "Dev / WIP banne
 
 The per-file detail behind CLAUDE.md's one-line file map. Section names cited as "see X" are CLAUDE.md sections (or the `docs/*.md` file CLAUDE.md points them to).
 
+**Project layout.** `public/` is the **only** web-exposed directory: Caddy's `/srv` and `tools/serve.py` both root there, so `docker/`, `tools/`, `.git` and the uncommitted `.env` / `deploy.sh` / `CLAUDE.local.md` are never web-reachable. Authoring + dev tooling live in `tools/`, deployment config in `docker/`.
+
 **The `tools/` script reference and the emitted-data field contract (`public/data/` `.jsonl` / `meta.json` / `shapes/*.json` fields) live in [`tools/README.md`](../tools/README.md)** (Tool reference + Data contract). The generator layout is under Authoring above (plus the `genes` and `quote_table` modules of `tools/data_generators/`). Each geometry form is one `data/shapes/<name>.json` (`blob`/`curve`/`composite`, L/R pairs share one right-side file via `mirror:true`). The author-side scripts are grouped: external-data fetchers under `tools/fetch/`, provenance appliers under `tools/sourcing/`; their generated caches in `tools/generated_cache/`. Run them from the repo root (`python tools/fetch/<x>.py`).
 
 > [!NOTE]
