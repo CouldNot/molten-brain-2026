@@ -200,45 +200,25 @@ Full detail (panels, markers, density pipeline): [`docs/VIEWER.md`](docs/VIEWER.
 
 ## Drugs
 
-A focusable Drugs section showing, per drug, what it does to the brain. Drugs live in `tools/data/drugs_data.jsonl` (one row per drug, read by `_load_drugs`); vocabularies (`DRUG_CATEGORY_LABELS`, `DRUG_ACTIONS`, `DRUG_EFFECT_COLORS`, `DRUG_TARGETS`, ...) are defined once in `generate_data.py` / `tools/data_generators/drugs.py`.
+Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
-> [!NOTE]
-> **The roster's scope is CNS-active, not psychiatric.** A drug belongs here when it acts on a modeled target, whatever specialty prescribes it; the psychiatry-shaped sources left whole CNS families out by accident, surveyed in `docs/SOURCING_GAPS.md`.
-
-- **Sourcing:** Stahl-covered drugs are extracted **strictly from the Stahl dump** (only interactions literally stated, gaps left TODO); `recreational` and any non-Stahl drug get bindings from measured **PDSP Ki**.
-- **Effect:** agonist / reuptake-inhibitor / releaser / enzyme-inhibitor / PAM -> **boost**; antagonist / inverse-agonist / NAM / blocker -> **block**; partial-agonist / modulator -> **modulate**.
-- **Flow overlay = tone-setter + autoreceptor model:** only *tone-setting* bindings (reuptake/enzyme/vesicle target, presynaptic inhibitory autoreceptor) drive beads along projections (`toneSignOf`, `flowSystems` in `js/data.js`); postsynaptic receptors stay dots. The target-system -> projection-kind map `system_flow_kinds` is data. Caveat: a D2-antagonist antipsychotic reads dopaminergic-**up** (autoreceptor blockade disinhibits release).
-- **The four-step sourcing pattern** used by every LLM-assisted drug pass: a fetcher builds a worklist of candidate sentences with **no verdict of its own** -> one LLM pass answers by candidate **index** (never a string) -> the applier gates + is the **sole writer** -> `tools/sourcing/recheck_quotes.py` stamps the judge. A code-extracted table path (`extraction: "code"`) needs no recheck. Passes:
-  - T½ + active metabolites (Stahl PK): `fetch/fetch_pharmacokinetics.py` -> `sourcing/apply_pharmacokinetics.py`.
-  - Tmax (Wikipedia + Stahl + DailyMed): `fetch/fetch_tmax.py` -> `sourcing/apply_tmax.py`.
-  - Non-modeled-metabolite bindings (Wikipedia + PDSP): `fetch/fetch_metabolite_bindings.py` -> `sourcing/apply_metabolite_bindings.py`.
-  - Binding directions (Wikipedia prose; table `Action` column via `fetch/fetch_binding_direction_tables.py` + `--tables`, code path): `fetch/fetch_binding_directions.py` -> `sourcing/apply_binding_directions.py`.
-  - CYP roles (Stahl + Wikipedia): `fetch/fetch_cyp_worklist.py` -> `sourcing/apply_cyp_sources.py` (see Drug metabolism).
-- **Shared metabolite** (desipramine from imipramine + lofepramine): its bindings are written as an **identical** list under each parent, deduped by folded name in the tally + viewer; `check_data` fails if the copies diverge.
-- A hand-recorded weak Ki (PDSP drops >= 10 uM) carries `ki.source.curated: true` so `fetch_ki.py --apply` never strips it. GtoPdb (corpus #11) fills Ki/direction where PDSP has no assay (`apply_gtopdb_ki.py`, confirm-only, PDSP-first).
-- 5 drugs stay unbound as genuinely non-receptor agents (lithium, disulfiram, l-methylfolate, triiodothyronine, caprylidene).
-
-Full detail (animation, panel, PK + metabolite + binding-direction pipelines, Ki chips): [`docs/DRUGS.md`](docs/DRUGS.md).
+- Roster scope is **CNS-active, not psychiatric**: a drug belongs when it acts on a modeled target (gaps in `docs/SOURCING_GAPS.md`).
+- Drugs live in `tools/data/drugs_data.jsonl`, never in `public/data/`. Stahl drugs are **strictly dump-sourced** (gaps left TODO); non-Stahl drugs get bindings from **PDSP Ki**.
+- Every LLM pass is four steps: fetcher offers candidates with **no verdict** -> LLM answers by **index** -> applier gates and is **sole writer** -> `recheck_quotes.py` stamps the judge. An `extraction: "code"` path needs no recheck.
+- A hand-recorded Ki carries `ki.source.curated: true`, so `fetch_ki.py --apply` never strips it.
 
 ## Drug metabolism
 
-Which enzymes clear a drug or have their activity changed by it (`drug_enzymes`: enzyme + role + ordinal strength). **Pharmacokinetics, so it has no anatomy**: nothing here ever lights the 3D scene.
+Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
-- Rows come from the CYP four-step pass (Stahl wins a pair both corpora state) into committed caches, never authored in `drugs_data.jsonl`; metabolite-forming enzymes are hand-curated in `tools/data_generators/quotes/metabolism.py`.
-- **Drug -> drug edges are derived, never stored** (`pkInteractionsOf` in `js/data.js`); every string stays conditional ("could raise"), a flag to check with a prescriber, **never a contraindication**, and a missing row is not a safety claim.
-- **Population variability** (corpus #13 PharmFreq) covers only **5 of 18 isoforms**; an absent profile (CYP3A4, CYP1A2) is a gap in the corpus, not a claim that it does not vary.
-
-Full detail (vocabularies, gates, viewer sections, variability bars): [`docs/DRUGS.md`](docs/DRUGS.md).
+- Pharmacokinetics has **no anatomy**: nothing here ever lights the 3D scene. Rows come from committed caches, never `drugs_data.jsonl`.
+- Drug -> drug edges are **derived, never stored**, and always worded conditionally ("could raise", never a contraindication).
 
 ## Simulation (beta)
 
-Receptor occupancy asked from both ends (forward: what a combination engages; backward: NNLS over the same matrix for which drugs to add). The only place the app **computes** a claim rather than reporting a sourced one.
+Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
-- It computes an **engagement index, never a percentage occupied** (a real C needs PK the dataset lacks), so potencies **add, with no competition**.
-- An `affinity_only` binding is drawn as a hatched grey "binds, effect unknown" band, **not signed**, and stays out of the net.
-- Every shortcut is listed once in the `js/sim-model.js` header; the tab's warnings box renders that list.
-
-Full detail (tab layout, plots, URL keys): [`docs/DRUGS.md`](docs/DRUGS.md).
+- The one place the app **computes** a claim: an **engagement index, never % occupancy**, potencies add with no competition. Every shortcut is listed once in the `js/sim-model.js` header.
 
 ## Addon nodes (panel annotations)
 
