@@ -70,6 +70,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
 - drug `nbn` -> `drug_nbn`; `brands[]` -> `drug_brands`; `categories` -> `drug_categories`; `half_life` / `tmax` -> `drug_half_life` / `drug_tmax`
 - metabolism: `enzymes[]` -> `drug_enzymes` (per (enzyme, role)); `claims.strength` -> `drug_enzyme_strength`; enzyme `variability` -> `enzyme_variability` (ONE node per isoform, not per population group)
+- pharmacogenomics: `pgx[].rows[]` -> `drug_pgx` (ONE node per (drug, gene, phenotype), carrying TWO citations: CPIC's implication then its recommendation)
 - metabolites: `metabolites[]` -> `drug_metabolites`; `formed_by[]` -> `drug_metabolite_enzyme`; `bindings[]` -> `drug_metabolite_bindings`
 - `addons.jsonl` -> `addons` (see Addon nodes); `wikipedia` -> `references` (tallied but excluded from the headline: a pointer at a node, not knowledge)
 
@@ -187,6 +188,7 @@ Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
 - Pharmacokinetics has **no anatomy**: nothing here ever lights the 3D scene. Rows come from committed caches, never `drugs_data.jsonl`.
 - Drug -> drug edges are **derived, never stored**, and always worded conditionally ("could raise", never a contraindication).
+- The CPIC readout (`pgxSection`) pairs a phenotype's frequency with what CPIC says follows: the picked population group is **never persisted** (an ancestry is not a flag to store), and the "not medical advice, genotype rather than infer from ancestry" caveat is part of the section, not a tip.
 
 ## Simulation (beta)
 
@@ -216,7 +218,7 @@ Every node's source carries a **grade** (data, rendered as a pill on the row tha
 - Grade, `pipeline` (chain of custody, `QUOTE_PIPELINES`) and verdicts ride the **citation**, not the quote node: one sentence can back two claims by two routes (citation sites, `tools/sourcing/citation_site.py`).
 - **Uncertainty flags are derived, never authored per site** (`apply_binding_uncertainty` / `apply_projection_uncertainty`); every bullet is itself a sourced claim from the closed `UNCERTAINTY_REASONS` vocabulary. The exception is `contradicted`, hand-curated in `tools/data_generators/quotes/contradictions.py`.
 - **Tally:** a bare `llm` grade buckets as **missing** (no document), like a sourceless node. The live figures live in the README `SOURCING_STATS` block + the Sources popup, never repeated here.
-- **Page files are author-side** (`CLAUDE.local.md`), so the quote gate is skipped + warned on a clone, except #13 PharmFreq (tables committed, gated by re-derivation).
+- **Page files are author-side** (`CLAUDE.local.md`), so the quote gate is skipped + warned on a clone, except #13 PharmFreq and #15 CPIC (exports committed, gated by re-derivation).
 - Descriptions are not nodes: drugs/structures/targets fetch the live Wikipedia lead at runtime (shown as a green source link, not a stored grade).
 
 Corpora (`SOURCE_CORPORA`):
@@ -228,6 +230,7 @@ Corpora (`SOURCE_CORPORA`):
 - #9 `wikipedia_pharm`: fallback Ki, binding directions, metabolite bindings, CYP roles, Tmax. #10 `wikipedia_fr`: eu/fr brands.
 - #11 `gtopdb_ki`: Ki/direction where PDSP has no assay. #12 `gtopdb_class`: target type + GPCR sign (mapped from transduction).
 - #13 `pharmfreq`: enzyme metabolizer-phenotype variability. #14 `dailymed`: US label Tmax.
+- #15 `cpic`: what a metabolizer phenotype implies for one prescription (implication + recommendation + strength), `page` = guideline ClinPGx id.
 
 Full detail (sourcing model, citation sites, book heading trails, the four uncertainty flags, per-corpus mechanics, the "% sourced" maths): [`docs/PROVENANCE.md`](docs/PROVENANCE.md).
 

@@ -241,6 +241,20 @@ The corpora (`SOURCE_CORPORA`), each quote-gated author-side as above unless not
   normal verbatim-quote gate applies unchanged. A set id resolves to a public page
   (`dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=<page>`). Its limit is jurisdictional: a drug never
   marketed in the US has no SPL at all. Content is a US government work under no copyright restriction.
+- **#15 CPIC** (`cpic`, `page` = the guideline's ClinPGx id, e.g. `PA166251445`) is the prescribing
+  guidance a metabolizer phenotype implies, the only corpus here that says what a *clearance speed means
+  for a prescription* rather than stating a fact about a molecule or a brain. It backs one node kind,
+  `drug_pgx`, one node per (drug, gene, phenotype), and that node carries **two** citations rather than
+  splitting in two: CPIC's `implications` sentence and the `drugrecommendation` that follows from it are
+  one claim read in one go, and the recommendation is unreadable without the implication. Committed like
+  #13 (`tools/data/cpic/cpic_recommendations.json`, `tsv_dir`, no `pages_dir`), gated by re-derivation,
+  `machine` + `extraction: "code"` so no judge is owed. Three limits are structural: CPIC files tricyclic
+  and SRI dosing on **two** genes at once, so a row kept under one gene records `assumes` the other is a
+  normal metabolizer (55 of 104 rows); its uncertainty phenotypes (`Likely`/`Possible` Intermediate,
+  `Indeterminate`, `No Result`) are dropped, having no frequency to pair with; and a gene with no
+  metabolizer-frequency profile here (HLA-A, HLA-B, SCN1A, the urea-cycle genes) is out of scope, since
+  the readout exists to put a base rate on a row. CC0 1.0, attribution requested (see
+  `tools/data/cpic/README.md`).
 
 **Descriptions** are not a node kind (not tallied). Drugs, structures and non-receptor targets carry
 **no baked description**: their panel fetches the **current Wikipedia lead** (CC BY-SA) at runtime via

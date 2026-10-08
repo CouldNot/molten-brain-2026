@@ -132,3 +132,10 @@ errors. Functions take loaded data as args (unit-testable). Thirteen families (n
   numbers it claims to state is an **error**. Also reports the isoforms the export covers
   nothing for (CYP3A4 and CYP1A2, the two the dataset leans on hardest), so the gap keeps
   reading as a hole in the corpus rather than as a claim that they do not vary.
+  The family's second half does the same for **CPIC prescribing guidance** (corpus #15,
+  `tools/data/cpic/`): the pinned export is re-hashed, then every emitted `drug_pgx` row is
+  rebuilt through `tools/data_generators/cpic.py` and compared field by field (gene, enzyme,
+  level, guideline, phenotype, implication, recommendation, classification, assumption) along
+  with both of the row's citations. Two citations on one node is the point: a recommendation
+  separated from the implication it follows from would be advice with its reason missing, so
+  the gate insists the row quotes CPIC's implication *then* its recommendation, in that order.

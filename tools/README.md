@@ -355,6 +355,19 @@ Screenshots).
   Deterministic, no judge, no network. Reports the isoforms it could not map (UGT1A1, which names
   no isoform we model) and the two the source omits (CYP3A4, CYP1A2), so a gap never reads as
   "does not vary". `--zip` points at another export, `--dry-run` writes nothing.
+- `tools/fetch/fetch_cpic.py` — stdlib, network (one-shot), author-side. Pulls CPIC's PostgREST API
+  (`api.cpicpgx.org/v1`, no key) for the level A/B gene-drug pairs on our roster and writes the
+  committed export `tools/data/cpic/cpic_recommendations.json` (corpus #15) plus the pinned
+  `tools/generated_cache/cpic_guidance.json`, which `_drug_pgx` in `generate_data.py` reads into each
+  drug's `pgx` block. Same committed-export shape as `fetch_pharmfreq.py` above and the same family-12
+  re-derivation gate, through the shared reader `data_generators/cpic.py`. It imports only genes that
+  corpus #13 has a frequency profile for, keeps a two-gene row only where the other gene is a normal
+  metabolizer (recorded as `assumes`), drops CPIC's uncertainty phenotypes, and picks one population
+  per pair out of `general` / `adults` / `PHT naive`. Every exclusion is **printed on each run**
+  (out-of-roster pairs, genes with no profile, pairs CPIC has levelled but written no guideline for,
+  pairs whose only populations this panel cannot read), so no gap passes as covered. Deterministic
+  after the fetch, no judge: the API's own strings are the quotes (`extraction: "code"`). Re-running it
+  is how you refresh the corpus; the pin makes generation fail loudly if the export moves without it.
 - `tools/fetch/fetch_quote_headers.py` — stdlib, offline, author-side. Resolves, for every emitted quote
   from a **book** corpus (a paged corpus whose page tree has an `INDEX.md`), the **trail** of headings it
   sits under, into the committed `tools/generated_cache/quote_headers.json` ({quote_id: [outermost, ...,

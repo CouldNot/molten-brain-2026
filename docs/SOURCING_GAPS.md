@@ -769,6 +769,35 @@ is invisible to gnomAD's SNV frequencies**, so `CYP2A6*4` (the 15-20% East Asian
 that drives nicotine clearance) and CYP2D6's CNVs cannot be reached this way at all. An
 allele-frequency pass would therefore cover the SNV-defined alleles and have to say so.
 
+### What CPIC levels that we deliberately do not import (surveyed 2026-10-09)
+
+Corpus #15 ships 104 rows over 18 drugs and 4 genes. CPIC levels more than that, and every
+exclusion below is printed by `tools/fetch/fetch_cpic.py` on each run rather than left to be
+rediscovered:
+
+- **Genes with no metabolizer-frequency profile here.** HLA-A and HLA-B (carbamazepine,
+  oxcarbazepine, phenytoin), SCN1A, and the urea-cycle genes with valproate. These are not
+  clearance speeds at all: an HLA allele is a hypersensitivity risk, so corpus #13 has nothing
+  to pair a row with and the readout would be guidance with no base rate beside it. Importing
+  them would need a different frequency source **and** a different panel, since the section's
+  whole shape is "how fast does this person clear it".
+- **CPIC's uncertainty phenotypes:** `Likely Intermediate`, `Possible Intermediate`,
+  `Indeterminate`, `No Result`. Same reason: PharmFreq reports five speeds, so these have no
+  frequency to sit next to.
+- **Pairs CPIC has levelled but written no guideline for yet**: aripiprazole, brivaracetam,
+  pitolisant, risperidone. Nothing to quote; re-running the fetcher picks them up the day CPIC
+  publishes the text.
+- **Ondansetron**, whose CYP2D6 rows CPIC files under tropisetron, so the guideline's own
+  sentences do not name the drug we would attach them to.
+- **`pediatrics`** as a population: the panel reads one population per pair out of `general` /
+  `adults` / `PHT naive`, and a paediatric row states different kinetics for a reader this site
+  is not written for.
+
+The one real hole the import surfaced rather than created: **CPIC levels clomipramine/CYP2C19
+as actionable and our enzyme data has no CYP2C19 node for clomipramine**, so that guidance
+block has no matching row in the Enzymes section above it. 28 of the 29 frequency-covered pairs
+matched; this is the 29th.
+
 ### Receptor expression **density** (how much, not just where)
 
 Today a "Found in" region is a boolean: a receptor is in a region or it is not. So M5 reads as

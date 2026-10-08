@@ -226,6 +226,19 @@ scene (the Enzymes section's caption says so, so a still scene reads as intended
   5 of the 18 isoforms are covered, and an uncovered one simply has no `variability` key: CYP3A4 and
   CYP1A2, the two this dataset leans on hardest, are absent from the source, which is a gap in the
   corpus and not a claim that they do not vary.
+- **Prescribing guidance** (corpus #15 CPIC, node kind `drug_pgx`). The third layer: #13 says how
+  common a clearance speed is, the enzyme rows say which isoform clears *this* drug, and neither says
+  what either implies for the person taking it. One node per (drug, gene, phenotype), carrying CPIC's
+  implication sentence and its recommendation verbatim plus the strength CPIC attaches to the advice
+  (`classification`). 104 rows over 18 drugs, 4 genes and 6 guidelines. Three rules keep it honest:
+  only genes with a #13 frequency profile are imported (a row with no base rate beside it would be
+  guidance with no readout); CPIC's two-gene rows are kept only where the *other* gene is a normal
+  metabolizer, recorded as `assumes` on the row rather than left implicit; and a guideline that states
+  a population narrower than CPIC's default (`adults`, `PHT naive`) says so on the block instead of
+  passing as general. `tools/fetch/fetch_cpic.py` pulls the API into the committed
+  `tools/data/cpic/cpic_recommendations.json` + `tools/generated_cache/cpic_guidance.json`; shared
+  reader `data_generators/cpic.py`, gated by re-derivation exactly like #13 (`check_data.py` family
+  12). Every exclusion is printed on each fetch run, never silently skipped.
 - **Viewer.** `showEnzyme` leads with **How fast people clear it** (one stacked bar per population
   group, segments in phenotype order, its own grade pill on the heading) above the drug lists,
   because it qualifies all of them: a "major substrate" row means something different to a poor
@@ -243,6 +256,14 @@ scene (the Enzymes section's caption says so, so a still scene reads as intended
   (`buildEnzymeLegend`) opens `showEnzyme`: a ClinPGx search (the variant / poor-vs-ultra-rapid
   metabolizer story this dataset does not model), the metabolites that isoform forms, then its drugs
   grouped by role. Both ends share one `enzymeRow` builder (same node, either side).
+  `pgxSection` then adds **If the patient clears it slowly or fast** below the enzyme list: one
+  `<select>` picking a population group, then per gene a block (CPIC level + guideline link) whose
+  rows run slowest to fastest, each a swatch from the *same* `--var-*` ramp as the enzyme bars, that
+  group's frequency, a grade pill, CPIC's implication, its recommendation, the strength, and the
+  assumption if the row carries one. The pick is **not persisted** (`pgxGroup` is a module-level
+  variable, deliberately not in `js/prefs.js`): nothing should record which ancestry a clinician
+  looked at. The caveat paragraph is part of the section rather than a tip, because the number is a
+  group base rate and an ancestry is not a genotype.
 - **The drug -> drug edges are derived, never stored** (`pkInteractionsOf` in `js/data.js`, like
   `flowSystems`): an inhibitor/inducer of an enzyme meets its substrates, one row per (other drug,
   direction) naming every shared isoform. Rendered two ways from the same edges via a persisted
