@@ -3094,6 +3094,127 @@ function createInfoPanel(data, sourcingModal) {
     return li;
   };
 
+  // Which population group the pharmacogenomic rows are read under. Deliberately NOT
+  // persisted, unlike every other lasting choice (js/prefs.js): nobody's browser needs
+  // to keep a record of which ancestry group they looked up. It outlives one panel so
+  // comparing two drugs does not mean re-picking, and resets on reload.
+  let pgxGroup = null;
+
+  /**
+   * The CPIC guidance section of a drug panel (corpus #15), or null when it has none.
+   *
+   * The one section here that states a clinical action, so it is built to be read as
+   * what it is: CPIC's own two sentences per row, quoted verbatim with their pill, the
+   * guideline linked, the recommendation's strength named, and the caveat about base
+   * rates versus individuals sitting with the rows rather than hidden in a tooltip.
+   *
+   * Two datasets meet in each row. The guidance comes from CPIC; the "how common is
+   * that" figure beside it comes from the enzyme's own frequency profile (corpus #13),
+   * which is why the group picker lists the groups that profile actually covers.
+   *
+   * @param {object} drug the normalized drug record (js/data.js)
+   * @returns {HTMLElement|null}
+   */
+  const pgxSection = (drug) => {
+    const blocks = drug.pgx || [];
+    if (!blocks.length) return null;
+    const wrap = el("div", "info-bindings info-pgx");
+    wrap.dataset.tourSec = "pgx";
+    wrap.appendChild(el("h3", null, t("drug.pgx")));
+    wrap.appendChild(el("p", "legend-caption", t("drug.pgxHint")));
+
+    // One picker for the whole section: every block's profile covers the same groups,
+    // and two selects on one panel would read as two different questions.
+    const groups = blocks[0].groups || [];
+    const pick = el("div", "pgx-pick");
+    const label = el("label", null, `${t("drug.pgxGroup")} `);
+    const select = el("select", "pgx-group");
+    const none = el("option", null, t("drug.pgxNoGroup"));
+    none.value = "";
+    select.appendChild(none);
+    for (const g of groups) {
+      const opt = el("option", null, g.label);
+      opt.value = g.key;
+      if (g.key === pgxGroup) opt.selected = true;
+      select.appendChild(opt);
+    }
+    label.appendChild(select);
+    pick.appendChild(label);
+    wrap.appendChild(pick);
+
+    const freqCells = [];
+    const paint = () => {
+      for (const { cell, row } of freqCells) {
+        const hit = pgxGroup ? row.freqByGroup.get(pgxGroup) : null;
+        cell.textContent = !pgxGroup ? ""
+          : hit ? t("drug.pgxFreq", { pct: `${(hit.freq * 100).toFixed(1)}%` })
+            : t("drug.pgxNoFreq");
+        cell.classList.toggle("pgx-freq-none", Boolean(pgxGroup && !hit));
+      }
+    };
+    select.addEventListener("change", () => {
+      pgxGroup = select.value || null;
+      paint();
+    });
+
+    for (const block of blocks) {
+      const head = el("h4", "drug-cat", block.label);
+      head.appendChild(attachTip(el("span", "pgx-level",
+        t("drug.pgxLevel", { level: block.level })), t("drug.pgxLevelTitle")));
+      wrap.appendChild(head);
+      // A guideline CPIC writes for one kind of patient only (atomoxetine's rows are
+      // adults, phenytoin's are people new to the drug) says so on the block, because
+      // the rows below are that population's, not everyone's.
+      if (block.population) {
+        wrap.appendChild(el("p", "pgx-population",
+          t("drug.pgxPopulation", { population: block.population })));
+      }
+      const guide = el("div", "info-wiki");
+      guide.appendChild(el("span", null, block.guideline.name));
+      appendLookupLink(guide, "drug.pgxGuideline", block.guideline.url,
+        "drug.pgxGuideline");
+      wrap.appendChild(guide);
+      const ul = el("ul", "pgx-rows");
+      for (const row of block.rows) {
+        const li = el("li");
+        const headline = el("div", "pgx-headline");
+        // The same slow -> fast colour ramp the enzyme panel's bars use, as a swatch
+        // rather than a fill: a tinted chip would need a literal text colour, which
+        // only `--accent` is allowed (tools/tests/test_theme_tokens.py).
+        const pheno = el("span", "pgx-pheno");
+        pheno.appendChild(el("span",
+          `var-swatch var-${row.phenotype.toLowerCase()}`));
+        pheno.appendChild(el("span", null, row.label));
+        headline.appendChild(attachTip(pheno, row.note));
+        const freq = el("span", "pgx-freq");
+        freqCells.push({ cell: freq, row });
+        headline.appendChild(freq);
+        // One node, two quotes (the implication, then the recommendation), so one pill
+        // whose tooltip carries both: see tools/data_generators/cpic.py.
+        headline.appendChild(makeProvenancePill(row.provenance,
+          sourcesTip(row.sources)));
+        li.appendChild(headline);
+        li.appendChild(el("p", "pgx-implication", row.implication));
+        li.appendChild(el("p", "pgx-recommendation", row.recommendation));
+        const foot = el("div", "pgx-foot");
+        foot.appendChild(el("span", "pgx-class", row.classification));
+        // CPIC doses the tricyclics and the SRIs on two genes at once, so a row filed
+        // under one of them only holds with the other at normal activity. Shown, never
+        // implied: a reader who misses it would read a joint claim as a single-gene one.
+        if (row.assumes) {
+          foot.appendChild(el("span", "pgx-assumes",
+            t("drug.pgxAssumes", { genes: Object.keys(row.assumes).join(", ") })));
+        }
+        li.appendChild(foot);
+        ul.appendChild(li);
+      }
+      wrap.appendChild(ul);
+    }
+    paint();
+    wrap.appendChild(el("p", "var-caveat", t("drug.pgxCaveat")));
+    return wrap;
+  };
+
   const appendDrugsByCategory = (list, container) => {
     const cats = data.meta.drugCategoryLabels || {};
     const byCat = new Map();
@@ -4331,6 +4452,13 @@ function createInfoPanel(data, sourcingModal) {
         enzWrap.appendChild(enzUl);
         body.appendChild(enzWrap);
         flashRow(flashEnz);
+
+        // What a clearance speed means for THIS prescription (CPIC, corpus #15),
+        // right under the isoforms that clear it: the two only answer a clinician's
+        // question together, since the enzyme rows say who clears the drug and these
+        // say what happens to someone who clears it slowly.
+        const pgx = pgxSection(drug);
+        if (pgx) body.appendChild(pgx);
 
         // Drug interactions: derived, never stored (see pkInteractionsOf). This drug
         // and the listed one meet at the same enzyme, so one COULD shift the other's

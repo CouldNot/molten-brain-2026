@@ -829,6 +829,43 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         claims: mapClaims(e.claims),
       };
     });
+    // CPIC's prescribing guidance for this drug (corpus #15), one node per (gene,
+    // phenotype) row. The one place this dataset carries a clinical action, and the
+    // only one that needs a *second* dataset to be read at all: each row is paired
+    // here with how common that phenotype is per population group (corpus #13, on the
+    // enzyme), because "poor metabolizer" means nothing to a reader until they know
+    // whether that is 1 patient in 20 or 1 in 1000. A gene with no profile cannot
+    // reach this point (generate_data refuses it), so `groups` is always populated.
+    d.pgx = (d.pgx || []).map((block) => {
+      const variability = variabilityEntry((enzymeDefs[block.enzyme] || {}).variability);
+      const freqs = new Map((variability ? variability.groups : [])
+        .map((g) => [g.key, new Map(g.cells.map((c) => [c.phenotype, c]))]));
+      return {
+        ...block,
+        label: (enzymeDefs[block.enzyme] || {}).label || block.gene,
+        population: block.population ? localize(block.population) : null,
+        // The population groups the frequency table offers, so the picker lists what
+        // can actually be answered rather than a fixed continent list.
+        groups: (variability ? variability.groups : []).map((g) => ({
+          key: g.key, label: g.label,
+        })),
+        rows: (block.rows || []).map((row) => {
+          const def = (metaRecord.metabolizer_phenotypes || {})[row.phenotype] || {};
+          return {
+            ...row,
+            label: def.label ? localize(def.label) : row.phenotype,
+            note: def.note ? localize(def.note) : "",
+            // group key -> {freq, label}: what the panel reads once the user picks a
+            // group. A phenotype the gene has no row for is absent here rather than
+            // zero, because nobody measured it at 0%.
+            freqByGroup: new Map([...freqs].map(([key, cells]) =>
+              [key, cells.get(row.phenotype) || null])),
+            sources: mapSources(row.sources),
+            provenance: strongestGrade(row.sources),
+          };
+        }),
+      };
+    });
     // Derived, never stored (like pkInteractionsOf below): the isoforms this drug
     // is BOTH a substrate of and a modulator of, so it changes its own clearance
     // (autoinhibition, or autoinduction for an inducer) and its dose/level relation

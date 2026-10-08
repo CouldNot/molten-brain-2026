@@ -1,6 +1,24 @@
 {
   "versions": [
     {
+      "version": "3.93.0",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A drug panel now says what a clearance speed means for that prescription, in CPIC's own words: for each of the five metabolizer speeds, what to expect and what CPIC recommends doing about it, with the strength it attaches to that advice. Pick a population group and each row also shows how common that speed is in it, which turns the two charts that were already there (how fast people clear a drug, which enzyme clears this one) into a base rate you can read off. 18 drugs and 4 enzymes are covered, the antidepressants and the opioids among them. It is not medical advice, and an ancestry is not a genotype: the frequency is how common a speed is in a group, never a reading of the patient in front of you.",
+          "commits": []
+        },
+        {
+          "category": "data",
+          "text": "CPIC's prescribing guidance joins the sources as corpus #15: 104 recommendation rows over 6 guidelines, every sentence quoted verbatim and re-derived from a committed export on every check, so none of it is a paraphrase. What it deliberately leaves out is printed on every run rather than passed over: the genes with no frequency table here (HLA-A, HLA-B, SCN1A, the urea-cycle genes), CPIC's uncertainty phenotypes, and the four drugs it has levelled but written no guideline for yet.",
+          "commits": [
+            "05d9d9b"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.92.1",
       "date": "2026-10-08",
       "entries": [

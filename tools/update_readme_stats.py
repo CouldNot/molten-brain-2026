@@ -84,6 +84,7 @@ CORPUS_DESC = {
     "gtopdb_ki":       ("Molecular pharmacology (IUPHAR/BPS database)", "Drug binding affinities (Ki) and direction"),
     "gtopdb_class":    ("Molecular pharmacology (IUPHAR/BPS database)", "Receptor & target mechanism class, receptor sign"),
     "dailymed":        ("US prescribing labels (NLM SPL archive)", "Drug time-to-peak (Tmax)"),
+    "cpic":            ("Pharmacogenomic prescribing guidelines", "What a clearance speed implies for a drug"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
@@ -101,6 +102,7 @@ KIND_LABELS = {
     "drug_metabolites": "Drug active metabolites",
     "drug_metabolite_enzyme": "Metabolite-forming enzymes",
     "drug_metabolite_bindings": "Drug metabolite bindings",
+    "drug_pgx": "Clearance-speed prescribing guidance",
     "projections": "Neuron pathways",
     "projection_transmitter": "Pathway transmitter",
     "projection_sign": "Pathway sign (excit./inhib.)",
