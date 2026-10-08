@@ -1,0 +1,4654 @@
+{
+ "alimemazine": {
+  "name": "Alimemazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alimemazine",
+    "line": "Elimination half-life | 4.78 ± 0.59 hours",
+    "durations": [
+     {
+      "hours": 0.59
+     }
+    ]
+   }
+  ]
+ },
+ "alpidem": {
+  "name": "Alpidem",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpidem",
+    "line": "Elimination half-life | Young adults: 19 hours (7–44 hours) Elderly: 22.6 ± 2.3 hours Children: 11.4 ± 1.9 hours",
+    "durations": [
+     {
+      "hours": 19.0
+     },
+     {
+      "hours": 7.0,
+      "hours_max": 44.0
+     },
+     {
+      "hours": 2.3
+     },
+     {
+      "hours": 1.9
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpidem",
+    "line": "The elimination half-life of alpidem was mean 18.8 ± 0.8 hours (range 7 to 44 hours) following a single 50-mg oral dose given to young individuals.",
+    "durations": [
+     {
+      "hours": 0.8
+     },
+     {
+      "hours": 7.0,
+      "hours_max": 44.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpidem",
+    "line": "In elderly individuals, a trend toward a longer half-life was observed (22.6 ± 2.3 hours).",
+    "durations": [
+     {
+      "hours": 2.3
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpidem",
+    "line": "Conversely, in children age 8 to 12 years, the half-life of alpidem was considerably reduced (11.4 ± 1.9 hours).",
+    "durations": [
+     {
+      "hours": 1.9
+     }
+    ]
+   }
+  ]
+ },
+ "amantadine": {
+  "name": "Amantadine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "amantadine",
+    "line": "Elimination half-life | 10–31 hours",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 31.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "5119801d-a5cb-4adf-96b2-08cc3a0ba594",
+    "line": "The half-life was 17 ± 4 hours (range: 10 to 25 hours).",
+    "durations": [
+     {
+      "hours": 4.0
+     },
+     {
+      "hours": 10.0,
+      "hours_max": 25.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "5119801d-a5cb-4adf-96b2-08cc3a0ba594",
+    "line": "Across other studies, amantadine plasma half-life has averaged 16 ± 6 hours (range: 9 to 31 hours) in 19 healthy volunteers.",
+    "durations": [
+     {
+      "hours": 6.0
+     },
+     {
+      "hours": 9.0,
+      "hours_max": 31.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "5119801d-a5cb-4adf-96b2-08cc3a0ba594",
+    "line": "After single dose administration of 25 to 75 mg to 7 healthy, elderly male volunteers, the apparent plasma clearance of amantadine was 0.10 ± 0.04 L/hr/kg (range 0.06 to 0.17 L/hr/kg) and the half-life was 29 ± 7 hours (range 20 to 41 hours).",
+    "durations": [
+     {
+      "hours": 7.0
+     },
+     {
+      "hours": 20.0,
+      "hours_max": 41.0
+     }
+    ]
+   }
+  ]
+ },
+ "amobarbital": {
+  "name": "Amobarbital",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "amobarbital",
+    "line": "Elimination half-life | 8–42 hours",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 42.0
+     }
+    ]
+   }
+  ]
+ },
+ "baclofen": {
+  "name": "Baclofen",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "baclofen",
+    "line": "Elimination half-life | 2.5–7 hours",
+    "durations": [
+     {
+      "hours": 2.5,
+      "hours_max": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "baclofen",
+    "line": "The serum half-life of baclofen is roughly 2–4 hours;",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "baclofen",
+    "line": "however, one source gives a half-life of 6.8 hr, using a more complex calculation combining urinary and serum data.",
+    "durations": [
+     {
+      "hours": 6.8
+     }
+    ]
+   }
+  ]
+ },
+ "benperidol": {
+  "name": "Benperidol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "benperidol",
+    "line": "Elimination half-life | 8 hours",
+    "durations": [
+     {
+      "hours": 8.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "benperidol",
+    "line": "The half-life of benperidol is 8 hours.",
+    "durations": [
+     {
+      "hours": 8.0
+     }
+    ]
+   }
+  ]
+ },
+ "biperiden": {
+  "name": "Biperiden",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "biperiden",
+    "line": "Elimination half-life | 18 to 24 hours",
+    "durations": [
+     {
+      "hours": 18.0,
+      "hours_max": 24.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "biperiden",
+    "line": "The elimination half-life has been determined as 18.4 hours, and may be prolonged in geriatric patients.",
+    "durations": [
+     {
+      "hours": 18.4
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "biperiden",
+    "line": "After a 4 mg intravenous dose, the elimination half-life is approximately 24 hours.",
+    "durations": [
+     {
+      "hours": 24.0
+     }
+    ]
+   }
+  ]
+ },
+ "bromazepam": {
+  "name": "Bromazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "bromazepam",
+    "line": "Elimination half-life | 12–20 hours (avg.",
+    "durations": [
+     {
+      "hours": 12.0,
+      "hours_max": 20.0
+     }
+    ]
+   }
+  ]
+ },
+ "brotizolam": {
+  "name": "Brotizolam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "brotizolam",
+    "line": "Elimination half-life | 4.4 hours (range, 2.6–6.9 h)",
+    "durations": [
+     {
+      "hours": 4.4
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "brotizolam",
+    "line": "Brotizolam is a highly potent and short-acting hypnotic, with a typical dose ranging from 0.125 to 0.25 milligrams, which is rapidly eliminated with an average half-life of 4.4 hours (range 3.6–7.9 hours).",
+    "durations": [
+     {
+      "hours": 4.4
+     },
+     {
+      "hours": 3.6,
+      "hours_max": 7.9
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "brotizolam",
+    "line": "The elimination half-life of brotizolam is 3–6 hours.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 6.0
+     }
+    ]
+   }
+  ]
+ },
+ "caffeine": {
+  "name": "Caffeine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "caffeine",
+    "line": "Elimination half-life | Adults: 3–7 hours Infants (full term): 8 hours Infants (premature): 100 hours",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 7.0
+     },
+     {
+      "hours": 8.0
+     },
+     {
+      "hours": 100.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "caffeine",
+    "line": "The metabolism of caffeine is reduced in pregnancy, especially in the third trimester, and the half-life of caffeine during pregnancy can be increased up to 15 hours (as compared to 2.5 to 4.5 hours in non-pregnant adults).",
+    "durations": [
+     {
+      "hours": 15.0
+     },
+     {
+      "hours": 2.5,
+      "hours_max": 4.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "caffeine",
+    "line": "In healthy adults, caffeine's half-life is between 3 and 7 hours.",
+    "durations": [
+     {
+      "hours": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "caffeine",
+    "line": "In newborns the half-life can be 80 hours or more, dropping rapidly with age, possibly to less than the adult value by age 6 months.",
+    "durations": [
+     {
+      "hours": 80.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "caffeine",
+    "line": "The antidepressant fluvoxamine (Luvox) reduces the clearance of caffeine by more than 90%, and increases its elimination half-life more than tenfold, from 4.9 hours to 56 hours.",
+    "durations": [
+     {
+      "hours": 4.9
+     },
+     {
+      "hours": 56.0
+     }
+    ]
+   }
+  ]
+ },
+ "chloral_hydrate": {
+  "name": "Chloral hydrate",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "chloral_hydrate",
+    "line": "Biological half-life | 8–10 hours",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 10.0
+     }
+    ]
+   }
+  ]
+ },
+ "chlorprothixene": {
+  "name": "Chlorprothixene",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "chlorprothixene",
+    "line": "Elimination half-life | 8–12 hours",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "clobazam": {
+  "name": "Clobazam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clobazam",
+    "line": "Elimination half-life | • Clobazam: 36–42 hours • N -desmethylclobazam: 71–82 hours",
+    "durations": [
+     {
+      "hours": 36.0,
+      "hours_max": 42.0
+     },
+     {
+      "hours": 71.0,
+      "hours_max": 82.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clobazam",
+    "line": "While the parent drug clobazam is highly active, its primary metabolite, N -desmethylclobazam, is also pharmacologically active and possesses a significantly longer half-life (compared to clobazam's 36–42 hours).",
+    "durations": [
+     {
+      "hours": 36.0,
+      "hours_max": 42.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clobazam",
+    "line": "The half-life is approximately 36 to 42 hours for clobazam and 71 to 82 hours for N -desmethylclobazam.",
+    "durations": [
+     {
+      "hours": 36.0,
+      "hours_max": 42.0
+     },
+     {
+      "hours": 71.0,
+      "hours_max": 82.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "07e0ae51-cc71-427f-83cb-311b7fcc5993",
+    "line": "The estimated mean elimination half-lives (t½) of clobazam and N-desmethylclobazam were 36 to 42 hours and 71 to 82 hours, respectively.",
+    "durations": [
+     {
+      "hours": 36.0,
+      "hours_max": 42.0
+     },
+     {
+      "hours": 71.0,
+      "hours_max": 82.0
+     }
+    ]
+   }
+  ]
+ },
+ "clomethiazole": {
+  "name": "Clomethiazole",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clomethiazole",
+    "line": "Elimination half-life | 3.6–5 hours",
+    "durations": [
+     {
+      "hours": 3.6,
+      "hours_max": 5.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clomethiazole",
+    "line": "Diazepam is one of many drugs belonging to the benzodiazepine class, with a long half-life (50–100 hours) and a very low risk of a fatal overdose, so long as the patient does not also consume alcohol or certain other types of medication.",
+    "durations": [
+     {
+      "hours": 50.0,
+      "hours_max": 100.0
+     }
+    ]
+   }
+  ]
+ },
+ "clotiazepam": {
+  "name": "Clotiazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clotiazepam",
+    "line": "Elimination half-life | 4 hours",
+    "durations": [
+     {
+      "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clotiazepam",
+    "line": "The elimination half-life of the drug and its metabolites range from 6.5 hours to 18 hours.",
+    "durations": [
+     {
+      "hours": 6.5
+     },
+     {
+      "hours": 18.0
+     }
+    ]
+   }
+  ]
+ },
+ "cocaine": {
+  "name": "Cocaine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cocaine",
+    "line": "Elimination half-life | ~1 hour",
+    "durations": [
+     {
+      "hours": 1.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cocaine",
+    "line": "Cocaine's effects last longest when insufflated (60–90 minutes), but the drug itself has a short biological half-life of about 0.7–1.5 hours.",
+    "durations": [
+     {
+      "hours": 1.0,
+      "hours_max": 1.5
+     },
+     {
+      "hours": 0.7,
+      "hours_max": 1.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cocaine",
+    "line": "Cocaine has a short elimination half-life of 0.7–1.5 hours and is extensively metabolized by plasma esterases and also by liver cholinesterases , with only about 1% excreted unchanged in the urine.",
+    "durations": [
+     {
+      "hours": 0.7,
+      "hours_max": 1.5
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "d724b5b4-6654-4bf5-9eed-e2c7943084ed",
+    "line": "The apparent elimination half-life of cocaine following administration of NUMBRINO (by pledgets) was 1.54 hours) for the 4% concentration.",
+    "durations": [
+     {
+      "hours": 1.54
+     }
+    ]
+   }
+  ]
+ },
+ "cyproheptadine": {
+  "name": "Cyproheptadine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cyproheptadine",
+    "line": "Elimination half-life | 8.6 hours",
+    "durations": [
+     {
+      "hours": 8.6
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cyproheptadine",
+    "line": "Its elimination half-life when taken orally is approximately 8.6 hours.",
+    "durations": [
+     {
+      "hours": 8.6
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cyproheptadine",
+    "line": "The elimination half-life of cyproheptadine in cats is 12 hours.",
+    "durations": [
+     {
+      "hours": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "cytisine": {
+  "name": "Cytisine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cytisine",
+    "line": "Cytisine has a short half-life of 4.8 hours.",
+    "durations": [
+     {
+      "hours": 4.8
+     }
+    ]
+   }
+  ]
+ },
+ "deutetrabenazine": {
+  "name": "Deutetrabenazine",
+  "candidates": [
+   {
+    "corpus": "stahl",
+    "page": 241,
+    "line": "Half-life of total (α + β)dihydrotetrabenazine from deutetrabenazine is approximately 9 to 10 hours",
+    "durations": [
+     {
+      "hours": 9.0,
+      "hours_max": 10.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "7ea3c60a-45c7-44cc-afc2-d87fa53993c0",
+    "line": "The half-life of the active deuterated α-HTBZ, β-HTBZ, and total (α+β)-HTBZ metabolites is approximately 12 hours, 7.5 hours, and 9 to 11 hours, respectively.",
+    "durations": [
+     {
+      "hours": 12.0
+     },
+     {
+      "hours": 7.5
+     },
+     {
+      "hours": 9.0,
+      "hours_max": 11.0
+     }
+    ]
+   }
+  ]
+ },
+ "dextromethorphanbupropion": {
+  "name": "Dextromethorphan + Bupropion",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dextromethorphan_bupropion",
+    "line": "When administered together as dextromethorphan/bupropion, the elimination half-life of dextromethorphan is 22 hours and the elimination half-life of bupropion is 15 hours.",
+    "durations": [
+     {
+      "hours": 22.0
+     },
+     {
+      "hours": 15.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dextromethorphan_bupropion",
+    "line": "The elimination half-lives of bupropion active metabolites are 35 hours for hydroxybupropion , 44 hours for erythrohydrobupropion , and 33 hours for threohydrobupropion .",
+    "durations": [
+     {
+      "hours": 35.0
+     },
+     {
+      "hours": 44.0
+     },
+     {
+      "hours": 33.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 249,
+    "line": "Mean elimination half-life of dextromethorphan/bupropion is 22 hours and 15 hours, respectively",
+    "durations": [
+     {
+      "hours": 22.0
+     },
+     {
+      "hours": 15.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 249,
+    "line": "Do not start an MAOI for at least 5 halflives (5 to 7 days for most drugs) after discontinuing dextromethorphan–bupropion",
+    "durations": [
+     {
+      "hours": 120.0,
+      "hours_max": 168.0
+     }
+    ]
+   }
+  ]
+ },
+ "dextromethorphanquinidine": {
+  "name": "Dextromethorphan + Quinidine",
+  "candidates": [
+   {
+    "corpus": "stahl",
+    "page": 254,
+    "line": "Elimination half-life of dextromethorphan is approximately 13 hours",
+    "durations": [
+     {
+      "hours": 13.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 254,
+    "line": "Elimination half-life of quinidine is approximately 7 hours",
+    "durations": [
+     {
+      "hours": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 254,
+    "line": "Do not start an MAOI for at least 5 halflives (5 to 7 days for most drugs) after discontinuing dextromethorphan–quinidine",
+    "durations": [
+     {
+      "hours": 120.0,
+      "hours_max": 168.0
+     }
+    ]
+   }
+  ]
+ },
+ "dmt": {
+  "name": "DMT",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dimethyltryptamine",
+    "line": "Elimination half-life | Alone: 5–19 min With MAOI",
+    "durations": [
+     {
+      "hours": 0.083,
+      "hours_max": 0.317
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dimethyltryptamine",
+    "line": "The elimination half-life after intravenous injection is 6 to 12 minutes.",
+    "durations": [
+     {
+      "hours": 0.1,
+      "hours_max": 0.2
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dimethyltryptamine",
+    "line": "However, DMT has a biphasic elimination half-life, with the first phase having a half-life of 6 minutes and the second phase having a half-life of 16 minutes.",
+    "durations": [
+     {
+      "hours": 0.1
+     },
+     {
+      "hours": 0.267
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dimethyltryptamine",
+    "line": "Parent DMT and 5-MeO−DMT suffer from inherent pharmacokinetic limitations: DMT has an ultrashort half-life (t1/2 = 8−13 min in mice) and is orally inactive without MAOI coadministration, while 5-MeO−DMT also requires MAOI to achieve meaningful oral exposure.",
+    "durations": [
+     {
+      "hours": 0.217
+     }
+    ]
+   }
+  ]
+ },
+ "domperidone": {
+  "name": "Domperidone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "domperidone",
+    "line": "Elimination half-life | 7–9 hours",
+    "durations": [
+     {
+      "hours": 7.0,
+      "hours_max": 9.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "domperidone",
+    "line": "The elimination half-life of domperidone is about 7 to 9 hours in healthy individuals.",
+    "durations": [
+     {
+      "hours": 7.0,
+      "hours_max": 9.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "domperidone",
+    "line": "However, the elimination half-life of domperidone can be prolonged to 20 hours in people with severe renal dysfunction .",
+    "durations": [
+     {
+      "hours": 20.0
+     }
+    ]
+   }
+  ]
+ },
+ "doxylamine": {
+  "name": "Doxylamine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "doxylamine",
+    "line": "Elimination half-life | 10–12 hours (range 7–15 hours)",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 12.0
+     },
+     {
+      "hours": 7.0,
+      "hours_max": 15.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "doxylamine",
+    "line": "Because of its relatively long elimination half-life (10–12 hours), doxylamine is associated with next-day effects including sedation , drowsiness , grogginess , dry mouth , and tiredness when used as a hypnotic .",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 12.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "doxylamine",
+    "line": "The shorter elimination half-life of diphenhydramine (4–8 hours) compared to doxylamine may give it an advantage over doxylamine as a sleep aid in this regard.",
+    "durations": [
+     {
+      "hours": 4.0,
+      "hours_max": 8.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "doxylamine",
+    "line": "Its elimination half-life is 10 to 12 hours (range 7 to 15 hours).",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 12.0
+     },
+     {
+      "hours": 7.0,
+      "hours_max": 15.0
+     }
+    ]
+   }
+  ]
+ },
+ "flupenthixol": {
+  "name": "Flupenthixol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "flupentixol",
+    "line": "Elimination half-life | 35 hours",
+    "durations": [
+     {
+      "hours": 35.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 337,
+    "line": "Intramuscular: rate-limiting half-life approximately 8 days with single dose, approximately 17 days with multiple doses",
+    "durations": [
+     {
+      "hours": 192.0
+     },
+     {
+      "hours": 408.0
+     }
+    ]
+   }
+  ]
+ },
+ "furosemide": {
+  "name": "Furosemide",
+  "candidates": [
+   {
+    "corpus": "dailymed",
+    "page": "0b3d986c-eecc-adbe-e063-6294a90a0fb2",
+    "line": "The terminal half-life of furosemide is approximately 2 hours.",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   }
+  ]
+ },
+ "glutethimide": {
+  "name": "Glutethimide",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "glutethimide",
+    "line": "Elimination half-life | 8–12 hours",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "guanfacine": {
+  "name": "Guanfacine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "guanfacine",
+    "line": "Elimination half-life | IR: 10–17 hours;",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 17.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "guanfacine",
+    "line": "Its elimination half-life is 17 hours with the major elimination route being renal .",
+    "durations": [
+     {
+      "hours": 17.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "4248d53e-4dc3-452b-96f8-5d715c254c26",
+    "line": "In individuals with normal renal function, the average elimination half-life is approximately 17 hours (range 10 hours to 30 hours).",
+    "durations": [
+     {
+      "hours": 17.0
+     },
+     {
+      "hours": 10.0
+     },
+     {
+      "hours": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "4248d53e-4dc3-452b-96f8-5d715c254c26",
+    "line": "Younger patients tend to have shorter elimination half-lives (13 hours to 14 hours) while older patients tend to have half-lives at the upper end of the range.",
+    "durations": [
+     {
+      "hours": 13.0
+     },
+     {
+      "hours": 14.0
+     }
+    ]
+   }
+  ]
+ },
+ "imipramine": {
+  "name": "Imipramine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "imipramine",
+    "line": "Elimination half-life | 20 hours",
+    "durations": [
+     {
+      "hours": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 398,
+    "line": "do not start an MAOI for at least 5 half-lives (5 to 7 days for most drugs) after discontinuing imipramine, but see Pearls",
+    "durations": [
+     {
+      "hours": 120.0,
+      "hours_max": 168.0
+     }
+    ]
+   }
+  ]
+ },
+ "isocarboxazid": {
+  "name": "Isocarboxazid",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "isocarboxazid",
+    "line": "Isocarboxazid has low oral bioavailability, reaches peak levels after about 1–2 hours, and has an elimination half-life of about 1.5–4 hours.",
+    "durations": [
+     {
+      "hours": 1.0,
+      "hours_max": 2.0
+     },
+     {
+      "hours": 1.5,
+      "hours_max": 4.0
+     }
+    ]
+   }
+  ]
+ },
+ "ketanserin": {
+  "name": "Ketanserin",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ketanserin",
+    "line": "Elimination half-life | 3.5–29 hours",
+    "durations": [
+     {
+      "hours": 3.5,
+      "hours_max": 29.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ketanserin",
+    "line": "The elimination half-life of ketanserin is 10 to 29 hours.",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 29.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ketanserin",
+    "line": "However, a more recent study found a half-life of 3.5 hours.",
+    "durations": [
+     {
+      "hours": 3.5
+     }
+    ]
+   }
+  ]
+ },
+ "levomepromazine": {
+  "name": "Levomepromazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "levomepromazine",
+    "line": "Elimination half-life | ~20 hours",
+    "durations": [
+     {
+      "hours": 20.0
+     }
+    ]
+   }
+  ]
+ },
+ "lisdexamfetamine": {
+  "name": "Lisdexamfetamine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "Elimination half-life | Lisdexamfetamine: <1 hour Dextroamphetamine: 10–12 h",
+    "durations": [
+     {
+      "hours": 1.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "The half-life of this conversion is roughly 1 hour.",
+    "durations": [
+     {
+      "hours": 1.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "At normal urine pH, the half-lives of dextroamphetamine and levoamphetamine are 9–11 hours and 11–14 hours, respectively.",
+    "durations": [
+     {
+      "hours": 9.0,
+      "hours_max": 11.0
+     },
+     {
+      "hours": 11.0,
+      "hours_max": 14.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "Highly acidic urine will reduce the enantiomer half-lives to 7 hours;",
+    "durations": [
+     {
+      "hours": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "highly alkaline urine will increase the half-lives up to 34 hours.",
+    "durations": [
+     {
+      "hours": 34.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "The elimination half-life of lisdexamfetamine is generally less than 1 hour.",
+    "durations": [
+     {
+      "hours": 1.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lisdexamfetamine",
+    "line": "Half-life is 7 to 34 hours and is, in part, dependent on urine pH (half-life is longer with alkaline urine).",
+    "durations": [
+     {
+      "hours": 7.0,
+      "hours_max": 34.0
+     }
+    ]
+   }
+  ]
+ },
+ "lithium": {
+  "name": "Lithium",
+  "candidates": [
+   {
+    "corpus": "stahl",
+    "page": 445,
+    "line": "Half life 18–30 hours",
+    "durations": [
+     {
+      "hours": 18.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "b839ff4b-f62d-41ab-a823-550a756d58ec",
+    "line": "The elimination half-life of lithium is approximately 18 to 36 hours.",
+    "durations": [
+     {
+      "hours": 18.0,
+      "hours_max": 36.0
+     }
+    ]
+   }
+  ]
+ },
+ "loprazolam": {
+  "name": "Loprazolam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "loprazolam",
+    "line": "Elimination half-life | 6–12 hours",
+    "durations": [
+     {
+      "hours": 6.0,
+      "hours_max": 12.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "loprazolam",
+    "line": "A half-life of 19.8 hours has been reported in elderly patients.",
+    "durations": [
+     {
+      "hours": 19.8
+     }
+    ]
+   }
+  ]
+ },
+ "lormetazepam": {
+  "name": "Lormetazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lormetazepam",
+    "line": "Elimination half-life | 10–12 hours",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 12.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lormetazepam",
+    "line": "Lormetazepam has a short to intermediate half-life of approximately 10–12 hours.",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "lsd": {
+  "name": "LSD",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "Elimination half-life | 3.0–4.3 hours",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.3
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "Pharmacological evidence indicates LSD has a half-life of 175 minutes and is metabolized into water-soluble compounds like 2-oxo-3-hydroxy-LSD, eliminated through urine without evidence of long-term storage.",
+    "durations": [
+     {
+      "hours": 2.917
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "Aghajanian and Bing (1964) found LSD had an elimination half-life of only 175 minutes (about 3 hours);",
+    "durations": [
+     {
+      "hours": 2.917
+     },
+     {
+      "hours": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "however, using more accurate techniques, Papac and Foltz (1990) reported that 1 μg/kg oral LSD given to a single male volunteer had an apparent plasma half-life of 5.1 hours, with a peak plasma concentration of 5 ng/mL at 3 hours post-dose.",
+    "durations": [
+     {
+      "hours": 5.1
+     },
+     {
+      "hours": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "In a more modern 2015 study, concentrations of LSD decreased following first-order kinetics with a half-life of 3.6 ± 0.9 hours and a terminal half-life of 8.9 ± 5.9 hours.",
+    "durations": [
+     {
+      "hours": 0.9
+     },
+     {
+      "hours": 5.9
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "A 2026 review found half-lives ranging from 3.0 to 4.3 hours in different studies.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.3
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "LSD has a longer half-life of on average 8 hours in CYP2D6 poor metabolizers or people taking CYP2D6 inhibitors due to slower metabolism .",
+    "durations": [
+     {
+      "hours": 8.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lsd",
+    "line": "Maximum plasma concentrations are typically observed 1.4 to 1.5 hours after oral administration of 100 μg and 200 μg, respectively, with a plasma half-life of approximately 2.6 hours (ranging from 2.2 to 3.4 hours among test subjects).",
+    "durations": [
+     {
+      "hours": 1.4,
+      "hours_max": 1.5
+     },
+     {
+      "hours": 2.6
+     },
+     {
+      "hours": 2.2,
+      "hours_max": 3.4
+     }
+    ]
+   }
+  ]
+ },
+ "mdma": {
+  "name": "MDMA",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mdma",
+    "line": "The duration of action of MDMA (3–6 hours) is much shorter than its elimination half-life (8–9 hours) would imply.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 6.0
+     },
+     {
+      "hours": 8.0,
+      "hours_max": 9.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mdma",
+    "line": "Likewise, the plasma half-life of ( R )-MDMA was significantly longer than that of the ( S )-enantiomer (5.8 ± 2.2 hours vs 3.6 ± 0.9 hours).",
+    "durations": [
+     {
+      "hours": 2.2
+     },
+     {
+      "hours": 0.9
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mdma",
+    "line": "The terminal plasma half-life of methamphetamine of approximately 10 hours is similar across administration routes, but with substantial inter-individual variability.",
+    "durations": [
+     {
+      "hours": 10.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mdma",
+    "line": "For several decades, clinical benefits of amphetamines have been limited by the pharmacologic half-life of around 4 hours.",
+    "durations": [
+     {
+      "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mdma",
+    "line": "Whereas peak plasma concentrations and subjective effects occurred between 2 and 4 hours following administration, drug effect measures had largely returned to baseline values by 8 hours despite continued exposure to the drug (mean half-life = 8 hours following a 40 mg dose (Dolder et al., 2017)).",
+    "durations": [
+     {
+      "hours": 4.0
+     },
+     {
+      "hours": 8.0
+     },
+     {
+      "hours": 8.0
+     }
+    ]
+   }
+  ]
+ },
+ "melatonin": {
+  "name": "Melatonin",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "melatonin",
+    "line": "Melatonin is metabolized with an elimination half-life ranging from 20 to 50 minutes.",
+    "durations": [
+     {
+      "hours": 0.333,
+      "hours_max": 0.833
+     }
+    ]
+   }
+  ]
+ },
+ "melperone": {
+  "name": "Melperone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "melperone",
+    "line": "Elimination half-life | 3–4 hours (oral) 6 hours ( IM )",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.0
+     },
+     {
+      "hours": 6.0
+     }
+    ]
+   }
+  ]
+ },
+ "meprobamate": {
+  "name": "Meprobamate",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "meprobamate",
+    "line": "Elimination half-life | 10 hours",
+    "durations": [
+     {
+      "hours": 10.0
+     }
+    ]
+   }
+  ]
+ },
+ "mesoridazine": {
+  "name": "Mesoridazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mesoridazine",
+    "line": "Elimination half-life | 24 to 48 hours",
+    "durations": [
+     {
+      "hours": 24.0,
+      "hours_max": 48.0
+     }
+    ]
+   }
+  ]
+ },
+ "methadone": {
+  "name": "Methadone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methadone",
+    "line": "Elimination half-life | 15–55 hours",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 55.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methadone",
+    "line": "The metabolic half-life is 8 to 59 hours (approximately 24 hours for opioid-tolerant people, and 55 hours for opioid-naive people), as opposed to a half-life of 1 to 5 hours for morphine.",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 59.0
+     },
+     {
+      "hours": 24.0
+     },
+     {
+      "hours": 55.0
+     },
+     {
+      "hours": 1.0,
+      "hours_max": 5.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methadone",
+    "line": "Methadone has a typical elimination half-life of 15 to 60 hours with a mean of around 22.",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 60.0
+     }
+    ]
+   }
+  ]
+ },
+ "methamphetamine": {
+  "name": "Methamphetamine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methamphetamine",
+    "line": "Elimination half-life | 9–12 hours (range 5–30 hours);",
+    "durations": [
+     {
+      "hours": 9.0,
+      "hours_max": 12.0
+     },
+     {
+      "hours": 5.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methamphetamine",
+    "line": "The elimination half-life of methamphetamine varies with a range of 5–30 hours, but it is on average 9 to 12 hours in most studies.",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 30.0
+     },
+     {
+      "hours": 9.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "methaqualone": {
+  "name": "Methaqualone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methaqualone",
+    "line": "Its elimination half-life ranges between 20 and 60 hours, contributing to its sedative effects and potential for accumulation with repeated dosing.",
+    "durations": [
+     {
+      "hours": 60.0
+     }
+    ]
+   }
+  ]
+ },
+ "methylfolate_l": {
+  "name": "Methylfolate L",
+  "candidates": [
+   {
+    "corpus": "stahl",
+    "page": 508,
+    "line": "Mean elimination half-life approximately 3 hours for d,l-methylfolate",
+    "durations": [
+     {
+      "hours": 3.0
+     }
+    ]
+   }
+  ]
+ },
+ "naloxone": {
+  "name": "Naloxone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "naloxone",
+    "line": "Intranasal administration of naloxone via nasal spray has likewise been found to rapidly occupy brain MORs, with peak occupancy occurring at 20 minutes, peak occupancies of 67% at a dose of 2 mg and 85% with 4 mg, and an estimated half-life of occupancy disappearance of approximately 100 minutes (1.67 hours).",
+    "durations": [
+     {
+      "hours": 0.333
+     },
+     {
+      "hours": 1.667
+     },
+     {
+      "hours": 1.67
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "naloxone",
+    "line": "The mean serum half-life has been shown to range from 30 to 81 minutes, shorter than the average half-life of some opiates, necessitating repeat dosing if opioid receptors must be stopped from triggering for an extended period.",
+    "durations": [
+     {
+      "hours": 0.5,
+      "hours_max": 1.35
+     }
+    ]
+   }
+  ]
+ },
+ "niaprazine": {
+  "name": "Niaprazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "niaprazine",
+    "line": "Elimination half-life | ~4.5 hours",
+    "durations": [
+     {
+      "hours": 4.5
+     }
+    ]
+   }
+  ]
+ },
+ "nicotine": {
+  "name": "Nicotine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nicotine",
+    "line": "Elimination half-life | 1–2 hours;",
+    "durations": [
+     {
+      "hours": 1.0,
+      "hours_max": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nicotine",
+    "line": "Cotinine is an active metabolite of nicotine that remains in the blood with a half-life of 18–20 hours, making it easier to analyze due to longer half-life than that of nicotine itself.",
+    "durations": [
+     {
+      "hours": 18.0,
+      "hours_max": 20.0
+     }
+    ]
+   }
+  ]
+ },
+ "nimetazepam": {
+  "name": "Nimetazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nimetazepam",
+    "line": "Elimination half-life | 14–30 hours",
+    "durations": [
+     {
+      "hours": 14.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nimetazepam",
+    "line": "The blood level decline of the parent drug was biphasic with the short half-life ranging from 0.5–0.7 hours and the terminal half-life from 8 to 26.5 hours (mean 17.25 hours).",
+    "durations": [
+     {
+      "hours": 0.5,
+      "hours_max": 0.7
+     },
+     {
+      "hours": 8.0,
+      "hours_max": 26.5
+     },
+     {
+      "hours": 17.25
+     }
+    ]
+   }
+  ]
+ },
+ "nitrazepam": {
+  "name": "Nitrazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nitrazepam",
+    "line": "Elimination half-life | 16–38 hours",
+    "durations": [
+     {
+      "hours": 16.0,
+      "hours_max": 38.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nitrazepam",
+    "line": "Nitrazepam is a long-acting benzodiazepine with an elimination half-life of 15–38 hours (mean elimination half-life 26 hours).",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 38.0
+     },
+     {
+      "hours": 26.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nitrazepam",
+    "line": "The elimination half-life of nitrazepam is 40 hours in the elderly and 29 hours in younger adults.",
+    "durations": [
+     {
+      "hours": 40.0
+     },
+     {
+      "hours": 29.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nitrazepam",
+    "line": "The half-life of nitrazepam is between 16.5 and 48.3 hours.",
+    "durations": [
+     {
+      "hours": 48.3
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nitrazepam",
+    "line": "In young people, nitrazepam has a half-life of about 29 hours and a much longer half-life of 40 hours in the elderly.",
+    "durations": [
+     {
+      "hours": 29.0
+     },
+     {
+      "hours": 40.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nitrazepam",
+    "line": "Nitrazepam's half-life in the cerebrospinal fluid , 68 hours, indicates that nitrazepam is eliminated extremely slowly from the cerebrospinal fluid.",
+    "durations": [
+     {
+      "hours": 68.0
+     }
+    ]
+   }
+  ]
+ },
+ "ondansetron": {
+  "name": "Ondansetron",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ondansetron",
+    "line": "Elimination half-life | 5.7 hours",
+    "durations": [
+     {
+      "hours": 5.7
+     }
+    ]
+   }
+  ]
+ },
+ "pentobarbital": {
+  "name": "Pentobarbital",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pentobarbital",
+    "line": "Elimination half-life | 15–48 hours",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 48.0
+     }
+    ]
+   }
+  ]
+ },
+ "perampanel": {
+  "name": "Perampanel",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "perampanel",
+    "line": "Elimination half-life | 105 hours, 295 hours (moderate hepatic impairment)",
+    "durations": [
+     {
+      "hours": 105.0
+     },
+     {
+      "hours": 295.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "perampanel",
+    "line": "Perampanel has a prolonged terminal half-life in humans of approximately 105 hours.",
+    "durations": [
+     {
+      "hours": 105.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "bc8f7cf2-c19c-4235-859f-9ff1dd21908e",
+    "line": "The half-life of perampanel is about 105 hours, so that steady state is reached in about 2 to 3 weeks.",
+    "durations": [
+     {
+      "hours": 105.0
+     },
+     {
+      "hours": 336.0,
+      "hours_max": 504.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "bc8f7cf2-c19c-4235-859f-9ff1dd21908e",
+    "line": "Population pharmacokinetic analysis of pooled data from 19 Phase 1 studies reported that t 1/2 of perampanel was 105 hours on average.",
+    "durations": [
+     {
+      "hours": 105.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "bc8f7cf2-c19c-4235-859f-9ff1dd21908e",
+    "line": "The t 1/2 of perampanel was shortened from 56.8 hours to 25 hours.",
+    "durations": [
+     {
+      "hours": 56.8
+     },
+     {
+      "hours": 25.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "bc8f7cf2-c19c-4235-859f-9ff1dd21908e",
+    "line": "Coadministration of single 1 mg dose of perampanel tablet with 400 mg once daily doses of ketoconazole, a strong CYP3A4 inhibitor, for 8 days in healthy subjects prolonged perampanel t 1/2 by 15% (67.8 vs.",
+    "durations": [
+     {
+      "hours": 192.0
+     }
+    ]
+   }
+  ]
+ },
+ "perospirone": {
+  "name": "Perospirone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "perospirone",
+    "line": "Elimination half-life | 1.9–2.5 hours",
+    "durations": [
+     {
+      "hours": 1.9,
+      "hours_max": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 643,
+    "line": "Unknown whether dosing frequency can be reduced to once or twice daily, but by analogy with other agents in this class with half-lives shorter than 24 hours, this may be possible",
+    "durations": [
+     {
+      "hours": 24.0
+     }
+    ]
+   }
+  ]
+ },
+ "phenazepam": {
+  "name": "Phenazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phenazepam",
+    "line": "Elimination half-life | 6–18 hours (active metabolite unknown)",
+    "durations": [
+     {
+      "hours": 6.0,
+      "hours_max": 18.0
+     }
+    ]
+   }
+  ]
+ },
+ "phenelzine": {
+  "name": "Phenelzine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phenelzine",
+    "line": "Elimination half-life | 11.6 hours",
+    "durations": [
+     {
+      "hours": 11.6
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phenelzine",
+    "line": "The time to peak plasma concentration is 43 minutes, and the half-life is 11.6 hours.",
+    "durations": [
+     {
+      "hours": 0.717
+     },
+     {
+      "hours": 11.6
+     }
+    ]
+   }
+  ]
+ },
+ "phenobarbital": {
+  "name": "Phenobarbital",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phenobarbital",
+    "line": "Elimination half-life | 53–118 hours",
+    "durations": [
+     {
+      "hours": 53.0,
+      "hours_max": 118.0
+     }
+    ]
+   }
+  ]
+ },
+ "phenterminetopiramate": {
+  "name": "Phentermine–Topiramate",
+  "candidates": [
+   {
+    "corpus": "stahl",
+    "page": 661,
+    "line": "Phentermine mean terminal half-life approximately 20 hours",
+    "durations": [
+     {
+      "hours": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 661,
+    "line": "Topiramate mean terminal half-life approximately 65 hours",
+    "durations": [
+     {
+      "hours": 65.0
+     }
+    ]
+   }
+  ]
+ },
+ "phenytoin": {
+  "name": "Phenytoin",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phenytoin",
+    "line": "Elimination half-life | 10–22 hours",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 22.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "363cd347-d25e-42b9-9ce7-30642f3cb353",
+    "line": "Steady-state therapeutic levels are achieved at least 7 to 10 days (5 to 7 half-lives) after initiation of therapy with recommended doses of 300 mg/day.",
+    "durations": [
+     {
+      "hours": 168.0,
+      "hours_max": 240.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "363cd347-d25e-42b9-9ce7-30642f3cb353",
+    "line": "The plasma half-life in man after oral administration of phenytoin averages 22 hours, with a range of 7 to 42 hours.",
+    "durations": [
+     {
+      "hours": 22.0
+     },
+     {
+      "hours": 7.0,
+      "hours_max": 42.0
+     }
+    ]
+   }
+  ]
+ },
+ "pipamperone": {
+  "name": "Pipamperone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pipamperone",
+    "line": "Elimination half-life | 17-22 hours",
+    "durations": [
+     {
+      "hours": 17.0,
+      "hours_max": 22.0
+     }
+    ]
+   }
+  ]
+ },
+ "pipothiazine": {
+  "name": "Pipothiazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pipotiazine",
+    "line": "After deep intramuscular injection, pipotiazine palmitate reaches maximum plasma concentration in 7-14 days, has an elimination half-life of 15 days, and reaches steady-state levels after 2 months of usual dosing (given every 4 weeks).",
+    "durations": [
+     {
+      "hours": 168.0,
+      "hours_max": 336.0
+     },
+     {
+      "hours": 360.0
+     },
+     {
+      "hours": 672.0
+     }
+    ]
+   }
+  ]
+ },
+ "pramipexole": {
+  "name": "Pramipexole",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pramipexole",
+    "line": "Elimination half-life | 8–12 hours",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "prazepam": {
+  "name": "Prazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "prazepam",
+    "line": "Elimination half-life | 36–200 hours",
+    "durations": [
+     {
+      "hours": 36.0,
+      "hours_max": 200.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "prazepam",
+    "line": "Desmethyldiazepam , an active metabolite , has a very long half-life of 36 to 200 hours, which contributes to the therapeutic effects of prazepam.",
+    "durations": [
+     {
+      "hours": 36.0,
+      "hours_max": 200.0
+     }
+    ]
+   }
+  ]
+ },
+ "primidone": {
+  "name": "Primidone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "primidone",
+    "line": "Elimination half-life | Primidone: 5-18 h, Phenobarbital: 75-120 h, PEMA: 16 h Time to reach steady state: Primidone: 2-3 days, Phenobarbital&PEMA 1-4weeks",
+    "durations": [
+     {
+      "hours": 48.0,
+      "hours_max": 72.0
+     },
+     {
+      "hours": 168.0,
+      "hours_max": 672.0
+     }
+    ]
+   }
+  ]
+ },
+ "prochlorperazine": {
+  "name": "Prochlorperazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "prochlorperazine",
+    "line": "Elimination half-life | 4–8 hours, differs with the method of administration;",
+    "durations": [
+     {
+      "hours": 4.0,
+      "hours_max": 8.0
+     }
+    ]
+   }
+  ]
+ },
+ "promethazine": {
+  "name": "Promethazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "promethazine",
+    "line": "Elimination half-life | 10–19 hours",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 19.0
+     }
+    ]
+   }
+  ]
+ },
+ "ropinirole": {
+  "name": "Ropinirole",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ropinirole",
+    "line": "Elimination half-life | 5-6 hours",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "cdc63b7a-062a-4519-a63e-e48a356f641c",
+    "line": "The clearance of ropinirole after oral administration is 47 L/h and its elimination half-life is approximately 6 hours.",
+    "durations": [
+     {
+      "hours": 6.0
+     }
+    ]
+   }
+  ]
+ },
+ "rotigotine": {
+  "name": "Rotigotine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "rotigotine",
+    "line": "Elimination half-life | 5–7 hours",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "939e28c5-f3a9-42c0-9a2d-8d471d82a6e0",
+    "line": "After removal of the patch, plasma levels decreased with a terminal half-life of 5 to 7 hours.",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "939e28c5-f3a9-42c0-9a2d-8d471d82a6e0",
+    "line": "The pharmacokinetic profile showed a biphasic elimination with an initial half-life of 3 hours.",
+    "durations": [
+     {
+      "hours": 3.0
+     }
+    ]
+   }
+  ]
+ },
+ "scopolamine": {
+  "name": "Scopolamine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "scopolamine",
+    "line": "Elimination half-life | 5 hours",
+    "durations": [
+     {
+      "hours": 5.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "scopolamine",
+    "line": "It has a bioavailability of 20–40%, reaches peak plasma concentration in about 45 minutes, and in healthy subjects has an average half-life of 5 hours (observed range 2–10 hours).",
+    "durations": [
+     {
+      "hours": 0.75
+     },
+     {
+      "hours": 5.0
+     },
+     {
+      "hours": 2.0,
+      "hours_max": 10.0
+     }
+    ]
+   }
+  ]
+ },
+ "secobarbital": {
+  "name": "Secobarbital",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "secobarbital",
+    "line": "Elimination half-life | 15-40 hours",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 40.0
+     }
+    ]
+   }
+  ]
+ },
+ "tetrabenazine": {
+  "name": "Tetrabenazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tetrabenazine",
+    "line": "Elimination half-life | 10 hours parent compound (2 to 8 hours active metabolites)",
+    "durations": [
+     {
+      "hours": 10.0
+     },
+     {
+      "hours": 2.0,
+      "hours_max": 8.0
+     }
+    ]
+   }
+  ]
+ },
+ "thc": {
+  "name": "Tetrahydrocannabinol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tetrahydrocannabinol",
+    "line": "Elimination half-life | 1.6–59 hours, 25–36 hours (orally administered dronabinol)",
+    "durations": [
+     {
+      "hours": 1.6,
+      "hours_max": 59.0
+     },
+     {
+      "hours": 25.0,
+      "hours_max": 36.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tetrahydrocannabinol",
+    "line": "THC was reported to have a fast initial half-life of 6 minutes and a long terminal half-life of 22 hours in a population pharmacokinetic study.",
+    "durations": [
+     {
+      "hours": 0.1
+     },
+     {
+      "hours": 22.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tetrahydrocannabinol",
+    "line": "Conversely, the Food and Drug Administration label for dronabinol reports an initial half-life of 4 hours and a terminal half-life of 25 to 36 hours.",
+    "durations": [
+     {
+      "hours": 4.0
+     },
+     {
+      "hours": 25.0,
+      "hours_max": 36.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tetrahydrocannabinol",
+    "line": "Many studies report an elimination half-life of THC in the range of 20 to 30 hours.",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tetrahydrocannabinol",
+    "line": "11-Hydroxy-THC appears to have a similar terminal half-life to that of THC, for instance 12 to 36 hours relative to 25 to 36 hours in one study.",
+    "durations": [
+     {
+      "hours": 12.0,
+      "hours_max": 36.0
+     },
+     {
+      "hours": 25.0,
+      "hours_max": 36.0
+     }
+    ]
+   }
+  ]
+ },
+ "thiopental": {
+  "name": "Thiopental",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sodium_thiopental",
+    "line": "Elimination half-life | 5.5 –26 hours",
+    "durations": [
+     {
+      "hours": 5.5,
+      "hours_max": 26.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sodium_thiopental",
+    "line": "Since its half-life of 5.5 to 26 hours is quite long, consciousness would take a long time to return.",
+    "durations": [
+     {
+      "hours": 5.5,
+      "hours_max": 26.0
+     }
+    ]
+   }
+  ]
+ },
+ "thioridazine": {
+  "name": "Thioridazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "thioridazine",
+    "line": "Elimination half-life | 21–24 hours",
+    "durations": [
+     {
+      "hours": 21.0,
+      "hours_max": 24.0
+     }
+    ]
+   }
+  ]
+ },
+ "tizanidine": {
+  "name": "Tizanidine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tizanidine",
+    "line": "Elimination half-life | Tizanidine: 2.54 hours Inactive metabolites: 20–40 hours",
+    "durations": [
+     {
+      "hours": 2.54
+     },
+     {
+      "hours": 20.0,
+      "hours_max": 40.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "a42f3479-f2c2-8214-d547-c5cae9bfed1e",
+    "line": "T ½ was approximately 2 hours.",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "a42f3479-f2c2-8214-d547-c5cae9bfed1e",
+    "line": "Tizanidine has a half-life of approximately 2.5 hours (CV=33%).",
+    "durations": [
+     {
+      "hours": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "a42f3479-f2c2-8214-d547-c5cae9bfed1e",
+    "line": "their half-lives range from 20 to 40 hours.",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 40.0
+     }
+    ]
+   }
+  ]
+ },
+ "tofisopam": {
+  "name": "Tofisopam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tofisopam",
+    "line": "Elimination half-life | 3 hours",
+    "durations": [
+     {
+      "hours": 3.0
+     }
+    ]
+   }
+  ]
+ },
+ "tranylcypromine": {
+  "name": "Tranylcypromine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tranylcypromine",
+    "line": "Elimination half-life | 2.5 hours",
+    "durations": [
+     {
+      "hours": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tranylcypromine",
+    "line": "While its half-life is only about 2 hours, its pharmacodynamic effects last several days to weeks due to irreversible inhibition of MAO.",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   }
+  ]
+ },
+ "valbenazine": {
+  "name": "Valbenazine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "valbenazine",
+    "line": "Elimination half-life | 15–22 hrs",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 22.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "valbenazine",
+    "line": "The biological half-life of both valbenazine and DTBZ is 15 to 22 hours.",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 22.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 872,
+    "line": "Valbenazine and [+]-α-HTBZ have half-lives of 15–22 hours",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 22.0
+     }
+    ]
+   }
+  ]
+ },
+ "zimelidine": {
+  "name": "Zimelidine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "zimelidine",
+    "line": "Elimination half-life | 8.4±2 hours (parent compound) 19.4±3.6 hours (norzimelidine)",
+    "durations": [
+     {
+      "hours": 2.0
+     },
+     {
+      "hours": 3.6
+     }
+    ]
+   }
+  ]
+ },
+ "zotepine": {
+  "name": "Zotepine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "zotepine",
+    "line": "Elimination half-life | 13.7–15.9 hours, 12 hours (Norzotepine)",
+    "durations": [
+     {
+      "hours": 13.7,
+      "hours_max": 15.9
+     },
+     {
+      "hours": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "zuranolone": {
+  "name": "Zuranolone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "zuranolone",
+    "line": "Elimination half-life | 16–23 hours",
+    "durations": [
+     {
+      "hours": 16.0,
+      "hours_max": 23.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "zuranolone",
+    "line": "Its half-life is around 16 to 23 hours, compared to approximately 9 hours for brexanolone.",
+    "durations": [
+     {
+      "hours": 16.0,
+      "hours_max": 23.0
+     },
+     {
+      "hours": 9.0
+     }
+    ]
+   }
+  ]
+ },
+ "ethanol": {
+  "name": "Ethanol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alcohol_drug",
+    "line": "Elimination half-life | Constant-rate elimination at typical concentrations: • Range: 10–34 mg/dL/hour • Mean: 15-18 mg/dL/hr At very high concentrations (t 1/2 ): 4.0–4.5 hours",
+    "durations": [
+     {
+      "hours": 4.0,
+      "hours_max": 4.5
+     }
+    ]
+   }
+  ]
+ },
+ "apomorphine": {
+  "name": "Apomorphine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "apomorphine",
+    "line": "Elimination half-life | 40 minutes",
+    "durations": [
+     {
+      "hours": 0.667
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "apomorphine",
+    "line": "The half-life is 30–60 minutes, and the effects of the injection last for up to 90 minutes.",
+    "durations": [
+     {
+      "hours": 0.5,
+      "hours_max": 1.0
+     },
+     {
+      "hours": 1.5
+     }
+    ]
+   }
+  ]
+ },
+ "bromocriptine": {
+  "name": "Bromocriptine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "bromocriptine",
+    "line": "Elimination half-life | 12–14 hours",
+    "durations": [
+     {
+      "hours": 12.0,
+      "hours_max": 14.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "d69003ee-0b6f-47a9-834e-ba59c02f566c",
+    "line": "Following single 5 mg bromocriptine mesylate capsules dose (two 2.5 mg tablets) to five healthy volunteers under fasted conditions, the mean peak bromocriptine plasma levels, time to reach peak bromocriptine plasma concentrations and elimination half-life were 465 pg/mL ± 226, 2.5 hours ± 2 and 4.9 hours, respectively.",
+    "durations": [
+     {
+      "hours": 2.5
+     },
+     {
+      "hours": 4.9
+     }
+    ]
+   }
+  ]
+ },
+ "cabergoline": {
+  "name": "Cabergoline",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cabergoline",
+    "line": "Elimination half-life | 63–69 hours (estimated)",
+    "durations": [
+     {
+      "hours": 63.0,
+      "hours_max": 69.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cabergoline",
+    "line": "The human elimination half-life is estimated to be 63 to 68 hours in patients with Parkinson's disease and 79 to 115 hours in patients with pituitary tumors .",
+    "durations": [
+     {
+      "hours": 63.0,
+      "hours_max": 68.0
+     },
+     {
+      "hours": 79.0,
+      "hours_max": 115.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cabergoline",
+    "line": "Average elimination half-life is 80 hours.",
+    "durations": [
+     {
+      "hours": 80.0
+     }
+    ]
+   }
+  ]
+ },
+ "rasagiline": {
+  "name": "Rasagiline",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "rasagiline",
+    "line": "Elimination half-life | 3 hours",
+    "durations": [
+     {
+      "hours": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "rasagiline",
+    "line": "The elimination half-life of rasagiline is 1.34 hours.",
+    "durations": [
+     {
+      "hours": 1.34
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "rasagiline",
+    "line": "At steady-state , its half-life is 3 hours.",
+    "durations": [
+     {
+      "hours": 3.0
+     }
+    ]
+   }
+  ]
+ },
+ "safinamide": {
+  "name": "Safinamide",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "safinamide",
+    "line": "Elimination half-life | 20–30 hrs",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "safinamide",
+    "line": "Safinamide is eliminated, mainly (>90%) in form of its metabolites, via the kidney, with an elimination half-life of 20 to 30 hours.",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 30.0
+     }
+    ]
+   }
+  ]
+ },
+ "cannabidiol": {
+  "name": "Cannabidiol",
+  "candidates": [
+   {
+    "corpus": "dailymed",
+    "page": "8bf27097-4870-43fb-94f0-f3d0871d1eec",
+    "line": "The half-life of cannabidiol in plasma was 56 to 61 hours after twice-daily dosing for 7 days in healthy subjects.",
+    "durations": [
+     {
+      "hours": 56.0,
+      "hours_max": 61.0
+     },
+     {
+      "hours": 168.0
+     }
+    ]
+   }
+  ]
+ },
+ "nabilone": {
+  "name": "Nabilone",
+  "candidates": [
+   {
+    "corpus": "dailymed",
+    "page": "83c7ac15-ece9-47de-b83c-d575544fa449",
+    "line": "The plasma half-life (T ½ ) values for nabilone and total radioactivity of identified and unidentified metabolites are about 2 and 35 hours, respectively.",
+    "durations": [
+     {
+      "hours": 35.0
+     }
+    ]
+   }
+  ]
+ },
+ "morphine": {
+  "name": "Morphine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "morphine",
+    "line": "Elimination half-life | 2–3 hours",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "morphine",
+    "line": "The elimination half-life of morphine is approximately 120 min, though there may be slight differences between men and women.",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "6654b91e-3b3f-4062-ac65-a2a70f942da4",
+    "line": "The effective terminal half-life of morphine sulfate after IV administration is reported to be approximately 2 hours.",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "6654b91e-3b3f-4062-ac65-a2a70f942da4",
+    "line": "In some studies involving longer periods of plasma sampling, a longer terminal half-life of morphine sulfate of about 15 hours was reported.",
+    "durations": [
+     {
+      "hours": 15.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "6654b91e-3b3f-4062-ac65-a2a70f942da4",
+    "line": "Initially after dosing, the geometric mean plasma half-life of morphine was up to 1.8 hours.",
+    "durations": [
+     {
+      "hours": 1.8
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "6654b91e-3b3f-4062-ac65-a2a70f942da4",
+    "line": "The geometric mean terminal elimination plasma half-life of morphine was 18.6 hours.",
+    "durations": [
+     {
+      "hours": 18.6
+     }
+    ]
+   }
+  ]
+ },
+ "tramadol": {
+  "name": "Tramadol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tramadol",
+    "line": "Of these, desmetramadol ( O -desmethyltramadol) is the most significant, since it has 200 times the μ-affinity of (+)-tramadol, and furthermore has an elimination half-life of 9 hours, compared with 6 hours for tramadol itself.",
+    "durations": [
+     {
+      "hours": 9.0
+     },
+     {
+      "hours": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "e5005d9e-91cb-4ff8-bcf2-b5ee70cf4f3f",
+    "line": "The mean terminal plasma elimination half-lives of racemic tramadol and racemic M1 are 6.3 ± 1.4 and 7.4 ± 1.4 hours, respectively.",
+    "durations": [
+     {
+      "hours": 1.4
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "e5005d9e-91cb-4ff8-bcf2-b5ee70cf4f3f",
+    "line": "Metabolism of tramadol and M1 is reduced in patients with severe hepatic impairment based on a study in patients with advanced cirrhosis of the liver, resulting in both a larger area under the concentration time curve for tramadol and longer tramadol and M1 elimination half-lives (13 hrs.",
+    "durations": [
+     {
+      "hours": 13.0
+     }
+    ]
+   }
+  ]
+ },
+ "codeine": {
+  "name": "Codeine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "codeine",
+    "line": "Elimination half-life | 2.5–3 hours",
+    "durations": [
+     {
+      "hours": 2.5,
+      "hours_max": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "codeine",
+    "line": "Plasma half life is between 3 and 4 hours, and oral/intramuscular analgesic potency ratio is approximately equal to 1:1.5.",
+    "durations": [
+     {
+      "hours": 4.0
+     }
+    ]
+   }
+  ]
+ },
+ "oxycodone": {
+  "name": "Oxycodone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "oxycodone",
+    "line": "Elimination half-life | IR : 2–3 hours CR : 4.5 hours",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     },
+     {
+      "hours": 4.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "oxycodone",
+    "line": "Oral oxycodone has a half-life of 4.5 hours.",
+    "durations": [
+     {
+      "hours": 4.5
+     }
+    ]
+   }
+  ]
+ },
+ "fentanyl": {
+  "name": "Fentanyl",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fentanyl",
+    "line": "Elimination half-life | IV : 6 mins (T 1/2 α) 1 hours (T 1/2 β) 16 hours (T 1/2 ɣ) Intranasal: 15–25 hours Transdermal: 20–27 hours Sublingual: 5–13.5 hours Buccal: 3.2–6.4 hours",
+    "durations": [
+     {
+      "hours": 0.1
+     },
+     {
+      "hours": 1.0
+     },
+     {
+      "hours": 16.0
+     },
+     {
+      "hours": 15.0,
+      "hours_max": 25.0
+     },
+     {
+      "hours": 20.0,
+      "hours_max": 27.0
+     },
+     {
+      "hours": 5.0,
+      "hours_max": 13.5
+     },
+     {
+      "hours": 3.2,
+      "hours_max": 6.4
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fentanyl",
+    "line": "In dogs it has low protein binding of 15.6% and a half-life of 2–6 hours.",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fentanyl",
+    "line": "In cats the half-life is 2.5 hours.",
+    "durations": [
+     {
+      "hours": 2.5
+     }
+    ]
+   }
+  ]
+ },
+ "hydromorphone": {
+  "name": "Hydromorphone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "hydromorphone",
+    "line": "Elimination half-life | 2–3 hours",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "hydromorphone",
+    "line": "In those with renal impairment, the half-life of hydromorphone may increase to as much as 40 hours.",
+    "durations": [
+     {
+      "hours": 40.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "hydromorphone",
+    "line": "The typical half-life of intravenous hydromorphone is 2.3 hours.",
+    "durations": [
+     {
+      "hours": 2.3
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "59d88866-e1ba-9d97-e063-6394a90a7b27",
+    "line": "The terminal elimination half-life of hydromorphone after an intravenous dose is about 2.3 hours.",
+    "durations": [
+     {
+      "hours": 2.3
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "59d88866-e1ba-9d97-e063-6394a90a7b27",
+    "line": "In addition, in patients with severe renal impairment hydromorphone appeared to be more slowly eliminated with longer terminal elimination half-life (40 hr) compared to patients with normal renal function (15 hr).",
+    "durations": [
+     {
+      "hours": 40.0
+     },
+     {
+      "hours": 15.0
+     }
+    ]
+   }
+  ]
+ },
+ "tapentadol": {
+  "name": "Tapentadol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tapentadol",
+    "line": "Elimination half-life | 4 hours",
+    "durations": [
+     {
+      "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "5b769a76-5ca5-b2e9-e063-6394a90a1b1b",
+    "line": "A multiple (every 6 hour) dose study with doses ranging from 75 to 175 mg tapentadol showed a mean accumulation factor of 1.6 for the parent drug and 1.8 for the major metabolite tapentadol-O-glucuronide, which are primarily determined by the dosing interval and apparent half-life of tapentadol and its metabolite.",
+    "durations": [
+     {
+      "hours": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "5b769a76-5ca5-b2e9-e063-6394a90a1b1b",
+    "line": "The terminal half-life is on average 4 hours after oral administration.",
+    "durations": [
+     {
+      "hours": 4.0
+     }
+    ]
+   }
+  ]
+ },
+ "pethidine": {
+  "name": "Pethidine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pethidine",
+    "line": "Elimination half-life | 2.5–4 hours, 7–11 hours (liver disease)",
+    "durations": [
+     {
+      "hours": 2.5,
+      "hours_max": 4.0
+     },
+     {
+      "hours": 7.0,
+      "hours_max": 11.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pethidine",
+    "line": "Pethidine is quickly hydrolysed in the liver to pethidinic acid and is also demethylated to norpethidine, which has half the analgesic activity of pethidine but a longer elimination half-life (8–12 hours);",
+    "durations": [
+     {
+      "hours": 8.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "pentazocine": {
+  "name": "Pentazocine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pentazocine",
+    "line": "Elimination half-life | 2 to 3 hours",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "a28450a0-ac93-4235-b9a6-58cdf24773cb",
+    "line": "The time to mean peak concentration in 24 normal volunteers was 1.7 hours (range 0.5 to 4 hours) after oral administration and the mean plasma elimination half-life was 3.6 hours (range 1.5 to 10 hours).",
+    "durations": [
+     {
+      "hours": 1.7
+     },
+     {
+      "hours": 0.5,
+      "hours_max": 4.0
+     },
+     {
+      "hours": 3.6
+     },
+     {
+      "hours": 1.5,
+      "hours_max": 10.0
+     }
+    ]
+   }
+  ]
+ },
+ "heroin": {
+  "name": "Heroin",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "heroin",
+    "line": "Elimination half-life | 2–3 minutes",
+    "durations": [
+     {
+      "hours": 0.033,
+      "hours_max": 0.05
+     }
+    ]
+   }
+  ]
+ },
+ "metoclopramide": {
+  "name": "Metoclopramide",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "metoclopramide",
+    "line": "Elimination half-life | 5–6 hours",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "595439ae-cf01-821c-e063-6294a90af16a",
+    "line": "The mean elimination half-life in subjects with normal renal function was 5 to 6 hours.",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 6.0
+     }
+    ]
+   }
+  ]
+ },
+ "granisetron": {
+  "name": "Granisetron",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "granisetron",
+    "line": "Elimination half-life | 3–14 hours",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 14.0
+     }
+    ]
+   }
+  ]
+ },
+ "meclizine": {
+  "name": "Meclizine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "meclizine",
+    "line": "Elimination half-life | 5-6 hours",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "meclizine",
+    "line": "Meclizine reaches peak plasma concentration in about 1.5 hours and has an elimination half-life of 5–6 hours.",
+    "durations": [
+     {
+      "hours": 1.5
+     },
+     {
+      "hours": 5.0,
+      "hours_max": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "meclizine",
+    "line": "Despite its relatively short half-life, the drug is reported to remain effective for motion sickness for 12 – 24 hours.",
+    "durations": [
+     {
+      "hours": 12.0,
+      "hours_max": 24.0
+     }
+    ]
+   }
+  ]
+ },
+ "dimenhydrinate": {
+  "name": "Dimenhydrinate",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dimenhydrinate",
+    "line": "Elimination half-life | 5.5 hours (diphenhydramine component)",
+    "durations": [
+     {
+      "hours": 5.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dimenhydrinate",
+    "line": "The diphenhydramine component requires about 2 hours to reach peak concentration after either oral or sublingual administration of dimen­hydrinate, and has a half-life of 5 – 6 hours in healthy adults.",
+    "durations": [
+     {
+      "hours": 2.0
+     },
+     {
+      "hours": 5.0,
+      "hours_max": 6.0
+     }
+    ]
+   }
+  ]
+ },
+ "psilocybin": {
+  "name": "Psilocybin",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "psilocybin",
+    "line": "The elimination half-life of psilocybin, as psilocin, is 2.1 to 4.7 hours on average (range 1.2–18.6 hours) orally and 1.2 hours (range 1.8–4.5 hours) intravenously .",
+    "durations": [
+     {
+      "hours": 2.1,
+      "hours_max": 4.7
+     },
+     {
+      "hours": 1.2,
+      "hours_max": 18.6
+     },
+     {
+      "hours": 1.2
+     },
+     {
+      "hours": 1.8,
+      "hours_max": 4.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "psilocybin",
+    "line": "Psilocin's elimination half-life in mice is 0.9 hours, much faster than in humans.",
+    "durations": [
+     {
+      "hours": 0.9
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "psilocybin",
+    "line": "Psilocin O -glucuronide's half-life is about 4 hours in humans and one hour in mice.",
+    "durations": [
+     {
+      "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "psilocybin",
+    "line": "An interesting fact may be the much shorter half-life (mean 74.1 ± 19.6 minutes i.v.",
+    "durations": [
+     {
+      "hours": 0.327
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "psilocybin",
+    "line": "When selecting adverse event profile rates, the shortest time period available was selected and analyzed (eg, day 1 instead of day 30) since the half-life of psilocin is 3 ± 1.1 hours when taken orally and the duration of action can range between 3 to 12 hours.12,13",
+    "durations": [
+     {
+      "hours": 1.1
+     },
+     {
+      "hours": 3.0,
+      "hours_max": 12.0
+     }
+    ]
+   }
+  ]
+ },
+ "mescaline": {
+  "name": "Mescaline",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mescaline",
+    "line": "Elimination half-life | 3.6 hours (range 2.6–5.3 hours)",
+    "durations": [
+     {
+      "hours": 3.6
+     },
+     {
+      "hours": 2.6,
+      "hours_max": 5.3
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mescaline",
+    "line": "Mescaline was originally reported to have an elimination half-life of 6 hours based on a study conducted in the 1960s.",
+    "durations": [
+     {
+      "hours": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mescaline",
+    "line": "However, subsequent research published in the 2020s found that its half-life is actually about 3.6 hours (range 2.6–5.3 hours).",
+    "durations": [
+     {
+      "hours": 3.6
+     },
+     {
+      "hours": 2.6,
+      "hours_max": 5.3
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mescaline",
+    "line": "TMPAA has a half-life of about 3.7 to 4.1 hours, similar to that of mescaline.",
+    "durations": [
+     {
+      "hours": 3.7,
+      "hours_max": 4.1
+     }
+    ]
+   }
+  ]
+ },
+ "ibogaine": {
+  "name": "Ibogaine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ibogaine",
+    "line": "Elimination half-life | Ibogaine: 7 hours Noribogaine : 24–50 hours",
+    "durations": [
+     {
+      "hours": 7.0
+     },
+     {
+      "hours": 24.0,
+      "hours_max": 50.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ibogaine",
+    "line": "Both ibogaine and noribogaine have a plasma half-life around 2 hours in rats, although the half-life of noribogaine is slightly longer than that of the parent compound.",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ibogaine",
+    "line": "In humans, the elimination half-life of ibogaine is about 7 hours whereas the half-life of noribogaine is 24 to 50 hours.",
+    "durations": [
+     {
+      "hours": 7.0
+     },
+     {
+      "hours": 24.0,
+      "hours_max": 50.0
+     }
+    ]
+   }
+  ]
+ },
+ "salvinorin_a": {
+  "name": "Salvinorin A",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "salvinorin_a",
+    "line": "Elimination half-life | 50 minutes",
+    "durations": [
+     {
+      "hours": 0.833
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "salvinorin_a",
+    "line": "It has a half-life of around 8 minutes in non-human primates.",
+    "durations": [
+     {
+      "hours": 0.133
+     }
+    ]
+   }
+  ]
+ },
+ "2cb": {
+  "name": "2C-B",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "2c_b",
+    "line": "Elimination half-life | 1.2–2.5 hours",
+    "durations": [
+     {
+      "hours": 1.2,
+      "hours_max": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "2c_b",
+    "line": "The elimination half-life of 2C-B in humans is 1.2 to 2.5 hours.",
+    "durations": [
+     {
+      "hours": 1.2,
+      "hours_max": 2.5
+     }
+    ]
+   }
+  ]
+ },
+ "phencyclidine": {
+  "name": "Phencyclidine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phencyclidine",
+    "line": "Elimination half-life | 7–46 hours",
+    "durations": [
+     {
+      "hours": 7.0,
+      "hours_max": 46.0
+     }
+    ]
+   }
+  ]
+ },
+ "propofol": {
+  "name": "Propofol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "propofol",
+    "line": "Elimination half-life | 1.5–31 hours",
+    "durations": [
+     {
+      "hours": 1.5,
+      "hours_max": 31.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "propofol",
+    "line": "The half-life of elimination of propofol has been estimated to be between 2 and 24 hours.",
+    "durations": [
+     {
+      "hours": 24.0
+     }
+    ]
+   }
+  ]
+ },
+ "sevoflurane": {
+  "name": "Sevoflurane",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sevoflurane",
+    "line": "Elimination half-life | 15–23 hours",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 23.0
+     }
+    ]
+   }
+  ]
+ },
+ "etomidate": {
+  "name": "Etomidate",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "etomidate",
+    "line": "Elimination half-life | 75 minutes",
+    "durations": [
+     {
+      "hours": 1.25
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "etomidate",
+    "line": "At the typical dose, anesthesia is induced for the duration of about 5–10 minutes, though the half-life of drug metabolism is about 75 minutes, because etomidate is redistributed from the plasma to other tissues.",
+    "durations": [
+     {
+      "hours": 0.083,
+      "hours_max": 0.167
+     },
+     {
+      "hours": 1.25
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "etomidate",
+    "line": "Half-life distribution: 2.7 minutes",
+    "durations": [
+     {
+      "hours": 0.045
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "etomidate",
+    "line": "Half-life redistribution: 29 minutes",
+    "durations": [
+     {
+      "hours": 0.483
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "etomidate",
+    "line": "Half-life elimination: 2.9 to 5.3 hours",
+    "durations": [
+     {
+      "hours": 2.9,
+      "hours_max": 5.3
+     }
+    ]
+   }
+  ]
+ },
+ "isoflurane": {
+  "name": "Isoflurane",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "isoflurane",
+    "line": "Elimination half-life | ~10 minutes",
+    "durations": [
+     {
+      "hours": 0.167
+     }
+    ]
+   }
+  ]
+ },
+ "vigabatrin": {
+  "name": "Vigabatrin",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "vigabatrin",
+    "line": "Elimination half-life | 5–8 hours in young adults, 12–13 hours in the elderly.",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 8.0
+     },
+     {
+      "hours": 12.0,
+      "hours_max": 13.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "93ba3894-fd97-4432-9f2d-e7050371e91f",
+    "line": "The terminal half-life of vigabatrin is about 5.7 hours for infants (5 months to 2 years of age), 6.8 hours for children (3 to 9 years of age), 9.5 hours for children and adolescents (10 to 16 years of age), and 10.5 hours for adults.",
+    "durations": [
+     {
+      "hours": 5.7
+     },
+     {
+      "hours": 6.8
+     },
+     {
+      "hours": 9.5
+     },
+     {
+      "hours": 10.5
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "93ba3894-fd97-4432-9f2d-e7050371e91f",
+    "line": "Mean AUC increased by 30% and the terminal half-life increased by 55% (8.1 hr vs 12.5 hr) in adult patients with mild renal impairment (CLcr from >50 to 80 mL/min) in comparison to normal subjects.",
+    "durations": [
+     {
+      "hours": 8.1
+     },
+     {
+      "hours": 12.5
+     }
+    ]
+   }
+  ]
+ },
+ "ethosuximide": {
+  "name": "Ethosuximide",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ethosuximide",
+    "line": "Elimination half-life | 53 hours",
+    "durations": [
+     {
+      "hours": 53.0
+     }
+    ]
+   }
+  ]
+ },
+ "lacosamide": {
+  "name": "Lacosamide",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lacosamide",
+    "line": "Elimination half-life | 13 hours",
+    "durations": [
+     {
+      "hours": 13.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lacosamide",
+    "line": "Lacosamide has a half life of about 12–16 hours, which remains unchanged if the patients is also taking enzyme inducers.",
+    "durations": [
+     {
+      "hours": 12.0,
+      "hours_max": 16.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "b9a0ca8c-593c-48e8-b2a7-d30d5f6e6a9b",
+    "line": "The maximum lacosamide plasma concentrations occur approximately 1-to-4-hour post-dose after oral dosing, and elimination half-life is approximately 13 hours.",
+    "durations": [
+     {
+      "hours": 4.0
+     },
+     {
+      "hours": 13.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "b9a0ca8c-593c-48e8-b2a7-d30d5f6e6a9b",
+    "line": "Compared to lacosamide the major metabolite, O-desmethyl metabolite, has a longer T max (0.5 to 12 hours) and elimination half-life (15 to 23 hours).",
+    "durations": [
+     {
+      "hours": 0.5,
+      "hours_max": 12.0
+     },
+     {
+      "hours": 15.0,
+      "hours_max": 23.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "b9a0ca8c-593c-48e8-b2a7-d30d5f6e6a9b",
+    "line": "The elimination half-life of the unchanged drug is approximately 13 hours and is not altered by different doses, multiple dosing or intravenous administration.",
+    "durations": [
+     {
+      "hours": 13.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "b9a0ca8c-593c-48e8-b2a7-d30d5f6e6a9b",
+    "line": "For patients weighing 10 kg, 28.9 kg (the mean population body weight), and 70 kg, the typical plasma half-life (t1/2) is 7.2 hours, 10.6 hours, and 14.8 hours, respectively.",
+    "durations": [
+     {
+      "hours": 7.2
+     },
+     {
+      "hours": 10.6
+     },
+     {
+      "hours": 14.8
+     }
+    ]
+   }
+  ]
+ },
+ "brivaracetam": {
+  "name": "Brivaracetam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "brivaracetam",
+    "line": "Elimination half-life | ≈9 hours",
+    "durations": [
+     {
+      "hours": 9.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "11ca0e1d-1c0d-4357-9ebd-ee1e87185dde",
+    "line": "The terminal plasma half-life (t 1/2 ) is approximately 9 hours.",
+    "durations": [
+     {
+      "hours": 9.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "11ca0e1d-1c0d-4357-9ebd-ee1e87185dde",
+    "line": "creatinine clearance 53 to 98 mL/min/1.73 m 2 ) receiving brivaracetam 200 mg twice daily (2 times the highest recommended dosage), the plasma half-life of brivaracetam was 7.9 hours and 9.3 hours in the 65 to 75 and >75years groups, respectively.",
+    "durations": [
+     {
+      "hours": 7.9
+     },
+     {
+      "hours": 9.3
+     }
+    ]
+   }
+  ]
+ },
+ "levodopa": {
+  "name": "Levodopa",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "levodopa",
+    "line": "Elimination half-life | 0.75–1.5 hours",
+    "durations": [
+     {
+      "hours": 0.75,
+      "hours_max": 1.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "levodopa",
+    "line": "The elimination half-life of levodopa is 0.75 to 1.5 hours.",
+    "durations": [
+     {
+      "hours": 0.75,
+      "hours_max": 1.5
+     }
+    ]
+   }
+  ]
+ },
+ "carbidopa": {
+  "name": "Carbidopa",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "carbidopa",
+    "line": "Elimination half-life | 2 hours",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "carbidopa",
+    "line": "By inhibiting peripheral DDC, carbidopa reduces the required levodopa dose by approximately 75% and extends levodopa's plasma half-life from roughly 50 minutes to about 1.5 hours.",
+    "durations": [
+     {
+      "hours": 0.833
+     },
+     {
+      "hours": 1.5
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "9d4e886e-edec-471d-b619-bf4828a6b7ce",
+    "line": "The elimination half-life of levodopa, the active moiety of antiparkinsonian activity, was 1.7 hours (range 1.1 hours to 3.2 hours).",
+    "durations": [
+     {
+      "hours": 1.7
+     },
+     {
+      "hours": 1.1
+     },
+     {
+      "hours": 3.2
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "9d4e886e-edec-471d-b619-bf4828a6b7ce",
+    "line": "The elimination half-life of carbidopa was on average 1.6 hours to 2 hours (range 0.7 hour to 4 hours).",
+    "durations": [
+     {
+      "hours": 1.6
+     },
+     {
+      "hours": 2.0
+     },
+     {
+      "hours": 0.7
+     },
+     {
+      "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "9d4e886e-edec-471d-b619-bf4828a6b7ce",
+    "line": "The elimination half-life of entacapone was on average 0.8 hour to 1 hour (0.3 hour to 4.5 hours).",
+    "durations": [
+     {
+      "hours": 0.8
+     },
+     {
+      "hours": 1.0
+     },
+     {
+      "hours": 0.3
+     },
+     {
+      "hours": 4.5
+     }
+    ]
+   }
+  ]
+ },
+ "entacapone": {
+  "name": "Entacapone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "entacapone",
+    "line": "Elimination half-life | 0.4–0.7 hours",
+    "durations": [
+     {
+      "hours": 0.4,
+      "hours_max": 0.7
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "entacapone",
+    "line": "It has a half-life of approximately 0.3–0.7 hours, with only 0.2% being excreted unchanged in the urine.",
+    "durations": [
+     {
+      "hours": 0.3,
+      "hours_max": 0.7
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "9d4e886e-edec-471d-b619-bf4828a6b7ce",
+    "line": "The elimination half-life of levodopa, the active moiety of antiparkinsonian activity, was 1.7 hours (range 1.1 hours to 3.2 hours).",
+    "durations": [
+     {
+      "hours": 1.7
+     },
+     {
+      "hours": 1.1
+     },
+     {
+      "hours": 3.2
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "9d4e886e-edec-471d-b619-bf4828a6b7ce",
+    "line": "The elimination half-life of carbidopa was on average 1.6 hours to 2 hours (range 0.7 hour to 4 hours).",
+    "durations": [
+     {
+      "hours": 1.6
+     },
+     {
+      "hours": 2.0
+     },
+     {
+      "hours": 0.7
+     },
+     {
+      "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "9d4e886e-edec-471d-b619-bf4828a6b7ce",
+    "line": "The elimination half-life of entacapone was on average 0.8 hour to 1 hour (0.3 hour to 4.5 hours).",
+    "durations": [
+     {
+      "hours": 0.8
+     },
+     {
+      "hours": 1.0
+     },
+     {
+      "hours": 0.3
+     },
+     {
+      "hours": 4.5
+     }
+    ]
+   }
+  ]
+ },
+ "tolcapone": {
+  "name": "Tolcapone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tolcapone",
+    "line": "Elimination half-life | 2–3 hours",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tolcapone",
+    "line": "In comparison with entacapone , another nitrocatechol COMT inhibitor, tolcapone has a longer half life (2.9 hours vs.",
+    "durations": [
+     {
+      "hours": 2.9
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "dd367eec-359a-4065-b5c3-7c0107c823fe",
+    "line": "This is due to a decrease in levodopa clearance resulting in a prolongation of the terminal elimination half-life of levodopa (from approximately 2 hours to 3.5 hours).",
+    "durations": [
+     {
+      "hours": 2.0
+     },
+     {
+      "hours": 3.5
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "dd367eec-359a-4065-b5c3-7c0107c823fe",
+    "line": "The elimination half-life of tolcapone is 2 to 3 hours and there is no significant accumulation.",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     }
+    ]
+   }
+  ]
+ },
+ "istradefylline": {
+  "name": "Istradefylline",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "istradefylline",
+    "line": "Elimination half-life | 64–69 hrs",
+    "durations": [
+     {
+      "hours": 64.0,
+      "hours_max": 69.0
+     }
+    ]
+   }
+  ]
+ },
+ "sumatriptan": {
+  "name": "Sumatriptan",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sumatriptan",
+    "line": "Elimination half-life | 2.5 hours",
+    "durations": [
+     {
+      "hours": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sumatriptan",
+    "line": "The elimination half-life of sumatriptan in humans is 2.5 hours.",
+    "durations": [
+     {
+      "hours": 2.5
+     }
+    ]
+   }
+  ]
+ },
+ "rizatriptan": {
+  "name": "Rizatriptan",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "rizatriptan",
+    "line": "Elimination half-life | 2–3 hours",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
+     }
+    ]
+   }
+  ]
+ },
+ "flunarizine": {
+  "name": "Flunarizine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "flunarizine",
+    "line": "Elimination half-life | 5–15 hrs (single dose) 18–19 days (multiple doses)",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 15.0
+     },
+     {
+      "hours": 432.0,
+      "hours_max": 456.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "flunarizine",
+    "line": "Elimination half life varies widely between individuals and is about 5 to 15 hours after a single dose, and 18 to 19 days on average when given daily.",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 15.0
+     },
+     {
+      "hours": 432.0,
+      "hours_max": 456.0
+     }
+    ]
+   }
+  ]
+ },
+ "pizotifen": {
+  "name": "Pizotifen",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pizotifen",
+    "line": "Elimination half-life | 23 hours",
+    "durations": [
+     {
+      "hours": 23.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pizotifen",
+    "line": "The elimination half-life of pizotifen is 23 hours.",
+    "durations": [
+     {
+      "hours": 23.0
+     }
+    ]
+   }
+  ]
+ },
+ "erenumab": {
+  "name": "Erenumab",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "erenumab",
+    "line": "Elimination half-life | 28 days",
+    "durations": [
+     {
+      "hours": 672.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "erenumab",
+    "line": "It has an elimination half-life of 28 days.",
+    "durations": [
+     {
+      "hours": 672.0
+     }
+    ]
+   }
+  ]
+ },
+ "phentermine": {
+  "name": "Phentermine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phentermine",
+    "line": "Elimination half-life | 20–25 hours, urinary pH-dependent",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 25.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phentermine",
+    "line": "The elimination half-life of phentermine is 20 to 25 hours.",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 25.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "phentermine",
+    "line": "In the case of acidic urine (pH < 5), the elimination half-life of phentermine has been found to be 7 to 8 hours.",
+    "durations": [
+     {
+      "hours": 7.0,
+      "hours_max": 8.0
+     }
+    ]
+   }
+  ]
+ },
+ "fenfluramine": {
+  "name": "Fenfluramine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fenfluramine",
+    "line": "Elimination half-life | 13–30 hours",
+    "durations": [
+     {
+      "hours": 13.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fenfluramine",
+    "line": "The elimination half-life of fenfluramine has been reported as ranging from 13 to 30 hours.",
+    "durations": [
+     {
+      "hours": 13.0,
+      "hours_max": 30.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fenfluramine",
+    "line": "The mean elimination half-lives of its enantiomers have been found to be 19 hours for dexfenfluramine and 25 hours for levfenfluramine.",
+    "durations": [
+     {
+      "hours": 19.0
+     },
+     {
+      "hours": 25.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fenfluramine",
+    "line": "Norfenfluramine, the major active metabolite of fenfluramine, has an elimination half-life that is about 1.5 to 2 times as long as that of fenfluramine, with mean values of 34 hours for dexnorfenfluramine and 50 hours for levnorfenfluramine.",
+    "durations": [
+     {
+      "hours": 34.0
+     },
+     {
+      "hours": 50.0
+     }
+    ]
+   }
+  ]
+ },
+ "ephedrine": {
+  "name": "Ephedrine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ephedrine",
+    "line": "Elimination half-life | 6 hours",
+    "durations": [
+     {
+      "hours": 6.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ephedrine",
+    "line": "The elimination half-life of ephedrine is 6 hours.",
+    "durations": [
+     {
+      "hours": 6.0
+     }
+    ]
+   }
+  ]
+ },
+ "pseudoephedrine": {
+  "name": "Pseudoephedrine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pseudoephedrine",
+    "line": "Elimination half-life | 5.4 hours (range 3–16 hours dependent on urine pH )",
+    "durations": [
+     {
+      "hours": 5.4
+     },
+     {
+      "hours": 3.0,
+      "hours_max": 16.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pseudoephedrine",
+    "line": "The elimination half-life of pseudoephedrine on average is 5.4 hours and ranges from 3 to 16 hours depending on urinary pH.",
+    "durations": [
+     {
+      "hours": 5.4
+     },
+     {
+      "hours": 3.0,
+      "hours_max": 16.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pseudoephedrine",
+    "line": "At a pH of 5.6 to 6.0, the elimination half-life of pseudoephedrine was 5.2 to 8.0 hours.",
+    "durations": [
+     {
+      "hours": 5.2,
+      "hours_max": 8.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "pseudoephedrine",
+    "line": "In one study, a more acidic pH of 5.0 resulted in a half-life of 3.0 to 6.4 hours, whereas a more alkaline pH of 8.0 resulted in a half-life of 9.2 to 16.0 hours.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 6.4
+     },
+     {
+      "hours": 9.2,
+      "hours_max": 16.0
+     }
+    ]
+   }
+  ]
+ },
+ "sibutramine": {
+  "name": "Sibutramine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sibutramine",
+    "line": "Elimination half-life | 1 hour (sibutramine), 14 hours (M 1 ) & 16 hours (M 2 )",
+    "durations": [
+     {
+      "hours": 1.0
+     },
+     {
+      "hours": 14.0
+     },
+     {
+      "hours": 16.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sibutramine",
+    "line": "The drug itself reaches its peak plasma level after 1 hour and has also a half-life of 1 hour.",
+    "durations": [
+     {
+      "hours": 1.0
+     },
+     {
+      "hours": 1.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sibutramine",
+    "line": "Sibutramine is metabolized by cytochrome P450 isozyme CYP3A4 into two pharmacologically active primary and secondary amines (called active metabolites 1 and 2) with half-lives of 14 and 16 hours, respectively.",
+    "durations": [
+     {
+      "hours": 16.0
+     }
+    ]
+   }
+  ]
+ },
+ "yohimbine": {
+  "name": "Yohimbine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "yohimbine",
+    "line": "Elimination half-life | 0.25–2.5 hours",
+    "durations": [
+     {
+      "hours": 0.25,
+      "hours_max": 2.5
+     }
+    ]
+   }
+  ]
+ },
+ "tiapride": {
+  "name": "Tiapride",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tiapride",
+    "line": "Elimination half-life | 2.9–3.6 hours",
+    "durations": [
+     {
+      "hours": 2.9,
+      "hours_max": 3.6
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tiapride",
+    "line": "Elimination of tiapride, mostly in its original form, occurs through renal excretion with a half-life of 3 to 4 hours.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.0
+     }
+    ]
+   }
+  ]
+ },
+ "opipramol": {
+  "name": "Opipramol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "opipramol",
+    "line": "Elimination half-life | 6–11 hours",
+    "durations": [
+     {
+      "hours": 6.0,
+      "hours_max": 11.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "opipramol",
+    "line": "Its terminal half-life in plasma is 6–11 hours.",
+    "durations": [
+     {
+      "hours": 6.0,
+      "hours_max": 11.0
+     }
+    ]
+   }
+  ]
+ },
+ "atropine": {
+  "name": "Atropine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "atropine",
+    "line": "Elimination half-life | 2 hours",
+    "durations": [
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "atropine",
+    "line": "Significant levels are achieved in the CNS within 30 minutes to 1 hour and disappear rapidly from the blood with a half-life of 2 hours.",
+    "durations": [
+     {
+      "hours": 0.5
+     },
+     {
+      "hours": 1.0
+     },
+     {
+      "hours": 2.0
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "a116af5c-ba4c-408c-9a02-4bc33772aa8d",
+    "line": "Terminal half-life of l-hyoscamine was not affected by route of administration and was calculated to be 3 ± 1.2 hours (intravenous) and 2.5 ± 0.8 hours (topical ophthalmic).",
+    "durations": [
+     {
+      "hours": 1.2
+     },
+     {
+      "hours": 0.8
+     }
+    ]
+   },
+   {
+    "corpus": "dailymed",
+    "page": "a116af5c-ba4c-408c-9a02-4bc33772aa8d",
+    "line": "Following intravenous administration, the mean (± SD) elimination half-life (t1/2) of atropine was reported to be longer in pediatric subjects under 2 years (6.9 ± 3.3 hours) and in geriatric patients 65 to 75 years (10.0 ± 7.3 hours), compared to in children over 2 years (2.5 ± 1.2 hours) and in adults 16 to 58 years (3.0 ± 0.9 hours).",
+    "durations": [
+     {
+      "hours": 3.3
+     },
+     {
+      "hours": 7.3
+     },
+     {
+      "hours": 1.2
+     },
+     {
+      "hours": 0.9
+     }
+    ]
+   }
+  ]
+ },
+ "betahistine": {
+  "name": "Betahistine",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "betahistine",
+    "line": "Elimination half-life | 3.5 hours",
+    "durations": [
+     {
+      "hours": 3.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "betahistine",
+    "line": "The mean plasma elimination half-life is 3 to 4 hours, and excretion is virtually complete in the urine within 24 hours.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.0
+     },
+     {
+      "hours": 24.0
+     }
+    ]
+   }
+  ]
+ }
+}
