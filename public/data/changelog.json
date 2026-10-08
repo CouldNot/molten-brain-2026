@@ -1,6 +1,17 @@
 {
   "versions": [
     {
+      "version": "3.92.1",
+      "date": "2026-10-08",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "An enzyme with no clearance-speed chart now says so, and says why, instead of showing nothing where another enzyme shows a stacked bar. Thirteen of the eighteen enzymes are in that position, CYP3A4 and CYP1A2 among them, which between them clear about half the drugs here: sorting people into poor, normal and ultrarapid metabolizers needs an agreed genotype-to-phenotype table, and those two have none, so nobody publishes the frequencies.",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.92.0",
       "date": "2026-10-08",
       "entries": [

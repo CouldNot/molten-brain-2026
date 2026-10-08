@@ -3783,6 +3783,22 @@ function createInfoPanel(data, sourcingModal) {
         }
         box.appendChild(ul);
         body.appendChild(box);
+      } else {
+        // An empty section rather than no section: 13 of the 18 isoforms we model have
+        // no published profile, the two the drug roster leans on hardest among them
+        // (CYP3A4 clears 109 of the drugs here, CYP1A2 46), and a reader who sees a
+        // bar chart on CYP2D6 and nothing on CYP3A4 would read the blank as "not
+        // variable". It carries no pill because it is a statement about this dataset
+        // and its corpus's scope, not a sourced claim about the enzyme.
+        const box = el("div", "info-bindings info-variability");
+        box.appendChild(el("h3", null, t("enzyme.variability")));
+        box.appendChild(el("p", "var-caveat", t("enzyme.variabilityNone")));
+        const freqRow = el("div", "info-wiki");
+        freqRow.appendChild(el("span", null, t("info.frequencies")));
+        appendLookupLink(freqRow, "info.pharmfreq", PHARMFREQ_URL,
+          "info.pharmfreqTitle");
+        box.appendChild(freqRow);
+        body.appendChild(box);
       }
 
       const rows = enzyme.rows || [];

@@ -718,6 +718,57 @@ sentence qualifies itself to the *d,l* racemate while the same page warns the L 
 not follow typical drug kinetics. Closing these needs a per-constituent model, not a
 better corpus.
 
+### Enzyme **metabolizer-phenotype variability** past PharmFreq (surveyed 2026-10-08)
+
+**5 of the 18 isoforms we model carry a profile** (`cyp2b6`, `cyp2c9`, `cyp2c19`, `cyp2d6`,
+`cyp3a5`), and the two the drug roster leans on hardest are not among them: **CYP3A4 clears
+109 of the 301 drugs** here and **CYP1A2 46**. 3.92.1 makes that absence visible in the
+panel instead of silent; this records why it cannot simply be filled.
+
+**PharmFreq stops where CPIC stops.** It indexes the CPIC **level A** gene-drug pairs: 21
+genes, 658 alleles ([Tremmel et al., *Nucleic Acids Res* 2025;53:D1498](https://doi.org/10.1093/nar/gkae1016)).
+CYP3A4, CYP1A2, CYP2A6, CYP2E1 and every UGT but UGT1A1 are absent **by design**, so there
+is no fresher export to download. PharmVar's own 2026 CYP1A2 GeneFocus says it outright:
+"The Pharmacogenetic Allele Frequency (PharmFreq) database currently does also not contain
+any information on CYP1A2" ([*Clin Pharmacol Ther*, doi:10.1002/cpt.70286](https://doi.org/10.1002/cpt.70286)).
+The export on disk does hold a 6th gene, **UGT1A1**, that `GENE_ENZYMES` deliberately does
+not map: no roster drug's glucuronidation is attributed to UGT1A1 specifically, and the 22
+drugs on the generic `ugt` bucket name no gene at all, so there is nothing to attach it to
+without inventing a specificity the drugbox does not state.
+
+**The blocker is the translation table, not the frequencies.** A PM/IM/NM/RM/UM profile
+needs an agreed diplotype-to-phenotype mapping, and CPIC publishes one only for its
+guideline genes. For these two that is a fact about the biology, not a hole in the
+literature: CYP1A2's clinically dominant variance is **induction** (smoking, cruciferous
+vegetables, omeprazole) and the `*1F` promoter variant modulates inducibility rather than
+defining a phenotype class, while CYP3A4's is induction/inhibition by co-medication, which
+is the one axis this dataset already models (the drug-to-drug edges in `docs/DRUGS.md`).
+
+**What is sourceable, and in what shape** (each tested, not assumed):
+
+| claim | source | what it actually gives | verdict |
+| --- | --- | --- | --- |
+| PM/IM/NM/RM/UM frequency per population | PharmFreq, corpus #13 | the shipped profile | done, 5 isoforms, closed |
+| which CYP3A4 allele matters + its function | [Pratt et al., *J Mol Diagn* 2023;25(9):619-629](https://doi.org/10.1016/j.jmoldx.2023.06.008) (PMID 37419245, AMP/CPIC/CAP/DPWG/ESPT/PharmGKB joint consensus, free PMC) | tier 1 = `CYP3A4*22`, decreased function, defining variant rs35599367, multiethnic AF **0-9%**; tier 2 = `CYP3A4*20` | citable and quotable, but its frequency column is a **range across ethnicities**, not a per-group profile |
+| per-ancestry frequency of that allele | gnomAD v4 GraphQL (`https://gnomad.broadinstitute.org/api`, no key, tested) | rs35599367 = `7-99768693-G-A`: overall **3.17%**, nfe 4.92, asj 5.82, amr 2.55, mid 1.70, sas 0.91, afr 0.88, **eas 0.00** | machine-readable, and its ancestry groups map onto PharmFreq's 8; it is an **allele** frequency, not a phenotype one |
+| rsid to GRCh38 position (what gnomAD is keyed by) | dbSNP `efetch` (no key, tested) | per-study MAFs + position | the resolver a star-allele pass would need |
+| allele definitions past the AMP tier-1 list | PharmVar | the REST API needs a key (401 on an anonymous call); the per-gene download is the usable route | only needed if the pass goes past tier 1 |
+
+**Verdict: reachable, but it is a second claim shape, so it is a decision, not a chore.**
+A `CYP3A4*22 is carried by ~5% of Europeans and ~0% of East Asians` node is honest,
+genuinely interesting (it is the mirror image of CYP3A5*3) and two tested free sources
+away. It is **not** the same claim as the stacked bar: one says how common a *speed* is,
+the other how common an *allele* is, and rendering them in the same section would let a
+reader read an allele frequency as a phenotype frequency. It therefore wants its own node
+kind (`enzyme_allele`, one node per (isoform, allele)) and its own display, plus corpus #15
+(gnomAD) and a quote shape for a number pulled from an API rather than a page.
+
+Two gotchas to design around before writing any of it: a defining SNV's frequency equals
+its allele's only when nothing else on the haplotype matters, and **a whole-gene deletion
+is invisible to gnomAD's SNV frequencies**, so `CYP2A6*4` (the 15-20% East Asian deletion
+that drives nicotine clearance) and CYP2D6's CNVs cannot be reached this way at all. An
+allele-frequency pass would therefore cover the SNV-defined alleles and have to say so.
+
 ### Receptor expression **density** (how much, not just where)
 
 Today a "Found in" region is a boolean: a receptor is in a region or it is not. So M5 reads as

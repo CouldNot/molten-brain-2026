@@ -477,6 +477,12 @@
         + "frequencies across study cohorts, not a prediction about any one person: "
         + "most groups contain every speed, and only a genetic test says which one "
         + "someone has.",
+      "enzyme.variabilityNone":
+        "No clearance-speed profile here, and the blank is not a claim that this "
+        + "isoform is uniform: sorting people into poor, normal and ultrarapid "
+        + "metabolizers needs an agreed genotype-to-phenotype table, which exists "
+        + "only for the genes carrying a dosing guideline. This one has none, so no "
+        + "atlas publishes the frequencies.",
       "enzymes.title": "Enzymes",
       "enzymes.hint": "The drug-metabolising enzymes (mostly liver cytochrome P450). Not part of the brain: this is pharmacokinetics, so selecting one changes nothing in the 3D view.",
       "drug.actsOn": "Acts on",
@@ -1160,6 +1166,13 @@
         + "Ce sont des fréquences observées dans des cohortes d'étude, pas une "
         + "prédiction pour une personne donnée : la plupart des groupes contiennent "
         + "toutes les vitesses, et seul un test génétique dit laquelle on a.",
+      "enzyme.variabilityNone":
+        "Pas de profil de vitesse d'élimination ici, et ce vide ne signifie pas que "
+        + "cette isoforme serait uniforme : répartir les personnes en métaboliseurs "
+        + "lents, normaux et ultrarapides exige une table génotype-phénotype "
+        + "reconnue, qui n'existe que pour les gènes dotés d'une recommandation de "
+        + "posologie. Celle-ci n'en a pas, donc aucun atlas n'en publie les "
+        + "fréquences.",
       "enzymes.title": "Enzymes",
       "enzymes.hint": "Les enzymes qui métabolisent les médicaments (surtout les cytochromes P450 du foie). Elles ne font pas partie du cerveau : c'est de la pharmacocinétique, donc en sélectionner une ne change rien à la vue 3D.",
       "drug.actsOn": "Agit sur",
