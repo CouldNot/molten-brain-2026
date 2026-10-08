@@ -1,14 +1,14 @@
 # Architecture
 
 A bird's-eye view of how neurarium is put together, for contributors. It explains
-the **shape of the system and the reasoning behind it**; it is intentionally not a
-line-by-line file reference.
+the **shape of the system and the reasoning behind it**; the per-file detail sits in
+the last section, File map (detail).
 
 > [!NOTE]
 > Four docs, four jobs, no overlap:
 > - **[README.md](../README.md)**: what neurarium is, how to run it, the project layout table.
 > - **This file**: the architecture, the data flow, the module graph, the boot
->   sequence, the extension points (the "why" and the "shape"). Bird's-eye only, no
+>   sequence, the extension points (the "why" and the "shape"), plus the per-file detail CLAUDE.md's file map points to. Otherwise bird's-eye, no
 >   field-level detail; when it would name a field or control it points at CLAUDE.md.
 > - **[CLAUDE.md](../CLAUDE.md)**: a terse map of the viewer/runtime (one line per module /
 >   control / rule), not a manual: it names the symbol so you can find the code.
@@ -276,3 +276,180 @@ terminating reverse proxy. Runtime config (analytics, the WIP banner) is injecte
 at container start by rendering `app-config.js` from environment variables, since
 the rootfs is read-only and there is no build step. Full details are in CLAUDE.md
 under "Deployment", "Analytics", "Content-Security-Policy", and "Dev / WIP banner".
+
+## File map (detail)
+
+The per-file detail behind CLAUDE.md's one-line file map. Section names cited as "see X" are CLAUDE.md sections (or the `docs/*.md` file CLAUDE.md points them to).
+
+**The `tools/` script reference and the emitted-data field contract (`public/data/` `.jsonl` / `meta.json` / `shapes/*.json` fields) live in [`tools/README.md`](../tools/README.md)** (Tool reference + Data contract). The generator layout is under Authoring above (plus the `genes` and `quote_table` modules of `tools/data_generators/`). Each geometry form is one `data/shapes/<name>.json` (`blob`/`curve`/`composite`, L/R pairs share one right-side file via `mirror:true`). The author-side scripts are grouped: external-data fetchers under `tools/fetch/`, provenance appliers under `tools/sourcing/`; their generated caches in `tools/generated_cache/`. Run them from the repo root (`python tools/fetch/<x>.py`).
+
+> [!NOTE]
+> An ongoing effort under `geometry_refinements/` (its own `CLAUDE.md` +
+> `STATUS.md`, auto-loaded only when working there) is replacing the procedural
+> blob/curve/composite shapes with a self-authored SDF atlas, one structure at a time. It
+> adds an `sdf` shape type. Before editing `data/shapes/*` or `shapes.js`
+> geometry, check its `STATUS.md` so two sessions don't collide.
+
+Viewer (`public/`):
+
+- `index.html`: page shell: loads three.js (vendored import map) and, on `?debug=1`, vendored
+  eruda. Holds the `#controls` panel, the popups (`#shortcuts-modal`, `#legend-modal`,
+  `#sourcing-modal`, `#about-modal`, `#image-lightbox`, all `.modal-overlay`), the `#banners`
+  stack, the startup `#loading` overlay. An author **byline** ("by Olivier Cornelis", linking
+  olicorne.org per locale via the shared `common.byline` i18n key) sits both in `#loading`
+  (`.loading-byline`) and inline in the panel header, right of the `neurarium` title
+  (`.panel-byline` in `#controls-header`, over an invisible full-row `.collapse-hit` button so a
+  row click still toggles the panel while the byline link stays clickable). UI-chrome accent = the `--accent*` palette in `:root`;
+  data/semantic colours live in `meta.json`, never here. Also wires the PWA: links
+  `manifest.webmanifest` + registers `sw.js`.
+- PWA (installable + offline): `manifest.webmanifest` (name/icons/`theme_color`), `sw.js`
+  (service worker that ALWAYS contacts the server when online, so a visitor never renders
+  outdated data or a stale ES module; the Cache-API copy is an offline-only fallback, NOT
+  stale-while-revalidate. One strategy for every same-origin asset (data, code, shell):
+  **explicit conditional revalidation** (`revalidate()` forwards the cached copy's
+  `ETag`/`Last-Modified` as `If-None-Match`/`If-Modified-Since` so an unchanged file returns a
+  bodyless `304` served from cache, a changed one a fresh `200`: always fresh, cheap when
+  unchanged, no version key to forget; `cache:"no-store"` on the fetch so OUR validator is the
+  only one in play, since a plain SW fetch re-downloads the full body). Revalidating code is
+  what keeps a stale ES module from running (each file is confirmed current before use) *without*
+  re-downloading ~1 MB every load, which is what made a phone reload crawl. Bump `CACHE` when the
+  caching logic changes; `activate()` prunes older caches), and
+  `favicon.svg` + `icon-192/512.png` +
+  `apple-touch-icon.png` (a **placeholder** node-cluster glyph, to be replaced by the designed
+  favicon). Caddy pins the content-type of `.webmanifest` and `.jsonl` (Go's mime table lacks
+  both, and `nosniff` then stops the browser guessing; `tools/serve.py` mirrors the `.jsonl` one).
+- SEO/social: static `<head>` meta (description, Open Graph, Twitter card, JSON-LD
+  `WebApplication`) + a `<noscript>` text fallback in `index.html`; `robots.txt` +
+  `sitemap.xml` + `og-image.png` (a copy of `docs/images/screenshot.png`) in `public/`.
+  All English (a crawler reads the raw HTML before i18n; no prerender step) and the
+  canonical / `og:url` / `og:image` / JSON-LD URLs are **hardcoded to the public domain**
+  (update all four spots + `sitemap.xml`/`robots.txt` if it ever changes).
+- `js/data.js`: fetches `meta.json` + the `.jsonl` (incl. `quotes.jsonl`) + shape files, rehydrates
+  each `{quote_id, provenance}` source from the deduplicated `quotes.jsonl` excerpt table
+  (`rehydrateQuotes`, mirror of the generator's externalize; see Source provenance); returns a normalized
+  `{structures, projections, circuits, projectionGroups, projectionGroupsByKey, receptors,
+  targets, drugs, drugsByTarget, addons, addonsBySlot, byId, meta}`. Resolves each node's localized fields + derived
+  render props (projection `color`/`sign`, receptor labels + `structureIds`, per-binding
+  `targetName`/`actionLabel`/`effect`/`effectColor`/`structureIds`/`flowKind` + the drug's union
+  `structureIds`/`flowKinds`/`focusable`/search `keywords`); builds the merged `targets` browse
+  list, the `drugsByTarget` + `targetsByStructure` reverse indexes (the latter reads a receptor's
+  "Found in" from the region's end, so a structure panel can list what is expressed there carrying
+  the very same graded node), and `projectionGroupsByKey` (`${mode}:${key}`).
+- `js/shapes.js`: `buildGeometry()` dispatches on type to `buildBlobGeometry`/
+  `buildCurveGeometry`/`buildCompositeGeometry`; `mirrorGeometryX` for the left member.
+  Self-contained Perlin `fractalNoise` (fBm/ridged/domain-warp). Cortical lobes are cel-shaded
+  (`MeshToonMaterial`) domes with a shader-drawn swirl (`injectCortexSwirl`/`CORTEX_SWIRL`, pure
+  colour, no relief). `buildBlobGeometry` honours `clip_planes` when `JIGSAW_CLIP.enabled`.
+- `js/mesh-codec.js` + `js/baked-meshes.js`: the SDF geometry is meshed author-side
+  (`tools/bake_meshes.mjs` -> `public/data/meshes/`) and downloaded rather than rebuilt on every
+  load; the runtime mesher stays as a `console.info`-logged fallback for any shape the bake does
+  not cover. Format, measurements + the staleness gates: [`docs/BAKED_MESHES.md`](BAKED_MESHES.md).
+- `js/arrows.js`: curved tube+cone arrows; colour from `projection.color`, recolourable via
+  `setColor`; `tentative` -> dotted. Exposes `arrow.curve`. Each end attaches to the surface point
+  *nearest the other end* (`surfaceToward`, a nearest-vertex scan) so the tip lands on real mass
+  even for a concave region (the C-shaped caudate). `update(fast)` re-fits; `fast` reuses the
+  cached offset + defers the pick-hull rebuild (see Spread performance), `ensurePickGeometry()`
+  rebuilds it on demand. `setWidthScale(s)` rebuilds only the shaft/cone width from the cached arc
+  (see Arrow width). `setOpacity` clamps to `ARROW_MAX_OPACITY` (0.8), so arrows are always a
+  translucent overlay.
+- `js/labels.js`: floating name labels (CSS2DRenderer): one hidden label per region, shown on
+  hover / show-all / when pinned (`setPinned`). Reads the hemisphere-stripped `base_name` (the
+  side is obvious from position).
+- `js/circuit-schedule.js`: `scheduleCircuit()` BFS firing order for the circuit
+  pulse (no three.js, testable; see Circuit animation).
+- `js/circuit-anim.js`: `createCircuitAnimation` renders that schedule as beads
+  riding `arrow.curve` + a wash echo on landing (see Circuit animation).
+- `js/receptor-markers.js`: `createReceptorMarkers`: gem-dot expression clouds for
+  a focused receptor/target. Exports `buildGemCloud` + `GEM_DOT_SIZE` (reused by
+  the drug animation). See Receptors & targets.
+- `js/drug-anim.js`: `createDrugAnimation`: per-drug effect-coloured gem dots +
+  surface wash; `matches`. Flow overlay reuses `circuit-anim.js`. See Drugs.
+- `js/surface-wash.js`: shared `buildWashShell` + `washStrength` "wash of light"
+  primitive (used by circuit echo + drug glow).
+- `js/anim-settings.js`: `animSettings`, the single source of truth for decorative-animation
+  state (read by every animated module): `enabled` (the **Animations** toggle) + `quality` (0..1
+  adaptive) + `speed` (persisted 0.25..4 speed multiplier, the **Animation speed** slider). See
+  Settings & toggles + Rendering (adaptive quality).
+- `js/wiki.js`: `fetchWikiLead(url, lang)` runtime fetch of a Wikipedia lead; locale wins via
+  langlinks, English fallback; cached; best-effort (failure -> null).
+- `js/tour.js`: `createTour({steps, labels, onEnd, seenKey})`, a generic, three.js-free coach-mark
+  engine (spotlight ring / caption bubble, viewport-aware placement that never covers the target or
+  the 3D scene, resize/scroll reposition, localStorage "seen" gate). The bubble is **drag-repositionable**
+  (pointer-drag past a small jitter threshold; a dragged bubble opts out of auto-placement for the step)
+  and layered **above any `veil`** so it is never itself dimmed. There is **no Next button** (only
+  Back + Skip + Esc): the user advances by acting on the step, so they cannot fast-forward past a
+  hands-on demo. A step is passive/caption (a "click to continue" cue in the bubble, and a click on the
+  dim backdrop, advance it) or **`interactive`** (the blocker gets a clip-path click-through hole so the
+  user's real tap reaches the highlighted control; the cue is hidden and every off-target click + the
+  forward keys are inert, so the only way on is the real tap). An interactive step advances on that tap,
+  or with **`stayAfterTap`** stays put and steps its spotlight aside so the live demo it fired is
+  watchable (the cue then returns to move on). A step's `target` may be one element or an **array** (a group highlight: the ring spans
+  their union, e.g. the four browse sections). Steps glide between positions (snap only on the first
+  step + during an active scroll). The app-specific step list is built in `js/main.js`. It opens with
+  how to *read* the app (Legend, then Sources & provenance, then the **Data browser** those grades
+  count, whose reading mode motivates the two view toggles: bring the 3D back, fold the panel away),
+  then walks the data; the data demos
+  are hands-on and follow the data graph (focus a **drug** (olanzapine), read its pharmacodynamics then
+  its pharmacokinetics (**Metabolism**, then open the collapsed **Drug interactions**), follow one of its
+  bindings to a **receptor** (H1), then visit a **structure** (hippocampus) and a **projection system**
+  (dopamine, a static group, not a circuit); each opened by tapping the highlighted row via its
+  `data-tour-id`, each panel section reached via its `data-tour-sec`),
+  each step's `before()` setting the scene (spread, open/collapse a section, reset a prior demo).
+  Auto-runs once on a first visit (after the intro settles), forced every load with `?tour=1`, and
+  replayed from the About popup's "See the tutorial" button (`#about-tour`).
+- `js/changelog.js`: `createChangelog()`, the "What's new" popup (`#changelog-modal`). See
+  Versioning / Changelog.
+- `js/main.js`: scene/camera/renderer/lights/OrbitControls; explode + transparency; the intro,
+  auto-rotate, hover/pick raycasting; `createInfoPanel`; search; the legend builders
+  (`buildLegend`/`buildLegendKey`/`buildTargetLegend`/`buildEnzymeLegend`/`buildDrugLegend`); the
+  on-demand render loop.
+- `app-config.js`: `window.__APP_CONFIG__`. This committed copy is the local-dev
+  fallback (feature fields empty). In the container `entrypoint.sh` renders an
+  env-filled copy into `/gen` and Caddy serves that. Generic name (not
+  "analytics-*") so content filters don't 404 it. Carries `ANALYTICS_*`, `DEV`,
+  `STARTED_AT`, `sourceUrl`.
+- Single-purpose modules, each detailed in its own section below: `js/i18n.js` (I18n),
+  `js/app-init.js` (Analytics), `js/dev-banner.js` (Dev banner), `js/error-banner.js` (Error
+  banners), `js/theme.js` (Theme), `js/loading.js` `createLoadingScreen()` (Loading overlay), `version.js`
+  `window.__APP_VERSION__` (Versioning), `js/render-order.js` `DECOR_RENDER_ORDER`
+  (Rendering / decoration draw order).
+- `js/node-browser.js`: `collectNodes` + `createNodeBrowser`, the Data browser (`#nodes`): every
+  graded knowledge node as one filterable/sortable list, opened as a **detail tab** (deep link
+  `#tabs=browser:1`) rather than an accordion section, each row carrying its own backing so its pill
+  shows the same source the node's panel pill does (see [`docs/CONTROLS.md`](CONTROLS.md)).
+- `js/sim-model.js`: the drug-combination maths (pure, no DOM): `receptorProfile`, `ligandsOf`,
+  `pkFlags`, `solveCombination` (NNLS), the `toAxis`/`fromAxis` log axis. Its header lists every
+  shortcut it takes; see Simulation (beta). Tested by `tools/tests/sim_model.test.mjs`.
+- `js/simulation.js`: `createSimulation`, the Simulation (beta) tab (`#simulation`): the
+  assumptions callout, the picked-drug list, the two plots and the profile solver, opened as a
+  **detail tab** (deep link `#tabs=simulation:1`) like the Data browser.
+- `js/sim-plots.js`: `buildPkPlot` / `buildRxPlot` (+ `formatKi`), the tab's two inline-SVG plots,
+  given rows and returning an `<svg>` plus the readers a pointer needs.
+- `js/url-state.js`: `createUrlState()`, the `key -> {read, write}` registry that makes the URL
+  fragment a complete description of the UI (open tabs + their order, active tab, popup, sliders,
+  toggles, panel layout, open section, search + filter text, camera). Each control registers its
+  own pair as it is wired; a view at its default writes nothing and a missing key is never written,
+  so links stay short and never override a visitor's persisted preference. Keys +
+  the older `#focus*` aliases in [`docs/RUNNING.md`](RUNNING.md).
+- `js/prefs.js`: `loadFlag(key, dflt)` / `saveFlag(key, on)`, the only place a persisted
+  on/off preference touches `localStorage` (panel-only mode, show-metabolites, show-twins;
+  storage throws in private mode, so a read falls back to the default and a write is
+  best-effort). `anim-settings.js` keeps its own, persisting a number beside its flag.
+
+Deployment (`docker/`): `docker-compose.yml` (hardened Caddy), `Dockerfile`
+(two-stage: `xcaddy build`s a custom binary with the `caddy-ratelimit` module,
+so `docker compose build` needs network; then strips caddy's
+`cap_net_bind_service` so `exec` works under `no-new-privileges`),
+`Caddyfile` (serves `/srv` on `:8359`, serves `/gen/app-config.js` for
+`/app-config.js`, `Cache-Control: no-cache` on everything (store but always revalidate ->
+cheap `304`s, never stale, and never a heuristically-cached module); `encode` compresses by an
+**explicit** content-type list, since Caddy's default omits the baked meshes' octet-stream (so a
+NEW kind of asset ships uncompressed until its type is added there); a generous per-`{client_ip}` `rate_limit`
+flood guard, keyed via the front proxy's `X-Forwarded-For`/`trusted_proxies`;
+security headers incl. CSP),
+`env.example`, `entrypoint.sh` (stamps `STARTED_AT`, validates `ANALYTICS_URL`,
+derives `ANALYTICS_ORIGIN`, renders `/gen/app-config.js`).
+
+Uncommitted, gitignored, environment-specific: `deploy.sh`, `CLAUDE.local.md`
+(per-developer setup notes, incl. the deploy procedure and the Stahl source
+material location).
