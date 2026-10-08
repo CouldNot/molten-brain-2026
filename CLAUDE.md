@@ -56,81 +56,22 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 
 ## Nodes (the sourceable-datum model)
 
-**A *node* is any sourceable datum**, one atom of brain knowledge attributable to a
-source; the dataset is a graph of nodes and a detail panel is a view of one node plus
-every node linked to it. The concept, the umbrella-vs-kind distinction, and the coverage
-tally are narrated in [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) ("The node model"); this file
-keeps only the kind map below and the grading rules under Source provenance. New data is a
-node, and **every node must be sourceable** so the coverage tally stays honest.
+**A *node* is any sourceable datum** (one atom of brain knowledge); a detail panel views one node plus every node linked to it. New data is a node, and **every node must be sourceable** so the coverage tally stays honest. Concept, full kind map with rationale, and tally: [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) ("The node model"); grades + source shape: Source provenance.
 
 > [!IMPORTANT]
-> "Node" is the umbrella term; the per-kind names (structure, projection, circuit,
-> receptor, drug, binding, target, ...) are **node kinds** and keep their names in the data
-> files + code (a `structures.jsonl`, a `showReceptor`). Don't rename the collections to
-> "node": that erases the distinction the graph needs.
+> "Node" is the umbrella term; structure, projection, receptor, drug, binding, target, ... are **node kinds** and keep their names in data files + code (`structures.jsonl`, `showReceptor`). Never rename collections to "node".
 
-**Node kinds and where each lives** (the emitted collection -> the sourcing-tally kind
-in `meta.provenance_stats.by_kind`):
-- brain region -> `structures.jsonl` -> `structures`
-- projection (pathway) -> `projections.jsonl` -> `projections` (the route only), split from
-  the two claims that ride the same arrow: its *transmitter* -> a projection's
-  `claims.transmitter` -> `projection_transmitter` (on every pathway) and its *sign*
-  (excit./inhib.) -> `claims.sign` -> `projection_sign` (on the glutamate/GABA arrows only:
-  "modulatory" is the ABSENCE of a sign claim, not a third value). Each is graded by a closed
-  word test over the arrow's own quotes (derived, `quotes/attestation.py`), so a sentence that
-  only states the route no longer green-checks what it releases
-- functional circuit -> `circuits.jsonl` -> `circuits`
-- projection group -> `projection_groups.jsonl` -> `projection_groups`
-- receptor classification -> `receptors.jsonl`, split into four independent graded
-  sub-claims: neurotransmitter `family` -> `receptors`; mechanism `receptor_class` (GPCR/ionotropic)
-  -> `receptor_class`; `sign` (excit./inhib.) -> `receptor_sign`; `synaptic` site (pre/post) ->
-  `receptor_synaptic` (a receptor's `classification[attr]` each carry their own grade)
-- receptor *expression region* -> a receptor's `location_sources` -> `receptor_locations`
-- receptor *expression density profile* -> a receptor's `density` -> `receptor_density` (ONE
-  node for the whole profile, not one per region: it is a single measurement ranking the
-  receptor's regions against each other, see Expression density)
-- non-receptor drug target -> `meta.drug_targets` -> `targets`
-- target *tone polarity* (a direction-flipping `vesicular`/`sign`/`synaptic` flag) -> a target's `polarity_provenance` -> `target_polarity`
-- target *expression region* -> a target's `location_sources` -> `target_locations`
-- target *expression density profile* -> a target's `density` -> `target_density` (same shape)
-- drug binding -> a drug's `bindings[]` -> `drug_bindings`
-- drug binding direction -> a binding's `action` -> `drug_binding_action` (graded by the
-  binding's quote sources only, a Ki attests binding never direction; `affinity_only` =
-  NOSOURCE; metabolite bindings counted in this same kind)
-- drug NbN label -> a drug's `nbn` -> `drug_nbn`
-- drug commercial brand name -> a drug's `brands[]` -> `drug_brands` (each brand a graded
-  node; `region` na/eu/fr orders them per locale, never shown; na from Stahl, eu/fr from Wikipedia)
-- drug class classification -> a drug's `categories` (+ `category_provenance`) -> `drug_categories`
-- drug elimination half-life (T½) -> a drug's `half_life` (+ `half_life_sources`) -> `drug_half_life`
-- drug time-to-peak (Tmax) -> a drug's `tmax` (+ `tmax_sources`) -> `drug_tmax` (the other end of the same
-  curve as the T½ above, separately sourced and separately missing, so a separate kind)
-- drug metabolism role -> a drug's `enzymes[]` (`{enzyme, role, strength?}`) -> `drug_enzymes`
-  (one node per (enzyme, role) pair; pharmacokinetics, so it has no anatomy, see Drug metabolism)
-- drug metabolism **strength tier** -> that row's `claims.strength` -> `drug_enzyme_strength`
-  (only on a row that states a tier; the CYP quote gate checks the isoform is named, never the
-  tier, so it is graded by the same word test the pathway claims use, `quotes/attestation.py`)
-- enzyme population variability -> an enzyme's `variability` -> `enzyme_variability` (ONE node
-  per isoform for the whole profile, not one per population group, for the same reason a density
-  profile is one node: a single published aggregation ranking the groups against each other)
-- drug active metabolite -> a drug's `metabolites[]` (each `{name, drug_id?, half_life?,
-  bindings?, formed_by?, sources}`) -> `drug_metabolites` (a metabolite that is itself a modeled
-  drug links via `drug_id` + reuses its bindings/T½)
-- metabolite-forming enzyme -> a metabolite's `formed_by[]` (`{enzyme, reaction?, sources}`) ->
-  `drug_metabolite_enzyme` (one node per (parent, metabolite, enzyme); the mirror of
-  `drug_enzymes`, counted per PARENT since two parents make it by two reactions)
-- non-modeled-metabolite receptor binding -> a metabolite's `bindings[]` -> `drug_metabolite_bindings`
-  (sourced from the metabolite's own Wikipedia pharmacology, corpus #9; graded like a drug binding,
-  a separate kind so the drug Ki coverage is unperturbed; surfaces on the receptor's Interacting drugs)
-- panel annotation -> `addons.jsonl` -> `addons` (an **addon node**: the kind whose record
-  carries its own insertion point, for a claim no other kind has a home for. `owner_kind` +
-  `owner` name the node it annotates, `slot` a `meta.addon_slots` hook, `display`/`tone` how it
-  draws; authored in `tools/data_generators/addons.py`, see Addon nodes)
-- Wikipedia reference -> any node's `wikipedia` -> `references` (a pointer *at* a node,
-  tallied but excluded from the headline; a reference is not itself a knowledge node)
-
-**The node sourcing contract.** Every node carries a provenance **grade** and, ideally, a
-**source**. The grades, the single source shape, the sourceless case, and the tally +
-headline % maths are all defined once under Source provenance; don't restate them here.
+**Kinds** (node -> where it lives -> tally kind in `meta.provenance_stats.by_kind`):
+- region `structures.jsonl` -> `structures`; circuit `circuits.jsonl` -> `circuits`; projection group `projection_groups.jsonl` -> `projection_groups`
+- projection `projections.jsonl` -> `projections` (route only) + `claims.transmitter` -> `projection_transmitter` + `claims.sign` -> `projection_sign` (glutamate/GABA only: "modulatory" is the ABSENCE of a sign claim, not a third value)
+- receptor `receptors.jsonl` classification, four graded sub-claims: `family` -> `receptors`, `receptor_class`, `sign` -> `receptor_sign`, `synaptic` -> `receptor_synaptic`
+- target `meta.drug_targets` -> `targets`; `polarity_provenance` -> `target_polarity`
+- expression: `location_sources` -> `receptor_locations` / `target_locations`; `density` -> `receptor_density` / `target_density` (ONE node per profile, not per region)
+- drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
+- drug `nbn` -> `drug_nbn`; `brands[]` -> `drug_brands`; `categories` -> `drug_categories`; `half_life` / `tmax` -> `drug_half_life` / `drug_tmax`
+- metabolism: `enzymes[]` -> `drug_enzymes` (per (enzyme, role)); `claims.strength` -> `drug_enzyme_strength`; enzyme `variability` -> `enzyme_variability` (ONE node per isoform, not per population group)
+- metabolites: `metabolites[]` -> `drug_metabolites`; `formed_by[]` -> `drug_metabolite_enzyme`; `bindings[]` -> `drug_metabolite_bindings`
+- `addons.jsonl` -> `addons` (see Addon nodes); `wikipedia` -> `references` (tallied but excluded from the headline: a pointer at a node, not knowledge)
 
 ## Architecture
 

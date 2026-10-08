@@ -52,8 +52,35 @@ the region nodes that express it and the drug nodes that act on it, and so on).
 keeps its own name in the data and code (a `structures.jsonl`, a `showReceptor`):
 region anatomy, projection, circuit, projection group, receptor + its expression
 regions, drug target + its expression regions, drug binding, drug NbN, drug class,
-Wikipedia reference. The full kind → collection → tally-key mapping is in CLAUDE.md
-("Nodes"); it is not repeated here.
+Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the full map with its rationale is below.
+
+**The full kind map** (the emitted collection -> the sourcing-tally kind in `meta.provenance_stats.by_kind`):
+- brain region -> `structures.jsonl` -> `structures`
+- projection (pathway) -> `projections.jsonl` -> `projections` (the route only), split from the two claims that ride the same arrow: its *transmitter* -> a projection's `claims.transmitter` -> `projection_transmitter` (on every pathway) and its *sign* (excit./inhib.) -> `claims.sign` -> `projection_sign` (on the glutamate/GABA arrows only: "modulatory" is the ABSENCE of a sign claim, not a third value). Each is graded by a closed word test over the arrow's own quotes (derived, `quotes/attestation.py`), so a sentence that only states the route no longer green-checks what it releases
+- functional circuit -> `circuits.jsonl` -> `circuits`
+- projection group -> `projection_groups.jsonl` -> `projection_groups`
+- receptor classification -> `receptors.jsonl`, split into four independent graded sub-claims: neurotransmitter `family` -> `receptors`; mechanism `receptor_class` (GPCR/ionotropic) -> `receptor_class`; `sign` (excit./inhib.) -> `receptor_sign`; `synaptic` site (pre/post) -> `receptor_synaptic` (a receptor's `classification[attr]` each carry their own grade)
+- receptor *expression region* -> a receptor's `location_sources` -> `receptor_locations`
+- receptor *expression density profile* -> a receptor's `density` -> `receptor_density` (ONE node for the whole profile, not one per region: it is a single measurement ranking the receptor's regions against each other, see Expression density in VIEWER.md)
+- non-receptor drug target -> `meta.drug_targets` -> `targets`
+- target *tone polarity* (a direction-flipping `vesicular`/`sign`/`synaptic` flag) -> a target's `polarity_provenance` -> `target_polarity`
+- target *expression region* -> a target's `location_sources` -> `target_locations`
+- target *expression density profile* -> a target's `density` -> `target_density` (same shape)
+- drug binding -> a drug's `bindings[]` -> `drug_bindings`
+- drug binding direction -> a binding's `action` -> `drug_binding_action` (graded by the binding's quote sources only, a Ki attests binding never direction; `affinity_only` = NOSOURCE; metabolite bindings counted in this same kind)
+- drug NbN label -> a drug's `nbn` -> `drug_nbn`
+- drug commercial brand name -> a drug's `brands[]` -> `drug_brands` (each brand a graded node; `region` na/eu/fr orders them per locale, never shown; na from Stahl, eu/fr from Wikipedia)
+- drug class classification -> a drug's `categories` (+ `category_provenance`) -> `drug_categories`
+- drug elimination half-life (T½) -> a drug's `half_life` (+ `half_life_sources`) -> `drug_half_life`
+- drug time-to-peak (Tmax) -> a drug's `tmax` (+ `tmax_sources`) -> `drug_tmax` (the other end of the same curve as the T½ above, separately sourced and separately missing, so a separate kind)
+- drug metabolism role -> a drug's `enzymes[]` (`{enzyme, role, strength?}`) -> `drug_enzymes` (one node per (enzyme, role) pair; pharmacokinetics, so it has no anatomy, see Drug metabolism in DRUGS.md)
+- drug metabolism **strength tier** -> that row's `claims.strength` -> `drug_enzyme_strength` (only on a row that states a tier; the CYP quote gate checks the isoform is named, never the tier, so it is graded by the same word test the pathway claims use, `quotes/attestation.py`)
+- enzyme population variability -> an enzyme's `variability` -> `enzyme_variability` (ONE node per isoform for the whole profile, not one per population group, for the same reason a density profile is one node: a single published aggregation ranking the groups against each other)
+- drug active metabolite -> a drug's `metabolites[]` (each `{name, drug_id?, half_life?, bindings?, formed_by?, sources}`) -> `drug_metabolites` (a metabolite that is itself a modeled drug links via `drug_id` + reuses its bindings/T½)
+- metabolite-forming enzyme -> a metabolite's `formed_by[]` (`{enzyme, reaction?, sources}`) -> `drug_metabolite_enzyme` (one node per (parent, metabolite, enzyme); the mirror of `drug_enzymes`, counted per PARENT since two parents make it by two reactions)
+- non-modeled-metabolite receptor binding -> a metabolite's `bindings[]` -> `drug_metabolite_bindings` (sourced from the metabolite's own Wikipedia pharmacology, corpus #9; graded like a drug binding, a separate kind so the drug Ki coverage is unperturbed; surfaces on the receptor's Interacting drugs)
+- panel annotation -> `addons.jsonl` -> `addons` (an **addon node**: the kind whose record carries its own insertion point, for a claim no other kind has a home for. `owner_kind` + `owner` name the node it annotates, `slot` a `meta.addon_slots` hook, `display`/`tone` how it draws; authored in `tools/data_generators/addons.py`, see Addon nodes in VIEWER.md)
+- Wikipedia reference -> any node's `wikipedia` -> `references` (a pointer *at* a node, tallied but excluded from the headline; a reference is not itself a knowledge node)
 
 **Every node is sourceable.** Each carries a provenance **grade** (`llm` < `sourced`
 < `verified`) and, ideally, a **source**: one quote-level `{corpus, page, quote,
@@ -70,7 +97,7 @@ an LLM asserting something from memory is precisely *no document*). It emits
 `meta.provenance_stats`; the About panel and the README headline read it, so the
 "% sourced" figure is always a real programmatic count of the shipped data, never
 hand-typed. `check_data.py` re-derives the same numbers as a self-consistency gate.
-Full mechanics live in CLAUDE.md ("Nodes") + [`PROVENANCE.md`](PROVENANCE.md).
+Full mechanics live in [`PROVENANCE.md`](PROVENANCE.md).
 
 ## The three layers
 
