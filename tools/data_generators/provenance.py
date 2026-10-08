@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from . import pharmfreq
+from . import cpic, pharmfreq
 
 # ---------------------------------------------------------------------------
 # Source provenance grades. Every source / reference the viewer shows carries a
@@ -316,6 +316,47 @@ def _merge_enzyme_variability() -> None:
     ENZYME_VARIABILITY_PINS.update(pins)
 
 
+# Machine-written CPIC prescribing guidance: ``{drug id: [{"gene", "enzyme", "level",
+# "guideline", "rows": [...]}]}``. One node per (drug, gene, phenotype) row (kind
+# ``drug_pgx``), carrying two citations rather than splitting in two, because CPIC's
+# implication and its recommendation are two sentences backing one claim. Written by
+# ``tools/fetch/fetch_cpic.py`` (corpus #15); empty when that file is absent, in which
+# case no drug carries guidance.
+CPIC_GUIDANCE: dict[str, list[dict[str, Any]]] = {}
+
+
+# ``{file name: sha256}`` for the committed CPIC export the cache above was built from,
+# emitted onto the corpus record so `check_data.py` can re-derive every row from it.
+CPIC_GUIDANCE_PINS: dict[str, str] = {}
+
+
+def _merge_cpic_guidance() -> None:
+    """Merge ``tools/generated_cache/cpic_guidance.json`` into the registry above.
+
+    Same bargain as the PharmFreq merge above: the export is committed, so the pin can
+    be cashed in here and a drifted recommendation is a generation-time failure rather
+    than clinical text nobody can trace to a guideline.
+    """
+    src = Path(__file__).resolve().parent.parent / "generated_cache" / "cpic_guidance.json"
+    if not src.exists():
+        return
+    cache = json.loads(src.read_text(encoding="utf-8"))
+    CPIC_GUIDANCE.update(cache.get("guidance") or {})
+    pins = cache.get("export_sha256") or {}
+    root = Path(__file__).resolve().parent.parent.parent
+    for name, want in sorted(pins.items()):
+        path = root / Path(cpic.EXPORT_DIR) / name
+        if not path.exists():
+            raise ValueError(f"cpic_guidance.json pins {name}, which is not in "
+                             f"{cpic.EXPORT_DIR}: re-run tools/fetch/fetch_cpic.py")
+        got = pharmfreq.sha256(str(path))
+        if got != want:
+            raise ValueError(f"{cpic.EXPORT_DIR}/{name} has changed since the CPIC "
+                             f"guidance cache was built ({got[:12]} != {want[:12]}): "
+                             f"re-run tools/fetch/fetch_cpic.py")
+    CPIC_GUIDANCE_PINS.update(pins)
+
+
 # Machine-written *classification* sources, the mechanism counterpart of the location
 # registries above. A receptor's classification is four independent graded sub-claims,
 # so this is keyed per attribute: ``{receptor_id: {attr: [source, ...]}}`` for
@@ -372,6 +413,7 @@ def _merge_external_location_sources() -> None:
 _merge_external_location_sources()
 _merge_external_density()
 _merge_enzyme_variability()
+_merge_cpic_guidance()
 _merge_external_classification_sources()
 
 
@@ -721,6 +763,35 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
                     "dailymed.nlm.nih.gov (label set id pinned per citation).",
         "url": "https://dailymed.nlm.nih.gov/",
         "pages_dir": "data_sources/dailymed/pages",
+    },
+    "cpic": {
+        # Pharmacogenomic guidance corpus #15: what a metabolizer phenotype *means* for
+        # one prescription. The third layer over #13 (how common each clearance speed
+        # is) and the enzyme nodes (which isoform clears the drug), and the only corpus
+        # here that states a clinical action rather than a fact about a molecule.
+        # tools/fetch/fetch_cpic.py pulls CPIC's structured recommendation rows for the
+        # gene-drug pairs this roster covers; `page` is the guideline's ClinPGx id, so a
+        # citation resolves to clinpgx.org/guideline/<page>. Two quotes per node (the
+        # implication, then the recommendation): one claim, two sentences, both CPIC's
+        # own words. Deterministic, no judge, `extraction: "code"`.
+        # Committed with the repo like #13 (CC0 content, 64 KB) and pinned by sha256
+        # instead of kept author-side, so the gate runs on every clone; unlike #13 the
+        # quote is not one we compose, so it is checked verbatim against the export.
+        # Scope limits that are gaps in the source, not judgements: only genes with a
+        # metabolizer-frequency profile here (so HLA-B with carbamazepine, SCN1A, and
+        # the urea-cycle genes with valproate are out), only CPIC's `general`/`adults`/
+        # treatment-naive populations, and only phenotypes a frequency exists for.
+        # Licence: CPIC curated content is CC0 1.0; the citation below carries the
+        # attribution CPIC's terms ask of an API consumer (primary source, guideline
+        # publication, version, date accessed).
+        "ref": "CPIC, clinical pharmacogenetics dosing guideline",
+        "citation": "Clinical Pharmacogenetics Implementation Consortium (CPIC®). "
+                    "Gene-drug recommendation, cited guideline. clinpgx.org (CC0 1.0); "
+                    "guideline content is subject to update, so the export is dated.",
+        "url": "https://cpicpgx.org/",
+        "tsv_dir": cpic.EXPORT_DIR,
+        "export_sha256": dict(CPIC_GUIDANCE_PINS),
+        "machine": True,
     },
 }
 
@@ -1144,6 +1215,14 @@ def _provenance_stats(structures: list[dict[str, Any]],
     enzyme_strength_grades = [entry["grade"] for d in drugs
                               for e in d.get("enzymes", [])
                               if (entry := (e.get("claims") or {}).get("strength"))]
+    # CPIC prescribing guidance (corpus #15), one node per (drug, gene, phenotype) row.
+    # Its own kind, not a sub-claim of the enzyme row above, because it is a different
+    # kind of statement: the enzyme row says who clears the drug, this says what a
+    # person who clears it slowly should expect. Two citations per node (implication,
+    # recommendation), so the grade is the strongest of the two, as everywhere else.
+    pgx_grades = [_strongest_grade(r.get("sources"))
+                  for d in drugs for block in d.get("pgx", [])
+                  for r in block.get("rows", [])]
     # Active-metabolite identity nodes ("<name> is an active metabolite of <drug>"),
     # one per authored metabolite across all drugs, graded by that metabolite's own
     # sources (the Stahl line naming it). The metabolite's optional T½ is an extra
@@ -1313,6 +1392,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_tmax": tally(tmax_grades),
         "drug_enzymes": tally(enzyme_grades),
         "drug_enzyme_strength": tally(enzyme_strength_grades),
+        "drug_pgx": tally(pgx_grades),
         "drug_metabolites": tally(metabolite_grades),
         "drug_metabolite_enzyme": tally(metabolite_enzyme_grades),
         "drug_metabolite_bindings": tally(metabolite_binding_grades),

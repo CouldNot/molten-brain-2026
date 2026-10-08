@@ -120,6 +120,8 @@ from data_generators.drugs import (  # noqa: E402
 # binding / Ki source validators live in data_generators.provenance.
 # ---------------------------------------------------------------------------
 from data_generators.provenance import (  # noqa: E402
+    CPIC_GUIDANCE,
+    ENZYME_VARIABILITY,
     DEFAULT_PROVENANCE,
     DENSITY_MIN_RELIABILITY,
     DRUG_CATEGORY_PROVENANCE,
@@ -1072,6 +1074,58 @@ def _drug_enzymes(drug_id: str, rows: Any) -> list[dict[str, Any]]:
     return out
 
 
+def _drug_pgx(drug_id: str) -> list[dict[str, Any]]:
+    """Validate + normalize a drug's CPIC guidance blocks (corpus #15).
+
+    One node per (gene, phenotype) row, kind ``drug_pgx``, each carrying **two**
+    citations: CPIC's implication sentence and CPIC's recommendation sentence. Two
+    quotes, one claim, so it stays one node (see ``data_generators/cpic.py``).
+
+    Validation only, like :func:`_drug_enzymes`: the rows come from the committed
+    export that ``tools/fetch/fetch_cpic.py`` writes, so a bad row is a bug there.
+    The gene must map to an enzyme this dataset models, because the panel pairs each
+    row with that enzyme's population frequencies, and a row whose frequency table is
+    missing would publish "how common is this?" with no answer.
+    """
+    out: list[dict[str, Any]] = []
+    for block in CPIC_GUIDANCE.get(drug_id) or []:
+        enzyme = block.get("enzyme")
+        label = f"Drug {drug_id!r} CPIC guidance {block.get('gene')!r}"
+        if enzyme not in ENZYMES:
+            raise ValueError(f"{label}: unknown enzyme {enzyme!r} (see ENZYMES)")
+        if enzyme not in ENZYME_VARIABILITY:
+            raise ValueError(f"{label}: {enzyme} carries no metabolizer-frequency "
+                             f"profile, so a phenotype row has no base rate to show")
+        rows: list[dict[str, Any]] = []
+        for row in block.get("rows") or []:
+            phenotype = row.get("phenotype")
+            if phenotype not in METABOLIZER_PHENOTYPES:
+                raise ValueError(f"{label}: unknown phenotype {phenotype!r}")
+            rec: dict[str, Any] = {
+                "phenotype": phenotype,
+                "implication": row["implication"],
+                "recommendation": row["recommendation"],
+                "classification": row["classification"],
+            }
+            if row.get("assumes"):
+                rec["assumes"] = row["assumes"]
+            rec["sources"] = _quote_sources(row.get("sources"),
+                                            what=f"{label} {phenotype}")
+            rows.append(rec)
+        if not rows:
+            continue
+        rec_block: dict[str, Any] = {"gene": block["gene"], "enzyme": enzyme,
+                                     "level": block["level"],
+                                     "guideline": block["guideline"]}
+        if block.get("population"):
+            # Already an {en, fr} pair from cpic.POPULATION_LABELS, so it goes
+            # straight to the externalize pass rather than through _t().
+            rec_block["population"] = block["population"]
+        rec_block["rows"] = rows
+        out.append(rec_block)
+    return out
+
+
 def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
     """The committed CYP-role caches merged, drug id -> its enzyme rows.
 
@@ -1236,6 +1290,15 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     enzymes = _drug_enzymes(drug["id"], enzyme_rows.get(drug["id"]))
     if enzymes:
         out["enzymes"] = enzymes
+    # CPIC's prescribing guidance for this drug, one node per (gene, phenotype) row
+    # (kind `drug_pgx`). The one place this dataset carries a clinical action rather
+    # than a fact about a molecule, which is why it is confined to what CPIC itself
+    # publishes: machine-copied from the committed export by fetch_cpic.py, never
+    # composed here. Pairs with the enzyme's population frequencies (corpus #13) in
+    # the panel, so the reader sees how likely the phenotype is beside what it means.
+    pgx = _drug_pgx(drug["id"])
+    if pgx:
+        out["pgx"] = pgx
     # Drug descriptions are intentionally NOT baked: the panel fetches the current
     # Wikipedia lead at runtime (js/wiki.js), exactly like a structure/target, so the
     # text stays up to date and the dataset ships no copyrighted prose. A drug whose

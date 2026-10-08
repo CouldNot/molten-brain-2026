@@ -1,0 +1,2792 @@
+{
+ "export_sha256": {
+  "cpic_recommendations.json": "961aaf617aadc612869f3976b661d4e1002e19faa1ab630e8d0140c11b149f7b"
+ },
+ "guidance": {
+  "amitriptyline": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid amitriptyline use. If amitripyline is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid amitriptyline use. If amitripyline is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Reduced metabolism of tertiary amines compared to normal metabolizers",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of tertiary amines",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of tertiary amines"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "RM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If amitriptyline is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If amitriptyline is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "UM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If amitriptyline is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If amitriptyline is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid amitriptyline use. If a amitripyline is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid amitriptyline use. If a amitripyline is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of TCAs",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of TCAs"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+      "phenotype": "UM",
+      "recommendation": "Avoid amitriptyline use; If amitriptyline is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid amitriptyline use; If amitriptyline is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "atomoxetine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251459",
+     "name": "CYP2D6 and Atomoxetine",
+     "url": "https://www.clinpgx.org/guideline/PA166251459"
+    },
+    "level": "A",
+    "population": {
+     "en": "adults",
+     "fr": "adultes"
+    },
+    "rows": [
+     {
+      "classification": "Moderate",
+      "implication": "Significantly decreased metabolism of atomoxetine may result in higher concentrations as compared to non-poor metabolizers. This may increase the occurrence of treatment-emergent side effects, but also a greater improvement of ADHD symptoms as compared to non-poor metabolizers in those who tolerate treatment. Poor metabolizer status is associated with lower final dose requirements as compared to non-poor metabolizers.",
+      "phenotype": "PM",
+      "recommendation": "Initiate with a dose of 40 mg/day and if no clinical response and in the absence of adverse events after 2 weeks increase dose to 80 mg/day. If response is inadequate after 2 weeks, consider obtaining a plasma concentration 2 to 4 hours after dosing. If concentration is <200 ng/mL, consider a proportional dose increase to achieve a concentration to approach 400 ng/mL. If unacceptable side effects are present at any time, consider a reduction in dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Significantly decreased metabolism of atomoxetine may result in higher concentrations as compared to non-poor metabolizers. This may increase the occurrence of treatment-emergent side effects, but also a greater improvement of ADHD symptoms as compared to non-poor metabolizers in those who tolerate treatment. Poor metabolizer status is associated with lower final dose requirements as compared to non-poor metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Initiate with a dose of 40 mg/day and if no clinical response and in the absence of adverse events after 2 weeks increase dose to 80 mg/day. If response is inadequate after 2 weeks, consider obtaining a plasma concentration 2 to 4 hours after dosing. If concentration is <200 ng/mL, consider a proportional dose increase to achieve a concentration to approach 400 ng/mL. If unacceptable side effects are present at any time, consider a reduction in dose."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers.",
+      "phenotype": "IM",
+      "recommendation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Possibly higher atomoxetine concentrations as compared to normal metabolizers but questionable clinical significance. Intermediate metabolizers with an activity score of 1 may be at an increased risk of discontinuation as compared to poor metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Normal metabolizers of atomoxetine have a lower likelihood of response as compared to poor metabolizers. This is associated with increased discontinuation due to lack of efficacy as compared to poor metabolizers.",
+      "phenotype": "NM",
+      "recommendation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Normal metabolizers of atomoxetine have a lower likelihood of response as compared to poor metabolizers. This is associated with increased discontinuation due to lack of efficacy as compared to poor metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Based on very limited data available for CYP2D6 ultrarapid metabolizers taking atomoxetine, it is unlikely ultrarapid metabolizers would achieve adequate serum concentrations for the intended effect at standard dosing.",
+      "phenotype": "UM",
+      "recommendation": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Based on very limited data available for CYP2D6 ultrarapid metabolizers taking atomoxetine, it is unlikely ultrarapid metabolizers would achieve adequate serum concentrations for the intended effect at standard dosing."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251459",
+        "provenance": "verified",
+        "quote": "Initiate with a dose of 40 mg/day and increase to 80 mg/day after 3 days. If no clinical response and in the absence of adverse events after 2 weeks, consider increasing dose to 100 mg/day. If no clinical response observed after 2 weeks, consider obtaining a peak plasma concentration (1 to 2 hours after dose administered). If <200 ng/mL, consider a proportional increase in dose to approach 400 ng/mL. Dosages greater than 100 mg/day may be needed to achieve target concentrations."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "citalopram": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Strong",
+      "implication": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose"
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit.",
+      "phenotype": "RM",
+      "recommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit.",
+      "phenotype": "UM",
+      "recommendation": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "clomipramine": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid clomipramine use. If clomipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid clomipramine use. If clomipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of tertiary amines compared to normal metabolizers",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of tertiary amines",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of tertiary amines"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "RM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "UM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid clomipramine use. If a clomipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid clomipramine use. If a clomipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of TCAs",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of TCAs"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+      "phenotype": "UM",
+      "recommendation": "Avoid clomipramine use; If clomipramine is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid clomipramine use; If clomipramine is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "codeine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251454",
+     "name": "CYP2D6, OPRM1, COMT, and Opioids",
+     "url": "https://www.clinpgx.org/guideline/PA166251454"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Strong",
+      "implication": "Greatly reduced morphine formation leading to diminished analgesia.",
+      "phenotype": "PM",
+      "recommendation": "Avoid codeine use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-tramadol opioid.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Greatly reduced morphine formation leading to diminished analgesia."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Avoid codeine use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-tramadol opioid."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Reduced morphine formation",
+      "phenotype": "IM",
+      "recommendation": "Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Reduced morphine formation"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Expected morphine formation",
+      "phenotype": "NM",
+      "recommendation": "Use codeine label recommended age- or weight-specific dosing.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Expected morphine formation"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Use codeine label recommended age- or weight-specific dosing."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Increased formation of morphine leading to higher risk of toxicity",
+      "phenotype": "UM",
+      "recommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Increased formation of morphine leading to higher risk of toxicity"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "desipramine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider a 50% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider a 50% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism of TCAs",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of TCAs"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose"
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.",
+      "phenotype": "UM",
+      "recommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "doxepin": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid doxepin use. If doxepin is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid doxepin use. If doxepin is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of tertiary amines compared to normal metabolizers",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of tertiary amines",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of tertiary amines"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "RM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If doxepin is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If doxepin is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "UM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If doxepin is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If doxepin is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid doxepin use. If a doxepin is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid doxepin use. If a doxepin is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of TCAs",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of TCAs"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+      "phenotype": "UM",
+      "recommendation": "Avoid doxepin use; If doxepin is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid doxepin use; If doxepin is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "escitalopram": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Strong",
+      "implication": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose"
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit.",
+      "phenotype": "RM",
+      "recommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit.",
+      "phenotype": "UM",
+      "recommendation": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "fluvoxamine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of fluvoxamine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Consider a 25-50% lower starting dose and slower titration schedule as compared to normal metabolizers or consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of fluvoxamine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a 25-50% lower starting dose and slower titration schedule as compared to normal metabolizers or consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Reduced metabolism of fluvoxamine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of fluvoxamine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "classification": "No Recommendation",
+      "implication": "No data available for CYP2D6 ultrarapid metabolizers",
+      "phenotype": "UM",
+      "recommendation": "No recommendation due to lack of evidence",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "No data available for CYP2D6 ultrarapid metabolizers"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "No recommendation due to lack of evidence"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "imipramine": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid imipramine use. If imipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid imipramine use. If imipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of tertiary amines compared to normal metabolizers",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of tertiary amines",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of tertiary amines"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "RM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If imipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If imipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "UM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If imipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If imipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid imipramine use. If a imipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid imipramine use. If a imipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of TCAs",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of TCAs"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+      "phenotype": "UM",
+      "recommendation": "Avoid imipramine use; If imipramine is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid imipramine use; If imipramine is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "nortriptyline": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Strong",
+      "implication": "Greatly reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6. If a tricyclic antidepressant is warranted, consider a 50% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6. If a tricyclic antidepressant is warranted, consider a 50% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects.",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism of tricyclic antidepressants",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of tricyclic antidepressants"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose"
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Increased metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure.",
+      "phenotype": "UM",
+      "recommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a tricyclic antidepressant is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tricyclic antidepressants to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a tricyclic antidepressant is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "paroxetine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Moderate",
+      "implication": "Greatly reduced metabolism when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects. The impact of paroxetine-associated autoinhibition of CYP2D6 is minimal in poor metabolizers.",
+      "phenotype": "PM",
+      "recommendation": "Consider a 50% reduction in recommended starting dose, slower titration schedule, and a 50% lower maintenance dose as compared to normal metabolizers.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects. The impact of paroxetine-associated autoinhibition of CYP2D6 is minimal in poor metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a 50% reduction in recommended starting dose, slower titration schedule, and a 50% lower maintenance dose as compared to normal metabolizers."
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Reduced metabolism of paroxetine to less active compounds when compared to CYP2D6 normal metabolizers when starting treatment or at lower doses. Higher plasma concentrations may increase the probability of side\neffects. Paroxetine-associated phenoconversion of intermediate metabolizers to poor metabolizers due to CYP2D6 autoinhibition may occur and is dose-dependent and greater at steady state concentrations.",
+      "phenotype": "IM",
+      "recommendation": "Consider a lower starting dose and slower titration schedule as compared to normal metabolizers.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of paroxetine to less active compounds when compared to CYP2D6 normal metabolizers when starting treatment or at lower doses. Higher plasma concentrations may increase the probability of side\neffects. Paroxetine-associated phenoconversion of intermediate metabolizers to poor metabolizers due to CYP2D6 autoinhibition may occur and is dose-dependent and greater at steady state concentrations."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a lower starting dose and slower titration schedule as compared to normal metabolizers."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism of paroxetine to less active compounds. Paroxetine-associated phenoconversion of normal metabolizers to intermediate or poor metabolizers due to CYP2D6 autoinhibition may occur and is dose-dependent and greater at steady state concentrations.",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism of paroxetine to less active compounds. Paroxetine-associated phenoconversion of normal metabolizers to intermediate or poor metabolizers due to CYP2D6 autoinhibition may occur and is dose-dependent and greater at steady state concentrations."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose"
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Increased metabolism of paroxetine to less active compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit. The extent to which ultrarapid metabolizers phenoconvert to normal, intermediate, or poor metabolizers due to paroxetine autoinhibition of CYP2D6 is unclear.",
+      "phenotype": "UM",
+      "recommendation": "Select alternative drug not predominantly metabolized by CYP2D6.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increased metabolism of paroxetine to less active compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit. The extent to which ultrarapid metabolizers phenoconvert to normal, intermediate, or poor metabolizers due to paroxetine autoinhibition of CYP2D6 is unclear."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Select alternative drug not predominantly metabolized by CYP2D6."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "phenytoin": [
+   {
+    "enzyme": "cyp2c9",
+    "gene": "CYP2C9",
+    "guideline": {
+     "id": "PA166251461",
+     "name": "CYP2C9, HLA-B and Phenytoin",
+     "url": "https://www.clinpgx.org/guideline/PA166251461"
+    },
+    "level": "A",
+    "population": {
+     "en": "patients new to phenytoin",
+     "fr": "patients n'ayant jamais pris de phénytoïne"
+    },
+    "rows": [
+     {
+      "classification": "Strong",
+      "implication": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities.",
+      "phenotype": "PM",
+      "recommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251461",
+        "provenance": "verified",
+        "quote": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251461",
+        "provenance": "verified",
+        "quote": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects.",
+      "phenotype": "IM",
+      "recommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251461",
+        "provenance": "verified",
+        "quote": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251461",
+        "provenance": "verified",
+        "quote": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal phenytoin metabolism",
+      "phenotype": "NM",
+      "recommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251461",
+        "provenance": "verified",
+        "quote": "Normal phenytoin metabolism"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251461",
+        "provenance": "verified",
+        "quote": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sertraline": [
+   {
+    "enzyme": "cyp2b6",
+    "gene": "CYP2B6",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Consider a lower starting dose, slower titration schedule and 25% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2B6.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a lower starting dose, slower titration schedule and 25% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2B6."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of sertraline to less active compounds.",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism of sertraline to less active compounds."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+      "phenotype": "RM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+      "phenotype": "UM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2B6": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2B6": "NM"
+      },
+      "classification": "Moderate",
+      "implication": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers.",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2B6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2B6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers.",
+      "phenotype": "RM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2B6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers.",
+      "phenotype": "UM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "tramadol": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251454",
+     "name": "CYP2D6, OPRM1, COMT, and Opioids",
+     "url": "https://www.clinpgx.org/guideline/PA166251454"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Strong",
+      "implication": "Greatly reduced O-desmethyltramadol (active metabolite) formation leading to diminished analgesia.",
+      "phenotype": "PM",
+      "recommendation": "Avoid tramadol use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-codeine opioid.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Greatly reduced O-desmethyltramadol (active metabolite) formation leading to diminished analgesia."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Avoid tramadol use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-codeine opioid."
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Reduced O-desmethyltramadol (active metabolite) formation",
+      "phenotype": "IM",
+      "recommendation": "Use tramadol label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine opioid.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Reduced O-desmethyltramadol (active metabolite) formation"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Use tramadol label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine opioid."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Expected O-desmethyltramadol (active metabolite) formation",
+      "phenotype": "NM",
+      "recommendation": "Use tramadol label recommended age- or weight-specific dosing.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Expected O-desmethyltramadol (active metabolite) formation"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Use tramadol label recommended age- or weight-specific dosing."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Increased formation of O-desmethyltramadol (active metabolite) leading to higher risk of toxicity",
+      "phenotype": "UM",
+      "recommendation": "Avoid tramadol use because of potential for toxicity. If opioid use is warranted, consider a non-codeine opioid.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Increased formation of O-desmethyltramadol (active metabolite) leading to higher risk of toxicity"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251454",
+        "provenance": "verified",
+        "quote": "Avoid tramadol use because of potential for toxicity. If opioid use is warranted, consider a non-codeine opioid."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "trimipramine": [
+   {
+    "enzyme": "cyp2c19",
+    "gene": "CYP2C19",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid trimipramine use. If trimipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid trimipramine use. If trimipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of tertiary amines compared to normal metabolizers",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of tertiary amines",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of tertiary amines"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "RM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If trimipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If trimipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2D6": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects",
+      "phenotype": "UM",
+      "recommendation": "Consider alternative drug not metabolized by CYP2C19; If trimipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider alternative drug not metabolized by CYP2C19; If trimipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251445",
+     "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251445"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "PM",
+      "recommendation": "Avoid trimipramine use. If a trimipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid trimipramine use. If a trimipramine is warranted, consider a 50% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "phenotype": "IM",
+      "recommendation": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Consider a 25% reduction of recommended starting dose. Utilize therapeutic drug monitoring to guide dose adjustments."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Strong",
+      "implication": "Normal metabolism of TCAs",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Normal metabolism of TCAs"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "assumes": {
+       "CYP2C19": "NM"
+      },
+      "classification": "Optional",
+      "implication": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+      "phenotype": "UM",
+      "recommendation": "Avoid trimipramine use; If trimipramine is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251445",
+        "provenance": "verified",
+        "quote": "Avoid trimipramine use; If trimipramine is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustment."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "venlafaxine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "B",
+    "rows": [
+     {
+      "classification": "Optional",
+      "implication": "Decreased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and greatly decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal and intermediate metabolizers. The clinical impact of increased venlafaxine and decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 poor metabolizers is unclear, but CYP2D6 PM genotype has been associated with adverse effects.",
+      "phenotype": "PM",
+      "recommendation": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Decreased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and greatly decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal and intermediate metabolizers. The clinical impact of increased venlafaxine and decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 poor metabolizers is unclear, but CYP2D6 PM genotype has been associated with adverse effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6."
+       }
+      ]
+     },
+     {
+      "classification": "No Recommendation",
+      "implication": "Decreased metabolism of venlafaxine to active metabolite O-desmethylvenlafaxine (desvenlafaxine) and decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to normal metabolizers. There is insufficient evidence supporting the clinical impact of the decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 intermediate metabolizers.",
+      "phenotype": "IM",
+      "recommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Decreased metabolism of venlafaxine to active metabolite O-desmethylvenlafaxine (desvenlafaxine) and decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to normal metabolizers. There is insufficient evidence supporting the clinical impact of the decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 intermediate metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism"
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "classification": "No Recommendation",
+      "implication": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers.",
+      "phenotype": "UM",
+      "recommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "vortioxetine": [
+   {
+    "enzyme": "cyp2d6",
+    "gene": "CYP2D6",
+    "guideline": {
+     "id": "PA166251452",
+     "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+     "url": "https://www.clinpgx.org/guideline/PA166251452"
+    },
+    "level": "A",
+    "rows": [
+     {
+      "classification": "Moderate",
+      "implication": "Greatly reduced metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "PM",
+      "recommendation": "Initiate 50% of starting dose (e.g., 5 mg) and titrate to the maximum recommended dose of 10 mg or consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Greatly reduced metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate 50% of starting dose (e.g., 5 mg) and titrate to the maximum recommended dose of 10 mg or consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6."
+       }
+      ]
+     },
+     {
+      "classification": "Moderate",
+      "implication": "Reduced metabolism of vortioxetine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+      "phenotype": "IM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Reduced metabolism of vortioxetine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "classification": "Strong",
+      "implication": "Normal metabolism.",
+      "phenotype": "NM",
+      "recommendation": "Initiate therapy with recommended starting dose.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Normal metabolism."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Initiate therapy with recommended starting dose."
+       }
+      ]
+     },
+     {
+      "classification": "Optional",
+      "implication": "Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit.",
+      "phenotype": "UM",
+      "recommendation": "Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.",
+      "sources": [
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+       },
+       {
+        "corpus": "cpic",
+        "extraction": "code",
+        "page": "PA166251452",
+        "provenance": "verified",
+        "quote": "Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

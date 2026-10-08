@@ -3606,6 +3606,16 @@
       "citation": "U.S. National Library of Medicine. DailyMed Structured Product Label, Pharmacokinetics section of the cited label. dailymed.nlm.nih.gov (label set id pinned per citation).",
       "url": "https://dailymed.nlm.nih.gov/",
       "pages_dir": "data_sources/dailymed/pages"
+    },
+    "cpic": {
+      "ref": "CPIC, clinical pharmacogenetics dosing guideline",
+      "citation": "Clinical Pharmacogenetics Implementation Consortium (CPIC®). Gene-drug recommendation, cited guideline. clinpgx.org (CC0 1.0); guideline content is subject to update, so the export is dated.",
+      "url": "https://cpicpgx.org/",
+      "tsv_dir": "tools/data/cpic",
+      "export_sha256": {
+        "cpic_recommendations.json": "961aaf617aadc612869f3976b661d4e1002e19faa1ab630e8d0140c11b149f7b"
+      },
+      "machine": true
     }
   },
   "addon_slots": {
@@ -3820,6 +3830,15 @@
         "nosource": 0,
         "missing": 60
       },
+      "drug_pgx": {
+        "total": 104,
+        "verified": 104,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0
+      },
       "drug_metabolites": {
         "total": 40,
         "verified": 39,
@@ -4002,14 +4021,14 @@
       }
     },
     "nodes": {
-      "total": 6880,
-      "verified": 5495,
+      "total": 6984,
+      "verified": 5599,
       "uncertain": 250,
       "sourced": 0,
       "llm": 438,
       "nosource": 697,
       "missing": 1135,
-      "backed": 5745,
+      "backed": 5849,
       "pct_backed": 84
     },
     "ki_coverage": {

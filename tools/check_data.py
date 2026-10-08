@@ -119,7 +119,7 @@ _PROVENANCE_LEVELS = {"llm", "sourced", "verified"}
 NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "drug_brands",
               "drug_categories",
               "drug_half_life", "drug_tmax", "drug_enzymes", "drug_enzyme_strength",
-              "enzyme_variability",
+              "enzyme_variability", "drug_pgx",
               "drug_metabolites",
               "drug_metabolite_enzyme", "drug_metabolite_bindings",
               "projections", "projection_transmitter", "projection_sign",
@@ -1867,7 +1867,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # rebuilds the emitted quotes with the very code that wrote them, which is
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data_generators import pharmfreq  # noqa: E402
+from data_generators import cpic, pharmfreq  # noqa: E402
 
 # The pathway per-claim word tests, imported for the same reason: family 5 re-runs the
 # very test that graded a transmitter/sign sub-claim, so a hand-edited or stale ``claims``
@@ -2125,7 +2125,7 @@ def check_baked_meshes(report, structures):
               f"({total / 1024 / 1024:.2f} MB, served compressed)")
 
 
-def check_enzyme_variability(report, meta):
+def check_enzyme_variability(report, meta, drugs):
     """Family 12: the metabolizer-status profiles, re-derived from their pinned tables.
 
     Every other corpus proves a quote by finding it verbatim in prose somebody else
@@ -2158,18 +2158,24 @@ def check_enzyme_variability(report, meta):
             report.error(f"{corpus}: declares {entry['tsv_dir']} but pins no file "
                          f"sha256, so nothing anchors its quotes")
             return
-        on_disk = set(pharmfreq.export_files(str(export)))
+        # Every file that looks like part of this export, by the extension the pins
+        # themselves use (PharmFreq ships TSVs, CPIC one JSON), so a new sibling data
+        # file nothing anchors is caught while the dir's README is left alone.
+        suffixes = {Path(name).suffix for name in pins}
+        on_disk = {p.name for p in export.iterdir()
+                   if p.is_file() and p.suffix in suffixes}
+        fetcher = f"tools/fetch/fetch_{corpus}.py"
         for name in sorted(set(pins) | on_disk):
             if name not in on_disk:
                 report.error(f"{corpus}: pins {name}, which is not in "
                              f"{entry['tsv_dir']}")
             elif name not in pins:
                 report.error(f"{corpus}: {entry['tsv_dir']}/{name} is not pinned "
-                             f"(re-run tools/fetch/fetch_pharmfreq.py)")
+                             f"(re-run {fetcher})")
             elif pharmfreq.sha256(str(export / name)) != pins[name]:
                 report.error(f"{corpus}: {entry['tsv_dir']}/{name} no longer hashes to "
                              f"its pin, so the emitted numbers are not the ones in it "
-                             f"(re-run tools/fetch/fetch_pharmfreq.py)")
+                             f"(re-run {fetcher})")
         if report.errors:
             return
 
@@ -2225,6 +2231,89 @@ def check_enzyme_variability(report, meta):
                     f"{', '.join(uncovered)}")
     report.ok(f"{n} metabolizer-status quote(s) re-derived from the pinned export, "
               f"exact match")
+    check_cpic_guidance(report, meta, drugs)
+
+
+def check_cpic_guidance(report, meta, drugs):
+    """Family 12, second half: CPIC's guidance, re-derived from its pinned export.
+
+    Same mechanism as the profiles above and for a different reason. The quote here IS
+    somebody else's sentence, so it could be gated against a page; the point of
+    re-deriving instead is that this is the one corpus whose text is **clinical advice**
+    ("use 50% of the typical dose"), so every emitted word has to come out of the pinned
+    file by code, with no step in between where a sentence could be trimmed, joined or
+    paraphrased into saying something CPIC did not.
+
+    Checks the whole shape, not just the quotes: the gene-drug pairs present, each row's
+    phenotype / implication / recommendation / classification / assumption, and both of
+    its citations. A pair that drifts, or one the emitted data invents, is an error.
+    """
+    corpora = meta.get("source_corpora") or {}
+    if "cpic" not in corpora:
+        report.ok("no CPIC corpus to re-derive")
+        return
+    try:
+        want = cpic.guidance_for(cpic.read_export(cpic.export_path(str(REPO_ROOT))))
+    except cpic.ExportError as exc:
+        report.error(f"cpic: {exc}")
+        return
+
+    got = {d["id"]: d["pgx"] for d in drugs if d.get("pgx")}
+    for drug in sorted(set(want) | set(got)):
+        if drug not in got:
+            report.error(f"cpic: the export carries guidance for {drug}, which the "
+                         f"emitted drug does not (re-run tools/generate_data.py)")
+            continue
+        if drug not in want:
+            report.error(f"drug {drug} carries CPIC guidance the export does not "
+                         f"(re-run tools/fetch/fetch_cpic.py)")
+            continue
+    n = 0
+    for drug in sorted(set(want) & set(got)):
+        blocks, emitted = want[drug], got[drug]
+        if len(blocks) != len(emitted):
+            report.error(f"drug {drug} pgx: {len(emitted)} gene block(s) emitted, "
+                         f"{len(blocks)} in the export")
+            continue
+        for block, out in zip(blocks, emitted):
+            ctx = f"drug {drug} pgx {block['gene']}"
+            for key in ("gene", "enzyme", "level"):
+                if out.get(key) != block[key]:
+                    report.error(f"{ctx}: {key} is {out.get(key)!r}, not "
+                                 f"{block[key]!r} as the export reads")
+            if (out.get("guideline") or {}).get("id") != block["guideline"]["id"]:
+                report.error(f"{ctx}: cites a guideline the export does not")
+            if len(out.get("rows") or []) != len(block["rows"]):
+                report.error(f"{ctx}: {len(out.get('rows') or [])} row(s) emitted, "
+                             f"{len(block['rows'])} in the export")
+                continue
+            for row, wrow in zip(out["rows"], block["rows"]):
+                rctx = f"{ctx} {wrow['phenotype']}"
+                for key in ("phenotype", "implication", "recommendation",
+                            "classification"):
+                    if row.get(key) != wrow[key]:
+                        report.error(f"{rctx}: {key} is not what the export reads "
+                                     f"(re-run tools/fetch/fetch_cpic.py)")
+                if (row.get("assumes") or {}) != (wrow.get("assumes") or {}):
+                    report.error(f"{rctx}: the co-dosed-gene assumption differs from "
+                                 f"the export's")
+                # Two citations per node: CPIC's implication, then its recommendation.
+                # Both quotes must be the export's own strings, verbatim.
+                srcs = row.get("sources") or []
+                quotes = [s.get("quote") for s in srcs]
+                if quotes != [wrow["implication"], wrow["recommendation"]]:
+                    report.error(f"{rctx}: its {len(srcs)} citation(s) do not quote the "
+                                 f"export's implication then its recommendation")
+                    continue
+                for i, src in enumerate(srcs):
+                    if src.get("page") != block["guideline"]["id"]:
+                        report.error(f"{rctx} sources[{i}]: page {src.get('page')!r} is "
+                                     f"not the guideline id "
+                                     f"{block['guideline']['id']!r}")
+                    else:
+                        n += 1
+    report.ok(f"{n} CPIC guidance quote(s) re-derived from the pinned export, "
+              f"exact match")
 
 
 def main():
@@ -2262,7 +2351,7 @@ def main():
     check_changelog(report)
     check_innervation(report, meta, structures, projections, receptors)
     check_baked_meshes(report, structures)
-    check_enzyme_variability(report, meta)
+    check_enzyme_variability(report, meta, drugs)
 
     print(f"\nSummary: {report.errors} error(s), {report.warnings} warning(s)")
     if report.errors:
