@@ -142,12 +142,16 @@ def sentences(text: str):
                 yield part
 
 
-def candidates_in(text: str, corpus: str, page) -> list[dict]:
-    """Every peak-naming, duration-carrying candidate of one page, deduplicated."""
+def candidates_in(text: str, corpus: str, page, pattern=PEAK_RE) -> list[dict]:
+    """Every ``pattern``-naming, duration-carrying candidate of one page, deduplicated.
+
+    ``pattern`` names the fact the line must be about (a peak here, a half-life for
+    ``fetch_half_life.py``, which reuses this whole scan).
+    """
     out: list[dict] = []
     seen: set[str] = set()
     for s in sentences(text):
-        if len(s) > MAX_LINE or s in seen or not PEAK_RE.search(s):
+        if len(s) > MAX_LINE or s in seen or not pattern.search(s):
             continue
         durs = durations_in(s)
         if not durs:
@@ -157,17 +161,17 @@ def candidates_in(text: str, corpus: str, page) -> list[dict]:
     return out
 
 
-def wikipedia_candidates(drug: dict) -> list[dict]:
+def wikipedia_candidates(drug: dict, pattern=PEAK_RE) -> list[dict]:
     """Candidates from the drug's own stored English article (corpus #9)."""
     path = cypwiki.page_for(drug)
     if not path or not os.path.exists(path):
         return []
     slug = os.path.splitext(os.path.basename(path))[0]
     with open(path, encoding="utf-8", errors="replace") as f:
-        return candidates_in(f.read(), "wikipedia_pharm", slug)
+        return candidates_in(f.read(), "wikipedia_pharm", slug, pattern)
 
 
-def stahl_candidates(drug: dict, spans: dict) -> list[dict]:
+def stahl_candidates(drug: dict, spans: dict, pattern=PEAK_RE) -> list[dict]:
     """Candidates from the drug's Stahl monograph span (corpus #1)."""
     span = spans.get(pk._norm_name(drug.get("name") or ""))
     if not span:
@@ -177,11 +181,11 @@ def stahl_candidates(drug: dict, spans: dict) -> list[dict]:
         path = pk.PAGES_DIR / f"{page}.md"
         if path.exists():
             out += candidates_in(path.read_text(encoding="utf-8", errors="replace"),
-                                 "stahl", page)
+                                 "stahl", page, pattern)
     return out
 
 
-def dailymed_candidates(drug: dict) -> list[dict]:
+def dailymed_candidates(drug: dict, pattern=PEAK_RE) -> list[dict]:
     """Candidates from the drug's stored US prescribing label (corpus #14).
 
     The label chosen for a drug is whichever ``fetch_dailymed.py`` recorded in
@@ -197,27 +201,51 @@ def dailymed_candidates(drug: dict) -> list[dict]:
     if not path or not path.exists():
         return []
     return candidates_in(path.read_text(encoding="utf-8", errors="replace"),
-                         "dailymed", setid)
+                         "dailymed", setid, pattern)
 
 
-def build(only: set[str] | None = None) -> dict[str, dict]:
-    """The worklist: ``drug id -> {name, candidates[]}``, drugs with none omitted."""
+def build(only: set[str] | None = None, pattern=PEAK_RE, skip=None) -> dict[str, dict]:
+    """The worklist: ``drug id -> {name, candidates[]}``, drugs with none omitted.
+
+    ``skip(drug)`` true leaves a drug out (a fact another pass already owns).
+    """
     spans = pk.load_index() if pk.INDEX_PATH.exists() else {}
     worklist: dict[str, dict] = {}
     for drug in drugs_io.load_drugs():
         if only and drug["id"] not in only:
+            continue
+        if skip and skip(drug):
             continue
         # The article first: it is where this fact overwhelmingly lives, so the judged
         # index usually lands on candidate 0 and a Stahl line only corroborates it.
         # The label comes last for the same reason and not because it is weaker: it is
         # the primary source, but it is also the verbose one (a whole 12.3 section),
         # and putting it first would push the one-sentence answers down the list.
-        cands = (wikipedia_candidates(drug) + stahl_candidates(drug, spans)
-                 + dailymed_candidates(drug))
+        cands = (wikipedia_candidates(drug, pattern)
+                 + stahl_candidates(drug, spans, pattern)
+                 + dailymed_candidates(drug, pattern))
         if cands:
             worklist[drug["id"]] = {"name": drug.get("name") or drug["id"],
                                     "candidates": cands}
     return worklist
+
+
+def write_worklist(worklist: dict, out: Path, what: str) -> None:
+    """Write a worklist and print its per-corpus candidate counts."""
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(worklist, ensure_ascii=False, indent=1) + "\n",
+                   encoding="utf-8")
+    n_cand = sum(len(v["candidates"]) for v in worklist.values())
+    by_corpus: dict[str, int] = {}
+    for v in worklist.values():
+        for c in v["candidates"]:
+            by_corpus[c["corpus"]] = by_corpus.get(c["corpus"], 0) + 1
+    total = len(drugs_io.load_drugs())
+    shown = out.resolve().relative_to(ROOT) if out.resolve().is_relative_to(ROOT) else out
+    print(f"[ok] wrote {shown}: {len(worklist)} of {total} drugs "
+          f"offer {what} line ({n_cand} candidates)")
+    for corpus, n in sorted(by_corpus.items()):
+        print(f"  {corpus:<18} {n}")
 
 
 def main() -> int:
@@ -228,20 +256,7 @@ def main() -> int:
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
 
-    worklist = build(only)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(worklist, ensure_ascii=False, indent=1) + "\n",
-                        encoding="utf-8")
-    n_cand = sum(len(v["candidates"]) for v in worklist.values())
-    by_corpus: dict[str, int] = {}
-    for v in worklist.values():
-        for c in v["candidates"]:
-            by_corpus[c["corpus"]] = by_corpus.get(c["corpus"], 0) + 1
-    total = len(drugs_io.load_drugs())
-    print(f"[ok] wrote {args.out.relative_to(ROOT)}: {len(worklist)} of {total} drugs "
-          f"offer a time-to-peak line ({n_cand} candidates)")
-    for corpus, n in sorted(by_corpus.items()):
-        print(f"  {corpus:<18} {n}")
+    write_worklist(build(only), args.out, "a time-to-peak")
     return 0
 
 

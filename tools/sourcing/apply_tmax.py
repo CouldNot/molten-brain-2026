@@ -131,30 +131,20 @@ def clean_value(rec: dict) -> dict | None:
     return out
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--judged", type=Path, default=JUDGED_PATH,
-                    help="the LLM-judged Tmax file")
-    ap.add_argument("--dry-run", action="store_true",
-                    help="report what would change without writing drugs_data.jsonl")
-    args = ap.parse_args()
+def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
+                 max_hours: float, too_long: str) -> tuple[int, list[str]]:
+    """Gate every judged ``{index, hours, hours_max?}`` and write the survivors.
 
-    if not WIKI_PAGES.is_dir():
-        print(f"[error] {WIKI_PAGES} absent (author-side corpus tree missing); the "
-              f"quote gate cannot run, refusing to write ungated quotes. See "
-              f"CLAUDE.local.md.", file=sys.stderr)
-        return 1
-    if not args.judged.exists():
-        print(f"[error] judged file {args.judged} not found; run the LLM pass first.",
-              file=sys.stderr)
-        return 1
+    Shared by every duration pass over a ``fetch_tmax.build`` worklist (this one and
+    ``apply_half_life.py``): only the target ``field`` (its quotes go to
+    ``<field>_sources``), the plausibility ceiling and its rejection wording differ.
 
-    judged = json.loads(args.judged.read_text(encoding="utf-8"))
-    offered = fetch_tmax.build()                       # gate 2: freshly re-derived
-    drugs = drugs_io.load_drugs()
+    Returns
+    -------
+    tuple
+        ``(written, rejected)``: how many drugs were set, one line per rejection.
+    """
     by_id = {d["id"]: d for d in drugs}
-
     text_cache: dict[str, str] = {}
 
     def page_text(path: Path) -> str:
@@ -197,9 +187,8 @@ def main() -> int:
             reject(did, f"{value} is not a duration the quote states "
                         f"({cand['durations']})")
             continue
-        if value["hours"] > MAX_TMAX_HOURS:
-            reject(did, f"{value['hours']} h is not an oral time-to-peak "
-                        f"(> {MAX_TMAX_HOURS} h, likely a depot or implant)")
+        if value["hours"] > max_hours:
+            reject(did, f"{value['hours']} h {too_long} (> {max_hours} h)")
             continue
         path = page_path(cand["corpus"], cand["page"])
         if not path or not path.exists():
@@ -208,23 +197,56 @@ def main() -> int:
         if normalize_for_match(cand["line"]) not in page_text(path):
             reject(did, "the quote is not verbatim on its page")
             continue
-        drug["tmax"] = value
-        drug["tmax_sources"] = [{"corpus": cand["corpus"], "page": cand["page"],
-                                 "quote": cand["line"], "provenance": "verified"}]
+        drug[field] = value
+        drug[f"{field}_sources"] = [{"corpus": cand["corpus"], "page": cand["page"],
+                                     "quote": cand["line"], "provenance": "verified"}]
         written += 1
+    return written, rejected
+
+
+def run(doc: str, judged_default: Path, build, field: str, max_hours: float,
+        too_long: str) -> int:
+    """The CLI shared by every duration applier (see ``apply_judged``)."""
+    ap = argparse.ArgumentParser(description=doc,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--judged", type=Path, default=judged_default,
+                    help="the LLM-judged file")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="report what would change without writing drugs_data.jsonl")
+    args = ap.parse_args()
+
+    if not WIKI_PAGES.is_dir():
+        print(f"[error] {WIKI_PAGES} absent (author-side corpus tree missing); the "
+              f"quote gate cannot run, refusing to write ungated quotes. See "
+              f"CLAUDE.local.md.", file=sys.stderr)
+        return 1
+    if not args.judged.exists():
+        print(f"[error] judged file {args.judged} not found; run the LLM pass first.",
+              file=sys.stderr)
+        return 1
+
+    judged = json.loads(args.judged.read_text(encoding="utf-8"))
+    offered = build()                                  # gate 2: freshly re-derived
+    drugs = drugs_io.load_drugs()
+    written, rejected = apply_judged(judged, offered, drugs, field, max_hours, too_long)
 
     if args.dry_run:
-        print(f"[dry-run] would set tmax on {written} drug(s); "
+        print(f"[dry-run] would set {field} on {written} drug(s); "
               f"{len(rejected)} rejected.")
     else:
         drugs_io.save_drugs(drugs)
-        print(f"[ok] set tmax on {written} drug(s); {len(rejected)} rejected. "
+        print(f"[ok] set {field} on {written} drug(s); {len(rejected)} rejected. "
               f"Wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}.")
     for r in rejected[:40]:
         print(f"  [reject] {r}")
     if len(rejected) > 40:
         print(f"  ... and {len(rejected) - 40} more")
     return 0
+
+
+def main() -> int:
+    return run(__doc__, JUDGED_PATH, fetch_tmax.build, "tmax", MAX_TMAX_HOURS,
+               "is not an oral time-to-peak, likely a depot or implant")
 
 
 if __name__ == "__main__":
