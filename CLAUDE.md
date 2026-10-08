@@ -738,7 +738,7 @@ fixed Stahl list.
   (caffeine at A2a) can only be recorded by hand; such a `ki.source` carries `"curated": true` so the
   idempotent `--apply` refresh never strips it (`_is_curated_ki`). Where PDSP has no assay at all,
   GtoPdb's curated interactions (corpus #11) fill in: a Ki for a Ki-less binding, and a
-  a direction for an `affinity_only` one (see `apply_gtopdb_ki.py`). Such a binding is a binding
+  direction for an `affinity_only` one (see `apply_gtopdb_ki.py`). Such a binding is a binding
   like any other: it animates, and its source pill names the corpus. The authored
   `provisional_action` flag exists only for that applier's idempotency and is deliberately **not**
   emitted (`sources` already carry the corpus, so it would be a derivable duplicate).
@@ -779,6 +779,7 @@ scene (the Enzymes section's caption says so, so a still scene reads as intended
     (enzyme, role) pair per drug per corpus, keeping the reading that carries a strength tier.
   - Both fetchers are **libraries, not scripts**: they know where a corpus keeps its pages and how
     its sentences are shaped, and state no claim.
+- **Which enzyme FORMS an active metabolite** is the mirror relation (there the drug is the
   substrate, here the metabolite is the product) and its own node kind, so it is **hand-curated**
   in `tools/data_generators/quotes/metabolism.py` (`METABOLITE_ENZYME_QUOTES`, keyed
   `(drug_id, metabolite name)`) rather than grepped: the corpora state it as prose whose near
@@ -870,8 +871,6 @@ every C is on one real scale and would break the linearity the inverse solve nee
 - URL: tab key `simulation:1` (a view, not a node, so `#simulation=1` is its legacy alias) plus
   `sim=<id>[:<ratio>],...` for the picked list.
 
-Built with the help of Claude Code.
-
 ## Addon nodes (panel annotations)
 
 Every other node kind has an implied home: a binding belongs in **Acts on**, an enzyme row in
@@ -930,8 +929,8 @@ Two third-party image sources, handled differently on purpose.
   downloads each drug's lead infobox SVG via the MediaWiki `pageimages` API into
   `public/data/molecules/<id>.svg` (`.svg` only, `<script>` stripped); writes
   `tools/generated_cache/molecules_sources.json`. `generate_data.py` emits `structure_image` only when the file
-  exists. `showDrug` renders it as `<img class="mol-structure">` with CSS `filter: invert(1)` for the
-  dark panel (so the page declares `color-scheme: dark`). No image if absent.
+  exists. `showDrug` renders it as `<img class="mol-structure">` filtered by the theme's `--mol-filter`
+  (`invert(1)` on dark, `none` on light; see Theme). No image if absent.
 - **Structure images** (hot-linked from Wikimedia; the multi-MB GIFs are NOT vendored, only the url).
   `tools/fetch/fetch_structure_images.py` resolves a **hero** per **base** (fallback: `.gif` -> `.svg` ->
   infobox/lead; pdf/djvu lead -> first-page JPG) + a **gallery** (`gather_gallery`: the other gif/svg
