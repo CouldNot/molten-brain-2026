@@ -165,7 +165,7 @@ network, idempotent, polite; each touches only what changed). Always finish with
    `fetch_allen.py` run also z-scores each gene's microarray intensity per region and writes
    `data_sources/allen/density.json` (pass `--skip-density` to opt out of the heavy
    MicroarrayExpression read), then `python tools/sourcing/apply_expression_density.py` re-gates each
-   profile quote and writes `tools/generated_cache/expression_density.json`. See CLAUDE.md Expression density.
+   profile quote and writes `tools/generated_cache/expression_density.json`. See docs/VIEWER.md Expression density.
 8. **GtoPdb target classification** (the `receptor_class` + `sign` + non-receptor `targets`
    sources): `python tools/fetch/fetch_gtopdb_class.py` pulls each target's `type` +
    transduction table (caches to `data_sources/gtopdb/pages_class/`, author-side, +
@@ -279,11 +279,11 @@ Screenshots).
   `fetch_gtopdb.RECEPTOR_GENES` map owners to genes. Caches `data_sources/allen/` + `confirmed.json`.
   The same run also emits the **density** profiles into `data_sources/allen/density.json`
   (`--skip-density` opts out of the heavy MicroarrayExpression read; `DENSITY_MIN_R` is the
-  cross-donor reliability floor). See docs/PROVENANCE.md (corpora #7/#8) + Expression density.
+  cross-donor reliability floor). See docs/PROVENANCE.md (corpora #7/#8) + docs/VIEWER.md Expression density.
 - `tools/sourcing/apply_expression_density.py` — re-gates each density profile's quote against
   `data_sources/allen/pages/<gene>.md`, trims it to the regions the owner claims, and writes
   `tools/generated_cache/expression_density.json` (loaded into `RECEPTOR_DENSITY` / `TARGET_DENSITY`).
-  Idempotent. See CLAUDE.md Expression density.
+  Idempotent. See docs/VIEWER.md Expression density.
 - `tools/sourcing/apply_location_sources.py` — merges accepted expression quotes into
   `tools/generated_cache/location_sources.json`, `--corpus {gtopdb,allen}` (gtopdb needs a judged file; allen is
   deterministic). Idempotent. See docs/PROVENANCE.md (corpora #7/#8).
@@ -490,10 +490,10 @@ Screenshots).
 - `tools/update_readme_stats.py` — rewrites the README `SOURCING_STATS` + `SOURCES_TABLE` blocks
   (and the headline %) from `meta`; `--check` exits 1 if stale (CI). Idempotent.
 - `tools/fetch/fetch_molecules.py` — downloads each drug's molecule SVG into `public/data/molecules/`;
-  writes `tools/generated_cache/molecules_sources.json`. See CLAUDE.md Images.
+  writes `tools/generated_cache/molecules_sources.json`. See docs/VIEWER.md Images.
 - `tools/fetch/fetch_structure_images.py` — resolves the *url* of each structure's (and wiki-linked
   circuit's) Wikipedia hero + gallery images into `tools/{structure,circuit}_images_sources.json`
-  (`--target structures|circuits|all`); downloads no bytes. See CLAUDE.md Images.
+  (`--target structures|circuits|all`); downloads no bytes. See docs/VIEWER.md Images.
 - `tools/generated_cache/{molecules,structure_images,circuit_images}_sources.json` — provenance/attribution for
   the fetch tools (the image ones are read by `generate_data.py` offline; not served).
 - `tools/git-hooks/` — repo-tracked git hooks (see CLAUDE.md Git hooks).
@@ -587,7 +587,7 @@ there is no node-level catch-all `sources` block.
   `location_sources` (`{base:[quote-source]}`, sparse per-region upgrade above `llm`; `"ALL"` =
   the ubiquitous claim), optional `density` (`{reliability, donors, profile:{base:z} sorted
   strongest first, grade, sources}`, ONE graded node for the whole Allen z-score profile, see
-  CLAUDE.md Expression density), optional `description{en,fr}` + `wikipedia`(+prov), optional
+  docs/VIEWER.md Expression density), optional `description{en,fr}` + `wikipedia`(+prov), optional
   `gene` (the HGNC symbol, an identifier for the gene-keyed lookup links: NOT a graded node; absent
   only for a stub with no human gene). Empty
   locations + no description = a deliberate stub (listed, not focusable).
@@ -623,7 +623,7 @@ there is no node-level catch-all `sources` block.
   and `check_data.py` reject an unknown slot / display / tone or an anchor that names no real
   node (an addon in a slot nothing draws would ship silently invisible).
 - `molecules/<id>.svg` — vendored per-drug structure diagrams (`fetch_molecules.py`). Structure
-  illustrations are NOT vendored (hot-linked, see CLAUDE.md Images).
+  illustrations are NOT vendored (hot-linked, see docs/VIEWER.md Images).
 
 Geometry (`data/shapes/<name>.json`): one file per distinct *form*. L/R pairs share a single
 right-side file; the left member sets `mirror:true` on its structure record and the viewer

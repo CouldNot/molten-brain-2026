@@ -120,7 +120,7 @@ def pct(f: float) -> str:
 def quote_for(gene: str, profile: dict[str, dict[str, float]]) -> str:
     """The one verbatim line that carries the whole profile.
 
-    One node per enzyme rather than one per population group (see CLAUDE.md, Expression
+    One node per enzyme rather than one per population group (see docs/VIEWER.md, Expression
     density, for the same reasoning on Allen profiles), so the numbers a reader judges
     the claim by all have to live inside the quote.
     """

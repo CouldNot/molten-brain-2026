@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """The day theme must not be able to inherit a colour picked for the night one.
 
-Both themes are one token block (see CLAUDE.md "Theme"): `:root` defines the dark
+Both themes are one token block (see docs/VIEWER.md "Theme"): `:root` defines the dark
 palette and `:root[data-theme="light"]` redefines only tokens. The failure mode that
 rule does not catch on its own is a rule written with a *literal* colour: it looks
 right on the dark panel it was authored against, ships, and is light-on-light the day
