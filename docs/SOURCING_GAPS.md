@@ -667,6 +667,57 @@ the compiled sets are small, paywalled and mostly rodent). Dose is not a drug pr
 it is a prescription. So the index is not a stopgap: it is the honest ceiling of what a Ki
 plus a T½ can say, and the tab says so in as many words.
 
+### Drug **elimination half-life (T½)** beyond Stahl (surveyed 2026-10-08)
+
+> **Shipped (3.92.0).** `fetch_half_life.py` -> `apply_half_life.py` -> `recheck_quotes.py`
+> took `drug_half_life` from **230 to 274 of 301** drugs (269 `verified`). The gap this
+> section measures is the **27 drugs that still state none**, and it is a roster-edge
+> problem, not a corpus one.
+
+The half-life came from one place, `apply_pharmacokinetics.py` reading a Stahl monograph's
+Pharmacokinetics bullets, so the question "why does caffeine have no half-life?" had one
+answer for a whole class of drugs: **Stahl has no monograph for a drug nobody prescribes**.
+158 of the 301 roster drugs are indexed in the Prescriber's Guide; the other 143 were on
+whatever their Stahl-less record happened to carry. That left three distinct shapes:
+
+- **no monograph at all**: every recreational and research substance (caffeine, nicotine,
+  cocaine, MDMA, LSD, THC, DMT, salvinorin A, PCP), the dopamine agonists and
+  antiparkinson agents (pramipexole, ropinirole, rotigotine, bromocriptine, cabergoline,
+  apomorphine, rasagiline, safinamide, amantadine), the non-psychiatric CNS agents
+  (furosemide, domperidone, doxylamine, cyproheptadine), and the drugs withdrawn or
+  never US-marketed (alpidem, pipothiazine, zotepine, perospirone, ketanserin);
+- **a monograph with no PK line**, which is why phenelzine and perospirone looked like
+  oversights rather than absences;
+- **a number with no source**, 8 drugs carrying an `llm` value nobody had ever checked.
+  Three now carry a quote; flupenthixol's unsourced 192 h turned out to be the decanoate
+  depot's, replaced by the oral compound's sourced 35 h.
+
+The fetcher is `fetch_tmax`'s duration scan with one pattern swapped, over the same three
+stored corpora, so the pass cost nothing to build. Coverage it found: Wikipedia prose +
+drugbox (corpus #9) reached 44 of the 48 it offered, Stahl 2, DailyMed 2. **The drugbox is
+the shortcut here that it is not for Tmax**: its `Elimination half-life` row is the fact
+itself, not an adjacent one, which is why this pass landed in a single batch where the peak
+needed two.
+
+**The residual 27, by why they are missing.** 25 state no half-life in any stored corpus:
+either the drug has no English Wikipedia pharmacokinetics section (`azacyclonol`,
+`calcium_carbimide`, `caprylidene`, `indalpine`, `prothipendyl`, `sulfonmethane`,
+`tropatepine`, `perazine`, `bromperidol`, `fluspirilene`, `butobarbital`, `cyclobarbital`,
+`clorgiline`, `pargyline`, `xanomeline`, `rimonabant`, `cannabinol`, `rubidium_chloride`,
+`reserpine`, `benserazide`, `bumetanide`, `rimegepant`), or **no half-life is the right
+answer**: a gas titrated to effect has none to state (`nitrous_oxide`, `xenon`), and a
+combination product's is per constituent (`naltrexonebupropion`). Two more were offered and
+deliberately refused: **ethanol** eliminates at a constant rate, so the article's
+"4.0-4.5 hours at very high concentrations" is not a half-life, and **nabilone**'s sentence
+gives 2 h for the drug and 35 h for total radioactivity, of which only the 35 h parses.
+
+**5 drugs keep an unsourced value on purpose**: the four combination products
+(`dextromethorphanbupropion`, `dextromethorphanquinidine`, `phenterminetopiramate`,
+`deutetrabenazine` as a deuterated variant) and `methylfolate_l`, whose only corpus
+sentence qualifies itself to the *d,l* racemate while the same page warns the L form may
+not follow typical drug kinetics. Closing these needs a per-constituent model, not a
+better corpus.
+
 ### Receptor expression **density** (how much, not just where)
 
 Today a "Found in" region is a boolean: a receptor is in a region or it is not. So M5 reads as
