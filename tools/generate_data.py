@@ -192,6 +192,10 @@ from data_generators.quote_table import (  # noqa: E402
 # them reachable).
 from data_generators.changelog import load_changelog  # noqa: E402
 
+# The CPIC reader (corpus #15), shared with tools/check_data.py so both ends derive
+# the guidance blocks and the enzyme routes they state from the same committed export.
+from data_generators import cpic  # noqa: E402
+
 # The receptor classification records (pure data, one module per neurotransmitter
 # family) live in the data_generators.receptors package. See the schema comment at
 # the RECEPTORS use-site below.
@@ -1137,15 +1141,18 @@ def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
 
     **Stahl wins.** A (enzyme, role) pair Stahl already states keeps its Stahl quote;
     Wikipedia only fills pairs Stahl is silent on. Same discipline as the Ki fallback,
-    where a Wikipedia value never overrides a measured PDSP assay.
+    where a Wikipedia value never overrides a measured PDSP assay. CPIC (corpus #15)
+    is read last and on the same terms, for the handful of routes its own wording
+    states outright (see :func:`cpic.enzyme_claims_for`).
     """
     cache = Path(__file__).resolve().parent / "generated_cache"
     merged: dict[str, list[dict[str, Any]]] = {}
-    for name in ("drug_enzymes.json", "drug_enzymes_wikipedia.json"):
-        src = cache / name
-        if not src.exists():
-            continue
-        for drug_id, rows in json.loads(src.read_text(encoding="utf-8")).items():
+    sources = [json.loads((cache / name).read_text(encoding="utf-8"))
+               for name in ("drug_enzymes.json", "drug_enzymes_wikipedia.json")
+               if (cache / name).exists()]
+    sources.append(cpic.enzyme_claims_for(CPIC_GUIDANCE))
+    for rows_by_drug in sources:
+        for drug_id, rows in rows_by_drug.items():
             have = {(r["enzyme"], r["role"]) for r in merged.get(drug_id, [])}
             merged.setdefault(drug_id, []).extend(
                 r for r in rows if (r["enzyme"], r["role"]) not in have)

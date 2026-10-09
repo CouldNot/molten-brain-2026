@@ -239,6 +239,13 @@ scene (the Enzymes section's caption says so, so a still scene reads as intended
   `tools/data/cpic/cpic_recommendations.json` + `tools/generated_cache/cpic_guidance.json`; shared
   reader `data_generators/cpic.py`, gated by re-derivation exactly like #13 (`check_data.py` family
   12). Every exclusion is printed on each fetch run, never silently skipped.
+  CPIC also fills a **metabolic route** when its own wording states one
+  (`cpic.enzyme_claims_for`): the stock faster-metabolizer line "Consider alternative drug not
+  metabolized by CYP2C19; If clomipramine is warranted, ..." names the gene and the drug, so it
+  can be quoted for the enzyme row. Only that phrasing is read, since a levelled pair on its own
+  is a verdict and not a sentence, and only as a filler, `_load_drug_enzymes` keeping whatever a
+  book or an article already said about the pair. It fires on 5 pairs and adds exactly one row:
+  clomipramine's CYP2C19, which Stahl files under CYP1A2 and Wikipedia does not mention.
 - **Viewer.** `showEnzyme` leads with **How fast people clear it** (one stacked bar per population
   group, segments in phenotype order, its own grade pill on the heading) above the drug lists,
   because it qualifies all of them: a "major substrate" row means something different to a poor

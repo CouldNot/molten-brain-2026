@@ -139,3 +139,7 @@ errors. Functions take loaded data as args (unit-testable). Thirteen families (n
   with both of the row's citations. Two citations on one node is the point: a recommendation
   separated from the implication it follows from would be advice with its reason missing, so
   the gate insists the row quotes CPIC's implication *then* its recommendation, in that order.
+  It also re-derives the enzyme rows CPIC's wording states (`cpic.enzyme_claims_for`), both ways:
+  an emitted enzyme row citing CPIC that the re-derivation does not produce is an **error**, since
+  it would mean claiming a metabolic route CPIC never phrased, and such a row can only be a
+  `substrate` one.

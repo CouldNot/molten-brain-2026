@@ -253,7 +253,10 @@ The corpora (`SOURCE_CORPORA`), each quote-gated author-side as above unless not
   normal metabolizer (55 of 104 rows); its uncertainty phenotypes (`Likely`/`Possible` Intermediate,
   `Indeterminate`, `No Result`) are dropped, having no frequency to pair with; and a gene with no
   metabolizer-frequency profile here (HLA-A, HLA-B, SCN1A, the urea-cycle genes) is out of scope, since
-  the readout exists to put a base rate on a row. CC0 1.0, attribution requested (see
+  the readout exists to put a base rate on a row. It also backs a few `drug_enzymes` rows, but only
+  where CPIC's own sentence names the gene and the drug together ("Consider alternative drug not
+  metabolized by CYP2C19; If clomipramine is warranted, ..."): the *level* of a pair is a verdict
+  rather than a sentence, so it is never quoted as one. CC0 1.0, attribution requested (see
   `tools/data/cpic/README.md`).
 
 **Descriptions** are not a node kind (not tallied). Drugs, structures and non-receptor targets carry

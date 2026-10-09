@@ -793,10 +793,19 @@ rediscovered:
   `adults` / `PHT naive`, and a paediatric row states different kinetics for a reader this site
   is not written for.
 
-The one real hole the import surfaced rather than created: **CPIC levels clomipramine/CYP2C19
-as actionable and our enzyme data has no CYP2C19 node for clomipramine**, so that guidance
-block has no matching row in the Enzymes section above it. 28 of the 29 frequency-covered pairs
-matched; this is the 29th.
+The one real hole the import surfaced rather than created, now **closed** (3.93.1): CPIC levelled
+clomipramine/CYP2C19 while our enzyme data had no CYP2C19 row for clomipramine, so that guidance
+block sat over an Enzymes section that never mentioned the gene. 28 of the 29 frequency-covered
+pairs matched; this was the 29th. Nothing else here states the route: Stahl attributes the
+demethylation to CYP1A2 ("by demethylation via CYP1A2", p. 181), the English Wikipedia article
+names only CYP2D6 (live article checked 2026-10-09, no CYP2C19 anywhere in it), Carlat's
+pharmacogenetic table lists clomipramine only under CYP2D6, and the DailyMed label is a pre-2006
+one that names no isoform at all. CPIC itself does state it, in the faster-metabolizer
+recommendation: *"Consider alternative drug not metabolized by CYP2C19; If clomipramine is
+warranted, utilize therapeutic drug monitoring to guide dose adjustment."* That sentence names
+the gene **and** the drug, so `cpic.enzyme_claims_for` reads it as the route, and only that
+phrasing: a levelled pair with no such sentence still adds nothing (5 pairs qualify, 4 of which
+already had the row from another corpus and keep it).
 
 ### Receptor expression **density** (how much, not just where)
 

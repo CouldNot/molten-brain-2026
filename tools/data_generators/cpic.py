@@ -133,6 +133,43 @@ def sources_for(row: dict, guideline: dict) -> list[dict]:
             for quote in (row["implication"], row["recommendation"]) if quote]
 
 
+def enzyme_claims_for(guidance: dict[str, list[dict]]) -> dict[str, list[dict]]:
+    """``drug id -> the enzyme rows CPIC's own wording substantiates``.
+
+    CPIC levels a pair because the gene's activity moves the drug's exposure, but a
+    *level* is a verdict, not a sentence: using it as a source would be us asserting
+    "this enzyme clears this drug" and citing a table key for it. So only one CPIC
+    phrasing is read, the stock faster-metabolizer line "Consider alternative drug not
+    metabolized by CYP2C19; If clomipramine is warranted, ...", and only when it names
+    both the gene and the drug. That sentence *states* the route, so it can be quoted
+    for it; a pair CPIC never phrases that way adds nothing here.
+
+    Fires on 5 pairs today, 4 of which already have the row from a book or a Wikipedia
+    article (:func:`generate_data._load_drug_enzymes` keeps the earlier source, so this
+    is a filler, never an override). The fifth is clomipramine's CYP2C19, which Stahl
+    attributes to CYP1A2 and the English article does not mention at all: without this
+    the panel would carry CPIC's CYP2C19 guidance over a drug whose enzyme list has no
+    CYP2C19 in it.
+    """
+    out: dict[str, list[dict]] = {}
+    for drug in sorted(guidance):
+        for block in guidance[drug]:
+            phrase = f"not metabolized by {block['gene']}"
+            for row in block["rows"]:
+                rec = row.get("recommendation") or ""
+                if phrase not in rec or drug not in rec.lower():
+                    continue
+                quote = next((s for s in row["sources"] if s["quote"] == rec), None)
+                if quote is None:  # pragma: no cover - sources_for emits both
+                    continue
+                out.setdefault(drug, []).append({
+                    "enzyme": block["enzyme"], "role": "substrate",
+                    "sources": [dict(quote)],
+                })
+                break  # one claim per gene: the rows repeat the same sentence
+    return out
+
+
 def guidance_for(data: dict) -> dict[str, list[dict]]:
     """``drug id -> one block per gene``, in the order the panel renders them.
 

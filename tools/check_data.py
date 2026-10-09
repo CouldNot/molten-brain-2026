@@ -2312,8 +2312,40 @@ def check_cpic_guidance(report, meta, drugs):
                                      f"{block['guideline']['id']!r}")
                     else:
                         n += 1
+    n += check_cpic_enzyme_claims(report, want, drugs)
     report.ok(f"{n} CPIC guidance quote(s) re-derived from the pinned export, "
               f"exact match")
+
+
+def check_cpic_enzyme_claims(report, want, drugs) -> int:
+    """The enzyme routes CPIC's own wording states (see ``cpic.enzyme_claims_for``).
+
+    An enzyme row sourced to CPIC is the one place this corpus is read for something
+    other than guidance, so it gets the same treatment: re-derived from the export and
+    compared. The gate runs both ways. A row the re-derivation does not produce is an
+    error (it would mean we asserted a metabolic route CPIC never phrased), and a claim
+    the re-derivation produces that no drug carries is checked only for its quote,
+    because another corpus legitimately owns that (enzyme, role) pair already.
+    """
+    claims = {(drug, r["enzyme"]): r["sources"][0]["quote"]
+              for drug, rows in cpic.enzyme_claims_for(want).items() for r in rows}
+    n = 0
+    for drug in drugs:
+        for row in drug.get("enzymes") or []:
+            src = (row.get("sources") or [{}])[0]
+            if src.get("corpus") != "cpic":
+                continue  # another corpus owns this row
+            quote = src.get("quote")
+            ctx = f"drug {drug['id']} enzymes[{row['enzyme']}]"
+            if claims.get((drug["id"], row["enzyme"])) != quote:
+                report.error(f"{ctx}: cites a CPIC sentence the export does not state "
+                             f"for this pair (re-run tools/fetch/fetch_cpic.py)")
+            elif row.get("role") != "substrate":
+                report.error(f"{ctx}: CPIC's wording states a route, so the role can "
+                             f"only be 'substrate', not {row.get('role')!r}")
+            else:
+                n += 1
+    return n
 
 
 def main():

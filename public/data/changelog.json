@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.93.1",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Clomipramine now lists CYP2C19 among the enzymes that clear it. Adding the CPIC guidance in 3.93.0 showed the hole: the panel carried advice about this patient's CYP2C19 speed over an enzyme list that never mentioned CYP2C19. Nothing else here states the route (Stahl files the demethylation under CYP1A2, the English Wikipedia article names only CYP2D6, the US label names no enzyme at all), but CPIC does, in the sentence it writes for fast metabolizers: \"Consider alternative drug not metabolized by CYP2C19; If clomipramine is warranted, utilize therapeutic drug monitoring\". Only that phrasing is read, and only where it names the drug as well as the gene, so a guideline that merely covers a drug still adds nothing.",
+          "commits": [
+            "14a6377"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.93.0",
       "date": "2026-10-09",
       "entries": [

@@ -3813,8 +3813,8 @@
         "missing": 0
       },
       "drug_enzymes": {
-        "total": 428,
-        "verified": 425,
+        "total": 429,
+        "verified": 426,
         "uncertain": 3,
         "sourced": 0,
         "llm": 0,
@@ -4021,14 +4021,14 @@
       }
     },
     "nodes": {
-      "total": 6984,
-      "verified": 5599,
+      "total": 6985,
+      "verified": 5600,
       "uncertain": 250,
       "sourced": 0,
       "llm": 438,
       "nosource": 697,
       "missing": 1135,
-      "backed": 5849,
+      "backed": 5850,
       "pct_backed": 84
     },
     "ki_coverage": {

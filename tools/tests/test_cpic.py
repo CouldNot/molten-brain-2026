@@ -140,6 +140,39 @@ class ShapeTest(unittest.TestCase):
         self.assertTrue(set(C.POPULATIONS[1:]) <= set(C.POPULATION_LABELS))
 
 
+class EnzymeClaimTest(unittest.TestCase):
+    """The metabolic routes read out of CPIC's wording, and only those."""
+
+    def _claims(self, recommendation):
+        data = copy.deepcopy(EXPORT)
+        data["rows"][0]["recommendation"] = recommendation
+        return C.enzyme_claims_for(C.guidance_for(data))
+
+    def test_a_sentence_naming_both_states_the_route(self):
+        claims = self._claims("Consider alternative drug not metabolized by CYP2D6; "
+                              "If nortriptyline is warranted, utilize monitoring.")
+        self.assertEqual([(r["enzyme"], r["role"]) for r in claims["nortriptyline"]],
+                         [("cyp2d6", "substrate")])
+
+    def test_the_quote_is_the_sentence_itself(self):
+        rec = ("Consider alternative drug not metabolized by CYP2D6; "
+               "If nortriptyline is warranted, utilize monitoring.")
+        src = self._claims(rec)["nortriptyline"][0]["sources"][0]
+        self.assertEqual(src["quote"], rec)
+        self.assertEqual(src["corpus"], "cpic")
+
+    def test_a_sentence_naming_only_the_gene_states_nothing(self):
+        # CPIC says the same thing about the *class* all over the guideline; without
+        # this drug's own name in it, quoting it here would be us doing the inferring.
+        self.assertEqual(self._claims("Consider alternative drug not metabolized by "
+                                      "CYP2D6; utilize monitoring."), {})
+
+    def test_a_pair_cpic_never_phrases_that_way_states_nothing(self):
+        # The levelled pair alone is a verdict, not a sentence: no claim comes of it.
+        self.assertEqual(self._claims("Initiate therapy with recommended starting "
+                                      "dose."), {})
+
+
 class CommittedExportTest(unittest.TestCase):
     """The real export, against the real cache."""
 
@@ -169,6 +202,25 @@ class CommittedExportTest(unittest.TestCase):
             other = "CYP2C19" if row["gene"] == "CYP2D6" else "CYP2D6"
             self.assertEqual((row.get("assumes") or {}).get(other), "NM",
                              f"{row['gene']} {row['phenotype']}: no assumption recorded")
+
+    def test_clomipramine_gets_the_cyp2c19_route_nothing_else_states(self):
+        # The gap the import surfaced: CPIC dosed clomipramine on CYP2C19 while the
+        # enzyme list had no CYP2C19 row at all, Stahl attributing the demethylation to
+        # CYP1A2 and the English article naming only CYP2D6. CPIC's own faster-
+        # metabolizer sentence names both, so it states the route.
+        claims = C.enzyme_claims_for(C.guidance_for(self.data))
+        rows = claims.get("clomipramine") or []
+        self.assertIn(("cyp2c19", "substrate"),
+                      [(r["enzyme"], r["role"]) for r in rows])
+
+    def test_the_emitted_drug_carries_that_route(self):
+        # End to end, since the merge keeps whatever an earlier corpus already said
+        # about a pair: a reader opening clomipramine must find the CYP2C19 the CPIC
+        # guidance under it is about.
+        path = ROOT / "public" / "data" / "drugs.jsonl"
+        drug = next(json.loads(line) for line in path.read_text(encoding="utf-8")
+                    .splitlines() if json.loads(line)["id"] == "clomipramine")
+        self.assertIn("cyp2c19", [e["enzyme"] for e in drug["enzymes"]])
 
 
 if __name__ == "__main__":
