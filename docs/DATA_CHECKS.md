@@ -142,4 +142,11 @@ errors. Functions take loaded data as args (unit-testable). Thirteen families (n
   It also re-derives the enzyme rows CPIC's wording states (`cpic.enzyme_claims_for`), both ways:
   an emitted enzyme row citing CPIC that the re-derivation does not produce is an **error**, since
   it would mean claiming a metabolic route CPIC never phrased, and such a row can only be a
-  `substrate` one.
+  `substrate` one. The other direction is a **warning**, not an error: a gene CPIC doses a
+  drug on that the drug's enzyme list does not carry means no corpus here states that route,
+  which is a hole in the sources rather than a mistake in the data. It is worth a line all the
+  same, because the panel then puts guidance about a patient's CYP2C19 speed over an Enzymes
+  section that never names CYP2C19, and because the enzyme list feeds the derived drug -> drug
+  edges, so a missing route quietly removes interactions (clomipramine's gained 11 when the row
+  landed). Either side can open the gap: a CPIC refresh adding a pair, or a CYP fetcher re-run
+  dropping a row.

@@ -2313,8 +2313,39 @@ def check_cpic_guidance(report, meta, drugs):
                     else:
                         n += 1
     n += check_cpic_enzyme_claims(report, want, drugs)
+    check_cpic_enzyme_coverage(report, want, drugs)
     report.ok(f"{n} CPIC guidance quote(s) re-derived from the pinned export, "
               f"exact match")
+
+
+def check_cpic_enzyme_coverage(report, want, drugs):
+    """A gene CPIC doses a drug on, that the drug's enzyme list does not carry.
+
+    Not an error, and deliberately not one: it means no corpus here states the route,
+    which is a hole in the sources and not a mistake in the data. Flagging it is still
+    worth a line, because the panel then shows a reader advice about their CYP2C19
+    speed over an Enzymes section that never mentions CYP2C19, and because the enzyme
+    list feeds the derived drug-drug edges, so a missing route quietly removes
+    interactions nobody sees go missing.
+
+    Clomipramine was exactly that case (fixed in 3.93.1: 11 interaction edges appeared
+    with the row). This exists so the next one is reported rather than noticed by eye,
+    since either side can produce it: a CPIC refresh adding a pair, or a CYP fetcher
+    re-run dropping a row.
+    """
+    by_id = {d["id"]: d for d in drugs}
+    for drug in sorted(want):
+        doc = by_id.get(drug)
+        if doc is None:
+            continue
+        have = {e["enzyme"] for e in doc.get("enzymes") or []}
+        for block in want[drug]:
+            if block["enzyme"] in have:
+                continue
+            report.warn(f"drug {drug}: CPIC doses it on {block['gene']}, which its "
+                        f"enzyme list does not carry, so the guidance sits over a "
+                        f"section that never names the gene (no corpus here states "
+                        f"the route; see docs/SOURCING_GAPS.md)")
 
 
 def check_cpic_enzyme_claims(report, want, drugs) -> int:

@@ -13,14 +13,17 @@ download nobody re-ran the fetcher over fails in the suite as well as at generat
 Stdlib only. Built with the help of Claude Code.
 """
 import copy
+import io
 import json
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
+import check_data  # noqa: E402
 from data_generators import cpic as C  # noqa: E402
 
 ROOT = TOOLS.parent
@@ -221,6 +224,35 @@ class CommittedExportTest(unittest.TestCase):
         drug = next(json.loads(line) for line in path.read_text(encoding="utf-8")
                     .splitlines() if json.loads(line)["id"] == "clomipramine")
         self.assertIn("cyp2c19", [e["enzyme"] for e in drug["enzymes"]])
+
+
+
+class CoverageWarningTest(unittest.TestCase):
+    """The standing gate for "CPIC doses this gene, the drug has no row for it"."""
+
+    def _warnings(self, enzymes):
+        guidance = C.guidance_for(EXPORT)
+        drugs = [{"id": "nortriptyline", "enzymes": enzymes}]
+        report = check_data.Report()
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            check_data.check_cpic_enzyme_coverage(report, guidance, drugs)
+        return [ln.split("[warn]", 1)[1].strip()
+                for ln in buf.getvalue().splitlines() if "[warn]" in ln]
+
+    def test_a_dosed_gene_with_no_enzyme_row_is_reported(self):
+        # The clomipramine shape: guidance about a gene the Enzymes section never names.
+        warns = self._warnings([{"enzyme": "cyp1a2", "role": "substrate"}])
+        self.assertEqual(len(warns), 1, warns)
+        self.assertIn("CYP2D6", warns[0])
+
+    def test_a_dosed_gene_the_drug_carries_is_silent(self):
+        self.assertEqual(self._warnings([{"enzyme": "cyp2d6", "role": "substrate"}]), [])
+
+    def test_the_role_does_not_matter(self):
+        # Inhibitor-only would be odd, but the gate is about the gene being named at
+        # all: whether the row is the right one is check_cpic_enzyme_claims' business.
+        self.assertEqual(self._warnings([{"enzyme": "cyp2d6", "role": "inhibitor"}]), [])
 
 
 if __name__ == "__main__":
