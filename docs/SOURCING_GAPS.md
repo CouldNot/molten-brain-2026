@@ -162,8 +162,8 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 | `target_locations` | 14 | 96 | 9.4% | limit | SERT/NET terminals: mRNA sits at the source nucleus |
 | `receptor_sign` (excit./inhib.) | 13 | 56 | 8.7% | Hard | GtoPdb's transduction is mixed/absent for these |
 | `drug_bindings` | 12 | 1688 | 8.1% | Hard | no database assays the GABA-A site; primary lit |
-| `projections` | 2 | 95 | (2026-10-10, after the snapshot) | Hard | claustrum primary lit |
-| `projection_transmitter` | 24 | 95 | (2026-10-10, after the snapshot) | Hard | coarse "cortex to striatum" rule + systems text (section 6) |
+| `projections` | 2 | 110 | (2026-10-10, after the snapshot) | Hard | claustrum primary lit |
+| `projection_transmitter` | 29 | 110 | (2026-10-10, after the snapshot) | Hard | coarse "cortex to striatum" rule + systems text (section 6) |
 | `projection_sign` | 19 | 38 | (2026-10-10, after the snapshot) | Hard | same (section 6) |
 | `drug_enzyme_strength` (major/minor, strong/moderate/weak) | 13 | 147 | (2026-10-10, after the snapshot) | limit | tier only implied by a percentage or by contrast (section 6b) |
 | `receptor_class` (GPCR/ionotropic) | 1 | 56 | 0.7% | limit | sigma-1 is a GtoPdb `other_protein` |
@@ -442,9 +442,25 @@ This is a property of the assay, not a hole in our sourcing.
 atlas) would confirm terminals. Not worth a corpus for 14 nodes; the caveat is already shipped
 in the density caption.
 
-### 6. `projections`: route 2 / 95, `projection_transmitter` 24 / 95, `projection_sign` 19 / 38 missing
+### 6. `projections`: route 2 / 110, `projection_transmitter` 29 / 110, `projection_sign` 19 / 38 missing
 
 **What.** A pathway is three graded claims: the route, its transmitter, and (glutamate/GABA only) its sign. A transmitter or sign claim is graded off any of the pathway's sources whose quote carries the stored value's word (`attestation.pattern_for`). The by-index pass (2026-10-10) works like the classification one. `tools/fetch/fetch_projection_worklist.py` offers sentences from Kandel, Nieuwenhuys and Stahl Essential that name both endpoints, and an LLM answers by index in `projection_judged.json`. `tools/sourcing/apply_projection_sources.py` then gates the picks, confirm-only, and writes `projection_sources.json`, which the generator appends to each pathway. An Opus `recheck_quotes.py` judge runs last. The pass moved transmitter from 56 to **71**, sign from 9 to **19**, and route from 56 to **60** verified. Two of those four route nodes were NOSOURCE: septum to hippocampus (Nieuwenhuys p469, "a substantial cholinergic projection to the hippocampus") and amygdala to hypothalamus (Kandel p1100, Stahl Essential p286). `blanket_claim` fell from 35 to **33**, because the nigrostriatal pair gained a sentence naming the caudate and the putamen (Nieuwenhuys p218). The judge rejected one pick: the "thalamocortical projections ... are glutamatergic" sentence (Nieuwenhuys p446) for thalamus to cingulate, because it describes VA/VL and MD only.
+
+**Innervation pass (2026-10-10).** `check_data.py` family 10 flags a region that expresses a transmitter's receptors when no pathway of that transmitter reaches it. Fifteen new pathways close some of those gaps, all through the same worklist, applier and Opus judge, with no rejections. Each one is route-verified on a sentence that names both endpoints:
+
+- raphe to cerebellum (Nieuwenhuys p892), medulla (Kandel p1046), septum and olfactory bulb (Nieuwenhuys p896);
+- locus coeruleus to pons and midbrain (Nieuwenhuys p898), and to medulla (p900);
+- VTA to temporal (Kandel p1047), cingulate (Nieuwenhuys p218), thalamus and hypothalamus (Kandel p1052), raphe and locus coeruleus (Nieuwenhuys p900);
+- pons (pedunculopontine/laterodorsal tegmental) to VTA (Kandel p1115) and substantia nigra (Nieuwenhuys p443).
+
+Five of the fifteen keep an `llm` transmitter, because their sentence names no transmitter: raphe to septum and olfactory bulb, VTA to temporal, locus coeruleus to pons and midbrain. Pages 898 and 900 describe rat data.
+
+Family 10 went from cholinergic 10 / dopaminergic 15 / serotonergic 11 / noradrenergic 9 to **8 / 9 / 7 / 6**. Melatonergic 1 (the pituitary) is deliberate. What stays, and why:
+
+- **Pituitary dopamine:** the tuberoinfundibular pathway (Stahl Essential p101, Kandel p410) runs hypothalamus to pituitary, and that from/to pair is already the neuroendocrine arrow. A second arrow on the same pair is a duplicate.
+- **Intrinsic sources the model does not draw as arrows:** striatal acetylcholine (interneurons), olfactory-bulb dopamine (A16 periglomerular cells), olfactory-bulb acetylcholine (horizontal limb of the diagonal band, not the nucleus basalis).
+- **Contested:** dopamine to the cerebellum, which Nieuwenhuys p901 calls controversial.
+- **No naming sentence found:** dopamine to the parietal/occipital lobes, septum (Kandel p982 omits the VTA), pons, midbrain and medulla; serotonin to the pallidum, subthalamic nucleus, claustrum and VTA; noradrenaline to the striatum, substantia nigra and VTA; acetylcholine to the hypothalamus, mammillary bodies, midbrain and medulla.
 
 **Why the rest stays.** The candidates were read, not missed:
 
