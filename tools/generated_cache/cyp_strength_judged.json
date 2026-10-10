@@ -1,0 +1,18 @@
+{
+ "sertindole": [
+  {
+   "enzyme": "cyp2d6",
+   "n": 1,
+   "role": "substrate",
+   "strength": "major"
+  }
+ ],
+ "zaleplon": [
+  {
+   "enzyme": "cyp3a4",
+   "n": 1,
+   "role": "substrate",
+   "strength": "minor"
+  }
+ ]
+}

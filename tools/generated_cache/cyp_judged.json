@@ -2322,13 +2322,13 @@
  "propranolol": [
   {
    "enzyme": "cyp1a2",
-   "n": 0,
+   "n": 9,
    "role": "substrate",
    "strength": "major"
   },
   {
    "enzyme": "cyp2d6",
-   "n": 0,
+   "n": 9,
    "role": "substrate",
    "strength": "major"
   },
@@ -2448,11 +2448,6 @@
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
-  },
-  {
-   "enzyme": "cyp2d6",
-   "n": 1,
    "role": "substrate"
   }
  ],

@@ -781,6 +781,7 @@
 {"id": "q_3337a05d5510", "corpus": "stahl", "page": 199, "quote": "Benzodiazepine (anxiolytic)", "llm": "sonnet", "heading": ["Clorazepate", "Therapeutics", "Class"]}
 {"id": "q_333aee6d424e", "corpus": "wikipedia_pharm", "page": "cariprazine", "quote": "H 1 | 23.2 | Antagonist"}
 {"id": "q_333f095ddbaf", "corpus": "stahl", "page": 887, "quote": "Blocks serotonin reuptake pump (serotonin transporter), presumably increasing serotonergic neurotransmission", "llm": "sonnet", "heading": ["Venlafaxine", "Therapeutics", "How the Drug Works"]}
+{"id": "q_336d2654e926", "corpus": "wikipedia_pharm", "page": "propranolol", "quote": "CYP1A2 and CYP2D6 have a major role, while CYP2C19 and CYP3A4 have a minor role.", "llm": "opus"}
 {"id": "q_337d1e6bdb74", "corpus": "stahl", "page": 451, "quote": "Substrate for CYP2D6", "llm": "opus", "heading": ["Lofepramine", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_337e10bd0e4f", "corpus": "stahl", "page": 449, "quote": "Neuroscience-based Nomenclature: serotonin, norepinephrine reuptake inhibitor (SN-RI) Tricyclic antidepressant (TCA)", "llm": "sonnet"}
 {"id": "q_338d36c77874", "corpus": "wikipedia_pharm", "page": "cyproheptadine", "quote": "D 3 | 8 | ?"}
@@ -2198,6 +2199,7 @@
 {"id": "q_8d79801cc707", "corpus": "stahl", "page": 428, "quote": "Elimination half-life approximately 6–8 hours", "llm": "sonnet", "heading": ["Levetiracetam", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_8d7e9dccf37e", "corpus": "kandel", "page": 1560, "quote": "Serotonergic and noradrenergic neurons in the pons and medulla project widely to highly diverse terminal fields in brain regions that include the hypothalamus, hippocampus, amygdala, basal ganglia, and cerebral cortex (Figures 61–5 and 61–6).", "llm": "sonnet", "heading": ["61 Disorders of Mood and Anxiety", "Major Depression and Anxiety Disorders Can Be Treated Effectively", "Current Antidepressant Drugs Affect Monoaminergic Neural Systems"]}
 {"id": "q_8d8097cf8541", "corpus": "wikipedia_pharm", "page": "nimetazepam", "quote": "Nimetazepam (marketed under brand name Erimin and Lavol ) is an intermediate-acting hypnotic drug which is a benzodiazepine derivative.", "llm": "sonnet"}
+{"id": "q_8d993ffae6d2", "corpus": "wikipedia_pharm", "page": "zaleplon", "quote": "The CYP3A4 liver enzyme is a minor metabolic pathway for zaleplon, normally metabolizing about 9% of the drug.", "llm": "opus"}
 {"id": "q_8d9f4b7833b8", "corpus": "allen_ahba", "page": "CNR1", "quote": "CNR1 detected in globus_pallidus: probe 1028488 PACall present in 35/36 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_8da58fe30ead", "corpus": "stahl", "page": 568, "quote": "Elimination half-life of oral naltrexone is approximately 13 hours", "llm": "sonnet", "heading": ["Naltrexone", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_8dbb7cbd07a5", "corpus": "stahl", "page": 776, "quote": "Metabolized to an active metabolite, primarily by CYP3A4 (major route) and CYP2C9 (minor route)", "llm": "opus", "heading": ["Sildenafil", "Dosing and use", "Pharmacokinetics"]}

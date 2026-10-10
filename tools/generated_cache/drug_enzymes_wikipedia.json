@@ -3804,7 +3804,7 @@
      "llm": "opus",
      "page": "propranolol",
      "provenance": "verified",
-     "quote": "Metabolism | Liver (extensive) CYP1A2 , CYP2D6 ; minor: CYP2C19 , CYP3A4 ; aromatic hydroxylation (mainly 4-hydroxylation), N - dealkylation , side-chain oxidation , glucuronidation"
+     "quote": "CYP1A2 and CYP2D6 have a major role, while CYP2C19 and CYP3A4 have a minor role."
     }
    ],
    "strength": "major"
@@ -3832,7 +3832,7 @@
      "llm": "opus",
      "page": "propranolol",
      "provenance": "verified",
-     "quote": "Metabolism | Liver (extensive) CYP1A2 , CYP2D6 ; minor: CYP2C19 , CYP3A4 ; aromatic hydroxylation (mainly 4-hydroxylation), N - dealkylation , side-chain oxidation , glucuronidation"
+     "quote": "CYP1A2 and CYP2D6 have a major role, while CYP2C19 and CYP3A4 have a minor role."
     }
    ],
    "strength": "major"
@@ -3968,12 +3968,6 @@
     }
    ],
    "strength": "major"
-  }
- ],
- "risperidone": [
-  {
-   "enzyme": "cyp2d6",
-   "role": "substrate"
   }
  ],
  "ropinirole": [
@@ -5190,6 +5184,12 @@
      "page": "zaleplon",
      "provenance": "verified",
      "quote": "Metabolism | Liver aldehyde oxidase (91%), CYP3A4 (9%)"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "zaleplon",
+     "provenance": "verified",
+     "quote": "The CYP3A4 liver enzyme is a minor metabolic pathway for zaleplon, normally metabolizing about 9% of the drug."
     }
    ],
    "strength": "minor"
