@@ -28,8 +28,19 @@ paraphrased or mislocated simply fails to match and is skipped, so nothing
 untrustworthy is written. Idempotent: a drug already carrying ``category_sources``
 is left untouched. Stdlib only; authoring helper, not served.
 
+**Wikipedia mode** (``--wikipedia``), for the drugs Stahl has no monograph for: the
+candidates are the lead sentences ``tools/fetch/fetch_category_worklist.py`` offered from the
+stored English (corpus #9 ``wikipedia_pharm``) and French (corpus #10 ``wikipedia_fr``)
+articles, and the LLM answered by **index** into ``category_judged.json`` (``{id: [idx, ...]
+| null}``, confirm-only: it never changes a category). This tool re-finds each picked line
+verbatim on its cited page and writes ``{corpus, page, quote, provenance: verified}``, with
+no ``llm`` stamp, so ``tools/sourcing/recheck_quotes.py`` must judge it next (``check_data.py``
+family 5 fails an extracted-but-unjudged citation). A drug already carrying
+``category_sources`` (Stahl's above all) is never touched.
+
 Usage:
     python tools/sourcing/apply_category_sources.py RESULTS.json [--dry-run]
+    python tools/sourcing/apply_category_sources.py --wikipedia [--dry-run]
 
 Built with the help of Claude Code.
 """
@@ -45,6 +56,14 @@ sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_
 import drugs_io  # noqa: E402
 DRUGS_JSON = drugs_io.DRUGS_PATH
 PAGES = ROOT / "data_sources" / "books" / "stahl" / "pages"
+CACHE = ROOT / "tools" / "generated_cache"
+WORKLIST = CACHE / "category_worklist.json"
+JUDGED = CACHE / "category_judged.json"
+# The stored-article trees the Wikipedia mode may cite, keyed by corpus.
+WIKI_PAGES = {
+    "wikipedia_pharm": ROOT / "data_sources" / "wikipedia" / "pages",
+    "wikipedia_fr": ROOT / "data_sources" / "wikipedia" / "pages_fr",
+}
 INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
 
 # Reuse the exact normalization the checker uses, so "accepted here" == "passes
@@ -87,14 +106,95 @@ def find_page(start, end, quote):
     return None
 
 
+def apply_wikipedia(drugs, worklist, judged, pages=WIKI_PAGES):
+    """Write judged Wikipedia lead sentences onto ``category_sources``, gated.
+
+    Parameters
+    ----------
+    drugs : list[dict]
+        The roster, mutated in place.
+    worklist : dict
+        ``fetch_category_worklist.py``'s ``drugs`` map: ``id -> {candidates: [...]}``.
+    judged : dict
+        ``id -> [candidate index, ...] | None``.
+    pages : dict
+        ``corpus -> pages dir``; only these corpora can be cited.
+
+    Returns
+    -------
+    tuple[int, list[str]]
+        Drugs written, and one rejection line per refused pick.
+    """
+    by_id = {d["id"]: d for d in drugs}
+    applied, misses = 0, []
+    for did, picks in judged.items():
+        if not picks:
+            continue
+        d = by_id.get(did)
+        if d is None:
+            misses.append(f"{did}: no such drug in drugs_data.jsonl")
+            continue
+        if d.get("category_sources"):
+            misses.append(f"{did}: already carries category_sources, left untouched")
+            continue
+        cands = (worklist.get(did) or {}).get("candidates", [])
+        sources = []
+        for idx in picks:
+            if not isinstance(idx, int) or not 0 <= idx < len(cands):
+                misses.append(f"{did}: index {idx!r} out of range")
+                continue
+            c = cands[idx]
+            root = pages.get(c["corpus"])
+            path = root / f"{c['page']}.md" if root else None
+            needle = normalize_for_match(c["line"])
+            if not path or not path.exists() or not needle or needle not in \
+                    normalize_for_match(path.read_text(encoding="utf-8", errors="replace")):
+                misses.append(f"{did}: quote not on {c['corpus']}/{c['page']}: {c['line'][:80]!r}")
+                continue
+            sources.append({"corpus": c["corpus"], "page": c["page"],
+                            "quote": c["line"], "provenance": "verified"})
+        if sources:
+            d["category_sources"] = sources
+            applied += 1
+    return applied, misses
+
+
+def _report(applied, misses, dry_run, drugs, header):
+    print(header)
+    for line in misses[:60]:
+        print(f"  [miss] {line}")
+    if len(misses) > 60:
+        print(f"  ... and {len(misses) - 60} more")
+    if dry_run:
+        print("dry-run: drugs_data.jsonl not written")
+        return
+    if applied:
+        drugs_io.save_drugs(drugs)
+        print(f"wrote {DRUGS_JSON}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("results", help="JSON: [{id, quotes:[...]}]")
+    ap.add_argument("results", nargs="?", help="JSON: [{id, quotes:[...]}] (Stahl mode)")
+    ap.add_argument("--wikipedia", action="store_true",
+                    help="apply category_judged.json against category_worklist.json")
+    ap.add_argument("--worklist", type=Path, default=WORKLIST)
+    ap.add_argument("--judged", type=Path, default=JUDGED)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    results = json.loads(Path(args.results).read_text(encoding="utf-8"))
     drugs = drugs_io.load_drugs()
+    if args.wikipedia:
+        worklist = json.loads(args.worklist.read_text(encoding="utf-8"))["drugs"]
+        judged = json.loads(args.judged.read_text(encoding="utf-8"))
+        applied, misses = apply_wikipedia(drugs, worklist, judged)
+        _report(applied, misses, args.dry_run, drugs,
+                f"applied {applied}, misses {len(misses)}")
+        return
+    if not args.results:
+        ap.error("RESULTS.json is required unless --wikipedia")
+
+    results = json.loads(Path(args.results).read_text(encoding="utf-8"))
     by_id = {d["id"]: d for d in drugs}
     ranges = page_ranges()
 
@@ -126,19 +226,9 @@ def main():
             d["category_sources"] = sources
             applied += 1
 
-    print(f"applied {applied}, skipped {skipped} (already sourced), "
-          f"no-range {no_range}, misses {len(misses)}")
-    for line in misses[:60]:
-        print(f"  [miss] {line}")
-    if len(misses) > 60:
-        print(f"  ... and {len(misses) - 60} more")
-
-    if args.dry_run:
-        print("dry-run: drugs_data.jsonl not written")
-        return
-    if applied:
-        drugs_io.save_drugs(drugs)
-        print(f"wrote {DRUGS_JSON}")
+    _report(applied, misses, args.dry_run, drugs,
+            f"applied {applied}, skipped {skipped} (already sourced), "
+            f"no-range {no_range}, misses {len(misses)}")
 
 
 if __name__ == "__main__":
