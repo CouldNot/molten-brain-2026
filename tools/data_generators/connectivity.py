@@ -322,6 +322,27 @@ PROJECTIONS: list[dict[str, Any]] = [
          label="Ascending serotonergic (nigral)",
          description="Median raphe serotonin reaches the substantia nigra, "
                      "restraining its dopamine neurons."),
+    # --- Serotonergic targets the receptor layer lit with no supply drawn (family
+    #     10 of check_data.py), each from its own book sentence naming the raphe
+    #     and the target. Midline -> midline arrows (cerebellum, medulla) do not
+    #     mirror. ---
+    dict(**{"from": "raphe", "to": "cerebellum"},
+         kind="serotonergic", neurotransmitter="Serotonin",
+         label="Descending serotonergic (cerebellar)",
+         description="Raphe serotonin neurons project to the cerebellum."),
+    dict(**{"from": "raphe", "to": "medulla"},
+         kind="serotonergic", neurotransmitter="Serotonin",
+         label="Descending serotonergic (medullary)",
+         description="Medullary raphe serotonin neurons project throughout the "
+                     "medulla, tuning pain, breathing and autonomic control."),
+    dict(**{"from": "raphe", "to": "septal_nuclei_R"},
+         kind="serotonergic", neurotransmitter="Serotonin",
+         label="Ascending serotonergic (septal)",
+         description="Median raphe serotonin projects to the septum."),
+    dict(**{"from": "raphe", "to": "olfactory_bulb_R"},
+         kind="serotonergic", neurotransmitter="Serotonin",
+         label="Ascending serotonergic (olfactory bulb)",
+         description="Dorsal raphe serotonin projects to the olfactory bulb."),
     dict(**{"from": "locus_coeruleus_R", "to": "frontal_R"},
          kind="noradrenergic", neurotransmitter="Noradrenaline",
          label="Ascending noradrenergic (prefrontal)",
@@ -368,6 +389,10 @@ PROJECTIONS: list[dict[str, Any]] = [
          label="Ascending noradrenergic (cerebellar)",
          description="Locus coeruleus noradrenaline innervates the cerebellar "
                      "cortex, setting the gain of its circuitry."),
+    dict(**{"from": "locus_coeruleus_R", "to": "pons"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (pontine)",
+         description="Locus coeruleus noradrenaline reaches the pontine nuclei."),
     dict(**{"from": "vta_R", "to": "accumbens_R"},
          kind="dopaminergic", neurotransmitter="Dopamine",
          label="Mesolimbic (VTA)",
@@ -387,6 +412,34 @@ PROJECTIONS: list[dict[str, Any]] = [
          label="Mesolimbic (hippocampal)",
          description="VTA dopamine projects to the hippocampus, gating "
                      "reward-related memory."),
+    # --- Further A10 targets the dopaminergic receptor layer lit with no supply
+    #     drawn (check_data.py family 10), each backed by a sentence naming the
+    #     VTA (or its A10 cell group) and the target. ---
+    dict(**{"from": "vta_R", "to": "temporal_R"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Mesocortical (temporal)",
+         description="VTA dopamine projects to the temporal cortex."),
+    dict(**{"from": "vta_R", "to": "cingulate_R"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Mesocortical (cingulate)",
+         description="VTA dopamine reaches the cingulate cortex, one of its "
+                     "limbic targets."),
+    dict(**{"from": "vta_R", "to": "thalamus_R"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Ascending dopaminergic (thalamic)",
+         description="VTA (A10) dopamine innervates the thalamus."),
+    dict(**{"from": "vta_R", "to": "hypothalamus_R"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Ascending dopaminergic (hypothalamic)",
+         description="VTA (A10) dopamine innervates the hypothalamus."),
+    dict(**{"from": "vta_R", "to": "raphe"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Dopaminergic (raphe)",
+         description="VTA (A10) dopamine reaches the dorsal raphe nucleus."),
+    dict(**{"from": "vta_R", "to": "locus_coeruleus_R"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Dopaminergic (locus coeruleus)",
+         description="VTA (A10) dopamine reaches the locus coeruleus."),
     # --- Ascending histaminergic from the tuberomammillary nucleus (the sole
     #     histamine source, ventral posterior hypothalamus): a diffuse
     #     wakefulness-promoting fan. One Kandel sentence (p.1052, PROJECTION_QUOTES)
@@ -516,6 +569,16 @@ PROJECTIONS: list[dict[str, Any]] = [
          description="Pedunculopontine and laterodorsal tegmental cholinergic "
                      "neurons in the pons innervate the thalamus, gating what it "
                      "relays to the cortex across the sleep-wake cycle."),
+    dict(**{"from": "pons", "to": "vta_R"},
+         kind="cholinergic", neurotransmitter="Acetylcholine",
+         label="Mesopontine cholinergic (VTA)",
+         description="Pedunculopontine and laterodorsal tegmental cholinergic "
+                     "neurons excite the dopamine neurons of the VTA."),
+    dict(**{"from": "pons", "to": "substantia_nigra_R"},
+         kind="cholinergic", neurotransmitter="Acetylcholine",
+         label="Mesopontine cholinergic (nigral)",
+         description="Pedunculopontine cholinergic neurons excite the "
+                     "substantia nigra."),
     dict(**{"from": "nucleus_basalis_R", "to": "frontal_R"},
          kind="cholinergic", neurotransmitter="Acetylcholine",
          label="Basal forebrain cholinergic (frontal)",

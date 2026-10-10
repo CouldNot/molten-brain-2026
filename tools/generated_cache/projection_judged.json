@@ -133,5 +133,97 @@
   "sign": [
    2
   ]
+ },
+ "raphe->cerebellum": {
+  "transmitter": [
+   3
+  ],
+  "route": [
+   3
+  ]
+ },
+ "raphe->medulla": {
+  "transmitter": [
+   38
+  ],
+  "route": [
+   38
+  ]
+ },
+ "raphe->septal_nuclei_R": {
+  "route": [
+   6
+  ]
+ },
+ "raphe->olfactory_bulb_R": {
+  "route": [
+   3
+  ]
+ },
+ "locus_coeruleus_R->pons": {
+  "route": [
+   50
+  ]
+ },
+ "vta_R->temporal_R": {
+  "route": [
+   89
+  ]
+ },
+ "vta_R->cingulate_R": {
+  "transmitter": [
+   0
+  ],
+  "route": [
+   0
+  ]
+ },
+ "vta_R->thalamus_R": {
+  "transmitter": [
+   4
+  ],
+  "route": [
+   4
+  ]
+ },
+ "vta_R->hypothalamus_R": {
+  "transmitter": [
+   0
+  ],
+  "route": [
+   0
+  ]
+ },
+ "vta_R->raphe": {
+  "transmitter": [
+   24
+  ],
+  "route": [
+   84
+  ]
+ },
+ "vta_R->locus_coeruleus_R": {
+  "transmitter": [
+   32
+  ],
+  "route": [
+   68
+  ]
+ },
+ "pons->vta_R": {
+  "transmitter": [
+   29
+  ],
+  "route": [
+   29
+  ]
+ },
+ "pons->substantia_nigra_R": {
+  "transmitter": [
+   1
+  ],
+  "route": [
+   1
+  ]
  }
 }

@@ -46,6 +46,14 @@
     "provenance": "verified"
    }
   ],
+  "locus_coeruleus_R->pons": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 898,
+    "quote": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
   "nucleus_basalis_R->amygdala_R": [
    {
     "corpus": "nieuwenhuys",
@@ -138,6 +146,22 @@
     "provenance": "verified"
    }
   ],
+  "pons->substantia_nigra_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 443,
+    "quote": "Excitatory afferents to the substantia nigra originate from glutamatergic neurons in the subthalamic nucleus and from glutamatergic and cholinergic neurons in the pedunculopontine tegmental nucleus [35, 245, 277].",
+    "provenance": "verified"
+   }
+  ],
+  "pons->vta_R": [
+   {
+    "corpus": "kandel",
+    "page": 1115,
+    "quote": "These dopaminergic neurons are excited by glutamatergic cells in the prefrontal cortex and amygdala as well as from cholinergic cells in the laterodorsal tegmental and pedunculopontine nuclei of the hindbrain, and are inhibited by local GABAergic cells within or just caudal to the ventral tegmental area.",
+    "provenance": "verified"
+   }
+  ],
   "raphe->caudate_R": [
    {
     "corpus": "nieuwenhuys",
@@ -146,11 +170,43 @@
     "provenance": "verified"
    }
   ],
+  "raphe->cerebellum": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 892,
+    "quote": "The rostral group gives rise to local, cerebellar and ascending projections; the caudal group is connected with the brain stem, the cerebellum and the spinal cord. Serotonergic cells in the medulla are located in the small, ventrally located _nucleus_ _raphe_ _pallidus_ (B1) and the more dorsally located _nucleus_ _raphe_ _obscurus_ (B2).",
+    "provenance": "verified"
+   }
+  ],
+  "raphe->medulla": [
+   {
+    "corpus": "kandel",
+    "page": 1046,
+    "quote": "Serotonergic neurons (B groups) are found within the medulla, pons, and midbrain, mostly near the midline in the raphe nuclei. Those within the medulla (the B1–B4 groups corresponding to the raphe magnus, raphe obscurus, and raphe pallidus) project throughout the medulla and spinal cord and modulate afferent pain signals, thermoregulation, cardiovascular control, and breathing.",
+    "provenance": "verified"
+   }
+  ],
+  "raphe->olfactory_bulb_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 896,
+    "quote": "The main projections of the dorsal raphe nucleus are to the lateral geniculate body, the striatum, the entorhinal cortex, the olfactory bulb and the amygdala, and from the median raphe nucleus to the septum, basal forebrain and hippocampus [21]; however, many of these and other destinations are shared by these nuclei (Table 21.2, Chaps.",
+    "provenance": "verified"
+   }
+  ],
   "raphe->putamen_R": [
    {
     "corpus": "nieuwenhuys",
     "page": 435,
     "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
+  "raphe->septal_nuclei_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 896,
+    "quote": "The main projections of the dorsal raphe nucleus are to the lateral geniculate body, the striatum, the entorhinal cortex, the olfactory bulb and the amygdala, and from the median raphe nucleus to the septum, basal forebrain and hippocampus [21]; however, many of these and other destinations are shared by these nuclei (Table 21.2, Chaps.",
     "provenance": "verified"
    }
   ],
@@ -213,6 +269,66 @@
     "corpus": "nieuwenhuys",
     "page": 446,
     "quote": "These thalamocortical projections innervate cortical layers I and III, and to a lesser extent layer V [414]. They are glutamatergic and activate cortical neurons.",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->cingulate_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 218,
+    "quote": "The principal connections of the dopaminergic elements in the ventral tegmental area pass ventrally through the lateral hypothalamus to terminate in a variety of limbic structures, including the cingulate cortex, the accumbens nucleus and the amygdala.",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->hypothalamus_R": [
+   {
+    "corpus": "kandel",
+    "page": 1052,
+    "quote": "The noradrenergic locus ceruleus, serotonergic dorsal and median raphe nuclei, dopaminergic A10 neurons, and histaminergic tuberomammillary neurons innervate the thalamus, hypothalamus, basal forebrain, and cerebral cortex.",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->locus_coeruleus_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 900,
+    "quote": "The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 900,
+    "quote": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194]. The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->raphe": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 900,
+    "quote": "The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 900,
+    "quote": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194]. The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->temporal_R": [
+   {
+    "corpus": "kandel",
+    "page": 1047,
+    "quote": "The A10 group is located in the ventral tegmental area just medial to the substantia nigra. These cells project to the frontal and temporal cortex and limbic structures of the basal forebrain and play a role in emotion and memory.",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->thalamus_R": [
+   {
+    "corpus": "kandel",
+    "page": 1052,
+    "quote": "The noradrenergic locus ceruleus, serotonergic dorsal and median raphe nuclei, dopaminergic A10 neurons, and histaminergic tuberomammillary neurons innervate the thalamus, hypothalamus, basal forebrain, and cerebral cortex.",
     "provenance": "verified"
    }
   ]

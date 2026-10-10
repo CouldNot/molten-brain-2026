@@ -1271,6 +1271,7 @@
 {"id": "q_51ad592a334b", "corpus": "stahl", "page": 559, "quote": "Half-life approximately 1.5 hours", "llm": "sonnet", "heading": ["Molindone", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_51b8e96aeebd", "corpus": "wikipedia_pharm", "page": "tetrahydrocannabinol", "quote": "Following oral administration, concentrations of THC and its major active metabolite 11-hydroxy-THC (11-OH-THC) peak after 0.5 to 4 hours, with median time to peak of 1.0 to 2.5 hours at different doses.", "llm": "sonnet"}
 {"id": "q_51c08c9fc856", "corpus": "allen_ahba", "page": "MAOA", "quote": "MAOA detected in medulla: probe 1054334 PACall present in 244/244 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
+{"id": "q_51d8fad772b0", "corpus": "kandel", "page": 1046, "quote": "Serotonergic neurons (B groups) are found within the medulla, pons, and midbrain, mostly near the midline in the raphe nuclei. Those within the medulla (the B1–B4 groups corresponding to the raphe magnus, raphe obscurus, and raphe pallidus) project throughout the medulla and spinal cord and modulate afferent pain signals, thermoregulation, cardiovascular control, and breathing.", "llm": "opus"}
 {"id": "q_51e674f04716", "corpus": "gtopdb", "page": 17, "quote": "CNS: substantia nigra, pars compacta and vental tegmental area.", "species": "Rat", "llm": "sonnet"}
 {"id": "q_51f2559abbf7", "corpus": "stahl", "page": 167, "quote": "Neuroscience-based Nomenclature: dopamine, serotonin receptor antagonist (DS-RAn)", "llm": "sonnet", "heading": ["Chlorpromazine", "Therapeutics", "Class"]}
 {"id": "q_523a7546cedb", "corpus": "stahl", "page": 895, "quote": "Metabolized by CYP3A4", "llm": "opus", "heading": ["Vilazodone", "Dosing and use", "Pharmacokinetics"]}
@@ -2201,6 +2202,7 @@
 {"id": "q_8d8097cf8541", "corpus": "wikipedia_pharm", "page": "nimetazepam", "quote": "Nimetazepam (marketed under brand name Erimin and Lavol ) is an intermediate-acting hypnotic drug which is a benzodiazepine derivative.", "llm": "sonnet"}
 {"id": "q_8d993ffae6d2", "corpus": "wikipedia_pharm", "page": "zaleplon", "quote": "The CYP3A4 liver enzyme is a minor metabolic pathway for zaleplon, normally metabolizing about 9% of the drug.", "llm": "opus"}
 {"id": "q_8d9f4b7833b8", "corpus": "allen_ahba", "page": "CNR1", "quote": "CNR1 detected in globus_pallidus: probe 1028488 PACall present in 35/36 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
+{"id": "q_8da1114cd208", "corpus": "nieuwenhuys", "page": 898, "quote": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.", "llm": "opus"}
 {"id": "q_8da58fe30ead", "corpus": "stahl", "page": 568, "quote": "Elimination half-life of oral naltrexone is approximately 13 hours", "llm": "sonnet", "heading": ["Naltrexone", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_8dbb7cbd07a5", "corpus": "stahl", "page": 776, "quote": "Metabolized to an active metabolite, primarily by CYP3A4 (major route) and CYP2C9 (minor route)", "llm": "opus", "heading": ["Sildenafil", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_8e0c401d07fb", "corpus": "allen_ahba", "page": "SLC6A1", "quote": "SLC6A1 detected in temporal: probe 1051544 PACall present in 419/419 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
@@ -2245,6 +2247,7 @@
 {"id": "q_90d22cacf2be", "corpus": "stahl", "page": 529, "quote": "Neuroscience-based Nomenclature: GABA positive allosteric modulator (GABA-PAM)", "llm": "sonnet", "heading": ["Midazolam", "Therapeutics", "Class"]}
 {"id": "q_90e2c1806b37", "corpus": "wikipedia_pharm", "page": "dexmethylphenidate", "quote": "Methylphenidate (MPH) is widely described in the pharmacological literature as being metabolized primarily, and almost exclusively, by carboxylesterase 1 into its inactive metabolite, ritalinic acid (RA).", "llm": "opus"}
 {"id": "q_90e6207b2c74", "corpus": "stahl_essential", "page": 575, "quote": "morphine” – synapse with postsynaptic sites containing μ-opioid receptors; neurons that release enkephalin synapse with postsynaptic δ-opioid receptors; neurons that release dynorphin synapse with postsynaptic κ-opioid receptors (Figure 13-18).", "llm": "opus"}
+{"id": "q_90fd485852ea", "corpus": "nieuwenhuys", "page": 900, "quote": "The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].", "llm": "opus"}
 {"id": "q_91249fedc694", "corpus": "gtopdb_ki", "page": "thiothixene", "quote": "thiothixene at 5-HT2A receptor (HTR2A, Human): Antagonist / Antagonist, pKi 7.3 [PMID 12629531]", "species": "Human"}
 {"id": "q_912ab2925146", "corpus": "wikipedia_pharm", "page": "sertindole", "quote": "α 2A | 640"}
 {"id": "q_9132241f3bae", "corpus": "stahl", "page": 263, "quote": "Antihistamine; anticholinergic agent", "llm": "sonnet", "heading": ["Diphenhydramine", "Therapeutics", "Class"]}
@@ -2440,6 +2443,7 @@
 {"id": "q_9cdb13805f22", "corpus": "stahl", "page": 653, "quote": "Neuroscience-based Nomenclature: serotonin, norepinephrine, dopamine enzyme inhibitor (SN-EI)", "llm": "sonnet", "heading": ["Phenelzine", "Therapeutics", "Class"]}
 {"id": "q_9d0102861559", "corpus": "wikipedia_pharm", "page": "chlorpromazine", "quote": "22 L/kg) | 30±7 hours | CYP2D6 , CYP1A2 —mediated into over 10 major metabolites.", "llm": "opus"}
 {"id": "q_9d0ec3290855", "corpus": "gtopdb_ki", "page": "ziprasidone", "quote": "ziprasidone at 5-HT1B receptor (HTR1B, Human): Agonist / Full agonist, pKi 8.3 [PMID 8935801]", "species": "Human"}
+{"id": "q_9d17f76cc190", "corpus": "kandel", "page": 1115, "quote": "These dopaminergic neurons are excited by glutamatergic cells in the prefrontal cortex and amygdala as well as from cholinergic cells in the laterodorsal tegmental and pedunculopontine nuclei of the hindbrain, and are inhibited by local GABAergic cells within or just caudal to the ventral tegmental area.", "llm": "opus"}
 {"id": "q_9d1b2e0e6941", "corpus": "wikipedia_pharm", "page": "sertindole", "quote": "5-HT 1F | 360"}
 {"id": "q_9d204633ef65", "corpus": "wikipedia_pharm", "page": "betahistine", "quote": "Betahistine is a weak antagonist or inverse agonist at histamine H 3 receptors and a weak partial agonist at histamine H 1 receptors .", "llm": "sonnet"}
 {"id": "q_9d250028b64e", "corpus": "wikipedia_pharm", "page": "ketanserin", "quote": "Its time to peak levels is 0.53 to 2.3 hours on average, with a range of 0.25 to 5.0 hours.", "llm": "sonnet"}
@@ -2700,6 +2704,7 @@
 {"id": "q_ab04f3bd31b4", "corpus": "gtopdb_ki", "page": "apomorphine", "quote": "apomorphine at α2A-adrenoceptor (ADRA2A, Human): Agonist / Partial agonist, pKi 6.9 [PMID 12388666]", "species": "Human"}
 {"id": "q_ab09eb2e6a0e", "corpus": "wikipedia_pharm", "page": "buspirone", "quote": "5-HT 2A | 138–3,240 | Antagonist | Human"}
 {"id": "q_ab15d6c8ec2a", "corpus": "stahl", "page": 147, "quote": "Tegretol", "llm": "sonnet", "heading": ["Carbamazepine", "Therapeutics", "Brands"]}
+{"id": "q_ab2a4ca02edf", "corpus": "nieuwenhuys", "page": 900, "quote": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194]. The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].", "llm": "opus"}
 {"id": "q_ab304f4860ce", "corpus": "stahl", "page": 577, "quote": "Neuroscience-based Nomenclature: serotonin receptor antagonist", "llm": "sonnet", "heading": ["Nefazodone", "Therapeutics", "Class"]}
 {"id": "q_ab597d745ea4", "corpus": "gtopdb_ki", "page": "risperidone", "quote": "risperidone at α1A-adrenoceptor (ADRA1A, Human): Antagonist / Antagonist, pKi 8.4-8.7 [PMID 11459121]", "species": "Human"}
 {"id": "q_ab83bf215465", "corpus": "gtopdb", "page": 216, "quote": "Brain: islands of Cajella, olafactory bulb, pituitary intermediate lobe > nucleus accumbens, molecular layer of the vestibulocerebellum, substantia nigra pars compacta.", "species": "Rat", "llm": "sonnet"}
@@ -2854,6 +2859,7 @@
 {"id": "q_b43d4533d4e0", "corpus": "dailymed", "page": "67e753ad-9919-416b-9e8f-aab0fa808066", "quote": "Peak plasma concentrations of mirtazapine are reached within about 2 hours post dose.", "llm": "sonnet"}
 {"id": "q_b44b1db4b7db", "corpus": "gtopdb_ki", "page": "prochlorperazine", "quote": "prochlorperazine at D1 receptor (DRD1, Human): Antagonist / Antagonist, pKi 7.11", "species": "Human"}
 {"id": "q_b451ff143e7b", "corpus": "gtopdb_ki", "page": "rotigotine", "quote": "rotigotine at D2 receptor (DRD2, Human): Agonist / Agonist, pKi 10.22 [PMID 12086487]", "species": "Human"}
+{"id": "q_b45c45ab851d", "corpus": "nieuwenhuys", "page": 443, "quote": "Excitatory afferents to the substantia nigra originate from glutamatergic neurons in the subthalamic nucleus and from glutamatergic and cholinergic neurons in the pedunculopontine tegmental nucleus [35, 245, 277].", "llm": "opus"}
 {"id": "q_b4707231597f", "corpus": "gtopdb_class", "page": 4, "quote": "5-ht1e receptor (HTR1E), GtoPdb target 4 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition"}
 {"id": "q_b47682bd71e6", "corpus": "stahl", "page": 95, "quote": "Blocks norepinephrine reuptake pumps, also known as norepinephrine transporters", "llm": "sonnet", "heading": ["Atomoxetine", "Therapeutics", "How the Drug Works"]}
 {"id": "q_b4991b6d038c", "corpus": "wikipedia_pharm", "page": "apomorphine", "quote": "5-HT 2A | 120 | antagonist"}
@@ -2985,6 +2991,7 @@
 {"id": "q_bc8f24cec817", "corpus": "wikipedia_fr", "page": "isocarboxazide", "quote": "Enerzer", "llm": "sonnet"}
 {"id": "q_bc9738af3570", "corpus": "wikipedia_pharm", "page": "haloperidol", "quote": "α 2C | Agonist | 550"}
 {"id": "q_bc99a8b3fcfd", "corpus": "stahl", "page": 551, "quote": "Neuroscience-based Nomenclature: dopamine reuptake inhibitor (D-RI)", "llm": "sonnet", "heading": ["Modafinil", "Therapeutics", "Class"]}
+{"id": "q_bcc02e4f3aab", "corpus": "nieuwenhuys", "page": 892, "quote": "The rostral group gives rise to local, cerebellar and ascending projections; the caudal group is connected with the brain stem, the cerebellum and the spinal cord. Serotonergic cells in the medulla are located in the small, ventrally located _nucleus_ _raphe_ _pallidus_ (B1) and the more dorsally located _nucleus_ _raphe_ _obscurus_ (B2).", "llm": "opus"}
 {"id": "q_bce150cc860b", "corpus": "stahl", "page": 403, "quote": "Monoamine oxidase inhibitor (MAOI)", "llm": "sonnet", "heading": ["Isocarboxazid", "Therapeutics", "Class"]}
 {"id": "q_bcfe6da0518e", "corpus": "allen_ahba", "page": "CHRM1", "quote": "CHRM1 detected in hippocampus: probe 1058221 PACall present in 171/171 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_bd1110c93615", "corpus": "cpic", "page": "PA166251452", "quote": "Initiate therapy with recommended starting dose"}
@@ -3324,6 +3331,7 @@
 {"id": "q_d34d0485ac9e", "corpus": "wikipedia_pharm", "page": "selegiline", "quote": "By inhibiting cytochrome P450 enzymes like CYP2B6 and CYP1A2, selegiline may inhibit its own metabolism and thereby interact with itself.", "llm": "opus"}
 {"id": "q_d361082354cf", "corpus": "stahl", "page": 278, "quote": "Blockade of alpha adrenergic 1 receptors may explain dizziness, sedation, and hypotension", "llm": "sonnet", "heading": ["Dothiepin", "Side effects", "How Drug Causes Side Effects"]}
 {"id": "q_d3a7b45e0a3b", "corpus": "wikipedia_pharm", "page": "maprotiline", "quote": "H 2 | 776 | Human"}
+{"id": "q_d3aa2355bbf2", "corpus": "nieuwenhuys", "page": 218, "quote": "The principal connections of the dopaminergic elements in the ventral tegmental area pass ventrally through the lateral hypothalamus to terminate in a variety of limbic structures, including the cingulate cortex, the accumbens nucleus and the amygdala.", "llm": "opus"}
 {"id": "q_d3b5fe07a25d", "corpus": "wikipedia_pharm", "page": "chlorprothixene", "quote": "α 2 | 186 | ND"}
 {"id": "q_d3b768ad11be", "corpus": "allen_ahba", "page": "HRH1", "quote": "HRH1 detected in temporal: probe 1019914 PACall present in 385/419 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_d3c971a0543a", "corpus": "stahl", "page": 727, "quote": "Uzedy", "llm": "sonnet", "heading": ["Risperidone", "Therapeutics", "Brands"]}
@@ -3869,6 +3877,7 @@
 {"id": "q_f4b40ac997d6", "corpus": "gtopdb", "page": 14, "quote": "CNS: cerebral cortex, thalamus, brainstem, medulla, hypothalamus.", "species": "Human", "llm": "sonnet"}
 {"id": "q_f4c0ddcd3752", "corpus": "wikipedia_pharm", "page": "protriptyline", "quote": "α 2 | 6,600 | Human"}
 {"id": "q_f4c2c28cfc1e", "corpus": "stahl", "page": 187, "quote": "Benzodiazepine (anxiolytic, anticonvulsant)", "llm": "sonnet", "heading": ["Clonazepam", "Therapeutics", "Class"]}
+{"id": "q_f4c5191a5646", "corpus": "nieuwenhuys", "page": 896, "quote": "The main projections of the dorsal raphe nucleus are to the lateral geniculate body, the striatum, the entorhinal cortex, the olfactory bulb and the amygdala, and from the median raphe nucleus to the septum, basal forebrain and hippocampus [21]; however, many of these and other destinations are shared by these nuclei (Table 21.2, Chaps.", "llm": "opus"}
 {"id": "q_f4d648c8bd67", "corpus": "wikipedia_pharm", "page": "phencyclidine", "quote": "Drug class | NMDA receptor antagonists ; General anesthetics ; Dissociative hallucinogens", "llm": "sonnet"}
 {"id": "q_f4d7f33deacb", "corpus": "stahl", "page": 517, "quote": "Methylin", "llm": "sonnet", "heading": ["Methylphenidate (D,L)", "Therapeutics", "Brands"]}
 {"id": "q_f4de3ce72e09", "corpus": "stahl", "page": 427, "quote": "Keppra", "llm": "sonnet", "heading": ["Levetiracetam", "Therapeutics"]}
@@ -3960,6 +3969,7 @@
 {"id": "q_fa552ad01e22", "corpus": "wikipedia_pharm", "page": "buprenorphine", "quote": "Buprenorphine is metabolized by the liver , via CYP3A4 (also CYP2C8 seems to be involved) isozymes of the cytochrome P450 enzyme system, into norbuprenorphine (by N -dealkylation).", "llm": "opus"}
 {"id": "q_fa5924d171cf", "corpus": "stahl", "page": 901, "quote": "Inhibits CYP1A2 (strong)", "llm": "opus", "heading": ["Viloxazine", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_fa66bbb4fff3", "corpus": "gtopdb_ki", "page": "rotigotine", "quote": "rotigotine at D3 receptor (DRD3, Human): Agonist / Agonist, pKi 8.4 [PMID 12086487]", "species": "Human"}
+{"id": "q_fa7bf45fa5e4", "corpus": "kandel", "page": 1047, "quote": "The A10 group is located in the ventral tegmental area just medial to the substantia nigra. These cells project to the frontal and temporal cortex and limbic structures of the basal forebrain and play a role in emotion and memory.", "llm": "opus"}
 {"id": "q_fa87758bd514", "corpus": "wikipedia_pharm", "page": "thioridazine", "quote": "α 2B | 341.65 | ND | ND"}
 {"id": "q_fa9e7c920a81", "corpus": "wikipedia_pharm", "page": "dimenhydrinate", "quote": "Dimenhydrinate is an over-the-counter (OTC) first-generation antihistamine indicated for the prevention and relief of nausea and vomiting from a number of causes, including motion-sickness and post-operative nausea.", "llm": "sonnet"}
 {"id": "q_fad30cc028d0", "corpus": "wikipedia_pharm", "page": "melperone", "quote": "Melperone ( Bunil ( PT ) , Buronil ( AT , BE , CZ , DK , FI † , NL † , NO † , SE ) , Eunerpan ( DE ) ) is an atypical antipsychotic of the butyrophenone chemical class , making it structurally related to the typical antipsychotic haloperidol .", "llm": "sonnet"}

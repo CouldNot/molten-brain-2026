@@ -223,6 +223,63 @@ FR: dict[str, str] = {
         "Histaminergique descendante (cérébelleuse)",
     "Mesopontine cholinergic (thalamic)":
         "Cholinergique mésopontine (thalamique)",
+    "Mesopontine cholinergic (VTA)":
+        "Cholinergique mésopontine (ATV)",
+    "Mesopontine cholinergic (nigral)":
+        "Cholinergique mésopontine (nigrale)",
+    "Descending serotonergic (cerebellar)":
+        "Sérotoninergique descendante (cérébelleuse)",
+    "Descending serotonergic (medullary)":
+        "Sérotoninergique descendante (bulbaire)",
+    "Ascending serotonergic (septal)":
+        "Sérotoninergique ascendante (septale)",
+    "Ascending serotonergic (olfactory bulb)":
+        "Sérotoninergique ascendante (bulbe olfactif)",
+    "Noradrenergic (pontine)":
+        "Noradrénergique (pontique)",
+    "Mesocortical (temporal)":
+        "Mésocorticale (temporale)",
+    "Mesocortical (cingulate)":
+        "Mésocorticale (cingulaire)",
+    "Ascending dopaminergic (thalamic)":
+        "Dopaminergique ascendante (thalamique)",
+    "Ascending dopaminergic (hypothalamic)":
+        "Dopaminergique ascendante (hypothalamique)",
+    "Dopaminergic (raphe)":
+        "Dopaminergique (raphé)",
+    "Dopaminergic (locus coeruleus)":
+        "Dopaminergique (locus coeruleus)",
+    "Raphe serotonin neurons project to the cerebellum.":
+        "Les neurones sérotoninergiques du raphé se projettent vers le cervelet.",
+    "Medullary raphe serotonin neurons project throughout the medulla, tuning "
+    "pain, breathing and autonomic control.":
+        "Les neurones sérotoninergiques du raphé bulbaire se projettent dans tout "
+        "le bulbe rachidien, réglant douleur, respiration et contrôle autonome.",
+    "Median raphe serotonin projects to the septum.":
+        "La sérotonine du raphé médian se projette vers le septum.",
+    "Dorsal raphe serotonin projects to the olfactory bulb.":
+        "La sérotonine du raphé dorsal se projette vers le bulbe olfactif.",
+    "Locus coeruleus noradrenaline reaches the pontine nuclei.":
+        "La noradrénaline du locus coeruleus atteint les noyaux du pont.",
+    "VTA dopamine projects to the temporal cortex.":
+        "La dopamine de l'ATV se projette vers le cortex temporal.",
+    "VTA dopamine reaches the cingulate cortex, one of its limbic targets.":
+        "La dopamine de l'ATV atteint le cortex cingulaire, l'une de ses cibles "
+        "limbiques.",
+    "VTA (A10) dopamine innervates the thalamus.":
+        "La dopamine de l'ATV (A10) innerve le thalamus.",
+    "VTA (A10) dopamine innervates the hypothalamus.":
+        "La dopamine de l'ATV (A10) innerve l'hypothalamus.",
+    "VTA (A10) dopamine reaches the dorsal raphe nucleus.":
+        "La dopamine de l'ATV (A10) atteint le noyau du raphé dorsal.",
+    "VTA (A10) dopamine reaches the locus coeruleus.":
+        "La dopamine de l'ATV (A10) atteint le locus coeruleus.",
+    "Pedunculopontine and laterodorsal tegmental cholinergic neurons excite the "
+    "dopamine neurons of the VTA.":
+        "Les neurones cholinergiques pédonculopontins et tegmentaux latérodorsaux "
+        "excitent les neurones dopaminergiques de l'ATV.",
+    "Pedunculopontine cholinergic neurons excite the substantia nigra.":
+        "Les neurones cholinergiques pédonculopontins excitent la substance noire.",
     "Pineal melatonin (suprachiasmatic)":
         "Mélatonine pinéale (suprachiasmatique)",
     "Basal forebrain cholinergic (frontal)":
