@@ -27,6 +27,10 @@ Usage (from the repo root)::
     python tools/fetch/fetch_projection_worklist.py
     python tools/fetch/fetch_projection_worklist.py --only "raphe->parietal_R"
 
+``--only`` **merges** the scoped entries into the existing worklist rather than replacing
+it: the committed ``projection_judged.json`` answers by index into the other entries, and
+a rebuilt candidate list would shift those indices under the picks already applied.
+
 Stdlib only, offline; author-side (needs the gitignored ``data_sources/`` book trees).
 
 Built with the help of Claude Code.
@@ -72,6 +76,7 @@ FETCH_ALIASES: dict[str, tuple[str, ...]] = {
     "nucleus_basalis": ("basal forebrain", "nucleus basalis"),
     "locus_coeruleus": ("ceruleus", "noradrenergic neurons", "noradrenergic cell"),
     "raphe": ("serotonergic neurons", "serotonergic cell"),
+    "vta": ("a10 ",),  # Kandel p.1047: "The A10 group is located in the ventral tegmental area"
     "tuberomammillary": ("histaminergic neurons", "histaminergic cell"),
     "pons": ("pontine",),
     "temporal": ("entorhinal",),
@@ -157,7 +162,8 @@ def names(text: str, base: str, des: dict[str, set[str]], coarse: bool = False) 
     return _names_region(text, des.get(base, set())) or any(a in low for a in aliases)
 
 
-def candidates(proj: dict, windows: list, des: dict[str, set[str]]) -> list[dict]:
+def candidates(proj: dict, windows: list, des: dict[str, set[str]],
+               cap: int = MAX_CANDIDATES) -> list[dict]:
     src, dst = _base_id(proj["from"]), _base_id(proj["to"])
     tx = pattern_for("transmitter", proj["transmitter"]) if "transmitter" in proj["need"] else None
     sg = pattern_for("sign", proj["sign"]) if "sign" in proj["need"] and proj["sign"] else None
@@ -200,17 +206,17 @@ def candidates(proj: dict, windows: list, des: dict[str, set[str]]) -> list[dict
         if c["line"] not in seen:
             seen.add(c["line"])
             kept.append(c)
-    return kept[:MAX_CANDIDATES]
+    return kept[:cap]
 
 
-def build(only: set[str] | None = None) -> dict:
+def build(only: set[str] | None = None, cap: int = MAX_CANDIDATES) -> dict:
     des = designations()
     windows = book_windows()
     work = {}
     for key, proj in projections().items():
         if only and key not in only:
             continue
-        work[key] = {**proj, "candidates": candidates(proj, windows, des)}
+        work[key] = {**proj, "candidates": candidates(proj, windows, des, cap)}
     return {"projections": work}
 
 
@@ -219,9 +225,17 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", help='comma-separated "from->to" keys to scope the scan to')
     ap.add_argument("--out", type=Path, default=OUT_PATH, help="worklist output path")
+    ap.add_argument("--max-candidates", type=int, default=MAX_CANDIDATES,
+                    help="candidates kept per projection (an unsourced pathway's "
+                         "route-only sentences rank below every transmitter-bearing one, "
+                         "so a crowded pair can need more)")
     args = ap.parse_args()
     only = {k.strip() for k in args.only.split(",") if k.strip()} if args.only else None
-    wl = build(only)
+    wl = build(only, args.max_candidates)
+    if only and args.out.exists():
+        merged = json.loads(args.out.read_text("utf-8"))
+        merged.setdefault("projections", {}).update(wl["projections"])
+        wl = merged
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n = sum(len(v["candidates"]) for v in wl["projections"].values())
