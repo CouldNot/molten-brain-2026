@@ -899,6 +899,7 @@ class ProjectionClaimTest(unittest.TestCase):
         for strength, quote, grade in (
                 ("major", "Metabolized mainly by CYP2D6 and CYP1A2", "verified"),
                 ("major", "Domperidone is almost exclusively metabolized by CYP3A4", "verified"),
+                ("major", "in the human body CYP2C19 plays the most important role", "verified"),
                 ("minor", "and to a lesser extent by CYP3A4", "verified"),
                 ("weak", "Induces CYP3A4 (and slightly CYP1A2 and CYP2B6)", "verified"),
                 ("major", "Extensively metabolized by CYP2D6 and CYP3A", self.mod.BASE_GRADE),
