@@ -1,0 +1,140 @@
+{
+ "globus_pallidus_R->subthalamic_nucleus_R": {
+  "transmitter": [
+   2
+  ]
+ },
+ "substantia_nigra_R->putamen_R": {
+  "route": [
+   0
+  ]
+ },
+ "substantia_nigra_R->caudate_R": {
+  "route": [
+   2
+  ]
+ },
+ "thalamus_R->frontal_R": {
+  "transmitter": [
+   29
+  ],
+  "sign": [
+   15
+  ]
+ },
+ "thalamus_R->cingulate_R": {
+  "transmitter": [
+   29
+  ],
+  "sign": [
+   15
+  ]
+ },
+ "occipital_R->thalamus_R": {
+  "transmitter": [
+   59
+  ],
+  "sign": [
+   28
+  ]
+ },
+ "temporal_R->hippocampus_R": {
+  "sign": [
+   20
+  ]
+ },
+ "hippocampus_R->fornix_R": {
+  "transmitter": [
+   0
+  ]
+ },
+ "hippocampus_R->septal_nuclei_R": {
+  "transmitter": [
+   0
+  ]
+ },
+ "olfactory_bulb_R->insula_R": {
+  "transmitter": [
+   5
+  ],
+  "sign": [
+   10
+  ]
+ },
+ "amygdala_R->hypothalamus_R": {
+  "route": [
+   29
+  ],
+  "sign": [
+   7
+  ]
+ },
+ "septal_nuclei_R->hippocampus_R": {
+  "transmitter": [
+   0
+  ],
+  "route": [
+   0
+  ]
+ },
+ "raphe->caudate_R": {
+  "transmitter": [
+   5
+  ]
+ },
+ "raphe->putamen_R": {
+  "transmitter": [
+   5
+  ]
+ },
+ "nucleus_basalis_R->amygdala_R": {
+  "transmitter": [
+   1
+  ]
+ },
+ "nucleus_basalis_R->frontal_R": {
+  "transmitter": [
+   8
+  ]
+ },
+ "nucleus_basalis_R->parietal_R": {
+  "transmitter": [
+   7
+  ]
+ },
+ "nucleus_basalis_R->temporal_R": {
+  "transmitter": [
+   9
+  ]
+ },
+ "nucleus_basalis_R->occipital_R": {
+  "transmitter": [
+   8
+  ]
+ },
+ "nucleus_basalis_R->cingulate_R": {
+  "transmitter": [
+   10
+  ]
+ },
+ "frontal_L->frontal_R": {
+  "sign": [
+   2
+  ]
+ },
+ "parietal_L->parietal_R": {
+  "sign": [
+   2
+  ]
+ },
+ "occipital_L->occipital_R": {
+  "sign": [
+   2
+  ]
+ },
+ "temporal_L->temporal_R": {
+  "sign": [
+   2
+  ]
+ }
+}
