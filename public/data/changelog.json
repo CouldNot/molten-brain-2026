@@ -1,6 +1,21 @@
 {
   "versions": [
     {
+      "version": "3.93.5",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "category": "data",
+          "text": "15 more pathway transmitters and 10 more excitatory/inhibitory signs now show a sourced pill (green check) instead of an unverified one. Examples: the thalamus to frontal cortex and corticothalamic pathways are glutamatergic, the external pallidum to subthalamic nucleus pathway is GABAergic, and the nucleus basalis sends cholinergic fibres to the cortex and the amygdala. Two pathways that had no source at all now have one: the cholinergic septum to hippocampus projection, and amygdala to hypothalamus. The nigrostriatal pathways also lose their \"blanket claim\" warning, because a sentence now names the caudate and the putamen. Each quote comes from Kandel, the Nieuwenhuys atlas or Stahl's Essential Psychopharmacology. It was found verbatim on the stored page, then confirmed by a separate model judge, which rejected one pick.",
+          "commits": [
+            "be53bc6",
+            "ebaea63",
+            "016c281"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.93.4",
       "date": "2026-10-10",
       "entries": [

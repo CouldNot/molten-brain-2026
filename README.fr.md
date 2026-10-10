@@ -184,8 +184,8 @@ Target tone polarity                  ██████████████
 Drug target bindings                  ██████████████████████████   98%  1835/1863
 Drug brand names                      ██████████████████████████   98%    461/469
 Drug half-life (T½)                   ██████████████████████████   98%    269/274
+Neuron pathways                       █████████████████████████░   98%      93/95
 Drug active metabolites               █████████████████████████░   98%      39/40
-Neuron pathways                       █████████████████████████░   96%      91/95
 Drug class                            █████████████████████████░   95%    285/301
 Receptor expression regions           ████████████████████████░░   94%    360/383
 Target classifications                ████████████████████████░░   92%      23/25
@@ -193,16 +193,16 @@ Receptor sign (excit./inhib.)         ██████████████
 Target expression regions             ███████████████████████░░░   89%    115/129
 Projection groups                     ██████████████████████░░░░   83%      10/12
 Receptor pre/postsynaptic site        ████████████████████░░░░░░   75%      42/56
+Pathway transmitter                   ███████████████████░░░░░░░   75%      71/95
 Drug metabolism strength tier         ███████████████░░░░░░░░░░░   59%     87/147
-Pathway transmitter                   ███████████████░░░░░░░░░░░   59%      56/95
 Drug binding directions               ███████████████░░░░░░░░░░░   59%  1119/1911
+Pathway sign (excit./inhib.)          █████████████░░░░░░░░░░░░░   50%      19/38
 Panel annotations                     █████████████░░░░░░░░░░░░░   50%        2/4
-Pathway sign (excit./inhib.)          ██████░░░░░░░░░░░░░░░░░░░░   24%       9/38
 ```
 
 Separately, **measured binding affinity (PDSP Ki) covers 87% of the 1844 drug bindings**; 92 of 284 drugs carry no Ki on any binding (sourced by book quote only, or not yet sourced). A Ki is a measured value, not a grade: this tracks where one was never looked up, complementing the sourcing figure above.
 
-Of those, **250 carry an `uncertain` badge**: the quote is confirmed present in the source, but the sentence states something broader than the claim (a rule that never names the drug, a sweep that never names the region), so pinning it to that node is an inference. The badge's tooltip lists the reasons to doubt it, each with its own source.
+Of those, **248 carry an `uncertain` badge**: the quote is confirmed present in the source, but the sentence states something broader than the claim (a rule that never names the drug, a sweep that never names the region), so pinning it to that node is an inference. The badge's tooltip lists the reasons to doubt it, each with its own source.
 
 <!-- SOURCING_STATS:END -->
 

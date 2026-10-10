@@ -136,7 +136,7 @@ is covered the day it lands. Four flags today, and a node hit by any is uncertai
   bindings on subtypes of one family (same id stem) and names none of them individually, so the split into
   subtypes is ours, not the book's ("Blockade of alpha adrenergic 1 receptors" -> alpha1A/B/D). Bearable
   when a measured Ki pins the subtype down, so it only flags a subtype **with no Ki**.
-- **the blanket pathway claim** (`blanket_claim`, 35 projections): the projection twin of the above. An
+- **the blanket pathway claim** (`blanket_claim`, 33 projections): the projection twin of the above. An
   anatomy book states a diffuse system by its sweep ("project to virtually every part of the neuraxis"),
   so one sentence sources several arrows out of one nucleus while naming none of their targets: which
   regions the sweep is drawn to is our reading. Same `>= 2 siblings, none named` construction, over

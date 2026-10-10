@@ -162,7 +162,9 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 | `target_locations` | 14 | 96 | 9.4% | limit | SERT/NET terminals: mRNA sits at the source nucleus |
 | `receptor_sign` (excit./inhib.) | 13 | 56 | 8.7% | Hard | GtoPdb's transduction is mixed/absent for these |
 | `drug_bindings` | 12 | 1688 | 8.1% | Hard | no database assays the GABA-A site; primary lit |
-| `projections` | 2 | 58 | 1.3% | Hard | claustrum primary lit |
+| `projections` | 2 | 95 | (2026-10-10, after the snapshot) | Hard | claustrum primary lit |
+| `projection_transmitter` | 24 | 95 | (2026-10-10, after the snapshot) | Hard | coarse "cortex to striatum" rule + systems text (section 6) |
+| `projection_sign` | 19 | 38 | (2026-10-10, after the snapshot) | Hard | same (section 6) |
 | `receptor_class` (GPCR/ionotropic) | 1 | 56 | 0.7% | limit | sigma-1 is a GtoPdb `other_protein` |
 | `references` | 0 | 371 | not in headline | done | closed |
 | everything else | 0 | 1341 | closed | done | see "Kinds now closed" below |
@@ -439,23 +441,20 @@ This is a property of the assay, not a hole in our sourcing.
 atlas) would confirm terminals. Not worth a corpus for 14 nodes; the caveat is already shipped
 in the density caption.
 
-### 6. `projections`, 2 / 58 missing
+### 6. `projections`: route 2 / 95, `projection_transmitter` 24 / 95, `projection_sign` 19 / 38 missing
 
-**What.** Two pathway arrows remain unsourced: claustrum to frontal, and claustrum to insula.
-(The tally counts a mirrored pathway once, so these are 2 nodes, not 4.) The fornix chain,
-hippocampo-septal, septo-hypothalamic, olfactory-bulb to amygdala, the temporal anterior
-commissure and insula to cingulate were closed against the **Nieuwenhuys** atlas (corpus #6).
+**What.** A pathway is three graded claims: the route, its transmitter, and (glutamate/GABA only) its sign. A transmitter or sign claim is graded off any of the pathway's sources whose quote carries the stored value's word (`attestation.pattern_for`). The by-index pass (2026-10-10) works like the classification one. `tools/fetch/fetch_projection_worklist.py` offers sentences from Kandel, Nieuwenhuys and Stahl Essential that name both endpoints, and an LLM answers by index in `projection_judged.json`. `tools/sourcing/apply_projection_sources.py` then gates the picks, confirm-only, and writes `projection_sources.json`, which the generator appends to each pathway. An Opus `recheck_quotes.py` judge runs last. The pass moved transmitter from 56 to **71**, sign from 9 to **19**, and route from 56 to **60** verified. Two of those four route nodes were NOSOURCE: septum to hippocampus (Nieuwenhuys p469, "a substantial cholinergic projection to the hippocampus") and amygdala to hypothalamus (Kandel p1100, Stahl Essential p286). `blanket_claim` fell from 35 to **33**, because the nigrostriatal pair gained a sentence naming the caudate and the putamen (Nieuwenhuys p218). The judge rejected one pick: the "thalamocortical projections ... are glutamatergic" sentence (Nieuwenhuys p446) for thalamus to cingulate, because it describes VA/VL and MD only.
 
-**Why not verified.** Nieuwenhuys states claustrum-to-neocortex connectivity only **in
-aggregate**: the sentence naming the specific frontal areas sits on a different PDF page than
-the connecting verb, so no single quotable page asserts "claustrum to frontal"; and no page
-asserts a claustrum-insula **fibre projection** at all (only that the claustrum is adjacent to
-and developmentally derived from insular cortex). The judge rejected the generic "many
-neocortical areas" sentence for both, so they were not forced.
+**Why the rest stays.** The candidates were read, not missed:
 
-**How to tackle.** A claustrum-specific source: a connectivity review (Crick and Koch 2005 and
-successors) or a tract-tracing paper, via NCBI. Given how thin claustrum connectivity is in the
-literature, they may honestly stay `llm`.
+- **Claustrum to frontal / insula (route NOSOURCE):** the books give only topography and development ("situated between the putamen and the insular cortex"). No sentence states a claustral projection.
+- **Cortex to striatum (transmitter + sign for frontal/parietal/temporal to caudate/putamen):** Nieuwenhuys p435 and Kandel p986 state the corticostriatal input as glutamatergic and excitatory, but only from "the cerebral cortex" to "the striatum". Both endpoints are coarse, and the fetcher refuses a pair where neither endpoint is named exactly. A deliberate rule decision could reopen this.
+- **33 `blanket_claim` arrows (raphe, locus coeruleus, tuberomammillary, nucleus basalis to the lobes):** the books describe these systems by their sweep ("the entire neocortex", "the cerebral cortex"). No sentence names a single lobe as the target. The nucleus-basalis lobes got their transmitter from such a sentence, but the flag stays.
+- **No transmitter/sign sentence for this pathway:** corticopontine, pontocerebellar, cerebellothalamic, the Papez chain (fornix to mammillary to thalamus, cingulate to hippocampus), the olfactory bulb to amygdala, insula to cingulate, septum to hypothalamus, GABA for amygdala to hypothalamus, the sign of accumbens to pallidum and amygdala to accumbens, and serotonin for raphe to accumbens and raphe to substantia nigra. The callosal arrows have a sign (Nieuwenhuys p573, contralaterally projecting excitatory pyramidal neurons) but no glutamate word.
+
+**Contradictions:** none. Nieuwenhuys p391 and p387 call the septohippocampal projection cholinergic **and GABAergic**. That is consistent with our Acetylcholine value, but it is incomplete, and it is not reflected in the data.
+
+**How to tackle.** Use a tract-tracing review for the claustrum. Decide whether a "cortex to striatum" sentence may source each lobe's striatal arrow. Read a systems-neuroscience text (e.g. Purves) for the Papez and cerebellar loops.
 
 ### 7. Kinds now closed
 
