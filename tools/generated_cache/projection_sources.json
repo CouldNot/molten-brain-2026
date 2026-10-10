@@ -22,6 +22,34 @@
     "provenance": "verified"
    }
   ],
+  "frontal_R->caudate_R": [
+   {
+    "corpus": "kandel",
+    "page": 986,
+    "quote": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 435,
+    "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
+  "frontal_R->putamen_R": [
+   {
+    "corpus": "kandel",
+    "page": 986,
+    "quote": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 435,
+    "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
   "globus_pallidus_R->subthalamic_nucleus_R": [
    {
     "corpus": "nieuwenhuys",
@@ -162,6 +190,20 @@
     "provenance": "verified"
    }
   ],
+  "parietal_R->caudate_R": [
+   {
+    "corpus": "kandel",
+    "page": 986,
+    "quote": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 435,
+    "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
   "pons->substantia_nigra_R": [
    {
     "corpus": "nieuwenhuys",
@@ -255,6 +297,20 @@
     "corpus": "nieuwenhuys",
     "page": 573,
     "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
+    "provenance": "verified"
+   }
+  ],
+  "temporal_R->caudate_R": [
+   {
+    "corpus": "kandel",
+    "page": 986,
+    "quote": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 435,
+    "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
     "provenance": "verified"
    }
   ],

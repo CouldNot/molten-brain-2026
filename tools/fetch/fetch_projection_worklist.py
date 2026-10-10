@@ -95,12 +95,24 @@ FETCH_ALIASES: dict[str, tuple[str, ...]] = {
 # transmitter at the breadth the book writes it in. Never for ``route``: a sentence naming
 # only "the cortex" cannot clear a blanket flag and does not place an arrow.
 _CORTEX = ("cerebral cortex", "neocortex", "cortical", "cortico", "cortex")
+_LOBES = ("frontal", "parietal", "temporal", "occipital", "cingulate", "insula")
+_STRIATUM = ("caudate", "putamen")
 COARSE_ALIASES: dict[str, tuple[str, ...]] = {
-    **{lobe: _CORTEX for lobe in ("frontal", "parietal", "temporal", "occipital",
-                                  "cingulate", "insula")},
-    "caudate": ("striatum", "striatal", "striato"),
-    "putamen": ("striatum", "striatal", "striato"),
+    **{lobe: _CORTEX for lobe in _LOBES},
+    **{part: ("striatum", "striatal", "striato") for part in _STRIATUM},
 }
+
+# The one pair of sets allowed with NEITHER endpoint named exactly: "the cerebral cortex"
+# (our lobes) -> "the striatum" (our caudate + putamen). The books state the
+# corticostriatal transmitter and sign only at that breadth (Nieuwenhuys p435 "glutamatergic
+# fibres from the cerebral cortex", Kandel p986), and both sets are unions of modeled
+# structures, so the sentence covers each member arrow. Transmitter / sign only (route
+# still needs an exact name), and the generator flags such a claim ``set_claim`` (see
+# ``uncertainty.apply_set_claim_uncertainty``), so the inference stays visible. Every
+# other both-coarse pair stays refused: "cortical ... cortex" is every cortico-cortical
+# arrow at once.
+SET_LEVEL_PAIRS: frozenset[tuple[str, str]] = frozenset(
+    (lobe, part) for lobe in _LOBES for part in _STRIATUM)
 
 
 def needs(p: dict) -> list[str]:
@@ -189,8 +201,9 @@ def candidates(proj: dict, windows: list, des: dict[str, set[str]],
             if not (src_exact or names(text, src, des, coarse=True)):
                 continue
         # At most one endpoint may be named only coarsely: "cortical ... cortex" is every
-        # cortico-cortical arrow at once, so it states none of them.
-        if not (dst_exact or src_exact):
+        # cortico-cortical arrow at once, so it states none of them. The documented
+        # exception is SET_LEVEL_PAIRS (cortex -> striatum).
+        if not (dst_exact or src_exact) and (src, dst) not in SET_LEVEL_PAIRS:
             continue
         exact = dst_exact and src_exact
         attrs = []

@@ -180,16 +180,16 @@ Drug metabolism strength tier         ██████████████
 Receptor sign (excit./inhib.)         ████████████████████████░░   91%      51/56
 Target expression regions             ███████████████████████░░░   89%    115/129
 Projection groups                     ██████████████████████░░░░   83%      10/12
+Pathway transmitter                   ████████████████████░░░░░░   77%     85/110
 Receptor pre/postsynaptic site        ████████████████████░░░░░░   75%      42/56
-Pathway transmitter                   ███████████████████░░░░░░░   74%     81/110
+Pathway sign (excit./inhib.)          ████████████████░░░░░░░░░░   61%      23/38
 Drug binding directions               ███████████████░░░░░░░░░░░   59%  1119/1911
-Pathway sign (excit./inhib.)          █████████████░░░░░░░░░░░░░   50%      19/38
 Panel annotations                     █████████████░░░░░░░░░░░░░   50%        2/4
 ```
 
 Separately, **measured binding affinity (PDSP Ki) covers 87% of the 1844 drug bindings**; 92 of 284 drugs carry no Ki on any binding (sourced by book quote only, or not yet sourced). A Ki is a measured value, not a grade: this tracks where one was never looked up, complementing the sourcing figure above.
 
-Of those, **251 carry an `uncertain` badge**: the quote is confirmed present in the source, but the sentence states something broader than the claim (a rule that never names the drug, a sweep that never names the region), so pinning it to that node is an inference. The badge's tooltip lists the reasons to doubt it, each with its own source.
+Of those, **263 carry an `uncertain` badge**: the quote is confirmed present in the source, but the sentence states something broader than the claim (a rule that never names the drug, a sweep that never names the region), so pinning it to that node is an inference. The badge's tooltip lists the reasons to doubt it, each with its own source.
 
 <!-- SOURCING_STATS:END -->
 

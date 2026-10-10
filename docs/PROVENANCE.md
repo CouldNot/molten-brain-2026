@@ -127,7 +127,7 @@ verbatim and stands its subject-less-quote guard down for a binding that declare
 answer the same problem). **The three flags about a quote's REACH are derived, never authored per
 site**: `apply_binding_uncertainty` / `apply_projection_uncertainty` compute both the flags and the
 bullets from the emitted data, so a data edit cannot leave a stale flag behind and a new drug or arrow
-is covered the day it lands. Four flags today, and a node hit by any is uncertain:
+is covered the day it lands. Five flags today, and a node hit by any is uncertain:
 - **the subject-less side-effect rule** (89 bindings): the quote's heading trail ends in Stahl's *How Drug
   Causes Side Effects* and the sentence does not attribute the action to the drug (`_attributes_to_drug`:
   it neither names it, nor uses a pronoun subject, nor elides the subject in Stahl's telegraphic style).
@@ -141,6 +141,7 @@ is covered the day it lands. Four flags today, and a node hit by any is uncertai
   so one sentence sources several arrows out of one nucleus while naming none of their targets: which
   regions the sweep is drawn to is our reading. Same `>= 2 siblings, none named` construction, over
   regions; a target the sentence *does* name (raphe -> thalamus) keeps its green check.
+- **the set-level sub-claim** (`set_claim`, 12 projection transmitter/sign sub-claims): the many-ORIGINS twin of `blanket_claim`, riding on the sub-claim (`claims.transmitter` / `claims.sign`) rather than the pathway. A sentence naming neither endpoint ("the cerebral cortex" -> "the striatum") that backs the same claim on pathways from two or more structures states it for a set; drawing it onto one lobe -> caudate arrow is our split (`apply_set_claim_uncertainty`). The fetcher only offers such a sentence for the documented `SET_LEVEL_PAIRS` (cortex -> striatum).
 - **the contradicted claim** (`contradicted`, 3 `drug_enzymes` rows, 3 `drug_enzyme_strength` tiers, 3 receptor classification attributes): the odd one out, and the only
   flag about a quote's *truth* rather than its reach. Two quote-gated corpora say opposite things
   (Stahl's bare "Inhibits CYP3A4" vs the article's "in vivo ... do not significantly affect ...

@@ -126,6 +126,11 @@ UNCERTAINTY_REASONS: dict[str, dict[str, Any]] = {
     # their targets." The projection twin of family_claim (see shape 3 in the module
     # docstring).
     "blanket_claim": {"source": "own_quote", "absence": False, "args": ("n",)},
+    # "One sentence states this transmitter / sign for n pathways from several
+    # structures at once and names neither end of this one." The many-ORIGINS twin of
+    # blanket_claim, riding on a projection's sub-claim rather than the pathway ("the
+    # cerebral cortex" -> "the striatum" for each lobe -> caudate / putamen arrow).
+    "set_claim": {"source": "own_quote", "absence": False, "args": ("n",)},
     # "Another corpus denies this claim outright." The only kind whose evidence is NOT
     # the doubted node's own quote: it cites the DENYING sentence, handed in by the
     # caller (source mode "given"), so the reader gets both sides in one tooltip. Hand
@@ -469,6 +474,18 @@ def _base_id(structure_id: str) -> str:
     return re.sub(r"_[RL]$", "", structure_id)
 
 
+def _designations_by_base(structures: list[dict[str, Any]]) -> dict[str, set[str]]:
+    """``base -> designations`` for every structure.
+
+    Keyed by base, so the two members of an L/R pair share one entry (the side is never
+    what a source names). ``base_name`` is the hemisphere-stripped display name; a
+    midline structure carries only ``name``.
+    """
+    return {_base_id(s["id"]): _region_designations(
+                _base_id(s["id"]), s.get("base_name") or s.get("name"))
+            for s in structures}
+
+
 def apply_projection_uncertainty(projections: list[dict[str, Any]],
                                  structures: list[dict[str, Any]]) -> None:
     """Derive and attach the ``uncertainty`` bullets to every blanket pathway, in place.
@@ -476,14 +493,7 @@ def apply_projection_uncertainty(projections: list[dict[str, Any]],
     A post-pass for the same reason the binding one is: the flag is a statement about the
     *sibling* pathways one sentence covers, which no single projection can see.
     """
-    # Keyed by base, so the two members of an L/R pair share one entry (the side is
-    # never what a source names). ``base_name`` is the hemisphere-stripped display name;
-    # a midline structure carries only ``name``.
-    designations = {
-        _base_id(s["id"]): _region_designations(
-            _base_id(s["id"]), s.get("base_name") or s.get("name"))
-        for s in structures}
-    groups = _blanket_groups(projections, designations)
+    groups = _blanket_groups(projections, _designations_by_base(structures))
     for i, p in enumerate(projections):
         group = groups.get(i)
         if not group:
@@ -492,6 +502,48 @@ def apply_projection_uncertainty(projections: list[dict[str, Any]],
         p["uncertainty"] = [_uncertainty_bullet(
             "blanket_claim", what=what, node=p, source=group[1],
             args={"n": group[0]})]
+
+
+def apply_set_claim_uncertainty(projections: list[dict[str, Any]],
+                                structures: list[dict[str, Any]]) -> None:
+    """Flag every projection SUB-claim (transmitter / sign) only a set-level sentence backs.
+
+    A claim qualifies when (a) none of its sources names either endpoint, and (b) one of
+    those sentences backs the same claim on pathways leaving at least **two** different
+    structures. (b) is what makes it set-level rather than a vague sentence about one
+    pathway: "glutamatergic fibres from the cerebral cortex" to "the striatum" grades
+    frontal, parietal and temporal -> caudate / putamen alike, so drawing the transmitter
+    onto any one lobe is our split. One origin with many unnamed targets is
+    ``blanket_claim``'s case instead, on the pathway itself.
+
+    Must run after ``attestation.apply_projection_claims``, which creates the claims.
+    """
+    des = _designations_by_base(structures)
+    by_quote: dict[tuple[str, str], list[int]] = collections.defaultdict(list)
+    source_of: dict[tuple[str, str], dict[str, Any]] = {}
+    for i, p in enumerate(projections):
+        ends = (des.get(_base_id(p["from"]), set()), des.get(_base_id(p["to"]), set()))
+        for claim, entry in (p.get("claims") or {}).items():
+            quotes = [s for s in entry.get("sources") or [] if s.get("quote")]
+            if not quotes or any(_names_region(s["quote"], d)
+                                 for s in quotes for d in ends):
+                continue
+            for s in quotes:
+                key = (claim, s["quote"])
+                by_quote[key].append(i)
+                source_of.setdefault(key, s)
+    widest: dict[tuple[int, str], tuple[int, dict[str, Any]]] = {}
+    for key, idx in by_quote.items():
+        if len({_base_id(projections[i]["from"]) for i in idx}) < 2:
+            continue
+        for i in idx:
+            if (i, key[0]) not in widest or widest[(i, key[0])][0] < len(idx):
+                widest[(i, key[0])] = (len(idx), source_of[key])
+    for (i, claim), (n, source) in widest.items():
+        p = projections[i]
+        p["claims"][claim]["uncertainty"] = [_uncertainty_bullet(
+            "set_claim", what=f"Projection {p['from']!r} -> {p['to']!r} {claim}",
+            node=p, source=source, args={"n": n})]
 
 
 def _flag_contradicted(table: dict[tuple, dict[str, Any]],

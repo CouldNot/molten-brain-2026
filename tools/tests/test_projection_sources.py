@@ -83,5 +83,79 @@ class ProjectionGateTest(unittest.TestCase):
         self.assertIn("out of range", misses[0])
 
 
+
+class SetLevelAllowanceTest(unittest.TestCase):
+    """``fetch_projection_worklist.candidates`` refuses a sentence naming neither
+    endpoint exactly, except the documented SET_LEVEL_PAIRS (cerebral cortex -> striatum),
+    and even there never offers it for ``route``."""
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, str(ROOT / "tools" / "fetch"))
+        import fetch_projection_worklist as F
+        cls.F = F
+        cls.des = {"frontal": {"frontal"}, "caudate": {"caudate"},
+                   "hippocampus": {"hippocampus"}, "parietal": {"parietal"}}
+
+    def offer(self, frm, to, line, need=("transmitter", "sign", "route")):
+        proj = {"from": frm, "to": to, "transmitter": "Glutamate", "sign": "excitatory",
+                "need": list(need), "flag": []}
+        return self.F.candidates(proj, [("kandel", 1, line)], self.des)
+
+    def test_cortex_to_striatum_offered_for_transmitter_and_sign_only(self):
+        got = self.offer("frontal_R", "caudate_R",
+                         "Signals received by the striatum from the cerebral cortex are "
+                         "conveyed by excitatory glutamatergic neurotransmission.")
+        self.assertEqual(len(got), 1)
+        self.assertEqual(sorted(got[0]["attrs"]), ["sign", "transmitter"])
+
+    def test_other_both_coarse_pairs_stay_refused(self):
+        self.assertEqual(self.offer(
+            "parietal_R", "frontal_R",
+            "Cortico-cortical fibres from the cerebral cortex are glutamatergic and "
+            "excitatory."), [])
+
+
+class SetClaimFlagTest(unittest.TestCase):
+    """``uncertainty.apply_set_claim_uncertainty``: a sub-claim backed only by a sentence
+    naming neither endpoint, shared by pathways from two or more origins, is flagged on
+    the sub-claim (never the pathway); one origin, or a named endpoint, is not."""
+
+    SET = "Signals from the cerebral cortex to the striatum are glutamatergic."
+
+    @classmethod
+    def setUpClass(cls):
+        from data_generators.quotes.uncertainty import apply_set_claim_uncertainty
+        cls.apply = staticmethod(apply_set_claim_uncertainty)
+        cls.structures = [{"id": f"{b}_R", "base_name": b}
+                          for b in ("frontal", "parietal", "caudate", "putamen")]
+
+    def proj(self, frm, to, quote):
+        src = {"corpus": "kandel", "page": 1, "quote": quote, "provenance": "verified"}
+        return {"from": frm, "to": to, "sources": [src],
+                "claims": {"transmitter": {"grade": "verified", "sources": [src]}}}
+
+    def test_two_origins_flag_the_sub_claim(self):
+        ps = [self.proj("frontal_R", "caudate_R", self.SET),
+              self.proj("parietal_R", "caudate_R", self.SET)]
+        self.apply(ps, self.structures)
+        for p in ps:
+            bullets = p["claims"]["transmitter"].get("uncertainty")
+            self.assertEqual([b["kind"] for b in bullets], ["set_claim"])
+            self.assertEqual(bullets[0]["args"], {"n": 2})
+            self.assertNotIn("uncertainty", p)
+
+    def test_one_origin_or_a_named_end_is_not_flagged(self):
+        ps = [self.proj("frontal_R", "caudate_R", self.SET),
+              self.proj("frontal_R", "putamen_R", self.SET),
+              self.proj("parietal_R", "caudate_R",
+                        "Parietal fibres to the caudate are glutamatergic."),
+              self.proj("frontal_R", "parietal_R",
+                        "Parietal fibres to the caudate are glutamatergic.")]
+        self.apply(ps, self.structures)
+        for p in ps:
+            self.assertFalse(p["claims"]["transmitter"].get("uncertainty"), p["to"])
+
+
 if __name__ == "__main__":
     unittest.main()

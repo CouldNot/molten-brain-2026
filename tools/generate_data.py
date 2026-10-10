@@ -239,6 +239,7 @@ from data_generators.quotes.uncertainty import (  # noqa: E402
     apply_enzyme_strength_uncertainty,
     apply_enzyme_uncertainty,
     apply_receptor_uncertainty,
+    apply_set_claim_uncertainty,
     apply_projection_uncertainty,
 )
 from data_generators.quotes.attestation import (  # noqa: E402
@@ -1493,6 +1494,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     # excitatory/inhibitory. Derived from the quotes the arrow already cites, so it runs
     # here rather than in _projection_records, alongside the other derived post-passes.
     apply_projection_claims(projections)
+    # A transmitter / sign only a set-level sentence states ("the cerebral cortex" ->
+    # "the striatum") wears the orange badge on that sub-claim (quotes/uncertainty.py).
+    apply_set_claim_uncertainty(projections, structures)
     # Typo guard: every PROJECTION_QUOTES key must address a real PROJECTIONS entry,
     # else its quote silently sources nothing.
     unmatched = set(PROJECTION_QUOTES) - {(p["from"], p["to"]) for p in PROJECTIONS}

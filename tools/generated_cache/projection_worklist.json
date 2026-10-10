@@ -13,9 +13,162 @@
    "label": "Corticostriatal (motor)",
    "candidates": [
     {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "The main external sources of input to the striatum also provide parallel inputs to the subthalamic nucleus. The subthalamus therefore receives phasic excitatory (glutamatergic) signals from the cerebral cortex, thalamus, and brain stem.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "**The Striatum and Subthalamic Nucleus Receive** **Signals Mainly from the Cerebral Cortex,** **Thalamus, and Ventral Midbrain** Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "In order for the channel to open, depolarization must remove magnesium while both glutamate and glycine are bound to their sites on the ligand-gated ion-channel complex. these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "These findings indicate that, apart from its synaptic activity, dopamine is also involved in non-synaptic or volume transmission in the striatum [301]. Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55). The hallucinogens LSD, mescaline, and psilocybin, which are all powerful 5HT2A agonists,",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
      "corpus": "stahl_essential",
      "page": 148,
      "line": "When 5HT7 receptors are not occupied, serotonin is released into the prefrontal cortex (PFC). psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation. There is also converging evidence indicating that tonic release of dopamine attenuates MSN’s neuronal response, while phasic release potentiates striatal response [42, 53].",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "However, it has been established in the rat that all major regions of the cerebral cortex project to the striatum on both sides of the brain, albeit with strong ipsilateral preponderance [268]. The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized. Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells Efferent fibres from the striatum converge towards the globus pallidus, where they constitute a massive fibre system that passes radially through the external and internal segments of the globus pallidus (GPe, GPi).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "Within this overall sequence of cortico-subcortico-cortical connections, two different circuits, a direct one and an indirect one, can be distinguished, both of which being composed of consecutive sets of excitatory glutamatergic and inhibitory GABAergic neurons (Fig. The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission. These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized.",
      "attrs": [
       "transmitter",
       "sign"
@@ -41,8 +194,88 @@
     },
     {
      "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
      "page": 542,
      "line": "Those dopamine neurons then project to the striatum. Serotonin neurons in the raphe nucleus project to the prefrontal cortex, where they connect with glutamate neurons (serotonin node).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28). This pathway is known as the cortico-striatal glutamate pathway.",
      "attrs": [
       "transmitter"
      ]
@@ -64,41 +297,185 @@
      ]
     },
     {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "The phasic excitatory input signals from the cerebral cortex and thalamus to the different functional territories of the striatum can be seen to carry signals representing the behavioral options competing for expression.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
      "corpus": "stahl_essential",
-     "page": 203,
-     "line": "As discussed above for the nigrostriatal pathway (Figure 5-16B), this arrangement in Figure 5-16B also has the effect of upstream glutamate release leading to inhibiting dopamine release downstream (see Figure 5-16C). Thus, blocking 5HT2A receptors on these specific glutamate neurons (Figure 5-17C, top left) will lead to disinhibiting (i.e., increasing) dopamine release in the prefrontal cortex (Figure 5-17C, top right).",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway. This descending glutamate pathway terminates on GABA neurons destined for a relay station in another part of the striatal complex called the globus pallidus.",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 203,
-     "line": "This is yet another parallel pathway to the pathways just discussed, and involves yet different glutamate neurons that project indirectly via a GABA interneuron to those dopamine neurons in the VTA destined to innervate the prefrontal cortex. As discussed above for the nigrostriatal pathway (Figure 5-16B), this arrangement in Figure 5-16B also has the effect of upstream glutamate release leading to inhibiting dopamine release downstream (see Figure 5-16C).",
+     "page": 118,
+     "line": "(a) Cortico-brainstem (b) Cortico-striatal (c) Hippocampal-striatal (d) Thalamo-cortical (e) Cortico-thalamic (f) Cortico-cortical (direct) (g) Cortico-cortical (indirect) (a) **Cortico-brainstem** **glutamate pathways.** A very",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "They are glutamatergic and activate cortical neurons. As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 202,
-     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (C) 5HT2A antagonism reduces glutamatergic output in the ventral tegmental area, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway. Increased dopamine release in the prefrontal cortex (PFC) can potentially reduce cognitive and negative symptoms of psychosis.",
+     "page": 194,
+     "line": "In the direct pathway (shown on the left), dopamine released into the striatum binds to D1 receptors on GABA neurons. This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output.",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 343,
-     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (B) Alpha-1 antagonism reduces glutamatergic output in the ventral tegmental area (VTA), leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway. Increased dopamine release in the prefrontal cortex (PFC) can potentially improve mood and reduce affective and cognitive symptoms.",
+     "page": 194,
+     "line": "This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output. In the indirect pathway (shown on the right), dopamine released into the striatum binds to D2 receptors on GABA neurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429]. **Subdivision** **of** **Direct** **Striatal** **Circuit**",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons. It is important to appreciate that these signals come from external structures that are simultaneously generating a wide range of behavioral options.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons. In other words, the direct circuit supports thalamocortical interactions by _positive_ _feedback_",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Another simplification concerns the neglect of striatal interneurons. It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 435,
+     "line": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 127,
-     "line": "Hyperactive glutamate output from the prefrontal cortex can hypothetically not only potentially explain positive symptoms, but also negative symptoms in the case of schizophrenia. When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35).",
+     "page": 152,
+     "line": "If there is not enough GABA inhibition to counter the normal 5HT2A stimulation coming to surviving glutamate neurons projecting to the VTA/ mesostriatum integrated hub and to the visual cortex, this enhanced output theoretically causes psychosis in these dementia patients (Figure 4-52D and 4-55).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "Because cortical and some thalamic inputs make comparatively few contacts with individual striatal neurons, a large population of sufficiently synchronized excitatory inputs is required to depolarize the membrane of a medium spiny neuron to an “up” state sufficient for it to fire action potentials.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus. This latter point is of great significance for the role played by the basal ganglia in reinforcement learning (see below).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere. This co-release may have important implications for modulation of motivated behaviors and for establishing the patterns of axonal projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Because these neurons are also GABAergic and inhibitory, their inhibition results in an increase in activity of the thalamocortical neurons on which they impinge. Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 501,
+     "line": "They receive excitatory inputs from neurons in layers II and III in the same and adjacent columns as well as sparse thalamocortical inputs. Neurons in the superficial portion of layer V (layer V-A) send feedforward outputs bilaterally to layer IV of higher-order cortical areas (see Figure 19–17C) as well as to the striatum.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 635,
+     "line": "574 mesocortical dopamine pathway, 95 mesocortical hypodopaminergia, 95 mesolimbic dopamine pathway, 89, 542–3 mesolimbic hyperdopaminergia, 90 mesostriatal hyperdopaminergia, 93 messenger RNA (mRNA), 26 metabolic highway, 198, 199, 201 metabolic monitoring, 196, 199 metabolic toolkit, 201 metabotropic glutamate receptors, 100,",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections. The fibres of the corticostriatal projection terminate on medium spiny projection neurons that co-contain GABA and substance P along with dopamine D1-class receptors.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo cortical glutamate pathway (d in Figure 4-28) brings",
      "attrs": [
       "transmitter"
      ]
@@ -106,7 +483,23 @@
     {
      "corpus": "stahl_essential",
      "page": 201,
-     "line": "Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the motor striatum and can cause side effects such as drug-induced parkinsonism. (C) 5HT2A receptors are located on descending glutamatergic pyramidal neurons that indirectly innervate mesocortical dopamine neurons via a GABAergic interneuron in the ventral tegmental area. Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the prefrontal cortex (PFC), which could lead to cognitive dysfunction as well as negative symptoms such as emotional blunting and flattened affect.",
+     "line": "Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the motor striatum and can cause side effects such as drug-induced parkinsonism. (C) 5HT2A receptors are located on descending glutamatergic pyramidal neurons that indirectly innervate mesocortical dopamine neurons via a GABAergic interneuron in the ventral tegmental area.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 202,
+     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (C) 5HT2A antagonism reduces glutamatergic output in the ventral tegmental area, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels. **Figure 8-16** Worry/obsessions circuit.",
      "attrs": [
       "transmitter"
      ]
@@ -114,15 +507,7 @@
     {
      "corpus": "stahl_essential",
      "page": 127,
-     "line": "When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35). This circuit actually _inhibits_ dopamine release, due to the presence of a key GABA interneuron in VTA for mesocortical dopamine projections to the prefrontal cortex that is hypothetically lacking for mesostriatal/mesolimbic projection to the striatum (compare Figures 4-31B and 4-35B).",
-     "attrs": [
-      "transmitter"
-     ]
-    },
-    {
-     "corpus": "stahl_essential",
-     "page": 127,
-     "line": "This circuit actually _inhibits_ dopamine release, due to the presence of a key GABA interneuron in VTA for mesocortical dopamine projections to the prefrontal cortex that is hypothetically lacking for mesostriatal/mesolimbic projection to the striatum (compare Figures 4-31B and 4-35B). Hyperactivity of these specific glutamate neurons innervating mesocortical dopamine neurons in Figure 4-35B would lead to the opposite effects of those discussed for the population of glutamate neurons innervating mesostriatal dopamine neurons: namely, _reduced_ dopamine release, and this hypothetically causes the negative, cognitive, and affective symptoms of psychosis (Figure 4-35B).",
+     "line": "When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35).",
      "attrs": [
       "transmitter"
      ]
@@ -142,9 +527,162 @@
    "label": "Corticostriatal (associative)",
    "candidates": [
     {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "The main external sources of input to the striatum also provide parallel inputs to the subthalamic nucleus. The subthalamus therefore receives phasic excitatory (glutamatergic) signals from the cerebral cortex, thalamus, and brain stem.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "**The Striatum and Subthalamic Nucleus Receive** **Signals Mainly from the Cerebral Cortex,** **Thalamus, and Ventral Midbrain** Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "In order for the channel to open, depolarization must remove magnesium while both glutamate and glycine are bound to their sites on the ligand-gated ion-channel complex. these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "These findings indicate that, apart from its synaptic activity, dopamine is also involved in non-synaptic or volume transmission in the striatum [301]. Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55). The hallucinogens LSD, mescaline, and psilocybin, which are all powerful 5HT2A agonists,",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
      "corpus": "stahl_essential",
      "page": 148,
      "line": "When 5HT7 receptors are not occupied, serotonin is released into the prefrontal cortex (PFC). psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation. There is also converging evidence indicating that tonic release of dopamine attenuates MSN’s neuronal response, while phasic release potentiates striatal response [42, 53].",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "However, it has been established in the rat that all major regions of the cerebral cortex project to the striatum on both sides of the brain, albeit with strong ipsilateral preponderance [268]. The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized. Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells Efferent fibres from the striatum converge towards the globus pallidus, where they constitute a massive fibre system that passes radially through the external and internal segments of the globus pallidus (GPe, GPi).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "Within this overall sequence of cortico-subcortico-cortical connections, two different circuits, a direct one and an indirect one, can be distinguished, both of which being composed of consecutive sets of excitatory glutamatergic and inhibitory GABAergic neurons (Fig. The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission. These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized.",
      "attrs": [
       "transmitter",
       "sign"
@@ -170,8 +708,88 @@
     },
     {
      "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
      "page": 542,
      "line": "Those dopamine neurons then project to the striatum. Serotonin neurons in the raphe nucleus project to the prefrontal cortex, where they connect with glutamate neurons (serotonin node).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28). This pathway is known as the cortico-striatal glutamate pathway.",
      "attrs": [
       "transmitter"
      ]
@@ -194,6 +812,102 @@
     },
     {
      "corpus": "kandel",
+     "page": 989,
+     "line": "The phasic excitatory input signals from the cerebral cortex and thalamus to the different functional territories of the striatum can be seen to carry signals representing the behavioral options competing for expression.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway. This descending glutamate pathway terminates on GABA neurons destined for a relay station in another part of the striatal complex called the globus pallidus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 118,
+     "line": "(a) Cortico-brainstem (b) Cortico-striatal (c) Hippocampal-striatal (d) Thalamo-cortical (e) Cortico-thalamic (f) Cortico-cortical (direct) (g) Cortico-cortical (indirect) (a) **Cortico-brainstem** **glutamate pathways.** A very",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "They are glutamatergic and activate cortical neurons. As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 194,
+     "line": "In the direct pathway (shown on the left), dopamine released into the striatum binds to D1 receptors on GABA neurons. This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 194,
+     "line": "This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output. In the indirect pathway (shown on the right), dopamine released into the striatum binds to D2 receptors on GABA neurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429]. **Subdivision** **of** **Direct** **Striatal** **Circuit**",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons. It is important to appreciate that these signals come from external structures that are simultaneously generating a wide range of behavioral options.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons. In other words, the direct circuit supports thalamocortical interactions by _positive_ _feedback_",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Another simplification concerns the neglect of striatal interneurons. It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 435,
+     "line": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
      "page": 918,
      "line": "The colliculus receives direct excitatory projections from the frontal eye fields and the lateral intraparietal area (LIP) and an inhibitory projection from the substantia nigra. The substantia nigra is suppressed by the caudate nucleus, which in turn is excited by the frontal eye fields.",
      "attrs": [
@@ -202,40 +916,88 @@
     },
     {
      "corpus": "stahl_essential",
-     "page": 203,
-     "line": "As discussed above for the nigrostriatal pathway (Figure 5-16B), this arrangement in Figure 5-16B also has the effect of upstream glutamate release leading to inhibiting dopamine release downstream (see Figure 5-16C). Thus, blocking 5HT2A receptors on these specific glutamate neurons (Figure 5-17C, top left) will lead to disinhibiting (i.e., increasing) dopamine release in the prefrontal cortex (Figure 5-17C, top right).",
+     "page": 152,
+     "line": "If there is not enough GABA inhibition to counter the normal 5HT2A stimulation coming to surviving glutamate neurons projecting to the VTA/ mesostriatum integrated hub and to the visual cortex, this enhanced output theoretically causes psychosis in these dementia patients (Figure 4-52D and 4-55).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "Because cortical and some thalamic inputs make comparatively few contacts with individual striatal neurons, a large population of sufficiently synchronized excitatory inputs is required to depolarize the membrane of a medium spiny neuron to an “up” state sufficient for it to fire action potentials.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus. This latter point is of great significance for the role played by the basal ganglia in reinforcement learning (see below).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere. This co-release may have important implications for modulation of motivated behaviors and for establishing the patterns of axonal projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Because these neurons are also GABAergic and inhibitory, their inhibition results in an increase in activity of the thalamocortical neurons on which they impinge. Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 501,
+     "line": "They receive excitatory inputs from neurons in layers II and III in the same and adjacent columns as well as sparse thalamocortical inputs. Neurons in the superficial portion of layer V (layer V-A) send feedforward outputs bilaterally to layer IV of higher-order cortical areas (see Figure 19–17C) as well as to the striatum.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 635,
+     "line": "574 mesocortical dopamine pathway, 95 mesocortical hypodopaminergia, 95 mesolimbic dopamine pathway, 89, 542–3 mesolimbic hyperdopaminergia, 90 mesostriatal hyperdopaminergia, 93 messenger RNA (mRNA), 26 metabolic highway, 198, 199, 201 metabolic monitoring, 196, 199 metabolic toolkit, 201 metabotropic glutamate receptors, 100,",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections. The fibres of the corticostriatal projection terminate on medium spiny projection neurons that co-contain GABA and substance P along with dopamine D1-class receptors.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels.",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 203,
-     "line": "This is yet another parallel pathway to the pathways just discussed, and involves yet different glutamate neurons that project indirectly via a GABA interneuron to those dopamine neurons in the VTA destined to innervate the prefrontal cortex. As discussed above for the nigrostriatal pathway (Figure 5-16B), this arrangement in Figure 5-16B also has the effect of upstream glutamate release leading to inhibiting dopamine release downstream (see Figure 5-16C).",
-     "attrs": [
-      "transmitter"
-     ]
-    },
-    {
-     "corpus": "stahl_essential",
-     "page": 202,
-     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (C) 5HT2A antagonism reduces glutamatergic output in the ventral tegmental area, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway. Increased dopamine release in the prefrontal cortex (PFC) can potentially reduce cognitive and negative symptoms of psychosis.",
-     "attrs": [
-      "transmitter"
-     ]
-    },
-    {
-     "corpus": "stahl_essential",
-     "page": 343,
-     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (B) Alpha-1 antagonism reduces glutamatergic output in the ventral tegmental area (VTA), leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway. Increased dopamine release in the prefrontal cortex (PFC) can potentially improve mood and reduce affective and cognitive symptoms.",
-     "attrs": [
-      "transmitter"
-     ]
-    },
-    {
-     "corpus": "stahl_essential",
-     "page": 127,
-     "line": "Hyperactive glutamate output from the prefrontal cortex can hypothetically not only potentially explain positive symptoms, but also negative symptoms in the case of schizophrenia. When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35).",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo cortical glutamate pathway (d in Figure 4-28) brings",
      "attrs": [
       "transmitter"
      ]
@@ -243,23 +1005,23 @@
     {
      "corpus": "stahl_essential",
      "page": 201,
-     "line": "Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the motor striatum and can cause side effects such as drug-induced parkinsonism. (C) 5HT2A receptors are located on descending glutamatergic pyramidal neurons that indirectly innervate mesocortical dopamine neurons via a GABAergic interneuron in the ventral tegmental area. Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the prefrontal cortex (PFC), which could lead to cognitive dysfunction as well as negative symptoms such as emotional blunting and flattened affect.",
+     "line": "Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the motor striatum and can cause side effects such as drug-induced parkinsonism. (C) 5HT2A receptors are located on descending glutamatergic pyramidal neurons that indirectly innervate mesocortical dopamine neurons via a GABAergic interneuron in the ventral tegmental area.",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 127,
-     "line": "When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35). This circuit actually _inhibits_ dopamine release, due to the presence of a key GABA interneuron in VTA for mesocortical dopamine projections to the prefrontal cortex that is hypothetically lacking for mesostriatal/mesolimbic projection to the striatum (compare Figures 4-31B and 4-35B).",
+     "page": 202,
+     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (C) 5HT2A antagonism reduces glutamatergic output in the ventral tegmental area, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway.",
      "attrs": [
       "transmitter"
      ]
     },
     {
      "corpus": "stahl_essential",
-     "page": 127,
-     "line": "This circuit actually _inhibits_ dopamine release, due to the presence of a key GABA interneuron in VTA for mesocortical dopamine projections to the prefrontal cortex that is hypothetically lacking for mesostriatal/mesolimbic projection to the striatum (compare Figures 4-31B and 4-35B). Hyperactivity of these specific glutamate neurons innervating mesocortical dopamine neurons in Figure 4-35B would lead to the opposite effects of those discussed for the population of glutamate neurons innervating mesostriatal dopamine neurons: namely, _reduced_ dopamine release, and this hypothetically causes the negative, cognitive, and affective symptoms of psychosis (Figure 4-35B).",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels. **Figure 8-16** Worry/obsessions circuit.",
      "attrs": [
       "transmitter"
      ]
@@ -280,10 +1042,502 @@
    "candidates": [
     {
      "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "The main external sources of input to the striatum also provide parallel inputs to the subthalamic nucleus. The subthalamus therefore receives phasic excitatory (glutamatergic) signals from the cerebral cortex, thalamus, and brain stem.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "**The Striatum and Subthalamic Nucleus Receive** **Signals Mainly from the Cerebral Cortex,** **Thalamus, and Ventral Midbrain** Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "In order for the channel to open, depolarization must remove magnesium while both glutamate and glycine are bound to their sites on the ligand-gated ion-channel complex. these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "These findings indicate that, apart from its synaptic activity, dopamine is also involved in non-synaptic or volume transmission in the striatum [301]. Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55). The hallucinogens LSD, mescaline, and psilocybin, which are all powerful 5HT2A agonists,",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "When 5HT7 receptors are not occupied, serotonin is released into the prefrontal cortex (PFC). psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation. There is also converging evidence indicating that tonic release of dopamine attenuates MSN’s neuronal response, while phasic release potentiates striatal response [42, 53].",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "However, it has been established in the rat that all major regions of the cerebral cortex project to the striatum on both sides of the brain, albeit with strong ipsilateral preponderance [268]. The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized. Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells Efferent fibres from the striatum converge towards the globus pallidus, where they constitute a massive fibre system that passes radially through the external and internal segments of the globus pallidus (GPe, GPi).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "Within this overall sequence of cortico-subcortico-cortical connections, two different circuits, a direct one and an indirect one, can be distinguished, both of which being composed of consecutive sets of excitatory glutamatergic and inhibitory GABAergic neurons (Fig. The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission. These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 155,
+     "line": "At baseline, normal stimulation of excitatory 5HT2A receptors on the glutamate neurons is balanced by tonic stimulation of GABA receptors on the same neurons; the net effect is thus normal activation of the glutamatergic neurons. (B) Loss of nigrostriatal dopamine neurons causes the motor symptoms of Parkinson’s disease, such as akinesia, rigidity, and tremor. Parkinson’s disease also causes loss of serotonergic neurons that project from the raphe to the prefrontal cortex and to the visual cortex.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 155,
+     "line": "Activity of both pathways is regulated by serotonergic neurons that project from the raphe nucleus as well as by GABA interneurons in the prefrontal cortex. At baseline, normal stimulation of excitatory 5HT2A receptors on the glutamate neurons is balanced by tonic stimulation of GABA receptors on the same neurons; the net effect is thus normal activation of the glutamatergic neurons. (B) Loss of nigrostriatal dopamine neurons causes the motor symptoms of Parkinson’s disease, such as akinesia, rigidity, and tremor.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 542,
+     "line": "Those dopamine neurons then project to the striatum. Serotonin neurons in the raphe nucleus project to the prefrontal cortex, where they connect with glutamate neurons (serotonin node).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28). This pathway is known as the cortico-striatal glutamate pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 542,
+     "line": "Glutamate neurons in the prefrontal cortex project to the ventral tegmental area (VTA) where they connect with dopamine neurons (glutamate node). Those dopamine neurons then project to the striatum.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
      "page": 985,
      "line": "Red and dark gray arrows represent excitatory and inhibitory connections, respectively. Spatially segregated rostral-caudal gradient of human frontal cortical connectivity in caudate, putamen, and pallidum.",
      "attrs": [
       "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "The phasic excitatory input signals from the cerebral cortex and thalamus to the different functional territories of the striatum can be seen to carry signals representing the behavioral options competing for expression.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway. This descending glutamate pathway terminates on GABA neurons destined for a relay station in another part of the striatal complex called the globus pallidus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 118,
+     "line": "(a) Cortico-brainstem (b) Cortico-striatal (c) Hippocampal-striatal (d) Thalamo-cortical (e) Cortico-thalamic (f) Cortico-cortical (direct) (g) Cortico-cortical (indirect) (a) **Cortico-brainstem** **glutamate pathways.** A very",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "They are glutamatergic and activate cortical neurons. As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 194,
+     "line": "In the direct pathway (shown on the left), dopamine released into the striatum binds to D1 receptors on GABA neurons. This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 194,
+     "line": "This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output. In the indirect pathway (shown on the right), dopamine released into the striatum binds to D2 receptors on GABA neurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429]. **Subdivision** **of** **Direct** **Striatal** **Circuit**",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons. It is important to appreciate that these signals come from external structures that are simultaneously generating a wide range of behavioral options.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons. In other words, the direct circuit supports thalamocortical interactions by _positive_ _feedback_",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Another simplification concerns the neglect of striatal interneurons. It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 435,
+     "line": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 152,
+     "line": "If there is not enough GABA inhibition to counter the normal 5HT2A stimulation coming to surviving glutamate neurons projecting to the VTA/ mesostriatum integrated hub and to the visual cortex, this enhanced output theoretically causes psychosis in these dementia patients (Figure 4-52D and 4-55).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "Because cortical and some thalamic inputs make comparatively few contacts with individual striatal neurons, a large population of sufficiently synchronized excitatory inputs is required to depolarize the membrane of a medium spiny neuron to an “up” state sufficient for it to fire action potentials.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus. This latter point is of great significance for the role played by the basal ganglia in reinforcement learning (see below).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere. This co-release may have important implications for modulation of motivated behaviors and for establishing the patterns of axonal projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Because these neurons are also GABAergic and inhibitory, their inhibition results in an increase in activity of the thalamocortical neurons on which they impinge. Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 501,
+     "line": "They receive excitatory inputs from neurons in layers II and III in the same and adjacent columns as well as sparse thalamocortical inputs. Neurons in the superficial portion of layer V (layer V-A) send feedforward outputs bilaterally to layer IV of higher-order cortical areas (see Figure 19–17C) as well as to the striatum.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 635,
+     "line": "574 mesocortical dopamine pathway, 95 mesocortical hypodopaminergia, 95 mesolimbic dopamine pathway, 89, 542–3 mesolimbic hyperdopaminergia, 90 mesostriatal hyperdopaminergia, 93 messenger RNA (mRNA), 26 metabolic highway, 198, 199, 201 metabolic monitoring, 196, 199 metabolic toolkit, 201 metabotropic glutamate receptors, 100,",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections. The fibres of the corticostriatal projection terminate on medium spiny projection neurons that co-contain GABA and substance P along with dopamine D1-class receptors.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo cortical glutamate pathway (d in Figure 4-28) brings",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 201,
+     "line": "Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the motor striatum and can cause side effects such as drug-induced parkinsonism. (C) 5HT2A receptors are located on descending glutamatergic pyramidal neurons that indirectly innervate mesocortical dopamine neurons via a GABAergic interneuron in the ventral tegmental area.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 202,
+     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (C) 5HT2A antagonism reduces glutamatergic output in the ventral tegmental area, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels. **Figure 8-16** Worry/obsessions circuit.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 127,
+     "line": "When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35).",
+     "attrs": [
+      "transmitter"
      ]
     }
    ]
@@ -302,10 +1556,502 @@
    "candidates": [
     {
      "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "The main external sources of input to the striatum also provide parallel inputs to the subthalamic nucleus. The subthalamus therefore receives phasic excitatory (glutamatergic) signals from the cerebral cortex, thalamus, and brain stem.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "**The Striatum and Subthalamic Nucleus Receive** **Signals Mainly from the Cerebral Cortex,** **Thalamus, and Ventral Midbrain** Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "In order for the channel to open, depolarization must remove magnesium while both glutamate and glycine are bound to their sites on the ligand-gated ion-channel complex. these excitatory cortico-glutamate neurons via γ-aminobutyric acid (GABA) interneurons in the brainstem _blocks_ neurotransmitter release. (b) **Cortico-striatal glutamate pathways.** A second",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "These findings indicate that, apart from its synaptic activity, dopamine is also involved in non-synaptic or volume transmission in the striatum [301]. Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55). The hallucinogens LSD, mescaline, and psilocybin, which are all powerful 5HT2A agonists,",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 148,
+     "line": "When 5HT7 receptors are not occupied, serotonin is released into the prefrontal cortex (PFC). psychosis may be caused by an imbalance in excitatory 5HT2A receptor stimulation of those glutamate pyramidal neurons discussed above, which directly innervate VTA/ mesostriatal integrated hub dopamine neurons and visual cortex neurons (Figures 4-52A–D and Figures 4-53 through 4-55).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "Moreover, pharmacological evidence suggests that the nigrostriatal dopaminergic fibres exert an additional presynaptic action on glutamatergic corticostriatal projections [12, 226], where they dampen striatal excitation. There is also converging evidence indicating that tonic release of dopamine attenuates MSN’s neuronal response, while phasic release potentiates striatal response [42, 53].",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "However, it has been established in the rat that all major regions of the cerebral cortex project to the striatum on both sides of the brain, albeit with strong ipsilateral preponderance [268]. The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized. Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The corticostriate fibres, which use the excitatory amino acid glutamate as their neurotransmitter [98], establish direct synaptic contacts with the striatal efferent neurons, i.e. the medium spiny cells Efferent fibres from the striatum converge towards the globus pallidus, where they constitute a massive fibre system that passes radially through the external and internal segments of the globus pallidus (GPe, GPi).",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "Within this overall sequence of cortico-subcortico-cortical connections, two different circuits, a direct one and an indirect one, can be distinguished, both of which being composed of consecutive sets of excitatory glutamatergic and inhibitory GABAergic neurons (Fig. The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission. These fast, phasically active excitatory inputs are mediated predominantly by α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA) and kainate receptors when the medium spiny neurons are near resting potential; _N_ -methyld-aspartate (NMDA) receptors play a greater role when the neurons are depolarized.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 155,
+     "line": "At baseline, normal stimulation of excitatory 5HT2A receptors on the glutamate neurons is balanced by tonic stimulation of GABA receptors on the same neurons; the net effect is thus normal activation of the glutamatergic neurons. (B) Loss of nigrostriatal dopamine neurons causes the motor symptoms of Parkinson’s disease, such as akinesia, rigidity, and tremor. Parkinson’s disease also causes loss of serotonergic neurons that project from the raphe to the prefrontal cortex and to the visual cortex.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 155,
+     "line": "Activity of both pathways is regulated by serotonergic neurons that project from the raphe nucleus as well as by GABA interneurons in the prefrontal cortex. At baseline, normal stimulation of excitatory 5HT2A receptors on the glutamate neurons is balanced by tonic stimulation of GABA receptors on the same neurons; the net effect is thus normal activation of the glutamatergic neurons. (B) Loss of nigrostriatal dopamine neurons causes the motor symptoms of Parkinson’s disease, such as akinesia, rigidity, and tremor.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 542,
+     "line": "Those dopamine neurons then project to the striatum. Serotonin neurons in the raphe nucleus project to the prefrontal cortex, where they connect with glutamate neurons (serotonin node).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "descending glutamatergic output from cortical pyramidal neurons projects to the striatal complex (pathway b in Figure 4-28). This pathway is known as the cortico-striatal glutamate pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 542,
+     "line": "Glutamate neurons in the prefrontal cortex project to the ventral tegmental area (VTA) where they connect with dopamine neurons (glutamate node). Those dopamine neurons then project to the striatum.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
      "page": 985,
      "line": "Red and dark gray arrows represent excitatory and inhibitory connections, respectively. Spatially segregated rostral-caudal gradient of human frontal cortical connectivity in caudate, putamen, and pallidum.",
      "attrs": [
       "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "The phasic excitatory input signals from the cerebral cortex and thalamus to the different functional territories of the striatum can be seen to carry signals representing the behavioral options competing for expression.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "This pathway is known as the cortico-striatal glutamate pathway. This descending glutamate pathway terminates on GABA neurons destined for a relay station in another part of the striatal complex called the globus pallidus.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 118,
+     "line": "(a) Cortico-brainstem (b) Cortico-striatal (c) Hippocampal-striatal (d) Thalamo-cortical (e) Cortico-thalamic (f) Cortico-cortical (direct) (g) Cortico-cortical (indirect) (a) **Cortico-brainstem** **glutamate pathways.** A very",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "They are glutamatergic and activate cortical neurons. As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 194,
+     "line": "In the direct pathway (shown on the left), dopamine released into the striatum binds to D1 receptors on GABA neurons. This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 194,
+     "line": "This stimulates GABA release, which ultimately leads to glutamate release in the cortex and thus enhances motor output. In the indirect pathway (shown on the right), dopamine released into the striatum binds to D2 receptors on GABA neurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429]. **Subdivision** **of** **Direct** **Striatal** **Circuit**",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Glutamatergic inputs from both cerebral cortex and thalamus also impinge on striatal interneurons. It is important to appreciate that these signals come from external structures that are simultaneously generating a wide range of behavioral options.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons. In other words, the direct circuit supports thalamocortical interactions by _positive_ _feedback_",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Another simplification concerns the neglect of striatal interneurons. It is believed that these elements help to regulate the duration, strength and spatial pattern of the disinhibition resulting from the excitation by the corticostriatal afferents [429].",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 446,
+     "line": "As a result of these data the following concept was developed to explain the basic function of the synaptic relations between the various elements forming the direct striatal circuit The fibres of the corticostriatal projection exert an excitatory influence",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 435,
+     "line": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 152,
+     "line": "If there is not enough GABA inhibition to counter the normal 5HT2A stimulation coming to surviving glutamate neurons projecting to the VTA/ mesostriatum integrated hub and to the visual cortex, this enhanced output theoretically causes psychosis in these dementia patients (Figure 4-52D and 4-55).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 989,
+     "line": "Because cortical and some thalamic inputs make comparatively few contacts with individual striatal neurons, a large population of sufficiently synchronized excitatory inputs is required to depolarize the membrane of a medium spiny neuron to an “up” state sufficient for it to fire action potentials.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 986,
+     "line": "Finally, dopamine input is necessary for both longterm potentiation and long-term depression of glutamatergic inputs to striatal medium spiny neurons from both cortex and thalamus. This latter point is of great significance for the role played by the basal ganglia in reinforcement learning (see below).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere. This co-release may have important implications for modulation of motivated behaviors and for establishing the patterns of axonal projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 448,
+     "line": "Because these neurons are also GABAergic and inhibitory, their inhibition results in an increase in activity of the thalamocortical neurons on which they impinge. Therefore, excitation of striatal neurons by cortical efferents ultimately produces a _disinhibition_ (and hence an activation) of thalamocortical neurons.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 501,
+     "line": "They receive excitatory inputs from neurons in layers II and III in the same and adjacent columns as well as sparse thalamocortical inputs. Neurons in the superficial portion of layer V (layer V-A) send feedforward outputs bilaterally to layer IV of higher-order cortical areas (see Figure 19–17C) as well as to the striatum.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 635,
+     "line": "574 mesocortical dopamine pathway, 95 mesocortical hypodopaminergia, 95 mesolimbic dopamine pathway, 89, 542–3 mesolimbic hyperdopaminergia, 90 mesostriatal hyperdopaminergia, 93 messenger RNA (mRNA), 26 metabolic highway, 198, 199, 201 metabolic monitoring, 196, 199 metabolic toolkit, 201 metabotropic glutamate receptors, 100,",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The _direct_ _circuit_ is composed of excitatory corticostriatal, inhibitory striatopallidal, inhibitory pallidothalamic and excitatory thalamocortical projections. The fibres of the corticostriatal projection terminate on medium spiny projection neurons that co-contain GABA and substance P along with dopamine D1-class receptors.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 120,
+     "line": "Like the cortico-striatal glutamate pathway (b in Figure 4-28), the hippocampal glutamate projection to the nucleus accumbens (c in Figure 4-28) also terminates on GABA neurons there that in turn project to a relay station in the globus pallidus. (d) **Thalamo-cortical glutamate pathway.** The thalamo cortical glutamate pathway (d in Figure 4-28) brings",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 201,
+     "line": "Excessive stimulation of these 5HT2A receptors leads to a reduction in dopamine release in the motor striatum and can cause side effects such as drug-induced parkinsonism. (C) 5HT2A receptors are located on descending glutamatergic pyramidal neurons that indirectly innervate mesocortical dopamine neurons via a GABAergic interneuron in the ventral tegmental area.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 202,
+     "line": "The increased dopamine release in the motor striatum can reduce motor side effects caused by D2 antagonism because there is more dopamine to compete with the D2 antagonist. (C) 5HT2A antagonism reduces glutamatergic output in the ventral tegmental area, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 383,
+     "line": "Symptoms of worry, such as anxious misery, apprehensive expectations, catastrophic thinking, and obsessions, are associated with malfunctioning of cortico-striato-thalamo-cortical loops, which are regulated by serotonin (5HT), γ-aminobutyric acid (GABA), dopamine (DA), norepinephrine (NE), glutamate, and voltage-gated ion channels. **Figure 8-16** Worry/obsessions circuit.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 127,
+     "line": "When the cascade from NMDA hypofunction to glutamate hyperactivity _enhances_ dopamine release (Figure 4-31), it hypothetically causes positive symptoms of psychosis; however, there is hypothetically a second population of glutamate neurons that project to a different set of VTA neurons, namely, those that are mesocortical rather than mesostriatal/ mesolimbic (Figure 4-35).",
+     "attrs": [
+      "transmitter"
      ]
     }
    ]

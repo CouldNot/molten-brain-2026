@@ -238,5 +238,41 @@
   "route": [
    5
   ]
+ },
+ "frontal_R->putamen_R": {
+  "transmitter": [
+   0,
+   44
+  ],
+  "sign": [
+   0
+  ]
+ },
+ "frontal_R->caudate_R": {
+  "transmitter": [
+   0,
+   44
+  ],
+  "sign": [
+   0
+  ]
+ },
+ "parietal_R->caudate_R": {
+  "transmitter": [
+   0,
+   44
+  ],
+  "sign": [
+   0
+  ]
+ },
+ "temporal_R->caudate_R": {
+  "transmitter": [
+   0,
+   44
+  ],
+  "sign": [
+   0
+  ]
  }
 }
