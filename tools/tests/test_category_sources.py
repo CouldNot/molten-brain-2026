@@ -81,12 +81,11 @@ class ScopedWorklistMergeTest(unittest.TestCase):
     overwrite silently orphaned them (it once dropped 5600 lines of candidates)."""
 
     def test_only_build_keeps_other_drugs(self):
-        sys.path.insert(0, str(ROOT / "tools" / "fetch"))
-        import fetch_category_worklist as F
+        from worklist_io import merge_scoped
         existing = {"vocabulary": {"a": "A"},
                     "drugs": {"x": {"candidates": [1]}, "y": {"candidates": [2]}}}
         scoped = {"vocabulary": {"a": "A", "b": "B"}, "drugs": {"y": {"candidates": [3]}}}
-        out = F.merge_scoped(existing, scoped)
+        out = merge_scoped(existing, scoped, "drugs")
         self.assertEqual(out["drugs"], {"x": {"candidates": [1]}, "y": {"candidates": [3]}})
         self.assertEqual(out["vocabulary"], {"a": "A", "b": "B"})
 

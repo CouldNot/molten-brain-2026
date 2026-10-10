@@ -48,6 +48,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 from fetch_classification_worklist import sentences  # noqa: E402 (one sentence splitter)
+from worklist_io import merge_scoped  # noqa: E402
 from data_generators.quotes.attestation import pattern_for  # noqa: E402
 from data_generators.quotes.uncertainty import (  # noqa: E402
     _base_id, _names_region, _region_designations)
@@ -249,9 +250,7 @@ def main() -> int:
     only = {k.strip() for k in args.only.split(",") if k.strip()} if args.only else None
     wl = build(only, args.max_candidates)
     if only and args.out.exists():
-        merged = json.loads(args.out.read_text("utf-8"))
-        merged.setdefault("projections", {}).update(wl["projections"])
-        wl = merged
+        wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "projections")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n = sum(len(v["candidates"]) for v in wl["projections"].values())

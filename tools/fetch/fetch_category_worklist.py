@@ -43,6 +43,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import drugs_io  # noqa: E402
+from worklist_io import merge_scoped  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402 (page_for, SENTENCE_SPLIT)
 from data_generators.drugs import DRUG_CATEGORY_LABELS  # noqa: E402
 
@@ -142,19 +143,6 @@ def build(only: set[str] | None = None) -> dict:
             "drugs": drugs}
 
 
-def merge_scoped(existing: dict, scoped: dict) -> dict:
-    """Merge an ``--only`` build into the existing worklist rather than replacing it.
-
-    The committed ``category_judged.json`` answers by index into every other drug's
-    entry, so dropping them would orphan picks already applied. Same rule as the
-    projection worklist's ``--only``.
-    """
-    out = dict(existing)
-    out["vocabulary"] = scoped["vocabulary"]
-    out["drugs"] = {**existing.get("drugs", {}), **scoped["drugs"]}
-    return out
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -164,7 +152,7 @@ def main() -> int:
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
     wl = build(only)
     if only and args.out.exists():
-        wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl)
+        wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "drugs")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n = sum(len(v["candidates"]) for v in wl["drugs"].values())
