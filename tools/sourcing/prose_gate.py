@@ -6,7 +6,8 @@ written once: it re-finds the candidate's sentence on its stored page with
 ``check_data.normalize_for_match`` (so "accepted here" means "passes check_data"), and a
 pick that is out of range or no longer on its page writes nothing.
 
-Used by ``apply_classification_sources.py --prose`` and ``apply_projection_sources.py``.
+Used by ``apply_classification_sources.py --prose``, ``apply_projection_sources.py`` and
+``apply_cyp_sources.py``.
 
 Built with the help of Claude Code.
 """
@@ -30,14 +31,19 @@ class PageGate:
         self.pages = pages
         self._text: dict[tuple, str | None] = {}
 
-    def on_page(self, corpus: str, page, line: str) -> bool:
+    def text(self, corpus: str, page) -> str | None:
+        """The stored page, normalized, or None when the corpus has no such page file."""
         key = (corpus, str(page))
         if key not in self._text:
             path = self.pages.get(corpus)
-            path = path / f"{page}.md" if path else None
+            path = Path(path) / f"{page}.md" if path else None
             self._text[key] = (normalize_for_match(path.read_text("utf-8", errors="replace"))
                                if path and path.exists() else None)
-        return bool(self._text[key]) and normalize_for_match(line) in self._text[key]
+        return self._text[key]
+
+    def on_page(self, corpus: str, page, line: str) -> bool:
+        body = self.text(corpus, page)
+        return bool(body) and normalize_for_match(line) in body
 
     def sources(self, cands: list[dict], picks, what: str,
                 misses: list[str]) -> list[dict] | None:
@@ -61,9 +67,14 @@ class PageGate:
         return out
 
 
-def add_source(bucket: list, src: dict) -> bool:
-    """Append ``src`` unless a source with the same quote is already there (idempotence)."""
-    if any(s.get("quote") == src["quote"] for s in bucket):
+def add_source(bucket: list, src: dict, key=None) -> bool:
+    """Append ``src`` unless a source with the same quote is already there (idempotence).
+
+    ``key`` maps a quote before comparing (e.g. ``normalize_for_match``, so two spellings
+    of one sentence count as one source); the default compares quotes verbatim.
+    """
+    key = key or (lambda q: q)
+    if any(key(s.get("quote") or "") == key(src["quote"]) for s in bucket):
         return False
     bucket.append(src)
     return True

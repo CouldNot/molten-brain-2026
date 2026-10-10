@@ -27,8 +27,8 @@ import apply_cyp_sources as A  # noqa: E402
 
 CACHE = ROOT / "tools" / "generated_cache"
 
-# One page per corpus, holding every quote the fixtures cite. `read_page` below returns
-# it normalized, exactly as the real `page_text` does.
+# One page per corpus, holding every quote the fixtures cite. `StubGate` below serves it
+# for any (corpus, page), normalized, exactly as the real `PageGate.text` does.
 PAGE = ("Fluoxetine and paroxetine are both potent inhibitors of CYP2D6 and CYP2C19. "
         "Diazepam undergoes oxidative metabolism by demethylation ( CYP2C9 , 2C19 ). "
         "Inhibits CYP2C9/2C19 . Metabolism | Mainly CYP3A4 / 5 . "
@@ -52,13 +52,17 @@ def worklist(*quotes):
     }
 
 
-def read_page(corpus, page):
-    return A.normalize(PAGE)
+class StubGate(A.PageGate):
+    def __init__(self):
+        super().__init__({})
+
+    def text(self, corpus, page):
+        return A.normalize_for_match(PAGE)
 
 
 def run(work, judged):
     """The gates' verdict: the emitted rows for the one drug, plus the rejection reasons."""
-    out, _stats, rejected = A.apply(work, judged, read_page)
+    out, _stats, rejected = A.apply(work, judged, StubGate())
     rows = out["stahl"].get("testdrug", [])
     return rows, [line.split("]")[0][1:] for line in rejected]
 
@@ -133,7 +137,7 @@ class StrengthPassTest(unittest.TestCase):
                           "strength": "major"}]}
 
     def tier(self, picks):
-        out, _stats, rejected = A.apply(worklist(*self.WORK), self.ROLE, read_page,
+        out, _stats, rejected = A.apply(worklist(*self.WORK), self.ROLE, StubGate(),
                                         strength_judged={"testdrug": picks})
         rows = out["stahl"]["testdrug"]
         return rows, [line.split("]")[0][1:] for line in rejected]
@@ -218,6 +222,26 @@ class ShippedRowsTest(unittest.TestCase):
                     ("armodafinil", "cyp1a2", "inducer"),
                     ("modafinil", "cyp2c9", "inhibitor")):
             self.assertIn(key, self.rows)
+
+
+class SharedGateTest(unittest.TestCase):
+    """The two ``prose_gate`` seams this applier relies on beyond ``on_page``."""
+
+    def test_text_distinguishes_a_missing_page_from_a_present_one(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "7.md").write_text("Metabolized  by CYP2D6.", encoding="utf-8")
+            gate = A.PageGate({"stahl": Path(tmp)})
+            self.assertEqual(gate.text("stahl", 7), A.normalize_for_match("Metabolized by CYP2D6."))
+            self.assertIsNone(gate.text("stahl", 8))
+            self.assertIsNone(gate.text("wikipedia_pharm", 7))
+
+    def test_add_source_key_dedups_spellings_of_one_sentence(self):
+        bucket = [{"quote": "Inhibits  CYP2D6."}]
+        self.assertTrue(A.add_source(list(bucket), {"quote": "Inhibits CYP2D6."}))
+        self.assertFalse(A.add_source(bucket, {"quote": "Inhibits CYP2D6."},
+                                      key=A.normalize_for_match))
+        self.assertEqual(len(bucket), 1)
 
 
 if __name__ == "__main__":

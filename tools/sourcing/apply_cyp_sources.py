@@ -63,7 +63,6 @@ from __future__ import annotations
 
 import argparse
 import collections
-import importlib.util
 import json
 import os
 import sys
@@ -72,16 +71,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 sys.path.insert(0, os.path.join(REPO, "tools", "fetch"))
+sys.path.insert(0, HERE)
 
 from fetch_cyp import isoforms  # noqa: E402  (one definition of the isoform vocabulary)
 from data_generators.quotes.attestation import pattern_for  # noqa: E402  (the tier word test)
 
-# Reuse check_data's canonical quote-gate normalization (a single source of truth), so
-# a quote accepted here is one check_data.py accepts too.
-_spec = importlib.util.spec_from_file_location("cd", os.path.join(REPO, "tools", "check_data.py"))
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize = _cd.normalize_for_match
+# The shared prose gate re-finds a quote under check_data's own normalization, so a quote
+# accepted here is one check_data.py accepts too.
+from prose_gate import PageGate, add_source, normalize_for_match  # noqa: E402
 
 CACHE = os.path.join(REPO, "tools", "generated_cache")
 WORKLIST = os.path.join(CACHE, "cyp_worklist.json")
@@ -93,18 +90,9 @@ PAGE_DIR = {"stahl": os.path.join(REPO, "data_sources", "books", "stahl", "pages
             "wikipedia_pharm": os.path.join(REPO, "data_sources", "wikipedia", "pages")}
 
 
-def page_text(corpus: str, page) -> str | None:
-    """The stored page a quote cites, normalized, or None when there is no such file."""
-    path = os.path.join(PAGE_DIR[corpus], f"{page}.md")
-    if not os.path.exists(path):
-        return None
-    with open(path, encoding="utf-8") as f:
-        return normalize(f.read())
-
-
-def apply(work: dict, judged: dict, read_page, llm: str = "opus",
+def apply(work: dict, judged: dict, gate: PageGate, llm: str = "opus",
           strength_judged: dict | None = None) -> tuple[dict, "collections.Counter", list]:
-    """Run the gates over a judged file. Pure: `read_page(corpus, page)` is the only IO.
+    """Run the gates over a judged file. Pure: `gate.text(corpus, page)` is the only IO.
 
     Returns the per-corpus caches, a tally, and one line per rejected row. Split out of
     ``main`` so the gates can be tested without the author-side corpora, which are
@@ -116,7 +104,6 @@ def apply(work: dict, judged: dict, read_page, llm: str = "opus",
     seen: dict[tuple[str, str, str, str], dict] = {}
     stats: collections.Counter = collections.Counter()
     rejected: list[str] = []
-    pages: dict[tuple[str, str], str | None] = {}
 
     def reject(why: str, detail: str) -> None:
         stats[f"rejected: {why}"] += 1
@@ -151,14 +138,11 @@ def apply(work: dict, judged: dict, read_page, llm: str = "opus",
                 if enzyme not in isoforms(quote):
                     reject("quote does not name the claimed isoform", f"{label}: {quote[:80]}")
                     continue
-                key = (corpus, str(page))
-                if key not in pages:
-                    pages[key] = read_page(corpus, page)
-                body = pages[key]
+                body = gate.text(corpus, page)
                 if body is None:
                     reject("no stored page for the citation", label)
                     continue
-                if normalize(quote) not in body:
+                if normalize_for_match(quote) not in body:
                     reject("quote not verbatim on the cited page", f"{label}: {quote[:80]}")
                     continue
                 yield drug_id, (enzyme, role, strength, label), cand
@@ -216,10 +200,9 @@ def apply(work: dict, judged: dict, read_page, llm: str = "opus",
         stamp = stamps.get((cand["corpus"], str(cand["page"]), cand["quote"]))
         if stamp:
             src["llm"] = stamp
-        if any(normalize(s["quote"]) == normalize(src["quote"]) for s in target["sources"]):
+        if not add_source(target["sources"], src, key=normalize_for_match):
             stats["dropped: tier quote already cited by the row"] += 1
             continue
-        target["sources"].append(src)
         stats[f"tier source: {strength} ({cand['corpus']})"] += 1
 
     for corpus in out:
@@ -253,7 +236,7 @@ def main() -> int:
     judged = json.load(open(args.judged, encoding="utf-8"))
     strength_judged = (json.load(open(args.strength_judged, encoding="utf-8"))
                        if os.path.exists(args.strength_judged) else None)
-    out, stats, rejected = apply(work, judged, page_text, args.llm, strength_judged)
+    out, stats, rejected = apply(work, judged, PageGate(PAGE_DIR), args.llm, strength_judged)
 
     for corpus, path in OUT.items():
         print(f"{os.path.basename(path)}: {len(out[corpus])} drugs, "
