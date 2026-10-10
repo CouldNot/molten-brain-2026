@@ -201,6 +201,10 @@ The corpora (`SOURCE_CORPORA`), each quote-gated author-side as above unless not
   It also backs **`drug_categories`** for drugs Stahl has no monograph for: the infobox "Drug class" row or
   a lead sentence, offered by `fetch_category_worklist.py`, picked by index, gated by
   `apply_category_sources.py --wikipedia`, then judged by `recheck_quotes.py` (#10 FR leads are the fallback).
+  And, from the receptor's / target's **own** article (alongside Stahl Essential #3 prose), the classification
+  residue GtoPdb #12 cannot reach: `receptor_synaptic` (a `both` needs one quote per site), an ion channel's
+  `receptor_sign`, sigma-1's `receptor_class`, and `targets` type. Offered by `fetch_classification_worklist.py`,
+  picked by index, gated by `apply_classification_sources.py --prose`, then judged by `recheck_quotes.py`.
 - **#10 Wikipedia FR** (`wikipedia_fr`, `page` = the FR article slug) is the source for a drug's
   **European / French** commercial brands (`eu`/`fr` region; na comes from Stahl). The FR infobox holds
   only chemistry, so the trade names live in prose; `fetch_brand_names.py` resolves each drug's FR article

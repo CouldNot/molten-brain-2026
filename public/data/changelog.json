@@ -1,6 +1,21 @@
 {
   "versions": [
     {
+      "version": "3.93.4",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "category": "data",
+          "text": "45 more receptor and target facts now show a sourced pill (green check) instead of an unverified one: where a receptor sits on the neuron (presynaptic, postsynaptic or both) for 34 receptors, whether 8 receptors excite or inhibit (the ion channels such as NMDA, AMPA and glycine, plus GABA-B), sigma-1's role as a chaperone, and the type of COMT, GABA transaminase and AADC. Each is quoted from the receptor's own Wikipedia article or Stahl's Essential Psychopharmacology, found verbatim on the stored page, then confirmed by a separate model judge. A receptor said to sit on both sides needs one quote per side.",
+          "commits": [
+            "458eef7",
+            "ac46a5e",
+            "b4074f6"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.93.3",
       "date": "2026-10-10",
       "entries": [

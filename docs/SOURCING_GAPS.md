@@ -313,62 +313,29 @@ counts, mirroring `fetch_ki.py`'s representative-row choice.
 
 ## The gaps, biggest lever first
 
-### 1. `receptor_synaptic`, 48 / 56 missing (**28% of the whole gap**)
+### 1. `receptor_synaptic`, 14 / 56 missing
 
-**What.** The pre- versus postsynaptic site sub-claim, one of the four a receptor's
-classification is split into. Its three siblings are now essentially closed by the GtoPdb
-classification pass (corpus #12): `family` 56 / 56, `receptor_class` 55 / 56,
-`receptor_sign` 43 / 56. This one it could not touch at all.
+**What.** The pre- versus postsynaptic site sub-claim, one of the four a receptor's classification is split into. GtoPdb (corpus #12) has no field for it, so it is closed from prose only: the receptor's own English Wikipedia article (corpus #9) and Stahl Essential (corpus #3), via `fetch_classification_worklist.py` -> by-index picks in `classification_judged.json` -> `apply_classification_sources.py --prose` -> an Opus `recheck_quotes.py` judge. That pass (2026-10-10) took it from 8 to **42 / 56** verified. A `synaptic="both"` needs **two** quotes, one per site, and the applier refuses a pick that covers only one.
 
-**Why it is not verified.** Two independent reasons, and neither is an oversight:
-- **No database carries the field.** GtoPdb states type, family, transduction, tissue
-  distribution and ligand affinities, and never where on the neuron the receptor sits.
-  Grepping the 47 cached raw target responses found ~10 mentions of "presynaptic" or
-  "postsynaptic", mostly inside reference *titles*. Allen is mRNA. PDSP is affinity.
-- **Running prose states it rarely, and a compound value needs two quotes.** A Stahl
-  Essential quote grades **only** the attributes listed in
-  `RECEPTOR_CLASSIFICATION_COVERAGE` for that receptor, assigned conservatively, and the
-  book names a receptor's site only when the site is the point of the passage (the 5-HT1A
-  somatodendritic autoreceptor, the 5-HT1B/D terminal autoreceptor). A `synaptic="both"`
-  needs **two** quotes, one per site, which is why only 8 are closed.
+**Why the rest stays `llm`.** Each was read and left null, not missed:
+- **One site found, value says both:** nAChR α4β2 (Stahl p523/524 says "The α4β2 subtype is postsynaptic"), GABA-B (presynaptic only, Stahl p570), δ-opioid (postsynaptic only, Stahl p575), α2C (only the generic α2 autoreceptor sentence).
+- **Source contradicts the value (reported, not resolved):** 5-HT5A (we say postsynaptic, its Wikipedia article says it "appears to serve as a presynaptic serotonin autoreceptor"), mGluR6 (we say postsynaptic, the group-level sentence puts groups II/III mostly presynaptic).
+- **No sentence names a site:** β2, β3, GABA-A-rho, α2D, 5-HT1E, 5-HT1F, 5-HT4, and the modulatory stubs (a2a, sigma-1, mt1/mt2, h4).
 
-**How to tackle.** A **neuropharmacology textbook** read is the only route: Rang and Dale,
-Katzung, or the Stahl Essential autoreceptor figures the prose pass skipped. The α2 polarity
-node closed exactly this way (Stahl Essential p271, "when presynaptic α2 receptors recognize
-NE, they turn off further release of NE"), so the pattern works where the book makes the
-site the subject. Budget for a minority of the 48, not all of them: for a receptor whose
-site the literature genuinely does not commit to, `llm` is the honest grade.
+**How to tackle.** A neuropharmacology textbook read (Rang and Dale, Katzung) for the "no sentence" group; the two contradictions are a data decision first.
 
-### 1b. `receptor_sign`, 13 / 56 missing, and `receptor_class`, 1 / 56 missing (the classification residue)
+### 1b. `receptor_sign`, 5 / 56 missing, `receptor_class` closed (the classification residue)
 
-**What is left after the GtoPdb pass.** The applier maps a receptor's **sign** from GtoPdb's
-transduction table under a deliberately narrow rule (one unambiguous primary transducer
-family, or several primary rows that agree). 13 counted receptors do not clear it, in three
-groups:
-- **7 ligand-gated ion channels** (5-HT3, AMPA, NMDA, kainate, glycine, nAChR α4β2, nAChR α7)
-  have **no transduction row at all**: GtoPdb's transduction table is a GPCR-only structure,
-  so an ion channel returns nothing to map. (GABA-A is already verified against Stahl
-  Essential, which is the route these want.)
-- **2 with an empty table** for their own reasons: GABA-B (a GPCR GtoPdb lists without a
-  transduction row) and sigma-1 (`other_protein`).
-- **4 reported conflicts**, below.
+**What the prose pass closed (2026-10-10).** The 7 ligand-gated ion channels (5-HT3, AMPA, NMDA, kainate, glycine, nAChR α4β2, nAChR α7) that have no GtoPdb transduction row now carry their sign from the permeant ion, quoted from their Wikipedia articles (e.g. NMDA "a non-specific cation channel", GlyR "produces its effects through chloride currents") or Stahl Essential (p117 AMPA/kainate "allowing sodium to enter the neuron to depolarize it", p327 5-HT3 "always excitatory"). GABA-B closed on its article's "usually considered as inhibitory receptors" (the next sentence notes it can also be excitatory). `receptor_class` is **56 / 56**: sigma-1's "chaperone" from its article ("The receptor's architecture supports its function as a chaperone").
 
-`receptor_class` has exactly one left: **sigma-1**, which GtoPdb types as `other_protein`.
-That does not assert our "chaperone" value, so the applier writes nothing rather than
-stretching the mapping.
+**What is left: sigma-1 plus the 4 reported conflicts, deliberately not resolved.** a2a, cb1, mt1 and mt2 are `modulatory` in our data while the sources state a direction; a sourcing pass never rewrites data to match a source. What the sources say:
+- **cb1** (Wikipedia `cannabinoid_receptor_1`): "Upon activation, CB 1 receptor exhibits its effects mainly through activation of G i , which decreases intracellular cAMP concentration", "The activation of CB 1 in the human body generally inhibits neurotransmitter release", "Acting as a neuromodulator, the CB 1 receptor inhibits the release of both excitatory and inhibitory neurotransmitters". Stahl Essential p579: endocannabinoids "travel retrograde to presynaptic CB1 receptors" and inhibit the release of the classic neurotransmitter. Reading: inhibitory at the terminal, net effect on the circuit depends on which transmitter it brakes, which is the case for `modulatory`.
+- **a2a** (Wikipedia `adenosine_a2a_receptor`): "The A 2A receptor binds with the G s protein at the intracellular site of the receptor", adenylyl cyclase activation and cAMP synthesis. Points to excitatory (Gs).
+- **mt1 / mt2**: their Wikipedia articles state no transduction at all (infobox and navbox only). Stahl Essential p455 speaks of "MT1-mediated inhibition of neurons in the suprachiasmatic nucleus (SCN)", which points to inhibitory for MT1 only.
 
-**The 4 conflicts the pass reported and deliberately did not resolve.** a2a, cb1, mt1 and mt2
-are `modulatory` in our data, while their transduction implies a direction (Gs for a2a, Gi/Go
-for the other three; h4 is the same case but is an uncounted stub). A sourcing pass never
-rewrites data to match a source, so these stayed `llm` and are flagged here instead. Two
-readings are possible and picking one is a data decision, not a sourcing one: either
-`modulatory` is the right call for a receptor whose net effect depends on where it sits (cb1
-as a retrograde presynaptic brake), or these are genuinely inhibitory and the value should
-change. Resolve it against a textbook, then re-run the applier and the sign closes with it.
+Resolve these against a textbook as a data decision, then re-run the worklist + applier and the sign closes with it. sigma-1's sign stays `llm`: nothing states one (it is a chaperone, not a channel or GPCR).
 
-**How to tackle the 7 ionotropic signs.** An ion channel's sign is its permeant ion (cation
-influx depolarizes, chloride influx hyperpolarizes), which Stahl Essential does state in
-prose for the big ones. That is a small, targeted quote hunt, not a corpus.
+**Targets (`targets`, 2 / 25 missing).** The same pass closed COMT (Stahl Essential p96), GABA-T (p274) and AADC (its Wikipedia article: "AADC catalyzes ... L-DOPA to dopamine"). NKCC1's only candidate called it a "transporter", which the judge rejected as not establishing "cotransporter"; CGRP-R's only Stahl hit was a table fragment and its Wikipedia article could not be fetched (rate-limited), so both stay `llm`.
 
 ### 2. `drug_categories`, 16 / 301 missing (285 verified: Stahl, then Wikipedia leads)
 
@@ -567,13 +534,12 @@ the roster expansion enlarged the denominator, then back to **96%** (see the sna
    and Wikipedia pharmacodynamics prose; see section 3). The 12 left need primary literature:
    the 7 GABA-A modulatory-site bindings will not close because no database assays that site,
    and the other 5 are prose gaps in the drugs' own articles.
-3. **The classification residue (13 `receptor_sign` + 1 `receptor_class`), small and
-   targeted.** 7 of the signs are ligand-gated ion channels whose sign is their permeant ion,
-   which Stahl Essential states in prose; 4 are the reported conflicts, which need a *data*
-   decision before any source can back them (see #1b). Not a corpus, a quote hunt.
-4. **`receptor_synaptic` (48): the largest remaining pile, and the least tractable.** No
-   database carries the field, so it needs a neuropharmacology textbook read, and a fraction
-   will honestly stay `llm` (#1). Worth attempting only after steps 1 to 3.
+3. ~~**The classification residue.**~~ **Mostly done** (2026-10-10 prose pass, see #1b):
+   the 7 ion-channel signs, GABA-B and sigma-1's class closed; the 4 sign conflicts wait on a
+   *data* decision.
+4. **`receptor_synaptic` (14 left of 48).** The same prose pass closed 34 (see #1); the rest
+   need a neuropharmacology textbook read or a data decision (2 contradictions), and a
+   fraction will honestly stay `llm`.
 5. **The last 2 `projections`**, claustrum-specific primary literature; may honestly stay
    `llm`.
 6. **The 37 expression-location nodes: do not chase.** Off-atlas bases and transporter mRNA
@@ -581,7 +547,7 @@ the roster expansion enlarged the denominator, then back to **96%** (see the sna
    would move them, at a licence and parcellation cost out of proportion to the count.
 
 **Sources we still need (beyond the thirteen wired):**
-- **A neuropharmacology textbook** (Rang and Dale, Katzung) for the 48 `receptor_synaptic`
+- **A neuropharmacology textbook** (Rang and Dale, Katzung) for the 14 `receptor_synaptic`
   nodes in step 4. This is the only gap left that a whole new corpus would address, and even
   it will not close completely.
 - **NCBI/PubMed primary literature** as the genuine last resort for the handful of claims no
