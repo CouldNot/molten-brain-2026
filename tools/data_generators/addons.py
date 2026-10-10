@@ -49,16 +49,23 @@ ADDON_SLOTS: dict[str, str] = {
     # to one pathway would misfile it and repeating it on each would be ~90 copies
     # of one sentence.
     "section.projections": "section",
+    # Under the enzyme rows of EVERY drug panel's Metabolism section: a caveat about
+    # what such a list is (a union of the routes some corpus happens to name, never
+    # all of them). A SECTION anchor for the same reason as above: the claim is true
+    # of all ~240 drugs at once, and `drug.metabolism` would need one copy each.
+    "section.metabolism": "section",
 }
 
-# The browse sections an addon may anchor, section key -> its display label. This is
-# the one owner kind that is not a node: the claim it carries is about a whole view
-# (how its data is modeled), so there is no single datum to hang it on and no panel
-# to open from it. Closed like every other vocabulary here, so a typo'd section is a
-# generation error rather than a node that ships and never draws. A section addon's
-# ``owner`` is one of these keys.
+# The sections an addon may anchor, section key -> its display label: a browse
+# section, or a panel section every node of a kind repeats. This is the one owner
+# kind that is not a node: the claim it carries is about a whole view (how its data
+# is modeled), so there is no single datum to hang it on and no panel to open from
+# it. Closed like every other vocabulary here, so a typo'd section is a generation
+# error rather than a node that ships and never draws. A section addon's ``owner``
+# is one of these keys.
 ADDON_SECTIONS: dict[str, dict[str, str]] = {
     "projections": {"en": "Projections", "fr": "Voies de projection"},
+    "metabolism": {"en": "Metabolism", "fr": "Métabolisme"},
 }
 
 # How an addon draws. One form today; the dispatch (ADDON_RENDERERS in js/main.js)
@@ -196,6 +203,45 @@ ADDONS: list[dict[str, Any]] = [
                   "copie miroir : la symétrie est notre lecture de l'anatomie, pas "
                   "une affirmation d'un corpus. Une paire miroir compte donc ici "
                   "pour un seul nœud, pas deux.",
+        },
+    },
+    {
+        # The coverage caveat on every Enzymes list. An enzyme row is a sourced claim
+        # ("Stahl says CYP2D6 clears this"), but the LIST is only the union of the
+        # routes the corpora here happen to name, and nothing in the model ever
+        # asserts it is complete: Stahl names the clinically actionable isoform, a
+        # Wikipedia drugbox names whatever its editors wrote down, CPIC names the
+        # gene it doses on. A missing isoform is therefore a silent hole, and it
+        # propagates: the drug -> drug rows are derived from exactly this list, so an
+        # unnamed shared route is an interaction the panel simply never draws (the
+        # shape of the clomipramine/CYP2C19 gap, 3.93.1). Said once for the section
+        # rather than per drug, like the bilaterality caveat above, and deliberately
+        # **sourceless** (a red NOSOURCE pill) for the same reason: the claim is
+        # about this dataset's coverage, so no corpus could be cited for it.
+        "id": "enzyme_list_not_exhaustive",
+        "owner_kind": "section",
+        "owner": "metabolism",
+        "slot": "section.metabolism",
+        "display": "admonition",
+        "tone": "info",
+        "title": {
+            "en": "Not the full set of routes",
+            "fr": "Liste de voies non exhaustive",
+        },
+        "text": {
+            "en": "Each row above is sourced on its own, but the list is not: it "
+                  "holds the routes a source here happens to name, and no corpus "
+                  "claims to name them all. An isoform missing from it means no "
+                  "source stated that route, never that the drug avoids it. The "
+                  "interactions below are derived from this same list, so an "
+                  "unnamed shared route is simply an interaction nothing draws.",
+            "fr": "Chaque ligne ci-dessus est sourcée individuellement, mais pas la "
+                  "liste : elle contient les voies qu'une source citée ici nomme, et "
+                  "aucun corpus ne prétend les nommer toutes. Une isoforme absente "
+                  "signifie qu'aucune source n'a énoncé cette voie, jamais que le "
+                  "médicament l'évite. Les interactions ci-dessous sont dérivées de "
+                  "cette même liste : une voie commune non nommée est donc une "
+                  "interaction que rien n'affiche.",
         },
     },
 ]

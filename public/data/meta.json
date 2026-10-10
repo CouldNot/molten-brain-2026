@@ -3624,10 +3624,12 @@
     "receptor.top": "receptor",
     "target.top": "target",
     "structure.top": "structure",
-    "section.projections": "section"
+    "section.projections": "section",
+    "section.metabolism": "section"
   },
   "addon_sections": {
-    "projections": "Projections"
+    "projections": "Projections",
+    "metabolism": "Metabolism"
   },
   "addon_displays": [
     "admonition"
@@ -3732,13 +3734,13 @@
   "provenance_stats": {
     "by_kind": {
       "addons": {
-        "total": 3,
+        "total": 4,
         "verified": 2,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
-        "nosource": 1,
-        "missing": 1
+        "nosource": 2,
+        "missing": 2
       },
       "enzyme_variability": {
         "total": 5,
@@ -4021,13 +4023,13 @@
       }
     },
     "nodes": {
-      "total": 6985,
+      "total": 6986,
       "verified": 5600,
       "uncertain": 250,
       "sourced": 0,
       "llm": 438,
-      "nosource": 697,
-      "missing": 1135,
+      "nosource": 698,
+      "missing": 1136,
       "backed": 5850,
       "pct_backed": 84
     },

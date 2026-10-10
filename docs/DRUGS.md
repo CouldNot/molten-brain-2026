@@ -175,6 +175,12 @@ Which enzymes clear a drug, or have their activity changed by it. **Pharmacokine
 has no anatomy**: a liver enzyme is not a brain region, and nothing here ever lights the 3D
 scene (the Enzymes section's caption says so, so a still scene reads as intended).
 
+Each row is a sourced claim; the **list is not**, and the section says so out loud via the
+`section.metabolism` addon (`docs/VIEWER.md`): it holds the routes some corpus here happens to
+name, so a missing isoform means no source stated that route, never that the drug avoids it.
+The derived drug -> drug rows read the same list, so an unnamed shared route is an interaction
+nothing draws.
+
 - **Data.** `ENZYMES` / `ENZYME_ROLES` (`substrate`/`inhibitor`/`inducer`, each with the
   `direction` it moves a co-prescribed substrate's level) / `ENZYME_STRENGTHS` (`major`/`minor`
   for a substrate, `strong`/`moderate`/`weak` for the rest) live in `tools/data_generators/drugs.py`,

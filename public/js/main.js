@@ -4450,6 +4450,11 @@ function createInfoPanel(data, sourcingModal) {
           enzUl.appendChild(li);
         }
         enzWrap.appendChild(enzUl);
+        // Addon slot: the coverage caveat on the list just read (a union of the
+        // routes some corpus names, never all of them). Below the rows, since it is
+        // a note on what they add up to, and anchored on the SECTION rather than on
+        // this drug: the claim holds for every drug at once.
+        appendAddons(enzWrap, "section", "metabolism", "section.metabolism");
         body.appendChild(enzWrap);
         flashRow(flashEnz);
 
