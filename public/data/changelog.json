@@ -1,6 +1,42 @@
 {
   "versions": [
     {
+      "version": "3.94.1",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Seven classification details are now marked as contradicted by a textbook sentence: the synaptic site of 5-HT5A, the excitatory or inhibitory sign of A2A and MT1, and how strongly clozapine, fluvoxamine and sertraline use or block a liver enzyme. Each contradicting sentence was found verbatim on its page and confirmed by a separate model judge.",
+          "commits": [
+            "73076ec"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "The arrows from the cortex to the caudate and putamen now cite Kandel and Nieuwenhuys for being glutamate and excitatory. These books say it of the cortex as a whole rather than of each lobe, so the claim carries a warning saying so.",
+          "commits": [
+            "6b4e8b2",
+            "95c2de9"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Ondansetron is now listed as an antiemetic, and prothipendyl as an anxiolytic and antiemetic rather than an antipsychotic, as their Wikipedia articles describe them. Naltrexone/bupropion also appears as an appetite suppressant.",
+          "commits": [
+            "cfe8814"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The orange warning badge now also appears on a receptor's individual classification details, on a liver enzyme's strength, and on a pathway's transmitter and sign, with the reason shown on hover.",
+          "commits": [
+            "73076ec",
+            "6b4e8b2"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.94.0",
       "date": "2026-10-10",
       "entries": [
