@@ -32,7 +32,8 @@ CACHE = ROOT / "tools" / "generated_cache"
 PAGE = ("Fluoxetine and paroxetine are both potent inhibitors of CYP2D6 and CYP2C19. "
         "Diazepam undergoes oxidative metabolism by demethylation ( CYP2C9 , 2C19 ). "
         "Inhibits CYP2C9/2C19 . Metabolism | Mainly CYP3A4 / 5 . "
-        "It is metabolized by CYP2D6 . It is mainly metabolized by CYP2D6 .")
+        "It is metabolized by CYP2D6 . It is mainly metabolized by CYP2D6 . "
+        "It is metabolized by CYP3A4 and to a lesser extent by CYP2C9 .")
 
 
 def worklist(*quotes):
@@ -121,6 +122,47 @@ class GateTest(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["strength"], "major")
         self.assertIn("mainly", rows[0]["sources"][0]["quote"])
+
+
+class StrengthPassTest(unittest.TestCase):
+    """The tier pass: a second sentence may back a kept row's strength, never change it."""
+
+    WORK = ("It is metabolized by CYP2D6 .", "It is mainly metabolized by CYP2D6 .",
+            "It is metabolized by CYP3A4 and to a lesser extent by CYP2C9 .")
+    ROLE = {"testdrug": [{"n": 0, "enzyme": "cyp2d6", "role": "substrate",
+                          "strength": "major"}]}
+
+    def tier(self, picks):
+        out, _stats, rejected = A.apply(worklist(*self.WORK), self.ROLE, read_page,
+                                        strength_judged={"testdrug": picks})
+        rows = out["stahl"]["testdrug"]
+        return rows, [line.split("]")[0][1:] for line in rejected]
+
+    def test_a_tier_sentence_rides_the_kept_row_as_an_extra_source(self):
+        rows, why = self.tier([{"n": 1, "enzyme": "cyp2d6", "role": "substrate",
+                                "strength": "major"}])
+        self.assertEqual(why, [])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual([s["quote"] for s in rows[0]["sources"]],
+                         ["It is metabolized by CYP2D6 .",
+                          "It is mainly metabolized by CYP2D6 ."])
+        # Unstamped: the recheck has to judge it before it can ship.
+        self.assertNotIn("llm", rows[0]["sources"][1])
+
+    def test_a_tier_pick_never_changes_the_stored_strength(self):
+        rows, why = self.tier([{"n": 2, "enzyme": "cyp2c9", "role": "substrate",
+                                "strength": "minor"},
+                               {"n": 1, "enzyme": "cyp2d6", "role": "substrate",
+                                "strength": "minor"}])
+        self.assertEqual(why, ["tier pick restates no kept pair",
+                               "tier pick contradicts the stored strength"])
+        self.assertEqual(rows[0]["strength"], "major")
+        self.assertEqual(len(rows[0]["sources"]), 1)
+
+    def test_a_tier_sentence_must_carry_the_tier_word(self):
+        _rows, why = self.tier([{"n": 0, "enzyme": "cyp2d6", "role": "substrate",
+                                 "strength": "major"}])
+        self.assertEqual(why, ["quote states no tier word"])
 
 
 def shipped():
