@@ -1,6 +1,21 @@
 {
   "versions": [
     {
+      "version": "3.93.3",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "category": "data",
+          "text": "46 more drugs now show a sourced class (green check) instead of an unverified one: the drugs Stahl's Prescriber's Guide has no monograph for (dopamine agonists, barbiturates, newer anticonvulsants, recreational drugs, ...). Each class is quoted from the opening of the drug's English or French Wikipedia article, found verbatim on the stored page, then confirmed by a separate model judge. 16 drugs stay unsourced, where no lead sentence states the class we list.",
+          "commits": [
+            "0d2d294",
+            "941dcf4",
+            "4a6549f"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.93.2",
       "date": "2026-10-10",
       "entries": [

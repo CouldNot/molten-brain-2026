@@ -227,7 +227,7 @@ Corpora (`SOURCE_CORPORA`):
 - #3 `stahl_essential`: receptor/target mechanism classification. #4 `carlat`: drug cross-checks.
 - #5 `pdsp_ki`: measured binding Ki (a CSV row id, not a page).
 - #7 `gtopdb`: receptor "Found in" regions (with assay species). #8 `allen_ahba`: target + residual receptor regions (PACall, no judge) and expression density.
-- #9 `wikipedia_pharm`: fallback Ki, binding directions, metabolite bindings, CYP roles, Tmax. #10 `wikipedia_fr`: eu/fr brands.
+- #9 `wikipedia_pharm`: fallback Ki, binding directions, metabolite bindings, CYP roles, Tmax, non-Stahl drug classes (#10 FR leads as fallback). #10 `wikipedia_fr`: eu/fr brands.
 - #11 `gtopdb_ki`: Ki/direction where PDSP has no assay. #12 `gtopdb_class`: target type + GPCR sign (mapped from transduction).
 - #13 `pharmfreq`: enzyme metabolizer-phenotype variability. #14 `dailymed`: US label Tmax.
 - #15 `cpic`: what a metabolizer phenotype implies for one prescription (implication + recommendation + strength), `page` = guideline ClinPGx id.

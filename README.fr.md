@@ -186,11 +186,11 @@ Receptor mechanism class              ██████████████
 Drug half-life (T½)                   ██████████████████████████   98%    269/274
 Drug active metabolites               █████████████████████████░   98%      39/40
 Neuron pathways                       █████████████████████████░   96%      91/95
+Drug class                            █████████████████████████░   95%    285/301
 Receptor expression regions           ████████████████████████░░   94%    360/383
 Target expression regions             ███████████████████████░░░   89%    115/129
 Projection groups                     ██████████████████████░░░░   83%      10/12
 Target classifications                █████████████████████░░░░░   80%      20/25
-Drug class                            █████████████████████░░░░░   79%    239/301
 Receptor sign (excit./inhib.)         ████████████████████░░░░░░   77%      43/56
 Drug metabolism strength tier         ███████████████░░░░░░░░░░░   59%     87/147
 Pathway transmitter                   ███████████████░░░░░░░░░░░   59%      56/95

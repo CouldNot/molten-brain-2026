@@ -198,6 +198,9 @@ The corpora (`SOURCE_CORPORA`), each quote-gated author-side as above unless not
   the whole English article author-side (pinned to a revision id) and mines its pharmacodynamics binding
   table; a Ki source's `quote` is the verbatim table row, gated exactly like a book page. A tertiary
   source citing the primary literature: the grade attests quote-presence, the corpus label conveys tier.
+  It also backs **`drug_categories`** for drugs Stahl has no monograph for: the infobox "Drug class" row or
+  a lead sentence, offered by `fetch_category_worklist.py`, picked by index, gated by
+  `apply_category_sources.py --wikipedia`, then judged by `recheck_quotes.py` (#10 FR leads are the fallback).
 - **#10 Wikipedia FR** (`wikipedia_fr`, `page` = the FR article slug) is the source for a drug's
   **European / French** commercial brands (`eu`/`fr` region; na comes from Stahl). The FR infobox holds
   only chemistry, so the trade names live in prose; `fetch_brand_names.py` resolves each drug's FR article

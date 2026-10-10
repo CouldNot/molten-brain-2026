@@ -1,0 +1,5 @@
+# 3.93.3 (2026-10-10)
+
+## Data
+- 46 more drugs now show a sourced class (green check) instead of an unverified one: the drugs Stahl's Prescriber's Guide has no monograph for (dopamine agonists, barbiturates, newer anticonvulsants, recreational drugs, ...). Each class is quoted from the opening of the drug's English or French Wikipedia article, found verbatim on the stored page, then confirmed by a separate model judge. 16 drugs stay unsourced, where no lead sentence states the class we list. (0d2d294, 941dcf4, 4a6549f)
+    fr: 46 médicaments supplémentaires affichent désormais une classe sourcée (coche verte) au lieu d'une classe non vérifiée : ceux pour lesquels le Prescriber's Guide de Stahl n'a pas de monographie (agonistes dopaminergiques, barbituriques, anticonvulsivants récents, drogues récréatives, ...). Chaque classe est citée depuis l'introduction de l'article Wikipédia anglais ou français du médicament, retrouvée mot pour mot sur la page stockée, puis confirmée par un modèle juge distinct. 16 médicaments restent non sourcés, faute de phrase d'introduction énonçant la classe que nous indiquons.

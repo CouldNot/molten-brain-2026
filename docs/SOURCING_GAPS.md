@@ -157,7 +157,7 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 | Node kind | Missing | Total | Share of the gap | Difficulty | Best lever |
 | --- | ---: | ---: | ---: | --- | --- |
 | `receptor_synaptic` (pre/post site) | 48 | 56 | 32.2% | Hard | no database has the field; textbook prose |
-| `drug_categories` | 36 | 235 | 24.2% | limit | 25 non-Stahl drugs + 9 recreational + 2 flagged |
+| `drug_categories` | 16 | 301 | (2026-10-10, after the snapshot) | limit | 6 unfetched articles + 6 silent leads + 4 label mismatches (section 2) |
 | `receptor_locations` | 23 | 383 | 15.4% | limit | off-atlas bases + Allen not-detected |
 | `target_locations` | 14 | 96 | 9.4% | limit | SERT/NET terminals: mRNA sits at the source nucleus |
 | `receptor_sign` (excit./inhib.) | 13 | 56 | 8.7% | Hard | GtoPdb's transduction is mixed/absent for these |
@@ -171,8 +171,8 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 pass took the 121-node block that used to be half the gap and left 62 of it, of which 48 are
 the one attribute no database carries. What is left is four roughly equal piles, three of them
 documented limits rather than oversights: **48 `receptor_synaptic`** (pre/post site, needs
-textbook prose, a fraction will honestly stay `llm`) and **36 `drug_categories`** (mostly the
-non-Stahl roster meeting corpora that do not cover it),
+textbook prose, a fraction will honestly stay `llm`) and `drug_categories` (36 at the snapshot, 16 since the
+Wikipedia-lead pass, see section 2),
 and **37 expression-location nodes** (off-atlas bases, or transporter mRNA sitting at the
 source nucleus). The residue is small and specific: 13 `receptor_sign` GtoPdb could not map,
 sigma-1's `receptor_class`, and the 2 claustrum `projections`.
@@ -370,35 +370,34 @@ change. Resolve it against a textbook, then re-run the applier and the sign clos
 influx depolarizes, chloride influx hyperpolarizes), which Stahl Essential does state in
 prose for the big ones. That is a small, targeted quote hunt, not a corpus.
 
-### 2. `drug_categories`, 36 / 235 missing (199 verified against Stahl)
+### 2. `drug_categories`, 16 / 301 missing (285 verified: Stahl, then Wikipedia leads)
 
 **What.** One node per drug: its class classification ("this drug is an SSRI / TCA / SGA /
 ..."), `category_provenance`. Stahl's Prescriber's Guide prints the class verbatim under each
-monograph's "## Class" heading, which is how the 199 were closed (Haiku extract, Sonnet judge,
-`apply_category_sources.py` re-find + write, `check_data.py` re-verify).
+monograph's "## Class" heading, which closed most of the roster (Haiku extract, Sonnet judge,
+`apply_category_sources.py` re-find + write, `check_data.py` re-verify). The drugs Stahl has
+no monograph for were then closed from the lead of their stored Wikipedia article (EN corpus
+#9, FR corpus #10 as fallback): `tools/fetch/fetch_category_worklist.py` offers the infobox
+"Drug class" row and lead sentences by index, an LLM picks confirm-only into
+`tools/generated_cache/category_judged.json`, `apply_category_sources.py --wikipedia` gates
+and writes, and `recheck_quotes.py` stamps the judge (Opus: 51 of 54 quotes supported, 46
+drugs closed).
 
-**Why the 36 are not verified.** All three groups are structural, not oversights:
-- **25 drugs outside Stahl's roster** (added by the roster pass below): amantadine,
-  amobarbital, azacyclonol, baclofen, calcium_carbimide, cyclobarbital, doxylamine,
-  glutethimide, ketanserin, melatonin, mesoridazine, naloxone, ondansetron, perampanel,
-  phenazepam, phenobarbital, pramipexole, prochlorperazine, prothipendyl, ropinirole,
-  rotigotine, rubidium_chloride, tizanidine, tropatepine, xanomeline. Stahl's 8th edition has
-  no monograph for them, so there is no class line to quote.
-- **9 recreational drugs** (LSD, MDMA, cocaine, DMT, methamphetamine, nicotine, THC, caffeine,
-  methaqualone): the "Recreational / psychoactive" category is ours; the Prescriber's Guide
-  covers prescription psychiatric drugs and has no class line for them by construction. Their
-  *bindings* are fully PDSP-Ki-verified; only the label is unsourced, and honestly so.
-- **2 long-flagged**: `naltrexonebupropion` (Stahl says "weight management medication", which
-  does not back our `substance_use` category, a genuine mismatch to review rather than a quote
-  to paper over) and `serdexmethylphenidate` (no standalone class bullet).
-
-**How to tackle.** The 25 non-Stahl drugs are the only real target, and they need a corpus
-covering marketed drugs Stahl omits: the **French Wikipedia articles are already stored**
-author-side for these drugs (corpus #10, fetched for their brand names), and an article's
-opening sentence almost always states the class ("un antipsychotique conventionnel de la
-famille des phénothiazines"). That is the cheapest route: same quote gate, pages already on
-disk, no new corpus. English Wikipedia (corpus #9) is stored for most of them too. Expect
-roughly 20 of 25 closeable; the 9 recreational and 2 flagged stay.
+**Why the 16 are not verified.**
+- **No stored article** (6): furosemide, bumetanide, cannabidiol, cannabinol, nabilone,
+  rimonabant. Their EN and FR pages were never fetched; one
+  `fetch_wikipedia_pharmacology.py --drug <id>` each, then rerun the pass.
+- **The lead does not state our class** (6): cyclobarbital (only the Reladorm combination is
+  indicated for insomnia), serdexmethylphenidate (a prodrug, "stimulant" never said),
+  tasimelteon (non-24 indication, not a hypnotic class), rubidium_chloride (chemistry only),
+  tiapride and xanomeline (the lead says "benzamide antipsychotics" / the Cobenfy combination
+  treats schizophrenia, neither our conventional / atypical label).
+- **Label mismatches to review, not quotes to paper over** (4): `naltrexonebupropion` (an
+  obesity drug, our `substance_use`), `prothipendyl` (the article says it does *not* possess
+  antipsychotic effects, our `antipsychotic_conventional`), `ondansetron` (Wikipedia's class
+  row says Antiemetic, we say `other`; the judge rejected it as contradicting), and
+  `calcium_carbimide` (the judge rejected both picked quotes as mechanism-only; the page's
+  abstinence-rate sentence is a candidate for a re-pick).
 
 ### 3. `drug_bindings`, 12 / 1688 missing (**mostly closed**)
 
@@ -561,11 +560,9 @@ families, all four `targets`, the α2 `target_polarity`, the last 2 `references`
 over that run: 55% to 67% to 78% to 95% to 96%, then down to 94% as the receptor split and
 the roster expansion enlarged the denominator, then back to **96%** (see the snapshot).
 
-1. **The non-Stahl `drug_categories` (about 20 of 36 reachable).** Now the single biggest
-   *closeable* pile. The French and English Wikipedia pages for these drugs are **already
-   stored author-side** (corpora #10 and #9), and an article's opening sentence states the
-   class. Cheap because there is no new corpus and no new gate; only an extract-and-judge
-   pass over pages already on disk.
+1. ~~**The non-Stahl `drug_categories`.**~~ **Done** (46 closed from stored Wikipedia leads,
+   see section 2). The 16 left are 6 unfetched articles, 6 leads that do not state our class,
+   and 4 label mismatches to review.
 2. ~~**`drug_bindings` (33), opportunistic.**~~ **Done** (21 of 33 closed by hand from Stahl
    and Wikipedia pharmacodynamics prose; see section 3). The 12 left need primary literature:
    the 7 GABA-A modulatory-site bindings will not close because no database assays that site,
