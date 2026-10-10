@@ -78,7 +78,10 @@ FETCH_ALIASES: dict[str, tuple[str, ...]] = {
     "raphe": ("serotonergic neurons", "serotonergic cell"),
     "vta": ("a10 ",),  # Kandel p.1047: "The A10 group is located in the ventral tegmental area"
     "tuberomammillary": ("histaminergic neurons", "histaminergic cell"),
-    "pons": ("pontine",),
+    # A brainstem part the books name instead of its division ("the tectum, the
+    # periaqueductal grey ... receive a sizeable projection from the locus coeruleus").
+    "midbrain": ("tectum", "periaqueductal"),
+    "medulla": ("medullary", "inferior olive", "solitary tract"),
     "temporal": ("entorhinal",),
     "olfactory_bulb": ("olfactory",),
     "occipital": ("visual cortex", "striate"),

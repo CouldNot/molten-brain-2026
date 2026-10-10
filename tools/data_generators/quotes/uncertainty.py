@@ -380,6 +380,12 @@ _REGION_GENERIC = {"nucleus", "nuclei", "lobe", "gland", "cortex", "body", "area
 # atlas actually contains stay apart (caudate / caudal share only four).
 _REGION_STEM = 6
 
+# The adjective a source writes for a region whose stem it does not share ("the pontine
+# nuclei" for the pons, "mesencephalic" for the midbrain): the stem match above cannot
+# bridge these, so they are designations in their own right.
+_REGION_ADJECTIVES = {"pons": {"pontine"},
+                      "midbrain": {"mesencephalic", "mesencephalon"}}
+
 
 def _region_designations(base: str, name: str) -> set[str]:
     """The words a source would use to name the region ``base`` (id + display name).
@@ -390,7 +396,8 @@ def _region_designations(base: str, name: str) -> set[str]:
     """
     words = set(re.split(r"[^a-z0-9]+", base.lower()))
     words |= set(re.split(r"[^a-z0-9]+", _english(name).lower()))
-    return {w for w in words if len(w) >= 4 and w not in _REGION_GENERIC}
+    return ({w for w in words if len(w) >= 4 and w not in _REGION_GENERIC}
+            | _REGION_ADJECTIVES.get(base, set()))
 
 
 def _names_region(quote: str, designations: set[str]) -> bool:

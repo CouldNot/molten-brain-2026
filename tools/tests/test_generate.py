@@ -588,7 +588,7 @@ class UncertaintyTest(unittest.TestCase):
     # books disagree about (our "subthalamic nucleus" is a book's "subthalamus").
     _REGIONS = {"thalamus": "Thalamus", "frontal": "Frontal lobe",
                 "caudate": "Caudate nucleus", "putamen": "Putamen",
-                "cerebellum": "Cerebellum",
+                "cerebellum": "Cerebellum", "pons": "Pons", "midbrain": "Midbrain",
                 "subthalamic_nucleus": "Subthalamic nucleus"}
 
     def _blanket_of(self, quote, source, targets):
@@ -623,6 +623,16 @@ class UncertaintyTest(unittest.TestCase):
             "The subthalamus receives phasic excitatory signals from the cerebral "
             "cortex, and the cerebellum as well.", "frontal_R",
             ("subthalamic_nucleus_R", "cerebellum")))
+
+    def test_a_region_named_by_its_adjective_is_still_named(self):
+        """Nieuwenhuys writes "the pontine nuclei" for a pons target; "pontine" shares
+        too short a stem with "pons", so it needs its own designation or the sentence
+        reads as a sweep naming nothing."""
+        g = self._blanket_of(
+            "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular "
+            "nucleus, and the inferior olive also receive a sizeable projection from "
+            "the locus coeruleus.", "locus_coeruleus_R", ("pons", "midbrain"))
+        self.assertFalse(g)
 
     def test_a_single_unnamed_pathway_is_not_a_sweep(self):
         """Same >= 2 rule the family claim uses: one arrow cannot establish that the
