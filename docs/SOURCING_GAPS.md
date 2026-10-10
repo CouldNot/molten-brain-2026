@@ -165,6 +165,7 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 | `projections` | 2 | 95 | (2026-10-10, after the snapshot) | Hard | claustrum primary lit |
 | `projection_transmitter` | 24 | 95 | (2026-10-10, after the snapshot) | Hard | coarse "cortex to striatum" rule + systems text (section 6) |
 | `projection_sign` | 19 | 38 | (2026-10-10, after the snapshot) | Hard | same (section 6) |
+| `drug_enzyme_strength` (major/minor, strong/moderate/weak) | 13 | 147 | (2026-10-10, after the snapshot) | limit | tier only implied by a percentage or by contrast (section 6b) |
 | `receptor_class` (GPCR/ionotropic) | 1 | 56 | 0.7% | limit | sigma-1 is a GtoPdb `other_protein` |
 | `references` | 0 | 371 | not in headline | done | closed |
 | everything else | 0 | 1341 | closed | done | see "Kinds now closed" below |
@@ -455,6 +456,23 @@ in the density caption.
 **Contradictions:** none. Nieuwenhuys p391 and p387 call the septohippocampal projection cholinergic **and GABAergic**. That is consistent with our Acetylcholine value, but it is incomplete, and it is not reflected in the data.
 
 **How to tackle.** Use a tract-tracing review for the claustrum. Decide whether a "cortex to striatum" sentence may source each lobe's striatal arrow. Read a systems-neuroscience text (e.g. Purves) for the Papez and cerebellar loops.
+
+### 6b. `drug_enzyme_strength`, 13 / 147 missing (134 verified)
+
+**What.** The tier on a drug's enzyme row (`claims.strength`): a substrate's `major` / `minor`, an inhibitor's or inducer's `strong` / `moderate` / `weak`. It is graded by a word test (`ENZYME_STRENGTH_WORDS` in `data_generators/quotes/attestation.py`) over the row's own quotes. The 2026-10-10 pass took it from 87 to **134**: 44 rows were already cited on a sentence stating the tier in words the test did not know ("mainly", "mostly", "predominantly", "largely", "almost exclusively", "most important", "to a lesser extent", "minimally", "slightly", "mild"), and 3 gained a sentence through the new tier pass of `apply_cyp_sources.py` (`cyp_strength_judged.json`, confirm-only: it never creates a row or changes a tier) or a better role pick. An independent Opus judge read every newly attested tier.
+
+**Why the rest stays `llm`.** Read, not missed:
+
+- **Tier given only as a percentage:** zolpidem CYP1A2 / CYP2C9 / CYP2C19 / CYP2D6 minor ("CYP3A4 (61%) CYP2C9 (22%), CYP1A2 (14%), CYP2D6 (<3%)"), clonidine CYP1A2 minor ("CYP2D6 (66%), CYP1A2 (10-20%)"), tizanidine CYP1A2 major ("CYP1A2 , 95%"). A number a reader must bucket is not a stated tier.
+- **Tier only implied by contrast:** lofexidine CYP2D6 major and pitolisant CYP2D6 major (Stahl: "Metabolized by CYP2D6 and to a lesser extent by ...", "Extensively metabolized by CYP2D6"); nicotine CYP2B6 minor ("mostly CYP2A6 , and also by CYP2B6"), zonisamide CYP3A5 minor ("mostly by CYP3A4 , but also CYP3A7 and CYP3A5"). The judge rejected the nicotine and lofexidine tier explicitly.
+- **Sole route, no tier word:** lorazepam / oxazepam UGT major ("only liver glucuronidation", "simply metabolized by glucuronidation").
+- **Weaker wording:** xanomeline CYP2D6 major ("significantly contributes").
+
+**Sources contradicting a stored tier (reported, not resolved):** clozapine CYP2D6 `minor` (Stahl p210 "to a lesser extent by CYP2D6") vs its Wikipedia drugbox "Liver , by several CYP isozymes mainly via CYP2D6"; fluvoxamine CYP1A2 `major` vs Wikipedia fluvoxamine "metabolized primarily by CYP2D6 and to a minor extent by CYP1A2"; sertraline CYP2D6 inhibitor `weak` (Stahl p770 "weakly at low doses") vs Wikipedia sertraline "Sertraline is a moderate inhibitor of CYP2D6 and CYP2B6 in vitro".
+
+**FDA table, skipped.** FDA's "Drug Development and Drug Interactions" CYP table lists *sensitive* substrates (a strong inhibitor raises the AUC 5-fold or more). That is an interaction-exposure class, not a statement of an isoform's share of clearance, so it does not map onto `major` and was not used.
+
+**How to tackle.** A label's clinical-pharmacology section (DailyMed, corpus #14) often states the fraction metabolized in words; a `fetch_cyp_worklist.py` DailyMed input would reach the percentage-only rows.
 
 ### 7. Kinds now closed
 

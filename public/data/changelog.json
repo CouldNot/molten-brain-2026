@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "3.93.6",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "category": "data",
+          "text": "47 more enzyme roles now show a sourced strength (green check) instead of an unverified one: whether an enzyme is a drug's major or minor clearance route, or how strongly a drug inhibits or induces it. Examples: duloxetine is \"metabolized mainly by CYP2D6 and CYP1A2\", clozapine only \"to a lesser extent by CYP2D6 and CYP3A4\", modafinil induces CYP1A2 \"slightly\". Each sentence is found verbatim on its stored Stahl or Wikipedia page, then confirmed by a separate model judge. 13 stay unsourced, where the source gives only a percentage or implies the tier by contrast.",
+          "commits": [
+            "88fef01",
+            "3802ed8",
+            "f22d649",
+            "2f4834a"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.93.5",
       "date": "2026-10-10",
       "entries": [

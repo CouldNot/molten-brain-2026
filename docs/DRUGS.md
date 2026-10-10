@@ -204,6 +204,11 @@ nothing draws.
     index resolve; the triple is in the vocabulary; **the quote names the isoform the row claims**;
     the quote is verbatim on the cited page under `check_data.normalize_for_match`; one
     (enzyme, role) pair per drug per corpus, keeping the reading that carries a strength tier.
+    A second judged file, `generated_cache/cyp_strength_judged.json`, is the **tier pass**: picks over
+    the same worklist naming a sentence that states a kept row's tier in words. Confirm-only (a pick
+    restating no kept pair, or a different tier, is rejected and reported), the quote must carry the
+    `ENZYME_STRENGTH_WORDS` tier word, and it rides the row the generator keeps (Stahl's when both
+    corpora hold the pair) unstamped, so `recheck_quotes.py --unjudged` must judge it.
   - Both fetchers are **libraries, not scripts**: they know where a corpus keeps its pages and how
     its sentences are shaped, and state no claim.
 - **Which enzyme FORMS an active metabolite** is the mirror relation (there the drug is the
