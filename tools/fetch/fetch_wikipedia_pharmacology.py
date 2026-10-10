@@ -118,8 +118,11 @@ RANGE_RE = re.compile(r".+\s[–—-]\s.+")
 
 
 def slugify(title: str) -> str:
-    """Filesystem slug for a page title (matches the ?title= form, lower-cased)."""
-    return re.sub(r"[^a-z0-9]+", "_", title.strip().lower()).strip("_")
+    """Filesystem slug for a page title (matches the ?title= form, lower-cased).
+
+    The rule lives in ``fetch_cyp_wikipedia.title_slug`` so stdlib readers share it."""
+    import fetch_cyp_wikipedia  # sibling module, stdlib-only
+    return fetch_cyp_wikipedia.title_slug(title)
 
 
 def clean_cell(text: str) -> str:

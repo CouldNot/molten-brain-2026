@@ -1,0 +1,339 @@
+{
+ "receptors": {
+  "alpha1a": {
+   "synaptic": {
+    "postsynaptic": [
+     1
+    ]
+   }
+  },
+  "alpha1b": {
+   "synaptic": {
+    "postsynaptic": [
+     1
+    ]
+   }
+  },
+  "alpha1d": {
+   "synaptic": {
+    "postsynaptic": [
+     1
+    ]
+   }
+  },
+  "alpha2a": {
+   "synaptic": {
+    "presynaptic": [
+     9
+    ],
+    "postsynaptic": [
+     2
+    ]
+   }
+  },
+  "alpha2b": {
+   "synaptic": {
+    "postsynaptic": [
+     2
+    ]
+   }
+  },
+  "alpha2d": {
+   "receptor_class": [
+    0
+   ],
+   "sign": [
+    0
+   ]
+  },
+  "beta1": {
+   "synaptic": {
+    "postsynaptic": [
+     1
+    ]
+   }
+  },
+  "m1": {
+   "synaptic": {
+    "postsynaptic": [
+     2
+    ]
+   }
+  },
+  "m2": {
+   "synaptic": {
+    "presynaptic": [
+     1
+    ]
+   }
+  },
+  "m3": {
+   "synaptic": {
+    "postsynaptic": [
+     1
+    ]
+   }
+  },
+  "m4": {
+   "synaptic": {
+    "presynaptic": [
+     2
+    ]
+   }
+  },
+  "m5": {
+   "synaptic": {
+    "postsynaptic": [
+     1
+    ]
+   }
+  },
+  "nachr_muscle": {
+   "sign": [
+    3
+   ],
+   "synaptic": {
+    "postsynaptic": [
+     10
+    ]
+   }
+  },
+  "nachr_a4b2": {
+   "sign": [
+    3
+   ]
+  },
+  "nachr_a7": {
+   "sign": [
+    3
+   ],
+   "synaptic": {
+    "presynaptic": [
+     15
+    ],
+    "postsynaptic": [
+     17
+    ]
+   }
+  },
+  "d1": {
+   "synaptic": {
+    "postsynaptic": [
+     7
+    ]
+   }
+  },
+  "d2": {
+   "synaptic": {
+    "presynaptic": [
+     6
+    ],
+    "postsynaptic": [
+     25
+    ]
+   }
+  },
+  "d3": {
+   "synaptic": {
+    "presynaptic": [
+     2
+    ],
+    "postsynaptic": [
+     21
+    ]
+   }
+  },
+  "d4": {
+   "synaptic": {
+    "postsynaptic": [
+     0
+    ]
+   }
+  },
+  "d5": {
+   "synaptic": {
+    "postsynaptic": [
+     0
+    ]
+   }
+  },
+  "gaba_a": {
+   "synaptic": {
+    "postsynaptic": [
+     3
+    ]
+   }
+  },
+  "gaba_b": {
+   "sign": [
+    0
+   ]
+  },
+  "nmda": {
+   "sign": [
+    35,
+    36
+   ],
+   "synaptic": {
+    "postsynaptic": [
+     49
+    ]
+   }
+  },
+  "ampa": {
+   "sign": [
+    0,
+    21
+   ],
+   "synaptic": {
+    "postsynaptic": [
+     20,
+     55
+    ]
+   }
+  },
+  "kainate": {
+   "sign": [
+    12,
+    3
+   ],
+   "synaptic": {
+    "presynaptic": [
+     1
+    ],
+    "postsynaptic": [
+     0
+    ]
+   }
+  },
+  "mglur1": {
+   "synaptic": {
+    "postsynaptic": [
+     5
+    ]
+   }
+  },
+  "mglur2": {
+   "synaptic": {
+    "presynaptic": [
+     5
+    ]
+   }
+  },
+  "mglur3": {
+   "synaptic": {
+    "presynaptic": [
+     5
+    ]
+   }
+  },
+  "mglur4": {
+   "synaptic": {
+    "presynaptic": [
+     5
+    ]
+   }
+  },
+  "mglur5": {
+   "synaptic": {
+    "postsynaptic": [
+     5
+    ]
+   }
+  },
+  "mglur7": {
+   "synaptic": {
+    "presynaptic": [
+     5
+    ]
+   }
+  },
+  "glycine": {
+   "sign": [
+    0,
+    1
+   ]
+  },
+  "mu": {
+   "synaptic": {
+    "presynaptic": [
+     1
+    ],
+    "postsynaptic": [
+     5
+    ]
+   }
+  },
+  "kappa": {
+   "synaptic": {
+    "presynaptic": [
+     0
+    ],
+    "postsynaptic": [
+     7
+    ]
+   }
+  },
+  "5ht1a": {
+   "synaptic": {
+    "presynaptic": [
+     20
+    ],
+    "postsynaptic": [
+     32
+    ]
+   }
+  },
+  "5ht2a": {
+   "synaptic": {
+    "postsynaptic": [
+     3
+    ]
+   }
+  },
+  "5ht2c": {
+   "synaptic": {
+    "postsynaptic": [
+     2
+    ]
+   }
+  },
+  "5ht3": {
+   "sign": [
+    0,
+    24
+   ],
+   "synaptic": {
+    "postsynaptic": [
+     4
+    ]
+   }
+  },
+  "5ht6": {
+   "synaptic": {
+    "postsynaptic": [
+     2
+    ]
+   }
+  },
+  "sigma1": {
+   "receptor_class": [
+    1
+   ]
+  }
+ },
+ "targets": {
+  "nkcc1": [
+   6
+  ],
+  "aadc": [
+   9
+  ],
+  "comt": [
+   12
+  ],
+  "gaba_t": [
+   19
+  ]
+ }
+}

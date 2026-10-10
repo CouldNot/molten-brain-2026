@@ -50,15 +50,23 @@ REFERENCE_RE = re.compile(r"^\s*-\s*\^|^\s*\^\s|\bdoi\s*:|\bPMID\b|\bISBN\b")
 SENTENCE_SPLIT = re.compile(r"(?<=[.;:])\s+(?=[A-Z0-9])")
 
 
-def slug_of(url: str) -> str:
-    """A stored page's filename stem for an article URL.
+def title_slug(title: str) -> str:
+    """A stored page's filename stem for an article title (the one slug rule).
 
-    Mirrors ``fetch_wikipedia_pharmacology.slugify`` (which names the files) without
-    importing it: that script is a ``uv run`` module with third-party deps, and this
-    one is stdlib-only so it runs alongside the offline generator.
+    ``fetch_wikipedia_pharmacology.slugify`` (which names the files) delegates here, so
+    the writer and every stdlib reader agree. Greek letters are spelled out first, or
+    "δ-opioid receptor" and "κ-opioid receptor" would both collapse to ``opioid_receptor``.
     """
-    title = urllib.parse.unquote(url.rsplit("/wiki/", 1)[-1])
-    return re.sub(r"[^a-z0-9]+", "_", title.strip().lower()).strip("_")
+    from target_aliases import GREEK_TO_LATIN  # lazy: only a slug needs the map
+    t = title.strip()
+    for greek, latin in GREEK_TO_LATIN.items():
+        t = t.replace(greek, latin)
+    return re.sub(r"[^a-z0-9]+", "_", t.lower()).strip("_")
+
+
+def slug_of(url: str) -> str:
+    """A stored page's filename stem for an article URL (see :func:`title_slug`)."""
+    return title_slug(urllib.parse.unquote(url.rsplit("/wiki/", 1)[-1]))
 
 
 # A drug whose article URL is a **redirect**: the store names the file after the
