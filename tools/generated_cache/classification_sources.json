@@ -24,6 +24,20 @@
      "provenance": "verified",
      "quote": "5-HT1A receptor (HTR1A), GtoPdb target 1 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 209,
+     "provenance": "verified",
+     "quote": "How does this happen? 5HT1A receptors are always inhibitory and they can be both presynaptic on serotonin neurons and postsynaptic on many neurons, including the same glutamatergic pyramidal neurons that have 5HT2A receptors (compare the glutamate neurons upper left in both Figure 5-16A and 5-22A)."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 131,
+     "provenance": "verified",
+     "quote": "Presynaptic serotonin (5HT) receptors include 5HT1A, 5HT1B/D, and 5HT2B, all of which act as autoreceptors."
+    }
    ]
   },
   "5ht1b": {
@@ -154,6 +168,14 @@
      "provenance": "verified",
      "quote": "5-HT2A receptor (HTR2A), GtoPdb target 6 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 200,
+     "provenance": "verified",
+     "quote": "All 5HT2A receptors are postsynaptic and excitatory."
+    }
    ]
   },
   "5ht2b": {
@@ -206,6 +228,14 @@
      "provenance": "verified",
      "quote": "5-HT2C receptor (HTR2C), GtoPdb target 8 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 141,
+     "provenance": "verified",
+     "quote": "5HT2C receptors are excitatory, postsynaptic, and are mostly present upon GABA interneurons (Figures 4-47A and 4-47B)."
+    }
    ]
   },
   "5ht3": {
@@ -223,6 +253,28 @@
      "page": 373,
      "provenance": "verified",
      "quote": "5-HT3A (HTR3A), GtoPdb target 373 | type: lgic | family: 5-HT3 receptors"
+    }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "5_ht3_receptor",
+     "provenance": "verified",
+     "quote": "5-HT 3 receptors are cation channels, that is, they are permeable to sodium (Na), potassium (K), and calcium (Ca) ions and mediate neuronal depolarization and excitation within the central and peripheral nervous systems ."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 327,
+     "provenance": "verified",
+     "quote": "5HT3 receptors in the brain are usually localized on GABA (γ-aminobutyric acid) interneurons, and they are always excitatory."
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "5_ht3_receptor",
+     "provenance": "verified",
+     "quote": "On a cellular level, it has been shown that postsynaptic 5-HT 3 receptors mediate fast excitatory synaptic transmission in rat neocortical interneurons, amygdala , and hippocampus, and in ferret visual cortex ."
     }
    ]
   },
@@ -302,6 +354,14 @@
      "provenance": "verified",
      "quote": "5-HT6 receptor (HTR6), GtoPdb target 11 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 146,
+     "provenance": "verified",
+     "quote": "5HT6 Receptors 5HT6 receptors are postsynaptic and may be key regulators of the release of acetylcholine release and of control of cognitive processes."
+    }
    ]
   },
   "5ht7": {
@@ -372,6 +432,14 @@
      "provenance": "verified",
      "quote": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation, Calcium channel, Other - See Comments"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 497,
+     "provenance": "verified",
+     "quote": "There are numerous subtypes of α-adrenergic receptors, from presynaptic autoreceptors, generally of the α2A subtype (Figure 6-14) to postsynaptic α2A, α2B, α2C, and α1 subtypes α1A, α1B, and α1D (Figures 6-14 through 6-16)."
+    }
    ]
   },
   "alpha1b": {
@@ -397,6 +465,14 @@
      "page": 23,
      "provenance": "verified",
      "quote": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation, Calcium channel, Other - See Comments"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 497,
+     "provenance": "verified",
+     "quote": "There are numerous subtypes of α-adrenergic receptors, from presynaptic autoreceptors, generally of the α2A subtype (Figure 6-14) to postsynaptic α2A, α2B, α2C, and α1 subtypes α1A, α1B, and α1D (Figures 6-14 through 6-16)."
     }
    ]
   },
@@ -424,6 +500,14 @@
      "provenance": "verified",
      "quote": "α1D-adrenoceptor (ADRA1D), GtoPdb target 24 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation, Calcium channel, Other - See Comments"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 497,
+     "provenance": "verified",
+     "quote": "There are numerous subtypes of α-adrenergic receptors, from presynaptic autoreceptors, generally of the α2A subtype (Figure 6-14) to postsynaptic α2A, α2B, α2C, and α1 subtypes α1A, α1B, and α1D (Figures 6-14 through 6-16)."
+    }
    ]
   },
   "alpha2a": {
@@ -450,6 +534,20 @@
      "provenance": "verified",
      "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Phospholipase A2 stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 470,
+     "provenance": "verified",
+     "quote": "At modest levels, NE can improve prefrontal cortical functioning by stimulating postsynaptic α2A receptors."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 497,
+     "provenance": "verified",
+     "quote": "There are numerous subtypes of α-adrenergic receptors, from presynaptic autoreceptors, generally of the α2A subtype (Figure 6-14) to postsynaptic α2A, α2B, α2C, and α1 subtypes α1A, α1B, and α1D (Figures 6-14 through 6-16)."
+    }
    ]
   },
   "alpha2b": {
@@ -475,6 +573,14 @@
      "page": 26,
      "provenance": "verified",
      "quote": "α2B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Other - See Comments"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 497,
+     "provenance": "verified",
+     "quote": "There are numerous subtypes of α-adrenergic receptors, from presynaptic autoreceptors, generally of the α2A subtype (Figure 6-14) to postsynaptic α2A, α2B, α2C, and α1 subtypes α1A, α1B, and α1D (Figures 6-14 through 6-16)."
     }
    ]
   },
@@ -504,6 +610,24 @@
     }
    ]
   },
+  "alpha2d": {
+   "receptor_class": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "alpha_2_adrenergic_receptor",
+     "provenance": "verified",
+     "quote": "The alpha-2 ( α 2 ) adrenergic receptor (or adrenoceptor) is a G protein-coupled receptor (GPCR) associated with the G i heterotrimeric G-protein ."
+    }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "alpha_2_adrenergic_receptor",
+     "provenance": "verified",
+     "quote": "The alpha-2 ( α 2 ) adrenergic receptor (or adrenoceptor) is a G protein-coupled receptor (GPCR) associated with the G i heterotrimeric G-protein ."
+    }
+   ]
+  },
   "ampa": {
    "family": [
     {
@@ -519,6 +643,34 @@
      "page": 444,
      "provenance": "verified",
      "quote": "GluA1 (GRIA1), GtoPdb target 444 | type: lgic | family: Ionotropic glutamate receptors"
+    }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "ampa_receptor",
+     "provenance": "verified",
+     "quote": "The α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid receptor ( AMPA receptor , AMPAR, or quisqualate receptor ) is a nonselective ionotropic glutamate receptor ( iGluR ) that mediates fast excitatory neurotransmission in the central nervous system (CNS) ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "ampa_receptor",
+     "provenance": "verified",
+     "quote": "Ligand binding causes the AMPARs to open, and Na + flows into the postsynaptic cell, resulting in a depolarization."
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "ampa_receptor",
+     "provenance": "verified",
+     "quote": "Glutamate binds to postsynaptic AMPARs and another glutamate receptor, the NMDA receptor (NMDAR)."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 117,
+     "provenance": "verified",
+     "quote": "Three types of postsynaptic glutamate receptors are linked to ion channels, and are known as ligand-gated ion channels: _N_ -methyl-D-aspartate (NMDA) receptors, α-amino-3-hydroxy-5-methyl-4isoxazole-propionic acid (AMPA) receptors, and kainate receptors, all named for the agonists that bind to them."
     }
    ]
   },
@@ -545,6 +697,14 @@
      "page": 28,
      "provenance": "verified",
      "quote": "β1-adrenoceptor (ADRB1), GtoPdb target 28 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 386,
+     "provenance": "verified",
+     "quote": "However, these same NET inhibitory actions, if sustained over time, will downregulate and desensitize postsynaptic norepinephrine receptors such as β1 receptors, and hypothetically lead to the delayed reduction in symptoms of fear and worry long term (Figure 8-20B)."
     }
    ]
   },
@@ -642,6 +802,14 @@
      "provenance": "verified",
      "quote": "D1 receptor (DRD1), GtoPdb target 214 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 472,
+     "provenance": "verified",
+     "quote": "Postsynaptic D1 receptors predominate in the prefrontal cortex and the best functional outcome is when they are “tuned” and neither understimulated nor overstimulated (Figures 11-15 and 11-16)."
+    }
    ]
   },
   "d2": {
@@ -667,6 +835,20 @@
      "page": 215,
      "provenance": "verified",
      "quote": "D2 receptor (DRD2), GtoPdb target 215 | transduction: Gi/Go family, G protein independent mechanism | effectors: Adenylyl cyclase inhibition, Other - See Comments"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 101,
+     "provenance": "verified",
+     "quote": "Postsynaptically, D1, D2, and D3 receptors are all present in the striatum."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 98,
+     "provenance": "verified",
+     "quote": "All five DA receptors can be located postsynaptically (Figure 4-4), but D2 and D3 receptors can also both be located presynaptically, where, due to their inhibitory actions, they act as autoreceptors to inhibit further DA release (Figure 4-5)."
     }
    ]
   },
@@ -694,6 +876,20 @@
      "provenance": "verified",
      "quote": "D3 receptor (DRD3), GtoPdb target 216 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 101,
+     "provenance": "verified",
+     "quote": "Postsynaptically, D1, D2, and D3 receptors are all present in the striatum."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 98,
+     "provenance": "verified",
+     "quote": "All five DA receptors can be located postsynaptically (Figure 4-4), but D2 and D3 receptors can also both be located presynaptically, where, due to their inhibitory actions, they act as autoreceptors to inhibit further DA release (Figure 4-5)."
+    }
    ]
   },
   "d4": {
@@ -720,6 +916,14 @@
      "provenance": "verified",
      "quote": "D4 receptor (DRD4), GtoPdb target 217 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 97,
+     "provenance": "verified",
+     "quote": "D2-like receptors, which include D2, D3, and D4, are inhibitory and thus inhibit the postsynaptic neuron."
+    }
    ]
   },
   "d5": {
@@ -745,6 +949,14 @@
      "page": 218,
      "provenance": "verified",
      "quote": "D5 receptor (DRD5), GtoPdb target 218 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 97,
+     "provenance": "verified",
+     "quote": "D1-like receptors, which include both D1 and D5 receptors, are excitatory and thus stimulate the postsynaptic neuron."
     }
    ]
   },
@@ -790,6 +1002,14 @@
      "provenance": "verified",
      "quote": "GABAA receptor α1 subunit (GABRA1), GtoPdb target 404 | type: lgic | family: GABAA receptors"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "gabaa_receptor",
+     "provenance": "verified",
+     "quote": "The receptor sits in the membrane of its neuron , usually localized at a synapse , postsynaptically."
+    }
    ]
   },
   "gaba_a_rho": {
@@ -826,6 +1046,14 @@
      "provenance": "verified",
      "quote": "GABAB1 (GABBR1), GtoPdb target 240 | type: gpcr | family: GABAB receptors"
     }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "gabab_receptor",
+     "provenance": "verified",
+     "quote": "Thus GABA B receptors are usually considered as inhibitory receptors."
+    }
    ]
   },
   "glycine": {
@@ -843,6 +1071,20 @@
      "page": 423,
      "provenance": "verified",
      "quote": "glycine receptor α1 subunit (GLRA1), GtoPdb target 423 | type: lgic | family: Glycine receptors"
+    }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "glycine_receptor",
+     "provenance": "verified",
+     "quote": "GlyR is an ionotropic receptor that produces its effects through chloride currents ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "glycine_receptor",
+     "provenance": "verified",
+     "quote": "It is one of the most widely distributed inhibitory receptors in the central nervous system and has important roles in a variety of physiological processes, especially in mediating inhibitory neurotransmission in the spinal cord and brainstem ."
     }
    ]
   },
@@ -958,6 +1200,34 @@
      "provenance": "verified",
      "quote": "GluK1 (GRIK1), GtoPdb target 450 | type: lgic | family: Ionotropic glutamate receptors"
     }
+   ],
+   "sign": [
+    {
+     "corpus": "stahl_essential",
+     "page": 117,
+     "provenance": "verified",
+     "quote": "Specifically, AMPA and kainate receptors may mediate fast, excitatory neurotransmission, allowing sodium to enter the neuron to depolarize it (Figure 4-25)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kainate_receptor",
+     "provenance": "verified",
+     "quote": "The ion channel formed by kainate receptors is permeable to sodium and potassium ions."
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kainate_receptor",
+     "provenance": "verified",
+     "quote": "Postsynaptic kainate receptors are involved in excitatory neurotransmission ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kainate_receptor",
+     "provenance": "verified",
+     "quote": "Presynaptic kainate receptors have been implicated in inhibitory neurotransmission by modulating release of the inhibitory neurotransmitter GABA through a presynaptic mechanism."
+    }
    ]
   },
   "kappa": {
@@ -983,6 +1253,20 @@
      "page": 318,
      "provenance": "verified",
      "quote": "κ receptor (OPRK1), GtoPdb target 318 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 575,
+     "provenance": "verified",
+     "quote": "morphine” – synapse with postsynaptic sites containing μ-opioid receptors; neurons that release enkephalin synapse with postsynaptic δ-opioid receptors; neurons that release dynorphin synapse with postsynaptic κ-opioid receptors (Figure 13-18)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "provenance": "verified",
+     "quote": "53% of KOR binding sites in the superficial dorsal horn (laminae I–II) are localized presynaptically on primary afferent terminals, with the remainder distributed postsynaptically ."
     }
    ]
   },
@@ -1010,6 +1294,14 @@
      "provenance": "verified",
      "quote": "M1 receptor (CHRM1), GtoPdb target 13 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 522,
+     "provenance": "verified",
+     "quote": "M1, M3, and M5 receptors are excitatory postsynaptic receptors and stimulate downstream second messenging."
+    }
    ]
   },
   "m2": {
@@ -1035,6 +1327,14 @@
      "page": 14,
      "provenance": "verified",
      "quote": "M2 receptor (CHRM2), GtoPdb target 14 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 522,
+     "provenance": "verified",
+     "quote": "M2 and M4 receptors are inhibitory presynaptic autoreceptors, preventing further release of acetylcholine."
     }
    ]
   },
@@ -1062,6 +1362,14 @@
      "provenance": "verified",
      "quote": "M3 receptor (CHRM3), GtoPdb target 15 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 522,
+     "provenance": "verified",
+     "quote": "M1, M3, and M5 receptors are excitatory postsynaptic receptors and stimulate downstream second messenging."
+    }
    ]
   },
   "m4": {
@@ -1087,6 +1395,14 @@
      "page": 16,
      "provenance": "verified",
      "quote": "M4 receptor (CHRM4), GtoPdb target 16 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 522,
+     "provenance": "verified",
+     "quote": "M2 and M4 receptors are inhibitory presynaptic autoreceptors, preventing further release of acetylcholine."
     }
    ]
   },
@@ -1114,6 +1430,14 @@
      "provenance": "verified",
      "quote": "M5 receptor (CHRM5), GtoPdb target 17 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 522,
+     "provenance": "verified",
+     "quote": "M1, M3, and M5 receptors are excitatory postsynaptic receptors and stimulate downstream second messenging."
+    }
    ]
   },
   "mglur1": {
@@ -1139,6 +1463,14 @@
      "page": 289,
      "provenance": "verified",
      "quote": "mGlu1 receptor (GRM1), GtoPdb target 289 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "metabotropic_glutamate_receptor",
+     "provenance": "verified",
+     "quote": "For example, one study found that Group I mGluRs are located mostly on postsynaptic parts of cells, while groups II and III are mostly located on presynaptic elements, though they have been found on both pre- and postsynaptic membranes."
     }
    ]
   },
@@ -1166,6 +1498,14 @@
      "provenance": "verified",
      "quote": "mGlu2 receptor (GRM2), GtoPdb target 290 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "metabotropic_glutamate_receptor",
+     "provenance": "verified",
+     "quote": "For example, one study found that Group I mGluRs are located mostly on postsynaptic parts of cells, while groups II and III are mostly located on presynaptic elements, though they have been found on both pre- and postsynaptic membranes."
+    }
    ]
   },
   "mglur3": {
@@ -1191,6 +1531,14 @@
      "page": 291,
      "provenance": "verified",
      "quote": "mGlu3 receptor (GRM3), GtoPdb target 291 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "metabotropic_glutamate_receptor",
+     "provenance": "verified",
+     "quote": "For example, one study found that Group I mGluRs are located mostly on postsynaptic parts of cells, while groups II and III are mostly located on presynaptic elements, though they have been found on both pre- and postsynaptic membranes."
     }
    ]
   },
@@ -1218,6 +1566,14 @@
      "provenance": "verified",
      "quote": "mGlu4 receptor (GRM4), GtoPdb target 292 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "metabotropic_glutamate_receptor",
+     "provenance": "verified",
+     "quote": "For example, one study found that Group I mGluRs are located mostly on postsynaptic parts of cells, while groups II and III are mostly located on presynaptic elements, though they have been found on both pre- and postsynaptic membranes."
+    }
    ]
   },
   "mglur5": {
@@ -1243,6 +1599,14 @@
      "page": 293,
      "provenance": "verified",
      "quote": "mGlu5 receptor (GRM5), GtoPdb target 293 | transduction: Gq/G11 family | effectors: Phospholipase C stimulation"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "metabotropic_glutamate_receptor",
+     "provenance": "verified",
+     "quote": "For example, one study found that Group I mGluRs are located mostly on postsynaptic parts of cells, while groups II and III are mostly located on presynaptic elements, though they have been found on both pre- and postsynaptic membranes."
     }
    ]
   },
@@ -1295,6 +1659,14 @@
      "page": 295,
      "provenance": "verified",
      "quote": "mGlu7 receptor (GRM7), GtoPdb target 295 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Calcium channel"
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "metabotropic_glutamate_receptor",
+     "provenance": "verified",
+     "quote": "For example, one study found that Group I mGluRs are located mostly on postsynaptic parts of cells, while groups II and III are mostly located on presynaptic elements, though they have been found on both pre- and postsynaptic membranes."
     }
    ]
   },
@@ -1358,6 +1730,20 @@
      "provenance": "verified",
      "quote": "μ receptor (OPRM1), GtoPdb target 319 | transduction: Gi/Go family | effectors: Adenylyl cyclase stimulation, Adenylyl cyclase inhibition, Phospholipase C stimulation, Potassium channel, Calcium channel, Phospholipase A2 stimulation, Phospholipase D stimulation, Other - See Comments"
     }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 575,
+     "provenance": "verified",
+     "quote": "morphine” – synapse with postsynaptic sites containing μ-opioid receptors; neurons that release enkephalin synapse with postsynaptic δ-opioid receptors; neurons that release dynorphin synapse with postsynaptic κ-opioid receptors (Figure 13-18)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mu_opioid_receptor",
+     "provenance": "verified",
+     "quote": "The μ-opioid receptors exist mostly presynaptically in the periaqueductal gray region, and in the superficial dorsal horn of the spinal cord (specifically the substantia gelatinosa of Rolando )."
+    }
    ]
   },
   "nachr_a4b2": {
@@ -1375,6 +1761,14 @@
      "page": 465,
      "provenance": "verified",
      "quote": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | type: lgic | family: Nicotinic acetylcholine receptors (nACh)"
+    }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "provenance": "verified",
+     "quote": "The nAChR is a non-selective cation channel, meaning that several different positively charged ions can cross through."
     }
    ]
   },
@@ -1394,6 +1788,28 @@
      "provenance": "verified",
      "quote": "nicotinic acetylcholine receptor α7 subunit (CHRNA7), GtoPdb target 468 | type: lgic | family: Nicotinic acetylcholine receptors (nACh)"
     }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "provenance": "verified",
+     "quote": "The nAChR is a non-selective cation channel, meaning that several different positively charged ions can cross through."
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 564,
+     "provenance": "verified",
+     "quote": "The α7 nicotinic receptor on postsynaptic prefrontal cortex neurons may be linked to the pro-cognitive and mentally alerting actions of nicotine, but not to addictive actions."
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 524,
+     "provenance": "verified",
+     "quote": "Acetylcholine (ACh) that diffuses away from the synapse can bind to presynaptic α7 nicotinic receptors on dopamine (DA) and glutamate (Glu) neurons, where it stimulates release of these neurotransmitters."
+    }
    ]
   },
   "nachr_muscle": {
@@ -1411,6 +1827,22 @@
      "page": 462,
      "provenance": "verified",
      "quote": "nicotinic acetylcholine receptor α1 subunit (CHRNA1), GtoPdb target 462 | type: lgic | family: Nicotinic acetylcholine receptors (nACh)"
+    }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "provenance": "verified",
+     "quote": "The nAChR is a non-selective cation channel, meaning that several different positively charged ions can cross through."
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "provenance": "verified",
+     "quote": "Nicotinic receptors can also be found in different synaptic locations; for example the muscle nicotinic receptor always functions post-synaptically."
     }
    ]
   },
@@ -1430,6 +1862,28 @@
      "provenance": "verified",
      "quote": "GluN1 (GRIN1), GtoPdb target 455 | type: lgic | family: Ionotropic glutamate receptors"
     }
+   ],
+   "sign": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nmda_receptor",
+     "provenance": "verified",
+     "quote": "The NMDA receptor is a non-specific cation channel that can allow the passage of Ca 2+ and Na + into the cell and K + out of the cell."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nmda_receptor",
+     "provenance": "verified",
+     "quote": "The excitatory postsynaptic potential (EPSP) produced by activation of an NMDA receptor increases the concentration of Ca 2+ in the cell."
+    }
+   ],
+   "synaptic": [
+    {
+     "corpus": "stahl_essential",
+     "page": 117,
+     "provenance": "verified",
+     "quote": "Three types of postsynaptic glutamate receptors are linked to ion channels, and are known as ligand-gated ion channels: _N_ -methyl-D-aspartate (NMDA) receptors, α-amino-3-hydroxy-5-methyl-4isoxazole-propionic acid (AMPA) receptors, and kainate receptors, all named for the agonists that bind to them."
+    }
    ]
   },
   "sigma1": {
@@ -1440,10 +1894,26 @@
      "provenance": "verified",
      "quote": "sigma non-opioid intracellular receptor 1 (SIGMAR1), GtoPdb target 2552 | type: other_protein | family: Sigma receptors"
     }
+   ],
+   "receptor_class": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "sigma_1_receptor",
+     "provenance": "verified",
+     "quote": "The receptor's architecture supports its function as a chaperone and modulator of numerous intracellular signaling pathways."
+    }
    ]
   }
  },
  "targets": {
+  "aadc": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "aromatic_l_amino_acid_decarboxylase",
+    "provenance": "verified",
+    "quote": "AADC catalyzes several different decarboxylation reactions: - L -DOPA to dopamine – a neurotransmitter - L -Phenylalanine to phenethylamine – a trace amine which functions as a neuromodulator - L -Tyrosine to tyramine – a trace amine neuromodulator - L -Histidine to histamine – a neurotransmitter - L -Tryptophan to tryptamine – a trace amine neuromodulator - 5-HTP to serotonin (5-hydroxytryptamine) – a neurotransmitter However, some of these reactions do not seem to bear much or any biological significance."
+   }
+  ],
   "carbonic_anhydrase": [
    {
     "corpus": "gtopdb_class",
@@ -1460,6 +1930,22 @@
     "quote": "Cav3.1 (CACNA1G), GtoPdb target 535 | type: vgic | family: Voltage-gated calcium channels (CaV)"
    }
   ],
+  "comt": [
+   {
+    "corpus": "stahl_essential",
+    "page": 96,
+    "provenance": "verified",
+    "quote": "Alternatively, dopamine may be broken down extracellularly via the enzyme catechol- _O_ -methyltransferase (COMT)."
+   }
+  ],
+  "gaba_t": [
+   {
+    "corpus": "stahl_essential",
+    "page": 274,
+    "provenance": "verified",
+    "quote": "GABA action can also be terminated by the enzyme GABA transaminase (GABA-T), which converts GABA into an inactive substance (Figure 6-18)."
+   }
+  ],
   "melanocortin": [
    {
     "corpus": "gtopdb_class",
@@ -1468,6 +1954,7 @@
     "quote": "MC4 receptor (MC4R), GtoPdb target 285 | type: gpcr | family: Melanocortin receptors"
    }
   ],
+  "nkcc1": [],
   "pde5": [
    {
     "corpus": "gtopdb_class",

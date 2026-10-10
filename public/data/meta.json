@@ -1379,7 +1379,7 @@
         "caudate",
         "putamen"
       ],
-      "classification_provenance": "llm",
+      "classification_provenance": "verified",
       "location_sources": {
         "caudate": [
           {
@@ -1446,7 +1446,14 @@
       },
       "wikipedia": "https://en.wikipedia.org/wiki/Aromatic_L-amino_acid_decarboxylase",
       "wikipedia_provenance": "sourced",
-      "gene": "DDC"
+      "gene": "DDC",
+      "sources": [
+        {
+          "quote_id": "q_ca3234c60320",
+          "pipeline": "page_llm_judged",
+          "provenance": "verified"
+        }
+      ]
     },
     "comt": {
       "name": "Catechol-O-methyltransferase (COMT)",
@@ -1460,7 +1467,7 @@
         "putamen",
         "hippocampus"
       ],
-      "classification_provenance": "llm",
+      "classification_provenance": "verified",
       "location_sources": {
         "caudate": [
           {
@@ -1500,7 +1507,14 @@
       },
       "wikipedia": "https://en.wikipedia.org/wiki/Catechol-O-methyltransferase",
       "wikipedia_provenance": "sourced",
-      "gene": "COMT"
+      "gene": "COMT",
+      "sources": [
+        {
+          "quote_id": "q_f99d4aaa4022",
+          "pipeline": "page_llm_judged",
+          "provenance": "verified"
+        }
+      ]
     },
     "gaba_t": {
       "name": "GABA transaminase (GABA-T)",
@@ -1514,7 +1528,7 @@
         "hippocampus",
         "cerebellum"
       ],
-      "classification_provenance": "llm",
+      "classification_provenance": "verified",
       "location_sources": {
         "cerebellum": [
           {
@@ -1573,7 +1587,14 @@
       },
       "wikipedia": "https://en.wikipedia.org/wiki/4-Aminobutyrate_aminotransferase",
       "wikipedia_provenance": "sourced",
-      "gene": "ABAT"
+      "gene": "ABAT",
+      "sources": [
+        {
+          "quote_id": "q_9f05648abd16",
+          "pipeline": "page_llm_judged",
+          "provenance": "verified"
+        }
+      ]
     },
     "sv2a": {
       "name": "Synaptic vesicle protein 2A (SV2A)",
@@ -3924,30 +3945,30 @@
       },
       "receptor_class": {
         "total": 56,
-        "verified": 55,
+        "verified": 56,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 1,
+        "llm": 0,
         "nosource": 0,
-        "missing": 1
+        "missing": 0
       },
       "receptor_sign": {
         "total": 56,
-        "verified": 43,
+        "verified": 51,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 13,
+        "llm": 5,
         "nosource": 0,
-        "missing": 13
+        "missing": 5
       },
       "receptor_synaptic": {
         "total": 56,
-        "verified": 8,
+        "verified": 42,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 48,
+        "llm": 14,
         "nosource": 0,
-        "missing": 48
+        "missing": 14
       },
       "receptor_locations": {
         "total": 383,
@@ -3969,12 +3990,12 @@
       },
       "targets": {
         "total": 25,
-        "verified": 20,
+        "verified": 23,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 5,
+        "llm": 2,
         "nosource": 0,
-        "missing": 5
+        "missing": 2
       },
       "target_polarity": {
         "total": 2,
@@ -4024,14 +4045,14 @@
     },
     "nodes": {
       "total": 6986,
-      "verified": 5646,
+      "verified": 5692,
       "uncertain": 250,
       "sourced": 0,
-      "llm": 392,
+      "llm": 346,
       "nosource": 698,
-      "missing": 1090,
-      "backed": 5896,
-      "pct_backed": 84
+      "missing": 1044,
+      "backed": 5942,
+      "pct_backed": 85
     },
     "ki_coverage": {
       "bindings_total": 1844,
