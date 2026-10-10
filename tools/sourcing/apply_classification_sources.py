@@ -27,10 +27,21 @@ smuggle an unsourced quote through. Idempotent (dedup by quote); safe to re-run.
 
 GtoPdb has **no pre/post-synaptic field**, so ``synaptic`` is untouched here.
 
+**``--prose`` mode** reads the residue GtoPdb cannot reach (``synaptic``, an ion channel's
+``sign``, sigma-1's "chaperone", five target types) from prose instead:
+``tools/fetch/fetch_classification_worklist.py`` lists indexed candidate sentences from the
+owner's Wikipedia article (corpus #9) and Stahl Essential (corpus #3), an LLM answers by index
+into ``classification_judged.json``, and :func:`apply_prose` gates and writes. Same
+confirm-only rule: a pick lands only on an attribute the worklist listed as ``llm`` whose
+value still equals the one the worklist recorded, and a ``synaptic`` pick must name exactly
+the site(s) the value claims (``both`` needs a presynaptic AND a postsynaptic quote). It
+writes no ``llm`` stamp, so ``tools/sourcing/recheck_quotes.py`` must judge it afterwards.
+
 Run from the repo root, then regenerate + check::
 
     python tools/sourcing/apply_classification_sources.py --dry-run
     python tools/sourcing/apply_classification_sources.py
+    python tools/sourcing/apply_classification_sources.py --prose --dry-run
     python tools/generate_data.py && python tools/check_data.py
 
 Built with the help of Claude Code.
@@ -47,6 +58,15 @@ REPO = TOOLS.parent
 CACHE = TOOLS / "generated_cache" / "gtopdb_class.json"
 PAGES = REPO / "data_sources" / "gtopdb" / "pages_class"
 OUT = TOOLS / "generated_cache" / "classification_sources.json"
+WORKLIST = TOOLS / "generated_cache" / "classification_worklist.json"
+JUDGED = TOOLS / "generated_cache" / "classification_judged.json"
+# The stored page trees a --prose pick may cite, keyed by corpus (page file = <page>.md).
+PROSE_PAGES = {
+    "wikipedia_pharm": REPO / "data_sources" / "wikipedia" / "pages",
+    "stahl_essential": REPO / "data_sources" / "books" / "stahl_essential_pharmacology" / "pages",
+}
+SITES = {"presynaptic": {"presynaptic"}, "postsynaptic": {"postsynaptic"},
+         "both": {"presynaptic", "postsynaptic"}}
 
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
@@ -158,11 +178,119 @@ def sign_from_transduction(entries: list[dict]) -> tuple[str | None, dict | None
     return signs.pop(), backing, ""
 
 
+def add_source(bucket: list, src: dict) -> bool:
+    """Append ``src`` unless a source with the same quote is already there (idempotence)."""
+    if any(s.get("quote") == src["quote"] for s in bucket):
+        return False
+    bucket.append(src)
+    return True
+
+
+def apply_prose(worklist: dict, judged: dict, receptors: dict, targets: dict,
+                rec_out: dict, tgt_out: dict, pages: dict = PROSE_PAGES) -> tuple[int, list]:
+    """Gate the LLM's by-index picks and merge them into ``rec_out`` / ``tgt_out``.
+
+    ``judged`` is ``{"receptors": {rid: {"sign"|"receptor_class": [idx],
+    "synaptic": {site: [idx]}}}, "targets": {tid: [idx]}}``; indices point into
+    ``worklist["owners"][id]["candidates"]``. Returns ``(applied, misses)``; a miss
+    writes nothing for that attribute.
+    """
+    owners = worklist.get("owners", {})
+    ptext: dict[tuple, str | None] = {}
+    applied, misses = 0, []
+
+    def sources(oid: str, picks, what: str) -> list[dict] | None:
+        cands = owners[oid].get("candidates", [])
+        out = []
+        for i in picks or []:
+            if not isinstance(i, int) or not 0 <= i < len(cands):
+                misses.append(f"{oid}/{what}: index {i!r} out of range")
+                return None
+            c = cands[i]
+            key = (c["corpus"], str(c["page"]))
+            if key not in ptext:
+                path = pages.get(c["corpus"])
+                path = path / f"{c['page']}.md" if path else None
+                ptext[key] = (normalize_for_match(path.read_text("utf-8", errors="replace"))
+                              if path and path.exists() else None)
+            if not ptext[key] or normalize_for_match(c["line"]) not in ptext[key]:
+                misses.append(f"{oid}/{what}: quote not on {c['corpus']}/{c['page']}: "
+                              f"{c['line'][:80]!r}")
+                return None
+            out.append({"corpus": c["corpus"], "page": c["page"], "quote": c["line"],
+                        "provenance": "verified"})
+        return out
+
+    for rid, attrs in sorted((judged.get("receptors") or {}).items()):
+        own, rec = owners.get(rid), receptors.get(rid)
+        if own is None or rec is None:
+            misses.append(f"{rid}: not in the worklist / not a current receptor")
+            continue
+        for attr, picks in sorted(attrs.items()):
+            if attr not in own.get("need", []):
+                misses.append(f"{rid}/{attr}: not listed as llm in the worklist")
+                continue
+            value = rec.get(attr)
+            if value != own["values"].get(attr):
+                misses.append(f"{rid}/{attr}: value changed since the worklist "
+                              f"({own['values'].get(attr)!r} -> {value!r})")
+                continue
+            if attr == "synaptic":
+                picks = {k: v for k, v in (picks or {}).items() if v}
+                if set(picks) != SITES.get(value, {None}):
+                    misses.append(f"{rid}/synaptic: picks cover {sorted(picks)}, "
+                                  f"value {value!r} needs {sorted(SITES.get(value, []))}")
+                    continue
+                flat = [i for site in sorted(picks) for i in picks[site]]
+            else:
+                flat = picks
+            srcs = sources(rid, flat, attr)
+            if srcs:
+                bucket = rec_out.setdefault(rid, {}).setdefault(attr, [])
+                applied += sum(add_source(bucket, s) for s in srcs)
+
+    for tid, picks in sorted((judged.get("targets") or {}).items()):
+        own = owners.get(tid)
+        if own is None or tid not in targets:
+            misses.append(f"{tid}: not in the worklist / not a current target")
+            continue
+        if targets[tid].get("type") != own["values"].get("type"):
+            misses.append(f"{tid}/type: value changed since the worklist")
+            continue
+        srcs = sources(tid, picks, "type")
+        if srcs:
+            bucket = tgt_out.setdefault(tid, [])
+            applied += sum(add_source(bucket, s) for s in srcs)
+    return applied, misses
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true",
                     help="report what would be written, change nothing")
+    ap.add_argument("--prose", action="store_true",
+                    help="apply classification_judged.json (Wikipedia / Stahl Essential "
+                         "prose picks) instead of the GtoPdb cache")
     args = ap.parse_args()
+
+    if args.prose:
+        receptors, targets = current_values()
+        existing = json.loads(OUT.read_text("utf-8")) if OUT.exists() else {}
+        rec_out, tgt_out = existing.get("receptors", {}), existing.get("targets", {})
+        applied, misses = apply_prose(json.loads(WORKLIST.read_text("utf-8")),
+                                      json.loads(JUDGED.read_text("utf-8")),
+                                      receptors, targets, rec_out, tgt_out)
+        for m in misses:
+            print(f"  [miss] {m}", file=sys.stderr)
+        print(f"applied {applied} prose classification source(s), {len(misses)} miss(es)")
+        if args.dry_run:
+            print("(dry run: not written)")
+            return 0
+        OUT.write_text(json.dumps({"receptors": rec_out, "targets": tgt_out}, indent=1,
+                                  sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"wrote {OUT.relative_to(REPO)}")
+        return 0
 
     if not CACHE.exists():
         raise SystemExit(f"error: {CACHE} missing; run tools/fetch/fetch_gtopdb_class.py first")
@@ -175,12 +303,6 @@ def main() -> int:
 
     ptext: dict[int, str] = {}
     applied, conflicts, skipped = 0, [], []
-
-    def add(bucket: list, src: dict) -> bool:
-        if any(s.get("quote") == src["quote"] for s in bucket):
-            return False
-        bucket.append(src)
-        return True
 
     def gated(owner: str, attr: str, tid: int, quote: str) -> dict | None:
         """The source dict, or None when the quote is not verbatim on its page."""
@@ -207,7 +329,7 @@ def main() -> int:
                                  f"GtoPdb family {prop['family']!r} implies {fam!r}")
             else:
                 src = gated(owner, "family", tid, prop["type_quote"])
-                if src and add(rec_out.setdefault(owner, {}).setdefault("family", []), src):
+                if src and add_source(rec_out.setdefault(owner, {}).setdefault("family", []), src):
                     applied += 1
             # receptor_class, from GtoPdb's own type field.
             mapped = CLASS_BY_TYPE.get(prop["type"])
@@ -218,7 +340,7 @@ def main() -> int:
                                  f"GtoPdb type {prop['type']!r} implies {mapped!r}")
             else:
                 src = gated(owner, "receptor_class", tid, prop["type_quote"])
-                if src and add(rec_out.setdefault(owner, {}).setdefault("receptor_class", []), src):
+                if src and add_source(rec_out.setdefault(owner, {}).setdefault("receptor_class", []), src):
                     applied += 1
             # sign, mapped from the transduction table (GPCRs only).
             sign, backing, why = sign_from_transduction(prop["transduction"])
@@ -229,7 +351,7 @@ def main() -> int:
                                  f"{backing['transducers']} implies {sign!r}")
             else:
                 src = gated(owner, "sign", tid, backing["quote"])
-                if src and add(rec_out.setdefault(owner, {}).setdefault("sign", []), src):
+                if src and add_source(rec_out.setdefault(owner, {}).setdefault("sign", []), src):
                     applied += 1
         else:
             tgt = targets.get(owner)
@@ -244,7 +366,7 @@ def main() -> int:
                                  f"GtoPdb type {prop['type']!r} implies {mapped!r}")
             else:
                 src = gated(owner, "type", tid, prop["type_quote"])
-                if src and add(tgt_out.setdefault(owner, []), src):
+                if src and add_source(tgt_out.setdefault(owner, []), src):
                     applied += 1
 
     for c in conflicts:
