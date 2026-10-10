@@ -24,7 +24,7 @@ sentence asserting it); ``apply_category_sources.py --wikipedia`` gates and writ
 Usage (from the repo root)::
 
     python tools/fetch/fetch_category_worklist.py
-    python tools/fetch/fetch_category_worklist.py --only ropinirole,tiapride
+    python tools/fetch/fetch_category_worklist.py --only ropinirole,tiapride   # merges
 
 Stdlib only, offline; author-side (needs the gitignored ``data_sources/`` trees).
 
@@ -142,6 +142,19 @@ def build(only: set[str] | None = None) -> dict:
             "drugs": drugs}
 
 
+def merge_scoped(existing: dict, scoped: dict) -> dict:
+    """Merge an ``--only`` build into the existing worklist rather than replacing it.
+
+    The committed ``category_judged.json`` answers by index into every other drug's
+    entry, so dropping them would orphan picks already applied. Same rule as the
+    projection worklist's ``--only``.
+    """
+    out = dict(existing)
+    out["vocabulary"] = scoped["vocabulary"]
+    out["drugs"] = {**existing.get("drugs", {}), **scoped["drugs"]}
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -150,6 +163,8 @@ def main() -> int:
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
     wl = build(only)
+    if only and args.out.exists():
+        wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n = sum(len(v["candidates"]) for v in wl["drugs"].values())

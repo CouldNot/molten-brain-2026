@@ -74,5 +74,21 @@ class WikipediaGateTest(unittest.TestCase):
         self.assertIn("out of range", misses[0])
 
 
+
+class ScopedWorklistMergeTest(unittest.TestCase):
+    """``fetch_category_worklist --only`` must MERGE into the existing worklist: the
+    committed judged file answers by index into every other drug's entry, and an
+    overwrite silently orphaned them (it once dropped 5600 lines of candidates)."""
+
+    def test_only_build_keeps_other_drugs(self):
+        sys.path.insert(0, str(ROOT / "tools" / "fetch"))
+        import fetch_category_worklist as F
+        existing = {"vocabulary": {"a": "A"},
+                    "drugs": {"x": {"candidates": [1]}, "y": {"candidates": [2]}}}
+        scoped = {"vocabulary": {"a": "A", "b": "B"}, "drugs": {"y": {"candidates": [3]}}}
+        out = F.merge_scoped(existing, scoped)
+        self.assertEqual(out["drugs"], {"x": {"candidates": [1]}, "y": {"candidates": [3]}})
+        self.assertEqual(out["vocabulary"], {"a": "A", "b": "B"})
+
 if __name__ == "__main__":
     unittest.main()

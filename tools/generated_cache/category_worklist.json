@@ -3141,10 +3141,12 @@
   "naltrexonebupropion": {
    "name": "Naltrexone + Bupropion",
    "categories": [
-    "substance_use"
+    "substance_use",
+    "appetite_suppressant"
    ],
    "labels": [
-    "Substance-use treatment"
+    "Substance-use treatment",
+    "Appetite suppressant"
    ],
    "candidates": [
     {
@@ -3363,10 +3365,10 @@
   "ondansetron": {
    "name": "Ondansetron",
    "categories": [
-    "other"
+    "antiemetic"
    ],
    "labels": [
-    "Other"
+    "Antiemetic / prokinetic"
    ],
    "candidates": [
     {
@@ -4251,10 +4253,12 @@
   "prothipendyl": {
    "name": "Prothipendyl",
    "categories": [
-    "antipsychotic_conventional"
+    "anxiolytic",
+    "antiemetic"
    ],
    "labels": [
-    "Conventional antipsychotic"
+    "Anxiolytic",
+    "Antiemetic / prokinetic"
    ],
    "candidates": [
     {

@@ -157,7 +157,7 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 | Node kind | Missing | Total | Share of the gap | Difficulty | Best lever |
 | --- | ---: | ---: | ---: | --- | --- |
 | `receptor_synaptic` (pre/post site) | 48 | 56 | 32.2% | Hard | no database has the field; textbook prose |
-| `drug_categories` | 16 | 301 | (2026-10-10, after the snapshot) | limit | 6 unfetched articles + 6 silent leads + 4 label mismatches (section 2) |
+| `drug_categories` | 13 | 301 | (2026-10-10, after the snapshot) | limit | 6 unfetched articles + 6 silent leads + 1 label mismatch (section 2) |
 | `receptor_locations` | 23 | 383 | 15.4% | limit | off-atlas bases + Allen not-detected |
 | `target_locations` | 14 | 96 | 9.4% | limit | SERT/NET terminals: mRNA sits at the source nucleus |
 | `receptor_sign` (excit./inhib.) | 13 | 56 | 8.7% | Hard | GtoPdb's transduction is mixed/absent for these |
@@ -174,8 +174,8 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 pass took the 121-node block that used to be half the gap and left 62 of it, of which 48 are
 the one attribute no database carries. What is left is four roughly equal piles, three of them
 documented limits rather than oversights: **48 `receptor_synaptic`** (pre/post site, needs
-textbook prose, a fraction will honestly stay `llm`) and `drug_categories` (36 at the snapshot, 16 since the
-Wikipedia-lead pass, see section 2),
+textbook prose, a fraction will honestly stay `llm`) and `drug_categories` (36 at the snapshot, 13 since the
+Wikipedia-lead pass and the 2026-10-10 relabels, see section 2),
 and **37 expression-location nodes** (off-atlas bases, or transporter mRNA sitting at the
 source nucleus). The residue is small and specific: 13 `receptor_sign` GtoPdb could not map,
 sigma-1's `receptor_class`, and the 2 claustrum `projections`.
@@ -340,7 +340,7 @@ a2a and mt1 now carry the `contradicted` badge on their sign (2026-10-10, Opus-j
 
 **Targets (`targets`, 2 / 25 missing).** The same pass closed COMT (Stahl Essential p96), GABA-T (p274) and AADC (its Wikipedia article: "AADC catalyzes ... L-DOPA to dopamine"). NKCC1's only candidate called it a "transporter", which the judge rejected as not establishing "cotransporter"; CGRP-R's only Stahl hit was a table fragment and its Wikipedia article could not be fetched (rate-limited), so both stay `llm`.
 
-### 2. `drug_categories`, 16 / 301 missing (285 verified: Stahl, then Wikipedia leads)
+### 2. `drug_categories`, 13 / 301 missing (288 verified: Stahl, then Wikipedia leads)
 
 **What.** One node per drug: its class classification ("this drug is an SSRI / TCA / SGA /
 ..."), `category_provenance`. Stahl's Prescriber's Guide prints the class verbatim under each
@@ -353,7 +353,7 @@ no monograph for were then closed from the lead of their stored Wikipedia articl
 and writes, and `recheck_quotes.py` stamps the judge (Opus: 51 of 54 quotes supported, 46
 drugs closed).
 
-**Why the 16 are not verified.**
+**Why the 13 are not verified.**
 - **No stored article** (6): furosemide, bumetanide, cannabidiol, cannabinol, nabilone,
   rimonabant. Their EN and FR pages were never fetched; one
   `fetch_wikipedia_pharmacology.py --drug <id>` each, then rerun the pass.
@@ -362,12 +362,16 @@ drugs closed).
   tasimelteon (non-24 indication, not a hypnotic class), rubidium_chloride (chemistry only),
   tiapride and xanomeline (the lead says "benzamide antipsychotics" / the Cobenfy combination
   treats schizophrenia, neither our conventional / atypical label).
-- **Label mismatches to review, not quotes to paper over** (4): `naltrexonebupropion` (an
-  obesity drug, our `substance_use`), `prothipendyl` (the article says it does *not* possess
-  antipsychotic effects, our `antipsychotic_conventional`), `ondansetron` (Wikipedia's class
-  row says Antiemetic, we say `other`; the judge rejected it as contradicting), and
-  `calcium_carbimide` (the judge rejected both picked quotes as mechanism-only; the page's
-  abstinence-rate sentence is a candidate for a re-pick).
+- **Label mismatch left honest** (1): `naltrexonebupropion` carries `substance_use` +
+  `appetite_suppressant`, but its article only ever calls it an obesity drug, so the Opus judge
+  rejected the lead sentence for the `substance_use` half (a category node is graded as one set)
+  and the pick was dropped. Closing it means either a weight-management category or dropping
+  `substance_use`; neither is done silently.
+- **Relabelled and re-sourced (2026-10-10)**: `ondansetron` `other` -> `antiemetic` (infobox
+  "Drug class | Antiemetic" row), `prothipendyl` `antipsychotic_conventional` -> `anxiolytic` +
+  `antiemetic` (the lead: "an anxiolytic, antiemetic, and antihistamine"), `calcium_carbimide`
+  re-picked on the abstinence-rate sentence. All three Opus-judged supported; none had a Stahl
+  source asserting a removed label.
 
 ### 3. `drug_bindings`, 12 / 1688 missing (**mostly closed**)
 
