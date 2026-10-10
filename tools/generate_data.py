@@ -223,6 +223,7 @@ from data_generators.connectivity import (  # noqa: E402
 # module smaller; no import cycle (quotes imports only provenance + connectivity).
 from data_generators.quotes import (  # noqa: E402
     PROJECTION_QUOTES,
+    PROJECTION_SOURCES,
     STRUCTURE_QUOTES,
     STAHL_ESSENTIAL_RECEPTOR_QUOTES,
     STAHL_ESSENTIAL_TARGET_QUOTES,
@@ -544,6 +545,10 @@ def _projection_records(proj: dict[str, Any]) -> list[dict[str, Any]]:
     kandel_quote = PROJECTION_QUOTES.get((fields["from"], fields["to"]))
     if kandel_quote is not None:
         src_keys.append(kandel_quote)
+    # Then the applier-written sources (apply_projection_sources.py), deduplicated by quote.
+    for extra in PROJECTION_SOURCES.get((fields["from"], fields["to"]), []):
+        if all(s.get("quote") != extra["quote"] for s in src_keys if isinstance(s, dict)):
+            src_keys.append(dict(extra))
     if src_keys:
         fields["sources"] = _expand_sources(
             src_keys, f"projection {fields.get('from')}->{fields.get('to')}")
@@ -1492,6 +1497,10 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     if unmatched:
         raise KeyError(
             f"PROJECTION_QUOTES keys match no PROJECTIONS entry: {sorted(unmatched)}")
+    unmatched = set(PROJECTION_SOURCES) - {(p["from"], p["to"]) for p in PROJECTIONS}
+    if unmatched:
+        raise KeyError(
+            f"projection_sources.json keys match no PROJECTIONS entry: {sorted(unmatched)}")
     unmatched_bases = set(STRUCTURE_QUOTES) - {
         e["base"] for e in (*PAIRED, *MIDLINE)}
     if unmatched_bases:

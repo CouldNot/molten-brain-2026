@@ -2,6 +2,7 @@
 
 Each module groups the quote registries by source corpus:
 - ``kandel``: PROJECTION_QUOTES + STRUCTURE_QUOTES (Kandel / Nieuwenhuys anatomy).
+- ``projection_sources``: PROJECTION_SOURCES, the applier-written pathway sources (cache).
 - ``stahl_essential``: the receptor/target classification, per-attribute and tone
   polarity registries (Stahl's Essential Psychopharmacology).
 - ``metabolism``: which enzyme forms each active metabolite (Stahl + Wikipedia; the one
@@ -15,6 +16,7 @@ from data_generators.quotes.kandel import (
     PROJECTION_QUOTES,
     STRUCTURE_QUOTES,
 )
+from data_generators.quotes.projection_sources import PROJECTION_SOURCES
 from data_generators.quotes.metabolism import (
     METABOLITE_ENZYME_QUOTES,
 )
@@ -32,6 +34,7 @@ __all__ = [
     "METABOLITE_ENZYME_QUOTES",
     "UNCERTAINTY_REASONS",
     "PROJECTION_QUOTES",
+    "PROJECTION_SOURCES",
     "STRUCTURE_QUOTES",
     "CLASSIFICATION_ATTRS",
     "RECEPTOR_ATTR_QUOTES",
