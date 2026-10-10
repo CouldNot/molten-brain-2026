@@ -894,6 +894,18 @@ class ProjectionClaimTest(unittest.TestCase):
         self.assertEqual(entry["grade"], self.mod.BASE_GRADE)
         self.assertNotIn("sources", entry)
 
+        # The words the corpora state a tier by attest it; an overall extent of
+        # metabolism or a bare percentage does not, a reader would have to infer the tier.
+        for strength, quote, grade in (
+                ("major", "Metabolized mainly by CYP2D6 and CYP1A2", "verified"),
+                ("major", "Domperidone is almost exclusively metabolized by CYP3A4", "verified"),
+                ("minor", "and to a lesser extent by CYP3A4", "verified"),
+                ("weak", "Induces CYP3A4 (and slightly CYP1A2 and CYP2B6)", "verified"),
+                ("major", "Extensively metabolized by CYP2D6 and CYP3A", self.mod.BASE_GRADE),
+                ("minor", "Liver through CYP3A4 (~60%), CYP2C9 (~20%)", self.mod.BASE_GRADE)):
+            r = row(strength, quote)
+            self.mod.apply_enzyme_strength_claims([r])
+            self.assertEqual(r["enzymes"][0]["claims"]["strength"]["grade"], grade, quote)
         # A row with no tier asserts nothing about it, so it gets no node at all.
         tierless = row(None, "Fluoxetine is metabolized by CYP3A4.")
         self.mod.apply_enzyme_strength_claims([tierless])

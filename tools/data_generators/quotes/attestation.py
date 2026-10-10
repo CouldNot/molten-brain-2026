@@ -87,14 +87,20 @@ SIGN_WORDS: dict[str, str] = {
 # CYP3A4" both shipped a green check on the tier, though only one of them states it, and
 # the tier is what the interaction rows are read through (a major substrate meeting a
 # strong inhibitor is the pair that matters). Keyed by the ``ENZYME_STRENGTHS`` value.
+# Each tier lists the words the corpora actually state it by: "metabolized mainly by
+# CYP2D6", "to a lesser extent by CYP3A4", "slightly induces CYP1A2". A bare percentage
+# ("CYP2C9 (~20%)") or "extensively metabolized by" is deliberately NOT a tier word: the
+# first is a number a reader must bucket, the second is the extent of metabolism overall,
+# not this isoform's share of it.
 ENZYME_STRENGTH_WORDS: dict[str, str] = {
-    "major": r"\bmajor|\bprimar(?:y|ily)|\bprincipal",
-    "minor": r"\bminor",
+    "major": (r"\bmajor|\bprimar(?:y|ily)|\bprincipal|\bmain(?:ly)?\b|\bmostly"
+              r"|\bpredominant|\bchief(?:ly)?\b|\blargely|\bexclusive"),
+    "minor": r"\bminor|\blesser\b|\bminimal",
     # "potent" is the word the prose overwhelmingly uses where the regulatory tables say
-    # "strong"; the other two tiers have no such synonym in the corpora.
+    # "strong"; "moderate" has no such synonym in the corpora.
     "strong": r"\bstrong|\bpotent",
     "moderate": r"\bmoderate",
-    "weak": r"\bweak",
+    "weak": r"\bweak|\bslight|\bmild",
 }
 
 _TRANSMITTER_RE = {k: re.compile(v, re.IGNORECASE) for k, v in TRANSMITTER_WORDS.items()}
