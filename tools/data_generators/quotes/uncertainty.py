@@ -494,6 +494,28 @@ def apply_projection_uncertainty(projections: list[dict[str, Any]],
             args={"n": group[0]})]
 
 
+def _flag_contradicted(table: dict[tuple, dict[str, Any]],
+                       nodes: dict[tuple, dict[str, Any] | None],
+                       label: str) -> None:
+    """Attach the ``contradicted`` bullet to every node a curated table names, in place.
+
+    ``nodes`` maps each table key to the node it doubts (a metabolism row, a strength
+    sub-claim, a receptor classification sub-claim), or ``None`` when the dataset no
+    longer emits it. Raises on such a key, so a fetcher re-run cannot quietly drop the
+    doubted claim and leave the contradiction unrecorded.
+    """
+    for key, source in table.items():
+        node = nodes.get(key)
+        if node is None:
+            raise KeyError(
+                f"{label} names {key}, which matches no emitted node. Either the claim "
+                f"it contradicts is gone (drop the entry) or a fetcher stopped emitting "
+                f"it (fix that first): a contradiction with nothing to contradict marks "
+                f"nothing.")
+        node["uncertainty"] = [_uncertainty_bullet(
+            "contradicted", what=f"{label} {key}", node=node, source=source)]
+
+
 def apply_enzyme_uncertainty(drugs: list[dict[str, Any]]) -> None:
     """Flag every metabolism row another corpus denies, in place.
 
@@ -501,24 +523,37 @@ def apply_enzyme_uncertainty(drugs: list[dict[str, Any]]) -> None:
     looking across siblings, while this one reads a hand-written table
     (``quotes/contradictions.py``), because the derivation's false-positive rate makes it
     worse than silence. See that module for the three near misses that decided it.
-
-    Raises when a table key names no emitted row, so a re-run of either CYP fetcher
-    cannot quietly drop the doubted claim and leave the contradiction unrecorded.
     """
     from .contradictions import ENZYME_CONTRADICTIONS
 
     rows = {(d["id"], e["enzyme"], e["role"]): e
             for d in drugs for e in d.get("enzymes", []) or []}
-    for key, source in ENZYME_CONTRADICTIONS.items():
-        row = rows.get(key)
-        if row is None:
-            did, enzyme, role = key
-            raise KeyError(
-                f"ENZYME_CONTRADICTIONS names {enzyme} / {role} on drug {did!r}, which "
-                f"has no such enzyme row. Either the claim it contradicts is gone (drop "
-                f"the entry) or a fetcher stopped emitting it (fix that first): a "
-                f"contradiction with nothing to contradict marks nothing.")
-        did, enzyme, role = key
-        row["uncertainty"] = [_uncertainty_bullet(
-            "contradicted", what=f"Drug {did!r} enzyme {enzyme} ({role})",
-            node=row, source=source)]
+    _flag_contradicted(ENZYME_CONTRADICTIONS, rows, "ENZYME_CONTRADICTIONS")
+
+
+def apply_enzyme_strength_uncertainty(drugs: list[dict[str, Any]]) -> None:
+    """Flag every metabolism TIER sub-claim another corpus states otherwise, in place.
+
+    Must run after ``attestation.apply_enzyme_strength_claims``, which creates the
+    ``claims.strength`` entry the bullet rides on (the row's isoform claim is not the
+    one in doubt, so its own pill stays as graded).
+    """
+    from .contradictions import ENZYME_STRENGTH_CONTRADICTIONS
+
+    claims = {(d["id"], e["enzyme"], e["role"]): (e.get("claims") or {}).get("strength")
+              for d in drugs for e in d.get("enzymes", []) or []}
+    _flag_contradicted(ENZYME_STRENGTH_CONTRADICTIONS, claims,
+                       "ENZYME_STRENGTH_CONTRADICTIONS")
+
+
+def apply_receptor_uncertainty(receptors: list[dict[str, Any]]) -> None:
+    """Flag every receptor classification sub-claim another corpus denies, in place.
+
+    The bullet rides on ``classification[attr]``, so only the doubted attribute's pill
+    turns orange (the four attributes are separate nodes).
+    """
+    from .contradictions import RECEPTOR_CONTRADICTIONS
+
+    entries = {(r["id"], attr): entry for r in receptors
+               for attr, entry in (r.get("classification") or {}).items()}
+    _flag_contradicted(RECEPTOR_CONTRADICTIONS, entries, "RECEPTOR_CONTRADICTIONS")

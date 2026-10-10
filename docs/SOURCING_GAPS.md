@@ -322,10 +322,10 @@ counts, mirroring `fetch_ki.py`'s representative-row choice.
 
 **Why the rest stays `llm`.** Each was read and left null, not missed:
 - **One site found, value says both:** nAChR α4β2 (Stahl p523/524 says "The α4β2 subtype is postsynaptic"), GABA-B (presynaptic only, Stahl p570), δ-opioid (postsynaptic only, Stahl p575), α2C (only the generic α2 autoreceptor sentence).
-- **Source contradicts the value (reported, not resolved):** 5-HT5A (we say postsynaptic, its Wikipedia article says it "appears to serve as a presynaptic serotonin autoreceptor"), mGluR6 (we say postsynaptic, the group-level sentence puts groups II/III mostly presynaptic).
+- **Source contradicts the value (kept, flagged `contradicted`, 2026-10-10):** 5-HT5A (we say postsynaptic, its Wikipedia article says it "appears to serve as a presynaptic serotonin autoreceptor"); the site stays `llm` (a denial is not a backing) but its pill tooltip leads with the denial (`RECEPTOR_CONTRADICTIONS` in `quotes/contradictions.py`). mGluR6 (we say postsynaptic) was NOT flagged: the Opus judge rejected the group-level sentence ("groups II and III are mostly located on presynaptic elements"), which never names mGluR6, ends "found on both pre- and postsynaptic membranes", and is followed by a line singling mGluR6 out as distributed differently.
 - **No sentence names a site:** β2, β3, GABA-A-rho, α2D, 5-HT1E, 5-HT1F, 5-HT4, and the modulatory stubs (a2a, sigma-1, mt1/mt2, h4).
 
-**How to tackle.** A neuropharmacology textbook read (Rang and Dale, Katzung) for the "no sentence" group; the two contradictions are a data decision first.
+**How to tackle.** A neuropharmacology textbook read (Rang and Dale, Katzung) for the "no sentence" group; the 5-HT5A contradiction is a data decision.
 
 ### 1b. `receptor_sign`, 5 / 56 missing, `receptor_class` closed (the classification residue)
 
@@ -336,7 +336,7 @@ counts, mirroring `fetch_ki.py`'s representative-row choice.
 - **a2a** (Wikipedia `adenosine_a2a_receptor`): "The A 2A receptor binds with the G s protein at the intracellular site of the receptor", adenylyl cyclase activation and cAMP synthesis. Points to excitatory (Gs).
 - **mt1 / mt2**: their Wikipedia articles state no transduction at all (infobox and navbox only). Stahl Essential p455 speaks of "MT1-mediated inhibition of neurons in the suprachiasmatic nucleus (SCN)", which points to inhibitory for MT1 only.
 
-Resolve these against a textbook as a data decision, then re-run the worklist + applier and the sign closes with it. sigma-1's sign stays `llm`: nothing states one (it is a chaperone, not a channel or GPCR).
+a2a and mt1 now carry the `contradicted` badge on their sign (2026-10-10, Opus-judged denials: the a2a Gs sentence above, Stahl Essential p455 for mt1); the value stays ours and the sign stays `llm`. cb1 and mt2 are not flagged (cb1's sources describe an inhibitory brake whose circuit effect is genuinely modulatory; mt2 has no sentence). Resolve against a textbook as a data decision, then re-run the worklist + applier and the sign closes with it. sigma-1's sign stays `llm`: nothing states one (it is a chaperone, not a channel or GPCR).
 
 **Targets (`targets`, 2 / 25 missing).** The same pass closed COMT (Stahl Essential p96), GABA-T (p274) and AADC (its Wikipedia article: "AADC catalyzes ... L-DOPA to dopamine"). NKCC1's only candidate called it a "transporter", which the judge rejected as not establishing "cotransporter"; CGRP-R's only Stahl hit was a table fragment and its Wikipedia article could not be fetched (rate-limited), so both stay `llm`.
 
@@ -473,7 +473,7 @@ Family 10 went from cholinergic 10 / dopaminergic 15 / serotonergic 11 / noradre
 
 **How to tackle.** Use a tract-tracing review for the claustrum. Decide whether a "cortex to striatum" sentence may source each lobe's striatal arrow. Read a systems-neuroscience text (e.g. Purves) for the Papez and cerebellar loops.
 
-### 6b. `drug_enzyme_strength`, 13 / 147 missing (134 verified)
+### 6b. `drug_enzyme_strength`, 13 / 147 missing (131 verified, 3 uncertain)
 
 **What.** The tier on a drug's enzyme row (`claims.strength`): a substrate's `major` / `minor`, an inhibitor's or inducer's `strong` / `moderate` / `weak`. It is graded by a word test (`ENZYME_STRENGTH_WORDS` in `data_generators/quotes/attestation.py`) over the row's own quotes. The 2026-10-10 pass took it from 87 to **134**: 44 rows were already cited on a sentence stating the tier in words the test did not know ("mainly", "mostly", "predominantly", "largely", "almost exclusively", "most important", "to a lesser extent", "minimally", "slightly", "mild"), and 3 gained a sentence through the new tier pass of `apply_cyp_sources.py` (`cyp_strength_judged.json`, confirm-only: it never creates a row or changes a tier) or a better role pick. An independent Opus judge read every newly attested tier.
 
@@ -484,7 +484,7 @@ Family 10 went from cholinergic 10 / dopaminergic 15 / serotonergic 11 / noradre
 - **Sole route, no tier word:** lorazepam / oxazepam UGT major ("only liver glucuronidation", "simply metabolized by glucuronidation").
 - **Weaker wording:** xanomeline CYP2D6 major ("significantly contributes").
 
-**Sources contradicting a stored tier (reported, not resolved):** clozapine CYP2D6 `minor` (Stahl p210 "to a lesser extent by CYP2D6") vs its Wikipedia drugbox "Liver , by several CYP isozymes mainly via CYP2D6"; fluvoxamine CYP1A2 `major` vs Wikipedia fluvoxamine "metabolized primarily by CYP2D6 and to a minor extent by CYP1A2"; sertraline CYP2D6 inhibitor `weak` (Stahl p770 "weakly at low doses") vs Wikipedia sertraline "Sertraline is a moderate inhibitor of CYP2D6 and CYP2B6 in vitro".
+**Sources contradicting a stored tier (kept, flagged `contradicted` on the tier sub-claim only, 2026-10-10, Opus-judged; `ENZYME_STRENGTH_CONTRADICTIONS`):** so 131 verified + 3 uncertain. clozapine CYP2D6 `minor` (Stahl p210 "to a lesser extent by CYP2D6") vs its Wikipedia drugbox "Liver , by several CYP isozymes mainly via CYP2D6"; fluvoxamine CYP1A2 `major` vs Wikipedia fluvoxamine "metabolized primarily by CYP2D6 and to a minor extent by CYP1A2"; sertraline CYP2D6 inhibitor `weak` (Stahl p770 "weakly at low doses") vs Wikipedia sertraline "Sertraline is a moderate inhibitor of CYP2D6 and CYP2B6 in vitro".
 
 **FDA table, skipped.** FDA's "Drug Development and Drug Interactions" CYP table lists *sensitive* substrates (a strong inhibitor raises the AUC 5-fold or more). That is an interaction-exposure class, not a statement of an isoform's share of clearance, so it does not map onto `major` and was not used.
 

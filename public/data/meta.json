@@ -3846,8 +3846,8 @@
       },
       "drug_enzyme_strength": {
         "total": 147,
-        "verified": 134,
-        "uncertain": 0,
+        "verified": 131,
+        "uncertain": 3,
         "sourced": 0,
         "llm": 13,
         "nosource": 0,
@@ -4045,8 +4045,8 @@
     },
     "nodes": {
       "total": 7016,
-      "verified": 5793,
-      "uncertain": 248,
+      "verified": 5790,
+      "uncertain": 251,
       "sourced": 0,
       "llm": 279,
       "nosource": 696,

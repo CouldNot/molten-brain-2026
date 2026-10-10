@@ -236,7 +236,9 @@ from data_generators.quotes import (  # noqa: E402
 )
 from data_generators.quotes.uncertainty import (  # noqa: E402
     apply_binding_uncertainty,
+    apply_enzyme_strength_uncertainty,
     apply_enzyme_uncertainty,
+    apply_receptor_uncertainty,
     apply_projection_uncertainty,
 )
 from data_generators.quotes.attestation import (  # noqa: E402
@@ -1657,6 +1659,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
             raise KeyError(f"Duplicate receptor id {rec['id']!r}")
         seen_receptor_ids.add(rec["id"])
         receptors.append(_receptor_record(rec, receptor_bases))
+    # A classification attribute another corpus states otherwise keeps our value and
+    # wears the "contradicted" badge (quotes/contradictions.py).
+    apply_receptor_uncertainty(receptors)
 
     # Drugs: authored in tools/data/drugs_data.jsonl, validated against the drug
     # vocabularies + the merged target map (DRUG_TARGETS + receptor ids). Every
@@ -1701,6 +1706,8 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     # CYP quote gate only ever checked that the quote names the isoform, so the strength
     # tier (which the interaction reading leans on) rode a check nothing had given it.
     apply_enzyme_strength_claims(drugs)
+    # ... and a tier another corpus states otherwise is flagged on that sub-claim only.
+    apply_enzyme_strength_uncertainty(drugs)
     # A hand-curated formed_by row whose (drug, metabolite) key matched nothing: the
     # metabolite was renamed or dropped by an applier re-run, so the node silently
     # vanished. Raise rather than publish a quieter dataset than the author wrote.

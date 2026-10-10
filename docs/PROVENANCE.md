@@ -141,7 +141,7 @@ is covered the day it lands. Four flags today, and a node hit by any is uncertai
   so one sentence sources several arrows out of one nucleus while naming none of their targets: which
   regions the sweep is drawn to is our reading. Same `>= 2 siblings, none named` construction, over
   regions; a target the sentence *does* name (raphe -> thalamus) keeps its green check.
-- **the contradicted claim** (`contradicted`, 3 `drug_enzymes` rows): the odd one out, and the only
+- **the contradicted claim** (`contradicted`, 3 `drug_enzymes` rows, 3 `drug_enzyme_strength` tiers, 3 receptor classification attributes): the odd one out, and the only
   flag about a quote's *truth* rather than its reach. Two quote-gated corpora say opposite things
   (Stahl's bare "Inhibits CYP3A4" vs the article's "in vivo ... do not significantly affect ...
   CYP3A4", the recurring in-vitro-vs-in-vivo split), so both ship and the row carries the denial in
@@ -152,6 +152,7 @@ is covered the day it lands. Four flags today, and a node hit by any is uncertai
   a flag that encodes its own errors as doubt is worse than the silence it replaces.
   `apply_enzyme_uncertainty` raises when an entry names no emitted row, so a fetcher re-run cannot
   drop the doubted claim and leave the contradiction marking nothing.
+  A sub-claim (a receptor's `classification[attr]`, an enzyme row's `claims.strength`) carries the bullet on itself, so only that pill turns orange (`ENZYME_STRENGTH_CONTRADICTIONS`, `RECEPTOR_CONTRADICTIONS`). A denied claim with no document of its own (a bare `llm` sign or site) keeps its grey pill and stays **missing** in the tally: the bullet shows in its tooltip, but a denial is not a backing (`bucket` in `provenance.py`, `shownGrade` in `js/node-browser.js`).
 The first three run as a post-pass (not `_binding_record` / `_projection_records`) because the bullets look across
 siblings: `class_wide` counts the drugs the same sentence is printed on, `family_claim` the subtypes one
 sentence covers, `blanket_claim` the arrows.

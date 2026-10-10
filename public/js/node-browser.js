@@ -93,6 +93,20 @@ const stripSide = (id) => String(id || "").replace(/_[RL]$/, "");
  *                  uncertain: boolean, go: (() => void)|null, sources: object[],
  *                  uncertainty: object[], ki: object|null}>}
  */
+/**
+ * The grade a node displays: "uncertain" when it carries doubt bullets AND rests on a
+ * document, else its own grade. A bare llm claim another corpus denies is still
+ * missing its own source (the tally buckets it so too, provenance.py `bucket`), so
+ * its bullets show in the tooltip without lifting its pill to the backed orange.
+ * @param {string|null|undefined} grade the node's own grade
+ * @param {object[]|null|undefined} uncertainty its bullets
+ * @returns {string|null|undefined}
+ */
+export function shownGrade(grade, uncertainty) {
+  const backed = grade === "verified" || grade === "sourced";
+  return uncertainty && uncertainty.length && backed ? "uncertain" : grade;
+}
+
 export function collectNodes(data, deps, opts = {}) {
   const { t, formatHalfLife, nav } = deps;
   const twins = opts.twins !== false;
@@ -109,8 +123,8 @@ export function collectNodes(data, deps, opts = {}) {
       kind,
       name: name || "",
       notion: notion || "",
-      grade: uncertainty.length ? "uncertain" : (grade || "nosource"),
-      uncertain: !!uncertainty.length,
+      grade: shownGrade(grade || "nosource", uncertainty),
+      uncertain: shownGrade(grade, uncertainty) === "uncertain",
       go: go || null,
       sources: (src && src.sources) || [],
       uncertainty,

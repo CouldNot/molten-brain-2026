@@ -31,9 +31,18 @@ is worse than the silence it replaces. So each entry below was read in context a
 written by hand, and the ordinary quote gate (``check_data.py`` family 5) still confirms
 it verbatim on the cited page, exactly like the claim it doubts.
 
-Shape: ``(drug_id, enzyme, role) -> source``. ``generate_data.py`` raises if a key names
-no emitted enzyme row, so a re-run of either CYP fetcher cannot silently strip the flag
-and leave the contradiction unmarked.
+Three tables, one per doubted node kind, each ``key -> denying source``:
+
+* :data:`ENZYME_CONTRADICTIONS` ``(drug_id, enzyme, role)``: the metabolism row itself
+  (the isoform touches the drug at all);
+* :data:`ENZYME_STRENGTH_CONTRADICTIONS` ``(drug_id, enzyme, role)``: only the row's
+  tier sub-claim (``claims.strength``), when the sources agree on the isoform but not on
+  how much of the clearing it does;
+* :data:`RECEPTOR_CONTRADICTIONS` ``(receptor_id, attribute)``: one of a receptor's
+  four classification sub-claims (``classification[attr]``).
+
+``generate_data.py`` raises if a key names no emitted node, so a re-run of a fetcher
+cannot silently strip the flag and leave the contradiction unmarked.
 """
 from __future__ import annotations
 
@@ -43,6 +52,12 @@ from typing import Any
 def _wiki(slug: str, quote: str) -> dict[str, Any]:
     """A denial read off the stored English article (corpus #9), graded like any quote."""
     return {"corpus": "wikipedia_pharm", "page": slug, "quote": quote,
+            "provenance": "verified", "llm": "opus"}
+
+
+def _book(corpus: str, page: int, quote: str) -> dict[str, Any]:
+    """A denial read off a book corpus page, judged like any LLM-picked quote."""
+    return {"corpus": corpus, "page": page, "quote": quote,
             "provenance": "verified", "llm": "opus"}
 
 
@@ -67,4 +82,45 @@ ENZYME_CONTRADICTIONS: dict[tuple[str, str, str], dict[str, Any]] = {
     ("modafinil", "cyp2c9", "inhibitor"): _wiki(
         "modafinil",
         "However, other in-vitro studies find no significant inhibition of CYP2C9"),
+}
+
+
+# Stahl and the CYP pass agree each isoform clears / is inhibited by the drug; they
+# disagree on the tier. The row's isoform claim stays green, only the tier goes orange.
+ENZYME_STRENGTH_CONTRADICTIONS: dict[tuple[str, str, str], dict[str, Any]] = {
+    # Stahl p.210: "to a lesser extent by CYP2D6". The article's drugbox says the
+    # opposite, though its own pharmacokinetics prose names CYP1A2 as primary: the
+    # article disagrees with itself, which is exactly why neither side is picked.
+    ("clozapine", "cyp2d6", "substrate"): _wiki(
+        "clozapine", "Liver , by several CYP isozymes mainly via CYP2D6"),
+    ("fluvoxamine", "cyp1a2", "substrate"): _wiki(
+        "fluvoxamine",
+        "fluvoxamine is metabolized primarily by CYP2D6 and to a minor extent by "
+        "CYP1A2"),
+    # Stahl p.770 "weakly at low doses"; the article's "moderate" is in vitro, but the
+    # sentences after it report a dose-dependent rise of CYP2D6 substrates in humans.
+    ("sertraline", "cyp2d6", "inhibitor"): _wiki(
+        "sertraline", "Sertraline is a moderate inhibitor of CYP2D6 and CYP2B6 in vitro"),
+}
+
+
+# A receptor classification attribute a corpus states otherwise. The sourcing pass never
+# rewrites data to match a source, so these were reported as conflicts and kept.
+RECEPTOR_CONTRADICTIONS: dict[tuple[str, str], dict[str, Any]] = {
+    # We say postsynaptic; the article gives it a presynaptic autoreceptor role.
+    ("5ht5a", "synaptic"): _wiki(
+        "5_ht5a_receptor", "It also appears to serve as a presynaptic serotonin autoreceptor"),
+    # mGluR6 (we say postsynaptic) was read and left out: the only candidate is a
+    # group-level sentence ("groups II and III are mostly located on presynaptic
+    # elements") that never names mGluR6 and goes on to say both sites occur.
+    # We say modulatory; Gs coupling (adenylyl cyclase up) points excitatory, the same
+    # transduction-to-sign reading corpus #12 uses.
+    ("a2a", "sign"): _wiki(
+        "adenosine_a2a_receptor",
+        "The A 2A receptor binds with the G s protein at the intracellular site of the "
+        "receptor"),
+    # We say modulatory; Stahl Essential reads MT1 as inhibiting SCN neurons.
+    ("mt1", "sign"): _book(
+        "stahl_essential", 455,
+        "MT1-mediated inhibition of neurons in the suprachiasmatic nucleus (SCN)"),
 }

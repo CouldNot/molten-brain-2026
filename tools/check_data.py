@@ -1227,6 +1227,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                 elif not pattern.search(src.get("quote") or ""):
                     report.error(f"{where}: the quote does not name the {claim} it is "
                                  f"cited for ({claimed.get(claim)!r})")
+            # A sub-claim another corpus denies, or a set-level sentence covers,
+            # carries the same bullets as a whole node, gated the same way.
+            check_uncertainty(f"{ctx} claims[{claim}]", entry)
             if not srcs and entry.get("grade") != CLAIM_BASE_GRADE:
                 report.error(f"{ctx} claims[{claim}]: grade {entry.get('grade')!r} with "
                              f"no source (an unattested sub-claim is "
@@ -1355,6 +1358,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for attr, entry in (r.get("classification") or {}).items():
             for i, src in enumerate(entry.get("sources") or []):
                 check_one(f"receptor {r.get('id')} classification[{attr}] sources[{i}]", src)
+            check_uncertainty(f"receptor {r.get('id')} classification[{attr}]", entry)
         # Per-region expression sources are quote-checked like any other (the gate
         # that keeps a future "5-HT2A is dense in the PFC" citation honest).
         for base, srcs in (r.get("location_sources") or {}).items():

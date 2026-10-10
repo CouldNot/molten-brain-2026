@@ -660,7 +660,13 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     if (!claims) return null;
     const out = {};
     for (const [name, entry] of Object.entries(claims)) {
-      out[name] = { grade: entry.grade || "llm", sources: mapSources(entry.sources) };
+      out[name] = {
+        grade: entry.grade || "llm",
+        sources: mapSources(entry.sources),
+        // A sub-claim can carry its own "uncertain" bullets (a denial, a set-level
+        // sentence), independent of its owner's.
+        uncertainty: mapUncertainty(entry.uncertainty),
+      };
     }
     return out;
   };

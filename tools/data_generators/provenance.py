@@ -1113,12 +1113,16 @@ def _provenance_stats(structures: list[dict[str, Any]],
         # not attributing the claim (see quotes/uncertainty.py). It carries a document,
         # so it stays *backed* (the headline is unchanged), but it leaves the green
         # verified count: a flat check would overstate it.
+        uncertain = False
         if isinstance(rank_or_grade, tuple):
             rank_or_grade, uncertain = rank_or_grade
-            if uncertain:
-                return "uncertain"
         rank = (rank_or_grade if isinstance(rank_or_grade, int)
                 else _GRADE_RANK.get(rank_or_grade, 0))
+        # Only a node resting on a document can be "uncertain": a bare llm claim that
+        # another corpus denies (quotes/contradictions.py) is still missing its own
+        # source, and the denial must not lift it into the backed headline.
+        if uncertain and rank >= _GRADE_RANK["sourced"]:
+            return "uncertain"
         # rank 1 = a bare ``llm`` grade (asserted from memory), rank 0 = no source
         # object at all. Both are "missing" (no document), but the viewer renders them
         # differently (grey ``?`` vs orange NOSOURCE), so split them out here too.
@@ -1212,7 +1216,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # the row for the same reason a pathway's transmitter is (quotes/attestation.py): the
     # CYP quote gate checks the isoform is named, never the tier. A row stating no tier
     # makes no claim and contributes no node.
-    enzyme_strength_grades = [entry["grade"] for d in drugs
+    enzyme_strength_grades = [(entry["grade"], bool(entry.get("uncertainty")))
+                              for d in drugs
                               for e in d.get("enzymes", [])
                               if (entry := (e.get("claims") or {}).get("strength"))]
     # CPIC prescribing guidance (corpus #15), one node per (drug, gene, phenotype) row.
@@ -1280,8 +1285,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # sign claim at all, so it contributes no ``projection_sign`` node (not an unsourced
     # one). The uncertainty flag stays on the pathway node: a blanket sweep is doubt about
     # which regions the arrow reaches, not about what it releases.
-    def _claim_grades(name: str) -> list[str]:
-        return [entry["grade"] for p in projections
+    def _claim_grades(name: str) -> list[tuple[str, bool]]:
+        return [(entry["grade"], bool(entry.get("uncertainty"))) for p in projections
                 if (entry := (p.get("claims") or {}).get(name))]
     projection_transmitter_grades = _claim_grades("transmitter")
     projection_sign_grades = _claim_grades("sign")
@@ -1303,9 +1308,13 @@ def _provenance_stats(structures: list[dict[str, Any]],
                         if r.get("ubiquitous") or r.get("locations")
                         or r.get("description")]
 
-    def _attr_grade(r: dict[str, Any], attr: str) -> str:
+    # A (grade, is_uncertain) pair: an attribute another corpus denies buckets
+    # ``uncertain`` however strong its own quote (quotes/contradictions.py).
+    def _attr_grade(r: dict[str, Any], attr: str) -> tuple[str, bool]:
         entry = (r.get("classification") or {}).get(attr)
-        return entry["grade"] if entry else DEFAULT_PROVENANCE
+        if not entry:
+            return (DEFAULT_PROVENANCE, False)
+        return (entry["grade"], bool(entry.get("uncertainty")))
     receptor_family_grades = [_attr_grade(r, "family") for r in scored_receptors]
     receptor_class_grades = [_attr_grade(r, "receptor_class") for r in scored_receptors]
     receptor_sign_grades = [_attr_grade(r, "sign") for r in scored_receptors]

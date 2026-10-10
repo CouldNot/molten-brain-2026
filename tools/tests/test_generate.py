@@ -829,6 +829,62 @@ class EnzymeContradictionTest(unittest.TestCase):
         self.assertIn("contradicted", self.meta["uncertainty_reasons"])
 
 
+class SubClaimContradictionTest(unittest.TestCase):
+    """The ``contradicted`` badge on a SUB-claim: a receptor classification attribute
+    (``RECEPTOR_CONTRADICTIONS``) or a metabolism row's tier
+    (``ENZYME_STRENGTH_CONTRADICTIONS``). The bullet must land on the doubted sub-claim
+    only (its owner's other claims keep their pills), and a doubted claim with no
+    document of its own must stay missing in the tally rather than be lifted into the
+    backed ``uncertain`` bucket by the denial."""
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        from data_generators.quotes import contradictions, uncertainty
+        cls.receptor_table = contradictions.RECEPTOR_CONTRADICTIONS
+        cls.strength_table = contradictions.ENZYME_STRENGTH_CONTRADICTIONS
+        cls.uncertainty = uncertainty
+        cls.receptors = {r["id"]: r for r in _load_jsonl(DATA_DIR / "receptors.jsonl")}
+        cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
+        cls.meta = json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8"))
+
+    def test_receptor_bullet_rides_on_the_attribute_only(self):
+        for (rid, attr) in self.receptor_table:
+            cls_ = self.receptors[rid]["classification"]
+            self.assertEqual([b["kind"] for b in cls_[attr].get("uncertainty", [])],
+                             ["contradicted"], f"{rid}/{attr} carries no badge")
+            for other, entry in cls_.items():
+                if other != attr and (rid, other) not in self.receptor_table:
+                    self.assertFalse(entry.get("uncertainty"), f"{rid}/{other} leaked")
+
+    def test_strength_bullet_rides_on_the_tier_not_the_row(self):
+        rows = {(d["id"], e["enzyme"], e["role"]): e
+                for d in self.drugs for e in d.get("enzymes", []) or []}
+        for key in self.strength_table:
+            row = rows[key]
+            self.assertEqual(
+                [b["kind"] for b in row["claims"]["strength"].get("uncertainty", [])],
+                ["contradicted"], f"{key} tier carries no badge")
+            self.assertFalse(row.get("uncertainty"), f"{key} row itself flagged")
+
+    def test_an_llm_claim_denied_stays_missing(self):
+        for kind, attr in (("receptor_sign", "sign"), ("receptor_synaptic", "synaptic")):
+            entries = [r["classification"][attr] for r in self.receptors.values()
+                       if (r.get("ubiquitous") or r.get("locations")
+                           or r.get("description"))]
+            backed_flagged = sum(1 for e in entries if e.get("uncertainty")
+                                 and e["grade"] in ("verified", "sourced"))
+            c = self.meta["provenance_stats"]["by_kind"][kind]
+            self.assertEqual(c["uncertain"], backed_flagged, kind)
+
+    def test_a_stale_sub_claim_key_raises(self):
+        with self.assertRaises(KeyError):
+            self.uncertainty.apply_receptor_uncertainty([{"id": "a2a", "classification": {}}])
+        with self.assertRaises(KeyError):
+            self.uncertainty.apply_enzyme_strength_uncertainty([{"id": "sertraline",
+                                                                 "enzymes": []}])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
 

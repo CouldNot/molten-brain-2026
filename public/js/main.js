@@ -30,7 +30,7 @@ import { DECOR_RENDER_ORDER } from "./render-order.js";
 import { fetchWikiLead } from "./wiki.js";
 import { createTour } from "./tour.js";
 import { createChangelog } from "./changelog.js";
-import { createNodeBrowser } from "./node-browser.js";
+import { createNodeBrowser, shownGrade } from "./node-browser.js";
 import { createSimulation } from "./simulation.js";
 import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
@@ -2457,8 +2457,8 @@ function createInfoPanel(data, sourcingModal) {
     // DISPLAY grade taken by any node carrying bullets (see quotes/uncertainty.py), so
     // it is decided here rather than at each call site, which cannot forget it. The
     // node keeps its own source in the tooltip, under the reasons to doubt it: same
-    // evidence, honestly framed.
-    const shown = doubt ? "uncertain" : grade;
+    // evidence, honestly framed. A bare llm claim keeps its grey pill (shownGrade).
+    const shown = shownGrade(grade, doubt);
     const sources = node && node.sources;
     if (sources && sources.length)
       return makeProvenancePill(shown, withUncertainty(doubt, sourcesTip(sources)));
@@ -3079,9 +3079,9 @@ function createInfoPanel(data, sourcingModal) {
     // gate checks the isoform is named, never the tier), so the tier carries its own
     // pill beside the row's rather than sharing it. See quotes/attestation.py.
     const strength = (row.claims || {}).strength;
+    // The shared node pill, so a tier another corpus states otherwise reads orange.
     if (row.strengthLabel) {
-      li.appendChild(makeProvenancePill((strength && strength.grade) || "llm",
-        sourcesTip(strength && strength.sources)));
+      li.appendChild(sourceBackedPill((strength && strength.grade) || "llm", strength));
     }
     // Through the shared node pill, so a metabolism row badges like every other node:
     // its quote in the tooltip, and the orange "another corpus denies this" lead when
@@ -3536,8 +3536,8 @@ function createInfoPanel(data, sourcingModal) {
       // quotes/attestation.py), so each gets its own pill, and a part no cited quote
       // names reads grey rather than borrowing the route's check.
       const claims = proj.claims || {};
-      const claimPill = (claim) => makeProvenancePill(
-        (claim && claim.grade) || "llm", sourcesTip(claim && claim.sources));
+      // The shared node pill, so a sub-claim carrying uncertainty bullets reads orange.
+      const claimPill = (claim) => sourceBackedPill((claim && claim.grade) || "llm", claim);
       const meta = el("div", "info-meta");
       const swatch = el("span", "swatch line");
       swatch.style.background = proj.color || "#fff";
@@ -3672,12 +3672,11 @@ function createInfoPanel(data, sourcingModal) {
       // shows its OWN pill from receptor.classification[attr]: a quote that only
       // backs the sign no longer lends a verified badge to the GPCR or pre/post
       // claim it never addressed. Unsourced attributes read honestly as llm.
+      // Through the shared node pill, so an attribute another corpus denies
+      // (quotes/contradictions.py) goes orange with the denial leading its tooltip.
       const attrPill = (attr) => {
         const entry = (receptor.classification || {})[attr] || {};
-        return makeProvenancePill(
-          entry.grade,
-          entry.sources && entry.sources.length
-            ? sourcesTip(entry.sources) : undefined);
+        return sourceBackedPill(entry.grade, entry);
       };
       const facts = el("div", "info-facts");
       facts.dataset.tourSec = "facts"; // guided-tour section anchor
