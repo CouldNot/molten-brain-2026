@@ -200,6 +200,7 @@
 {"id": "q_0d2e8ab27d80", "corpus": "wikipedia_fr", "page": "amitriptyline", "quote": "Tryptizol", "llm": "sonnet"}
 {"id": "q_0d3493f19b18", "corpus": "stahl", "page": 225, "quote": "A more potent inhibitor of norepinephrine reuptake pump than serotonin reuptake pump (serotonin transporter)", "llm": "sonnet", "heading": ["Desipramine", "Therapeutics", "How the Drug Works"]}
 {"id": "q_0d5ed17f0018", "corpus": "stahl", "page": 215, "quote": "Tercian", "llm": "sonnet", "heading": ["Cyamemazine", "Therapeutics"]}
+{"id": "q_0d8428afda0f", "corpus": "nieuwenhuys", "page": 391, "quote": "The lateral septal nucleus receives a topographically organized glutamatergic input from Ammon’s horn and the subiculum via the _pre-_ _commissural_ _fornix_ (Fig.", "llm": "opus"}
 {"id": "q_0d85257000b5", "corpus": "wikipedia_pharm", "page": "ketamine", "quote": "Ketamine is legally used in medicine but is also tightly controlled, as it is used as a recreational drug for its hallucinogenic and dissociative effects.", "llm": "opus"}
 {"id": "q_0dbec0eed98c", "corpus": "wikipedia_pharm", "page": "olanzapine", "quote": "α 2A | 192–470 | Antagonist"}
 {"id": "q_0deacb6eddd8", "corpus": "wikipedia_pharm", "page": "melperone", "quote": "H 1 | 580"}
@@ -488,6 +489,7 @@
 {"id": "q_1f691174d6f0", "corpus": "wikipedia_pharm", "page": "pargyline", "quote": "Pargyline is N - demethylated and N - depropargylated by CYP2E1 to form arylalkylamine and other metabolites including benzylamine , N -methylbenzylamine, and N -propargylbenzylamine, among others.", "llm": "opus"}
 {"id": "q_1f7723b84bd3", "corpus": "wikipedia_pharm", "page": "perphenazine", "quote": "α 2B | 104.9 | - | -"}
 {"id": "q_1f96761b69c7", "corpus": "stahl", "page": 723, "quote": "Elimination half-life approximately 13 hours", "llm": "sonnet", "heading": ["Reboxetine", "Dosing and use", "Pharmacokinetics"]}
+{"id": "q_1fc6c42f7bbe", "corpus": "nieuwenhuys", "page": 469, "quote": "Neurons within the medial septal nucleus (Ch1) and the vertical limb of the nucleus of the diagonal band (Ch2), which provide a substantial cholinergic projection to the hippocampus.", "llm": "opus"}
 {"id": "q_1fd6eb91e534", "corpus": "wikipedia_pharm", "page": "clozapine", "quote": "β 2 | 1,650 | 4,725"}
 {"id": "q_1fe2db4363a6", "corpus": "stahl", "page": 517, "quote": "Concerta", "llm": "sonnet", "heading": ["Methylphenidate (D,L)", "Therapeutics", "How Long Until It Works"]}
 {"id": "q_1febf2762cd2", "corpus": "stahl", "page": 19, "quote": "Antagonist at serotonin 2C receptors", "llm": "sonnet", "heading": ["Agomelatine", "Therapeutics", "Class"]}
@@ -550,6 +552,7 @@
 {"id": "q_2329237fd7b8", "corpus": "stahl", "page": 199, "quote": "Azene", "llm": "sonnet", "heading": ["Clorazepate", "Therapeutics", "Brands"]}
 {"id": "q_232ab59e7692", "corpus": "wikipedia_pharm", "page": "nefazodone", "quote": "Nefazodone acts primarily as a potent antagonist of the serotonin 5-HT 2A receptor and to a lesser extent of the serotonin 5-HT 2C receptor . It also has high affinity for the α 1 -adrenergic receptor and serotonin 5-HT 1A receptor , and relatively lower affinity for the α 2 -adrenergic receptor and dopamine D 2 receptor . Nefazodone has low but significant affinity for the serotonin , norepinephrine , and dopamine transporters as well, and therefore acts as a weak serotonin–norepinephrine–dopamine reuptake inhibitor (SNDRI). It has low but potentially significant affinity for the histamine H 1 receptor , where it is an antagonist, and hence may have some antihistamine activity. Nefazodone has negligible activity at muscarinic acetylcholine receptors , and accordingly, has no anticholinergic effects.", "llm": "sonnet"}
 {"id": "q_232fc10635a7", "corpus": "allen_ahba", "page": "OPRM1", "quote": "OPRM1 detected in amygdala: probe 1017111 PACall present in 51/60 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
+{"id": "q_233f2be71cbd", "corpus": "nieuwenhuys", "page": 350, "quote": "The middle and deep tufted cells project to sites in the olfactory cortex different from those of mitral cells. Mitral cells use glutamate as a transmitter at their axon terminal and dendritic output sites.", "llm": "opus"}
 {"id": "q_23554312ef3b", "corpus": "gtopdb_class", "page": 294, "quote": "mGlu6 receptor (GRM6), GtoPdb target 294 | type: gpcr | family: Metabotropic glutamate receptors"}
 {"id": "q_2375ef73b473", "corpus": "stahl", "page": 700, "quote": "Sedative effects and weight gain may be due to antihistamine properties", "llm": "sonnet", "heading": ["Protriptyline", "Side effects", "How Drug Causes Side Effects"]}
 {"id": "q_237c5a748c81", "corpus": "stahl", "page": 233, "quote": "Blocks serotonin reuptake pump (serotonin transporter), presumably increasing serotonergic neurotransmission", "llm": "sonnet", "heading": ["Desvenlafaxine", "Therapeutics", "How the Drug Works"]}
@@ -623,6 +626,7 @@
 {"id": "q_28f3277ffe75", "corpus": "gtopdb_ki", "page": "cabergoline", "quote": "cabergoline at D5 receptor (DRD5, Human): Agonist / Full agonist, pKi 7.7 [PMID 12388666]", "species": "Human"}
 {"id": "q_28f81aa98fc8", "corpus": "wikipedia_pharm", "page": "phentermine", "quote": "Peak concentrations of phentermine are reached 6 hours following oral administration of a dose of 15 mg.", "llm": "sonnet"}
 {"id": "q_28f8e8173034", "corpus": "stahl", "page": 941, "quote": "Clopixol", "llm": "sonnet", "heading": ["Zuclopenthixol", "Therapeutics", "Brands"]}
+{"id": "q_29104f629d34", "corpus": "nieuwenhuys", "page": 901, "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.", "llm": "opus"}
 {"id": "q_291282293aba", "corpus": "stahl", "page": 533, "quote": "Ixel", "llm": "sonnet", "heading": ["Milnacipran", "Therapeutics", "Brands"]}
 {"id": "q_2919b0cff425", "corpus": "wikipedia_pharm", "page": "pizotifen", "quote": "α 2C | 390 | Human"}
 {"id": "q_292000431e34", "corpus": "allen_ahba", "page": "DRD5", "quote": "DRD5 detected in temporal: probe 1057496 PACall present in 419/419 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
@@ -1045,6 +1049,7 @@
 {"id": "q_43eca6c3a80f", "corpus": "wikipedia_pharm", "page": "nortriptyline", "quote": "M 2 | 110 | Human"}
 {"id": "q_43f28ceff47a", "corpus": "wikipedia_fr", "page": "coca_ne", "quote": "Célèbre psychotrope , elle est un très puissant stimulant du système nerveux central , et sa consommation est extrêmement addictive .", "llm": "opus"}
 {"id": "q_441e5a174671", "corpus": "wikipedia_pharm", "page": "citalopram", "quote": "M 1 | 1430"}
+{"id": "q_44340709825a", "corpus": "nieuwenhuys", "page": 573, "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.", "llm": "opus"}
 {"id": "q_4448192ad104", "corpus": "stahl_essential", "page": 275, "quote": "GABAA and GABAC receptors are ligand-gated ion channels; they are part of a macromolecular complex that forms an inhibitory chloride channel.", "llm": "sonnet", "heading": ["6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"]}
 {"id": "q_444d5bca5aa1", "corpus": "wikipedia_pharm", "page": "nefazodone", "quote": "D 2 | 910 | Human"}
 {"id": "q_44598822d4e4", "corpus": "wikipedia_fr", "page": "sild_nafil", "quote": "Verventi", "llm": "sonnet"}
@@ -1157,6 +1162,7 @@
 {"id": "q_4b083826e5e5", "corpus": "wikipedia_fr", "page": "l_vom_promazine", "quote": "Neurocil", "llm": "sonnet"}
 {"id": "q_4b13569926fb", "corpus": "wikipedia_pharm", "page": "nefazodone", "quote": "Metabolism | Liver ( CYP3A4 , CYP2D6 )", "llm": "opus"}
 {"id": "q_4b4a9bd75928", "corpus": "wikipedia_pharm", "page": "milnacipran", "quote": "Peak plasma concentrations are reached 2 hours after oral dosing.", "llm": "sonnet"}
+{"id": "q_4b9ed6571d81", "corpus": "nieuwenhuys", "page": 446, "quote": "These thalamocortical projections innervate cortical layers I and III, and to a lesser extent layer V [414]. They are glutamatergic and activate cortical neurons.", "llm": "opus"}
 {"id": "q_4bb47c34afe7", "corpus": "dailymed", "page": "ce5a2fa3-ed54-422d-96c2-1821496eb32f", "quote": "The peak concentration (T max ) of tasimelteon occurred approximately 0.5 to 3 hours after fasted oral administration.", "llm": "sonnet"}
 {"id": "q_4bb5f460b618", "corpus": "wikipedia_pharm", "page": "hydromorphone", "quote": "Hydromorphone , also known as dihydromorphinone , and sold under the brand name Dilaudid among others, is a morphinan opioid used to treat moderate to severe pain .", "llm": "sonnet"}
 {"id": "q_4bd18df0f745", "corpus": "wikipedia_pharm", "page": "haloperidol", "quote": "α 2B | Agonist | 480"}
@@ -1473,6 +1479,7 @@
 {"id": "q_5f70f1cabfa0", "corpus": "stahl", "page": 443, "quote": "Lithium carbonate tablets", "llm": "sonnet", "heading": ["Lithium", "Therapeutics", "How Long Until It Works"]}
 {"id": "q_5f75b3eb8b48", "corpus": "allen_ahba", "page": "GRM5", "quote": "GRM5 detected in parietal: probe 1020459 PACall present in 258/258 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_5f85e220ea69", "corpus": "cpic", "page": "PA166251459", "quote": "Significantly decreased metabolism of atomoxetine may result in higher concentrations as compared to non-poor metabolizers. This may increase the occurrence of treatment-emergent side effects, but also a greater improvement of ADHD symptoms as compared to non-poor metabolizers in those who tolerate treatment. Poor metabolizer status is associated with lower final dose requirements as compared to non-poor metabolizers."}
+{"id": "q_5f978d74e211", "corpus": "kandel", "page": 1100, "quote": "Outputs of the medial amygdala reach the ventromedial hypothalamus, which connects with the premammillary hypothalamic nucleus.", "llm": "opus"}
 {"id": "q_5f9f2e86ad35", "corpus": "wikipedia_pharm", "page": "sertindole", "quote": "5-HT 1D | 96"}
 {"id": "q_5fbc7da10c8f", "corpus": "wikipedia_pharm", "page": "pimozide", "quote": "Time to peak plasma concentration (T max ) | 6-8 hr", "llm": "sonnet"}
 {"id": "q_5fd6bc5742fc", "corpus": "gtopdb_ki", "page": "mianserin", "quote": "mianserin at 5-HT7 receptor (HTR7, Human): Antagonist / Antagonist, pKi 7.3-7.6 [PMID 9298538]", "species": "Human"}
@@ -1559,6 +1566,7 @@
 {"id": "q_641011d9e89a", "corpus": "wikipedia_pharm", "page": "brexpiprazole", "quote": "Brexpiprazole acts as a partial agonist of the serotonin 5-HT 1A receptor and the dopamine D 2 and D 3 receptors . Brexpiprazole is a less stimulating partial agonist of the dopamine receptors than its predecessor, aripiprazole , potentially decreasing its risk for agitation and restlessness. Brexpiprazole has a high affinity for the 5-HT 1A receptor , acting as a potent antagonist at 5-HT 2A receptors, and a potent partial agonist at dopamine D 2 receptors with lower intrinsic activity compared to aripiprazole . In vivo characterization of brexpiprazole shows that it may act as a near-full agonist of the 5-HT 1A receptor . This may further underlie a lower potential than aripiprazole to cause treatment-emergent, movement-related disorders such as akathisia due to the downstream dopamine release that is triggered by 5-HT 1A receptor agonism. It is also an antagonist of the serotonin 5-HT 2A , 5-HT 2B , and 5-HT 7 receptors , which may contribute to antidepressant effect. It also binds to and blocks the α 1A - , α 1B - , α 1D - , and α 2C -adrenergic receptors . The drug has negligible affinity for the muscarinic acetylcholine receptors , and hence has no anticholinergic effects. Although brexpiprazole has less affinity for H 1 compared to aripiprazole , weight gain can occur.", "llm": "sonnet"}
 {"id": "q_6420e4458f86", "corpus": "allen_ahba", "page": "MAOB", "quote": "MAOB detected in raphe: probe 1054302 PACall present in 29/29 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_6433224da4c8", "corpus": "wikipedia_pharm", "page": "pimavanserin", "quote": "Pimavanserin is slowly absorbed and has a time to peak levels of 6 hours.", "llm": "sonnet"}
+{"id": "q_643b9f3c29b9", "corpus": "nieuwenhuys", "page": 356, "quote": "The mitral cells in the olfactory bulb are the principal source of afferent input to the primary olfactory cortex. These afferents pass via the lateral olfactory tract to layer Ia of the cortex, making excitatory synaptic contacts with the apical dendrites of pyramidal cells (1a) and with horizontal (1b) elements.", "llm": "opus"}
 {"id": "q_644f3ee5cf76", "corpus": "wikipedia_pharm", "page": "seproxetine", "quote": "Seproxetine is both an inhibitor of serotonin and dopamine transporters , 5-HT 2A and 5-HT 2C receptors.", "llm": "sonnet"}
 {"id": "q_6465fccb6940", "corpus": "wikipedia_pharm", "page": "pramipexole", "quote": "Immediate-release pramipexole displays a T max of approximately 2 hours and 3 hours if taken with a high-fat meal.", "llm": "sonnet"}
 {"id": "q_6479ea783e88", "corpus": "kandel", "page": 986, "quote": "The subthalamus therefore receives phasic excitatory (glutamatergic) signals from the cerebral cortex, thalamus, and brain stem.", "llm": "sonnet", "heading": ["38 The Basal Ganglia", "Physiological Signals Provide Further Clues to Function in the Basal Ganglia", "Ventral Midbrain Dopamine Neurons Receive Input From External Structures and Other Basal Ganglia Nuclei"]}
@@ -1748,6 +1756,7 @@
 {"id": "q_6fd1274d98cd", "corpus": "cpic", "page": "PA166251454", "quote": "Increased formation of O-desmethyltramadol (active metabolite) leading to higher risk of toxicity"}
 {"id": "q_6fe9d973379b", "corpus": "wikipedia_pharm", "page": "sumatriptan", "quote": "5-HT 1A | 72–1,100 (K i ) >10,000 ( EC 50"}
 {"id": "q_6fea71b3b0de", "corpus": "wikipedia_pharm", "page": "chlorpromazine", "quote": "M 4 | 151 | Human"}
+{"id": "q_6fee0b38d526", "corpus": "nieuwenhuys", "page": 576, "quote": "The thalamocortical fibres form excitatory synapses ( _e_ ) with pyramidal and basket cells.", "llm": "opus"}
 {"id": "q_70174ed78b63", "corpus": "stahl", "page": 495, "quote": "Tricyclic antidepressant (TCA), sometimes classified as a tetracyclic antidepressant (tetra)", "llm": "sonnet", "heading": ["Maprotiline", "Therapeutics", "Class"]}
 {"id": "q_701d475a1264", "corpus": "stahl", "page": 163, "quote": "Elimination half-life 24–48 hours", "llm": "sonnet", "heading": ["Chlordiazepoxide", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_702dc122c3de", "corpus": "wikipedia_fr", "page": "lisdexamf_tamine", "quote": "XURTA", "llm": "sonnet"}
@@ -1770,6 +1779,7 @@
 {"id": "q_71492a581d89", "corpus": "gtopdb_ki", "page": "bromocriptine", "quote": "bromocriptine at α2C-adrenoceptor (ADRA2C, Human): Antagonist / Antagonist, pKi 7.6 [PMID 12388666]", "species": "Human"}
 {"id": "q_715b100760c3", "corpus": "stahl", "page": 503, "quote": "Is a low to moderate affinity noncompetitive (open-channel) NMDA receptor antagonist", "llm": "sonnet", "heading": ["Memantine", "Therapeutics", "How the Drug Works"]}
 {"id": "q_7173194a7720", "corpus": "wikipedia_fr", "page": "clobazam", "quote": "Urbanyl", "llm": "sonnet"}
+{"id": "q_7187261ae2f3", "corpus": "nieuwenhuys", "page": 435, "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].", "llm": "opus"}
 {"id": "q_718dc83deed2", "corpus": "wikipedia_pharm", "page": "promethazine", "quote": "α2A-adrenoceptor (Human) | 256"}
 {"id": "q_719a6230c6e3", "corpus": "wikipedia_fr", "page": "citalopram", "quote": "Citabax", "llm": "sonnet"}
 {"id": "q_71a3e7532144", "corpus": "wikipedia_pharm", "page": "kappa_opioid_receptor", "quote": "53% of KOR binding sites in the superficial dorsal horn (laminae I–II) are localized presynaptically on primary afferent terminals, with the remainder distributed postsynaptically .", "llm": "opus"}
@@ -1895,6 +1905,7 @@
 {"id": "q_798b81d4565a", "corpus": "wikipedia_pharm", "page": "methylphenidate", "quote": "The peak plasma time is achieved at about 2 hours.", "llm": "sonnet"}
 {"id": "q_798cfff57a96", "corpus": "wikipedia_pharm", "page": "amoxapine", "quote": "α 2 | 2,600 | Human"}
 {"id": "q_7998a53cac2c", "corpus": "allen_ahba", "page": "SLC18A2", "quote": "SLC18A2 detected in putamen: probe 1051381 PACall present in 55/55 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
+{"id": "q_79aa487fd6f7", "corpus": "stahl_essential", "page": 121, "quote": "pathway, known as the cortico-thalamic glutamate pathway, projects directly back to the thalamus, where it may direct the manner in which neurons react to sensory information (pathway e in Figure 4-28). (f) **Direct cortico-cortical glutamate pathways.**", "llm": "opus"}
 {"id": "q_79ccd0d2adf6", "corpus": "stahl", "page": 621, "quote": "Atypical antipsychotic (serotonin– dopamine antagonist; second-generation antipsychotic; also a mood stabilizer)", "llm": "sonnet", "heading": ["Paliperidone", "Therapeutics", "Class"]}
 {"id": "q_79dc567df1a9", "corpus": "pharmfreq", "page": "CYP2B6", "quote": "CYP2B6 metabolizer phenotype frequencies by population group (PharmFreq): European PM 5.5%, IM 35.9%, NM 51.2%, RM 7.3%, UM 0.3%; Sub-Saharan African PM 27.9%, IM 49.8%, NM 22.3%, RM 0.0%, UM 0.0%; Middle East & North Africa PM 13.0%, IM 46.1%, NM 28.7%, RM 11.1%, UM 1.1%; Central/South Asian PM 6.0%, IM 37.0%, NM 43.1%, RM 13.0%, UM 1.0%; East Asian PM 3.7%, IM 31.1%, NM 51.3%, RM 13.1%, UM 0.8%; Oceanian PM 0.0%, IM 0.0%, NM 100.0%, RM 0.0%, UM 0.0%; North American PM 9.5%, IM 42.6%, NM 42.6%, RM 5.1%, UM 0.2%; South American PM 13.9%, IM 46.7%, NM 24.6%, RM 13.1%, UM 1.7%"}
 {"id": "q_79e3c3abc583", "corpus": "stahl", "page": 465, "quote": "Benzodiazepine (anxiolytic, anticonvulsant)", "llm": "sonnet", "heading": ["Lorazepam", "Therapeutics", "Class"]}
@@ -2048,7 +2059,9 @@
 {"id": "q_8408f29bcb76", "corpus": "allen_ahba", "page": "HRH2", "quote": "HRH2 detected in putamen: probe 1019471 PACall present in 55/55 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_84164fde696d", "corpus": "allen_ahba", "page": "SLC6A1", "quote": "SLC6A1 detected in hippocampus: probe 1051544 PACall present in 171/171 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
 {"id": "q_841d46d5c821", "corpus": "allen_ahba", "page": "ABAT", "quote": "ABAT detected in cerebellum: probe 1010530 PACall present in 368/368 samples (donors 9861,10021,12876,14380,15496,15697)", "species": "Human"}
+{"id": "q_84683291b942", "corpus": "nieuwenhuys", "page": 287, "quote": "It seems likely that excitatory layer VI corticothalamic projections, excitatory thalamoreticular projections and inhibitory reticulothalamic projections (Fig.", "llm": "opus"}
 {"id": "q_84959c7066da", "corpus": "wikipedia_pharm", "page": "modafinil", "quote": "However, other in-vitro studies find no significant inhibition of CYP2C9", "llm": "opus"}
+{"id": "q_84ae20404e7a", "corpus": "kandel", "page": 1387, "quote": "Information from the entorhinal cortex reaches CA1 neurons along two excitatory pathways, one direct and one indirect. In the indirect pathway, the axons of neurons in layer II of the entorhinal cortex project through the _perforant pathway_ to excite the granule cells of the dentate gyrus (an area considered part of the hippocampus).", "llm": "opus"}
 {"id": "q_84de77d85cfc", "corpus": "gtopdb_ki", "page": "ziprasidone", "quote": "ziprasidone at 5-ht1e receptor (HTR1E, Human): Agonist / Full agonist, pKi 6.4 [PMID 8935801]", "species": "Human"}
 {"id": "q_84e7d425307b", "corpus": "cpic", "page": "PA166251445", "quote": "Initiate therapy with recommended starting dose"}
 {"id": "q_84eccead07d2", "corpus": "stahl", "page": 140, "quote": "Elimination half-life approximately 2–3 hours", "llm": "sonnet", "heading": ["Buspirone", "Dosing and use", "Pharmacokinetics"]}
@@ -2189,6 +2202,7 @@
 {"id": "q_8da58fe30ead", "corpus": "stahl", "page": 568, "quote": "Elimination half-life of oral naltrexone is approximately 13 hours", "llm": "sonnet", "heading": ["Naltrexone", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_8dbb7cbd07a5", "corpus": "stahl", "page": 776, "quote": "Metabolized to an active metabolite, primarily by CYP3A4 (major route) and CYP2C9 (minor route)", "llm": "opus", "heading": ["Sildenafil", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_8e0c401d07fb", "corpus": "allen_ahba", "page": "SLC6A1", "quote": "SLC6A1 detected in temporal: probe 1051544 PACall present in 419/419 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}
+{"id": "q_8e1151434183", "corpus": "stahl_essential", "page": 286, "quote": "Neurons from the hippocampal area and amygdala normally suppress the HPA axis (Figure 6-32A), so if stress causes hippocampal and amygdala neurons to atrophy, with loss of their inhibitory input to the hypothalamus, this could lead to overactivity of the HPA axis (Figure 6-32B).", "llm": "opus"}
 {"id": "q_8e1d9758ee45", "corpus": "stahl", "page": 801, "quote": "Restoril", "llm": "sonnet", "heading": ["Temazepam", "Therapeutics"]}
 {"id": "q_8e5f63912626", "corpus": "gtopdb_ki", "page": "clozapine", "quote": "clozapine at H3 receptor (Hrh3, Rat): Antagonist / Antagonist, pKi 5.8 [PMID 10869375]", "species": "Rat"}
 {"id": "q_8e64f32d92f0", "corpus": "wikipedia_pharm", "page": "risperidone", "quote": "α 2B | 108 | Antagonist"}
@@ -3095,6 +3109,7 @@
 {"id": "q_c4f4f7905438", "corpus": "stahl", "page": 102, "quote": "Half-life 36 hours, although greatest effect lasts about 6–8 hours", "llm": "sonnet", "heading": ["Benztropine", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_c4fe0b41f361", "corpus": "wikipedia_pharm", "page": "paroxetine", "quote": "- CYP2B6 ( strong ) inhibitor.", "llm": "opus"}
 {"id": "q_c51f51edbd99", "corpus": "wikipedia_fr", "page": "amitriptyline", "quote": "Endep", "llm": "sonnet"}
+{"id": "q_c540f0c55276", "corpus": "nieuwenhuys", "page": 442, "quote": "The subthalamic neurons receive an excitatory, glutamatergic input from the cortex and an inhibitory, GABAergic input from the external pallidal segment.", "llm": "opus"}
 {"id": "q_c545ebba5f62", "corpus": "wikipedia_pharm", "page": "bromocriptine", "quote": "5-HT 1D | 10.7 | 68% | Partial agonist"}
 {"id": "q_c5793d379fcf", "corpus": "wikipedia_pharm", "page": "primidone", "quote": "According to Brenner's Pharmacology , it also increases GABA-mediated chloride flux, thereby hyperpolarizing the membrane potential.", "llm": "sonnet"}
 {"id": "q_c593aec88ea2", "corpus": "wikipedia_pharm", "page": "meta_chlorophenylpiperazine", "quote": "α 1A | 1,386 | Human"}
@@ -3921,6 +3936,7 @@
 {"id": "q_f90793c7ad09", "corpus": "gtopdb_class", "page": 11, "quote": "5-HT6 receptor (HTR6), GtoPdb target 11 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"}
 {"id": "q_f921d911c854", "corpus": "stahl", "page": 875, "quote": "Depacon", "llm": "sonnet", "heading": ["Valproate", "Therapeutics", "Brands"]}
 {"id": "q_f92ae23eb11e", "corpus": "gtopdb_ki", "page": "ropinirole", "quote": "ropinirole at D2 receptor (DRD2, Human): Agonist / Agonist, pKi 8.14 [PMID 9057850]", "species": "Human"}
+{"id": "q_f92ed6189bbe", "corpus": "nieuwenhuys", "page": 218, "quote": "The dopaminergic cells in the substantia nigra project to the caudate nucleus and the putamen.", "llm": "opus"}
 {"id": "q_f930e5f480d2", "corpus": "wikipedia_pharm", "page": "risperidone", "quote": "5-HT 1A | 423 | Antagonist"}
 {"id": "q_f9510cad5e68", "corpus": "stahl", "page": 525, "quote": "Blocks alpha 2 adrenergic presynaptic receptors but also alpha 1 adrenergic receptors on serotonin neurons, thereby causing little increase in serotonin neurotransmission", "llm": "sonnet", "heading": ["Mianserin", "Therapeutics", "How the Drug Works"]}
 {"id": "q_f954f614c0ee", "corpus": "allen_ahba", "page": "MAOA", "quote": "MAOA detected in midbrain: probe 1054334 PACall present in 158/158 samples (donors 9861,10021,12876,14380,15697)", "species": "Human"}

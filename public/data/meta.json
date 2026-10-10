@@ -3891,30 +3891,30 @@
       },
       "projections": {
         "total": 95,
-        "verified": 56,
-        "uncertain": 35,
+        "verified": 60,
+        "uncertain": 33,
         "sourced": 0,
         "llm": 0,
-        "nosource": 4,
-        "missing": 4
+        "nosource": 2,
+        "missing": 2
       },
       "projection_transmitter": {
         "total": 95,
-        "verified": 56,
+        "verified": 71,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 39,
+        "llm": 24,
         "nosource": 0,
-        "missing": 39
+        "missing": 24
       },
       "projection_sign": {
         "total": 38,
-        "verified": 9,
+        "verified": 19,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 29,
+        "llm": 19,
         "nosource": 0,
-        "missing": 29
+        "missing": 19
       },
       "circuits": {
         "total": 6,
@@ -4045,13 +4045,13 @@
     },
     "nodes": {
       "total": 6986,
-      "verified": 5692,
-      "uncertain": 250,
+      "verified": 5721,
+      "uncertain": 248,
       "sourced": 0,
-      "llm": 346,
-      "nosource": 698,
-      "missing": 1044,
-      "backed": 5942,
+      "llm": 321,
+      "nosource": 696,
+      "missing": 1017,
+      "backed": 5969,
       "pct_backed": 85
     },
     "ki_coverage": {

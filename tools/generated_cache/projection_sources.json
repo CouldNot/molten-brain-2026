@@ -1,0 +1,220 @@
+{
+ "projections": {
+  "amygdala_R->hypothalamus_R": [
+   {
+    "corpus": "kandel",
+    "page": 1100,
+    "quote": "Outputs of the medial amygdala reach the ventromedial hypothalamus, which connects with the premammillary hypothalamic nucleus.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 286,
+    "quote": "Neurons from the hippocampal area and amygdala normally suppress the HPA axis (Figure 6-32A), so if stress causes hippocampal and amygdala neurons to atrophy, with loss of their inhibitory input to the hypothalamus, this could lead to overactivity of the HPA axis (Figure 6-32B).",
+    "provenance": "verified"
+   }
+  ],
+  "frontal_L->frontal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 573,
+    "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
+    "provenance": "verified"
+   }
+  ],
+  "globus_pallidus_R->subthalamic_nucleus_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 442,
+    "quote": "The subthalamic neurons receive an excitatory, glutamatergic input from the cortex and an inhibitory, GABAergic input from the external pallidal segment.",
+    "provenance": "verified"
+   }
+  ],
+  "hippocampus_R->fornix_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 391,
+    "quote": "The lateral septal nucleus receives a topographically organized glutamatergic input from Ammon’s horn and the subiculum via the _pre-_ _commissural_ _fornix_ (Fig.",
+    "provenance": "verified"
+   }
+  ],
+  "hippocampus_R->septal_nuclei_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 391,
+    "quote": "The lateral septal nucleus receives a topographically organized glutamatergic input from Ammon’s horn and the subiculum via the _pre-_ _commissural_ _fornix_ (Fig.",
+    "provenance": "verified"
+   }
+  ],
+  "nucleus_basalis_R->amygdala_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 901,
+    "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.",
+    "provenance": "verified"
+   }
+  ],
+  "nucleus_basalis_R->cingulate_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 901,
+    "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.",
+    "provenance": "verified"
+   }
+  ],
+  "nucleus_basalis_R->frontal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 901,
+    "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.",
+    "provenance": "verified"
+   }
+  ],
+  "nucleus_basalis_R->occipital_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 901,
+    "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.",
+    "provenance": "verified"
+   }
+  ],
+  "nucleus_basalis_R->parietal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 901,
+    "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.",
+    "provenance": "verified"
+   }
+  ],
+  "nucleus_basalis_R->temporal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 901,
+    "quote": "The nucleus basalis (including the cholinergic cells of the magnocellular preoptic nucleus and scattered cells within the globus pallidus) innervate the cerebral cortex and the amygdaloid complex (Chap.",
+    "provenance": "verified"
+   }
+  ],
+  "occipital_L->occipital_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 573,
+    "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
+    "provenance": "verified"
+   }
+  ],
+  "occipital_R->thalamus_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 287,
+    "quote": "It seems likely that excitatory layer VI corticothalamic projections, excitatory thalamoreticular projections and inhibitory reticulothalamic projections (Fig.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 121,
+    "quote": "pathway, known as the cortico-thalamic glutamate pathway, projects directly back to the thalamus, where it may direct the manner in which neurons react to sensory information (pathway e in Figure 4-28). (f) **Direct cortico-cortical glutamate pathways.**",
+    "provenance": "verified"
+   }
+  ],
+  "olfactory_bulb_R->insula_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 356,
+    "quote": "The mitral cells in the olfactory bulb are the principal source of afferent input to the primary olfactory cortex. These afferents pass via the lateral olfactory tract to layer Ia of the cortex, making excitatory synaptic contacts with the apical dendrites of pyramidal cells (1a) and with horizontal (1b) elements.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 350,
+    "quote": "The middle and deep tufted cells project to sites in the olfactory cortex different from those of mitral cells. Mitral cells use glutamate as a transmitter at their axon terminal and dendritic output sites.",
+    "provenance": "verified"
+   }
+  ],
+  "parietal_L->parietal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 573,
+    "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
+    "provenance": "verified"
+   }
+  ],
+  "raphe->caudate_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 435,
+    "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
+  "raphe->putamen_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 435,
+    "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
+  "septal_nuclei_R->hippocampus_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 469,
+    "quote": "Neurons within the medial septal nucleus (Ch1) and the vertical limb of the nucleus of the diagonal band (Ch2), which provide a substantial cholinergic projection to the hippocampus.",
+    "provenance": "verified"
+   }
+  ],
+  "substantia_nigra_R->caudate_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 218,
+    "quote": "The dopaminergic cells in the substantia nigra project to the caudate nucleus and the putamen.",
+    "provenance": "verified"
+   }
+  ],
+  "substantia_nigra_R->putamen_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 218,
+    "quote": "The dopaminergic cells in the substantia nigra project to the caudate nucleus and the putamen.",
+    "provenance": "verified"
+   }
+  ],
+  "temporal_L->temporal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 573,
+    "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
+    "provenance": "verified"
+   }
+  ],
+  "temporal_R->hippocampus_R": [
+   {
+    "corpus": "kandel",
+    "page": 1387,
+    "quote": "Information from the entorhinal cortex reaches CA1 neurons along two excitatory pathways, one direct and one indirect. In the indirect pathway, the axons of neurons in layer II of the entorhinal cortex project through the _perforant pathway_ to excite the granule cells of the dentate gyrus (an area considered part of the hippocampus).",
+    "provenance": "verified"
+   }
+  ],
+  "thalamus_R->cingulate_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 576,
+    "quote": "The thalamocortical fibres form excitatory synapses ( _e_ ) with pyramidal and basket cells.",
+    "provenance": "verified"
+   }
+  ],
+  "thalamus_R->frontal_R": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 576,
+    "quote": "The thalamocortical fibres form excitatory synapses ( _e_ ) with pyramidal and basket cells.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 446,
+    "quote": "These thalamocortical projections innervate cortical layers I and III, and to a lesser extent layer V [414]. They are glutamatergic and activate cortical neurons.",
+    "provenance": "verified"
+   }
+  ]
+ }
+}
