@@ -225,5 +225,18 @@
   "route": [
    1
   ]
+ },
+ "locus_coeruleus_R->midbrain": {
+  "route": [
+   47
+  ]
+ },
+ "locus_coeruleus_R->medulla": {
+  "transmitter": [
+   5
+  ],
+  "route": [
+   5
+  ]
  }
 }

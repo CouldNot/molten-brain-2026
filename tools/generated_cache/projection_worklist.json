@@ -24059,6 +24059,1072 @@
      ]
     }
    ]
+  },
+  "locus_coeruleus_R->midbrain": {
+   "from": "locus_coeruleus_R",
+   "to": "midbrain",
+   "transmitter": "Noradrenaline",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Noradrenergic (midbrain)",
+   "candidates": [
+    {
+     "corpus": "nieuwenhuys",
+     "page": 701,
+     "line": "Control systems for pain descend from the periaqueductal grey via the nucleus raphe magnus and from noradrenergic cell groups 1, 2, 5 and 6.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 537,
+     "line": "β-endorphin are confined primarily to the hypothalamus; their axons terminate in the periaqueductal gray region and on noradrenergic neurons in the brain stem.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1047,
+     "line": "Dopaminergic neurons are located in the midbrain and hypothalamus. The dopaminergic cell groups were originally included with the noradrenergic cell groups and are still labeled as",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1047,
+     "line": "The dopaminergic cell groups were originally included with the noradrenergic cell groups and are still labeled as The A8 group is in the midbrain dorsally adjacent to the substantia nigra.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "Much less is known about the afferent connections of the other noradrenergic cell groups. Neurons of A7 and A5, like the locus coeruleus, receive a projection from the periaqueductal grey.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "In the brain stem, the periaqueductal grey matter, the ventral tegmental area, the parabrachial nuclei, the dorsal vagal complex and the noradrenergic cell groups A1 and A2 send fibres to the BST",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 213,
+     "line": "Noradrenergic cells are also present more ventrally in a region known as the nucleus subcoeruleus, along the superior cerebellar peduncle (A4), and in the central gray matter of the mesencephalon.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 537,
+     "line": "β-endorphin are confined primarily to the hypothalamus; their axons terminate in the periaqueductal gray region and on noradrenergic neurons in the brain stem. Orphanin FQ appears to participate in a broad range of other physiological functions.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 213,
+     "line": "It corresponds to the A6 group of Dahlström and Fuxe [7]. Noradrenergic cells are also present more ventrally in a region known as the nucleus subcoeruleus, along the superior cerebellar peduncle (A4), and in the central gray matter of the mesencephalon.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 213,
+     "line": "Noradrenergic cells are also present more ventrally in a region known as the nucleus subcoeruleus, along the superior cerebellar peduncle (A4), and in the central gray matter of the mesencephalon. The cells of the noradrenergic group A5 occupy the ventrolateral tegmentum (Fig.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 387,
+     "line": "6. _Afferents_ _from_ _monoaminergic_ _cell_ _groups_ _in_ _the_ _brain_ _stem._ The hippocampal formation receives serotoninergic fibres from the mesencephalic raphe nuclei, noradrenergic fibres from the locus coeruleus and dopaminergic fibres from the ventral tegmental area.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 701,
+     "line": "The direct C fibre pathway to the amygdaloid nucleus, synapsing in lamina II and V of the dorsal horn, described in the text, is not indicated. Control systems for pain descend from the periaqueductal grey via the nucleus raphe magnus and from noradrenergic cell groups 1, 2, 5 and 6.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1131,
+     "line": "In the succeeding decades, it became clear that these lesions damaged the axons of neurons in the upper brain stem that project to the forebrain, including noradrenergic neurons in the locus ceruleus, serotonergic neurons in the dorsal and median raphe, and midbrain dopaminergic neurons (Chapter 40).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "Hypothalamic afferents of the BST include fibres originating from the paraventricular [37] and ventromedial nuclei [107, 189]. In the brain stem, the periaqueductal grey matter, the ventral tegmental area, the parabrachial nuclei, the dorsal vagal complex and the noradrenergic cell groups A1 and A2 send fibres to the BST",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 638,
+     "line": "It receives cholinergic and GABAergic afferents from the basal nucleus of Meynert, histaminergic, orexinergic and melanin-concentrating hormone-containing fibres from the hypothalamus, serotoninergic fibres from the mesencephalic raphe nuclei, dopaminergic fibres from the ventral tegmental area and noradrenergic fibres from the locus coeruleus.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "More rostrally, noradrenergic cells are present in the locus coeruleus in the periaqueductal grey (A6), as scattered cells in the nucleus subcoeruleus, in the subependymal extension of the locus coeruleus (A4), ventrolaterally, in the paragigantocellular nucleus (A5) and dispersed within and around the ventral nucleus of the lateral lemniscus (A7) (Fig.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 701,
+     "line": "Inset shows the dorsal horn with presumed inhibitory pathway from A-beta root fibres to the relay cells of the C fibres. _A_, A-beta root fibres; _A1–6_, noradrenergic cell groups 1–6; _C_, C root fibres; _MD_, medial dorsal thalamic nucleus; _PAG_, periaqueductal grey; _VMpo_, posterior ventromedial thalamic nucleus; _VP_, ventral posterior thalamic nucleus",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 387,
+     "line": "These cells have been proposed to be involved in the regulation of _theta_ activity [21]. 6. _Afferents_ _from_ _monoaminergic_ _cell_ _groups_ _in_ _the_ _brain_ _stem._ The hippocampal formation receives serotoninergic fibres from the mesencephalic raphe nuclei, noradrenergic fibres from the locus coeruleus and dopaminergic fibres from the ventral tegmental area.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1131,
+     "line": "The location and nature of the wake-promoting neurons were unknown. In the succeeding decades, it became clear that these lesions damaged the axons of neurons in the upper brain stem that project to the forebrain, including noradrenergic neurons in the locus ceruleus, serotonergic neurons in the dorsal and median raphe, and midbrain dopaminergic neurons (Chapter 40).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "In the brain stem, the periaqueductal grey matter, the ventral tegmental area, the parabrachial nuclei, the dorsal vagal complex and the noradrenergic cell groups A1 and A2 send fibres to the BST Ricardo and Koh [174, 175] have emphasized that the BST receives the most dense pathways ascending from the interoceptive portion of the nucleus of the solitary tract to the forebrain.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 387,
+     "line": "6. _Afferents_ _from_ _monoaminergic_ _cell_ _groups_ _in_ _the_ _brain_ _stem._ The hippocampal formation receives serotoninergic fibres from the mesencephalic raphe nuclei, noradrenergic fibres from the locus coeruleus and dopaminergic fibres from the ventral tegmental area. Diffusely arranged fibres carrying these three monoamines have been observed in all parts of the hippocampus.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "This group is absent in primates. More rostrally, noradrenergic cells are present in the locus coeruleus in the periaqueductal grey (A6), as scattered cells in the nucleus subcoeruleus, in the subependymal extension of the locus coeruleus (A4), ventrolaterally, in the paragigantocellular nucleus (A5) and dispersed within and around the ventral nucleus of the lateral lemniscus (A7) (Fig.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 537,
+     "line": "Neuronal cell bodies and axon terminals containing enkephalin and dynorphin are found in the dorsal horn of the spinal cord, particularly in laminae I and II, as well as in the rostral ventral medulla and the periaqueductal gray matter. β-endorphin are confined primarily to the hypothalamus; their axons terminate in the periaqueductal gray region and on noradrenergic neurons in the brain stem.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 703,
+     "line": "Noradrenergic cells situated in rhombencephalic catecholaminergic cell groups A5, A6 and A7, which also project to the superficial dorsal horn, contribute to the descending pain-inhibiting system (Fig. These cell groups are in receipt of strong afferent projections from the periaqueductal grey, the rostral ventromedial medulla oblongata and the superficial laminae of the dorsal horn [11, 107].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 274,
+     "line": "The _thalamic_ _midline_ _nuclei_ receive afferents from numerous subcortical centres, which include the reticular formation of the brain stem and noradrenergic locus coeruleus, the mainly serotoninergic dorsal raphe nucleus, cholinergic laterodorsal tegmental nucleus, parabrachial nuclei, mesencephalic periaqueductal grey matter, hypothalamus and bed nucleus of the stria terminalis [117, 234].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 638,
+     "line": "It receives cholinergic and GABAergic afferents from the basal nucleus of Meynert, histaminergic, orexinergic and melanin-concentrating hormone-containing fibres from the hypothalamus, serotoninergic fibres from the mesencephalic raphe nuclei, dopaminergic fibres from the ventral tegmental area and noradrenergic fibres from the locus coeruleus. It has reciprocal connections with various parts of the limbic lobe (Fig.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "Among them, the central nucleus of the amygdala, the preoptic area, different hypothalamic nuclei, the periaqueductal grey, the nucleus of the solitary tract, the prefrontal cortex, the adrenergic cell group C1 [32] and Barrington’s micturition area may be mentioned. The locus coeruleus is densely innervated by hypocretin/orexin fibres, originating from the perifornical region of the hypothalamus [49] (see also Chap.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "More rostrally, noradrenergic cells are present in the locus coeruleus in the periaqueductal grey (A6), as scattered cells in the nucleus subcoeruleus, in the subependymal extension of the locus coeruleus (A4), ventrolaterally, in the paragigantocellular nucleus (A5) and dispersed within and around the ventral nucleus of the lateral lemniscus (A7) (Fig. Noradrenergic cell strands interconnect the groups A5, A6 and A7.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 638,
+     "line": "The afferents from the various association areas are reciprocated by efferent projections. It receives cholinergic and GABAergic afferents from the basal nucleus of Meynert, histaminergic, orexinergic and melanin-concentrating hormone-containing fibres from the hypothalamus, serotoninergic fibres from the mesencephalic raphe nuclei, dopaminergic fibres from the ventral tegmental area and noradrenergic fibres from the locus coeruleus.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 542,
+     "line": "10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 274,
+     "line": "Corticothalamic fibres reciprocate the intralaminar-cortical projections [132]. The _thalamic_ _midline_ _nuclei_ receive afferents from numerous subcortical centres, which include the reticular formation of the brain stem and noradrenergic locus coeruleus, the mainly serotoninergic dorsal raphe nucleus, cholinergic laterodorsal tegmental nucleus, parabrachial nuclei, mesencephalic periaqueductal grey matter, hypothalamus and bed nucleus of the stria terminalis [117, 234].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "A noradrenergic system arises in the locus ceruleus and other nuclei in the pons and medulla. (See Figure 40–11A for the locations and projections of monoaminergic neurons.) In the spinal cord, these descending pathways inhibit nociceptive projection neurons through direct connections as well as through interneurons in the superficial layers of the dorsal horn. Both the serotonergic nucleus raphe magnus and noradrenergic nuclei receive input from neurons in the periaqueductal gray region.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 701,
+     "line": "Control systems for pain descend from the periaqueductal grey via the nucleus raphe magnus and from noradrenergic cell groups 1, 2, 5 and 6. Inset shows the dorsal horn with presumed inhibitory pathway from A-beta root fibres to the relay cells of the C fibres. _A_, A-beta root fibres; _A1–6_, noradrenergic cell groups 1–6; _C_, C root fibres; _MD_, medial dorsal thalamic nucleus; _PAG_, periaqueductal grey; _VMpo_, posterior ventromedial thalamic nucleus; _VP_, ventral posterior thalamic nucleus",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 542,
+     "line": "10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex. The claustral and amygdaloid efferents have been discussed in Chap.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 311,
+     "line": "**Fig.** **10.6.** Circuitry subserving the stress response. _A1_, _A2_, noradrenergic cell groups; _AC_, adrenal cortex; _AM_, amygdala; _APG_, anterior pituitary gland; _BST_, bed nucleus of stria terminalis; _CING_, cingulate cortex; _CRH_, corticotropin-releasing hormone; _GCS_, glucocorticoids; _HF_, hippocampal formation; _LC_, locus coeruleus; _ME_, median eminence; _NST_, nucleus of the solitary tract; _PAG_, periaqueductal gray; _PB_, parabrachial nuclei; _PVH_, paraventricular hypothalamic nucleus; _S_, septal nuclei; _SFO_, subfornical organ",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1131,
+     "line": "In the succeeding decades, it became clear that these lesions damaged the axons of neurons in the upper brain stem that project to the forebrain, including noradrenergic neurons in the locus ceruleus, serotonergic neurons in the dorsal and median raphe, and midbrain dopaminergic neurons (Chapter 40). The axons of other neurons in the posterior hypothalamus, including those producing histamine and orexin, also join this pathway, which splits into two bundles, with some projections innervating the thalamus and others the hypothalamus, basal forebrain, and cerebral cortex (Figure 44–3).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 542,
+     "line": "14.15); (4) the hypothalamus, comprising orexinergic, histaminergic and melanin-concentrating hormone (MCH)-containing neocortically projecting neuron groups (Figs. 10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 311,
+     "line": "306 Section II Structure of Spinal Cord and Brain Parts **Fig.** **10.6.** Circuitry subserving the stress response. _A1_, _A2_, noradrenergic cell groups; _AC_, adrenal cortex; _AM_, amygdala; _APG_, anterior pituitary gland; _BST_, bed nucleus of stria terminalis; _CING_, cingulate cortex; _CRH_, corticotropin-releasing hormone; _GCS_, glucocorticoids; _HF_, hippocampal formation; _LC_, locus coeruleus; _ME_, median eminence; _NST_, nucleus of the solitary tract; _PAG_, periaqueductal gray; _PB_, parabrachial nuclei; _PVH_, paraventricular hypothalamic nucleus; _S_, septal nuclei; _SFO_, subfornical organ",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 274,
+     "line": "The _thalamic_ _midline_ _nuclei_ receive afferents from numerous subcortical centres, which include the reticular formation of the brain stem and noradrenergic locus coeruleus, the mainly serotoninergic dorsal raphe nucleus, cholinergic laterodorsal tegmental nucleus, parabrachial nuclei, mesencephalic periaqueductal grey matter, hypothalamus and bed nucleus of the stria terminalis [117, 234]. The midline nuclei project to both the striatum and cerebral cortex, but contrary to what is seen in intralaminar nuclei, the efferents of the midline nuclei are directed primarily to the cortex and to a much lesser degree the striatum.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 273,
+     "line": "The intralaminar nuclei receive ascending projections from the spinal grey matter, particularly from laminae VII and VIII [209] and a wide variety of brain stem nuclei, including the spinal trigeminal nucleus, the medial and lateral vestibular nuclei, various parts of the reticular formation, particularly the mesencephalic cuneiform nucleus, the parabrachial nuclear complex, the deep layers of the superior colliculi, several pretectal nuclei and the noradrenergic locus coeruleus, the (mainly) serotoninergic dorsal raphe nucleus, and the cholinergic pedunculopontine and laterodorsal tegmental nuclei [20, 25, 26, 49, 53, 73, 128, 141, 157, 193, 201, 215, 216, 222, 254].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 301,
+     "line": "MPN Mesencephalic locomotor region (MLR) [15, 371] PVH, DMH Locus coeruleus (A6) [18, 297]",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "Neurons of A7 and A5, like the locus coeruleus, receive a projection from the periaqueductal grey.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1133,
+     "line": "Conversely, GABAergic neurons in the subceruleus area also project back to the ventrolateral periaqueductal gray region.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 929,
+     "line": "[23], ventral tegmental area [30], periaqueductal grey [19, 136], locus coeruleus [130], ventrolateral medulla [1] and dorsal vagal complex [9].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "Neurons of A7 and A5, like the locus coeruleus, receive a projection from the periaqueductal grey. These A7 neurons project to the spinal cord [11, 12].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "Local targets include the periaqueductal grey, the lateral pontine tegmental field with the locus coeruleus, the pedunculopontine nucleus and the substan",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 926,
+     "line": "The lateral part of the caudal mesencephalic tegmentum contains a locus from which locomotion can be elicited in intact and decerebrate rats and cats [41, 114].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1133,
+     "line": "The subceruleus area in turn receives input from a population of GABAergic neurons in and just lateral to the periaqueductal gray matter, where the cerebral aqueduct opens into the fourth ventricle.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 928,
+     "line": "Interestingly, however, the same appeared to hold true for a number of brain stem centres, including the periaqueductal grey, the lateral parabrachial nucleus, the locus coeruleus and the solitary nucleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 457,
+     "line": "The SNc neurons receive, in addition to their input from the striatum, afferents from the bed nucleus of the stria terminalis, the mesencephalic raphe nuclei, the pedunculopontine tegmental nucleus and the locus coeruleus",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 735,
+     "line": "Other potential sources of signal refinement are the retrograde projections to the olfactory bulb from the olfactory cortex, basal forebrain (horizontal limb of the diagonal band), and midbrain (locus ceruleus and raphe nuclei).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1134,
+     "line": "(see Figure 44–5). (Abbreviations: vPAG, ventral periaqueductal gray; The flip-flop switch relationship of the ventrolateral and median preoptic nuclei and the mutually inhibitory components of the ascending arousal system (LC, locus ceruleus;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 924,
+     "line": "At the mesencephalic level, this series includes the lateral part of the tegmental grey. In the rhombencephalon, the locus coeruleus or A6 group, the nucleus subcoeruleus (A6sc), the Kölliker-Fuse nucleus, the M and L regions of Holstege et al.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 928,
+     "line": "Interestingly, however, the same appeared to hold true for a number of brain stem centres, including the periaqueductal grey, the lateral parabrachial nucleus, the locus coeruleus and the solitary nucleus. Neuropeptides may influence behaviour.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1133,
+     "line": "These neurons are most active during wake and non-REM sleep, and they inhibit the subceruleus neurons, preventing entry into REM sleep. Conversely, GABAergic neurons in the subceruleus area also project back to the ventrolateral periaqueductal gray region.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 929,
+     "line": "[23], ventral tegmental area [30], periaqueductal grey [19, 136], locus coeruleus [130], ventrolateral medulla [1] and dorsal vagal complex [9]. **A** **Brief** **Guide** **to** **Discussions** **of** **Limbic** **Structures** **in** **Previous** **Chapters**",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "Local targets include the periaqueductal grey, the lateral pontine tegmental field with the locus coeruleus, the pedunculopontine nucleus and the substan The median raphe nucleus connects with the interpeduncular nucleus, the substantia nigra and the mamillary body.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 902,
+     "line": "Neurons projecting to the thalamus are located in the central reticular nucleus of the mesencephalon, the parabrachial nuclei and the locus coeruleus and subcoeruleus and scattered in the nucleus reticularis pontis oralis and caudalis and the nucleus gigantocellularis.",
+     "attrs": [
+      "route"
+     ]
+    }
+   ]
+  },
+  "locus_coeruleus_R->medulla": {
+   "from": "locus_coeruleus_R",
+   "to": "medulla",
+   "transmitter": "Noradrenaline",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Noradrenergic (medullary)",
+   "candidates": [
+    {
+     "corpus": "kandel",
+     "page": 1046,
+     "line": "Noradrenergic neurons (A groups) and adrenergic neurons (C groups) are located in the medulla and pons.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 303,
+     "line": "centres are synaptically interrupted in autonomic premotor nuclei such as the A5 noradrenergic cell group and ventrolateral medulla.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 205,
+     "line": "The cells of the noradrenergic cell group A2 and the adrenergic group C2 are located in and around the nucleus of the solitary tract.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "In rodents the adrenergic and noradrenergic neurons in the medulla oblongata are located in a dorsolateral and a ventrolateral group.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1046,
+     "line": "TMN, tuberomammillary nucleus; Noradrenergic neurons (A groups) and adrenergic neurons (C groups) are located in the medulla and pons.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The cerebellar noradrenergic innervation of the cerebellum and the inferior olive stems from the locus coeruleus and the groups A5 and A7 [198].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 303,
+     "line": "298 Section II Structure of Spinal Cord and Brain Parts centres are synaptically interrupted in autonomic premotor nuclei such as the A5 noradrenergic cell group and ventrolateral medulla.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1046,
+     "line": "Noradrenergic neurons (A groups) and adrenergic neurons (C groups) are located in the medulla and pons. The A2 and C2 groups in the dorsal medulla are part of the nucleus of the solitary tract.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "**Adrenergic** **and** **Noradrenergic** **Cell** **Groups** In rodents the adrenergic and noradrenergic neurons in the medulla oblongata are located in a dorsolateral and a ventrolateral group.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 205,
+     "line": "The most caudal portion of the ventrolateral reticular area corresponds to the _retroambiguus_ _nucleus_ . The cells of the noradrenergic cell group A2 and the adrenergic group C2 are located in and around the nucleus of the solitary tract.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1560,
+     "line": "Serotonergic and noradrenergic neurons in the pons and medulla project widely to highly diverse terminal fields in brain regions that include the hypothalamus, hippocampus, amygdala, basal ganglia, and cerebral cortex (Figures 61–5 and 61–6).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 891,
+     "line": "A ventrolateral extension of the gigantocellular nucleus contains the noradrenergic cell group A5. Caudally, the medial tegmental field is continuous with the _ventral_ _subdivision_ _of_ _the_ _central_ _nucleus_ _of_ _the_ _medulla_ _oblongata_ (Fig.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "Synaptic contacts with Purkinje cell and granule cell dendrites are made by more than 50% of the varicosities The cerebellar noradrenergic innervation of the cerebellum and the inferior olive stems from the locus coeruleus and the groups A5 and A7 [198].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "In rodents the adrenergic and noradrenergic neurons in the medulla oblongata are located in a dorsolateral and a ventrolateral group. The ventrolateral group consists of the noradrenergic group A1 of Dahlström and Fuxe [43, 44] and the adrenergic group C1 of Hökfelt et al.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The cerebellar noradrenergic innervation of the cerebellum and the inferior olive stems from the locus coeruleus and the groups A5 and A7 [198]. The noradrenergic system pairs topographic specificity to the branching of individual noradrenergic axons between widely separated targets.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1560,
+     "line": "Serotonergic and noradrenergic neurons in the pons and medulla project widely to highly diverse terminal fields in brain regions that include the hypothalamus, hippocampus, amygdala, basal ganglia, and cerebral cortex (Figures 61–5 and 61–6). Chapter 61 / Disorders of Mood and Anxiety 1513",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "The distribution of noradrenergic fibres in these regions is considered in more detail in the Chaps. In the brain stem of the rat, the locus coeruleus densely innervates the sensory relay nuclei (spinal nucleus of the trigeminal nerve [61], nucleus of the solitary tract [179], and cochlear nuclei [110, 111]).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 303,
+     "line": "centres are synaptically interrupted in autonomic premotor nuclei such as the A5 noradrenergic cell group and ventrolateral medulla. Apart from the paraventricular nucleus, the dorsomedial nucleus and lateral hypothalamic area also provide descending connections to the autonomic nuclei of the lower brain stem and spinal cord [209, 360].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1051,
+     "line": "The noradrenergic inputs to the spinal cord originate from the pontine cell groups A5–A7, with the locus ceruleus (A6) providing most of the input to the dorsal horn. Similarly, the serotonergic raphe nuclei in the medulla, particularly the nucleus raphe magnus, project to the dorsal horn where they modulate the processing of information about noxious stimuli.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "A noradrenergic system arises in the locus ceruleus and other nuclei in the pons and medulla. (See Figure 40–11A for the locations and projections of monoaminergic neurons.) In the spinal cord, these descending pathways inhibit nociceptive projection neurons through direct connections as well as through interneurons in the superficial layers of the dorsal horn.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "A sizeable proportion of the serotonergic neurons is found outside the raphe nuclei in the reticular formation lateral to the inferior olive, surrounding the lateral reticular nucleus, in the ventral gigantocellular nucleus, scattered in the dorsal tegmentum pontis and among the noradrenaline neurons of the locus coeruleus, the nucleus subcoeruleus and the parabrachial nuclei.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "In the brain stem, the periaqueductal grey matter, the ventral tegmental area, the parabrachial nuclei, the dorsal vagal complex and the noradrenergic cell groups A1 and A2 send fibres to the BST Ricardo and Koh [174, 175] have emphasized that the BST receives the most dense pathways ascending from the interoceptive portion of the nucleus of the solitary tract to the forebrain.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 537,
+     "line": "Neuronal cell bodies and axon terminals containing enkephalin and dynorphin are found in the dorsal horn of the spinal cord, particularly in laminae I and II, as well as in the rostral ventral medulla and the periaqueductal gray matter. β-endorphin are confined primarily to the hypothalamus; their axons terminate in the periaqueductal gray region and on noradrenergic neurons in the brain stem.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 703,
+     "line": "Noradrenergic cells situated in rhombencephalic catecholaminergic cell groups A5, A6 and A7, which also project to the superficial dorsal horn, contribute to the descending pain-inhibiting system (Fig. These cell groups are in receipt of strong afferent projections from the periaqueductal grey, the rostral ventromedial medulla oblongata and the superficial laminae of the dorsal horn [11, 107].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1560,
+     "line": "The relevant monoamine neurotransmitters— serotonin, norepinephrine, and dopamine—are synthesized by cells that reside within brain stem nuclei (Chapter 40). Serotonergic and noradrenergic neurons in the pons and medulla project widely to highly diverse terminal fields in brain regions that include the hypothalamus, hippocampus, amygdala, basal ganglia, and cerebral cortex (Figures 61–5 and 61–6).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "Among them, the central nucleus of the amygdala, the preoptic area, different hypothalamic nuclei, the periaqueductal grey, the nucleus of the solitary tract, the prefrontal cortex, the adrenergic cell group C1 [32] and Barrington’s micturition area may be mentioned. The locus coeruleus is densely innervated by hypocretin/orexin fibres, originating from the perifornical region of the hypothalamus [49] (see also Chap.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The medullary adrenergic and noradrenergic cell groups, with their spinal output through A5 to the intermediolateral nucleus, their connections with autonomic centres in the brain stem and their ascending connections to the paraventricular nucleus of the hypothalamus and the preoptic area, are involved in a wide range of visceral functions, including cardiovascular control and respiration, and in the control of secretion of different hormones by the hypothalamus.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "A sizeable proportion of the serotonergic neurons is found outside the raphe nuclei in the reticular formation lateral to the inferior olive, surrounding the lateral reticular nucleus, in the ventral gigantocellular nucleus, scattered in the dorsal tegmentum pontis and among the noradrenaline neurons of the locus coeruleus, the nucleus subcoeruleus and the parabrachial nuclei. Scattered neurons in the nucleus pontis oralis are prominent in the human brain stem [12].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "A noradrenergic system arises in the locus ceruleus and other nuclei in the pons and medulla. (See Figure 40–11A for the locations and projections of monoaminergic neurons.) In the spinal cord, these descending pathways inhibit nociceptive projection neurons through direct connections as well as through interneurons in the superficial layers of the dorsal horn. Both the serotonergic nucleus raphe magnus and noradrenergic nuclei receive input from neurons in the periaqueductal gray region.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "A serotonergic pathway arises in the nucleus raphe magnus and projects through the dorsolateral funiculus to the dorsal horn of the spinal cord. A noradrenergic system arises in the locus ceruleus and other nuclei in the pons and medulla. (See Figure 40–11A for the locations and projections of monoaminergic neurons.) In the spinal cord, these descending pathways inhibit nociceptive projection neurons through direct connections as well as through interneurons in the superficial layers of the dorsal horn.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The medullary adrenergic and noradrenergic cell groups, with their spinal output through A5 to the intermediolateral nucleus, their connections with autonomic centres in the brain stem and their ascending connections to the paraventricular nucleus of the hypothalamus and the preoptic area, are involved in a wide range of visceral functions, including cardiovascular control and respiration, and in the control of secretion of different hormones by the hypothalamus. The locus coeruleus is implicated in arousal.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris). Descending noradrenergic neurons inhibit neurotransmitter release from primary afferents directly via inhibitory α2 adrenoceptors (Figure 9-2), explaining why direct-acting α2 agonists such as clonidine can be useful in relieving pain in some patients.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "One is the descending spinal norepinephrine pathway (Figure 9-12A), which originates in the locus coeruleus, and especially from noradrenergic cell bodies in the lower (caudal) parts of the brainstem neurotransmitter center (lateral tegmental norepinephrine cell system). The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 311,
+     "line": "**Fig.** **10.6.** Circuitry subserving the stress response. _A1_, _A2_, noradrenergic cell groups; _AC_, adrenal cortex; _AM_, amygdala; _APG_, anterior pituitary gland; _BST_, bed nucleus of stria terminalis; _CING_, cingulate cortex; _CRH_, corticotropin-releasing hormone; _GCS_, glucocorticoids; _HF_, hippocampal formation; _LC_, locus coeruleus; _ME_, median eminence; _NST_, nucleus of the solitary tract; _PAG_, periaqueductal gray; _PB_, parabrachial nuclei; _PVH_, paraventricular hypothalamic nucleus; _S_, septal nuclei; _SFO_, subfornical organ",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "The nucleus linearis extends from the decussation of the superior cerebellar peduncle to the interpeduncular nucleus, where the serotonergic neurons intermingle with dopaminergic cells of the ventral tegmental area. A sizeable proportion of the serotonergic neurons is found outside the raphe nuclei in the reticular formation lateral to the inferior olive, surrounding the lateral reticular nucleus, in the ventral gigantocellular nucleus, scattered in the dorsal tegmentum pontis and among the noradrenaline neurons of the locus coeruleus, the nucleus subcoeruleus and the parabrachial nuclei.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 311,
+     "line": "306 Section II Structure of Spinal Cord and Brain Parts **Fig.** **10.6.** Circuitry subserving the stress response. _A1_, _A2_, noradrenergic cell groups; _AC_, adrenal cortex; _AM_, amygdala; _APG_, anterior pituitary gland; _BST_, bed nucleus of stria terminalis; _CING_, cingulate cortex; _CRH_, corticotropin-releasing hormone; _GCS_, glucocorticoids; _HF_, hippocampal formation; _LC_, locus coeruleus; _ME_, median eminence; _NST_, nucleus of the solitary tract; _PAG_, periaqueductal gray; _PB_, parabrachial nuclei; _PVH_, paraventricular hypothalamic nucleus; _S_, septal nuclei; _SFO_, subfornical organ",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 923,
+     "line": "A1–A7 Noradrenergic cell groups A8–A10 Dopaminergic cell groups B1–B7 Serotoninergic cell groups C1, C2 Adrenergic cell groups dacp Dorsal ascending catecholamine pathway dasp Dorsal ascending serotonin pathway ddsp Dorsal descending serotonin pathway dlf Dorsal longitudinal fasciculus ip Interpeduncular nucleus lc Locus coeruleus (A6) lcb Longitudinal catecholamine bundle lpc Lateral paracore mpc Median paracore rf Reticular formation sca Subcoeruleus area (A6) vacp Ventral ascending catecholamine pathway vasp Ventral ascending serotonin pathway vdsp Ventral descending serotonin pathway vlm Ventrolateral medulla",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "In some regions, such as the spinal cord, these two modes of transmission are spatially segregated, with thin fibres without synapses prevailing in the dorsal horn, and synaptic transmission in the motoneuronal cell columns. The medullary adrenergic and noradrenergic cell groups, with their spinal output through A5 to the intermediolateral nucleus, their connections with autonomic centres in the brain stem and their ascending connections to the paraventricular nucleus of the hypothalamus and the preoptic area, are involved in a wide range of visceral functions, including cardiovascular control and respiration, and in the control of secretion of different hormones by the hypothalamus.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1055,
+     "line": "the caudal ventrolateral region of the medulla oblongata. Sensitivity of locus coeruleus",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "originates in the locus ceruleus and other nuclei of the medulla and pons (Figure 20–17).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 929,
+     "line": "[23], ventral tegmental area [30], periaqueductal grey [19, 136], locus coeruleus [130], ventrolateral medulla [1] and dorsal vagal complex [9].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "The location and the connections of the A2 are closely related to the nucleus of the solitary tract. The projections of the locus coeruleus cover the entire central nervous system.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "The nucleus of the solitary tract also is innervated by the A1 and A5 groups [19, 31, 121]. The scarce innervation of the cranial motor nuclei by the locus coeruleus has also been observed in the monkey.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "originates in the locus ceruleus and other nuclei of the medulla and pons (Figure 20–17). Through direct and indirect synaptic actions, these projections inhibit neurons in laminae I and V of the dorsal horn.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "In the brain stem of the rat, the locus coeruleus densely innervates the sensory relay nuclei (spinal nucleus of the trigeminal nerve [61], nucleus of the solitary tract [179], and cochlear nuclei [110, 111]).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 536,
+     "line": "A second major monoaminergic descending system can also suppress the activity of nociceptive neurons in the dorsal horn. originates in the locus ceruleus and other nuclei of the medulla and pons (Figure 20–17).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 305,
+     "line": "There is evidence that in the human brain, VP-containing fibres descend from the dorsal part of the PVN to the locus coeruleus, parabrachial nuclei, nucleus of the solitary tract, and area postrema [78, 107, 392, 393].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1133,
+     "line": "Other glutamatergic subceruleus neurons produce the paralysis of REM sleep via projections to the ventromedial medulla and spinal cord, where they activate GABAergic and glycinergic neurons that deeply hyperpolarize motor neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 929,
+     "line": "[23], ventral tegmental area [30], periaqueductal grey [19, 136], locus coeruleus [130], ventrolateral medulla [1] and dorsal vagal complex [9]. **A** **Brief** **Guide** **to** **Discussions** **of** **Limbic** **Structures** **in** **Previous** **Chapters**",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 469,
+     "line": "**Brain** **stem** Interpeduncular nucleus + Pedunculopontine tegmental nucleus - + Laterodorsal tegmental nucleus - + Dorsal raphe nucleus - + Locus coeruleus - + Periaqueductal grey - + Ventral tegmental area - + Parabrachial nuclei - + Dorsal motor vagus nucleus - + Nucleus of solitary tract - +",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 415,
+     "line": "area, the cuneiform nucleus, the periaqueductal grey matter, the raphe nuclei, the parabrachial nuclei, the locus coeruleus and the area subcoerulea, the rhombencephalic reticular formation, the dorsal motor nucleus of the vagus and the nucleus of the solitary tract [60, 79, 80, 140, 163, 192, 208, 216].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 305,
+     "line": "The SCH may utilize the large DMH-PVH pathway to exert control over other autonomic centres as well. There is evidence that in the human brain, VP-containing fibres descend from the dorsal part of the PVN to the locus coeruleus, parabrachial nuclei, nucleus of the solitary tract, and area postrema [78, 107, 392, 393].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "Large regions of the brain stem, such as the cranial somatic and autonomic motor nuclei and the reticular formation, are sparsely innervated by the locus coeruleus, but receive their afferents from the cell groups A5 and 7 [2, 3, 54, 61, 116]. The nucleus of the solitary tract also is innervated by the A1 and A5 groups [19, 31, 121].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 924,
+     "line": "In the rhombencephalon, the locus coeruleus or A6 group, the nucleus subcoeruleus (A6sc), the Kölliker-Fuse nucleus, the M and L regions of Holstege et al. [56], the nucleus reticularis parvocellularis, the ventrolateral medulla and the cytoarchitectonically ill-defined cell groups A1, A2, A5, A7, C1, C2 and Ch5 constitute this series.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 412,
+     "line": "Brain stem neurons located in the periaqueductal grey matter (PAG), the substantia nigra pars compacta, the ventral tegmental area, the dorsal raphe nucleus, the locus coeruleus, the lateral parabrachial nucleus, the nucleus of the solitary tract and the ventrolateral medulla project to the central amygdaloid nucleus [7, 35, 135, 148, 149, 151, 184, 220].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "In the brain stem of the rat, the locus coeruleus densely innervates the sensory relay nuclei (spinal nucleus of the trigeminal nerve [61], nucleus of the solitary tract [179], and cochlear nuclei [110, 111]). The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 469,
+     "line": "**Hypothalamus** Preoptic/anterior hypothalamus + + + Posterior hypothalamus + + + **Brain** **stem** Interpeduncular nucleus + Pedunculopontine tegmental nucleus - + Laterodorsal tegmental nucleus - + Dorsal raphe nucleus - + Locus coeruleus - + Periaqueductal grey - + Ventral tegmental area - + Parabrachial nuclei - + Dorsal motor vagus nucleus - + Nucleus of solitary tract - +",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 898,
+     "line": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus. Large regions of the brain stem, such as the cranial somatic and autonomic motor nuclei and the reticular formation, are sparsely innervated by the locus coeruleus, but receive their afferents from the cell groups A5 and 7 [2, 3, 54, 61, 116].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 929,
+     "line": "Let it suffice to mention here that, meanwhile, ultrastructural findings strongly suggesting the occurrence of non-synaptic inter-neuronal communication have been reported for numerous limbic structures, including the supraoptic nucleus [87, 101], suprachiasmatic nucleus [23], ventral tegmental area [30], periaqueductal grey [19, 136], locus coeruleus [130], ventrolateral medulla [1] and dorsal vagal complex [9].",
+     "attrs": [
+      "route"
+     ]
+    }
+   ]
   }
  }
 }

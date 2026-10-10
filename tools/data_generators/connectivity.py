@@ -393,6 +393,16 @@ PROJECTIONS: list[dict[str, Any]] = [
          kind="noradrenergic", neurotransmitter="Noradrenaline",
          label="Noradrenergic (pontine)",
          description="Locus coeruleus noradrenaline reaches the pontine nuclei."),
+    dict(**{"from": "locus_coeruleus_R", "to": "midbrain"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (midbrain)",
+         description="Locus coeruleus noradrenaline reaches the tectum and "
+                     "periaqueductal grey of the midbrain."),
+    dict(**{"from": "locus_coeruleus_R", "to": "medulla"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (medullary)",
+         description="Locus coeruleus noradrenaline reaches the inferior olive "
+                     "in the medulla."),
     dict(**{"from": "vta_R", "to": "accumbens_R"},
          kind="dopaminergic", neurotransmitter="Dopamine",
          label="Mesolimbic (VTA)",

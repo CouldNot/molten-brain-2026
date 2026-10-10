@@ -237,6 +237,17 @@ FR: dict[str, str] = {
         "Sérotoninergique ascendante (bulbe olfactif)",
     "Noradrenergic (pontine)":
         "Noradrénergique (pontique)",
+    "Noradrenergic (midbrain)":
+        "Noradrénergique (mésencéphalique)",
+    "Noradrenergic (medullary)":
+        "Noradrénergique (bulbaire)",
+    "Locus coeruleus noradrenaline reaches the tectum and periaqueductal grey of "
+    "the midbrain.":
+        "La noradrénaline du locus coeruleus atteint le tectum et la substance "
+        "grise périaqueducale du mésencéphale.",
+    "Locus coeruleus noradrenaline reaches the inferior olive in the medulla.":
+        "La noradrénaline du locus coeruleus atteint l'olive inférieure du bulbe "
+        "rachidien.",
     "Mesocortical (temporal)":
         "Mésocorticale (temporale)",
     "Mesocortical (cingulate)":

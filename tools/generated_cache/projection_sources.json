@@ -46,6 +46,22 @@
     "provenance": "verified"
    }
   ],
+  "locus_coeruleus_R->medulla": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 900,
+    "quote": "The cerebellar noradrenergic innervation of the cerebellum and the inferior olive stems from the locus coeruleus and the groups A5 and A7 [198].",
+    "provenance": "verified"
+   }
+  ],
+  "locus_coeruleus_R->midbrain": [
+   {
+    "corpus": "nieuwenhuys",
+    "page": 898,
+    "quote": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
   "locus_coeruleus_R->pons": [
    {
     "corpus": "nieuwenhuys",
