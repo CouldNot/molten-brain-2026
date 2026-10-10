@@ -70,6 +70,7 @@ SITES = {"presynaptic": {"presynaptic"}, "postsynaptic": {"postsynaptic"},
 
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
+from prose_gate import PageGate, add_source  # noqa: E402  (the shared by-index gate)
 
 # GtoPdb target type -> our receptor `receptor_class` vocabulary. Absent = no claim:
 # `other_protein` (sigma-1) does not assert our "chaperone", so sigma-1 stays llm.
@@ -178,14 +179,6 @@ def sign_from_transduction(entries: list[dict]) -> tuple[str | None, dict | None
     return signs.pop(), backing, ""
 
 
-def add_source(bucket: list, src: dict) -> bool:
-    """Append ``src`` unless a source with the same quote is already there (idempotence)."""
-    if any(s.get("quote") == src["quote"] for s in bucket):
-        return False
-    bucket.append(src)
-    return True
-
-
 def apply_prose(worklist: dict, judged: dict, receptors: dict, targets: dict,
                 rec_out: dict, tgt_out: dict, pages: dict = PROSE_PAGES) -> tuple[int, list]:
     """Gate the LLM's by-index picks and merge them into ``rec_out`` / ``tgt_out``.
@@ -196,30 +189,11 @@ def apply_prose(worklist: dict, judged: dict, receptors: dict, targets: dict,
     writes nothing for that attribute.
     """
     owners = worklist.get("owners", {})
-    ptext: dict[tuple, str | None] = {}
+    gate = PageGate(pages)
     applied, misses = 0, []
 
     def sources(oid: str, picks, what: str) -> list[dict] | None:
-        cands = owners[oid].get("candidates", [])
-        out = []
-        for i in picks or []:
-            if not isinstance(i, int) or not 0 <= i < len(cands):
-                misses.append(f"{oid}/{what}: index {i!r} out of range")
-                return None
-            c = cands[i]
-            key = (c["corpus"], str(c["page"]))
-            if key not in ptext:
-                path = pages.get(c["corpus"])
-                path = path / f"{c['page']}.md" if path else None
-                ptext[key] = (normalize_for_match(path.read_text("utf-8", errors="replace"))
-                              if path and path.exists() else None)
-            if not ptext[key] or normalize_for_match(c["line"]) not in ptext[key]:
-                misses.append(f"{oid}/{what}: quote not on {c['corpus']}/{c['page']}: "
-                              f"{c['line'][:80]!r}")
-                return None
-            out.append({"corpus": c["corpus"], "page": c["page"], "quote": c["line"],
-                        "provenance": "verified"})
-        return out
+        return gate.sources(owners[oid].get("candidates", []), picks, f"{oid}/{what}", misses)
 
     for rid, attrs in sorted((judged.get("receptors") or {}).items()):
         own, rec = owners.get(rid), receptors.get(rid)
