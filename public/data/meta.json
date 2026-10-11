@@ -3712,6 +3712,13 @@
       "url": "https://europepmc.org/",
       "pages_dir": "data_sources/europepmc/pages",
       "editable": false
+    },
+    "drugsfda": {
+      "ref": "Drugs@FDA (U.S. FDA), approved application history",
+      "citation": "U.S. Food and Drug Administration. Drugs@FDA: FDA-approved drugs, cited application's original approval (openFDA drug/drugsfda export, public domain; application number pinned per citation).",
+      "url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
+      "pages_dir": "data_sources/drugsfda/pages",
+      "editable": true
     }
   },
   "addon_slots": {
@@ -3924,8 +3931,8 @@
         "missing": 0
       },
       "drug_first_approval": {
-        "total": 201,
-        "verified": 201,
+        "total": 229,
+        "verified": 229,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4159,14 +4166,14 @@
       }
     },
     "nodes": {
-      "total": 7468,
-      "verified": 6204,
+      "total": 7496,
+      "verified": 6232,
       "uncertain": 264,
       "sourced": 0,
       "llm": 266,
       "nosource": 734,
       "missing": 1000,
-      "backed": 6468,
+      "backed": 6496,
       "pct_backed": 87
     },
     "ki_coverage": {
