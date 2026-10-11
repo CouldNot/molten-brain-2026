@@ -24,6 +24,9 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import re
+from typing import Any
+
+from .provenance import _quote_sources
 
 # A sentence is about approval when it says the drug was approved, licensed,
 # authorized, introduced or marketed. "patented" alone is deliberately absent: a
@@ -114,6 +117,45 @@ WITHDRAWAL_REASONS: dict[str, dict[str, str]] = {
                    "attests": r"commercial|sales|economic|business|commerciale"},
     "unstated": {"en": "reason not stated", "fr": "raison non précisée", "attests": ""},
 }
+
+
+def drug_history(drug: dict[str, Any]) -> dict[str, Any]:
+    """The emitted ``first_approval`` (+ sources) and ``withdrawals`` of one drug.
+
+    Validates every value against its vocabulary so a hand edit with a typo fails the
+    build rather than shipping a label-less id. Returns only the keys the drug carries.
+    """
+    did = drug["id"]
+    out: dict[str, Any] = {}
+    fa = drug.get("first_approval")
+    if fa:
+        if not isinstance(fa.get("year"), int):
+            raise ValueError(f"Drug {did!r} first_approval has no integer year: {fa!r}")
+        for field, vocab in (("country", COUNTRIES), ("agency", AGENCIES)):
+            if fa.get(field) is not None and fa[field] not in vocab:
+                raise KeyError(f"Drug {did!r} first_approval {field} {fa[field]!r} unknown")
+        out["first_approval"] = {k: fa[k] for k in ("year", "country", "agency")
+                                 if fa.get(k) is not None}
+        srcs = _quote_sources(drug.get("first_approval_sources"),
+                              f"Drug {did!r} first_approval")
+        if srcs:
+            out["first_approval_sources"] = srcs
+    rows = []
+    for w in drug.get("withdrawals") or []:
+        if not isinstance(w.get("year"), int):
+            raise ValueError(f"Drug {did!r} withdrawal has no integer year: {w!r}")
+        if w.get("country") not in COUNTRIES:
+            raise KeyError(f"Drug {did!r} withdrawal country {w.get('country')!r} unknown")
+        if w.get("reason") not in WITHDRAWAL_REASONS:
+            raise KeyError(f"Drug {did!r} withdrawal reason {w.get('reason')!r} unknown")
+        row = {"year": w["year"], "country": w["country"], "reason": w["reason"]}
+        srcs = _quote_sources(w.get("sources"), f"Drug {did!r} withdrawal {w['country']}")
+        if srcs:
+            row["sources"] = srcs
+        rows.append(row)
+    if rows:
+        out["withdrawals"] = sorted(rows, key=lambda r: (r["year"], r["country"]))
+    return out
 
 
 def attests(vocab: dict[str, dict[str, str]], key: str, quote: str) -> bool:

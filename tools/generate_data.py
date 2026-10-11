@@ -98,6 +98,7 @@ from data_generators.presentation import (  # noqa: E402
 # Drug presentation maps + binding vocabularies (DRUG_* + DRUG_TARGETS +
 # TARGET_TYPE_*) live in data_generators.drugs.
 # ---------------------------------------------------------------------------
+from data_generators import history  # noqa: E402 (regulatory history vocabularies)
 from data_generators.drugs import (  # noqa: E402
     DRUG_ACTIONS,
     DRUG_ALIASES,
@@ -1309,6 +1310,9 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
                                       f"Drug {drug['id']!r} tmax")
         if tmax_sources:
             out["tmax_sources"] = tmax_sources
+    # Regulatory history: first approval + market withdrawals (kinds
+    # drug_first_approval / drug_withdrawals). See apply_drug_history.py.
+    out.update(history.drug_history(drug))
     # Active metabolites named in the source (one graded node each, kind
     # `drug_metabolites`); a metabolite that is itself a modeled drug links via
     # drug_id and reuses its bindings/T½ (no duplication), see _drug_metabolites.
@@ -1831,6 +1835,10 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # block near the top). drug_targets merges DRUG_TARGETS with every
         # receptor id so a binding can target either.
         "drug_category_labels": DRUG_CATEGORY_LABELS,
+        # Regulatory history vocabularies (first approval + withdrawals): id -> {en,fr}.
+        "drug_history_countries": history.labels(history.COUNTRIES),
+        "drug_history_agencies": history.labels(history.AGENCIES),
+        "drug_withdrawal_reasons": history.labels(history.WITHDRAWAL_REASONS),
         # Merged binding-target map (DRUG_TARGETS + every receptor id), plus the
         # non-receptor target type -> {en,fr} tag and type -> swatch colour the
         # merged "Receptors & targets" legend reads (receptors keep their sign

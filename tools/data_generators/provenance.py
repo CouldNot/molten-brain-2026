@@ -1274,6 +1274,13 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # at the two ends of the same curve. See apply_tmax.py.
     tmax_grades = [_strongest_grade(d.get("tmax_sources"))
                    for d in drugs if d.get("tmax")]
+    # Regulatory history: ONE first-approval node per drug that carries one, and ONE
+    # node per market withdrawal (a drug never withdrawn has none: absence is not a
+    # claim). Both graded by their own quotes; see apply_drug_history.py.
+    first_approval_grades = [_strongest_grade(d.get("first_approval_sources"))
+                             for d in drugs if d.get("first_approval")]
+    withdrawal_grades = [_strongest_grade(w.get("sources"))
+                         for d in drugs for w in d.get("withdrawals", [])]
     # Drug-metabolism nodes ("<drug> is a substrate of / inhibits / induces <enzyme>"),
     # one per (drug, enzyme, role) row. A pharmacokinetic claim, independent of the
     # drug's receptor bindings: it is what the derived drug -> drug interaction edges
@@ -1473,6 +1480,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_categories": tally(category_grades),
         "drug_half_life": tally(half_life_grades),
         "drug_tmax": tally(tmax_grades),
+        "drug_first_approval": tally(first_approval_grades),
+        "drug_withdrawals": tally(withdrawal_grades),
         "drug_enzymes": tally(enzyme_grades),
         "drug_enzyme_strength": tally(enzyme_strength_grades),
         "drug_pgx": tally(pgx_grades),

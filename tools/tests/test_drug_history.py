@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_drug_history as A  # noqa: E402
 import fetch_drug_history as F  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
+from data_generators import history as H  # noqa: E402
 
 LINES = [
     "Nefazodone was introduced for medical use in the United States in 1994.",   # 0
@@ -107,6 +108,37 @@ class ScanTest(unittest.TestCase):
         lines = [c["line"] for c in F.candidates_in(page, "wikipedia_pharm", "x")]
         self.assertEqual(lines, ["Lead line: X was approved in 1990.",
                                  "X was withdrawn in 2001 due to liver toxicity."])
+
+
+class EmitTest(unittest.TestCase):
+    SRC = [{"corpus": "wikipedia_pharm", "page": "x", "quote": "X was approved in 1990.",
+            "provenance": "verified"}]
+
+    def test_emits_only_present_keys_sorted(self):
+        out = H.drug_history({"id": "x", "first_approval": {"year": 1990, "country": "us",
+                                                            "agency": None},
+                              "first_approval_sources": self.SRC,
+                              "withdrawals": [
+                                  {"year": 2004, "country": "uk", "reason": "liver",
+                                   "sources": self.SRC},
+                                  {"year": 2001, "country": "us", "reason": "unstated"}]})
+        self.assertEqual(out["first_approval"], {"year": 1990, "country": "us"})
+        self.assertEqual([w["year"] for w in out["withdrawals"]], [2001, 2004])
+        self.assertEqual(H.drug_history({"id": "y"}), {})
+
+    def test_unknown_vocabulary_fails_the_build(self):
+        with self.assertRaises(KeyError):
+            H.drug_history({"id": "x", "withdrawals": [
+                {"year": 2004, "country": "atlantis", "reason": "liver"}]})
+        with self.assertRaises(KeyError):
+            H.drug_history({"id": "x", "first_approval": {"year": 1990, "agency": "nope"}})
+        with self.assertRaises(ValueError):
+            H.drug_history({"id": "x", "first_approval": {"year": "1990"}})
+
+    def test_every_label_is_bilingual(self):
+        for vocab in (H.COUNTRIES, H.AGENCIES, H.WITHDRAWAL_REASONS):
+            for k, v in H.labels(vocab).items():
+                self.assertTrue(v["en"] and v["fr"], k)
 
 
 if __name__ == "__main__":

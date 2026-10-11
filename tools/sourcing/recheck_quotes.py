@@ -77,6 +77,7 @@ CACHE = os.path.join(ROOT, "tools", "generated_cache")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from data_generators.provenance import SOURCING_LLMS  # noqa: E402
+from data_generators import history as HIST  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import citation_site as CS  # noqa: E402
 
@@ -290,6 +291,23 @@ def reconstruct_claims(quotes):
             add(q, f"Drug {nm} reaches its peak plasma concentration "
                    f"{_hours(d.get('tmax'))} after a dose.",
                 CS.site("drug", d["id"], "tmax"))
+        kind["now"] = "drug_first_approval"
+        fa = d.get("first_approval") or {}
+        for q in _qids(d.get("first_approval_sources", [])):
+            where = (f" in {HIST.COUNTRIES[fa['country']]['en']}"
+                     if fa.get("country") else "")
+            by = f" (by the {HIST.AGENCIES[fa['agency']]['en']})" if fa.get("agency") else ""
+            add(q, f"Drug {nm} was first approved or introduced for medical use"
+                   f"{where}{by} in {fa.get('year')}.",
+                CS.site("drug", d["id"], "first_approval"))
+        kind["now"] = "drug_withdrawals"
+        for w in d.get("withdrawals", []):
+            why = HIST.WITHDRAWAL_REASONS[w["reason"]]["en"]
+            for q in _qids(w.get("sources", [])):
+                add(q, f"Drug {nm} was withdrawn from the market "
+                       f"({HIST.COUNTRIES[w['country']]['en']}) in {w['year']}, "
+                       f"reason: {why}.",
+                    CS.site("drug", d["id"], f"withdrawals[{CS.withdrawal_key(w)}]"))
         kind["now"] = "drug_enzymes"
         for e in d.get("enzymes", []):
             tier = f", {e['strength']}" if e.get("strength") else ""

@@ -99,6 +99,8 @@ KIND_LABELS = {
     "drug_categories": "Drug class",
     "drug_half_life": "Drug half-life (T½)",
     "drug_tmax": "Drug time-to-peak (Tmax)",
+    "drug_first_approval": "Drug first approval",
+    "drug_withdrawals": "Drug market withdrawals",
     "drug_enzymes": "Drug metabolising enzymes",
     "drug_enzyme_strength": "Drug metabolism strength tier",
     "drug_metabolites": "Drug active metabolites",
