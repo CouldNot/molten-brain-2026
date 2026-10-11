@@ -22,21 +22,20 @@ Built with the help of Claude Code.
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in tools/sourcing/)
 DATA = ROOT / "public" / "data"
 INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
+sys.path.insert(0, str(ROOT / "tools"))                # reach the shared text_fold module
+from text_fold import alnum_key  # noqa: E402
 
 # "| 54 | Fluoxetine | [329-334](pages/329.md) |"
 _ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 
 
-def _norm(name):
-    """Lowercase + alphanumerics only, so the dataset's drug name reconciles with
-    the INDEX heading despite punctuation/spacing differences ("Amphetamine D" vs
-    "Amphetamine (D)", "Naltrexonebupropion" vs "Naltrexone-Bupropion")."""
-    return "".join(c for c in name.lower() if c.isalnum())
+_norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
 
 
 def page_ranges():

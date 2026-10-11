@@ -238,6 +238,7 @@ Screenshots).
   category, a bullet with no `fr:` line, or stray prose, so a typo cannot silently drop a bullet.
 - `tools/drugs_io.py` — shared JSONL load/save for `drugs_data.jsonl` (`load_drugs`/`save_drugs`);
   used by `generate_data.py`, `fetch_ki.py`, and the three `apply_*_sources.py` writers.
+- `tools/text_fold.py`: shared name folding (`strip_accents`, `alnum_key`) for every author-side matcher; reuse it rather than re-spelling an NFKD fold or an INDEX-name key.
 - `tools/check_data.py` — stdlib integrity checker over emitted `public/data/` (see CLAUDE.md Data checks).
 - `tools/check_js.py` — stdlib scope walk over `public/**/*.js`, reporting every identifier reference
   no enclosing scope binds (the `ReferenceError` a valid-syntax file still ships). Takes paths, else

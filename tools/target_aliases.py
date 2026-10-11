@@ -36,11 +36,11 @@ from __future__ import annotations
 import os
 import re
 import sys
-import unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 if HERE not in sys.path:                  # so `data_generators` resolves when a caller
     sys.path.insert(0, HERE)              # imported this module by path, not by package
+from text_fold import strip_accents  # noqa: E402
 
 from data_generators.drugs import DRUG_TARGETS  # noqa: E402  (authoring side, not meta.json)
 from data_generators.receptors import RECEPTORS  # noqa: E402
@@ -80,9 +80,7 @@ def fold(text: str) -> str:
     """
     for greek, latin in GREEK_TO_LATIN.items():
         text = text.replace(greek, latin)
-    text = unicodedata.normalize("NFKD", text)
-    text = "".join(c for c in text if not unicodedata.combining(c))
-    return text.lower()
+    return strip_accents(text).lower()
 
 
 def alias_pattern(alias: str) -> str | None:

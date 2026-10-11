@@ -42,6 +42,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in tools/sourcing/)
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
+from text_fold import alnum_key  # noqa: E402
 DRUGS_JSON = drugs_io.DRUGS_PATH
 STAHL = ROOT / "data_sources" / "books" / "stahl"
 PAGES = STAHL / "pages"
@@ -60,9 +61,7 @@ _BR = re.compile(r"<br\s*/?>", re.IGNORECASE)
 _TAG = re.compile(r"<[^>]+>")
 
 
-def _norm(name):
-    """Lowercase alphanumerics only (matches apply_nbn_sources._norm)."""
-    return "".join(c for c in name.lower() if c.isalnum())
+_norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
 
 
 def page_ranges():

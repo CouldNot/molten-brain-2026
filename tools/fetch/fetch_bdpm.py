@@ -69,7 +69,6 @@ import json
 import re
 import sys
 import time
-import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
@@ -78,6 +77,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 
 import chirality                                                # noqa: E402
+from text_fold import strip_accents                             # noqa: E402
 import drugs_io                                                 # noqa: E402
 import fetch_dailymed                                           # noqa: E402 (_get)
 import fetch_half_life                                          # noqa: E402 (HALF_LIFE_RE)
@@ -145,8 +145,7 @@ LOCAL_ROUTES = re.compile(r"cutan[ée]e|ophtalmique|auriculaire|dentaire|gingiva
 
 def fold(text: str) -> str:
     """Accent-fold + uppercase + collapse to letters/digits separated by one space."""
-    t = unicodedata.normalize("NFKD", text or "")
-    t = "".join(c for c in t if not unicodedata.combining(c)).upper()
+    t = strip_accents(text).upper()
     return " ".join(re.sub(r"[^A-Z0-9]+", " ", t).split())
 
 

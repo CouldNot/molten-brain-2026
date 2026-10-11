@@ -942,6 +942,12 @@ def _binding_sources(drug_id: str, binding: dict[str, Any]) -> list[dict[str, An
 BRAND_REGIONS = ("na", "eu", "fr")
 
 
+def brand_regions(region: str | list[str]) -> list[str]:
+    """A brand's ``region`` as a list: authored as one tag, or a list when one name
+    is sold in several regions. Shared with ``apply_brand_names.merge_duplicate_brands``."""
+    return list(region) if isinstance(region, list) else [region]
+
+
 def _drug_brands(drug_id: str, brands: Any) -> list[dict[str, Any]]:
     """Validate + normalize a drug's commercial ``brands`` (one graded node each).
 
@@ -962,7 +968,7 @@ def _drug_brands(drug_id: str, brands: Any) -> list[dict[str, Any]]:
         if not (isinstance(name, str) and name.strip()):
             raise ValueError(f"Drug {drug_id!r} has a brand with no non-empty 'name'")
         region = br.get("region")
-        regions = region if isinstance(region, list) else [region]
+        regions = brand_regions(region)
         if not regions or len(set(regions)) != len(regions) or any(
                 r not in BRAND_REGIONS for r in regions):
             raise ValueError(
