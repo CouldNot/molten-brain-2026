@@ -552,6 +552,15 @@ def _is_wiki_ki(binding: dict) -> bool:
     return binding.get("ki", {}).get("source", {}).get("corpus") == "wikipedia_pharm"
 
 
+# A (drug, target) whose Wikipedia Ki is the very PDSP assay fetch_ki.KI_ROW_BLOCKLIST
+# drops as self-contradicting: the article's range cell starts at that row's value, so
+# taking it here would publish through the back door what the PDSP pass refuses.
+WIKI_KI_BLOCKLIST = {
+    ("ketanserin", "5ht1f"): "1.25 nM is Boess 1994, PDSP Ki row 15912 (see "
+                             "fetch_ki.KI_ROW_BLOCKLIST); the cell reads 1.25->10,000 nM",
+}
+
+
 def apply_all(only: str | None = None) -> None:
     """Write Wikipedia Ki into tools/data/drugs_data.jsonl for every drug whose page
     is already stored under data_sources/wikipedia/raw/ (fetch the drugs you want
@@ -574,7 +583,8 @@ def apply_all(only: str | None = None) -> None:
         if got is None:
             continue
         res, permalink = got
-        wiki = res["bindings"]
+        wiki = {t: w for t, w in res["bindings"].items()
+                if (d["id"], t) not in WIKI_KI_BLOCKLIST}
         slug = slugify(title)
         # Idempotency: drop our prior affinity_only adds + Ki annotations, keeping any
         # PDSP/other Ki and any hand-authored binding untouched.
