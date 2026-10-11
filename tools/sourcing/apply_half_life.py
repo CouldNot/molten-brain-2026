@@ -36,7 +36,8 @@ MAX_HALF_LIFE_HOURS = 2400.0
 
 def main() -> int:
     return apply_tmax.run(__doc__, JUDGED_PATH, fetch_half_life.build, "half_life",
-                          MAX_HALF_LIFE_HOURS, "is not a plausible elimination half-life")
+                          MAX_HALF_LIFE_HOURS, "is not a plausible elimination half-life",
+                          owned=fetch_half_life.stahl_owned)
 
 
 if __name__ == "__main__":

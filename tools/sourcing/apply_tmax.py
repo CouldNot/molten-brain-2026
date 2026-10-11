@@ -134,7 +134,8 @@ def clean_value(rec: dict) -> dict | None:
 
 
 def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
-                 max_hours: float, too_long: str) -> tuple[int, list[str]]:
+                 max_hours: float, too_long: str,
+                 owned=None) -> tuple[int, list[str], list[str]]:
     """Gate every judged ``{index, hours, hours_max?}`` and write the survivors.
 
     Shared by every duration pass over a ``fetch_tmax.build`` worklist (this one and
@@ -144,7 +145,10 @@ def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
     Returns
     -------
     tuple
-        ``(written, rejected)``: how many drugs were set, one line per rejection.
+        ``(written, rejected, owned)``: how many drugs were set, one line per
+        rejection, and the ids skipped because ``owned(drug)`` says another pass now
+        holds the fact (the fetcher's own skip predicate: a pick judged before that
+        pass landed is stale, not wrong, so it is counted apart from the rejections).
     """
     by_id = {d["id"]: d for d in drugs}
     text_cache: dict[str, str] = {}
@@ -159,6 +163,7 @@ def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
 
     written = 0
     rejected: list[str] = []
+    skipped: list[str] = []
 
     def reject(did: str, why: str) -> None:
         rejected.append(f"{did}: {why}")
@@ -167,6 +172,9 @@ def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
         drug = by_id.get(did)
         if not drug:
             reject(did, "not a dataset drug")
+            continue
+        if owned and owned(drug):
+            skipped.append(did)
             continue
         entry = offered.get(did)
         if not entry:
@@ -203,11 +211,11 @@ def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
         drug[f"{field}_sources"] = [{"corpus": cand["corpus"], "page": cand["page"],
                                      "quote": cand["line"], "provenance": "verified"}]
         written += 1
-    return written, rejected
+    return written, rejected, skipped
 
 
 def run(doc: str, judged_default: Path, build, field: str, max_hours: float,
-        too_long: str) -> int:
+        too_long: str, owned=None) -> int:
     """The CLI shared by every duration applier (see ``apply_judged``)."""
     ap = argparse.ArgumentParser(description=doc,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -230,14 +238,15 @@ def run(doc: str, judged_default: Path, build, field: str, max_hours: float,
     judged = json.loads(args.judged.read_text(encoding="utf-8"))
     offered = build()                                  # gate 2: freshly re-derived
     drugs = drugs_io.load_drugs()
-    written, rejected = apply_judged(judged, offered, drugs, field, max_hours, too_long)
-
+    written, rejected, skipped = apply_judged(judged, offered, drugs, field, max_hours,
+                                              too_long, owned)
+    tally = (f"{len(rejected)} rejected, {len(skipped)} skipped (another pass owns "
+             f"the fact)")
     if args.dry_run:
-        print(f"[dry-run] would set {field} on {written} drug(s); "
-              f"{len(rejected)} rejected.")
+        print(f"[dry-run] would set {field} on {written} drug(s); {tally}.")
     else:
         drugs_io.save_drugs(drugs)
-        print(f"[ok] set {field} on {written} drug(s); {len(rejected)} rejected. "
+        print(f"[ok] set {field} on {written} drug(s); {tally}. "
               f"Wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}.")
     for r in rejected[:40]:
         print(f"  [reject] {r}")
