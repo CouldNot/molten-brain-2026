@@ -655,6 +655,8 @@ for 136 in total.
 **What is left is jurisdictional, not technical.** A roster drug never marketed in the US
 (alpidem, many EU-only agents) has no SPL, and the EMA's SmPC equivalent is PDF.
 
+*Pass 3, BDPM as corpus #16 (3.95.0, Claude Code).* The French public drug database closes part of that jurisdictional gap with machine-readable RCPs. Of 301 drugs, 162 join a single-active French product and 60 get a usable RCP (135 have no French product at all, 4 exist only in combinations, 5 only as modified-release or patch: prazosin, hydromorphone, flunarizine, rotigotine, bupropion). 35 Tmax picks were judged by Opus, 4 rejected (prazepam, clorazepate, tetrabenazine: a metabolite's peak; ethosuximide: a child-only value), for **167** drugs with a Tmax (from 136). Half-life gains only bumetanide (275), but the RCPs disagree with 12 existing values (e.g. ondansetron 5.7 h vs 3 h, furosemide 2 h vs 50 min), left unchanged. The same pass adds 116 French brands to 70 drugs (fr brand nodes 79 -> 195; drugs with any brand 185 -> 230).
+
 **The rest of the PK list is a different story, and it is worth writing down why.** The
 simulation cannot report occupancy, only a relative engagement index, because occupancy is
 `(C/Ki)/(1 + Σ C/Ki)` and a Ki supplies only the denominators. Turning the index into a

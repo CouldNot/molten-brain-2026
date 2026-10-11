@@ -231,6 +231,7 @@ Corpora (`SOURCE_CORPORA`):
 - #11 `gtopdb_ki`: Ki/direction where PDSP has no assay. #12 `gtopdb_class`: target type + GPCR sign (mapped from transduction).
 - #13 `pharmfreq`: enzyme metabolizer-phenotype variability. #14 `dailymed`: US label Tmax.
 - #15 `cpic`: what a metabolizer phenotype implies for one prescription (implication + recommendation + strength), `page` = guideline ClinPGx id.
+- #16 `bdpm`: French RCP section 5.2 Tmax/half-life + fr brands (code read of the denomination), `page` = product CIS.
 
 Full detail (sourcing model, citation sites, book heading trails, the four uncertainty flags, per-corpus mechanics, the "% sourced" maths): [`docs/PROVENANCE.md`](docs/PROVENANCE.md).
 
