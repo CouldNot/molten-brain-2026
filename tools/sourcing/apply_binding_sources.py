@@ -58,8 +58,8 @@ assert _spec.loader is not None
 _spec.loader.exec_module(_cd)
 normalize_for_match = _cd.normalize_for_match
 
-sys.path.insert(0, str(ROOT / "tools" / "data_generators"))
-from provenance import SOURCE_CORPORA  # noqa: E402
+# Imported as a package member: provenance.py uses relative imports.
+from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
 
 
 def _rows(drug: str, targets: list[str], corpus: str, page: Any, quote: str) -> dict:
@@ -71,15 +71,9 @@ def _rows(drug: str, targets: list[str], corpus: str, page: Any, quote: str) -> 
 # (drug_id, target) -> the source to write. Every quote below was read on the
 # cited page; the gate re-confirms it on each run.
 BINDING_SOURCES: dict[tuple[str, str], dict] = {
-    # Stahl states the release inhibition directly; the modeled target is the
-    # glutamate receptor group, and "modulator" is the action already recorded.
-    **_rows("carbamazepine", ["glutamate"], "stahl", 147,
-            "Inhibits release of glutamate"),
-
-    # The coarse-anticholinergic convention (see the module docstring).
-    **_rows("maprotiline", ["m1", "m2", "m3", "m4", "m5"], "stahl", 496,
-            "Anticholinergic activity may explain sedative effects, dry mouth, "
-            "constipation, and blurred vision"),
+    # carbamazepine/glutamate (Stahl p147) and maprotiline/m1-m5 (Stahl p496) are
+    # deliberately absent: the 3.78.2 recheck judge rejected both quotes as not
+    # backing those bindings, so a re-run must not write them back.
 
     # Stahl's own side-effect line for sulpiride. NOTE the Wikipedia conflict
     # reported at the end of a run: the same drug's article denies this affinity.
@@ -133,6 +127,18 @@ BINDING_SOURCES: dict[tuple[str, str], dict] = {
             "by blocking a variety of receptors , including adrenergic receptors , "
             "dopamine receptors , histamine receptors , muscarinic acetylcholine "
             "receptors and serotonin receptors ."),
+    # Re-sourced against the 2026-10 revisions, whose wording moved off the quotes
+    # these bindings carried before. A single sentence names both glutamate families.
+    **_rows("phenobarbital", ["ampa", "kainate"], "wikipedia_pharm", "phenobarbital",
+            "Direct blockade of glutamatergic AMPA and kainate receptors are also "
+            "believed to contribute to the hypnotic and anticonvulsant effect that is "
+            "observed with phenobarbital."),
+    # The article names the alpha2 family, not a subtype: the coarse-sentence
+    # convention (module docstring) lets it back every modeled alpha2 subtype.
+    **_rows("tizanidine", ["alpha2a", "alpha2b", "alpha2c"], "wikipedia_pharm",
+            "tizanidine",
+            "Tizanidine is an α 2 -adrenergic receptor agonist and is closely related "
+            "to clonidine ."),
 }
 
 # Disagreements between corpora, surfaced on every run instead of being resolved
