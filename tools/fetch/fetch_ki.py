@@ -18,6 +18,7 @@ specific representative row for each target so a value measured in rat (not huma
 is never silently presented as if it were human.
 
 Usage:
+    python tools/fetch/fetch_ki.py --download                    # refresh the CSV (network)
     python tools/fetch/fetch_ki.py --drug risperidone            # preview our bound targets
     python tools/fetch/fetch_ki.py --drug risperidone --all      # + candidate extra targets
     python tools/fetch/fetch_ki.py --drug risperidone --json OUT  # write the preview JSON
@@ -28,8 +29,11 @@ import csv
 import json
 import os
 import re
+import ssl
 import statistics
 import sys
+import urllib.error
+import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))   # repo root (script in tools/fetch/)
@@ -37,6 +41,10 @@ sys.path.insert(0, os.path.dirname(HERE))        # tools/ for the shared drugs_i
 import chirality  # noqa: E402
 import drugs_io  # noqa: E402
 CSV_PATH = os.path.join(REPO, "data_sources", "books", "pdsp_ki", "KiDatabase.csv")
+DOWNLOAD_URL = "https://pdspdb.unc.edu/databases/kiDownload/download.php"
+# pdspdb.unc.edu chains to a root missing from the Mozilla store; this cross-cert
+# completes the chain to a system root (its header says what it is and why).
+PINNED_PEM = os.path.join(HERE, "certs", "pdsp_chain.pem")
 
 # The CSV column names (note the leading space PDSP put on " Ligand Name").
 COL_ID = "Number"
@@ -119,6 +127,70 @@ NAME_PATTERNS = [
     (re.compile(r"(^|[^0-9])h1($|[^0-9])|histamineh1"), "h1"),
     (re.compile(r"muscarinicm1"), "m1"),
 ]
+
+
+def download_context():
+    """A TLS context for the PDSP host: the system trust store PLUS the pinned
+    cross-certificate, full verification and hostname checking (never relaxed)."""
+    ctx = ssl.create_default_context()
+    ctx.load_verify_locations(cafile=PINNED_PEM)
+    return ctx
+
+
+def _get(url):
+    """One verified GET of a PDSP export page, as text. A TLS failure exits loudly,
+    pointing at the pinned cert (the likely cause is a rotated server chain)."""
+    try:
+        with urllib.request.urlopen(url, context=download_context(), timeout=600) as r:
+            return r.read().decode("utf-8", errors="surrogateescape")  # bytes kept as served
+    except urllib.error.URLError as e:
+        if isinstance(e.reason, ssl.SSLCertVerificationError):
+            sys.exit("PDSP TLS verification FAILED (%s). The server chain likely rotated "
+                     "away from the pinned cert %s: re-inspect it with `openssl s_client "
+                     "-connect pdspdb.unc.edu:443 -showcerts` and update that file; never "
+                     "disable verification." % (e, os.path.relpath(PINNED_PEM, REPO)))
+        raise
+
+
+def split_export(text):
+    """``(header, [(ki_id, raw_record), ...])`` of one export page, each record kept
+    byte-for-byte (a quoted field may span lines, so csv.reader finds the bounds)."""
+    lines = text.splitlines(keepends=True)
+    reader = csv.reader(lines)
+    header = next(reader)
+    if COL_ID not in header or COL_KI not in header:
+        sys.exit("PDSP download is not the Ki CSV (header %r)" % header[:6])
+    out, start = [], reader.line_num
+    for row in reader:
+        if row and row[0].strip().isdigit():
+            out.append((int(row[0]), "".join(lines[start:reader.line_num])))
+        start = reader.line_num
+    return lines[0], out
+
+
+def download(dest=CSV_PATH):
+    """Re-download the whole-DB CSV over ``dest`` (atomically, via a temp file).
+
+    The whole-DB export is silently capped server-side (2026-10: it stops at Ki id
+    91544 while rows run past 101000), so this pages with the ``fromDate=<kiId>``
+    cursor until a page brings no new id."""
+    header, recs = split_export(_get(DOWNLOAD_URL))
+    by_id = dict(recs)
+    while by_id:
+        last = max(by_id)
+        _, page = split_export(_get("%s?fromDate=%d" % (DOWNLOAD_URL, last + 1)))
+        fresh = [(i, r) for i, r in page if i not in by_id]
+        if not fresh:
+            break
+        by_id.update(fresh)
+        print("  paged from Ki id %d: +%d rows" % (last + 1, len(fresh)))
+    tmp = dest + ".part"
+    with open(tmp, "w", encoding="utf-8", errors="surrogateescape", newline="") as f:
+        f.write(header)
+        f.writelines(by_id[i] for i in sorted(by_id))
+    os.replace(tmp, dest)
+    print("downloaded %s: %d rows, Ki ids %d..%d"
+          % (os.path.relpath(dest, REPO), len(by_id), min(by_id), max(by_id)))
 
 
 def norm(s):
@@ -239,17 +311,21 @@ def resolve_rows(name, drug_id):
     want = {norm(name), norm(drug_id)}
     want |= {norm(s) for s in SYNONYMS.get(drug_id, ())}
     direct = [r for r in rows if _ligand_is(r.get(COL_LIGAND), want, drug_id)]
-    if direct:
-        return direct, None
+    aliased, mapping = [], None
     if drug_id in ALIAS:
         pdsp_names, relation, note = ALIAS[drug_id]
         target = {n.strip().lower() for n in pdsp_names}
         aliased = [r for r in rows
                    if (r.get(COL_LIGAND) or "").strip().lower() in target]
+        # An "identity" alias is the same molecule under another PDSP name, so its rows
+        # pool with any direct ones: else the first direct row PDSP ever adds (2026-10:
+        # one "Paliperidone" assay) would hide every assay filed as 9-OH-risperidone.
+        if aliased and direct and relation != "identity":
+            aliased = []
         if aliased:
-            return aliased, {"pdsp_names": pdsp_names, "relation": relation,
-                             "note": note}
-    return [], None
+            mapping = {"pdsp_names": pdsp_names, "relation": relation, "note": note,
+                       "ki_ids": sorted(int(r.get(COL_ID) or 0) for r in aliased)}
+    return direct + aliased, mapping
 
 
 # PDSP records a Ki of 10000 nM (10 uM) as a ceiling meaning "tested, essentially
@@ -375,7 +451,8 @@ def find_drug(query):
 def _stamp_mapping(summary, mapping):
     """Mark a summary's source as recovered through the alias map, so the viewer can
     warn which compound the Ki was actually measured on."""
-    if summary and mapping and summary.get("source"):
+    if (summary and mapping and summary.get("source")
+            and summary["source"].get("ki_id") in mapping["ki_ids"]):
         summary["source"]["mapped"] = True
         summary["source"]["measured_as"] = mapping["note"]
         summary["source"]["relation"] = mapping["relation"]
@@ -523,6 +600,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--drug", help="drug id / ligand name to preview (e.g. risperidone)")
+    ap.add_argument("--download", action="store_true",
+                    help="re-download the whole-DB CSV over the local copy (network)")
     ap.add_argument("--apply", action="store_true",
                     help="write Ki into tools/data/drugs_data.jsonl for every drug (idempotent)")
     ap.add_argument("--only", default="",
@@ -532,6 +611,9 @@ def main():
     ap.add_argument("--json", metavar="OUT", help="write the preview JSON here")
     args = ap.parse_args()
 
+    if args.download:
+        download()
+        return
     if not os.path.exists(CSV_PATH):
         sys.exit("PDSP CSV not found at %s (author-side; see its README)" % CSV_PATH)
 

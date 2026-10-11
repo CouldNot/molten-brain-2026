@@ -99,5 +99,69 @@ class ResolveRowsShapeTest(unittest.TestCase):
             fetch_ki.summarize_target(fetch_ki.resolve_rows("Norfluoxetine", None), "sert")
 
 
+class IdentityAliasPoolingTest(unittest.TestCase):
+    """An ``identity`` alias (paliperidone filed by PDSP as 9-OH-risperidone) is the same
+    molecule, so its rows pool with direct ones. Regression: the 2026-10 export added
+    ONE direct "Paliperidone" row, and the direct-first early return then hid every
+    9-OH-risperidone assay (paliperidone lost its D2 Ki and nine affinity-only sites)."""
+
+    @staticmethod
+    def _row(num, ligand, gene, ki):
+        return {" Ligand Name": ligand, "Unigene": gene, "ki Val": ki, "species": "HUMAN",
+                "source": "CLONED", "Hotligand": "x", "Number": str(num), "Name": gene,
+                "Reference": "", "ki Note": ""}
+
+    def setUp(self):
+        self._saved = fetch_ki._ALL_ROWS
+        fetch_ki._ALL_ROWS = [self._row(1, "9-OH-risperidone", "DRD2", "3.4"),
+                              self._row(2, "Paliperidone", "ADRA2A", "222")]
+
+    def tearDown(self):
+        fetch_ki._ALL_ROWS = self._saved
+
+    def test_direct_and_identity_rows_pool(self):
+        rows, mapping = fetch_ki.resolve_rows("Paliperidone", "paliperidone")
+        self.assertEqual({r["Number"] for r in rows}, {"1", "2"})
+        self.assertEqual(mapping["ki_ids"], [1])
+
+    def test_only_aliased_rows_are_stamped_mapped(self):
+        rows, mapping = fetch_ki.resolve_rows("Paliperidone", "paliperidone")
+        aliased = fetch_ki.summarize_target(rows, "d2")
+        direct = fetch_ki.summarize_target(rows, "alpha2")
+        for s in (aliased, direct):
+            fetch_ki._stamp_mapping(s, mapping)
+        self.assertTrue(aliased["source"].get("mapped"))
+        self.assertNotIn("mapped", direct["source"])
+
+
+class DownloadContextTest(unittest.TestCase):
+    """The PDSP download trusts the system store PLUS one pinned cert, and never
+    relaxes verification: CERT_REQUIRED + hostname checking, the pinned cert loaded."""
+
+    def test_verification_on(self):
+        import ssl
+        ctx = fetch_ki.download_context()
+        self.assertEqual(ctx.verify_mode, ssl.CERT_REQUIRED)
+        self.assertTrue(ctx.check_hostname)
+
+    def test_pinned_cert_loaded(self):
+        subjects = [dict(x[0] for x in c["subject"]).get("commonName")
+                    for c in fetch_ki.download_context().get_ca_certs()]
+        self.assertIn("emSign Root TLS CA - G1", subjects)
+
+
+class SplitExportTest(unittest.TestCase):
+    """The paged download merges export pages by Ki id, so each record must come back
+    byte-for-byte, a quoted multi-line field included."""
+
+    def test_records_kept_raw(self):
+        header = "Number,Name,Unigene,Ligand ID, Ligand Name,ki Val\n"
+        rec1 = '7,D2,DRD2,1,"HALO,\nPERIDOL",1.2\n'
+        rec2 = "8,D3,DRD3,1,X,3\n"
+        head, recs = fetch_ki.split_export(header + rec1 + rec2)
+        self.assertEqual(head, header)
+        self.assertEqual(recs, [(7, rec1), (8, rec2)])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

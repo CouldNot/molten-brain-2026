@@ -141,10 +141,15 @@ network, idempotent, polite; each touches only what changed). Always finish with
    `tools/generated_cache/structure_images_sources.json` + `tools/generated_cache/circuit_images_sources.json` (no bytes
    downloaded; the gif/svg is hot-linked at runtime). `--target structures|circuits`
    scopes to one.
-3. **PDSP Ki**: re-download the whole-DB CSV from
+3. **PDSP Ki**: `python tools/fetch/fetch_ki.py --download` re-downloads the whole-DB CSV from
    `https://pdspdb.unc.edu/databases/kiDownload/download.php` over
-   `data_sources/books/pdsp_ki/KiDatabase.csv` (author-side; see that dir's `README.md`), then
-   `python tools/fetch/fetch_ki.py --apply` to rewrite `drugs_data.jsonl`'s `ki` + `affinity_only`.
+   `data_sources/books/pdsp_ki/KiDatabase.csv` (author-side; see that dir's `README.md`), paging
+   with the `fromDate=<kiId>` cursor because the whole-DB export is silently capped. TLS is fully
+   verified: the host chains to an emSign root missing from the Mozilla store, so the download
+   also trusts the pinned cross-certificate `tools/fetch/certs/pdsp_chain.pem` (its header gives
+   the fingerprint and why); a rotated chain fails loudly pointing there. Then
+   `python tools/fetch/stamp_fetch_dates.py` and `python tools/fetch/fetch_ki.py --apply` to
+   rewrite `drugs_data.jsonl`'s `ki` + `affinity_only`.
 4. **GtoPdb ligand interactions** (the `gtopdb_ki` Ki fallback + the curated directions for
    `affinity_only` bindings): `python tools/fetch/fetch_gtopdb_ki.py` re-downloads the bulk
    `interactions.csv` and rebuilds `data_sources/gtopdb/pages_ki/` (author-side) +
