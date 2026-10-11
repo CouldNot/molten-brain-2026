@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.101.1",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "Binding affinities no longer mix in functional measurements or \"greater than\" bounds: PDSP lists release, uptake and signalling assays beside true binding constants, and some values only meant \"did not bind up to this dose\". Methamphetamine's dopamine transporter affinity, for example, had averaged a release potency with a binding constant; 98 affinities were recomputed and 4 weak off-target sites that rested only on such rows were removed.",
+          "commits": [
+            "42413ea"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.101.0",
       "date": "2026-10-12",
       "entries": [

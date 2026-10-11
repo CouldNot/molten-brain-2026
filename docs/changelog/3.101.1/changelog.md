@@ -1,0 +1,5 @@
+# 3.101.1 (2026-10-12)
+
+## Fixed
+- Binding affinities no longer mix in functional measurements or "greater than" bounds: PDSP lists release, uptake and signalling assays beside true binding constants, and some values only meant "did not bind up to this dose". Methamphetamine's dopamine transporter affinity, for example, had averaged a release potency with a binding constant; 98 affinities were recomputed and 4 weak off-target sites that rested only on such rows were removed. (42413ea)
+  fr: Les affinités de liaison ne mélangent plus de mesures fonctionnelles ni de bornes « supérieur à » : PDSP range des essais de libération, de recapture et de signalisation à côté des vraies constantes de liaison, et certaines valeurs signifiaient seulement « ne se lie pas jusqu'à cette dose ». L'affinité de la méthamphétamine pour le transporteur de la dopamine, par exemple, faisait la moyenne d'une puissance de libération et d'une constante de liaison ; 98 affinités ont été recalculées et 4 sites secondaires faibles qui ne reposaient que sur de telles lignes ont été retirés. (42413ea)
