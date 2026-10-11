@@ -1831,40 +1831,40 @@
     }
    },
    "alpha2": {
-    "action": "antagonist",
+    "action": "agonist",
     "ki": {
-     "max": 10.0,
-     "median": 7.5059,
+     "max": 5.0119,
+     "median": 5.0119,
      "min": 5.0119,
      "n_human": 1,
      "n_nonhuman": 0,
      "param": "pKi"
     },
-    "pmid": "12388666",
+    "pmid": "36101495",
     "source": {
      "corpus": "gtopdb_ki",
      "page": "bromocriptine",
      "provenance": "verified",
-     "quote": "bromocriptine at α2A-adrenoceptor (ADRA2A, Human): Antagonist / Antagonist, pKi 8-8.3 [PMID 12388666]",
+     "quote": "bromocriptine at α2A-adrenoceptor (ADRA2A, Human): Agonist / Agonist, pKi 8.3 [PMID 36101495]",
      "species": "Human"
     }
    },
    "alpha2a": {
-    "action": "antagonist",
+    "action": "agonist",
     "ki": {
-     "max": 10.0,
-     "median": 7.5059,
+     "max": 5.0119,
+     "median": 5.0119,
      "min": 5.0119,
      "n_human": 1,
      "n_nonhuman": 0,
      "param": "pKi"
     },
-    "pmid": "12388666",
+    "pmid": "36101495",
     "source": {
      "corpus": "gtopdb_ki",
      "page": "bromocriptine",
      "provenance": "verified",
-     "quote": "bromocriptine at α2A-adrenoceptor (ADRA2A, Human): Antagonist / Antagonist, pKi 8-8.3 [PMID 12388666]",
+     "quote": "bromocriptine at α2A-adrenoceptor (ADRA2A, Human): Agonist / Agonist, pKi 8.3 [PMID 36101495]",
      "species": "Human"
     }
    },
@@ -1888,7 +1888,7 @@
     }
    },
    "alpha2c": {
-    "action": "antagonist",
+    "action": "agonist",
     "ki": {
      "max": 25.1189,
      "median": 25.1189,
@@ -1897,31 +1897,31 @@
      "n_nonhuman": 0,
      "param": "pKi"
     },
-    "pmid": "12388666",
+    "pmid": "36101495",
     "source": {
      "corpus": "gtopdb_ki",
      "page": "bromocriptine",
      "provenance": "verified",
-     "quote": "bromocriptine at α2C-adrenoceptor (ADRA2C, Human): Antagonist / Antagonist, pKi 7.6 [PMID 12388666]",
+     "quote": "bromocriptine at α2C-adrenoceptor (ADRA2C, Human): Agonist / Agonist, pKi 7.6 [PMID 36101495]",
      "species": "Human"
     }
    },
    "alpha2d": {
-    "action": "antagonist",
+    "action": "agonist",
     "ki": {
-     "max": 10.0,
-     "median": 7.5059,
+     "max": 5.0119,
+     "median": 5.0119,
      "min": 5.0119,
      "n_human": 1,
      "n_nonhuman": 0,
      "param": "pKi"
     },
-    "pmid": "12388666",
+    "pmid": "36101495",
     "source": {
      "corpus": "gtopdb_ki",
      "page": "bromocriptine",
      "provenance": "verified",
-     "quote": "bromocriptine at α2A-adrenoceptor (ADRA2A, Human): Antagonist / Antagonist, pKi 8-8.3 [PMID 12388666]",
+     "quote": "bromocriptine at α2A-adrenoceptor (ADRA2A, Human): Agonist / Agonist, pKi 8.3 [PMID 36101495]",
      "species": "Human"
     }
    },
@@ -4581,27 +4581,6 @@
     }
    }
   },
-  "ephedrine": {
-   "beta2": {
-    "action": "partial_agonist",
-    "ki": {
-     "max": 2511.887,
-     "median": 2511.887,
-     "min": 2511.887,
-     "n_human": 1,
-     "n_nonhuman": 0,
-     "param": "pKi"
-    },
-    "pmid": "9295336",
-    "source": {
-     "corpus": "gtopdb_ki",
-     "page": "ephedrine",
-     "provenance": "verified",
-     "quote": "ephedrine at β2-adrenoceptor (ADRB2, Human): Agonist / Partial agonist, pKi 5.6 [PMID 9295336]",
-     "species": "Human"
-    }
-   }
-  },
   "escitalopram": {
    "sert": {
     "action": "reuptake_inhibitor",
@@ -5249,7 +5228,7 @@
      "corpus": "gtopdb_ki",
      "page": "fluvoxamine",
      "provenance": "verified",
-     "quote": "fluvoxamine at sigma non-opioid intracellular receptor 1 (SIGMAR1, Human): None / Binding, pKi 7.44 [PMID 23641311]",
+     "quote": "fluvoxamine at sigma receptor chaperone 1 (SIGMAR1, Human): None / Binding, pKi 7.44 [PMID 23641311]",
      "species": "Human"
     }
    }
@@ -9345,9 +9324,9 @@
    "beta2": {
     "action": "antagonist",
     "ki": {
-     "max": 0.631,
-     "median": 0.4736,
-     "min": 0.3162,
+     "max": 1.0,
+     "median": 0.7506,
+     "min": 0.5012,
      "n_human": 1,
      "n_nonhuman": 0,
      "param": "pKi"
@@ -9357,12 +9336,12 @@
      "corpus": "gtopdb_ki",
      "page": "propranolol",
      "provenance": "verified",
-     "quote": "propranolol at β2-adrenoceptor (ADRB2, Human): Antagonist / Antagonist, pKi 9.2-9.5 [PMID 10079020]",
+     "quote": "propranolol at β2-adrenoceptor (ADRB2, Human): Antagonist / Antagonist, pKi 9-9.3 [PMID 10079020]",
      "species": "Human"
     }
    },
    "beta3": {
-    "action": "antagonist",
+    "action": "partial_agonist",
     "ki": {
      "max": 501.187,
      "median": 282.1414,
@@ -9376,7 +9355,7 @@
      "corpus": "gtopdb_ki",
      "page": "propranolol",
      "provenance": "verified",
-     "quote": "propranolol at β3-adrenoceptor (ADRB3, Human): Antagonist / Antagonist, pKi 6.3-7.2 [PMID 10079020]",
+     "quote": "propranolol at β3-adrenoceptor (ADRB3, Human): Antagonist / Partial agonist, pKi 6.3-7.2 [PMID 10079020]",
      "species": "Human"
     }
    }
@@ -13148,5 +13127,5 @@
   }
  },
  "url": "https://www.guidetopharmacology.org/DATA/interactions.csv",
- "version": "# GtoPdb Version: 2026.2 - published: 2026-06-15"
+ "version": "# GtoPdb Version: 2026.3 - published: 2026-09-16"
 }

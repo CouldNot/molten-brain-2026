@@ -1,4 +1,14 @@
 {
+  "2cb": {
+    "fr_slug": "2c_b",
+    "fr_title": "2C-B",
+    "name": "2C-B",
+    "sentences": [
+      "Pour les articles homonymes, voir Nexus .",
+      "Le 2C-B (parfois désigné sous le nom de nexus ) est une drogue hallucinogène psychédélique synthétisée par Alexander Shulgin en 1974 .",
+      "Avant d'être inscrit au Tableau II de la convention sur les substances psychotropes en 2001 et progressivement interdit dans les pays signataires, le 2C-B a été commercialisé sous divers noms comme Éros ( aphrodisiaque fabriqué par la firme pharmaceutique allemande Drittewelle et distribué notamment aux États-Unis ) ou même parfois sous le nom inexact de bromo-mescaline ."
+    ]
+  },
   "acamprosate": {
     "fr_slug": "acamprosate",
     "fr_title": "Acamprosate",
@@ -120,6 +130,17 @@
       "Le produit vendu clandestinement sous le nom de speed peut contenir ou non des amphétamines (notamment amphétamine, dextroamphétamine, méthamphétamine ), d'autres produits actifs aux effets similaires ou non dont des psychotropes comme la caféine ou le méthylphénidate (Ritaline), ou même des excipients parfois dangereux, comme la plupart des drogues obtenues de façon illégale."
     ]
   },
+  "apomorphine": {
+    "fr_slug": "apomorphine",
+    "fr_title": "Apomorphine",
+    "name": "Apomorphine",
+    "sentences": [
+      "Cet article ne cite pas suffisamment ses sources ( décembre 2016 ).",
+      "Elle est commercialisée sous le nom d'Uprima par les laboratoires Abbott .",
+      "Elle a été découverte tardivement à l'état naturel dans le lotus bleu (nénuphar), alors désignée sous le nom de nuciférine (dont elle s'avéra en fait n'être qu'apparentée et présente conjointement), après son isolement plus ancienne dans les alcaloïdes dérivés de la morphine .",
+      "Dans cette dernière indication, il a été commercialisé sous les noms Ixense et Uprima, mais son inefficacité a fait que ces produits ont été retirés du marché en octobre 2004 ."
+    ]
+  },
   "aripiprazole": {
     "fr_slug": "aripiprazole",
     "fr_title": "Aripiprazole",
@@ -127,7 +148,7 @@
     "sentences": [
       "Wikipédia ne donne pas d'avis médical : seul un professionnel (médecin, pharmacien, etc. ) est habilité à le faire.",
       "Il est également utilisé dans le traitement prophylactique (en prévention des rechutes) des épisodes maniaques , , , ; il est commercialisé en France depuis 2004 par les laboratoires Otsuka Pharmaceutical sous le nom d' Abilify , .",
-      "Selon la notice du fabricant, à la suite des tests avant commercialisation, une dyskinésie tardive peut apparaître même dans le cas de traitements de moins d'un an, et ce y compris à de très faibles doses , avec une probabilité d'environ 1,7 %.",
+      "Selon la notice du fabricant, à la suite des essais avant commercialisation, une dyskinésie tardive peut apparaître même dans le cas de traitements de moins d'une année, y compris à de faibles doses , avec une probabilité d'environ 1,7 %.",
       "Des crises de grand mal (épilepsie) ont été aussi rapportées depuis la commercialisation.",
       "Dans l'essai clinique et/ou l'expérience post-commercialisation, les événements de leucopénie/neutropénie ont été rattachés aux agents antipsychotiques, y compris l'aripiprazole.",
       "L'aripiprazole a été développé, sous le nom Abilify (prononcé en anglais : ), par Otsuka Pharmaceutical (Japon) ; la commercialisation dans le reste du monde est assurée par Bristol-Myers Squibb ."
@@ -163,6 +184,14 @@
       "Le médicament est initialement manufacturé sous le nom de Strattera et produit par la compagnie Eli Lilly and Company ."
     ]
   },
+  "atropine": {
+    "fr_slug": "atropine",
+    "fr_title": "Atropine",
+    "name": "Atropine",
+    "sentences": [
+      "Structure de l'atropine ( énantiomères (R) en haut et (S) en bas)."
+    ]
+  },
   "baclofen": {
     "fr_slug": "baclof_ne",
     "fr_title": "Baclofène",
@@ -179,6 +208,16 @@
     "sentences": [
       "Benzatropine",
       "La benzatropine ou le mésilate de benzatropine ( DCI , code DrugBank = APRD00748), mésylate de benztropine ou benztropine (USAN), commercialisée sous le nom de Cogentin, est un médicament anticholinergique principalement utilisé pour le traitement des :"
+    ]
+  },
+  "betahistine": {
+    "fr_slug": "b_tahistine",
+    "fr_title": "Bétahistine",
+    "name": "Betahistine",
+    "sentences": [
+      "Identification",
+      "La bétahistine est une substance chimique ayant des propriétés vasodilatatrices cérébrales et périphériques, et qui est utilisée pour le traitement des vertiges (en particulier la maladie de Menière ), commercialisée par les laboratoires Bouchara-Recordati avec la spécialité pharmaceutique Lectil , mais qui est largement diffusée en officine comme médicament générique .",
+      "La molécule, commercialisée sous le nom de Serc, a reçu l'approbation initiale de la Food and Drug Administration (FDA) américaine en novembre 1966 pour le traitement de la maladie de Ménière."
     ]
   },
   "biperiden": {
@@ -224,6 +263,16 @@
       "Brexpiprazole"
     ]
   },
+  "brivaracetam": {
+    "fr_slug": "brivaracetam",
+    "fr_title": "Brivaracetam",
+    "name": "Brivaracetam",
+    "sentences": [
+      "Brivaracetam",
+      "Le brivaracétam , vendu entre autres sous les noms de marque Briviact et Brivajoy, un analogue chimique du lévétiracétam , est un dérivé de racétam aux propriétés anticonvulsivantes (antiépileptiques) , .",
+      "Il est commercialisé par la société pharmaceutique UCB , ."
+    ]
+  },
   "bromazepam": {
     "fr_slug": "bromaz_pam",
     "fr_title": "Bromazépam",
@@ -231,6 +280,14 @@
     "sentences": [
       "Structure du bromazépam",
       "Le bromazépam est commercialisé en France sous le nom de marque Lexomil par les laboratoires Roche mais il existe de nombreux génériques depuis que la molécule est tombée dans le domaine public."
+    ]
+  },
+  "bromocriptine": {
+    "fr_slug": "bromocriptine",
+    "fr_title": "Bromocriptine",
+    "name": "Bromocriptine",
+    "sentences": [
+      "Bromocriptine"
     ]
   },
   "brotizolam": {
@@ -245,13 +302,21 @@
       "Par contre, il n'a pas reçu l'autorisation des autorités de santé compétentes pour être commercialisé au Canada, aux États-Unis, en France ni au Royaume-Uni, et cela en raison du risque d'abus important qu'il comporte."
     ]
   },
+  "bumetanide": {
+    "fr_slug": "bum_tanide",
+    "fr_title": "Bumétanide",
+    "name": "Bumetanide",
+    "sentences": [
+      "Identification"
+    ]
+  },
   "buprenorphine": {
     "fr_slug": "bupr_norphine",
     "fr_title": "Buprénorphine",
     "name": "Buprenorphine",
     "sentences": [
       "Wikipédia ne donne pas d'avis médical : seul un professionnel (médecin, pharmacien, etc. ) est habilité à le faire.",
-      "Elle a historiquement été commercialisée en France comme analgésique pour la première fois en avril 1987 sous le nom Temgésic puis utilisée comme TSO avec l'apparition de spécialités dédiées à cet usage dans les années 1990 , avec l'arrivée du Subutex en février 1996 ."
+      "Elle a historiquement été commercialisée en France comme analgésique pour la première fois en avril 1987 sous le nom Temgésic puis utilisée comme TSO avec l'apparition de spécialités destinées à cet usage dans les années 1990 , avec l'arrivée du Subutex en février 1996 ."
     ]
   },
   "bupropion": {
@@ -281,17 +346,49 @@
       "Butobarbital"
     ]
   },
+  "cabergoline": {
+    "fr_slug": "cabergoline",
+    "fr_title": "Cabergoline",
+    "name": "Cabergoline",
+    "sentences": [
+      "Identification"
+    ]
+  },
   "caffeine": {
     "fr_slug": "caf_ine",
     "fr_title": "Caféine",
     "name": "Caffeine",
     "sentences": [
-      "Vous lisez un « bon article » labellisé en 2009.",
+      "Vous lisez un « bon article », labellisé en 2009.",
       "La caféine , aussi désignée sous les noms de théine , 1,3,7-triméthylxanthine ou méthylthéobromine , est un alcaloïde de la famille des méthylxanthines , présent dans de nombreux aliments, qui agit comme stimulant psychotrope chez les mammifères et comme léger diurétique .",
       "Certains inconditionnels du maté prétendent que la matéine est un stéréoisomère de la caféine et qu'il s'agirait ainsi de deux substances différentes .",
       "Des fabricants commercialisent des comprimés de caféine, affirmant qu'utiliser de la caféine de qualité pharmaceutique améliore la vigilance.",
       "La consommation de caféine en grande quantité pendant une durée prolongée peut conduire à une intoxication connue sous le nom de caféisme , .",
       "La caféine retirée est commercialisée comme ingrédient de sodas ou comme base de comprimés de caféine vendus sans ordonnance."
+    ]
+  },
+  "cannabidiol": {
+    "fr_slug": "cannabidiol",
+    "fr_title": "Cannabidiol",
+    "name": "Cannabidiol",
+    "sentences": [
+      "Ne doit pas être confondu avec Cannabinol .",
+      "Depuis sa commercialisation à grande échelle, le CBD fait l'objet de nombreuses études scientifiques destinées à lui trouver des applications thérapeutiques, qui demeurent toutefois faibles à l'heure actuelle en dépit des revendications des vendeurs.",
+      "Seules deux entreprises françaises, le laboratoire Ecosystem commercialisant ses produits via un réseau de vendeurs partenaires, et Mengaia Natural exploitant sur internet la marque H2O CBD, proposent ce type de produit, issu d'une macération dans du glycerol, ce procédé étant breveté et exclusif d'utilisation .",
+      "Il est indiqué pour le traitement de « spasticité dans la sclérose en plaques après échec des autres thérapeutiques » et remboursé à 15 % à partir de octobre 2014 mais la commercialisation ne se fait toujours pas en 2018 en raison d'un désaccord sur le prix de vente , , et ce malgré des questions à l' Assemblée nationale et l'attente des patients.",
+      "En novembre 2020 , la Cour de justice de l’Union européenne a jugé illégale l’interdiction en France de la commercialisation du cannabidiol, à la suite du procès opposant l'entreprise Kanavape et l'État français, soulignant que cette molécule présente dans le chanvre (ou Cannabis sativa ) n’a « pas d’effet psychotrope ni d’effet nocif sur la santé humaine » .",
+      "En juin 2021 , la Cour de cassation lève le flou juridique sur le CBD et sa commercialisation.",
+      "En France, la commercialisation des produits contenant du cannabidiol est encadrée par la réglementation européenne relative aux « nouveaux aliments » (« novel foods »)",
+      "Les huiles, tisanes, bonbons et autres produits alimentaires contenant cette molécule ne disposant pas d’autorisation européenne spécifique ne peuvent plus être commercialisés légalement."
+    ]
+  },
+  "cannabinol": {
+    "fr_slug": "cannabinol",
+    "fr_title": "Cannabinol",
+    "name": "Cannabinol",
+    "sentences": [
+      "Ne doit pas être confondu avec Cannabidiol .",
+      "Le cannabinol aussi connu sous le nom de CBN est un cannabinoïde présent en faible quantité dans la plante cannabis sativa , où il est issu de l' oxydation du tétrahydrocannabinol (THC) ."
     ]
   },
   "carbamazepine": {
@@ -302,6 +399,14 @@
       "Carbamazépine",
       "La carbamazépine (CBZ), vendue sous le nom commercial Tegretol, entre autres, est un médicament anticonvulsivant utilisé principalement dans le traitement de l'épilepsie et des douleurs neuropathiques.",
       "La carbamazépine a été commercialisée en 1962 comme traitement de la névralgie du trijumeau avant d'être employée comme un anticonvulsivant au Royaume-Uni en 1965 et aux États-Unis à partir de 1974."
+    ]
+  },
+  "carbidopa": {
+    "fr_slug": "carbidopa",
+    "fr_title": "Carbidopa",
+    "name": "Carbidopa",
+    "sentences": [
+      "Structure de la carbidopa"
     ]
   },
   "cariprazine": {
@@ -423,7 +528,7 @@
     "sentences": [
       "Clorazépate Dipotassique",
       "C'est son sel de potassium qui est commercialisé, le clorazépate dipotassique Écouter ⓘ .",
-      "Le clorazépate est commercialisé sous les marques Tranxène et Tranxilium par le laboratoire Neuraxpharm depuis mi-2024, Sanofi ayant vendue l'exclusivité de la vente de cette molécule en France à cet autre laboratoire.",
+      "Le clorazépate est commercialisé sous les marques Tranxène et Tranxilium par le laboratoire Neuraxpharm depuis mi-2024, Sanofi ayant vendu l'exclusivité de la vente de cette molécule en France à cet autre laboratoire.",
       "Tranxilium 50 n'est pas commercialisé en France."
     ]
   },
@@ -457,6 +562,14 @@
       "La culture de la coca, son usage traditionnel, déjà communs sous l' empire Inca , ainsi que la commercialisation de feuilles de coca (et non de cocaïne extraite sous forme de poudre) sont ainsi légaux au Pérou et en Bolivie .",
       "En 1871, le marché est dominé par une marque restée célèbre : le vin Mariani , du nom du pharmacien Angelo Mariani qui eut l'idée de commercialiser ce vin associé à un médecin , Charles Fauvel, ce qui lui confère une légitimité médicale (et autorise l'émission d'un brevet ).",
       "La concentration en cocaïne pure dans le produit final trouvé dans le contexte d'une commercialisation illégale varie en fonction des procédés de fabrication."
+    ]
+  },
+  "codeine": {
+    "fr_slug": "cod_ine",
+    "fr_title": "Codéine",
+    "name": "Codeine",
+    "sentences": [
+      "Pour les articles homonymes, voir Codéine (homonymie) ."
     ]
   },
   "cyamemazine": {
@@ -519,7 +632,7 @@
     "fr_title": "Deutétrabénazine",
     "name": "Deutetrabenazine",
     "sentences": [
-      "L’admissibilité de cette page est actuellement débattue .",
+      "Cet article relève du guide pratique , ce qui n'est pas de nature encyclopédique ( janvier 2026 ).",
       "La deutétrabénazine , vendue sous le nom commercial Austedo , est un médicament utilisé pour traiter la chorée associée à la maladie de Huntington , la dyskinésie tardive et le syndrome de Gilles de la Tourette .",
       "Cependant, elle n’est pas commercialisée en France ."
     ]
@@ -552,6 +665,14 @@
       "Cette rapidité d'action conditionne également un risque d'addiction accru ."
     ]
   },
+  "dimenhydrinate": {
+    "fr_slug": "dim_nhydrinate",
+    "fr_title": "Diménhydrinate",
+    "name": "Dimenhydrinate",
+    "sentences": [
+      "Diménhydrinate"
+    ]
+  },
   "diphenhydramine": {
     "fr_slug": "diph_nhydramine",
     "fr_title": "Diphénhydramine",
@@ -581,6 +702,15 @@
       "La série télévisée américaine Limitless (2015) y fait référence sous le nom de « NZT », en plus d'évoquer l’expérience MK-Ultra (voir le livre Champs de ténèbres d' Alan Glynn )."
     ]
   },
+  "domperidone": {
+    "fr_slug": "domp_ridone",
+    "fr_title": "Dompéridone",
+    "name": "Domperidone",
+    "sentences": [
+      "Structure de la dompéridone",
+      "La dompéridone (R33812), commercialisée sous le nom de Motilium par le laboratoire Janssen-Cilag , est une substance chimique de la famille des benzimidazoles et des pipéridines qui possède des propriétés antiémétiques , et donc souvent prescrite dans le cadre d'un traitement de certaines nausées ou vomissements (notamment de la chimiothérapie )."
+    ]
+  },
   "donepezil": {
     "fr_slug": "don_p_zil",
     "fr_title": "Donépézil",
@@ -595,7 +725,7 @@
     "fr_title": "Doxépine",
     "name": "Doxepin",
     "sentences": [
-      "Identification",
+      "Cet article ne cite pas suffisamment ses sources ( juillet 2026 ).",
       "C'est le seul antidépresseur tricyclique avec un système cyclique de dibenzoxépine à avoir été commercialisé.",
       "La Doxépine est un mélange de stéréoisomères (E) et (Z) (ce dernier étant connu sous le nom de cidoxépine ou cis-doxépine) et est utilisée dans le commerce dans un rapport d'environ 85:15."
     ]
@@ -616,6 +746,31 @@
       "Identification",
       "La duloxétine , commercialisée dans divers pays sous les noms de Cymbalta, Yentreve, Xeristar ou AriClaim est un antidépresseur inhibiteur de la recapture de la sérotonine et de la noradrénaline .",
       "La première publication sur la découverte de l'un des deux énantiomères de la duloxétine, connu sous le nom de LY227942, a été faite en 1988 , mais c'est le second énantiomère (+) LY248686 qui sera choisi pour la suite des études car il inhibait deux fois plus la recapture de sérotonine que l' énantiomère (–)."
+    ]
+  },
+  "entacapone": {
+    "fr_slug": "entacapone",
+    "fr_title": "Entacapone",
+    "name": "Entacapone",
+    "sentences": [
+      "Cet article ne cite pas suffisamment ses sources ( novembre 2012 )."
+    ]
+  },
+  "ephedrine": {
+    "fr_slug": "ph_drine",
+    "fr_title": "Éphédrine",
+    "name": "Ephedrine",
+    "sentences": [
+      "Énantiomères 1R,2S (en haut) et 1S,2R (en bas) de l'éphédrine."
+    ]
+  },
+  "erenumab": {
+    "fr_slug": "r_numab",
+    "fr_title": "Érénumab",
+    "name": "Erenumab",
+    "sentences": [
+      "Informations générales",
+      "L’ érénumab , commercialisé sous le nom d'Aimovig par le groupe Novartis , est un anticorps monoclonal humain qui se fixe au récepteur du peptide relié au gène de la calcitonine (CGRP) ."
     ]
   },
   "escitalopram": {
@@ -661,6 +816,54 @@
       "Cet article est une ébauche concernant la médecine ."
     ]
   },
+  "ethanol": {
+    "fr_slug": "alcoolisation",
+    "fr_title": "Alcoolisation",
+    "name": "Ethanol",
+    "sentences": [
+      "Cet article ne cite pas suffisamment ses sources ( novembre 2016 )."
+    ]
+  },
+  "ethosuximide": {
+    "fr_slug": "thosuximide",
+    "fr_title": "Éthosuximide",
+    "name": "Ethosuximide",
+    "sentences": [
+      "Éthosuximide",
+      "On le trouve principalement sous le nom de Zarontin."
+    ]
+  },
+  "etomidate": {
+    "fr_slug": "tomidate",
+    "fr_title": "Étomidate",
+    "name": "Etomidate",
+    "sentences": [
+      "Identification",
+      "Il est commercialisé sous forme de chlorhydrate d'étomidate ( Hypnomidate )."
+    ]
+  },
+  "fenfluramine": {
+    "fr_slug": "fenfluramine",
+    "fr_title": "Fenfluramine",
+    "name": "Fenfluramine",
+    "sentences": [
+      "Cet article doit être actualisé ( juillet 2025 ).",
+      "La fenfluramine (3-trifluorométhyl- N -éthylamphétamine, nom de marque ”Pondéral”, \"Fintepla\") est une substance active médicamenteuse aux propriétés anorexigènes qui agit directement sur les structures nerveuses centrales régulant le comportement alimentaire par le biais de la sérotonine .",
+      "Cependant il y aura, pour l' énantiomère S de la fenfluramine , commercialisé sous la marque Isoméride, une « affaire de l'Isoméride », qui a laissé une trace dans la jurisprudence.",
+      "En 1981, le MIT passe un accord de licence avec les laboratoires Servier, afin de commercialiser la dexfenfluramine comme traitement de l'obésité.",
+      "Les laboratoires Servier n'étant alors pas implantés aux États-Unis, le MIT et les Wurtman fondèrent en 1988 ou 1989 la société Interneuron Pharmaceutical Inc. afin de produire la dexfenfluramine sous le nom de Redux ."
+    ]
+  },
+  "fentanyl": {
+    "fr_slug": "fentanyl",
+    "fr_title": "Fentanyl",
+    "name": "Fentanyl",
+    "sentences": [
+      "Ne doit pas être confondu avec le duo de musique femtanyl .",
+      "La dangerosité du fentanyl réside dans le fait que les toxicomanes le combinent souvent avec d'autres substances ; le mélange le plus répandu étant le fentanyl, la cocaïne et l' héroïne , connu sous le nom de « speedball » par les toxicomanes .",
+      "John Kapoor, le fondateur d' Insys Therapeutics (en) , a été condamné le 23 janvier 2020 par le tribunal de Boston à cinq ans et demi de prison pour avoir payé de nombreux médecins afin qu'ils prescrivent le spray au fentanyl commercialisé par Insys ."
+    ]
+  },
   "flibanserin": {
     "fr_slug": "flibans_rine",
     "fr_title": "Flibansérine",
@@ -675,8 +878,19 @@
     "fr_title": "Flumazénil",
     "name": "Flumazenil",
     "sentences": [
-      "Informations générales",
+      "Représentation semi-détaillée de la molécule de Flumazénil",
       "Il a été commercialisé pour la première fois par le laboratoire Hoffmann-La Roche , en 1987, sous le nom de marque Anexate ."
+    ]
+  },
+  "flunarizine": {
+    "fr_slug": "flunarizine",
+    "fr_title": "Flunarizine",
+    "name": "Flunarizine",
+    "sentences": [
+      "Cet article est une ébauche concernant la pharmacie .",
+      "La flunarizine , commercialisée jusqu'en 2023 sous le nom de marque Sibelium , est un inhibiteur calcique utilisé pour principalement dans le traitement des migraines , .",
+      "Disponible sans ordonnance aux États-Unis et au Japon , elle n'est plus commercialisé en France depuis octobre 2023 .",
+      "Le médicament a été découvert par Janssen sous le nom de recherche R14950, en 1968."
     ]
   },
   "flunitrazepam": {
@@ -736,6 +950,14 @@
       "Structure de la fluvoxamine"
     ]
   },
+  "furosemide": {
+    "fr_slug": "furos_mide",
+    "fr_title": "Furosémide",
+    "name": "Furosemide",
+    "sentences": [
+      "Identification"
+    ]
+  },
   "gabapentin": {
     "fr_slug": "gabapentine",
     "fr_title": "Gabapentine",
@@ -755,6 +977,14 @@
       "La galantamine, commercialisée sous le nom de Réminyl par le laboratoire Janssen Cilag , est utilisée pour traiter les formes légères à modérées de la maladie d'Alzheimer en en améliorant les symptômes mais pas la dégradation des fonctions supérieures ."
     ]
   },
+  "granisetron": {
+    "fr_slug": "granis_tron",
+    "fr_title": "Granisétron",
+    "name": "Granisetron",
+    "sentences": [
+      "Identification"
+    ]
+  },
   "guanfacine": {
     "fr_slug": "guanfacine",
     "fr_title": "Guanfacine",
@@ -772,6 +1002,23 @@
       "Sous le nom de marque Haldol , le médicament a été autorisé et commercialisé en Belgique en octobre 1959 ."
     ]
   },
+  "heroin": {
+    "fr_slug": "h_ro_ne",
+    "fr_title": "Héroïne",
+    "name": "Heroin",
+    "sentences": [
+      "Pour les articles homonymes, voir Héroïne (homonymie) .",
+      "Il arrive que le produit soit compressé sous forme de « cailloux » lors de son conditionnement."
+    ]
+  },
+  "hydromorphone": {
+    "fr_slug": "hydromorphone",
+    "fr_title": "Hydromorphone",
+    "name": "Hydromorphone",
+    "sentences": [
+      "Hydromorphone"
+    ]
+  },
   "hydroxyzine": {
     "fr_slug": "hydroxyzine",
     "fr_title": "Hydroxyzine",
@@ -782,12 +1029,21 @@
       "Son catabolite le plus connu est la cétirizine , qui est aussi un anti-histaminique diffusé par le même laboratoire sous le nom de spécialité Zyrtec."
     ]
   },
+  "ibogaine": {
+    "fr_slug": "iboga_ne",
+    "fr_title": "Ibogaïne",
+    "name": "Ibogaine",
+    "sentences": [
+      "Structure de l'ibogaïne",
+      "En France, la molécule a été commercialisée sous le nom Lambarène ."
+    ]
+  },
   "iloperidone": {
     "fr_slug": "ilop_ridone",
     "fr_title": "Ilopéridone",
     "name": "Iloperidone",
     "sentences": [
-      "L’admissibilité de cette page est actuellement débattue .",
+      "Cet article relève du guide pratique , ce qui n'est pas de nature encyclopédique ( janvier 2026 ).",
       "ilopéridone , vendue sous les noms commerciaux Fanapt et Zomaril, est un antipsychotique atypique utilisé pour traiter la schizophrénie ."
     ]
   },
@@ -809,6 +1065,14 @@
       "L' isocarboxazide (aussi connu sous les noms de marque Marplan, Marplon, Enerzer) est un inhibiteur non-sélectif et irréversible de la monoamine oxydase ( IMAO )."
     ]
   },
+  "isoflurane": {
+    "fr_slug": "isoflurane",
+    "fr_title": "Isoflurane",
+    "name": "Isoflurane",
+    "sentences": [
+      "Structure de l'isoflurane"
+    ]
+  },
   "ketamine": {
     "fr_slug": "k_tamine",
     "fr_title": "Kétamine",
@@ -819,6 +1083,15 @@
       "Elle est commercialisée depuis mars 2019 sous le nom de « Spravato » (Laboratoires Janssen ).",
       "Un suivi de pharmacovigilance après une année de commercialisation aux États-Unis confirme un risque inquiétant d'idées suicidaires et de suicides avec l'eskétamine .",
       "Sa commercialisation se fit dès 1969 aux États-Unis ."
+    ]
+  },
+  "lacosamide": {
+    "fr_slug": "lacosamide",
+    "fr_title": "Lacosamide",
+    "name": "Lacosamide",
+    "sentences": [
+      "Identification",
+      "Il est commercialisé sous le nom de Vimpat ."
     ]
   },
   "lamotrigine": {
@@ -956,7 +1229,7 @@
     "fr_title": "LSD",
     "name": "LSD",
     "sentences": [
-      "Vous lisez un « bon article » labellisé en 2010.",
+      "Vous lisez un « bon article », labellisé en 2010.",
       "Il peut être plus rarement vendu sous forme d'un minuscule comprimé (appelé « micropointe ») ou sous forme de gélatine .",
       "Connu depuis l'Antiquité puis le haut Moyen Âge sous le nom de « mal des ardents » ou « Feu de Saint Antoine » , il se présente sous la forme de délires hallucinatoires assez différents de ceux du LSD, de tremblements, de convulsions , mais aussi de gangrènes caractérisant une forme particulière, gangréneuse.",
       "Lors de cette expérience, il doit rentrer chez lui à bicyclette (du fait de la guerre, les voitures sont réquisitionnées ; cette course est aussi connue et commémorée chaque année sous le nom de bicycle day , ).",
@@ -999,12 +1272,20 @@
     "sentences": [
       "Ne doit pas être confondu avec MDA , MDEA , MDMC ou Méthamphétamine .",
       "Puissant sympathicomimétique et sérotoninergique , la MDMA est souvent utilisée comme drogue, vendue alors sous forme de cristaux (souvent impurs ) ou de pilules sous le nom d' ecstasy (de teneur variable en principe actif).",
-      "En 1953 , l' armée américaine s'y intéresse, sous le nom EA-1475, dans le cadre du projet MK-Ultra .",
+      "En 1953, l' armée américaine s'y intéresse, sous le nom EA-1475, dans le cadre du projet MK-Ultra .",
       "La MDP2P, aussi connue sous le nom de pipéronylacétone ou encore PMK (de l'anglais piperonyl methyl ketone ), est un précurseur direct de la MDMA et l'un des intermédiaires le plus souvent retrouvés lors de l'analyse des produits saisis .",
       "Actuellement , aucun médicament contenant de la MDMA n'est autorisé et/ou commercialisé .",
-      "Les analyses des comprimés vendus sous le nom d'ecstasy montrent qu'un tel comprimé peut contenir :",
-      "Selon une étude publiée en 2004 au Québec et effectuée d'après les échantillons des saisies, 35 % des pilules vendues sous le nom d'ecstasy contiennent de deux à sept substances différentes .",
-      "Face à la réalité de ce que contiennent les comprimés vendus sous le nom d'ecstasy et en l'absence de contrôle sanitaire sur le produit, les associations de réduction des risques ont mis en place des stands dits de testing (contrôle rapide des produits) où l'utilisateur peut venir tester son comprimé."
+      "Les analyses des comprimés vendus sous le nom d' ecstasy montrent qu'un tel comprimé peut contenir :",
+      "Selon une étude publiée en 2004 au Québec et effectuée d'après les échantillons des saisies, 35 % des pilules vendues sous le nom d' ecstasy contiennent de deux à sept substances différentes .",
+      "Face à la réalité de ce que contiennent les comprimés vendus sous le nom d' ecstasy et en l'absence de contrôle sanitaire sur le produit, les associations de réduction des risques ont mis en place des stands dits de testing (contrôle rapide des produits) où l'utilisateur peut venir tester son comprimé."
+    ]
+  },
+  "meclizine": {
+    "fr_slug": "m_clozine",
+    "fr_title": "Méclozine",
+    "name": "Meclizine",
+    "sentences": [
+      "Énantiomère S de la méclozine (en haut) et R-méclozine (en bas)"
     ]
   },
   "melatonin": {
@@ -1035,6 +1316,16 @@
       "Le méprobamate , anciennement commercialisé sous le nom Equanil ou Miltown , est un médicament faisant partie de la famille des carbamates primaires , famille dont il a été le plus répandu."
     ]
   },
+  "mescaline": {
+    "fr_slug": "mescaline",
+    "fr_title": "Mescaline",
+    "name": "Mescaline",
+    "sentences": [
+      "Ne doit pas être confondu avec Mescal .",
+      "On décèle la mescaline dans plusieurs cactus comme certaines espèces des genres Echinopsis ou Lophophora , plus connu sous le nom de peyotl dont le principe actif le plus présent est la mescaline.",
+      "En Occident, la mescaline est commercialisée par deux grands laboratoires pharmaceutiques, Merck, en Allemagne, et Roche en Suisse."
+    ]
+  },
   "methadone": {
     "fr_slug": "m_thadone",
     "fr_title": "Méthadone",
@@ -1052,9 +1343,9 @@
       "La forme HCl a été synthétisée, brevetée en 1937 et commercialisée dès 1938 par la société pharmaceutique allemande Temmler Werke GmbH sous la marque « Pervitin » .",
       "Elle est un temps commercialisée comme un médicament aux États-Unis pour divers problèmes médicaux, allant de l' obésité à la dépression .",
       "La 3,4-méthylènedioxy-N-méthyl-amphétamine ou MDMA, plus connue sous le nom d' ecstasy , est un composé proche.",
-      "Aux États-Unis et au Royaume-Uni, la substance était connue sous les noms de Methedrine , , ou Pervitine , mais les soldats américains ont privilégié l'usage de l' amphétamine .",
+      "Aux États-Unis et au Royaume-Uni, la substance était connue sous les noms de Methedrine , , Pervitine ou Benzédrine , mais les soldats américains ont privilégié l'usage de l' amphétamine , En trois ans, l'armée britannique consomme 3 millions de doses (notamment sous le nom de Benzédrine, par les pilotes lors du blitz) et l'armée américaine 180 millions de doses .",
       "La substance est commercialisée sous les noms de Pervitin , du laboratoire Temmler et Isophan , une version légèrement différente, fabriquée par le laboratoire Knoll Pharmaceuticals (en) .",
-      "Elle est utilisée sous le nom de « Panzerschokolade » , « Fliegerschokolade » , « Stuka-Tabletten » ou encore « pilules Hermann Göring » ( « Hermann-Göring-Pillen » ) ou pour les pilotes ( « Fliegermarzipan » ).",
+      "Elle est utilisée sous le nom de « Panzerschokolade » , « Fliegerschokolade » , « Stuka-Tabletten » ou encore « pilules Hermann Göring » ( « Hermann-Göring-Pillen » ) ou pour les pilotes ( « Fliegermarzipan » : massepain à la pervitine).",
       "À San Francisco , la méthamphétamine est particulièrement répandue au sein de la communauté gay et notamment au sein d'une sous-culture connue sous le nom de party & play ."
     ]
   },
@@ -1100,6 +1391,15 @@
       "Sa forme dextrogyre est également commercialisé sous le nom de dexméthylphénidate , avec des indications similaires.",
       "Il a été breveté en 1954 par la Compagnie pharmaceutique Ciba (un précurseur de Novartis ) et fut d'abord prescrit comme traitement dans la dépression et la narcolepsie chronique sous le nom de « Ritalin » — sauf en Belgique où les lettres initiales « Rit » appartenant à la Société « RIT = Recherche et industrie thérapeutique » (actuellement GlaxoSmithKline ), il fut appelé « Rilatine ».",
       "Son remboursement dans le TDAH est conditionné au remplissage par le prescripteur d'un formulaire de demande ainsi que d'un rapport circonstanciel de la part d'un neurologue pédiatrique, d'un neuropsychiatre pédiatrique, ou d'un médecin spécialiste ayant reçu un agrément en neurologie pédiatrique ."
+    ]
+  },
+  "metoclopramide": {
+    "fr_slug": "m_toclopramide",
+    "fr_title": "Métoclopramide",
+    "name": "Metoclopramide",
+    "sentences": [
+      "Métoclopramide",
+      "Mis au point et commercialisé par les laboratoires Delagrange en 1964 sous le nom de Primpéran ® , il est depuis le 6 avril 1982 dans le domaine public."
     ]
   },
   "mianserin": {
@@ -1156,6 +1456,25 @@
       "Il est prescrit sous les noms de marques Provigil aux États-Unis et en Belgique , Modiodal en France , Alertec au Canada , et Modasomil."
     ]
   },
+  "morphine": {
+    "fr_slug": "morphine",
+    "fr_title": "Morphine",
+    "name": "Morphine",
+    "sentences": [
+      "Pour les articles homonymes, voir Morphine (homonymie) .",
+      "Ce produit est commercialisé dès 1833 .",
+      "Les nombreux effets de la morphine conditionnent ses nombreuses applications thérapeutiques."
+    ]
+  },
+  "nabilone": {
+    "fr_slug": "nabilone",
+    "fr_title": "Nabilone",
+    "name": "Nabilone",
+    "sentences": [
+      "Identification",
+      "Il est commercialisé sous le nom de Césamet au Royaume-Uni , au Canada et en Espagne où il est prescrit pour le soulagement de douleurs chroniques ou comme hypnotique ."
+    ]
+  },
   "nalmefene": {
     "fr_slug": "nalm_f_ne",
     "fr_title": "Nalméfène",
@@ -1185,6 +1504,15 @@
       "Aux États-Unis, le bromure de méthylnaltrexone, une molécule proche vendue sous le nom de Relistor, est utilisée dans le traitement de la constipation induite par les opioïdes.",
       "La naltrexone est vendue sous différents noms :",
       "Le 10 septembre 2014 , la Food and Drug Administration (FDA) a donné son feu vert à la commercialisation de l'association bupropion /naltrexone (nom commercial : Contrave de l'entreprise pharmaceutique japonaise Takeda Pharmaceutical ) dans le traitement de l’ obésité ."
+    ]
+  },
+  "naltrexonebupropion": {
+    "fr_slug": "naltrexone_bupropion",
+    "fr_title": "Naltrexone/bupropion",
+    "name": "Naltrexone + Bupropion",
+    "sentences": [
+      "Naltrexone/bupropion",
+      "La naltrexone/bupropion , vendue notamment sous le nom de marque Contrave , est un médicament combiné utilisé pour traiter l'obésité en complément d'un régime alimentaire et d'exercice physique ."
     ]
   },
   "niaprazine": {
@@ -1221,6 +1549,14 @@
       "Wikipédia ne donne pas d'avis médical : seul un professionnel (médecin, pharmacien, etc. ) est habilité à le faire.",
       "Elle est commercialisée sous le nom de Mogadon , parmi d'autres.",
       "Elle fut brevetée en 1961 et fut commercialisée en 1965 , , ce qui en fait l'une des plus vieilles benzodiazépines encore utilisées de nos jours."
+    ]
+  },
+  "nitrous_oxide": {
+    "fr_slug": "m_lange_quimolaire_oxyg_ne_protoxyde_d_azote",
+    "fr_title": "Mélange équimolaire oxygène-protoxyde d'azote",
+    "name": "Nitrous oxide",
+    "sentences": [
+      "Les informations figurant dans cet article ou cette section doivent être reliées aux sources mentionnées dans les sections « Bibliographie », « Sources » ou « Liens externes » ( janvier 2014 )."
     ]
   },
   "nortriptyline": {
@@ -1269,6 +1605,15 @@
       "L'oxcarbazépine est commercialisée sous le nom Trileptal par Novartis et disponible dans certains pays sous forme générique."
     ]
   },
+  "oxycodone": {
+    "fr_slug": "oxycodone",
+    "fr_title": "Oxycodone",
+    "name": "Oxycodone",
+    "sentences": [
+      "Structure de l'oxycodone",
+      "Commercialisé agressivement par Purdue Pharma dans les années 1990 sous la dénomination commerciale, entre autres, d'OxyContin, il est alors largement utilisé pour traiter les douleurs modérées."
+    ]
+  },
   "paliperidone": {
     "fr_slug": "palip_ridone",
     "fr_title": "Palipéridone",
@@ -1286,6 +1631,14 @@
       "Identification",
       "La paroxétine , commercialisée dans certains pays sous les noms de Paxil , Deroxat ou Seroxat , est un antidépresseur inhibiteur sélectif de la recapture de la sérotonine mis sur le marché en 1992 par la firme GlaxoSmithKline .",
       "Elle est généralement commercialisée sous forme de chlorhydrate hémihydrate de paroxétine (en abrégé : chlorhydrate de paroxétine), parfois sous forme de chlorhydrate anhydre de paroxétine ou de mésilate de paroxétine."
+    ]
+  },
+  "pentazocine": {
+    "fr_slug": "pentazocine",
+    "fr_title": "Pentazocine",
+    "name": "Pentazocine",
+    "sentences": [
+      "Énantiomère R,R,R de la pentazocine (à gauche) et S,S,S-pentazocine (à droite)"
     ]
   },
   "pentobarbital": {
@@ -1314,6 +1667,16 @@
       "Perphénazine"
     ]
   },
+  "pethidine": {
+    "fr_slug": "p_thidine",
+    "fr_title": "Péthidine",
+    "name": "Pethidine",
+    "sentences": [
+      "Identification",
+      "La péthidine est le premier opioïde synthétique de l'histoire à avoir été massivement utilisé en médecine sous le nom de Dolosal en France et Demerol aux États-Unis.",
+      "La péthidine n'est pas commercialisée en France en 2024."
+    ]
+  },
   "phenazepam": {
     "fr_slug": "ph_naz_pam",
     "fr_title": "Phénazépam",
@@ -1321,6 +1684,16 @@
     "sentences": [
       "Identification",
       "Il n'est pas commercialisé en France."
+    ]
+  },
+  "phencyclidine": {
+    "fr_slug": "ph_ncyclidine",
+    "fr_title": "Phéncyclidine",
+    "name": "Phencyclidine",
+    "sentences": [
+      "Pour les articles homonymes, voir PCP et Angel Dust .",
+      "Synthétisée aux États-Unis par Maddox et al. en 1956 , , à partir de l-piperidinocyclo- hexanecarbonitrile, un réactif synthétisé en 1926 , elle est commercialisée dans les années 1960 sous le nom « Sernyl » (comme anesthésique général ) et de « Sernylan » (comme anesthésiant à usage vétérinaire ).",
+      "Dès les années 1970 elle fait l'objet d'un usage détourné sous le nom d' « Angel Dust » à tel point qu'en 1978 , sa fabrication commerciale est interdite ."
     ]
   },
   "phenobarbital": {
@@ -1331,6 +1704,15 @@
       "Phénobarbital",
       "Sa première commercialisation sous les noms Luminal et Gardénal remonte aux années 1910 .",
       "Le premier barbiturique commercialisé fut le barbital , ou acide diéthylbarbiturique, en 1904 sous le nom de Véronal."
+    ]
+  },
+  "phentermine": {
+    "fr_slug": "phentermine",
+    "fr_title": "Phentermine",
+    "name": "Phentermine",
+    "sentences": [
+      "Structure de la phentermine",
+      "Elle stimule les groupements de neurones pour libérer un genre particulier de neurotransmetteurs connus sous le nom de catécholamines ; celles-ci incluent la dopamine , l' adrénaline et la noradrénaline ."
     ]
   },
   "phenterminetopiramate": {
@@ -1391,7 +1773,7 @@
     "fr_title": "Pitolisant",
     "name": "Pitolisant",
     "sentences": [
-      "Informations générales",
+      "Structure du pitolisant ( formule topologique ).",
       "Le pitolisant (nom de marque Wakix) est un médicament éveillant utilisé dans la prise en charge médicamenteuse de la narcolepsie et de l' hypersomnie idiopathique ."
     ]
   },
@@ -1460,6 +1842,15 @@
       "Prométhazine"
     ]
   },
+  "propofol": {
+    "fr_slug": "propofol",
+    "fr_title": "Propofol",
+    "name": "Propofol",
+    "sentences": [
+      "Structure du propofol",
+      "Des versions génériques sont commercialisées."
+    ]
+  },
   "propranolol": {
     "fr_slug": "propranolol",
     "fr_title": "Propranolol",
@@ -1467,6 +1858,23 @@
     "sentences": [
       "Identification",
       "† indique une molécule retirée du marché ou non commercialisée"
+    ]
+  },
+  "pseudoephedrine": {
+    "fr_slug": "pseudo_ph_drine",
+    "fr_title": "Pseudoéphédrine",
+    "name": "Pseudoephedrine",
+    "sentences": [
+      "Pseudoéphédrine"
+    ]
+  },
+  "psilocybin": {
+    "fr_slug": "psilocybine",
+    "fr_title": "Psilocybine",
+    "name": "Psilocybin",
+    "sentences": [
+      "Structure de la psilocybine.",
+      "En revanche, cette interdiction ne concerne pas le sclérote, partie souterraine, qui est exploité commercialement sous le nom de truffe à psilocybine."
     ]
   },
   "quazepam": {
@@ -1496,6 +1904,14 @@
       "Ramelteon , vendu entre autres sous le nom Rozerem , est un médicament agoniste de la mélatonine qui est utilisé dans le traitement de l' insomnie , ."
     ]
   },
+  "rasagiline": {
+    "fr_slug": "rasagiline",
+    "fr_title": "Rasagiline",
+    "name": "Rasagiline",
+    "sentences": [
+      "Identification"
+    ]
+  },
   "reboxetine": {
     "fr_slug": "r_box_tine",
     "fr_title": "Réboxétine",
@@ -1504,6 +1920,37 @@
       "Énantiomère ( R,R ) -( – ) de la réboxétine (en haut) et ( S,S )-( + )-réboxétine (en bas)",
       "Il s'agit, chronologiquement, du premier inhibiteur de la recapture de la noradrénaline , qui ait été commercialisé .",
       "La réboxétine a été commercialisée dans plusieurs pays d'Europe en 1997 mais son autorisation de mise sur le marché (AMM) a été refusée aux États-Unis en 2001 et elle n'est pas non plus commercialisée en France ."
+    ]
+  },
+  "reserpine": {
+    "fr_slug": "r_serpine",
+    "fr_title": "Réserpine",
+    "name": "Reserpine",
+    "sentences": [
+      "Identification"
+    ]
+  },
+  "rimegepant": {
+    "fr_slug": "rim_g_pant",
+    "fr_title": "Rimégépant",
+    "name": "Rimegepant",
+    "sentences": [
+      "Informations générales",
+      "Le rimégépant a été développé par Biohaven Pharmaceuticals, qui commercialise le médicament aux États-Unis après avoir reçu l'approbation de la FDA en février 2020 ."
+    ]
+  },
+  "rimonabant": {
+    "fr_slug": "rimonabant",
+    "fr_title": "Rimonabant",
+    "name": "Rimonabant",
+    "sentences": [
+      "Rimonabant (SR141716A)",
+      "Le rimonabant (ou SR141716 ) était un médicament anorexigène contre l' obésité agissant comme un antagoniste sélectif des récepteurs cannabinoïdes CB1 , brièvement commercialisé par le groupe pharmaceutique Sanofi-Aventis ( Sanofi de 2006 à 2008) sous la marque Acomplia .",
+      "Pour ces raisons, la FDA (Food and Drug Administration) avait déjà refusé sa commercialisation aux États-Unis.",
+      "Les essais cliniques sur la molécule montrent les mêmes effets secondaires psychiques que ceux notifiés lors de la commercialisation en Europe .",
+      "En juin, le rimonabant obtient une autorisation de mise sur le marché européen, et est commercialisé en France à partir de 2007 ainsi que dans 20 autres pays.",
+      "En juin 2007 , un comité d'experts conseille à la Food Drugs Administration américaine de repousser une éventuelle autorisation de commercialisation aux États-Unis du médicament contre l'obésité, pour des raisons de sécurité.",
+      "Sanofi Aventis n'exclut plus une suspension du médicament dans les 14 autres pays, hors Union européenne, où il est commercialisé."
     ]
   },
   "risperidone": {
@@ -1524,6 +1971,15 @@
     "sentences": [
       "Rivastigmine",
       "La rivastigmine commercialisée sous le nom d'Exelon est une substance utilisée pour traiter les formes d'intensité légère à modérée des démences dues à la maladie d'Alzheimer , à la maladie de Parkinson et à la démence à corps de Lewy ."
+    ]
+  },
+  "rizatriptan": {
+    "fr_slug": "rizatriptan",
+    "fr_title": "Rizatriptan",
+    "name": "Rizatriptan",
+    "sentences": [
+      "Informations générales",
+      "Il est vendu entre autres sous le nom de marque Maxalt ."
     ]
   },
   "ropinirole": {
@@ -1548,6 +2004,22 @@
     "name": "Rubidium chloride",
     "sentences": [
       "Chlorure de rubidium"
+    ]
+  },
+  "safinamide": {
+    "fr_slug": "safinamide",
+    "fr_title": "Safinamide",
+    "name": "Safinamide",
+    "sentences": [
+      "Informations générales"
+    ]
+  },
+  "salvinorin_a": {
+    "fr_slug": "salvinorine_a",
+    "fr_title": "Salvinorine A",
+    "name": "Salvinorin A",
+    "sentences": [
+      "Salvinorine A"
     ]
   },
   "scopolamine": {
@@ -1598,6 +2070,28 @@
       "En France , le Zoloft ou Sertraline (Générique) est uniquement commercialisé sous forme de gélules de dosage 25 mg ou 50 mg ."
     ]
   },
+  "sevoflurane": {
+    "fr_slug": "s_voflurane",
+    "fr_title": "Sévoflurane",
+    "name": "Sevoflurane",
+    "sentences": [
+      "Identification"
+    ]
+  },
+  "sibutramine": {
+    "fr_slug": "sibutramine",
+    "fr_title": "Sibutramine",
+    "name": "Sibutramine",
+    "sentences": [
+      "Énantiomère S de la sibutramine (en haut) et R-sibutramine (en bas)",
+      "En raison de ses effets secondaires indésirables (problèmes cardio-vasculaires), il a été retiré du marché en 2010 et est actuellement interdit à la commercialisation dans de nombreux pays.",
+      "Cependant, on le retrouve encore souvent comme adjuvant non-mentionné dans des produits coupe-faim contrefaits, prétendument amaigrissant, faisant l'objet d'une commercialisation frauduleuse organisée à grande échelle sur internet, en particulier, grâce aux publicités mensongères foisonnant sur les réseaux sociaux .",
+      "Avant d'être banni, il a été commercialisé sous le nom de Meridia aux États-Unis et au Canada , sous le nom de Reductil en Europe, sous le nom de Sibutral en France.",
+      "À la suite de deux décès pouvant impliquer ce médicament, l'Italie en avait suspendu la commercialisation en mars 2002 et une réévaluation européenne du médicament a été faite, avec demande au laboratoire de réaliser une nouvelle étude.",
+      "L'agence a mis en garde contre la commercialisation illégale de produits contenant de la sibutramine non déclarée sur le conditionnement (exemple : Best-Life, Venom Hyperdrive), en recommandant de ne pas acheter de médicaments hors des pharmacies contrôlées, et pas sur Internet.",
+      "Au Canada où la molécule est commercialisée sous le nom de spécialité Meridia, Santé Canada en est venu à la conclusion en 2010 que les avantages du médicament ne l'emportent plus sur les risques."
+    ]
+  },
   "sildenafil": {
     "fr_slug": "sild_nafil",
     "fr_title": "Sildénafil",
@@ -1643,6 +2137,14 @@
       "Ce médicament n'est pas disponible à la commercialisation aux Etats-Unis."
     ]
   },
+  "sumatriptan": {
+    "fr_slug": "sumatriptan",
+    "fr_title": "Sumatriptan",
+    "name": "Sumatriptan",
+    "sentences": [
+      "molécule de Sumatriptan"
+    ]
+  },
   "suvorexant": {
     "fr_slug": "suvorexant",
     "fr_title": "Suvorexant",
@@ -1650,6 +2152,14 @@
     "sentences": [
       "Cet article relève du guide pratique , ce qui n'est pas de nature encyclopédique ( janvier 2026 ).",
       "Le suvorexant est un médicament de type hypnotique utilisé dans les troubles du sommeil et vendu sous le nom commercial Belsomra."
+    ]
+  },
+  "tapentadol": {
+    "fr_slug": "tapentadol",
+    "fr_title": "Tapentadol",
+    "name": "Tapentadol",
+    "sentences": [
+      "Identification"
     ]
   },
   "tasimelteon": {
@@ -1684,7 +2194,7 @@
   "thc": {
     "fr_slug": "t_trahydrocannabinol",
     "fr_title": "Tétrahydrocannabinol",
-    "name": "THC",
+    "name": "Tetrahydrocannabinol",
     "sentences": [
       "Pour les articles homonymes, voir THC (homonymie) et Delta 9 .",
       "Il n'est pas commercialisé en France.",
@@ -1730,6 +2240,14 @@
       "Fabriquée et commercialisée par les Laboratoires Servier , elle est également commercialisée dans un certain nombre d'autres pays européens sous le nom commercial Coaxil ainsi qu'en Asie et en Amérique latine sous le nom de Stablon et de Tatinol mais elle n'est pas disponible au Royaume-Uni ni aux États-Unis."
     ]
   },
+  "tiapride": {
+    "fr_slug": "tiapride",
+    "fr_title": "Tiapride",
+    "name": "Tiapride",
+    "sentences": [
+      "Identification"
+    ]
+  },
   "tizanidine": {
     "fr_slug": "tizanidine",
     "fr_title": "Tizanidine",
@@ -1746,6 +2264,14 @@
       "Identification"
     ]
   },
+  "tolcapone": {
+    "fr_slug": "tolcapone",
+    "fr_title": "Tolcapone",
+    "name": "Tolcapone",
+    "sentences": [
+      "Informations générales"
+    ]
+  },
   "topiramate": {
     "fr_slug": "topiramate",
     "fr_title": "Topiramate",
@@ -1753,6 +2279,17 @@
     "sentences": [
       "Identification",
       "On le trouve, en France, sous le nom d'Epitomax et aux États-Unis, au Canada, au Royaume-Uni , en Australie et dans certains autres pays sous le nom de Topamax."
+    ]
+  },
+  "tramadol": {
+    "fr_slug": "tramadol",
+    "fr_title": "Tramadol",
+    "name": "Tramadol",
+    "sentences": [
+      "Énantiomères (1 R ,2 R ) (à gauche) et (1 S ,2 S ) (à droite) du tramadol",
+      "En effet, le tramadol sans association est le plus puissant des antalgiques opioïdes de niveau II , et son conditionnement permet des doses importantes (jusqu'à 400 mg par jour).",
+      "Un trafic de tramadol (éventuellement reconditionné pour passer pour un autre produit) s'est développé au Sahel , en croissance exponentielle dans les années 2010 (en complément du trafic d'autres opioïdes synthétiques dans la région).",
+      "Au Gabon , il est connu sous le nom de Kobolo ."
     ]
   },
   "trazodone": {
@@ -1811,6 +2348,7 @@
     "name": "Tropatepine",
     "sentences": [
       "Identification",
+      "La tropatépine (nom de marque : Lepticur) est un médicament anticholinergique utilisé pour traiter la maladie de Parkinson et des syndromes apparentés.",
       "Elle est vendue sous le nom commercial Lepticur."
     ]
   },
@@ -1852,6 +2390,15 @@
       "Cet article est une ébauche concernant la pharmacie ."
     ]
   },
+  "vigabatrin": {
+    "fr_slug": "vigabatrine",
+    "fr_title": "Vigabatrine",
+    "name": "Vigabatrin",
+    "sentences": [
+      "Énantiomère ( S )-( – ) de la vigabatrine (en haut) et ( R )-( + )-vigabatrine (en bas)",
+      "Le vigabatrine est vendu sous le nom de « Sabril » en France , au Canada , Mexique et au Royaume-Uni ."
+    ]
+  },
   "vilazodone": {
     "fr_slug": "vilazodone",
     "fr_title": "Vilazodone",
@@ -1878,6 +2425,22 @@
       "Vortioxétine",
       "Dans une étude sur 40 personnes , financée par Takeda Pharmaceutical , un laboratoire commercialisant des médicaments à base de vortioxétine, elle a montré une efficacité supérieure au placebo dans un essai pour l' anxiété sociale en co-morbidité avec le trouble de dépression majeur .",
       "Elle existe aussi en solution buvable de 20 mg /ml commercialisée en Suisse, mais pas en France."
+    ]
+  },
+  "xenon": {
+    "fr_slug": "x_non",
+    "fr_title": "Xénon",
+    "name": "Xenon",
+    "sentences": [
+      "Pour les articles homonymes, voir Xénon (homonymie) ."
+    ]
+  },
+  "yohimbine": {
+    "fr_slug": "yohimbine",
+    "fr_title": "Yohimbine",
+    "name": "Yohimbine",
+    "sentences": [
+      "Structure de la yohimbine"
     ]
   },
   "zaleplon": {
