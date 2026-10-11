@@ -283,7 +283,7 @@ The corpora (`SOURCE_CORPORA`), each quote-gated author-side as above unless not
 `liveWikiDescription` over `js/wiki.js` `fetchWikiLead(url, lang)` (locale lead, English fallback), so
 the dataset ships no copyrighted prose (a panel whose live lead fails shows none). Receptors + projection
 groups carry a short **authored** `description` as the offline fallback, overridden best-effort by the
-live lead. Needs the `connect-src https://*.wikipedia.org` CSP allowance.
+live lead. The lead shows collapsed: its first paragraph clipped to ~300 characters at a word boundary (`wiki.js` `clipLead`), with an inline "Read more" / "Show less" toggle (`.wiki-more`) expanding the whole intro in place. Needs the `connect-src https://*.wikipedia.org` CSP allowance.
 
 **The live-Wikipedia source link (green, viewer-only).** A live-fetched lead shows its provenance as the
 **Wikipedia link itself**, relocated (by `liveWikiDescription`) to the end of the description in place of a

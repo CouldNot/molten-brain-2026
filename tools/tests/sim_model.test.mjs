@@ -1,6 +1,6 @@
 // Unit tests for public/js/sim-model.js (the simulation maths), run by
 // `node --test tools/tests/sim_model.test.mjs` and, from the Python suite, by
-// tools/tests/test_sim_model.py. Pure functions only: no DOM, no data files.
+// tools/tests/test_js_units.py. Pure functions only: no DOM, no data files.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {

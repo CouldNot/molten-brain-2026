@@ -105,6 +105,21 @@ async function langTitle(srcLang, title, target) {
   return null;
 }
 
+// The collapsed preview of a lead paragraph: `text` whole when it fits `max`
+// characters, else cut at the last word boundary before `max` (trailing comma /
+// colon dropped) plus an ellipsis. A boundary further back than 60% of `max`
+// (one huge token) falls back to a hard cut, so a preview is never near-empty.
+// e.g. clipLead("Caffeine is a central nervous system stimulant ...", 30)
+//   -> "Caffeine is a central nervous…"
+export function clipLead(text, max = 300) {
+  const s = String(text || "").trim();
+  if (s.length <= max) return s;
+  let cut = s.slice(0, max);
+  const space = cut.lastIndexOf(" ");
+  if (space > max * 0.6) cut = cut.slice(0, space);
+  return cut.replace(/[\s,;:\-–(]+$/u, "") + "…";
+}
+
 // Fetch the lead summary for the Wikipedia article at `wikipediaUrl` in `lang`,
 // falling back to the article's own language (English) when the locale article is
 // missing. Resolves to { text, lang } or null; never rejects (the caller keeps the

@@ -2323,6 +2323,13 @@
          stays a link, so drop the .info-wiki underline; nowrap keeps the label +
          its ↗ together. */
       .wiki-src { text-decoration: none; white-space: nowrap; }
+      /* "Read more" / "Show less" on a clipped Wikipedia lead: an inline text
+         button in the accent colour, so it reads as part of the paragraph. */
+      .wiki-more {
+        padding: 0; border: 0; background: none; font: inherit;
+        color: var(--accent); cursor: pointer; white-space: nowrap;
+      }
+      .wiki-more:hover { text-decoration: underline; }
       /* "?" caveat badge next to every Source / Reference: the citations + links
          are LLM-inferred and not yet human-checked. The tooltip shows on
          hover/focus (desktop) and is pinned on click/tap via .show (touch, where

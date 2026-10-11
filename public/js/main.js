@@ -27,7 +27,7 @@ import { createReceptorMarkers } from "./receptor-markers.js";
 import { createDrugAnimation } from "./drug-anim.js";
 import { animSettings } from "./anim-settings.js";
 import { DECOR_RENDER_ORDER } from "./render-order.js";
-import { fetchWikiLead } from "./wiki.js";
+import { fetchWikiLead, clipLead } from "./wiki.js";
 import { createTour } from "./tour.js";
 import { createChangelog } from "./changelog.js";
 import { createNodeBrowser, shownGrade } from "./node-browser.js";
@@ -2949,18 +2949,14 @@ function createInfoPanel(data, sourcingModal) {
         p = el("p", "info-desc");
         anchor[before ? "before" : "after"](p);
       }
-      // The live lead is now the full intro (several newline-separated
-      // paragraphs): the first reuses `p`, the rest become sibling <p>s, and the
-      // source marker trails the last so it all reads as one sourced block.
+      // The live lead is the full intro (several newline-separated paragraphs).
+      // Collapsed (the default) only the first paragraph shows, clipped to ~300
+      // characters (clipLead); a "Read more" toggle expands the whole intro in
+      // place and "Show less" folds it back. The source marker always trails
+      // the last visible paragraph, so it all reads as one sourced block.
       const paras = live.text.split(/\n+/).map((s) => s.trim()).filter(Boolean);
-      p.textContent = paras.length ? paras[0] : live.text;
-      let last = p;
-      for (let i = 1; i < paras.length; i += 1) {
-        const extra = el("p", "info-desc", paras[i]);
-        last.after(extra);
-        last = extra;
-      }
-      last.appendChild(document.createTextNode(" "));
+      const full = paras.length ? paras : [live.text];
+      const preview = clipLead(full[0]);
       // Provenance for a live verbatim read is the Wikipedia link itself, shown
       // here in place of a green ✓ pill: a checkmark beside a link to the very
       // same source added nothing (its tooltip only pointed back at the link),
@@ -2970,15 +2966,47 @@ function createInfoPanel(data, sourcingModal) {
       // tidy the row it left: drop a now-leading "·" separator, and the whole row
       // if only the reference lived there (lookup links, if any, stay).
       const refLink = linkWrap && linkWrap._refLink;
+      let marker;
       if (refLink && refLink.isConnected) {
         refLink.classList.add("src-pill", "src-prov-wikipedia", "wiki-src");
-        last.appendChild(refLink);
+        marker = refLink;
+        refLink.remove(); // detach first, so the row's new first child is inspected
         const lead = linkWrap.firstElementChild;
         if (lead && lead.classList.contains("ref-sep")) lead.remove();
         if (!linkWrap.querySelector("a")) linkWrap.remove();
       } else {
-        last.appendChild(makeProvenancePill("wikipedia")); // fallback marker
+        marker = makeProvenancePill("wikipedia"); // fallback marker
       }
+      const toggle = (full.length > 1 || preview !== full[0])
+        ? el("button", "wiki-more") : null;
+      let extras = [];
+      const render = (expanded) => {
+        for (const x of extras) x.remove();
+        extras = [];
+        p.textContent = expanded ? full[0] : preview; // detaches toggle + marker
+        let last = p;
+        if (expanded) {
+          for (const text of full.slice(1)) {
+            const extra = el("p", "info-desc", text);
+            last.after(extra);
+            extras.push(extra);
+            last = extra;
+          }
+        }
+        if (toggle) {
+          toggle.textContent = t(expanded ? "wiki.readLess" : "wiki.readMore");
+          toggle.setAttribute("aria-expanded", String(expanded));
+          last.append(" ", toggle);
+        }
+        last.append(" ", marker);
+      };
+      if (toggle) {
+        toggle.type = "button";
+        toggle.addEventListener("click", () => {
+          render(toggle.getAttribute("aria-expanded") !== "true");
+        });
+      }
+      render(false);
     });
   };
 
