@@ -290,8 +290,8 @@ ADDONS: list[dict[str, Any]] = [
             "fr": "Chaque ligne ci-dessus est sourcée individuellement, mais pas la "
                   "liste : elle contient les voies qu'une source citée ici nomme, et "
                   "aucun corpus ne prétend les nommer toutes. Une isoforme absente "
-                  "signifie qu'aucune source n'a énoncé cette voie, jamais que le "
-                  "médicament l'évite. Les interactions ci-dessous sont dérivées de "
+                  "signifie qu'aucune source n'a énoncé cette voie, jamais que la "
+                  "substance l'évite. Les interactions ci-dessous sont dérivées de "
                   "cette même liste : une voie commune non nommée est donc une "
                   "interaction que rien n'affiche.",
         },

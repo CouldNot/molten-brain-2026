@@ -817,41 +817,41 @@
         + "dans la couverture des sources",
 
       "sim.beta": "bêta",
-      "sim.lead": "Dans quelle mesure une association de médicaments engage chaque récepteur, et la même question à l'envers : quelle association approcherait un profil que vous décrivez. Les deux bouts parlent d'occupation des récepteurs.",
-      "sim.leadUnit": "Ce qui est tracé est un indice relatif, non un pourcentage de récepteurs occupés : une affinité dit avec quelle force un médicament tient un récepteur, jamais quelle quantité lui parvient.",
+      "sim.lead": "Dans quelle mesure une association de substances engage chaque récepteur, et la même question à l'envers : quelle association approcherait un profil que vous décrivez. Les deux bouts parlent d'occupation des récepteurs.",
+      "sim.leadUnit": "Ce qui est tracé est un indice relatif, non un pourcentage de récepteurs occupés : une affinité dit avec quelle force une substance tient un récepteur, jamais quelle quantité lui parvient.",
       "sim.warnTitle": "Ce que cette simulation ignore",
       "sim.warnNotExhaustive": "Cette liste n'est pas exhaustive. Elle nomme les raccourcis pris en connaissance de cause ; d'autres y manquent certainement.",
-      "sim.warn.interactions": "Aucune interaction médicamenteuse n'est modélisée : rien ici ne modifie le niveau d'un autre médicament.",
+      "sim.warn.interactions": "Aucune interaction médicamenteuse n'est modélisée : rien ici ne modifie le niveau d'une autre substance.",
       "sim.warn.halfLife": "Une seule demi-vie moyenne par ligand (le milieu de l'intervalle publié), alors que les valeurs réelles varient beaucoup d'une personne à l'autre.",
       "sim.warn.plasma": "Cinétique plasmatique seulement : l'exposition cérébrale ne lui est pas simplement proportionnelle.",
-      "sim.warn.dose": "Ni dose, ni biodisponibilité, ni volume de distribution, ni fraction libre, ni pénétration cérébrale : aucune concentration au récepteur ne peut donc être calculée, et les barres restent un indice plutôt qu'un pourcentage d'occupation. Une prise orale unique est supposée, montant jusqu'au délai de pic sourcé du médicament quand il en existe un, et jusqu'à {h} h pour ceux dont aucune source ne le donne.",
-      "sim.warn.endogenous": "Le neurotransmetteur du cerveau lui-même est ignoré : un médicament entre en compétition au récepteur avec la dopamine ou la sérotonine déjà présentes, ce qui explique qu'une occupation mesurée ne corresponde jamais à une affinité en éprouvette.",
+      "sim.warn.dose": "Ni dose, ni biodisponibilité, ni volume de distribution, ni fraction libre, ni pénétration cérébrale : aucune concentration au récepteur ne peut donc être calculée, et les barres restent un indice plutôt qu'un pourcentage d'occupation. Une prise orale unique est supposée, montant jusqu'au délai de pic sourcé de la substance quand il en existe un, et jusqu'à {h} h pour celles dont aucune source ne le donne.",
+      "sim.warn.endogenous": "Le neurotransmetteur du cerveau lui-même est ignoré : une substance entre en compétition au récepteur avec la dopamine ou la sérotonine déjà présentes, ce qui explique qu'une occupation mesurée ne corresponde jamais à une affinité en éprouvette.",
       "sim.warn.additive": "Les puissances s'additionnent simplement, sans compétition au récepteur, sans efficacité ni tolérance.",
       "sim.warn.unknown": "Un récepteur dont la direction n'a jamais été sourcée apparaît en bande grise « se lie, effet inconnu », et n'entre pas dans le net.",
       "sim.warn.assumedKi": "Une liaison de direction connue mais sans Ki mesuré est supposée à {ki}.",
       "sim.warn.metabolite": "Un métabolite actif est supposé formé en totalité.",
-      "sim.warnBetween": "Entre ces médicaments",
+      "sim.warnBetween": "Entre ces substances",
       "sim.flag.sharedSubstrate": "{a} et {b} sont tous deux éliminés par {enzyme}.",
       "sim.flag.inhibits": "{a} inhibe {enzyme}, qui élimine {b}.",
       "sim.flag.induces": "{a} induit {enzyme}, qui élimine {b}.",
       "sim.flag.profile": "{assumed} liaison(s) à une affinité supposée, {unknown} sans direction sourcée.",
       "sim.flag.unknownList": "Lesquelles ?",
-      "sim.drugs": "Médicaments",
-      "sim.empty": "Ajoutez un médicament pour commencer.",
-      "sim.addDrug": "Ajouter un médicament",
-      "sim.searchDrug": "Tapez un nom de médicament",
+      "sim.drugs": "Substances",
+      "sim.empty": "Ajoutez une substance pour commencer.",
+      "sim.addDrug": "Ajouter une substance",
+      "sim.searchDrug": "Tapez un nom de substance",
       "sim.noMatch": "Aucun résultat",
       "sim.ratio": "Dose relative",
-      "sim.ratioHint": "Quelle quantité de ce médicament par rapport aux autres (le premier sert de référence).",
+      "sim.ratioHint": "Quelle quantité de cette substance par rapport aux autres (la première sert de référence).",
       "sim.less": "Moins",
       "sim.more": "Plus",
       "sim.remove": "Retirer",
-      "sim.toggleVisible": "Afficher ou masquer ce médicament dans les deux graphiques",
-      "sim.openPanel": "Ouvrir la fiche de ce médicament",
+      "sim.toggleVisible": "Afficher ou masquer cette substance dans les deux graphiques",
+      "sim.openPanel": "Ouvrir la fiche de cette substance",
       "sim.metabolites": "Inclure les métabolites actifs",
       "sim.pkTitle": "Taux plasmatique au cours du temps",
-      "sim.pkCaption": "Taux relatif de chaque ligand après une prise unique à t = 0, tous les médicaments partageant un délai de pic supposé de {h} h. Survolez le graphique ou faites-y glisser le doigt pour lire le graphique des récepteurs à cet instant.",
-      "sim.pkNone": "Aucun médicament choisi n'a de demi-vie à tracer.",
+      "sim.pkCaption": "Taux relatif de chaque ligand après une prise unique à t = 0, toutes les substances partageant un délai de pic supposé de {h} h. Survolez le graphique ou faites-y glisser le doigt pour lire le graphique des récepteurs à cet instant.",
+      "sim.pkNone": "Aucune substance choisie n'a de demi-vie à tracer.",
       "sim.pkAtPeak": "Lecture au pic propre de chaque ligand.",
       "sim.pkHours": "{n} h",
       "sim.pkDays": "{n} j",
@@ -866,10 +866,10 @@
       "sim.rxBlock": "Blocage",
       "sim.rxUnknown": "Se lie, effet inconnu",
       "sim.rxNet": "Net",
-      "sim.rxWhich": "Quels médicaments :",
+      "sim.rxWhich": "Quelles substances :",
       "sim.systemOther": "Autre",
-      "sim.solveTitle": "Trouver des médicaments pour un profil",
-      "sim.solveCaption": "Indiquez récepteur par récepteur le profil souhaité, puis laissez le solveur chercher une combinaison qui le reproduit. Les médicaments listés ci-dessus sont conservés tels quels : la réponse dit donc quoi ajouter.",
+      "sim.solveTitle": "Trouver des substances pour un profil",
+      "sim.solveCaption": "Indiquez récepteur par récepteur le profil souhaité, puis laissez le solveur chercher une combinaison qui le reproduit. Les substances listées ci-dessus sont conservées telles quelles : la réponse dit donc quoi ajouter.",
       "sim.addReceptor": "Ajouter un récepteur",
       "sim.searchReceptor": "Tapez un nom de récepteur ou de cible",
       "sim.useCurrent": "Reprendre le profil actuel",
@@ -880,7 +880,7 @@
       "sim.solve": "Chercher",
       "sim.solving": "Recherche...",
       "sim.fit": "Ajustement : {pct} % sur {n} récepteur(s)",
-      "sim.pickOpposes": "va à l'encontre du souhait sur {targets} : il ne fait que compenser ce que les médicaments listés dépassent",
+      "sim.pickOpposes": "va à l'encontre du souhait sur {targets} : elle ne fait que compenser ce que les substances listées dépassent",
       "sim.noPicks": "Rien n'améliore ce qui est déjà listé.",
       "sim.addPick": "Ajouter",
       "sim.addAll": "Tout ajouter",
@@ -895,8 +895,8 @@
       "toolbar.reset": "Recentrer la vue",
       "toolbar.search": "Rechercher",
       "search.close": "Fermer la recherche",
-      "toolbar.searchAria": "Rechercher structures, connexions, récepteurs et médicaments",
-      "search.placeholder": "Rechercher une structure, une connexion, un récepteur/cible, un médicament ou un réglage…",
+      "toolbar.searchAria": "Rechercher structures, connexions, récepteurs et substances",
+      "search.placeholder": "Rechercher une structure, une connexion, un récepteur/cible, une substance ou un réglage…",
       "search.noMatch": "Aucun résultat",
       "search.tagCircuit": "circuit",
       "search.tagPathways": "voies",
@@ -907,7 +907,7 @@
       "search.off": "désactivé",
       "search.clear": "Effacer la recherche",
       "search.syntaxLabel": "Syntaxe de recherche",
-      "search.syntax": "Tapez pour rechercher par nom. Filtres : <code>classe:&quot;IRSN&quot;</code> les médicaments d'une classe, <code>nbn:&quot;…&quot;</code> par nomenclature. Astuce : cliquez la <b>Classe</b> ou la <b>Nomenclature</b> d'un médicament pour en remplir un.",
+      "search.syntax": "Tapez pour rechercher par nom. Filtres : <code>classe:&quot;IRSN&quot;</code> les substances d'une classe, <code>nbn:&quot;…&quot;</code> par nomenclature. Astuce : cliquez la <b>Classe</b> ou la <b>Nomenclature</b> d'une substance pour en remplir un.",
 
       "shortcuts.title": "Raccourcis clavier",
       "shortcuts.names": "Afficher / masquer les noms",
@@ -917,7 +917,7 @@
       "shortcuts.legend": "Afficher / masquer la légende",
       "shortcuts.seeInside": "Voir l'intérieur",
       "shortcuts.receptors": "Ouvrir Récepteurs et cibles",
-      "shortcuts.drugs": "Ouvrir la section Médicaments",
+      "shortcuts.drugs": "Ouvrir la section Substances",
       "shortcuts.search": "Ouvrir la recherche",
       "shortcuts.tabs": "Naviguer entre les onglets",
       "shortcuts.close": "Fermer la recherche / replier les sections",
@@ -932,7 +932,7 @@
       "tour.scrollHint": "Faites défiler dans ce sens jusqu'à la partie en surbrillance",
       "tour.welcome.title": "Bienvenue sur neurarium",
       "tour.welcome.body":
-        "Une carte 3D du cerveau : ses régions, leurs voies, et les récepteurs et médicaments qui agissent dessus. La visite dure environ 4 minutes, et vous pouvez la quitter quand vous voulez.",
+        "Une carte 3D du cerveau : ses régions, leurs voies, et les récepteurs et substances qui agissent dessus. La visite dure environ 4 minutes, et vous pouvez la quitter quand vous voulez.",
       "tour.rotate.title": "Se déplacer",
       "tour.rotate.body":
         "<b>Faites glisser</b> pour tourner le cerveau, défilez pour zoomer. Faites-le tourner pour continuer.",
@@ -965,22 +965,22 @@
         "Et l'inverse : cliquez sur l'en-tête <b>neurarium</b> pour replier le panneau en une seule ligne et laisser le cerveau seul à l'écran. Essayez, puis <b>Suivant</b>.",
       "tour.browse.title": "Parcourir les données",
       "tour.browse.body":
-        "Tout tient en cinq listes, dans l'ordre du panneau : <b>Médicaments</b> ({drugs}+), <b>Récepteurs et cibles</b> ({receptors}+), <b>Enzymes</b>, <b>Structures cérébrales</b> ({structures}+) et <b>Projections et circuits</b> ({projections}+). On en ouvre quelques-unes ensuite.",
+        "Tout tient en cinq listes, dans l'ordre du panneau : <b>Substances</b> ({drugs}+), <b>Récepteurs et cibles</b> ({receptors}+), <b>Enzymes</b>, <b>Structures cérébrales</b> ({structures}+) et <b>Projections et circuits</b> ({projections}+). On en ouvre quelques-unes ensuite.",
       "tour.openDrugs.title": "Ouvrir une liste",
       "tour.openDrugs.body":
-        "Commençons par un médicament. Cliquez sur <b>Médicaments</b> pour ouvrir la liste.",
-      "tour.drugTap.title": "Mettre un médicament en avant",
+        "Commençons par une substance. Cliquez sur <b>Substances</b> pour ouvrir la liste.",
+      "tour.drugTap.title": "Mettre une substance en avant",
       "tour.drugTap.body":
-        "Cliquez sur <b>olanzapine</b>. Le cerveau s'assombrit et ses effets s'animent sur les régions qu'il atteint.",
-      "tour.drugActs.title": "Ce sur quoi il agit",
+        "Cliquez sur <b>olanzapine</b>. Le cerveau s'assombrit et ses effets s'animent sur les régions qu'elle atteint.",
+      "tour.drugActs.title": "Ce sur quoi elle agit",
       "tour.drugActs.body":
-        "Ses <b>liaisons</b>, classées de la plus forte affinité à la plus faible : chaque cible touchée, l'effet, et l'affinité (Ki) qui pilote l'animation. <b>À noter :</b> les animations de médicaments sont l'aspect le moins scientifique de neurarium, encore en chantier ; voyez-les comme une illustration, pas un fait.",
+        "Ses <b>liaisons</b>, classées de la plus forte affinité à la plus faible : chaque cible touchée, l'effet, et l'affinité (Ki) qui pilote l'animation. <b>À noter :</b> les animations de substances sont l'aspect le moins scientifique de neurarium, encore en chantier ; voyez-les comme une illustration, pas un fait.",
       "tour.drugMetabolism.title": "Comment le corps l'élimine",
       "tour.drugMetabolism.body":
-        "Plus bas, son <b>métabolisme</b> : les enzymes hépatiques qui dégradent ce médicament, ou dont il modifie l'activité. Chacune est sourcée, et cliquable. C'est de la pharmacocinétique : rien ne s'allume dans la vue 3D.",
+        "Plus bas, son <b>métabolisme</b> : les enzymes hépatiques qui dégradent cette substance, ou dont elle modifie l'activité. Chacune est sourcée, et cliquable. C'est de la pharmacocinétique : rien ne s'allume dans la vue 3D.",
       "tour.drugPk.title": "Et ce que cela implique",
       "tour.drugPk.body":
-        "Ouvrez <b>Interactions médicamenteuses</b>. Ces lignes sont <b>déduites</b> des enzymes ci-dessus, jamais mesurées : deux médicaments qui se croisent sur une même enzyme <i>pourraient</i> déplacer leur concentration sanguine. Puis <b>Suivant</b> pour continuer.",
+        "Ouvrez <b>Interactions médicamenteuses</b>. Ces lignes sont <b>déduites</b> des enzymes ci-dessus, jamais mesurées : deux substances qui se croisent sur une même enzyme <i>pourraient</i> déplacer leur concentration sanguine. Puis <b>Suivant</b> pour continuer.",
       "tour.drugToReceptor.title": "Suivre vers un récepteur",
       "tour.drugToReceptor.body":
         "Remontez aux liaisons : chacune est un lien. Cliquez sur la ligne <b>H1</b> pour ouvrir ce récepteur.",
@@ -1019,7 +1019,7 @@
         "Cliquez sur la <b>loupe</b> pour ouvrir la recherche.",
       "tour.search.title": "Tout retrouver",
       "tour.search.body":
-        "La <b>recherche</b> mène à toute structure, voie, récepteur ou médicament par son nom (essayez). Vous pouvez aussi filtrer les médicaments par classe.",
+        "La <b>recherche</b> mène à toute structure, voie, récepteur ou substance par son nom (essayez). Vous pouvez aussi filtrer les substances par classe.",
       "tour.wrap.title": "Vous êtes prêt",
       "tour.wrap.body":
         "Voilà la visite. Les réglages, le sélecteur EN/FR et une relance de la visite sont dans le panneau (relance depuis <b>À propos</b>). Bonne exploration.",
@@ -1036,10 +1036,10 @@
 
       "legendKey.dots": "Points d'expression",
       "legendKey.dotsDesc": "Sélectionner un récepteur ou une cible disperse des points lumineux sur chaque région où il se trouve, colorés selon son action :",
-      "legendKey.effects": "Effets des médicaments",
-      "legendKey.effectsDesc": "Sélectionner un médicament fait pulser des points et une onde de lumière sur chaque région où il agit, colorés selon l'effet :",
-      "legendKey.flow": "Billes en mouvement (médicament)",
-      "legendKey.flowDesc": "Sélectionner un médicament envoie aussi des billes le long des voies ascendantes du ou des systèmes de neurotransmetteurs dont il règle le *tonus*, pour montrer quelles « autoroutes » de diffusion il pilote. Seules les liaisons qui règlent le tonus circulent : inhibiteurs de recapture, inhibiteurs d'enzyme, bloqueurs vésiculaires et autorécepteurs présynaptiques ; un récepteur purement postsynaptique reste sous forme de points. Les billes sont vives/rapides/denses quand le médicament augmente le tonus du système et ternes/lentes/rares quand il le baisse (un ISRS augmente l'éventail sérotoninergique, l'agonisme 5-HT1A de la buspirone l'atténue, un bloqueur VMAT2 l'épuise), et leur intensité suit l'affinité mesurée du médicament. Le système est lu depuis les cibles du médicament, pas depuis les régions qui s'allument. Seuls ces systèmes ascendants diffus dotés d'un noyau source modélisé circulent :",
+      "legendKey.effects": "Effets des substances",
+      "legendKey.effectsDesc": "Sélectionner une substance fait pulser des points et une onde de lumière sur chaque région où elle agit, colorés selon l'effet :",
+      "legendKey.flow": "Billes en mouvement (substance)",
+      "legendKey.flowDesc": "Sélectionner une substance envoie aussi des billes le long des voies ascendantes du ou des systèmes de neurotransmetteurs dont elle règle le *tonus*, pour montrer quelles « autoroutes » de diffusion elle pilote. Seules les liaisons qui règlent le tonus circulent : inhibiteurs de recapture, inhibiteurs d'enzyme, bloqueurs vésiculaires et autorécepteurs présynaptiques ; un récepteur purement postsynaptique reste sous forme de points. Les billes sont vives/rapides/denses quand la substance augmente le tonus du système et ternes/lentes/rares quand elle le baisse (un ISRS augmente l'éventail sérotoninergique, l'agonisme 5-HT1A de la buspirone l'atténue, un bloqueur VMAT2 l'épuise), et leur intensité suit l'affinité mesurée de la substance. Le système est lu depuis les cibles de la substance, pas depuis les régions qui s'allument. Seuls ces systèmes ascendants diffus dotés d'un noyau source modélisé circulent :",
       "legendKey.pathways": "Voies",
       "legendKey.speculative": "Voie hypothétique (pointillés)",
 
@@ -1053,14 +1053,14 @@
       "info.vidal": "Vidal ↗",
       "info.vidalTitle": "Rechercher cette substance sur Vidal (base de données du médicament)",
       "info.drugscom": "Drugs.com ↗",
-      "info.drugscomTitle": "Rechercher ce médicament sur Drugs.com",
+      "info.drugscomTitle": "Rechercher cette substance sur Drugs.com",
       "info.ema": "EMA ↗",
       "info.emaTitle": "Rechercher sur l’Agence européenne des médicaments",
       "info.fda": "FDA ↗",
       "info.fdaTitle": "Rechercher dans la base de données de la FDA (États-Unis)",
       "info.clinpgx": "ClinPGx ↗",
       "info.clinpgxTitle": "Rechercher sur ClinPGx (pharmacogénomique : variants génétiques et réponse au médicament)",
-      "info.clinpgxPathwaysTitle": "Rechercher sur ClinPGx les voies pharmacocinétiques de ce médicament",
+      "info.clinpgxPathwaysTitle": "Rechercher sur ClinPGx les voies pharmacocinétiques de cette substance",
       "info.clinpgxEnzymeTitle": "Rechercher cette enzyme sur ClinPGx (variants, phénotypes, adaptation posologique)",
       "info.clinpgxGeneTitle": "Rechercher sur ClinPGx le gène de cette protéine (variants et effet sur la réponse aux médicaments)",
       "info.pathways": "Voies",
@@ -1081,12 +1081,12 @@
       "info.provVerified": "Niveau de source : vérifiée. Un LLM a extrait une citation, sa présence dans la source a été confirmée par programme, et un second LLM a confirmé qu’elle étaye ce nœud. C’est le niveau le plus élevé disponible ici et il reste piloté par un LLM : il peut donc encore se tromper. Aller plus loin demanderait un effort humain considérable, lui-même sujet à erreur, et sort donc du cadre de ce projet.",
       "info.provUncertain": "Niveau de source : incertaine. La citation ci-dessous figure bien dans la source et porte bien sur ce sujet, mais elle n’énonce jamais cette affirmation précise : elle dit quelque chose de plus large, la rattacher ici est donc une inférence. Les raisons d’en douter sont listées ci-dessus, chacune avec sa propre source.",
       "info.uncertainLead": "Voici des raisons, rédigées par un LLM, de douter de cette affirmation :",
-      "uncertain.side_effect_rule": "La phrase source explique un effet indésirable, et son sujet est le mécanisme plutôt que le médicament : elle n’affirme donc jamais que ce médicament a cette action.",
+      "uncertain.side_effect_rule": "La phrase source explique un effet indésirable, et son sujet est le mécanisme plutôt que la substance : elle n’affirme donc jamais que cette substance a cette action.",
       "uncertain.family_claim": "Une seule phrase de la source couvre {n} sous-types de récepteurs à la fois : elle nomme la famille et jamais ce sous-type précis, dont le découpage relève de notre propre lecture.",
-      "uncertain.class_wide": "La même phrase est imprimée sur {n} autres monographies, elle peut donc énoncer une règle sur le mécanisme plutôt qu’une mesure sur ce médicament.",
+      "uncertain.class_wide": "La même phrase est imprimée sur {n} autres monographies, elle peut donc énoncer une règle sur le mécanisme plutôt qu’une mesure sur cette substance.",
       "uncertain.measured_ki": "Une affinité mesurée indépendante l’étaye : Ki médian de {ki} nM sur {n} essais.",
       "uncertain.no_measured_ki": "Aucune affinité de liaison mesurée n’a été trouvée pour cette cible : rien d’indépendant n’étaye la phrase.",
-      "uncertain.not_a_mechanism": "La source ne cite jamais cette action parmi les mécanismes d’action du médicament.",
+      "uncertain.not_a_mechanism": "La source ne cite jamais cette action parmi les mécanismes d’action de la substance.",
       "uncertain.blanket_claim": "Une seule phrase de la source couvre {n} voies issues de cette structure à la fois et ne nomme aucune de leurs cibles : elle décrit l’étendue du système, et la tracer jusqu’à cette région en particulier relève de notre propre lecture.",
       "uncertain.set_claim": "Une seule phrase de la source affirme ceci pour {n} voies à la fois et ne nomme aucune des deux extrémités de celle-ci : elle parle de systèmes entiers (comme « le cortex cérébral » vers « le striatum »), et l’appliquer à cette voie en particulier relève de notre propre lecture.",
       "uncertain.contradicted": "Une autre source de ce jeu de données affirme le contraire, et elle est citée ci-dessous. Les corpus divergent le plus souvent sur ce qu’une mesure de laboratoire signifie chez l’être vivant (un effet réel in vitro qui ne se retrouve pas in vivo) : les deux sont donc conservées ici plutôt que l’une écartée en silence.",
@@ -1101,15 +1101,15 @@
       "info.provWikipedia": "Chargé directement depuis Wikipédia. Ce texte est récupéré en direct et tel quel depuis l’article Wikipédia actuel (CC BY-SA), sans aucun LLM : il ne peut donc pas s’écarter de l’article. Voir le lien Référence ci-dessus pour inspecter la source.",
       "enzyme.gradesRole": "Niveau de source du rôle : {role}",
       "enzyme.gradesStrength": "Niveau de source de l’intensité : {strength}",
-      "info.provDataset": "À propos de ces données : une remarque sur la construction de ce jeu de données, pas une affirmation sur le cerveau ou un médicament, donc aucune source ne pourrait l’étayer. Elle n’est pas comptée dans le bilan de couverture.",
+      "info.provDataset": "À propos de ces données : une remarque sur la construction de ce jeu de données, pas une affirmation sur le cerveau ou une substance, donc aucune source ne pourrait l’étayer. Elle n’est pas comptée dans le bilan de couverture.",
       "prov.name.verified": "Vérifiée : citation trouvée sur la page et confirmée par un juge",
       "prov.name.sourced": "Sourcée : écrite d’après la source, citation non vérifiée",
       "prov.name.llm": "LLM seul : de mémoire, non vérifiée",
       "prov.name.uncertain": "Incertaine : la citation existe mais n’énonce pas cette affirmation précise",
       "prov.name.wikipedia": "Texte Wikipédia en direct, repris tel quel",
       "prov.name.none": "Aucune source",
-      "prov.name.dataset": "À propos de ces données : une remarque sur la construction de ce jeu de données, pas une affirmation sur le cerveau ou un médicament, donc aucune source ne pourrait l’étayer.",
-      "info.descFromWikipedia": "Cette description est l’introduction de l’article Wikipédia du médicament, reprise telle quelle sous licence CC BY-SA. Voir le lien Référence ci-dessus.",
+      "prov.name.dataset": "À propos de ces données : une remarque sur la construction de ce jeu de données, pas une affirmation sur le cerveau ou une substance, donc aucune source ne pourrait l’étayer.",
+      "info.descFromWikipedia": "Cette description est l’introduction de l’article Wikipédia de la substance, reprise telle quelle sous licence CC BY-SA. Voir le lien Référence ci-dessus.",
       "info.sourceRef": "{corpus}, p. {page}",
       "info.sourceSpecies": "Espèce testée : {species}",
       "info.noConnections": "Aucune connexion répertoriée pour l’instant.",
@@ -1118,7 +1118,7 @@
       "circuit.heading": "Circuit fonctionnel",
       "circuit.structures": "Structures de cette boucle",
       "circuit.pathways": "Voies de cette boucle",
-      "group.actingDrugs": "Médicaments agissant sur ce système",
+      "group.actingDrugs": "Substances agissant sur ce système",
       "group.kindHeading": "Voies par neurotransmetteur",
       "group.signHeading": "Voies par effet",
       "group.pathways": "Voies",
@@ -1146,25 +1146,25 @@
       "species.monkey": "singe",
       "receptor.stubHint": "Pas de rôle significatif dans le système nerveux central",
       "targets.otherSystem": "Autre / non-aminergique",
-      "targets.interactingDrugs": "Médicaments en interaction",
+      "targets.interactingDrugs": "Substances en interaction",
       "targets.bySubtype": "Par sous-type de récepteur",
       "target.polarity": "Polarité tonique",
       "target.polarityVesicular": "Transporteur vésiculaire (le bloquer épuise les stocks, abaisse le tonus)",
       "target.polarityAutoreceptor": "Autorécepteur inhibiteur présynaptique (le bloquer élève le tonus)",
 
-      "panel.drugs": "Médicaments",
-      "drugs.filter": "Filtrer les médicaments…",
-      "drugs.none": "Aucun médicament correspondant.",
+      "panel.drugs": "Substances",
+      "drugs.filter": "Filtrer les substances…",
+      "drugs.none": "Aucune substance correspondante.",
       "drug.class": "Classe",
       "drug.nomenclature": "Nomenclature",
-      "drug.nbnNonstandard": "· classe du médicament, pas de NbN formelle",
+      "drug.nbnNonstandard": "· classe de la substance, pas de NbN formelle",
       "drug.brands": "Noms commerciaux",
       "drug.halfLife": "Demi-vie d'élimination plasmatique",
       "drug.pkTiming": "Pharmacocinétique",
       "wiki.readMore": "Lire la suite",
       "wiki.readLess": "Réduire",
       "drug.tmax": "Délai du pic",
-      "drug.tmaxTip": "Combien de temps après une prise orale unique la concentration sanguine atteint son maximum (Tmax). Il dit quand le médicament arrive, là où la demi-vie dit combien de temps il met à partir.",
+      "drug.tmaxTip": "Combien de temps après une prise orale unique la concentration sanguine atteint son maximum (Tmax). Il dit quand la substance arrive, là où la demi-vie dit combien de temps elle met à partir.",
       "drug.nonLinearPk": "Pharmacocinétique non linéaire détectée. En savoir plus dans la section Métabolisme ci-dessous ; cliquez pour y aller.",
       "drug.hlMinutes": "min",
       "drug.hlHours": "h",
@@ -1175,7 +1175,7 @@
       "drug.formedBy": "formé par",
       "drugs.showMetabolites": "Afficher les métabolites actifs",
       "drug.metabolism": "Métabolisme",
-      "drug.metabolismHint": "Les enzymes hépatiques qui éliminent ce médicament, ou dont il modifie l'activité. Pharmacocinétique : rien n'est allumé dans la vue 3D.",
+      "drug.metabolismHint": "Les enzymes hépatiques qui éliminent cette substance, ou dont elle modifie l'activité. Pharmacocinétique : rien n'est allumé dans la vue 3D.",
       "drug.pgx": "Si le patient l'élimine lentement ou vite",
       "drug.pgxHint": "Ce qu'une vitesse d'élimination implique pour cette prescription, dans les termes mêmes du CPIC, à côté de sa fréquence. Choisissez un groupe de population pour chiffrer chaque ligne.",
       "drug.pgxGroup": "Groupe de population",
@@ -1191,26 +1191,26 @@
       "panel.themeLight": "Passer au thème clair",
       "panel.themeDark": "Passer au thème sombre",
       "drug.autoPkTitle": "Pharmacocinétique non linéaire",
-      "drug.autoPkInhibits": "Ce médicament figure ci-dessous à la fois comme substrat et comme inhibiteur du {enzymes} : il pourrait donc ralentir sa propre élimination, et les concentrations sanguines augmenter plus vite que la dose.",
-      "drug.autoPkInduces": "Ce médicament figure ci-dessous à la fois comme substrat et comme inducteur du {enzymes} : il pourrait donc accélérer sa propre élimination au fil des premières semaines, et les concentrations sanguines baisser à dose constante.",
-      "drug.autoPkDerived": "Déduit des lignes d'enzymes ci-dessous, dont chacune porte sa propre source. Aucune source n'énonce cette conséquence pour ce médicament : rapprocher les deux rôles relève de notre lecture.",
+      "drug.autoPkInhibits": "Cette substance figure ci-dessous à la fois comme substrat et comme inhibiteur du {enzymes} : elle pourrait donc ralentir sa propre élimination, et les concentrations sanguines augmenter plus vite que la dose.",
+      "drug.autoPkInduces": "Cette substance figure ci-dessous à la fois comme substrat et comme inducteur du {enzymes} : elle pourrait donc accélérer sa propre élimination au fil des premières semaines, et les concentrations sanguines baisser à dose constante.",
+      "drug.autoPkDerived": "Déduit des lignes d'enzymes ci-dessous, dont chacune porte sa propre source. Aucune source n'énonce cette conséquence pour cette substance : rapprocher les deux rôles relève de notre lecture.",
       "drug.pkInteractions": "Interactions médicamenteuses",
-      "drug.pkInteractionsHint": "Déduit des enzymes ci-dessus, non mesuré : ce médicament et celui listé se rencontrent sur la même enzyme, donc l'un pourrait déplacer la concentration sanguine de l'autre. « Pourrait augmenter » signifie que la concentration de l'autre pourrait monter (celui-ci inhibe l'enzyme qui l'élimine), « pourrait diminuer » qu'elle pourrait baisser (il l'induit). Que cela compte vraiment dépend de la dose, de la voie et de la personne : c'est un signal à vérifier avec un prescripteur, jamais une contre-indication, et l'absence de ligne ne vaut pas garantie d'innocuité.",
+      "drug.pkInteractionsHint": "Déduit des enzymes ci-dessus, non mesuré : cette substance et celle listée se rencontrent sur la même enzyme, donc l'une pourrait déplacer la concentration sanguine de l'autre. « Pourrait augmenter » signifie que la concentration de l'autre pourrait monter (celle-ci inhibe l'enzyme qui l'élimine), « pourrait diminuer » qu'elle pourrait baisser (elle l'induit). Que cela compte vraiment dépend de la dose, de la voie et de la personne : c'est un signal à vérifier avec un prescripteur, jamais une contre-indication, et l'absence de ligne ne vaut pas garantie d'innocuité.",
       "info.more": "+{n} de plus",
       "structure.expressed": "Récepteurs présents ici",
       "structure.expressedCaption": "Récepteurs et autres cibles médicamenteuses dont la liste d’expression nomme cette région, regroupés par système de neurotransmission. Chaque ligne porte la note de source propre à cette région, la même affirmation que la fiche du récepteur montre depuis l’autre bout.",
       "structure.expressedEverywhere": "dans tout le cerveau",
-      "drug.pkByDrug": "Par médicament",
+      "drug.pkByDrug": "Par substance",
       "drug.pkByEnzyme": "Par enzyme",
       "drug.pkHeadRaises": "Pourrait augmenter la concentration de",
       "drug.pkHeadLowers": "Pourrait diminuer la concentration de",
       "drug.pkHeadRaisedBy": "Sa concentration pourrait être augmentée par",
       "drug.pkHeadLoweredBy": "Sa concentration pourrait être diminuée par",
       "enzyme.heading": "Enzyme du métabolisme",
-      "enzyme.drugs": "Médicaments sur cette enzyme",
+      "enzyme.drugs": "Substances sur cette enzyme",
       "enzyme.forms": "Métabolites actifs qu'elle forme",
       "enzyme.formsOf": "à partir de {drug}",
-      "enzyme.noDrugs": "Aucun médicament enregistré sur cette enzyme.",
+      "enzyme.noDrugs": "Aucune substance enregistrée sur cette enzyme.",
       "enzyme.variability": "Vitesse d'élimination selon les personnes",
       "enzyme.variabilityCaveat":
         "Fréquence de chaque vitesse d'élimination, par grand groupe de population. "
@@ -1225,13 +1225,13 @@
         + "posologie. Celle-ci n'en a pas, donc aucun atlas n'en publie les "
         + "fréquences.",
       "enzymes.title": "Enzymes",
-      "enzymes.hint": "Les enzymes qui métabolisent les médicaments (surtout les cytochromes P450 du foie). Elles ne font pas partie du cerveau : c'est de la pharmacocinétique, donc en sélectionner une ne change rien à la vue 3D.",
+      "enzymes.hint": "Les enzymes qui métabolisent les substances (surtout les cytochromes P450 du foie). Elles ne font pas partie du cerveau : c'est de la pharmacocinétique, donc en sélectionner une ne change rien à la vue 3D.",
       "drug.actsOn": "Agit sur",
       "drug.noTargets": "Aucune cible moléculaire répertoriée pour l'instant.",
       "drug.projectionsAffected": "Projections concernées",
-      "drug.projectionsAffectedHint": "Voies ascendantes dont ce médicament règle le tonus. Déduit de ses liaisons régulatrices (recapture, enzyme, vésicule ou autorécepteur) ; une flèche sortante augmente le tonus du système, une flèche entrante le baisse.",
+      "drug.projectionsAffectedHint": "Voies ascendantes dont cette substance règle le tonus. Déduit de ses liaisons régulatrices (recapture, enzyme, vésicule ou autorécepteur) ; une flèche sortante augmente le tonus du système, une flèche entrante le baisse.",
       "drug.actsWithin": "Agit au sein de",
-      "drug.actsWithinHint": "Systèmes que ce médicament n'engage qu'à travers un récepteur postsynaptique. Leurs voies sont éclairées à titre indicatif (sans billes) : bloquer un récepteur postsynaptique ne modifie pas en soi le tonus du neurotransmetteur.",
+      "drug.actsWithinHint": "Systèmes que cette substance n'engage qu'à travers un récepteur postsynaptique. Leurs voies sont éclairées à titre indicatif (sans billes) : bloquer un récepteur postsynaptique ne modifie pas en soi le tonus du neurotransmetteur.",
       "drug.speculative": "spéculative",
       "drug.affinityOnly": "affinité seule, sens non établi",
       "drug.actionNoSource": "Aucune source ne dit si la cible est activée ou bloquée",
@@ -1245,7 +1245,7 @@
       "drug.kiMapped": "mesuré sur {compound}",
       "drug.kiCitedTip": "Valeur d'affinité citée depuis le tableau de liaison de la source (une valeur bibliographique, pas une mesure brute). Le lien pointe vers la révision exacte de la source.",
       "drug.kiCited": "valeur bibliographique",
-      "drug.kiMappedTip": "Le Ki de cette liaison a été mesuré sur {compound} ({relation}), sous lequel PDSP répertorie ce médicament.",
+      "drug.kiMappedTip": "Le Ki de cette liaison a été mesuré sur {compound} ({relation}), sous lequel PDSP répertorie cette substance.",
       "drug.rel.identity": "même molécule",
       "drug.rel.enantiomer": "énantiomère",
       "drug.rel.racemate": "racémique",
@@ -1286,13 +1286,13 @@
         "développement. Elle montre les régions cérébrales et les projections " +
         "neuronales qui les relient, des circuits fonctionnels nommés autour " +
         "desquels on peut voir une impulsion circuler, les récepteurs de " +
-        "neurotransmetteurs exprimés par chaque région, et des médicaments " +
-        "psychiatriques animés pour montrer ce que chacun fait au cerveau. " +
+        "neurotransmetteurs exprimés par chaque région, et des substances " +
+        "psychoactives animées pour montrer ce que chacune fait au cerveau. " +
         "Tout est consultable et cliquable, et chaque fait porte une note de " +
         "source (voir Sources et provenance ci-dessous). Les formes sont " +
         "schématiques : elles aident à situer et relier les structures, sans " +
         "prétendre à l’exactitude anatomique ; les données sur les récepteurs " +
-        "et les médicaments sont générées automatiquement et non vérifiées : " +
+        "et les substances sont générées automatiquement et non vérifiées : " +
         "considérez tout ceci comme illustratif, et non comme un avis médical.",
       "about.p2":
         'Réalisé par <a href="https://olicorne.org/" target="_blank" ' +
@@ -1306,53 +1306,53 @@
         "build), l’anatomie stockée dans des fichiers de données " +
         "générés, servis par Caddy.",
       "about.animCaveat":
-        "<strong>Les animations de médicaments sont de loin l’aspect le moins " +
+        "<strong>Les animations de substances sont de loin l’aspect le moins " +
         "scientifique de neurarium et sont encore très largement en cours " +
         "d’élaboration</strong> : voyez-les comme une illustration évolutive, pas " +
         "comme un fait établi.",
       "about.animSummary": "Ce que signifient les animations",
       "about.animIntro":
-        "L’animation des médicaments est un modèle de <em>réglage du tonus</em>, pas une " +
+        "L’animation des substances est un modèle de <em>réglage du tonus</em>, pas une " +
         "image littérale de molécules circulant dans le cerveau. Tout ce qui suit est " +
-        "dérivé des données de liaison du médicament, et évolue donc avec elles.",
+        "dérivé des données de liaison de la substance, et évolue donc avec elles.",
       "about.animList":
         "<li><b>Billes-gemmes colorées à la surface d’une structure cérébrale : un " +
-        "récepteur lié par ce médicament y est exprimé.</b> Les billes sont dispersées " +
-        "sur chaque région qui exprime cette cible, et leur couleur dit ce que le " +
-        "médicament lui fait :" +
+        "récepteur lié par cette substance y est exprimé.</b> Les billes sont dispersées " +
+        "sur chaque région qui exprime cette cible, et leur couleur dit ce que la " +
+        "substance lui fait :" +
         "<ul>" +
-        "<li>vert = il la renforce (agoniste, inhibiteur de recapture, libérateur)</li>" +
-        "<li>rouge = il la bloque (antagoniste, agoniste inverse, bloqueur)</li>" +
-        "<li>violet = il la module (agoniste partiel, modulateur)</li>" +
+        "<li>vert = elle la renforce (agoniste, inhibiteur de recapture, libérateur)</li>" +
+        "<li>rouge = elle la bloque (antagoniste, agoniste inverse, bloqueur)</li>" +
+        "<li>violet = elle la module (agoniste partiel, modulateur)</li>" +
         "</ul>" +
         "Des billes plus denses et plus vives signalent une affinité mesurée plus forte : " +
-        "la cible principale d’un médicament ressort donc davantage qu’une cible " +
+        "la cible principale d’une substance ressort donc davantage qu’une cible " +
         "secondaire. Sélectionner un récepteur seul utilise les mêmes billes sans le code " +
         "couleur : elles disent alors seulement <em>exprimé ici</em>.</li>" +
-        "<li><b>Des billes qui filent le long d’une flèche : le médicament déplace le " +
+        "<li><b>Des billes qui filent le long d’une flèche : la substance déplace le " +
         "tonus de tout un système.</b> Seules les liaisons qui <em>règlent le tonus</em> " +
         "le font (inhibiteurs de recapture, inhibiteurs d’enzyme, bloqueurs vésiculaires, " +
-        "autorécepteurs présynaptiques) ; un médicament purement postsynaptique n’a que " +
+        "autorécepteurs présynaptiques) ; une substance purement postsynaptique n’a que " +
         "des billes et une lueur, et aucun flux. Le sens du déplacement se lit dans les " +
         "billes :" +
         "<ul>" +
-        "<li>chaudes, vives, rapides et denses = il augmente le tonus du système</li>" +
-        "<li>froides, ternes, lentes et clairsemées = il le diminue</li>" +
+        "<li>chaudes, vives, rapides et denses = elle augmente le tonus du système</li>" +
+        "<li>froides, ternes, lentes et clairsemées = elle le diminue</li>" +
         "</ul>" +
-        "Vitesse et densité sont normalisées <em>par médicament</em> : ce que vous lisez " +
-        "est lequel de ses systèmes il engage le plus, jamais une dose absolue. Guettez " +
+        "Vitesse et densité sont normalisées <em>par substance</em> : ce que vous lisez " +
+        "est lequel de ses systèmes elle engage le plus, jamais une dose absolue. Guettez " +
         "le cas contre-intuitif : un antipsychotique qui bloque l’<em>autorécepteur</em> " +
         "D2 se lit comme une hausse du tonus dopaminergique, tandis que son blocage des " +
         "récepteurs D2 postsynaptiques apparaît dans les billes rouges.</li>" +
         "<li><b>Des billes qui s’allument en séquence plutôt qu’en flux : c’est un " +
-        "circuit, pas un médicament.</b> Sélectionner un circuit nommé joue son signal " +
+        "circuit, pas une substance.</b> Sélectionner un circuit nommé joue son signal " +
         "dans l’ordre, chaque tronçon s’allumant une fois atteint par celui qui " +
         "l’alimente, avec une onde de lumière là où chaque bille arrive. Une sélection de " +
-        "médicament produit un flux continu : un médicament ne déclenche pas un circuit, " +
-        "il change un niveau de fond.</li>" +
+        "substance produit un flux continu : une substance ne déclenche pas un circuit, " +
+        "elle change un niveau de fond.</li>" +
         "<li><b>Une lueur qui baigne toute une région : les mêmes billes, d’un coup " +
         "d’œil.</b> Une lueur par région et par effet, dans les mêmes vert / rouge / " +
-        "violet, pour qu’une région portant vingt cibles du médicament brille une fois " +
+        "violet, pour qu’une région portant vingt cibles de la substance brille une fois " +
         "et non vingt.</li>" +
         "<li><b>Un liseré pâle autour d’une structure : c’est celle que vous avez " +
         "sélectionnée.</b> Le survol affiche son nom ; le clic l’épingle et ouvre sa " +
@@ -1381,10 +1381,10 @@
         'Sous licence <a href="https://www.gnu.org/licenses/agpl-3.0.html" ' +
         'target="_blank" rel="noopener noreferrer">GNU AGPL-3.0</a>.',
       "about.attribution":
-        "Les descriptions des médicaments et les schémas de structure moléculaire " +
+        "Les descriptions des substances et les schémas de structure moléculaire " +
         'proviennent de Wikipédia, sous licence <a ' +
         'href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" ' +
-        'rel="noopener noreferrer">CC BY-SA</a> ; chaque fiche de médicament ' +
+        'rel="noopener noreferrer">CC BY-SA</a> ; chaque fiche de substance ' +
         "renvoie à son article source.",
       "about.sourcingTitle": "Sources et provenance",
       "sourcing.openLink": "Sources et provenance →",
@@ -1429,22 +1429,22 @@
       "about.sourcingByKind": "Détailler par type de nœud",
       "about.exampleLead": "p. ex.",
       "about.kiCoverage":
-        "Affinité de liaison mesurée (Ki PDSP) : {pct} % des {total} liaisons en portent une ; {drugsNone} des {drugs} médicaments n'en ont aucune (sourcés par citation ou sans source).",
+        "Affinité de liaison mesurée (Ki PDSP) : {pct} % des {total} liaisons en portent une ; {drugsNone} des {drugs} substances n'en ont aucune (sourcées par citation ou sans source).",
       "about.sourcingBrowser":
         "Chacun des nœuds comptés ci-dessus est listé un par un dans l'explorateur "
         + "de données, avec sa propre source, filtrable par type et par qualité de sourçage.",
       "about.sourcingBrowserLink": "Ouvrir l'explorateur de données \u2192",
-      "about.kindBindings": "Liaisons cibles des médicaments",
+      "about.kindBindings": "Liaisons cibles des substances",
       "about.kindBindingAction": "Sens des liaisons médicamenteuses",
-      "about.kindNbn": "Nomenclature des médicaments (NbN)",
-      "about.kindDrugBrands": "Noms commerciaux des médicaments",
-      "about.kindDrugCategories": "Classe du médicament",
-      "about.kindDrugHalfLife": "Demi-vie du médicament (T½)",
-      "about.kindDrugTmax": "Délai du pic du médicament (Tmax)",
-      "about.kindDrugEnzymes": "Enzymes du métabolisme du médicament",
+      "about.kindNbn": "Nomenclature des substances (NbN)",
+      "about.kindDrugBrands": "Noms commerciaux des substances",
+      "about.kindDrugCategories": "Classe de la substance",
+      "about.kindDrugHalfLife": "Demi-vie de la substance (T½)",
+      "about.kindDrugTmax": "Délai du pic de la substance (Tmax)",
+      "about.kindDrugEnzymes": "Enzymes du métabolisme de la substance",
       "about.kindDrugEnzymeStrength": "Importance de la voie métabolique",
       "about.kindEnzymeVariability": "Vitesse d'élimination par population",
-      "about.kindDrugMetabolites": "Métabolites actifs du médicament",
+      "about.kindDrugMetabolites": "Métabolites actifs de la substance",
       "about.kindDrugMetaboliteEnzyme": "Enzymes formant les métabolites",
       "about.kindDrugMetaboliteBindings": "Liaisons des métabolites",
       "about.kindProjections": "Voies neuronales",
