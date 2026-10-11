@@ -6743,7 +6743,6 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
   // The normal controls; the search box shows in their place (not as a popup),
   // while the reset/search buttons above stay put so the magnifier can toggle
   // back.
-  const controlsMain = document.getElementById("controls-main");
 
   resetBtn.addEventListener("click", () => {
     focus.recenter();
@@ -6818,6 +6817,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       // header click, for the same reason the pick itself is the control's own.
       select: () => {
         if (box) {
+          tabs.showSettings(); // the flashed option lives in the Settings pane
           const head = elm.closest("[hidden]")?.previousElementSibling;
           if (head?.classList.contains("collapse-header")) head.click();
         }
@@ -7089,16 +7089,11 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
   }
 
   function openSearch() {
-    // The search box lives inside the (collapsible) panel body, so opening search
-    // from the Ctrl/Cmd+F shortcut must also expand a collapsed panel, otherwise
-    // the box would be revealed inside a hidden body.
+    // Search is a popup over the scene, but a pick lands in the panel (a detail tab,
+    // or a flashed control in Settings), so a collapsed panel is expanded first or
+    // the pick would happen out of sight.
     expandPanel();
-    // The search box lives in the Settings pane; if a detail's Details tab is
-    // active, switch back so the box is actually visible (the detail stays
-    // available behind the tab).
-    tabs.showSettings();
-    controlsMain.hidden = true; // swap the sliders/legend out...
-    searchBox.hidden = false; // ...and the search in, in their place
+    searchBox.hidden = false;
     searchToggle.classList.add("active");
     // Keep whatever was last typed this session: the input retains its value while
     // hidden, and a page reload (a new session) starts it empty, so this is
@@ -7112,17 +7107,21 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
   }
   function closeSearch() {
     searchBox.hidden = true;
-    controlsMain.hidden = false;
     searchToggle.classList.remove("active");
     urlState.sync();
   }
+  // The popup's own exits, besides Esc (the input's keydown below, and
+  // wireShortcuts when focus sits elsewhere) and a pick: the × and a backdrop click.
+  document.getElementById("search-close")?.addEventListener("click", closeSearch);
+  searchBox.addEventListener("click", (event) => {
+    if (event.target === searchBox) closeSearch();
+  });
 
   // Open search pre-filled with a query (a drug panel's clickable Class /
   // Nomenclature hands back e.g. `class:"SNRI"`), so the structured filter runs
   // immediately. Works whether search was open or closed.
   function openSearchWithQuery(query) {
     if (searchBox.hidden) openSearch();
-    else tabs.showSettings(); // ensure the Settings pane (which holds the box) shows
     searchInput.value = query;
     renderResults();
     searchInput.focus();
@@ -7192,10 +7191,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       if (searchBox.hidden) {
         openSearch();
       } else {
-        // Already open: make sure the Settings pane (which holds the box) is the
-        // visible tab, then refocus + select so a second press lets the user
-        // retype straight away.
-        tabs.showSettings();
+        // Already open: refocus + select so a second press retypes straight away.
         searchInput.focus();
         searchInput.select();
       }
@@ -7356,6 +7352,12 @@ function wireShortcuts(help, tabs, selection, lightbox, aboutModal, legendModal,
     // lightbox is checked first so it wins when stacked over another (it can be
     // opened from a panel behind a modal). Only one popup is open at a time.
     if (event.key === "Escape") {
+      const search = document.getElementById("search");
+      if (search && !search.hidden) {
+        click("search-toggle");
+        event.preventDefault();
+        return;
+      }
       for (const modal of [lightbox, help, changelog, aboutModal, legendModal, sourcingModal]) {
         if (modal?.isOpen) {
           modal.close();
@@ -9000,7 +9002,7 @@ async function main() {
     // 31. Search demo: the box is open + live (dim:false); clickThrough keeps it
     //    clickable under the guard so they can focus + type a name.
     { title: t("tour.search.title"), body: t("tour.search.body"),
-      target: "#search", dim: false, clickThrough: "#search",
+      target: "#search .search-modal", dim: false, clickThrough: "#search",
       before: () => { tourExpandPanel(); toolbar.openSearchWithQuery(""); } },
     // 32. Wrap (spotlight the About button, where the tour can be replayed).
     { title: t("tour.wrap.title"), body: t("tour.wrap.body"),

@@ -289,7 +289,7 @@
         max-height: calc(100vh - 24px);
         /* The panel is a flex column so its top chrome (header, language switch,
            toolbar, detail tabs) stays PINNED and only the section list
-           (#controls-main, or the details pane / search when those are shown) is the
+           (#controls-main, or the details pane when it is shown) is the
            scroll area. The panel itself does not scroll (overflow:hidden); its inner
            list does. So an open accordion section shows at its NATURAL height and you
            scroll the whole list (the lower collapsed headers sitting below the fold),
@@ -299,7 +299,7 @@
         flex-direction: column;
         overflow: hidden;
       }
-      /* Flex chain making #controls-main / #details-pane / #search the scroll area
+      /* Flex chain making #controls-main / #details-pane the scroll area
          while the top chrome stays put. Scoped to the shown pane (:not([hidden])) so
          a hidden pane keeps display:none and doesn't steal the free height. */
       #controls-body:not([hidden]) {
@@ -322,8 +322,7 @@
          by the spec, so any child a few px too wide (a slider's UA side-margin, a long
          unbreakable name) makes the pane scroll sideways, which on touch reads as the
          panel content sliding under the finger. Clipping x keeps it strictly vertical. */
-      #controls-main,
-      #settings-pane > #search:not([hidden]) {
+      #controls-main {
         flex: 1 1 auto;
         min-height: 0;
         overflow-y: auto;
@@ -1088,8 +1087,11 @@
       .drug-cat.clickable { cursor: pointer; }
       .drug-cat.clickable:hover { color: var(--text); text-decoration: underline; }
 
-      /* Search shown in place of #controls-main while the magnifier is on. */
-      #search { margin-top: 12px; }
+      /* Search popup: pinned near the top rather than centered, so the box does not
+         jump as the result list grows and shrinks while typing; the list gets the
+         height a popup has. */
+      #search.modal-overlay { place-items: start center; padding-top: 12vh; }
+      #search #search-results { max-height: min(56vh, 520px); }
       /* The input (with an inline clear "×") + a "?" syntax-help button, one row. */
       #search-bar { display: flex; align-items: center; gap: 8px; }
       /* Wraps just the input so the clear button can sit inside its right edge. */
@@ -3431,20 +3433,6 @@
           </div>
         </div>
 
-        <!-- Search shown in lieu of #controls-main while active. Matches both
-             structures (by name) and connections (by pathway label). -->
-        <div id="search" hidden>
-          <div id="search-bar">
-            <div class="search-input-wrap">
-              <input type="text" id="search-input" data-i18n-attr="placeholder:search.placeholder" autocomplete="off" />
-              <button type="button" id="search-clear" hidden data-i18n-attr="aria-label:search.clear, title:search.clear">×</button>
-            </div>
-            <button type="button" id="search-help" class="help-dot" aria-expanded="false" data-i18n-attr="aria-label:search.syntaxLabel, title:search.syntaxLabel">?</button>
-          </div>
-          <div id="search-syntax" hidden data-i18n-html="search.syntax"></div>
-          <div id="search-filters" class="search-filters"></div>
-          <ul id="search-results"></ul>
-        </div>
         </div><!-- #settings-pane -->
 
         <!-- Details pane: the detail (structure / connection / receptor) built by
@@ -3550,6 +3538,28 @@
         <p class="about-text">
           <a href="#" id="about-open-changelog" data-search="changelog release notes versions journal" data-i18n="changelog.openLink"></a>
         </p>
+      </div>
+    </div>
+
+    <!-- Search popup: opened by the toolbar magnifier, f, or Ctrl/Cmd+F (wired in
+         js/main.js wireToolbar); closed by the ×, a backdrop click, Esc, or picking a
+         result. Matches structures, connections, receptors/targets, drugs and the
+         panel's own controls (anything carrying data-search). The overlay keeps the
+         id #search so its `hidden` is the one "is search open" state. -->
+    <div id="search" class="modal-overlay" hidden>
+      <div class="modal panel search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title">
+        <button type="button" id="search-close" class="info-close" data-i18n-attr="aria-label:search.close, title:search.close">&times;</button>
+        <h2 id="search-title" data-i18n="toolbar.search"></h2>
+        <div id="search-bar">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" data-i18n-attr="placeholder:search.placeholder" autocomplete="off" />
+            <button type="button" id="search-clear" hidden data-i18n-attr="aria-label:search.clear, title:search.clear">×</button>
+          </div>
+          <button type="button" id="search-help" class="help-dot" aria-expanded="false" data-i18n-attr="aria-label:search.syntaxLabel, title:search.syntaxLabel">?</button>
+        </div>
+        <div id="search-syntax" hidden data-i18n-html="search.syntax"></div>
+        <div id="search-filters" class="search-filters"></div>
+        <ul id="search-results"></ul>
       </div>
     </div>
 

@@ -180,6 +180,7 @@
 
       "toolbar.reset": "Reset view",
       "toolbar.search": "Search",
+      "search.close": "Close search",
       "toolbar.searchAria": "Search structures, connections, receptors and drugs",
       "search.placeholder": "Search structure, connection, receptor/target, drug or a control...",
       "search.noMatch": "No match",
@@ -893,6 +894,7 @@
 
       "toolbar.reset": "Recentrer la vue",
       "toolbar.search": "Rechercher",
+      "search.close": "Fermer la recherche",
       "toolbar.searchAria": "Rechercher structures, connexions, récepteurs et médicaments",
       "search.placeholder": "Rechercher une structure, une connexion, un récepteur/cible, un médicament ou un réglage…",
       "search.noMatch": "Aucun résultat",

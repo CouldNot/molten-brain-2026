@@ -23,7 +23,7 @@ the `#lang-switch` (EN/FR) + a keyboard-shortcuts / reset / search / legend / so
   (`#legend-modal`), **Sources & provenance** (`#sourcing-modal`), **About** (`#about-modal`).
 
 The accordion is a list of `{toggle, body}` in `wireControls`; `wireCollapse(onToggle)` +
-`setSection()` drive it. Searching swaps `#search` in for `#controls-main`.
+`setSection()` drive it.
 
 **Pan-aside.** While expanded, the brain is pushed clear of the panel (`updatePanelPan` ->
 `focus.setScreenOffset` -> `PerspectiveCamera.setViewOffset`, eased in `focus.tick`; gated on the
@@ -31,7 +31,7 @@ panel being visible so `?ui=0` is unaffected). Portrait: full-width bottom-half 
 Landscape: left sidebar, brain right.
 
 **Scroll model.** The panel is an `overflow:hidden` flex column that never scrolls; its top chrome
-is pinned and exactly one inner region scrolls (`#controls-main`, or `#details-pane`/`#search`). A
+is pinned and exactly one inner region scrolls (`#controls-main`, or `#details-pane`). A
 `min-height:0` flex chain gives an open section its natural height with the list scrolling.
 
 ### Settings & toggles
@@ -221,14 +221,14 @@ arrow carrying a projection. A node whose owner has nothing to focus renders ine
 - **Keyboard shortcuts** (`wireShortcuts`, single-key, ignored while typing / for modifier combos):
   **n** names, **s** spread, **l** Structures, **p** Projections, **k** Legend, **c** See inside,
   **r** Receptors, **m** Drugs, **f** search, **Tab**/**Shift+Tab** cycle detail tabs, **Esc** peels
-  one layer (active tab -> clear focus/isolate/circuit -> close search / collapse section). Arrow
+  one layer (open search popup -> active tab -> clear focus/isolate/circuit -> collapse section). Arrow
   keys browse the open section (see below). Each maps by clicking the DOM element a mouse user would.
 - **Section row navigation** (`sectionNav`): with a section open, **ArrowDown/Up** rove a
   `.kbd-active` highlight over its buttons + `.clickable` rows, **Enter** activates. Recomputed each
   key, wraps, cleared on section change/close + Esc. Typing in the drug filter keeps the arrows.
-- **Toolbar icon-row** (wraps to a second row when narrow): keyboard-shortcuts, reset, search (swaps
-  `#search` in place), legend, sources, about. The three popups share `wireModal`.
-- **Search**: filters structures / connections / receptors / drugs / circuits / projection groups
+- **Toolbar icon-row** (wraps to a second row when narrow): keyboard-shortcuts, reset, search (opens
+  the `#search` popup), legend, sources, about. The three popups share `wireModal`.
+- **Search** (a `.modal-overlay` popup, `#search`, pinned near the top so it does not jump while typing; closed by ×, backdrop click, Esc, or a pick, which lands in the panel, expanded first): filters structures / connections / receptors / drugs / circuits / projection groups
   (the last two tagged `· circuit` / `· pathways`) **and the panel's own controls** (type `command`,
   chip "Controls"): the popups, the browse sections + Data browser, the view toggles and options,
   and the guided tour. That half of the index is read off the DOM: a control joins it by carrying
