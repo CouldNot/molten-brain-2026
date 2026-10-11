@@ -1,6 +1,47 @@
 {
   "versions": [
     {
+      "version": "3.96.0",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Lithium's drug panel now notes that its half-life in the brain was measured at 28 hours, against 16 hours in blood, in a small study of two volunteers: the brain clears lithium more slowly than the blood does. The claim is quoted from the paper's abstract, stored through Europe PMC, which joins the sources for the few claims no textbook or label states.",
+          "commits": [
+            "11da822"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Seven pathways backed only by a sentence about a whole set of regions (for example \"the cortex projects to the striatum\", or \"the corpus callosum connects the two hemispheres\") now carry an uncertainty warning on the pathway itself, not only on its transmitter or sign.",
+          "commits": [
+            "58ff7dd"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Two brands listed twice under slightly different spellings are merged into one: Tranxene / Tranxène for clorazepate and Risperdal Consta / Risperdalconsta for risperidone. Each now shows once, tagged with both regions and both sources.",
+          "commits": [
+            "00762bf"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "A stale half-life pick for a drug whose half-life Stahl already gives is now skipped instead of being reported as a rejection.",
+          "commits": [
+            "480f788"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Naltrexone/bupropion no longer lists a substance use indication: no source states one for the combination, only for weight management.",
+          "commits": [
+            "d3fa6bb"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.95.0",
       "date": "2026-10-11",
       "entries": [
