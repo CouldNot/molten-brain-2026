@@ -46,6 +46,7 @@ Usage (from the repo root; a uv-run script like pdf_to_pages.py, deps installed 
     uv run tools/fetch/fetch_wikipedia_pharmacology.py --title Vortioxetine        # by explicit page title
     uv run tools/fetch/fetch_wikipedia_pharmacology.py --drug vortioxetine --json out.json
     uv run tools/fetch/fetch_wikipedia_pharmacology.py --drug vortioxetine --no-fetch   # re-parse the stored raw/
+    uv run tools/fetch/fetch_wikipedia_pharmacology.py --refresh   # refetch every stored article + any roster gap
 
 Built with the help of Claude Code.
 """
@@ -612,6 +613,49 @@ def apply_all(only: str | None = None) -> None:
           f"{n_add} affinity-only added")
 
 
+SOURCE_RE = re.compile(r"source:\s*(\S+)")
+
+
+def refresh_all(pause: float = 1.0) -> None:
+    """Refetch every stored article (its header's ``source:`` title) plus every roster
+    drug with a ``wikipedia`` url but no stored article yet, so the whole EN corpus
+    carries one fresh download date (data_generators/freshness.py; check_data.py
+    fails on a page over 12 months old). Polite: one request at a time, ``pause``
+    seconds apart. A title that now redirects elsewhere is stored under its new slug
+    and reported, since the old file then keeps its old date.
+    """
+    import time
+    titles: dict[str, str] = {}  # title -> what asked for it (stored slug / drug id)
+    for name in sorted(os.listdir(RAW_DIR)):
+        if not name.endswith(".html"):
+            continue
+        with open(os.path.join(RAW_DIR, name), encoding="utf-8") as f:
+            m = SOURCE_RE.search(f.read(600))
+        if m:
+            titles[urllib.parse.unquote(m.group(1).rsplit("/wiki/", 1)[1]).replace("_", " ")] = name[:-5]
+    stored = {t.casefold() for t in titles}
+    for d in fetch_ki.drugs_io.load_drugs():
+        title = drug_title(d["id"])
+        if title and title.replace("_", " ").casefold() not in stored:
+            titles[title.replace("_", " ")] = f"drug {d['id']} (new)"
+    moved, failed = [], []
+    for i, (title, why) in enumerate(sorted(titles.items()), 1):
+        try:
+            page = fetch_page(title)
+        except (SystemExit, OSError) as exc:  # one bad title must not stop the corpus
+            failed.append(f"{title} ({why}): {exc}")
+            continue
+        store_page(page, render_page_text(BeautifulSoup(page["html"], "html.parser")))
+        if not why.startswith("drug ") and slugify(page["title"]) != why:
+            moved.append(f"{why} -> {slugify(page['title'])}")
+        print(f"[{i}/{len(titles)}] {page['title']} rev {page['revid']}", flush=True)
+        time.sleep(pause)
+    for line in moved:
+        print("moved (old file keeps its old date):", line)
+    for line in failed:
+        print("FAILED:", line)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -620,11 +664,16 @@ def main() -> None:
     ap.add_argument("--no-fetch", action="store_true",
                     help="re-parse the stored raw/<slug>.html instead of fetching")
     ap.add_argument("--json", metavar="OUT", help="also write the extraction JSON here")
+    ap.add_argument("--refresh", action="store_true",
+                    help="refetch every stored article plus every roster drug lacking one")
     ap.add_argument("--apply", action="store_true",
                     help="write the extracted Ki into drugs_data.jsonl (PDSP fallback) "
                          "for every drug whose page is already stored")
     args = ap.parse_args()
 
+    if args.refresh:
+        refresh_all()
+        return
     if args.apply:
         apply_all(args.drug)
         return

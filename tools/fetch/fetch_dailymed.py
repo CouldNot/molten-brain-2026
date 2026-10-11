@@ -44,7 +44,8 @@ Usage (from the repo root)::
     python tools/fetch/fetch_dailymed.py                  # only drugs with no tmax yet
     python tools/fetch/fetch_dailymed.py --all            # every roster drug
     python tools/fetch/fetch_dailymed.py --only zolpidem,codeine
-    python tools/fetch/fetch_dailymed.py --refresh        # re-download stored labels
+    python tools/fetch/fetch_dailymed.py --refresh        # re-search + re-pick every label
+    python tools/fetch/fetch_dailymed.py --redownload     # re-download the chosen labels only
 
 Network, polite (one request at a time, ``SLEEP`` seconds apart) and resumable: a drug
 whose page is already on disk is skipped unless ``--refresh``. Stdlib only; author-side
@@ -253,6 +254,25 @@ def fetch_drug(drug: dict, *, refresh: bool, cache: dict) -> str:
     return "no-peak"
 
 
+def redownload(did: str, cache: dict) -> str:
+    """Re-download one drug's already-chosen label in place (same setid), so its page
+    gets a fresh download date without re-picking: a re-pick would swap the label a
+    stored quote cites (a repackager's reprint, or a combination product) for another.
+    """
+    meta = cache[did]
+    xml = _get(f"{API}/spls/{meta['setid']}.xml")
+    if not xml:
+        return "gone"
+    (RAW_DIR / f"{meta['setid']}.xml").write_text(xml, encoding="utf-8")
+    lines = section_texts(xml)
+    if not lines:
+        return "no-pk-section"
+    page = PAGES_DIR / f"{meta['setid']}.md"
+    old = page.read_text(encoding="utf-8").split("\n\n", 1)[-1] if page.exists() else ""
+    page.write_text(page_text(meta, lines), encoding="utf-8")
+    return "same" if old == "\n".join(lines) + "\n" else "changed"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -261,6 +281,8 @@ def main() -> int:
                     help="every roster drug, not only those still lacking a tmax")
     ap.add_argument("--refresh", action="store_true",
                     help="re-download and re-pick even for a drug already stored")
+    ap.add_argument("--redownload", action="store_true",
+                    help="re-download every already-chosen label in place (same setid)")
     ap.add_argument("--limit", type=int, default=0,
                     help="stop after this many drugs (a smoke test)")
     args = ap.parse_args()
@@ -268,6 +290,16 @@ def main() -> int:
 
     cache = (json.loads(CACHE_PATH.read_text(encoding="utf-8"))
              if CACHE_PATH.exists() else {})
+    if args.redownload:
+        counts = {}
+        for i, did in enumerate(sorted(cache), 1):
+            if only and did not in only:
+                continue
+            outcome = redownload(did, cache)
+            counts[outcome] = counts.get(outcome, 0) + 1
+            print(f"[{i}/{len(cache)}] {did}: {outcome}", flush=True)
+        print("[ok] " + ", ".join(f"{k}={v}" for k, v in sorted(counts.items())))
+        return 0
     drugs = drugs_io.load_drugs()
     todo = [d for d in drugs
             if (not only or d["id"] in only) and (args.all or only or not d.get("tmax"))]
