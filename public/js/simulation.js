@@ -93,7 +93,7 @@ export function createSimulation({ body, data, deps, ui }) {
   const targetById = new Map((data.targets || []).map((tg) => [tg.id, tg]));
   const enzymeLabel = new Map((data.enzymes || []).map((e) => [e.id, e.label]));
   const meta = data.meta || {};
-  const candidates = (data.drugs || []).filter((d) => d.focusable && !d.combo);
+  const candidates = (data.drugs || []).filter((d) => d.bindings.length && !d.combo);
 
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);

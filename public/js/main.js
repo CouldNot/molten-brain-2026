@@ -5222,15 +5222,11 @@ function buildDrugLegend(data, onPick) {
       row.classList.add("drug-item");
       row._haystack = foldText(`${drug.name} ${drug.keywords}`);
       row.dataset.tourId = `drug:${drug.id}`; // guided-tour target hook
-      if (drug.focusable) {
-        row.classList.add("clickable");
-        row.title = drug.categoryLabels.join(" · ");
-        row.addEventListener("click", () => onPick(drug));
-        rows.push({ row, id: drug.id });
-      } else {
-        row.classList.add("muted");
-        row.title = t("drug.stubHint");
-      }
+      // Every drug opens its panel, even one with nothing to light (see js/data.js).
+      row.classList.add("clickable");
+      row.title = drug.categoryLabels.join(" · ");
+      row.addEventListener("click", () => onPick(drug));
+      rows.push({ row, id: drug.id });
       groupRows.push(row);
       addMetabRows(drug, [row], 1, new Set([drug.id]), groupRows);
     }

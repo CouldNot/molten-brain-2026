@@ -1192,8 +1192,9 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     Stahl corpus (:data:`SOURCE_CORPORA`); there is no drug-level citation node.
     Translatable free text (``description``, per-binding ``note``, ``nbn``) is
     authored inline as ``{en, fr}`` (or the literal ``"TODO"``), so it does not go
-    through the shared FR table. A drug with no bindings at all is emitted
-    ``focusable: false`` (listed but not clickable, like a receptor stub).
+    through the shared FR table. Every drug is emitted ``focusable: true``,
+    even one with no bindings (lithium): its panel still carries brands, kinetics,
+    metabolism and addons, so it opens like any other and simply lights nothing.
 
     Parameters
     ----------
@@ -1232,7 +1233,7 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
         "name": drug["name"],
         "categories": list(drug["categories"]),
         "bindings": bindings,
-        "focusable": len(bindings) > 0,
+        "focusable": True,
     }
     # The drug's class classification ("this drug is an SSRI/...") is its own graded
     # node (kind drug_categories), one per drug: default llm, overridable in

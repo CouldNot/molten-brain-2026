@@ -63,8 +63,8 @@ attribute a *different* quote than the main one, or several to back a compound v
      `{target, action}` (+ optional `effect` / `note` / `tentative`); `target` is a merged
      map key (a `DRUG_TARGETS` key or a receptor id), `action` a `DRUG_ACTIONS` key
      (agonist / partial_agonist / antagonist / inverse_agonist / reuptake_inhibitor /
-     releaser / enzyme_inhibitor / pam / nam / blocker / modulator). `"bindings": []` ->
-     `focusable: false`. A new coarse target/category/action needs a `DRUG_TARGETS` /
+     releaser / enzyme_inhibitor / pam / nam / blocker / modulator). `"bindings": []` is
+     allowed: the drug still opens its panel (lithium), it just lights nothing. A new coarse target/category/action needs a `DRUG_TARGETS` /
      `DRUG_CATEGORY_LABELS` / `DRUG_ACTIONS` entry (with `{en,fr}` labels; a `DRUG_TARGETS`
      entry needs a `type` + optional `wikipedia`). Target classification grade
      overridable in `TARGET_PROVENANCE`; an individual "Found in" region is sourced

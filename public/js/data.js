@@ -994,10 +994,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       if (b.flowKind && !b.toneSign && !d.flowSystems[b.flowKind]) ctxKinds.add(b.flowKind);
     }
     d.contextKinds = [...ctxKinds];
-    // Focusable if it carries any binding (the info panel + search work even when
-    // a target has no modeled region to light); the generator already cleared it
-    // for a drug with no bindings at all.
-    d.focusable = !!d.focusable && d.bindings.length > 0;
+    // Every drug is focusable, bindings or not: its panel (brands, kinetics,
+    // metabolism, addons) is worth opening even when there is nothing to light in 3D
+    // (lithium), so search + the drug list reach it like any other.
+    d.focusable = d.focusable !== false;
     // Commercial brand names, ordered for THIS locale (the `region` tag orders only,
     // it is never shown): a French reader sees fr -> eu -> na, everyone else
     // na -> eu -> fr; within a region the authored order is kept (first = most iconic).
