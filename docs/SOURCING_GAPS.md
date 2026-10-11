@@ -494,6 +494,15 @@ Family 10 went from cholinergic 10 / dopaminergic 15 / serotonergic 11 / noradre
 
 **How to tackle.** A label's clinical-pharmacology section (DailyMed, corpus #14) often states the fraction metabolized in words; a `fetch_cyp_worklist.py` DailyMed input would reach the percentage-only rows.
 
+### 6c. `drug_first_approval`, 100 / 301 drugs carry none (surveyed 2026-10-11)
+
+The regulatory-history pass (`fetch_drug_history.py` -> index picks -> `apply_drug_history.py` -> Opus judge, see `docs/DRUGS.md`) dates the first approval of 201 drugs (all `verified`) and records 31 market withdrawals over 17 drugs. The node exists only where a source dates it, so the 100 others are not counted as missing in the tally; they split into:
+
+- **52 drugs whose stored EN and FR articles have no year-bearing approval or withdrawal sentence at all** in their lead or history-like sections (most of the older benzodiazepines and barbiturates, the phenothiazines, the recreational and anaesthetic substances, the Parkinson adjuncts). A next source would be a regulator's own record (Drugs@FDA for a US approval date, the BDPM `CIS_bdpm.txt` AMM date already on disk for France), which would date the approval in that one country, not the first one anywhere.
+- **48 drugs whose candidates were refused**: patent or synthesis dates only; a later approval whose own page names an earlier market (sertraline UK 1990 vs US 1991, zolpidem, methadone, primidone, disulfiram); "1963 or 1964" style years; or recreational substances never approved.
+
+Withdrawals skipped on purpose: a brand or formulation discontinued (thioridazine's branded product, Palladone, the pipotiazine depot), a scheduling ban (phenazepam, tianeptine in Italy), and a withdrawal sentence naming no country (bupropion 1986, indalpine 1985, tolcapone 1998).
+
 ### 7. Kinds now closed
 
 Kept as a record of which lever worked, so a later session does not re-derive it:
