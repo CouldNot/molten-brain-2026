@@ -230,7 +230,7 @@ a line in the tally.
 - **Viewer.** `js/data.js` resolves each addon's owner once (`ownerName` + a `focus` `{nav, arg}`
   recipe the Data browser and the Sources popup both hand to their own nav table) and indexes them
   as `addonsBySlot` keyed `${ownerKind}:${owner}:${slot}`. `js/main.js` `ADDON_RENDERERS` dispatches
-  on `display`; a second form is one entry there plus one string in `ADDON_DISPLAYS`.
+  on `display`; a second form is one entry there plus one string in `ADDON_DISPLAYS`. Every form shares the `addonBox` shell (tone class, label, pill); `collapsible` is a `<details>` closed by default whose summary carries the label + pill (a pill click opens the Sources popup, never toggles), used for a caveat a reader needs once, not on every panel (`enzyme_list_not_exhaustive`).
 - Five today. One `drug.timing`: lithium's brain half-life (7Li MRS, 28 h) outlasting its serum one
   (16 h), from corpus #17. Two `drug.metabolism`: paroxetine + MDMA inhibit the CYP2D6 that clears them
   (mechanism-based / autoinhibition), so their kinetics are non-linear, which the per-isoform rows

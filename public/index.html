@@ -145,6 +145,17 @@
            (which turned the inverted molecule SVGs back to black-on-grey). Mirrors
            the <meta name="color-scheme" content="dark"> in <head>. */
         color-scheme: dark;
+        /* Spacing scale for the info panel (theme-free: the day block does not
+           redefine it). One knob per kind of gap, so a pill sits as far from its
+           text everywhere, and two chips as far from each other: xs/s inside one
+           item, m between text and the pill grading it, l between a row's items,
+           xl between sibling chips and below a section, indent for a sub-level. */
+        --sp-xs: 2px;
+        --sp-s: 4px;
+        --sp-m: 6px;
+        --sp-l: 8px;
+        --sp-xl: 12px;
+        --sp-indent: 12px;
         --page-bg: #0e1116;
         --panel-bg: rgba(20, 24, 31, 0.82);
         --text: #e7ecf2;
@@ -2084,7 +2095,7 @@
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--muted);
-        margin: 0 0 6px;
+        margin: 0 0 var(--sp-m);
       }
       .info-bindings > summary:hover { color: var(--text); }
       .info-connections ul,
@@ -2094,10 +2105,10 @@
       .info-facts {
         display: flex;
         flex-direction: column;
-        gap: 6px;
-        margin: 0 0 12px;
+        gap: var(--sp-m);
+        margin: 0 0 var(--sp-xl);
       }
-      .info-fact { display: flex; gap: 8px; font-size: 12px; line-height: 1.4; }
+      .info-fact { display: flex; gap: var(--sp-l); font-size: 12px; line-height: 1.4; }
       .info-fact .fact-label { color: var(--muted); flex: 0 0 92px; }
       .info-fact .fact-value {
         color: var(--text);
@@ -2322,7 +2333,7 @@
       .help-icon {
         display: inline-flex;
         vertical-align: middle;
-        margin-left: 6px;
+        margin-left: var(--sp-m);
       }
       /* When a help-icon wraps a *leading* glyph (a row's direction arrow or effect
          glyph, made tap-to-explain), it is the first child, so drop the left margin
@@ -2500,15 +2511,15 @@
       /* Drug panel: the "Acts on" molecular-target list. Each row is the
          effect swatch + the target name + (action · note); a speculative
          binding is dimmed + italic. */
-      .info-bindings { margin: 0 0 12px; }
+      .info-bindings { margin: 0 0 var(--sp-xl); }
       .info-bindings li {
         display: flex;
         align-items: flex-start;
-        gap: 8px;
+        gap: var(--sp-l);
         font-size: 12px;
         line-height: 1.4;
         color: var(--text);
-        padding: 4px 0;
+        padding: var(--sp-s) 0;
       }
       /* The effect glyph at the head of a binding row (+ boost / − block /
          ≈ modulate, coloured by the effect). Fixed width so the rows align like
@@ -2534,8 +2545,19 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: var(--sp-m);
       }
+      /* Metabolism: one heading per role ("Substrate of"), its isoforms indented
+         under it, each line "CYP1A2 [role pill] · major route [strength pill]". */
+      .info-bindings .enz-role {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        margin: var(--sp-l) 0 0 var(--sp-indent);
+      }
+      .info-bindings .enz-role-list { padding-left: calc(2 * var(--sp-indent)); }
+      /* A bare pill straight inside a flex line already gets the line's gap. */
+      .bind-name > .help-icon { margin-left: 0; }
       .info-bindings .bind-target { font-weight: 600; }
       .info-bindings .bind-action { color: var(--muted); font-size: 11px; }
       .info-bindings li.tentative { opacity: 0.6; font-style: italic; }
@@ -2585,9 +2607,22 @@
         display: inline-flex;
         align-items: baseline;
         flex-wrap: wrap;
-        gap: 2px 5px;
+        gap: var(--sp-xs) var(--sp-m);
         font-size: 12px;
       }
+      /* The Pharmacokinetics block: chips side by side with a real gap between them
+         (not glued pill-to-label), wrapping on a narrow panel; the heading and any
+         addon take a full line each. */
+      .info-halflife {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--sp-m) var(--sp-xl);
+      }
+      .info-halflife > h3, .info-halflife > .addon { flex-basis: 100%; }
+      .info-halflife > h3 { margin-bottom: 0; }
+      .info-halflife > .addon { margin: var(--sp-s) 0 0; }
+      .hl-chip > .help-icon { margin-left: 0; }
       .hl-chip .hl-val { font-weight: 600; color: var(--text); white-space: nowrap; }
       .hl-chip .hl-label { color: var(--muted); font-size: 11px; }
       /* The non-linear-kinetics warning beside a T½: the number above is only
@@ -2612,9 +2647,9 @@
         display: flex;
         align-items: baseline;
         flex-wrap: wrap;
-        gap: 4px 6px;
+        gap: var(--sp-s) var(--sp-m);
       }
-      .info-metabolites .metab-hl { margin-left: 12px; font-size: 11px; }
+      .info-metabolites .metab-hl { margin-left: var(--sp-indent); font-size: 11px; }
       .info-metabolites .metab-hl .hl-val { color: var(--muted); font-weight: 600; }
       /* "formed by <enzyme>": the enzyme that MAKES this metabolite, sitting with the
          T½ as another sub-fact of the row, and clickable through to that enzyme. */
@@ -2660,8 +2695,8 @@
         background: rgba(230, 184, 0, 0.08);
         border: 1px solid rgba(230, 184, 0, 0.3);
         border-radius: 6px;
-        padding: 8px 10px;
-        margin: 0 0 12px;
+        padding: var(--sp-l) 10px;
+        margin: 0 0 var(--sp-xl);
         font-size: 12px;
       }
       .combo-warning strong { color: var(--addon-ink); }
@@ -2703,9 +2738,13 @@
       .addon-head {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: var(--sp-m);
         flex-wrap: wrap;
       }
+      .addon-head > .help-icon { margin-left: 0; }
+      /* A folded addon: the head line is the toggle; the text appears on open. */
+      .addon-collapsible > summary.addon-head { cursor: pointer; }
+      .addon-collapsible > summary::before { margin-right: 0; }
       .addon-glyph { color: var(--addon-ink); }
       .addon-title { color: var(--addon-ink); font-weight: 600; }
       .addon-text { margin: 4px 0 0; color: var(--muted); }

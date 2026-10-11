@@ -819,6 +819,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         label: def.label || e.enzyme,
         wikipedia: def.wikipedia || null,
         roleLabel: role.label ? localize(role.label) : e.role,
+        // The drug panel's group heading over this role's rows ("Substrate of").
+        roleHeading: role.heading ? localize(role.heading) : (role.label ? localize(role.label) : e.role),
         // What the drug does to that enzyme's throughput: +1 inhibits (a substrate
         // co-prescribed with it accumulates), -1 induces (it is cleared faster), 0
         // for a substrate, which sets no tone of its own.

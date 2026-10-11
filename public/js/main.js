@@ -2520,20 +2520,28 @@ function createInfoPanel(data, sourcingModal) {
   // How an addon draws, keyed by its `display`. A second form (an inline icon with a
   // tooltip, say) is one entry here plus one string in the generator's ADDON_DISPLAYS,
   // never a change at any call site.
+  // The boxed callout every display form shares: the tone glyph + title on one line,
+  // carrying the node's own source pill, then the claim. Only the wrapper differs
+  // (a plain box, or a <details> folded to that head line).
+  const addonBox = (addon, wrapTag, headTag, extraCls) => {
+    const box = el(wrapTag, `addon addon-${addon.tone}${extraCls}`);
+    const head = el(headTag, "addon-head");
+    if (addon.glyph) head.appendChild(el("span", "addon-glyph", addon.glyph));
+    if (addon.title) head.appendChild(el("strong", "addon-title", addon.title));
+    head.appendChild(sourceBackedPill(addon.provenance, addon));
+    box.appendChild(head);
+    box.appendChild(el("p", "addon-text", addon.text));
+    return box;
+  };
   const ADDON_RENDERERS = {
     // A boxed callout: the tone glyph + title on one line, carrying the node's own
     // source pill (an addon is a graded claim like a binding, not panel chrome), then
     // the claim itself.
-    admonition(addon) {
-      const box = el("div", `addon addon-${addon.tone}`);
-      const head = el("div", "addon-head");
-      if (addon.glyph) head.appendChild(el("span", "addon-glyph", addon.glyph));
-      if (addon.title) head.appendChild(el("strong", "addon-title", addon.title));
-      head.appendChild(sourceBackedPill(addon.provenance, addon));
-      box.appendChild(head);
-      box.appendChild(el("p", "addon-text", addon.text));
-      return box;
-    },
+    admonition: (addon) => addonBox(addon, "div", "div", ""),
+    // The same box folded to its head line (glyph + title + pill) until clicked: a
+    // background caveat that should not push the data it qualifies down the panel.
+    collapsible: (addon) =>
+      addonBox(addon, "details", "summary", " addon-collapsible disclosure"),
   };
 
   /**
@@ -3075,45 +3083,34 @@ function createInfoPanel(data, sourcingModal) {
    * no-duplication rule: the two views are the same node seen from either end).
    *
    * `label` is whichever end the *other* panel is not: the enzyme's name on a drug
-   * panel, the drug's name on an enzyme panel. `showRole` prints the role inline,
-   * for the drug panel where rows are not grouped under a role heading.
+   * panel, the drug's name on an enzyme panel. Both callers group the rows under a
+   * role heading, so the role itself is not repeated on the row.
    * @param {object} row       the normalized enzyme row (js/data.js)
    * @param {string} label     the row's headline text
    * @param {(() => void)|null} onClick  jump target, or null for an inert row
-   * @param {{showRole?: boolean}} [opts]
    */
-  const enzymeRow = (row, label, onClick, { showRole = false } = {}) => {
+  const enzymeRow = (row, label, onClick) => {
     const li = el("li");
     const text = el("span", "bind-text");
-    const nameLine = el("span", "bind-name");
-    nameLine.appendChild(el("span", "bind-target", label));
-    text.appendChild(nameLine);
-    // Each pill sits right after the words it grades, and names them in its tooltip:
-    // the (enzyme, role) claim is one node, how MUCH of the clearing this isoform does
-    // is another (the CYP quote gate checks the isoform is named, never the tier; see
-    // quotes/attestation.py), so a row can carry two pills that must not read as one
-    // unlabeled pair. Both go through the shared node pill, so the quote and any
-    // "another corpus denies this" lead (quotes/contradictions.py) still show.
-    const rolePill = sourceBackedPill(row.provenance || null, row,
-      t("enzyme.gradesRole", { role: row.roleLabel }));
-    // On the enzyme panel the rows sit under a role heading, so the role is not
-    // printed and its pill rides the name.
-    let actionLine = null;
-    if (showRole) {
-      actionLine = el("span", "bind-name");
-      actionLine.append(el("span", "bind-action", row.roleLabel), rolePill);
-    } else {
-      nameLine.appendChild(rolePill);
-    }
+    const line = el("span", "bind-name");
+    line.appendChild(el("span", "bind-target", label));
+    // Each pill sits right after the words it grades and names them in its tooltip.
+    // The rows are grouped under a role heading (both callers), so the name's own pill
+    // grades the (enzyme, role) claim; how MUCH of the clearing this isoform does is a
+    // second node (the CYP quote gate checks the isoform is named, never the tier; see
+    // quotes/attestation.py), so it carries its own pill after the strength word.
+    // Both go through the shared node pill, so the quote and any "another corpus
+    // denies this" lead (quotes/contradictions.py) still show.
+    line.appendChild(sourceBackedPill(row.provenance || null, row,
+      t("enzyme.gradesRole", { role: row.roleLabel })));
     if (row.strengthLabel) {
       const strength = (row.claims || {}).strength;
-      if (!actionLine) actionLine = el("span", "bind-name");
-      actionLine.append(
-        el("span", "bind-action", showRole ? `· ${row.strengthLabel}` : row.strengthLabel),
+      line.append(
+        el("span", "bind-action", `· ${row.strengthLabel}`),
         sourceBackedPill((strength && strength.grade) || "llm", strength,
           t("enzyme.gradesStrength", { strength: row.strengthLabel })));
     }
-    if (actionLine) text.appendChild(actionLine);
+    text.appendChild(line);
     li.appendChild(text);
     if (onClick) {
       li.classList.add("clickable");
@@ -4453,6 +4450,11 @@ function createInfoPanel(data, sourcingModal) {
         appendLookupLink(pathRow, "info.clinpgx",
           clinpgxSearchUrl(drug.name, "Pathway"), "info.clinpgxPathwaysTitle");
         enzWrap.appendChild(pathRow);
+        // Addon slot: the coverage caveat on the list below (a union of the routes
+        // some corpus names, never all of them). Anchored on the SECTION rather than
+        // on this drug, since the claim holds for every drug at once; read before the
+        // rows (folded to its title, so it does not push them down).
+        appendAddons(enzWrap, "section", "metabolism", "section.metabolism");
         // Addon slot: a caveat about how this drug is cleared, which the per-isoform
         // rows below cannot state (a row gives a role, never a curve). Above the
         // first enzyme so it is read before them, not as a footnote after.
@@ -4462,29 +4464,34 @@ function createInfoPanel(data, sourcingModal) {
           const derived = derivedAutoModulation(drug);
           if (derived) enzWrap.appendChild(derived);
         }
-        const enzUl = el("ul");
-        // Substrate rows first (how the body clears it), then what it does to others.
-        const roleOrder = { substrate: 0, inhibitor: 1, inducer: 2 };
-        const sortedEnz = [...drug.enzymes].sort((a, b) =>
-          (roleOrder[a.role] - roleOrder[b.role]) || a.label.localeCompare(b.label));
+        // One heading per role ("Substrate of", then what it does to others), the
+        // isoforms indented under it, each carrying its role pill and, when a source
+        // qualifies it, its strength + pill (strength is per (enzyme, role), so it
+        // stays on the isoform's line rather than on the heading).
+        const roleOrder = ["substrate", "inhibitor", "inducer"];
+        const byRole = new Map();
+        for (const row of drug.enzymes) {
+          if (!byRole.has(row.role)) byRole.set(row.role, []);
+          byRole.get(row.role).push(row);
+        }
         // opts.highlightEnzymes: arrived from another drug's interaction row, so land
         // on the isoform the two share instead of making the reader find it.
         const wanted = new Set(opts.highlightEnzymes || []);
         let flashEnz = null;
-        for (const row of sortedEnz) {
-          const enz = enzymeById.get(row.enzyme);
-          const li = enzymeRow(row, row.label,
-                               enz ? () => onEnzymePick(enz) : null,
-                               { showRole: true });
-          if (!flashEnz && wanted.has(row.enzyme)) flashEnz = li;
-          enzUl.appendChild(li);
+        const roles = [...roleOrder.filter((r) => byRole.has(r)),
+          ...[...byRole.keys()].filter((r) => !roleOrder.includes(r))];
+        for (const role of roles) {
+          const group = byRole.get(role).sort((a, b) => a.label.localeCompare(b.label));
+          enzWrap.appendChild(el("h4", "enz-role", group[0].roleHeading));
+          const enzUl = el("ul", "enz-role-list");
+          for (const row of group) {
+            const enz = enzymeById.get(row.enzyme);
+            const li = enzymeRow(row, row.label, enz ? () => onEnzymePick(enz) : null);
+            if (!flashEnz && wanted.has(row.enzyme)) flashEnz = li;
+            enzUl.appendChild(li);
+          }
+          enzWrap.appendChild(enzUl);
         }
-        enzWrap.appendChild(enzUl);
-        // Addon slot: the coverage caveat on the list just read (a union of the
-        // routes some corpus names, never all of them). Below the rows, since it is
-        // a note on what they add up to, and anchored on the SECTION rather than on
-        // this drug: the claim holds for every drug at once.
-        appendAddons(enzWrap, "section", "metabolism", "section.metabolism");
         body.appendChild(enzWrap);
         flashRow(flashEnz);
 

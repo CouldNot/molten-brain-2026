@@ -265,8 +265,7 @@ nothing draws.
   its exact frequency. A PharmFreq lookup link sits beside the caption (`PHARMFREQ_URL`, a browse
   link like PDSP's: the site is a Shiny app with no per-gene URL). The caption states the caveat
   that carries the ethics of the section: these are frequencies across study cohorts, most groups
-  contain every speed, and only a genetic test says which one a person has. `showDrug` gains a **Metabolism** list (enzyme + role + strength + its own grade
-  pill, clickable to the enzyme, headed by a ClinPGx pathway-search link) and a **Drug interactions**
+  contain every speed, and only a genetic test says which one a person has. `showDrug` gains a **Metabolism** list (caption, ClinPGx pathway-search link, the section caveats, then one `h4.enz-role` heading per role, "Substrate of" / "Inhibits" / ..., from `ENZYME_ROLES` `heading`, over single-line enzyme rows: enzyme, its role pill, then strength + its strength pill, clickable to the enzyme) and a **Drug interactions**
   list, both **after** the anatomy sections
   (pharmacokinetics lights nothing in the scene, so it does not interrupt Acts on -> Projections
   affected -> Acts within); each **Active metabolites** row gains a `.metab-formed` "formed by

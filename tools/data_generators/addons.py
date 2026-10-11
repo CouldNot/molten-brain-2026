@@ -73,10 +73,11 @@ ADDON_SECTIONS: dict[str, dict[str, str]] = {
     "metabolism": {"en": "Metabolism", "fr": "Métabolisme"},
 }
 
-# How an addon draws. One form today; the dispatch (ADDON_RENDERERS in js/main.js)
-# is what makes a second one (an inline icon + tooltip, say) a viewer addition
-# rather than a rewrite.
-ADDON_DISPLAYS: tuple[str, ...] = ("admonition",)
+# How an addon draws (dispatched by ADDON_RENDERERS in js/main.js): `admonition` is
+# an always-open boxed callout; `collapsible` is the same box folded to its title
+# line until clicked, for a background caveat that should not push the data it
+# qualifies down the panel.
+ADDON_DISPLAYS: tuple[str, ...] = ("admonition", "collapsible")
 
 # Tone -> its glyph. The tone is the *claim's* register (a caution reads louder
 # than a note), so it is data; the colour ramp each tone paints with is UI chrome
@@ -273,7 +274,7 @@ ADDONS: list[dict[str, Any]] = [
         "owner_kind": "section",
         "owner": "metabolism",
         "slot": "section.metabolism",
-        "display": "admonition",
+        "display": "collapsible",
         "tone": "info",
         "title": {
             "en": "Not the full set of routes",

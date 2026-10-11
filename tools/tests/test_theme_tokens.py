@@ -24,7 +24,8 @@ INDEX = os.path.join(ROOT, "public", "index.html")
 
 # Tokens that are deliberately not a colour, so the day theme has nothing to say
 # about them.
-THEME_FREE = {"--panel-w"}
+THEME_FREE = {"--panel-w", "--sp-xs", "--sp-s", "--sp-m", "--sp-l", "--sp-xl",
+              "--sp-indent"}
 
 # A literal `color:` is honest only where the ground under it does not flip with the
 # theme. Each entry is the value plus the reason it is allowed to stay literal.

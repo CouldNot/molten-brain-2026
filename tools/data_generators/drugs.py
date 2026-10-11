@@ -279,9 +279,14 @@ ENZYMES: dict[str, dict[str, Any]] = {
 # enzyme's activity, and it is what makes the derived interaction edge readable: an
 # inhibitor RAISES a co-prescribed substrate's level, an inducer LOWERS it.
 ENZYME_ROLES: dict[str, dict[str, Any]] = {
-    "substrate": {"label": {"en": "Substrate", "fr": "Substrat"}, "direction": 0},
-    "inhibitor": {"label": {"en": "Inhibitor", "fr": "Inhibiteur"}, "direction": 1},
-    "inducer": {"label": {"en": "Inducer", "fr": "Inducteur"}, "direction": -1},
+    # `heading` titles a drug panel's group of enzyme rows ("Substrate of" CYP1A2,
+    # CYP3A4, ...), where `label` names the role on its own.
+    "substrate": {"label": {"en": "Substrate", "fr": "Substrat"},
+                  "heading": {"en": "Substrate of", "fr": "Substrat de"}, "direction": 0},
+    "inhibitor": {"label": {"en": "Inhibitor", "fr": "Inhibiteur"},
+                  "heading": {"en": "Inhibitor of", "fr": "Inhibiteur de"}, "direction": 1},
+    "inducer": {"label": {"en": "Inducer", "fr": "Inducteur"},
+                "heading": {"en": "Inducer of", "fr": "Inducteur de"}, "direction": -1},
 }
 
 # How much of the role. Ordinal on purpose (see docs/SOURCING_GAPS.md): the AUC

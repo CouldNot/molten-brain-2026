@@ -3512,14 +3512,17 @@
   "enzyme_roles": {
     "substrate": {
       "label": "Substrate",
+      "heading": "Substrate of",
       "direction": 0
     },
     "inhibitor": {
       "label": "Inhibitor",
+      "heading": "Inhibitor of",
       "direction": 1
     },
     "inducer": {
       "label": "Inducer",
+      "heading": "Inducer of",
       "direction": -1
     }
   },
@@ -3666,7 +3669,8 @@
     "metabolism": "Metabolism"
   },
   "addon_displays": [
-    "admonition"
+    "admonition",
+    "collapsible"
   ],
   "addon_tones": {
     "info": "ℹ",
