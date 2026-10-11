@@ -853,5 +853,288 @@
       "zotepine"
     ],
     "pdsp_targets": []
+  },
+  {
+    "metabolite": "Desmethyldiazepam (nordazepam)",
+    "parents": [
+      "clorazepate",
+      "prazepam"
+    ],
+    "key": "desmethyldiazepam_nordazepam",
+    "wiki_title": "Nordazepam",
+    "slug": "nordazepam",
+    "own_article": true,
+    "found": true,
+    "from_parent": false,
+    "ki_bindings": [],
+    "unresolved_ki": [],
+    "action_candidates": [
+      "Nordazepam is a partial agonist at the GABA A receptor , which makes it less potent than other benzodiazepines, particularly in its amnesic and muscle-relaxing effects. Its elimination half-life is between 36 and 200 hours , with wide variation among individuals; factors such as age and sex are known to impact it. The variation of reported half-lives are attributed to differences in nordazepam metabolism and that of its metabolites as nordazepam is hydroxylated to active metabolites such as oxazepam, before finally being glucuronidated and excreted in the urine. This can be attributed to extremely variable hepatic and renal metabolic functions among individuals depending upon a number of factors (including age, ethnicity, disease, and current or previous use/abuse of other drugs/medicines)."
+    ],
+    "pages": [
+      "nordazepam",
+      "clorazepate"
+    ],
+    "pdsp_targets": []
+  },
+  {
+    "metabolite": "Psilocin",
+    "parents": [
+      "psilocybin"
+    ],
+    "key": "psilocin",
+    "wiki_title": "Psilocin",
+    "slug": "psilocin",
+    "own_article": true,
+    "found": true,
+    "from_parent": false,
+    "ki_bindings": [
+      {
+        "target": "5ht1a",
+        "wiki_name": "5-HT 1A",
+        "ki": {
+          "median": 308.0,
+          "min": 49.0,
+          "max": 567.0,
+          "raw": "49–567 (K i ) 130–>3,160 ( EC 50"
+        },
+        "quote": "5-HT 1A | 49–567 (K i ) 130–>3,160 ( EC 50"
+      },
+      {
+        "target": "5ht1b",
+        "wiki_name": "5-HT 1B",
+        "ki": {
+          "median": 168.0,
+          "min": 31.0,
+          "max": 305.0,
+          "raw": "31–305"
+        },
+        "quote": "5-HT 1B | 31–305"
+      },
+      {
+        "target": "5ht1d",
+        "wiki_name": "5-HT 1D",
+        "ki": {
+          "median": 27.5,
+          "min": 19.0,
+          "max": 36.0,
+          "raw": "19–36"
+        },
+        "quote": "5-HT 1D | 19–36"
+      },
+      {
+        "target": "5ht1e",
+        "wiki_name": "5-HT 1E",
+        "ki": {
+          "median": 48.0,
+          "min": 44.0,
+          "max": 52.0,
+          "raw": "44–52"
+        },
+        "quote": "5-HT 1E | 44–52"
+      },
+      {
+        "target": "5ht2a",
+        "wiki_name": "5-HT 2A",
+        "ki": {
+          "median": 173.0,
+          "min": 6.0,
+          "max": 340.0,
+          "raw": "6.0–340 (K i ) 2.4–3,836 ( EC 50 ) 16–98% ( E max )"
+        },
+        "quote": "5-HT 2A | 6.0–340 (K i ) 2.4–3,836 ( EC 50 ) 16–98% ( E max )"
+      },
+      {
+        "target": "5ht2b",
+        "wiki_name": "5-HT 2B",
+        "ki": {
+          "median": 207.3,
+          "min": 4.6,
+          "max": 410.0,
+          "raw": "4.6–410 (K i ) 2.4–>20,000 ( EC 50 ) 1.4–84% ( E max )"
+        },
+        "quote": "5-HT 2B | 4.6–410 (K i ) 2.4–>20,000 ( EC 50 ) 1.4–84% ( E max )"
+      },
+      {
+        "target": "5ht2c",
+        "wiki_name": "5-HT 2C",
+        "ki": {
+          "median": 75.5,
+          "min": 10.0,
+          "max": 141.0,
+          "raw": "10–141 (K i ) 9.1–30 ( EC 50 ) 86–95% ( E max )"
+        },
+        "quote": "5-HT 2C | 10–141 (K i ) 9.1–30 ( EC 50 ) 86–95% ( E max )"
+      },
+      {
+        "target": "5ht5a",
+        "wiki_name": "5-HT 5A",
+        "ki": {
+          "median": 77.0,
+          "min": 70.0,
+          "max": 84.0,
+          "raw": "70–84"
+        },
+        "quote": "5-HT 5A | 70–84"
+      },
+      {
+        "target": "5ht6",
+        "wiki_name": "5-HT 6",
+        "ki": {
+          "median": 64.5,
+          "min": 57.0,
+          "max": 72.0,
+          "raw": "57–72"
+        },
+        "quote": "5-HT 6 | 57–72"
+      },
+      {
+        "target": "5ht7",
+        "wiki_name": "5-HT 7",
+        "ki": {
+          "median": 37.75,
+          "min": 3.5,
+          "max": 72.0,
+          "raw": "3.5–72"
+        },
+        "quote": "5-HT 7 | 3.5–72"
+      },
+      {
+        "target": "alpha2a",
+        "wiki_name": "α 2A",
+        "ki": {
+          "median": 1711.5,
+          "min": 1379.0,
+          "max": 2044.0,
+          "raw": "1,379–2,044"
+        },
+        "quote": "α 2A | 1,379–2,044"
+      },
+      {
+        "target": "alpha2b",
+        "wiki_name": "α 2B",
+        "ki": {
+          "median": 1582.5,
+          "min": 1271.0,
+          "max": 1894.0,
+          "raw": "1,271–1,894"
+        },
+        "quote": "α 2B | 1,271–1,894"
+      },
+      {
+        "target": "alpha2c",
+        "wiki_name": "α 2C",
+        "ki": {
+          "median": 4404.0,
+          "min": 4404.0,
+          "max": 4404.0,
+          "raw": "4,404"
+        },
+        "quote": "α 2C | 4,404"
+      },
+      {
+        "target": "d1",
+        "wiki_name": "D 1",
+        "ki": {
+          "median": 20.0,
+          "min": 20.0,
+          "max": 20.0,
+          "raw": "20–>14,000"
+        },
+        "quote": "D 1 | 20–>14,000"
+      },
+      {
+        "target": "d2",
+        "wiki_name": "D 2",
+        "ki": {
+          "median": 3700.0,
+          "min": 3700.0,
+          "max": 3700.0,
+          "raw": "3,700–>10,000"
+        },
+        "quote": "D 2 | 3,700–>10,000"
+      },
+      {
+        "target": "d3",
+        "wiki_name": "D 3",
+        "ki": {
+          "median": 4500.5,
+          "min": 101.0,
+          "max": 8900.0,
+          "raw": "101–8,900"
+        },
+        "quote": "D 3 | 101–8,900"
+      },
+      {
+        "target": "h1",
+        "wiki_name": "H 1",
+        "ki": {
+          "median": 1600.0,
+          "min": 1600.0,
+          "max": 1600.0,
+          "raw": "1,600–>10,000"
+        },
+        "quote": "H 1 | 1,600–>10,000"
+      },
+      {
+        "target": "sert",
+        "wiki_name": "SERT",
+        "ki": {
+          "median": 3650.0,
+          "min": 3650.0,
+          "max": 3650.0,
+          "raw": "3,650–>10,000 (K i ) 662–3,900 ( IC 50"
+        },
+        "quote": "SERT | 3,650–>10,000 (K i ) 662–3,900 ( IC 50"
+      },
+      {
+        "target": "dat",
+        "wiki_name": "DAT",
+        "ki": {
+          "median": 6000.0,
+          "min": 6000.0,
+          "max": 6000.0,
+          "raw": "6,000–>30,000 (K i ) >100,000 ( IC 50 ) >10,000 ( EC 50 )"
+        },
+        "quote": "DAT | 6,000–>30,000 (K i ) >100,000 ( IC 50 ) >10,000 ( EC 50 )"
+      }
+    ],
+    "unresolved_ki": [
+      "'I 2' (Ki 792)",
+      "'TAAR1' (Ki 1,400 (K i ) (rat) 17,000 (K i ) (mouse) 920–2,700 ( EC 50 ) (rodent) >30,000 ( EC 50 ) (human))"
+    ],
+    "action_candidates": [
+      "Psilocin is the pharmacologically active agent in the body after ingestion of psilocybin or some species of psychedelic mushrooms. Psilocybin is rapidly dephosphorylated in the body to psilocin which acts as a serotonin 5-HT 2A , 5-HT 2C and 5-HT 1A receptor agonist or partial agonist . Psilocin exhibits functional selectivity in that it activates phospholipase A2 instead of activating phospholipase C as the endogenous ligand serotonin does. Psilocin is structurally similar to serotonin (5-hydroxytryptamine), differing only by the hydroxyl group being on the 4-position rather than the 5 and the dimethyl groups on the nitrogen . Its effects are thought to come from its agonist activity at 5-HT 2A receptors in the prefrontal cortex . Psilocin's psychedelic effects are directly correlated with the drug's occupancy at these receptor sites . The drug shows pronounced biased agonism at the serotonin 5-HT 2C receptor. Psilocin has no significant effect on dopamine receptors and only affects the noradrenergic system at very high doses.",
+      "Psilocin has been reported to act as a highly potent positive allosteric modulator of the tropomyosin receptor kinase B (TrkB), one of the receptors of brain-derived neurotrophic factor (BDNF). However, subsequent studies failed to reproduce these findings and instead found no interaction of psilocin with TrkB.",
+      "1-Methylpsilocin is a serotonin 5-HT 2C receptor -preferring agonist . 4-Fluoro-DMT and 4-methyl-DMT are known. Another analogue of psilocin is 1-isopropyl-6-fluoropsilocin (O-4310).",
+      "Psilocin is the metabolite of psilocybin. The compound psilocybin itself is biologically inactive but quickly converted by the body to psilocin. Psilocybin is transformed into psilocin by dephosphorylation mediated via phosphatase enzymes . Psilocin is chemically related to the neurotransmitter serotonin and acts as a non-selective agonist of the serotonin receptors . Activation of one serotonin receptor, the serotonin 5-HT 2A receptor , is specifically responsible for the hallucinogenic effects of psilocin and other serotonergic psychedelics . Psilocybin is usually taken orally . By this route , its onset is about 20 to 50 minutes, peak effects occur in about 1 to 2 hours, and its duration is about 4 to 6 hours.",
+      "Psilocin is demethylated and oxidatively deaminated by monoamine oxidase (MAO), specifically monoamine oxidase A (MAO-A), into 4-hydroxyindole-3-acetaldehyde (4-HIAL or 4-HIA). 4-HIAL is then further oxidated into 4-hydroxyindole-3-acetic acid (4-HIAA) by aldehyde dehydrogenase (ALDH) or into 4-hydroxytryptophol (4-HTOL or 4-HTP) by alcohol dehydrogenase (ALD). Deamination of psilocin by MAO-A appears to be responsible for about 4% or 33% of its metabolism in different studies. In contrast to psilocin, its metabolites 4-HIAA and 4-HTP showed no affinity for or activation of multiple serotonin receptors and are considered inactive. Based on in vitro studies, it has been estimated that MAO-A is responsible for about 81% of psilocin's phase I hepatic metabolism. Psilocin and its metabolites are also glucuronidated by UDP-glucuronyltransferases (UGTs). UGT1A10 and UGT1A9 appear to be the most involved. Psilocybin's glucuronidated metabolites include psilocin- O -glucuronide and 4-HIAA- O -glucuronide. Approximately 80% of psilocin in blood plasma is in conjugated form, and conjugated psilocin levels are about fourfold higher than levels of free psilocin. Plasma 4-HIAA levels are also much higher than those of free psilocin."
+    ],
+    "pages": [
+      "psilocin",
+      "psilocybin"
+    ],
+    "pdsp_targets": [
+      {
+        "target": "5ht1a",
+        "ki_id": 16571,
+        "value_nm": 49.0
+      },
+      {
+        "target": "5ht2a",
+        "ki_id": 16562,
+        "value_nm": 25.0
+      },
+      {
+        "target": "5ht2b",
+        "ki_id": 2722,
+        "value_nm": 450.0
+      },
+      {
+        "target": "5ht2c",
+        "ki_id": 16563,
+        "value_nm": 10.0
+      }
+    ]
   }
 ]

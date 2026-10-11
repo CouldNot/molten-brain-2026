@@ -1,0 +1,1092 @@
+{
+ "instructions": "Mark a drug a prodrug ONLY when a candidate says the drug ITSELF is inactive (or is a prodrug) and its effect comes from a named active metabolite. A drug that is active itself AND has an active metabolite is NOT a prodrug; a sentence about a different prodrug (an ester of this drug, another molecule) does not count. Answer {drug_id: {index, metabolite, drug_id|null}} with the metabolite named in that very sentence; omit a drug that is not a prodrug.",
+ "drugs": {
+  "amphetamine_d": {
+   "name": "Amphetamine (D)",
+   "bindings": 5,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dextroamphetamine",
+     "line": "Dextroamphetamine is sometimes prescribed as the inactive prodrug lisdexamfetamine ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dextroamphetamine",
+     "line": "Dextroamphetamine is the active metabolite of the prodrug lisdexamfetamine (L-lysine-dextroamphetamine), available by the brand name Vyvanse (Elvanse in the European market and Venvanse in the Brazilian market)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dextroamphetamine",
+     "line": "^ US 7655630 , Mickle T, Krishnan S, Bishop B, Lauderback C, Moncrief JS, Oberlender R, Piccariello T, Paul BJ, Verbicky CD, \"Abuse-resistant amphetamine prodrugs\", issued 2010, assigned to Takeda Pharmaceutical Co Ltd"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dextroamphetamine",
+     "line": "\"Preclinical pharmacokinetics, pharmacology and toxicology of lisdexamfetamine: a novel d-amphetamine pro-drug\"."
+    }
+   ]
+  },
+  "amphetamine_dl": {
+   "name": "Amphetamine (D,L)",
+   "bindings": 5,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "Lisdexamfetamine is a prodrug of dextroamphetamine."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "Because of its behavior as a prodrug and its pharmacokinetic differences, lisdexamfetamine has a longer duration of therapeutic effect than immediate-release dextroamphetamine and shows reduced misuse potential."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "Chiral separation techniques may be employed to help distinguish the source of the drug, whether prescription amphetamine, prescription amphetamine prodrugs, (e.g., selegiline ), over-the-counter drug products that contain levomethamphetamine , or illicitly obtained substituted amphetamines."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "A prodrug form of dextroamphetamine, lisdexamfetamine , is also available and is marketed under the brand name Vyvanse."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "As it is a prodrug, lisdexamfetamine is structurally different from dextroamphetamine, and is inactive until it metabolizes into dextroamphetamine."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "Indeed, the only FDA-approved pharmacotherapy for BED is LDX, a d-amphetamine prodrug."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "\"Stimulant prodrugs: A pharmacological and clinical assessment of their role in treating ADHD and binge-eating disorder\"."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "amphetamine",
+     "line": "\"Lisdexamfetamine Dimesylate: Prodrug Delivery, Amphetamine Exposure and Duration of Efficacy\" ."
+    }
+   ]
+  },
+  "aripiprazole": {
+   "name": "Aripiprazole",
+   "bindings": 35,
+   "metabolites": [
+    {
+     "name": "Dehydroaripiprazole",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "aripiprazole",
+     "line": "It is also available as a long-acting injectable , aripiprazole lauroxil , a lipophilic ester prodrug of aripiprazole designed to be given once per month, and as a once-every-two-months long-acting injectable, under the brand name Abilify Asimtufii."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "aripiprazole",
+     "line": "In October 2015, aripiprazole lauroxil , a prodrug of aripiprazole that is administered via intramuscular injection once every four to six weeks for the treatment of schizophrenia, was approved by the FDA."
+    }
+   ]
+  },
+  "armodafinil": {
+   "name": "Armodafinil",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "armodafinil",
+     "line": "Both of these metabolites have been said to be pharmacologically inactive ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "armodafinil",
+     "line": "Subsequently, it was found that adrafinil is a prodrug of modafinil in 1976."
+    }
+   ]
+  },
+  "brexanolone": {
+   "name": "Brexanolone",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "allopregnanolone",
+     "line": "Due to this, it has been suggested that oral progesterone could be described as a prodrug of sorts for allopregnanolone."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "allopregnanolone",
+     "line": "In addition to oral progesterone, oral pregnenolone has also been found to act as a prodrug of allopregnanolone, though also of pregnenolone sulfate ."
+    }
+   ]
+  },
+  "bromperidol": {
+   "name": "Bromperidol",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "bromperidol",
+     "line": "An ester prodrug , bromperidol decanoate , is a long-acting form of bromperidol used as a depot injectable ."
+    }
+   ]
+  },
+  "bupropion": {
+   "name": "Bupropion",
+   "bindings": 4,
+   "metabolites": [
+    {
+     "name": "6-Hydroxybupropion",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "bupropion",
+     "line": "In fact, bupropion could accurately be conceptualized as a prodrug of these metabolites."
+    }
+   ]
+  },
+  "clonazepam": {
+   "name": "Clonazepam",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "clonazepam",
+     "line": "It is extensively metabolised into pharmacologically inactive metabolites, with only 2% of the unchanged drug excreted in the urine."
+    }
+   ]
+  },
+  "clorazepate": {
+   "name": "Clorazepate",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "clorazepate",
+     "line": "Clorazepate is an unusually long-lasting benzodiazepine and serves as a prodrug for the equally long-lasting desmethyldiazepam , which is rapidly produced as an active metabolite ."
+    }
+   ]
+  },
+  "cocaine": {
+   "name": "Cocaine",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "cocaine",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "dmt": {
+   "name": "DMT",
+   "bindings": 14,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "Prodrugs of DMT such as 1-benzoyl-DMT and N -phosphonooxymethyl-DMT ( N -POM-DMT) have also been described."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "\" In vivo validation of psilacetin as a prodrug yielding modestly lower peripheral psilocin exposure than psilocybin\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "To overcome these barriers, Terran Biosciences has developed proprietary prodrugs designed for single oral dosing that bypass first-pass metabolism and subsequently potentially improve CNS delivery after bioconversion (WO2023283364A2).50 Preclinical data demonstrate the success of this approach: oral administration of a DMT prodrug (compound Exp."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "Similarly, a 5-MeO−DMT prodrug (Exp."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "In addition to psilocin, DMT and 5-MeO-DMT have been made into prodrugs despite lacking the 4-hydroxyl group attachment point."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "In another approach, the dimethylamino group of DMT or 5-MeO-DMT has been used to generate betaine-like prodrugs of these classic psychedelics (e.g., see N-phosphonooxymethyl prodrugs of DMT and 5-MeO-DMT in Table 3 (Khan et al., 2024))."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "^ \"Prodrugs of dimethyltryptamine and derivatives thereof\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "dimethyltryptamine",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "duloxetine": {
+   "name": "Duloxetine",
+   "bindings": 6,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "duloxetine",
+     "line": "Circulating metabolites are pharmacologically inactive."
+    }
+   ]
+  },
+  "fluphenazine": {
+   "name": "Fluphenazine",
+   "bindings": 28,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "fluphenazine",
+     "line": "Fluphenazine decanoate and enanthate are prodrugs which are hydrolyzed by esterases to fluphenazine."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "fluphenazine",
+     "line": "Pharmacokinetic studies of fluphenazine and four ester prodrugs (Ph.D."
+    }
+   ]
+  },
+  "gabapentin": {
+   "name": "Gabapentin",
+   "bindings": 2,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "gabapentin",
+     "line": "A prodrug form ( gabapentin enacarbil ) was approved by the US Food and Drug Administration (FDA)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "gabapentin",
+     "line": "\"Prodrug approaches for enhancing the bioavailability of drugs with low solubility\"."
+    }
+   ]
+  },
+  "galantamine": {
+   "name": "Galantamine",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "galantamine",
+     "line": "In December 2023, the FDA approved a New Drug Application (NDA) for a pro-drug of galantamine called ALPHA-1062."
+    }
+   ]
+  },
+  "isocarboxazid": {
+   "name": "Isocarboxazid",
+   "bindings": 2,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "isocarboxazid",
+     "line": "Low-dose amphetamines, including the amphetamine prodrug lisdexamfetamine , as well as ephedrine and pseudoephedrine , are relative contraindications rather than absolute contraindications;"
+    }
+   ]
+  },
+  "ketamine": {
+   "name": "Ketamine",
+   "bindings": 2,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "ketamine",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "lisdexamfetamine": {
+   "name": "Lisdexamfetamine",
+   "bindings": 5,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "A prodrug of dextroamphetamine , lisdexamphetamine is taken by mouth ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "Lisdexamphetamine is an inactive prodrug that is formed by the condensation of L -lysine , a naturally occurring amino acid , and dextroamphetamine."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "Lisdexamphetamine is an inactive prodrug that is converted in the body to dextroamphetamine, a pharmacologically active compound that is responsible for the drug's activity."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "Lisdexamfetamine is a prodrug of dextroamphetamine."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "Because of its behavior as a prodrug and its pharmacokinetic differences, lisdexamfetamine has a longer duration of therapeutic effect than immediate-release dextroamphetamine and shows reduced misuse potential."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "\"Lisdexamfetamine dimesylate (vyvanse), a prodrug stimulant for attention-deficit/hyperactivity disorder\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "\"Lisdexamfetamine Dimesylate: Prodrug Delivery, Amphetamine Exposure and Duration of Efficacy\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "\"Lisdexamfetamine prodrug activation by peptidase-mediated hydrolysis in the cytosol of red blood cells\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "Indeed, the only FDA-approved pharmacotherapy for BED is LDX, a d-amphetamine prodrug."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "\"Stimulant prodrugs: A pharmacological and clinical assessment of their role in treating ADHD and binge-eating disorder\"."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lisdexamfetamine",
+     "line": "\"Lisdexamfetamine dimesylate: a prodrug stimulant for the treatment of ADHD in children and adults\" ."
+    }
+   ]
+  },
+  "lofepramine": {
+   "name": "Lofepramine",
+   "bindings": 11,
+   "metabolites": [
+    {
+     "name": "Desipramine",
+     "drug_id": "desipramine"
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lofepramine",
+     "line": "Lofepramine has been said to be a prodrug of desipramine , although there is also evidence against this notion."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lofepramine",
+     "line": "Although lofepramine is technically a tertiary amine, it acts in large part as a prodrug of desipramine, and is more similar to secondary amine TCAs in its effects."
+    }
+   ]
+  },
+  "loflazepate": {
+   "name": "Loflazepate",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "ethyl_loflazepate",
+     "line": "Ethyl loflazepate was designed to be a prodrug for descarboxyloflazepate , its active metabolite ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "ethyl_loflazepate",
+     "line": "\"Ethyl loflazepate: a prodrug from the benzodiazepine series designed to dissociate anxiolytic and sedative activities\"."
+    }
+   ]
+  },
+  "lorazepam": {
+   "name": "Lorazepam",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lorazepam",
+     "line": "It is a high-potency and an intermediate-acting (10–20 hour half-life) benzodiazepine, and its uniqueness, advantages, and disadvantages are largely explained by its pharmacokinetic properties (poor water and lipid solubility, high protein binding and anoxidative metabolism to a pharmacologically inactive glucuronide form) and by its high relative potency (lorazepam 1 mg is equal in effect to diazepam 10 mg)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lorazepam",
+     "line": "Lorazepam is highly protein-bound and is extensively metabolized into pharmacologically inactive metabolites."
+    }
+   ]
+  },
+  "lsd": {
+   "name": "LSD",
+   "bindings": 10,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lsd",
+     "line": "Presumed or known prodrugs of LSD, including 1A-LSD (ALD-52), 1P-LSD , and 1V-LSD , have been developed or encountered."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lsd",
+     "line": "\"The use of prodrugs as drugs of abuse\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lsd",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lsd",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lsd",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "lsd",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "mdma": {
+   "name": "MDMA",
+   "bindings": 16,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mdma",
+     "line": "\"Lisdexamfetamine Dimesylate: Prodrug Delivery, Amphetamine Exposure and Duration of Efficacy\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mdma",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mdma",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mdma",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mdma",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mdma",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "meprobamate": {
+   "name": "Meprobamate",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "meprobamate",
+     "line": "Related drugs include carisoprodol and tybamate ( prodrugs of meprobamate), phenprobamate , felbamate , mebutamate , and methocarbamol ."
+    }
+   ]
+  },
+  "methamphetamine": {
+   "name": "Methamphetamine",
+   "bindings": 7,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "methamphetamine",
+     "line": "Chiral techniques may be employed to help distinguish the source of the drug to determine whether it was obtained illicitly or legally via prescription or prodrug."
+    }
+   ]
+  },
+  "modafinil": {
+   "name": "Modafinil",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "modafinil",
+     "line": "Additionally, it is offered as the ( R )- enantiomer , known as armodafinil , and as a prodrug named adrafinil ."
+    }
+   ]
+  },
+  "nicotine": {
+   "name": "Nicotine",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotine",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "oxcarbazepine": {
+   "name": "Oxcarbazepine",
+   "bindings": 1,
+   "metabolites": [
+    {
+     "name": "Licarbazepine",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "oxcarbazepine",
+     "line": "Oxcarbazepine is a prodrug , which is largely metabolized to its pharmacologically active 10-monohydroxy derivative licarbazepine (sometimes abbreviated MHD )."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "oxcarbazepine",
+     "line": "Oxcarbazepine is a prodrug which is activated to licarbazepine in the liver."
+    }
+   ]
+  },
+  "prazepam": {
+   "name": "Prazepam",
+   "bindings": 1,
+   "metabolites": [
+    {
+     "name": "Desmethyldiazepam (nordazepam)",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "prazepam",
+     "line": "Prazepam, (Elimination half-life 29-224h), is a prodrug for desmethyldiazepam , (Elimination half-life 36-200h), which is responsible for the therapeutic effects of prazepam."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "prazepam",
+     "line": "Prazepam is a prodrug for descyclopropylmethylprazepam/desmethyldiazepam (also known as norprazepam or nordazepam ) which is responsible for most of the therapeutic activity of prazepam rather than prazepam itself."
+    }
+   ]
+  },
+  "pregabalin": {
+   "name": "Pregabalin",
+   "bindings": 2,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pregabalin",
+     "line": "\"Prodrug approaches for enhancing the bioavailability of drugs with low solubility\"."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pregabalin",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "selegiline": {
+   "name": "Selegiline",
+   "bindings": 2,
+   "metabolites": [
+    {
+     "name": "Desmethylselegiline",
+     "drug_id": null
+    },
+    {
+     "name": "L-Amphetamine",
+     "drug_id": null
+    },
+    {
+     "name": "L-Methamphetamine",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "selegiline",
+     "line": "He is also known to have simultaneously taken Adderall for treatment of attention deficit hyperactivity disorder (ADHD) and to have possessed non-pharmaceutical adrafinil , a prodrug of modafinil ."
+    }
+   ]
+  },
+  "serdexmethylphenidate": {
+   "name": "Serdexmethylphenidate",
+   "bindings": 2,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "serdexmethylphenidate",
+     "line": "Serdexmethylphenidate ( SDX ) is a prodrug of dexmethylphenidate created by the pharmaceutical company Zevra Therapeutics."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "serdexmethylphenidate",
+     "line": "Serdexmethylphenidate is a prodrug which has a delayed onset of action and a prolonged duration of effects compared to dexmethylphenidate, its parent compound."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "serdexmethylphenidate",
+     "line": "\"Prodrugs for ADHD Treatments: Opportunities & Potential to Fill Unmet Medical Needs\" (PDF) ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "serdexmethylphenidate",
+     "line": "\"Human Abuse Potential of Intravenous Serdexmethylphenidate (SDX), A Novel Prodrug of D-Methylphenidate, in Recreational Stimulant Abusers\" ."
+    }
+   ]
+  },
+  "thc": {
+   "name": "Tetrahydrocannabinol",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "tetrahydrocannabinol",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "valbenazine": {
+   "name": "Valbenazine",
+   "bindings": 1,
+   "metabolites": [
+    {
+     "name": "(+)-alpha-Dihydrotetrabenazine",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "valbenazine",
+     "line": "Valbenazine is a prodrug which is an ester of -α- dihydrotetrabenazine (DTBZ) with the amino acid L - valine ."
+    }
+   ]
+  },
+  "ethanol": {
+   "name": "Ethanol",
+   "bindings": 5,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "alcohol_drug",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "apomorphine": {
+   "name": "Apomorphine",
+   "bindings": 18,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "apomorphine",
+     "line": "\"In vivo evaluation of lipid-based formulations for oral delivery of apomorphine and its diester prodrugs\"."
+    }
+   ]
+  },
+  "morphine": {
+   "name": "Morphine",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "morphine",
+     "line": "The choice of heroin and morphine over other opioids by former drug addicts may also be because heroin is an ester of morphine and morphine prodrug , essentially meaning they are identical drugs in vivo ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "morphine",
+     "line": "Codeine analogues of morphine-based drugs often serve as prodrugs of the stronger drug, as in codeine and morphine, hydrocodone and hydromorphone, oxycodone and oxymorphone, nicocodeine and nicomorphine , dihydrocodeine and dihydromorphine, etc."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "morphine",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "codeine": {
+   "name": "Codeine",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "codeine",
+     "line": "Codeine is an opiate and prodrug of morphine mainly used to treat pain , coughing , and diarrhea ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "codeine",
+     "line": "Instead of acting directly on the MOR, codeine functions as a prodrug of its major active metabolites morphine and codeine-6-glucuronide , which are far more potent MOR agonists in comparison."
+    }
+   ]
+  },
+  "tapentadol": {
+   "name": "Tapentadol",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "tapentadol",
+     "line": "Given that tapentadol is a highly selective full agonist of the μ-opioid receptor , and given that is not a pro-drug, with no ceiling effect , studies have found that it is significantly more abusable than tramadol , and similar to hydrocodone and other full agonists of the μ-opioid receptor (such as oxycodone and hydromorphone ) in terms of addiction and dependence liability."
+    }
+   ]
+  },
+  "heroin": {
+   "name": "Heroin",
+   "bindings": 1,
+   "metabolites": [
+    {
+     "name": "6-Monoacetylmorphine",
+     "drug_id": null
+    },
+    {
+     "name": "Morphine",
+     "drug_id": "morphine"
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "heroin",
+     "line": "When taken orally, heroin undergoes extensive first-pass metabolism via deacetylation , making it a prodrug for the systemic delivery of morphine."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "heroin",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "heroin",
+     "line": "Prodrug"
+    }
+   ]
+  },
+  "psilocybin": {
+   "name": "Psilocybin",
+   "bindings": 2,
+   "metabolites": [
+    {
+     "name": "Psilocin",
+     "drug_id": null
+    }
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "The compound psilocybin itself is biologically inactive but quickly converted by the body to psilocin."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "Psilocybin is a serotonergic psychedelic that acts as a prodrug of psilocin , the active form of the drug."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "Psilocybin is dephosphorylated into its active form psilocin in the body and hence is a prodrug ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "We have also shown that the drug psilocin, the active form of the prodrug psilocybin, has virtually the same potency as (R)-DOI (Flanagan et al., 2021), indicating that the effects are not limited to (R)-DOI or are chemotype dependent."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "psilocybin",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "mescaline": {
+   "name": "Mescaline",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mescaline",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mescaline",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mescaline",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mescaline",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "2cb": {
+   "name": "2C-B",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "Another N -substituted derivative, 2C-B-AN , is an N -benzylphenethylamine-like prodrug of 2C-B."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "\"Prodrugs of New Psychoactive Substances (NPS): A New Challenge\"."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "\"The use of prodrugs as drugs of abuse\" ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "2c_b",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "phencyclidine": {
+   "name": "Phencyclidine",
+   "bindings": 2,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "phencyclidine",
+     "line": "Nitric oxide prodrugs (e.g., alkyl nitrites ( poppers ))"
+    }
+   ]
+  },
+  "propofol": {
+   "name": "Propofol",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "propofol",
+     "line": "A water-soluble prodrug , fospropofol , has been developed and tested with positive results."
+    }
+   ]
+  },
+  "brivaracetam": {
+   "name": "Brivaracetam",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "brivaracetam",
+     "line": "The three major metabolites (hydroxy, acid, and hydroxyacid) are pharmacologically inactive."
+    }
+   ]
+  },
+  "levodopa": {
+   "name": "Levodopa",
+   "bindings": 6,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "The drug is a centrally permeable monoamine precursor and prodrug of dopamine and hence acts as a dopamine receptor agonist ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "In addition to levodopa itself, certain prodrugs of levodopa are available, including melevodopa ( melevodopa/carbidopa ) (used orally) and foslevodopa ( foslevodopa/foscarbidopa ) (used subcutaneously )."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "Analogues and prodrugs of levodopa include melevodopa , etilevodopa , foslevodopa , and XP-21279 ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "Other analogues include methyldopa , an antihypertensive agent , and droxidopa ( L -DOPS), a norepinephrine precursor and prodrug."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "6-Hydroxydopa , a prodrug of 6-hydroxydopamine (6-OHDA), is a potent dopaminergic neurotoxin used in scientific research ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "Produodopa is a soluble prodrug formulation of fosfolevodopa/foscarbidopa developed for a 24 hour subcutaneous infusion."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "After the infusion, the prodrug is converted by phosphatases into active levodopa and carbidopa that manage to stabilize their concentration in the blood."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "levodopa",
+     "line": "Compared with levodopa/carbidopa, the prodrug approach increases ON time without troublesome dyskinesia by 1.75 hours and reduced OFF time by 1.79 hours other than improvements also in quality of life, motor fluctuations and sleep."
+    }
+   ]
+  },
+  "tolcapone": {
+   "name": "Tolcapone",
+   "bindings": 1,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "tolcapone",
+     "line": "Levodopa is a prodrug for dopamine , which reduces Parkinson symptoms;"
+    }
+   ]
+  },
+  "fenfluramine": {
+   "name": "Fenfluramine",
+   "bindings": 14,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "fenfluramine",
+     "line": "DDH-LSD) 6-Alkyllysergamides: BU-LAD CE-LAD (CHLORETH-LAD) CPM-LAD CYP-LAD (TRALA-22) ETH-LAD FLUORETH-LAD (FE-LAD) FP-LAD IP-LAD NBOMe-LAD PARGY-LAD PRO-LAD 1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "fenfluramine",
+     "line": "UML-491) MLA-74 (1-methyl-LAE) MLD-41 (1-methyl-LSD) MPD-75 (1-methyl-LPD) OML-632 (1-hydroxymethyl-LSD) 1-Acyllysergamides (prodrugs): 1-Formyl-LSD 1B-LSD 1BP-LSD 1Bz-LSD 1cP-AL-LAD 1cP-LSD 1cP-MiPLA 1D-AL-LAD 1D-LSD 1DD-LSD 1F-LSD 1Fe-LSD 1H-LSD 1P-AL-LAD 1P-ETH-LAD 1P-LSD 1P-MiPLA 1S-LSD 1SB-LSD (1BS-LSD;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "fenfluramine",
+     "line": "1-Alkyllysergamides (prodrugs): Methysergide (1-methylmethylergonovine;"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "fenfluramine",
+     "line": "1-Acyllysergamides (prodrugs): 1-Formyl-LSD"
+    }
+   ]
+  },
+  "sibutramine": {
+   "name": "Sibutramine",
+   "bindings": 3,
+   "metabolites": [],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "sibutramine",
+     "line": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1;"
+    }
+   ]
+  }
+ }
+}

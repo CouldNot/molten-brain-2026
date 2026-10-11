@@ -1,0 +1,7 @@
+{
+ "psilocybin": {"index": 1, "metabolite": "Psilocin", "drug_id": null},
+ "lisdexamfetamine": {"index": 2, "metabolite": "Dextroamphetamine", "drug_id": "amphetamine_d"},
+ "serdexmethylphenidate": {"index": 0, "metabolite": "Dexmethylphenidate", "drug_id": "methylphenidate_d"},
+ "clorazepate": {"index": 0, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null},
+ "prazepam": {"index": 1, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null}
+}

@@ -143,5 +143,33 @@
         "quote": "7-Hydroxyamoxapine, a major active metabolite of amoxapine, is a more potent dopamine receptor antagonist and contributes to its neuroleptic efficacy, whereas 8-Hydroxyamoxapine is a norepinephrine reuptake inhibitor."
       }
     ]
+  },
+  "psilocin": {
+    "bindings": [
+      {
+        "target": "5ht2a",
+        "action": "agonist",
+        "quote": "Its effects are thought to come from its agonist activity at 5-HT 2A receptors in the prefrontal cortex ."
+      },
+      {
+        "target": "5ht2c",
+        "action": "agonist",
+        "quote": "The drug shows pronounced biased agonism at the serotonin 5-HT 2C receptor."
+      },
+      {
+        "target": "5ht1a",
+        "action": "agonist",
+        "quote": "Psilocybin is rapidly dephosphorylated in the body to psilocin which acts as a serotonin 5-HT 2A , 5-HT 2C and 5-HT 1A receptor agonist or partial agonist ."
+      }
+    ]
+  },
+  "desmethyldiazepam_nordazepam": {
+    "bindings": [
+      {
+        "target": "gaba_a",
+        "action": "partial_agonist",
+        "quote": "Nordazepam is a partial agonist at the GABA A receptor , which makes it less potent than other benzodiazepines, particularly in its amnesic and muscle-relaxing effects."
+      }
+    ]
   }
 }
