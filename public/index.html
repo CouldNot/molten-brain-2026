@@ -3369,8 +3369,9 @@
                hands the panel. -->
           <div id="simulation" class="browse-section">
             <button type="button" id="simulation-toggle" data-search="simulate combination combinaison cocktail" class="collapse-header">
-              <span data-i18n="panel.simulation"></span>
-              <span class="beta-tag" data-i18n="sim.beta"></span>
+              <!-- One wrapper so the header's space-between puts the tag right after
+                   the name, not in the middle of the row. -->
+              <span><span data-i18n="panel.simulation"></span><span class="beta-tag" data-i18n="sim.beta"></span></span>
               <span class="chevron" aria-hidden="true">&#9656;</span>
             </button>
           </div>
