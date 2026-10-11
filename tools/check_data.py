@@ -293,9 +293,10 @@ def load_quotes(report):
 def rehydrate_quotes(node, by_id, referenced, dangling):
     """Merge each ``{quote_id, ...}`` reference's excerpt back in place.
 
-    Mirrors the viewer's rehydration (js/data.js): copies the quote node's
-    ``corpus``/``page``/``quote``/``species`` onto the reference and drops the
-    ``quote_id`` key, so every later check sees the original inline source shape.
+    Mirrors the viewer's rehydration (js/data.js): copies every field of the quote
+    node except its ``id`` onto the reference (so a field the generator adds to the
+    quote node needs no edit here) and drops the ``quote_id`` key, so every later
+    check sees the original inline source shape.
     Records each referenced id (for the orphan check) and any id with no entry.
     """
     if isinstance(node, dict):
@@ -306,10 +307,7 @@ def rehydrate_quotes(node, by_id, referenced, dangling):
             if quote is None:
                 dangling.append(qid)
             else:
-                for k in ("corpus", "page", "quote", "species", "llm", "heading",
-                          "fetched"):
-                    if k in quote:
-                        node[k] = quote[k]
+                node.update((k, v) for k, v in quote.items() if k != "id")
             node.pop("quote_id", None)
         for value in node.values():
             rehydrate_quotes(value, by_id, referenced, dangling)

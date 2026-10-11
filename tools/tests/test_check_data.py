@@ -652,6 +652,29 @@ class FamilyCountTest(unittest.TestCase):
                         f"CLAUDE.md does not say {word!r} families")
 
 
+class RehydrateQuotesTest(unittest.TestCase):
+    """``rehydrate_quotes`` copies EVERY quote-node field but ``id``, the same rule as
+    js/data.js's rehydrateQuotes, so the two never need a shared field list (they
+    once each kept their own copy of it, which a new quote-node field had to update
+    twice)."""
+
+    def test_copies_every_field_but_id(self):
+        by_id = {"q1": {"id": "q1", "corpus": "stahl", "page": 15, "quote": "x",
+                        "a_future_field": 1}}
+        node = {"sources": [{"quote_id": "q1", "provenance": "verified"}]}
+        referenced, dangling = set(), []
+        check_data.rehydrate_quotes(node, by_id, referenced, dangling)
+        self.assertEqual(node["sources"][0], {"provenance": "verified", "corpus": "stahl",
+                                              "page": 15, "quote": "x",
+                                              "a_future_field": 1})
+        self.assertEqual((referenced, dangling), ({"q1"}, []))
+
+    def test_dangling_id_reported(self):
+        dangling = []
+        check_data.rehydrate_quotes([{"quote_id": "nope"}], {}, set(), dangling)
+        self.assertEqual(dangling, ["nope"])
+
+
 if __name__ == "__main__":
     unittest.main()
 
