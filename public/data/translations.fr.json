@@ -153,6 +153,7 @@
   "Basal ganglia / deep nuclei": "Ganglions de la base / noyaux profonds",
   "Basolateral amygdala glutamatergic input to the ventral striatum (motivational salience).": "Entrée glutamatergique de l'amygdale basolatérale vers le striatum ventral (saillance motivationnelle).",
   "Basolateral amygdala to accumbens": "Amygdale basolatérale vers accumbens",
+  "Behind the scenes: the viewer and the data checker now restore each source's quote details by one shared rule, and the sourcing tools find a source's stored page through one shared helper, so neither can drift out of step when a new source field or corpus is added. Nothing changes on screen.": "En coulisses : le visualiseur et le vérificateur de données restaurent désormais les détails de citation de chaque source selon une seule règle commune, et les outils de sourçage retrouvent la page stockée d'une source par un seul utilitaire partagé, si bien qu'aucun des deux ne peut se désynchroniser quand un nouveau champ de source ou un nouveau corpus est ajouté. Rien ne change à l'écran.",
   "Belgium": "Belgique",
   "Benzodiazepine": "Benzodiazépine",
   "Beta blocker": "Bêta-bloquant",

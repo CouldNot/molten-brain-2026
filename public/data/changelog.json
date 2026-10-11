@@ -1,6 +1,21 @@
 {
   "versions": [
     {
+      "version": "3.100.1",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "Behind the scenes: the viewer and the data checker now restore each source's quote details by one shared rule, and the sourcing tools find a source's stored page through one shared helper, so neither can drift out of step when a new source field or corpus is added. Nothing changes on screen.",
+          "commits": [
+            "f77f823",
+            "18934db",
+            "7f9202e"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.100.0",
       "date": "2026-10-11",
       "entries": [
