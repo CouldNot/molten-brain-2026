@@ -20,7 +20,9 @@ import { approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
 // sourced and verified for the same reason the Sources popup's bar does: the quote
 // really was checked, it just may not attribute the claim.
-const GRADE_RANK = { nosource: 0, llm: 1, sourced: 2, uncertain: 3, verified: 4 };
+// `unknown` (searched, nothing states it) sorts just above nosource: still no source,
+// but a finding rather than a to-do.
+const GRADE_RANK = { nosource: 0, unknown: 0.5, llm: 1, sourced: 2, uncertain: 3, verified: 4 };
 
 // Enumeration order, and therefore the kind <select>'s option order. Kinds absent
 // from the loaded dataset are dropped from the select, never from this list.
@@ -169,7 +171,8 @@ export function collectNodes(data, deps, opts = {}) {
   // bindings: it is a ligand's binding direction either way.
   const actionNotion = (b) => `${b.targetName}: ${b.affinityOnly
     ? t("drug.affinityOnly") : b.actionLabel}`;
-  const actionBacking = (b) => ({ sources: b.sources, uncertainty: b.uncertainty });
+  const actionBacking = (b) => ({ sources: b.sources, uncertainty: b.uncertainty,
+    unknown: b.unknown });
 
   // Structures. A symmetric region is authored once and mirrored, so the `_L` twin
   // repeats its twin's group and grade verbatim, differing only in the side its name
@@ -611,7 +614,7 @@ export function createNodeBrowser({ body, data, deps, ui }) {
     const presentGrades = new Set(rows.map((r) => r.grade));
     gradeSel = makeSelect(t("nodes.gradeLabel"), [
       ["", t("nodes.allGrades")],
-      ...["verified", "uncertain", "sourced", "llm", "nosource"]
+      ...["verified", "uncertain", "sourced", "llm", "unknown", "nosource"]
         .filter((g) => presentGrades.has(g)).map((g) => [g, gradeLabel(g)]),
     ]);
     sortSel = makeSelect(t("nodes.sortLabel"), [

@@ -201,6 +201,7 @@
         --sem-sourced: #e3c14a;
         --sem-verified: #66cf85;
         --sem-uncertain: #f0913f;
+        --sem-unknown: #9aa8ff;
         --sem-amber: #e6b86a;
         --sem-caution: #e6b800;
         /* The tooltip bubble's own ground. It is NOT --panel-bg: a tip is drawn over
@@ -239,6 +240,7 @@
         --sem-sourced: #7a5c00;
         --sem-verified: #12703a;
         --sem-uncertain: #9a4700;
+        --sem-unknown: #3a47a6;
         --sem-amber: #8a5600;
         --sem-caution: #7d6200;
         --tip-bg: rgba(255, 255, 255, 0.99);
@@ -1523,6 +1525,7 @@
       .src-global .src-stat-headline { margin: 0 0 6px; }
       .src-global .src-stat-bar { height: 9px; cursor: pointer; }
       /* A caret hint under the global bar; rotates when the breakdown is open. */
+      .src-stat-unknown { margin: 6px 0 0; font-size: 0.85em; color: var(--sem-unknown); }
       .src-global-hint {
         display: inline-flex; align-items: center; gap: 4px;
         margin-top: 6px; font-size: 0.85em; color: var(--muted);
@@ -2299,6 +2302,14 @@
         color: var(--muted);
         background: rgba(var(--ink), 0.05);
         border: 1px dashed rgba(var(--ink), 0.35);
+      }
+      /* Not a grade: searched in every required source, none states it (∅, see
+         tools/data_generators/unknown.py). Its own hue, distinct from the red "not
+         found yet" ✕, because it is a finding and not a to-do. */
+      .src-prov-unknown {
+        color: var(--sem-unknown);
+        background: rgba(var(--ink), 0.05);
+        border: 1px solid var(--sem-unknown);
       }
       /* The reasons-to-doubt block at the top of an uncertain pill's tooltip. Each
          row carries an inert badge (green ✓ / red ✕) so a sourced reason and an

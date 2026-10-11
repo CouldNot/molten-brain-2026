@@ -261,6 +261,18 @@ def render_block(stats: dict) -> str:
             f"never names the region), so pinning it to that node is an inference. The "
             f"badge's tooltip lists the reasons to doubt it, each with its own source.",
         ]
+    # UNKNOWN (tools/data_generators/unknown.py): searched in every required source,
+    # nothing states it. Outside the total above (neither backed nor missing), so it is
+    # stated here or it would vanish from the README altogether.
+    unknown = a.get("unknown", 0)
+    if unknown:
+        lines += [
+            "",
+            f"Besides those, **{unknown} claims are `unknown` (∅)**: every source the "
+            f"dataset requires for that kind of claim was searched on a recorded date "
+            f"and none states it. That is a finding about the literature, not a gap, so "
+            f"they are left out of the % above; the search is redone within 12 months.",
+        ]
     lines += ["", END]
     return "\n".join(lines)
 

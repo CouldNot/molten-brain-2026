@@ -1173,7 +1173,7 @@ def _binding_grade(binding: dict[str, Any]) -> int:
     return best
 
 
-def _binding_action_grade(binding: dict[str, Any]) -> int:
+def _binding_action_grade(binding: dict[str, Any]) -> int | str:
     """A binding DIRECTION's grade = the strongest of its quote ``sources`` alone.
 
     A measured Ki attests that the ligand binds the target, never whether it
@@ -1185,7 +1185,9 @@ def _binding_action_grade(binding: dict[str, Any]) -> int:
     stronger than nothing at all.
     """
     if not binding.get("action"):
-        return 0
+        # Searched everywhere, nothing states it (data_generators/unknown.py): its own
+        # bucket, outside the headline denominator.
+        return "unknown" if binding.get("unknown") else 0
     return max(1, _strongest_grade(binding.get("sources")))
 
 
@@ -1226,6 +1228,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
         uncertain = False
         if isinstance(rank_or_grade, tuple):
             rank_or_grade, uncertain = rank_or_grade
+        if rank_or_grade == "unknown":
+            return "unknown"
         rank = (rank_or_grade if isinstance(rank_or_grade, int)
                 else _GRADE_RANK.get(rank_or_grade, 0))
         # Only a node resting on a document can be "uncertain": a bare llm claim that
@@ -1244,11 +1248,17 @@ def _provenance_stats(structures: list[dict[str, Any]],
         # ``missing`` is kept as the llm+nosource sum (the headline / README / check_data
         # read it); ``llm`` and ``nosource`` are the finer split the sourcing bar renders
         # as distinct grey and red segments.
+        # ``unknown`` (searched everywhere, nothing states it; data_generators/unknown.py)
+        # is counted beside the total, never in it: it is neither backed nor missing, so
+        # it must not move the headline % either way.
         counts = {"total": 0, "verified": 0, "uncertain": 0, "sourced": 0,
-                  "llm": 0, "nosource": 0, "missing": 0}
+                  "llm": 0, "nosource": 0, "missing": 0, "unknown": 0}
         for g in grades:
-            counts["total"] += 1
             b = bucket(g)
+            if b == "unknown":
+                counts["unknown"] += 1
+                continue
+            counts["total"] += 1
             counts[b] += 1
             if b in ("llm", "nosource"):
                 counts["missing"] += 1
@@ -1557,7 +1567,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # list to keep in sync.
     node_kinds = tuple(k for k in by_kind if k != "references")
     nodes = {"total": 0, "verified": 0, "uncertain": 0, "sourced": 0,
-             "llm": 0, "nosource": 0, "missing": 0}
+             "llm": 0, "nosource": 0, "missing": 0, "unknown": 0}
     for kind in node_kinds:
         for key in nodes:
             nodes[key] += by_kind[kind][key]

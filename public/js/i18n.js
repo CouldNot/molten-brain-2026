@@ -395,6 +395,9 @@
       "prov.name.wikipedia": "Live Wikipedia text, fetched verbatim",
       "prov.name.none": "No source",
       "prov.name.dataset": "About this dataset: a statement on how this dataset is built, not a claim about the brain or a drug, so no source could back it.",
+      "prov.name.unknown": "Unknown: searched, no source states it",
+      "info.provUnknown": "Unknown: every source this dataset draws on for this kind of claim was searched, and none states it. A finding about the literature as of that date, not a gap we left: it is set aside from the coverage tally.",
+      "info.unknownSearched": "Searched on {date}, no source states it:",
       "info.descFromWikipedia": "This description is the lead section of the drug's Wikipedia article, used verbatim under CC BY-SA. See the Reference link above.",
       "info.sourceRef": "{corpus}, p. {page}",
       "info.sourceFetched": "downloaded {date}",
@@ -530,6 +533,7 @@
       "drug.speculative": "speculative",
       "drug.affinityOnly": "affinity only, direction not established",
       "drug.actionNoSource": "No source says whether it activates or blocks this target",
+      "drug.actionUnknown": "Searched, and no source says whether it activates or blocks this target",
       "drug.actionLlm": "The direction is stated from memory; only the binding itself is sourced",
       "drug.peripheral": "outside the brain, so nothing lights up",
       "drug.kiCounts": "{h} human, {n} non-human",
@@ -700,6 +704,7 @@
       "about.gradeLlm":
         "AI only: may be a hallucination.",
       "about.gradeNone": "No source: none gathered yet.",
+      "about.gradeUnknown": "Unknown: every required source was searched on a recorded date, and none states it. Set aside from the % (neither backed nor missing); redone yearly.",
       "about.quoteChains": "Not every green check was earned the same way: some quotes were copied out of a machine-readable table by code alone, others were found on a book page by an LLM, checked word for word against that page, then judged by a second LLM that had not seen the first one’s reasoning. Each source tooltip ends with the exact chain that produced it, so you can weigh it yourself.",
       "about.gradeUncertain":
         "Uncertain: the quote is confirmed present, but it does not attribute the claim. " +
@@ -709,6 +714,8 @@
       "about.segSourced": "Sourced",
       "about.segLlm": "AI only",
       "about.segNone": "No source",
+      "about.segUnknown": "Unknown",
+      "about.sourcingUnknown": "Plus {n} claim(s) searched for in every required source with nothing found (∅ Unknown), left out of this %.",
       "about.coverageTitle": "Coverage",
       "about.sourcingHeadline":
         "{pct}% of the {total} knowledge nodes here are sourced or verified.",
@@ -1122,6 +1129,9 @@
       "prov.name.wikipedia": "Texte Wikipédia en direct, repris tel quel",
       "prov.name.none": "Aucune source",
       "prov.name.dataset": "À propos de ces données : une remarque sur la construction de ce jeu de données, pas une affirmation sur le cerveau ou une substance, donc aucune source ne pourrait l’étayer.",
+      "prov.name.unknown": "Inconnu : recherché, aucune source ne l’indique",
+      "info.provUnknown": "Inconnu : toutes les sources que ce jeu de données utilise pour ce type d’affirmation ont été consultées, et aucune ne l’indique. Un constat sur la littérature à cette date, pas un manque de notre part : il est mis à part du bilan de couverture.",
+      "info.unknownSearched": "Recherché le {date}, aucune source ne l’indique :",
       "info.descFromWikipedia": "Cette description est l’introduction de l’article Wikipédia de la substance, reprise telle quelle sous licence CC BY-SA. Voir le lien Référence ci-dessus.",
       "info.sourceRef": "{corpus}, p. {page}",
       "info.sourceFetched": "téléchargé le {date}",
@@ -1258,6 +1268,7 @@
       "drug.speculative": "spéculative",
       "drug.affinityOnly": "affinité seule, sens non établi",
       "drug.actionNoSource": "Aucune source ne dit si la cible est activée ou bloquée",
+      "drug.actionUnknown": "Recherché, et aucune source ne dit si la cible est activée ou bloquée",
       "drug.actionLlm": "Le sens est énoncé de mémoire ; seule la liaison elle-même est sourcée",
       "drug.peripheral": "hors du cerveau, donc rien ne s’allume",
       "drug.kiCounts": "{h} humaines, {n} non humaines",
@@ -1437,6 +1448,7 @@
       "about.gradeLlm":
         "IA seule : peut être une hallucination.",
       "about.gradeNone": "Sans source : aucune réunie pour l’instant.",
+      "about.gradeUnknown": "Inconnu : toutes les sources requises ont été consultées à une date enregistrée, et aucune ne l’indique. Mis à part du % (ni étayé ni manquant) ; refait chaque année.",
       "about.quoteChains": "Toutes les coches vertes ne s’obtiennent pas de la même manière : certaines citations ont été recopiées d’un tableau lisible par machine par du code seul, d’autres ont été trouvées sur une page de livre par un LLM, vérifiées mot pour mot sur cette page, puis jugées par un second LLM qui n’avait pas vu le raisonnement du premier. Chaque infobulle de source se termine par le parcours exact qui l’a produite, pour que vous puissiez en juger vous-même.",
       "about.gradeUncertain":
         "Incertain : la citation est bien présente, mais elle n’attribue pas " +
@@ -1446,6 +1458,8 @@
       "about.segSourced": "Sourcé",
       "about.segLlm": "IA seule",
       "about.segNone": "Sans source",
+      "about.segUnknown": "Inconnu",
+      "about.sourcingUnknown": "S’y ajoutent {n} affirmation(s) recherchées dans toutes les sources requises sans résultat (∅ Inconnu), exclues de ce %.",
       "about.coverageTitle": "Couverture",
       "about.sourcingHeadline":
         "{pct} % des {total} nœuds de connaissance ici sont sourcés ou vérifiés.",

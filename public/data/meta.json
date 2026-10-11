@@ -3856,7 +3856,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "enzyme_variability": {
         "total": 5,
@@ -3865,7 +3866,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_bindings": {
         "total": 1910,
@@ -3874,7 +3876,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 26,
-        "missing": 26
+        "missing": 26,
+        "unknown": 0
       },
       "drug_binding_action": {
         "total": 1978,
@@ -3883,7 +3886,8 @@
         "sourced": 0,
         "llm": 143,
         "nosource": 709,
-        "missing": 852
+        "missing": 852,
+        "unknown": 0
       },
       "drug_nbn": {
         "total": 116,
@@ -3892,7 +3896,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_brands": {
         "total": 583,
@@ -3901,7 +3906,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 8,
-        "missing": 8
+        "missing": 8,
+        "unknown": 0
       },
       "drug_categories": {
         "total": 301,
@@ -3910,7 +3916,8 @@
         "sourced": 0,
         "llm": 13,
         "nosource": 0,
-        "missing": 13
+        "missing": 13,
+        "unknown": 0
       },
       "drug_half_life": {
         "total": 275,
@@ -3919,7 +3926,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 5,
-        "missing": 5
+        "missing": 5,
+        "unknown": 0
       },
       "drug_tmax": {
         "total": 167,
@@ -3928,7 +3936,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_first_approval": {
         "total": 229,
@@ -3937,7 +3946,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_withdrawals": {
         "total": 28,
@@ -3946,7 +3956,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_prodrug": {
         "total": 5,
@@ -3955,7 +3966,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_enzymes": {
         "total": 429,
@@ -3964,7 +3976,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_enzyme_strength": {
         "total": 147,
@@ -3973,7 +3986,8 @@
         "sourced": 0,
         "llm": 12,
         "nosource": 0,
-        "missing": 12
+        "missing": 12,
+        "unknown": 0
       },
       "drug_pgx": {
         "total": 104,
@@ -3982,7 +3996,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_metabolites": {
         "total": 43,
@@ -3991,7 +4006,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 1,
-        "missing": 1
+        "missing": 1,
+        "unknown": 0
       },
       "drug_metabolite_enzyme": {
         "total": 16,
@@ -4000,7 +4016,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "drug_metabolite_bindings": {
         "total": 68,
@@ -4009,7 +4026,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "projections": {
         "total": 110,
@@ -4018,7 +4036,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 2,
-        "missing": 2
+        "missing": 2,
+        "unknown": 0
       },
       "projection_transmitter": {
         "total": 110,
@@ -4027,7 +4046,8 @@
         "sourced": 0,
         "llm": 25,
         "nosource": 0,
-        "missing": 25
+        "missing": 25,
+        "unknown": 0
       },
       "projection_sign": {
         "total": 38,
@@ -4036,7 +4056,8 @@
         "sourced": 0,
         "llm": 15,
         "nosource": 0,
-        "missing": 15
+        "missing": 15,
+        "unknown": 0
       },
       "circuits": {
         "total": 6,
@@ -4045,7 +4066,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "projection_groups": {
         "total": 12,
@@ -4054,7 +4076,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 2,
-        "missing": 2
+        "missing": 2,
+        "unknown": 0
       },
       "receptors": {
         "total": 56,
@@ -4063,7 +4086,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "receptor_class": {
         "total": 56,
@@ -4072,7 +4096,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "receptor_sign": {
         "total": 56,
@@ -4081,7 +4106,8 @@
         "sourced": 0,
         "llm": 5,
         "nosource": 0,
-        "missing": 5
+        "missing": 5,
+        "unknown": 0
       },
       "receptor_synaptic": {
         "total": 56,
@@ -4090,7 +4116,8 @@
         "sourced": 0,
         "llm": 14,
         "nosource": 0,
-        "missing": 14
+        "missing": 14,
+        "unknown": 0
       },
       "receptor_locations": {
         "total": 383,
@@ -4099,7 +4126,8 @@
         "sourced": 0,
         "llm": 23,
         "nosource": 0,
-        "missing": 23
+        "missing": 23,
+        "unknown": 0
       },
       "receptor_density": {
         "total": 36,
@@ -4108,7 +4136,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "targets": {
         "total": 25,
@@ -4117,7 +4146,8 @@
         "sourced": 0,
         "llm": 2,
         "nosource": 0,
-        "missing": 2
+        "missing": 2,
+        "unknown": 0
       },
       "target_polarity": {
         "total": 2,
@@ -4126,7 +4156,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "target_locations": {
         "total": 129,
@@ -4135,7 +4166,8 @@
         "sourced": 0,
         "llm": 14,
         "nosource": 0,
-        "missing": 14
+        "missing": 14,
+        "unknown": 0
       },
       "target_density": {
         "total": 21,
@@ -4144,7 +4176,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "structures": {
         "total": 57,
@@ -4153,7 +4186,8 @@
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       },
       "references": {
         "total": 445,
@@ -4162,7 +4196,8 @@
         "sourced": 445,
         "llm": 0,
         "nosource": 0,
-        "missing": 0
+        "missing": 0,
+        "unknown": 0
       }
     },
     "nodes": {
@@ -4173,6 +4208,7 @@
       "llm": 266,
       "nosource": 753,
       "missing": 1019,
+      "unknown": 0,
       "backed": 6541,
       "pct_backed": 87
     },

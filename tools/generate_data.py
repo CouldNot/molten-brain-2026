@@ -198,6 +198,7 @@ from data_generators.changelog import load_changelog  # noqa: E402
 # The CPIC reader (corpus #15), shared with tools/check_data.py so both ends derive
 # the guidance blocks and the enzyme routes they state from the same committed export.
 from data_generators import cpic  # noqa: E402
+from data_generators.unknown import apply_unknown  # noqa: E402
 
 # The receptor classification records (pure data, one module per neurotransmitter
 # family) live in the data_generators.receptors package. See the schema comment at
@@ -1745,6 +1746,10 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     # bullets look across bindings (how many monographs print the same sentence, and how
     # many subtypes one sentence covers). See the module.
     apply_binding_uncertainty(drugs)
+    # UNKNOWN: a binding direction every reachable source was searched for, with no
+    # hit (a recorded search log, see data_generators/unknown.py). After the
+    # uncertainty pass so it only ever stamps a still-affinity-only binding.
+    apply_unknown(drugs)
     # The same badge over the metabolism rows, from a hand-written table rather than a
     # derivation (see quotes/contradictions.py): a corpus denying what another states is
     # the one doubt this dataset cannot resolve, so both ship and the row says so.

@@ -51,7 +51,9 @@ Fourteen families of checks, numbered 0 to 13 as the report headers print them
    ``wikipedia_provenance`` beside a ``wikipedia``) must carry a known grade
    (``llm`` / ``sourced`` / ``verified``), the value the viewer renders as a
    grey/yellow/green pill. An unknown or missing grade is an **error** (the pill
-   would fall back to "no source" and mislead).
+   would fall back to "no source" and mislead). An UNKNOWN stamp (``unknown`` on a
+   binding, data_generators/unknown.py) is an **error** on a binding that states a
+   direction, or when its search skipped a corpus ``UNKNOWN_REQUIRED_SOURCES`` lists.
 
 5. **Source quotes**. Each per-binding drug source is
    ``{corpus, page, quote, provenance}``; a ``"verified"`` grade is the one that
@@ -90,7 +92,7 @@ Fourteen families of checks, numbered 0 to 13 as the report headers print them
 12. **Enzyme variability** (``check_enzyme_variability``). Re-derived from the
     pinned PharmFreq tables.
 13. **Freshness** (``check_freshness``). An editable online corpus page cited but
-    downloaded too long ago fails.
+    downloaded too long ago fails, and so does an UNKNOWN search that old.
 
 Built with the help of Claude Code.
 """
@@ -838,6 +840,9 @@ def print_coverage(stats):
         row(kind, by.get(kind, {}))
     print(f"    {'-' * 53}")
     row("all nodes", a, pct=a.get("pct_backed", 0))
+    if a.get("unknown"):
+        print(f"    + {a['unknown']} UNKNOWN (searched, no source states it; "
+              f"outside the total)")
     if by.get("references"):
         row("references", by["references"], suffix="   (pointers, not in headline)")
 
@@ -988,9 +993,27 @@ def check_provenance(report, meta, structures, projections, circuits,
         if target.get("wikipedia"):
             grade(target.get("wikipedia_provenance"), f"target {key} wikipedia")
 
+    # UNKNOWN stamps (data_generators/unknown.py): only on a claim still unsourced, and
+    # only after a search that covered every corpus its kind requires.
+    n_unknown = 0
+    for where, binding, stamp in _unknown_stamps(drugs):
+        n_unknown += 1
+        if binding.get("action") or not binding.get("affinity_only"):
+            report.error(f"{where}: UNKNOWN stamped on a binding that states a direction "
+                         f"(a real source wins)")
+        missing = unknown.missing_required("drug_binding_action",
+                                           stamp.get("corpora") or [])
+        if missing:
+            report.error(f"{where}: UNKNOWN search skipped required source(s) "
+                         f"{', '.join(missing)}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(stamp.get("searched"))):
+            report.error(f"{where}: UNKNOWN stamp has no YYYY-MM-DD search date")
+
     if report.errors == before:
         summary = ", ".join(f"{counts[lvl]} {lvl}"
                             for lvl in sorted(_PROVENANCE_LEVELS) if counts[lvl])
+        if n_unknown:
+            summary += f"; {n_unknown} UNKNOWN stamp(s), each fully searched"
         report.ok(f"every source/reference carries a valid provenance grade "
                   f"({summary})")
 
@@ -1012,7 +1035,7 @@ def check_provenance(report, meta, structures, projections, circuits,
         a = stats.get("nodes", {})
         node_kinds = NODE_KINDS
         by = stats.get("by_kind", {})
-        for key in ("total", "verified", "uncertain", "sourced", "missing"):
+        for key in ("total", "verified", "uncertain", "sourced", "missing", "unknown"):
             want = sum(by.get(k, {}).get(key, 0) for k in node_kinds)
             if a.get(key) != want:
                 report.error(f"provenance_stats nodes[{key}]={a.get(key)} "
@@ -1922,7 +1945,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # rebuilds the emitted quotes with the very code that wrote them, which is
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data_generators import cpic, freshness, pharmfreq  # noqa: E402
+from data_generators import cpic, freshness, pharmfreq, unknown  # noqa: E402
 
 # The pathway per-claim word tests, imported for the same reason: family 5 re-runs the
 # very test that graded a transmitter/sign sub-claim, so a hand-edited or stale ``claims``
@@ -2447,6 +2470,19 @@ def _editable_sources(node, editable, out):
     return out
 
 
+def _unknown_stamps(drugs):
+    """Every emitted UNKNOWN stamp, as ``(where, binding, stamp)``: a drug binding or a
+    metabolite binding (data_generators/unknown.py)."""
+    for d in drugs:
+        owners = [(f"drug {d.get('id')}", d)] + [
+            (f"drug {d.get('id')} metabolite {m.get('name')}", m)
+            for m in d.get("metabolites", []) or []]
+        for label, owner in owners:
+            for b in owner.get("bindings", []) or []:
+                if b.get("unknown"):
+                    yield f"{label} binding {b.get('target')}", b, b["unknown"]
+
+
 def check_freshness(report, meta, collections, today=None):
     """Family 13: every cited page of an editable online corpus was downloaded recently.
 
@@ -2501,7 +2537,20 @@ def check_freshness(report, meta, collections, today=None):
     for corpus, pages in sorted(drift.items()):
         report.error(f"{corpus}: {len(pages)} page(s) refetched but not restamped (run "
                      f"tools/fetch/stamp_fetch_dates.py): {_some(pages)}")
-    if not (undated or stale or drift):
+    # An UNKNOWN is a search result, and the literature moves: the same age limit.
+    drugs = next((c for c in collections if isinstance(c, list) and c
+                  and isinstance(c[0], dict) and "bindings" in c[0]), [])
+    old_searches = {}
+    for where, _b, stamp in _unknown_stamps(drugs):
+        searched = str(stamp.get("searched"))
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", searched) and freshness.is_stale(
+                searched, today, months):
+            old_searches[where] = searched
+    if old_searches:
+        report.error(f"{len(old_searches)} UNKNOWN search(es) older than {months} months "
+                     f"(oldest {min(old_searches.values())}); rerun the search (see "
+                     f"tools/README.md): {_some(old_searches)}")
+    if not (undated or stale or drift or old_searches):
         report.ok(f"{n} source(s) across {len(editable)} editable corpora, all downloaded "
                   f"within {months} months")
 

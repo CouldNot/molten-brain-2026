@@ -102,5 +102,16 @@ class UncertainCountsAsBackedTest(unittest.TestCase):
         self.assertIn("50%", _urs.render_block(stats))
 
 
+    def test_unknown_is_stated_but_not_in_the_bar(self):
+        """UNKNOWN sits outside the total, so only its own line says it exists."""
+        kind = next(iter(_urs.KIND_LABELS))
+        stats = self._row(kind, total=4, verified=2, missing=2)
+        stats["nodes"]["unknown"] = 3
+        block = _urs.render_block(stats)
+        self.assertIn("**3 claims are `unknown` (∅)**", block)
+        self.assertIn("50%", block)
+        self.assertNotIn("`unknown`", _urs.render_block(self._row(kind, total=4, verified=4)))
+
+
 if __name__ == "__main__":
     unittest.main()

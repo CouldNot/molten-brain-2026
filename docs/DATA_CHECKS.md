@@ -35,7 +35,9 @@ errors. Functions take loaded data as args (unit-testable). Fourteen families (n
   circuit + projection-group sources), every `classification_provenance`, every
   `wikipedia_provenance` must be a known grade (`llm`/`sourced`/`verified`) or
   error. Re-confirms `meta.provenance_stats` is self-consistent (per-kind sums,
-  totals, recomputed `pct_backed`) or error.
+  totals, recomputed `pct_backed`) or error. An UNKNOWN stamp (`unknown` on a binding,
+  see [`PROVENANCE.md`](PROVENANCE.md)) is an error on a binding that states a direction,
+  or when its search skipped a corpus `UNKNOWN_REQUIRED_SOURCES` lists for its kind.
 - **Source quotes** (the heart of sourcing): each quote-level drug source
   (`{corpus,page,quote,provenance}`): `corpus` must resolve to `meta.source_corpora`,
   a `verified` source must carry page + quote, and the normalized quote must be an
@@ -150,4 +152,4 @@ errors. Functions take loaded data as args (unit-testable). Fourteen families (n
   edges, so a missing route quietly removes interactions (clomipramine's gained 11 when the row
   landed). Either side can open the gap: a CPIC refresh adding a pair, or a CYP fetcher re-run
   dropping a row.
-- **Freshness** (editable corpora downloaded within 12 months): a book page or a published abstract does not change under a citation, but a Wikipedia article or a live database does, so every source of a corpus flagged `editable` in `meta.source_corpora` carries a `fetched` date (the day its page was downloaded, stamped by `generate_data.py` from the committed ledger `tools/generated_cache/fetch_dates.json`, see [`PROVENANCE.md`](PROVENANCE.md) "Freshness"). A cited page with no date, or one older than `FRESHNESS_MAX_MONTHS` (12, in `tools/data_generators/freshness.py`), is an **error**: refetch that corpus (recipe in [`tools/README.md`](../tools/README.md)). Author-side, a page whose own header date disagrees with the emitted one is an **error** too (refetched but not restamped). Runs on a clone (the dates are committed), and alone via `python tools/check_data.py --only freshness`, which the `pre-push` hook runs unskippably, so a stale corpus blocks a push even when the full data check is skipped.
+- **Freshness** (editable corpora downloaded within 12 months): a book page or a published abstract does not change under a citation, but a Wikipedia article or a live database does, so every source of a corpus flagged `editable` in `meta.source_corpora` carries a `fetched` date (the day its page was downloaded, stamped by `generate_data.py` from the committed ledger `tools/generated_cache/fetch_dates.json`, see [`PROVENANCE.md`](PROVENANCE.md) "Freshness"). A cited page with no date, or one older than `FRESHNESS_MAX_MONTHS` (12, in `tools/data_generators/freshness.py`), is an **error**: refetch that corpus (recipe in [`tools/README.md`](../tools/README.md)). An UNKNOWN search (`unknown.searched`) older than the same limit is an **error** too: rerun the search. Author-side, a page whose own header date disagrees with the emitted one is an **error** too (refetched but not restamped). Runs on a clone (the dates are committed), and alone via `python tools/check_data.py --only freshness`, which the `pre-push` hook runs unskippably, so a stale corpus blocks a push even when the full data check is skipped.

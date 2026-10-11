@@ -2304,6 +2304,19 @@ function createInfoPanel(data, sourcingModal) {
     // dataset is built, so no source could back it and the red ✕ would misread as a
     // gap. Neutral, and its tooltip says why.
     dataset: { glyph: "◌", tip: "info.provDataset" },
+    // Not a grade either: every required source was searched for this claim and none
+    // states it (a recorded search, tools/data_generators/unknown.py). A finding, not
+    // the to-do the red ✕ is, so it has its own glyph; its tooltip names the search.
+    unknown: { glyph: "∅", tip: "info.provUnknown" },
+  };
+
+  // The UNKNOWN pill's tooltip body: when the search ran and every source it covered,
+  // named from meta.sourceCorpora like any other source line.
+  const unknownSearchTip = (stamp) => {
+    if (!stamp) return "";
+    const corpora = (data.meta && data.meta.sourceCorpora) || {};
+    const names = (stamp.corpora || []).map((c) => `• ${(corpora[c] || {}).ref || c}`);
+    return `${t("info.unknownSearched", { date: stamp.searched })}\n${names.join("\n")}`;
   };
   // The closing call to action of a provenance tooltip: opens the Sources &
   // provenance popup (the single place that explains what each grade means) and
@@ -2481,6 +2494,8 @@ function createInfoPanel(data, sourcingModal) {
     // it is decided here rather than at each call site, which cannot forget it. The
     // node keeps its own source in the tooltip, under the reasons to doubt it: same
     // evidence, honestly framed. A bare llm claim keeps its grey pill (shownGrade).
+    if (grade === "unknown")
+      return makeProvenancePill("unknown", labelled(unknownSearchTip(node && node.unknown)));
     const shown = shownGrade(grade, doubt);
     const sources = node && node.sources;
     if (sources && sources.length)
@@ -2508,6 +2523,8 @@ function createInfoPanel(data, sourcingModal) {
       if (btn) btn.setAttribute("aria-label", why);
       return node;
     };
+    if (binding.affinityOnly && binding.unknown)
+      return pill("unknown", `${t("drug.actionUnknown")}\n\n${unknownSearchTip(binding.unknown)}`);
     if (binding.affinityOnly) return pill(null, t("drug.actionNoSource"));
     if (binding.actionProvenance === "llm"
         && (rank[binding.provenance] || 0) > 1)
@@ -5831,6 +5848,7 @@ const GRADE_LABELS = {
   sourced: "about.segSourced",
   llm: "about.segLlm",
   nosource: "about.segNone",
+  unknown: "about.segUnknown",
 };
 
 /**
@@ -5871,6 +5889,7 @@ function buildAboutSourcing(meta, opts = {}) {
   const key = h("ul", "src-key");
   const keyRows = [
     ["src-todo", NOSOURCE_GLYPH, "about.gradeNone"],
+    ["src-prov-unknown", "∅", "about.gradeUnknown"],
     ["src-prov-llm", "?", "about.gradeLlm"],
     ["src-prov-uncertain", "⚠", "about.gradeUncertain"],
     ["src-prov-verified", "✓", "about.gradeVerified"],
@@ -5917,7 +5936,7 @@ function buildAboutSourcing(meta, opts = {}) {
     const pct = Math.round((100 * backed) / c.total);
     rows.push({
       kind, labelKey, verified, uncertain, sourced, llm, nosource,
-      backed, total: c.total, pct,
+      unknown: c.unknown || 0, backed, total: c.total, pct,
     });
   }
   rows.sort((x, y) => y.pct - x.pct || y.total - x.total);
@@ -5948,7 +5967,9 @@ function buildAboutSourcing(meta, opts = {}) {
   // Only grades that actually occur, so a kind with nothing "sourced"/no-source reads
   // "Verified: 54" instead of trailing a row of zeros (the ~sourced tier is always 0
   // for knowledge nodes, which is why its legend row was dropped).
-  const gradeCountsText = (counts) => SEGMENTS
+  // UNKNOWN (searched, nothing states it) is listed after the bar's grades but never
+  // drawn in the bar: it sits outside the total the bar divides.
+  const gradeCountsText = (counts) => [...SEGMENTS, ["unknown"]]
     .filter(([field]) => counts[field])
     .map(([field]) => `${t(GRADE_LABELS[field])}: ${counts[field]}`)
     .join("  ·  ");
@@ -5966,6 +5987,10 @@ function buildAboutSourcing(meta, opts = {}) {
   globalBtn.appendChild(h("p", "src-stat-headline",
     t("about.sourcingHeadline", { pct: a.pct_backed, total: a.total })));
   globalBtn.appendChild(buildBar(globalCounts, a.total));
+  if (a.unknown) {
+    globalBtn.appendChild(h("p", "src-stat-unknown",
+      t("about.sourcingUnknown", { n: a.unknown })));
+  }
   globalBtn.appendChild(h("span", "src-global-hint", t("about.sourcingByKind")));
   wrap.appendChild(globalBtn);
 

@@ -797,9 +797,13 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       // from the quote sources ALONE: a Ki attests that the ligand binds the target,
       // never whether it activates or blocks it. null = no direction claim at all
       // (affinity_only), which the panel and the browser render as NOSOURCE.
+      // "unknown" = every required source was searched and none states the direction
+      // (a recorded search, tools/data_generators/unknown.py): its own pill, not NOSOURCE.
       actionProvenance: affinityOnly
-        ? null
+        ? (b.unknown ? "unknown" : null)
         : strongestGrade(b.sources) || "llm",
+      // {searched, corpora} of that search, for the pill's tooltip; null otherwise.
+      unknown: affinityOnly && b.unknown ? b.unknown : null,
       // Reasons this claim's source does not attribute it (the orange "uncertain"
       // badge, derived in tools/data_generators/quotes/uncertainty.py). Empty for all
       // but the flagged bindings. See mapUncertainty.
@@ -1040,6 +1044,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         // The direction's own grade (node kind `drug_binding_action`), from the quote
         // sources alone. null = affinity_only, i.e. no direction claim to grade.
         actionProvenance: disp.actionProvenance,
+        unknown: disp.unknown,
         // Non-empty -> the badge reads "uncertain" instead of the green check.
         uncertainty: disp.uncertainty,
         // The measured PDSP Ki (own verified badge), null when absent.
