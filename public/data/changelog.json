@@ -1,6 +1,43 @@
 {
   "versions": [
     {
+      "version": "3.98.0",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Hovering a source's grade pill now shows the date the cited page was downloaded, so you can tell how recent an online source is.",
+          "commits": [
+            "a47a0bc",
+            "48fed7c"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "A freshness check now refuses any cited online page (Wikipedia, GtoPdb, DailyMed, ...) downloaded more than twelve months ago, so sources cannot silently go stale.",
+          "commits": [
+            "013c094",
+            "96746c2"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Refetched the online sources (English and French Wikipedia, the GtoPdb ligand data, the DailyMed labels): bromocriptine now reads as an alpha-2 agonist and propranolol as a beta-3 partial agonist, following GtoPdb's latest release.",
+          "commits": [
+            "4c07f64",
+            "e3dce46"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "Documented source freshness and how to refetch an online corpus.",
+          "commits": [
+            "5d9c2db"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.97.1",
       "date": "2026-10-11",
       "entries": [
