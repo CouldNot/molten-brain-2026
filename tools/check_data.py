@@ -16,7 +16,10 @@ Exit status is ``0`` when there are no errors (warnings are allowed) and ``1``
 when any error is found, so it is usable as a gate (see the pre-push hook in
 ``tools/git-hooks/``).
 
-Six families of checks:
+Fourteen families of checks, numbered 0 to 13 as the report headers print them
+(each ``check_*`` function's docstring holds the detail of its family):
+
+0. **Quote table** (``check_quotes``). Every ``quote_id`` resolves, none is orphaned.
 
 1. **Duplicates** (per collection). An exact duplicate id/key, or two ids that
    collide once **normalized** (lowercased, every non-alphanumeric character
@@ -80,6 +83,14 @@ Six families of checks:
    *into* a region whose receptors it strongly blocks. Ports the viewer's flow
    model so it reasons about the same numbers; an eyeball list (most flags are the
    intended presynaptic-tone vs. postsynaptic-block split), not a gate.
+
+9. **Changelog** (``check_changelog``). ``version.js`` has its release notes.
+10. **Innervation coverage** (``check_innervation``). Warns per transmitter system.
+11. **Baked meshes** (``check_baked_meshes``). The SDF bake matches its shapes.
+12. **Enzyme variability** (``check_enzyme_variability``). Re-derived from the
+    pinned PharmFreq tables.
+13. **Freshness** (``check_freshness``). An editable online corpus page cited but
+    downloaded too long ago fails.
 
 Built with the help of Claude Code.
 """
