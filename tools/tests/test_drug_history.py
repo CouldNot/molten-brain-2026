@@ -97,6 +97,27 @@ class GateTest(unittest.TestCase):
         _, rej = self.run_apply({"approval": {"index": 5, "year": 1999}})
         self.assertIn("quote not on", rej[0])
 
+    def test_food_ban_is_not_a_medicine_withdrawal(self):
+        """Regression: lithium's 1949 US ban was of lithium salts sold as a table-salt
+        substitute, which the withdrawal sentence only reaches through "This practice"
+        in the sentence before it (the candidate's ``context``)."""
+        line = ("This practice and the sale of lithium itself were both banned in the "
+                "United States in February 1949, following the publication of reports.")
+        ctx = "Lithium salts were prescribed for use as a replacement for dietary table salt."
+        (Path(self.tmp.name) / "lithium.md").write_text(f"{ctx} {line}\n", "utf-8")
+        self.offered["lithium"] = {"candidates": [
+            {"corpus": "wikipedia_pharm", "page": "lithium", "line": line, "context": ctx}]}
+        self.drugs.append({"id": "lithium"})
+        _, rej = self.run_apply({"withdrawals": [{"index": 0, "year": 1949, "country": "us",
+                                                  "reason": "unstated"}]}, did="lithium")
+        self.assertNotIn("withdrawals", self.drugs[2])
+        self.assertIn("not a medicine", rej[0])
+        # Control: the same sentence after a medical one lands.
+        self.offered["lithium"]["candidates"][0]["context"] = "Lithium treats mania."
+        _, rej = self.run_apply({"withdrawals": [{"index": 0, "year": 1949, "country": "us",
+                                                  "reason": "unstated"}]}, did="lithium")
+        self.assertEqual(rej, [])
+
 
 class ScanTest(unittest.TestCase):
     def test_sections_and_keywords(self):
@@ -108,6 +129,11 @@ class ScanTest(unittest.TestCase):
         lines = [c["line"] for c in F.candidates_in(page, "wikipedia_pharm", "x")]
         self.assertEqual(lines, ["Lead line: X was approved in 1990.",
                                  "X was withdrawn in 2001 due to liver toxicity."])
+
+    def test_candidate_carries_the_sentence_before(self):
+        page = "## History\nX was sold as table salt. That was banned in 1949.\n"
+        cand = F.candidates_in(page, "wikipedia_pharm", "x")[0]
+        self.assertEqual(cand["context"], "X was sold as table salt.")
 
 
 class EmitTest(unittest.TestCase):

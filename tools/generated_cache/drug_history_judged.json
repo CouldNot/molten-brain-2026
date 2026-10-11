@@ -830,12 +830,6 @@
     "index": 1,
     "reason": "unstated",
     "year": 1924
-   },
-   {
-    "country": "us",
-    "index": 7,
-    "reason": "unstated",
-    "year": 1956
    }
   ]
  },
@@ -996,14 +990,7 @@
  },
  "lithium": {
   "approval": null,
-  "withdrawals": [
-   {
-    "country": "us",
-    "index": 0,
-    "reason": "safety",
-    "year": 1949
-   }
-  ]
+  "withdrawals": []
  },
  "lofepramine": {
   "approval": null,
@@ -1051,14 +1038,7 @@
    "index": 1,
    "year": 1947
   },
-  "withdrawals": [
-   {
-    "country": "fr",
-    "index": 8,
-    "reason": "unstated",
-    "year": 1966
-   }
-  ]
+  "withdrawals": []
  },
  "lumateperone": {
   "approval": {

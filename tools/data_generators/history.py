@@ -43,6 +43,14 @@ WITHDRAWAL_RE = re.compile(
     r"discontinu\w*|suspend\w*|revoked|"
     r"retir\w*|interdit\w*|suspendu\w*|suspension)", re.IGNORECASE)
 
+# A withdrawal counts only for the substance AS A MARKETED MEDICINE. A sentence (or the
+# one before it, which a "This practice was banned" leans on) about the substance as a
+# food, a table-salt substitute or a drink is not one: lithium's 1949 US ban was of
+# lithium chloride sold as a salt substitute, not of a lithium medicine.
+NOT_A_MEDICINE_RE = re.compile(
+    r"table salt|salt substitute|\bdietary\b|\bfoods?\b|beverage|soft drink|"
+    r"sel de table|substitut du sel|alimentaire|boisson", re.IGNORECASE)
+
 YEAR_RE = re.compile(r"\b(1[89]\d\d|20\d\d)\b")
 
 # Country (or market) id -> {en, fr, attests}. ``attests`` must match the quote for the

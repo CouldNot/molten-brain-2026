@@ -465,12 +465,13 @@ Screenshots).
   `tmax`/`tmax_sources`; writes no `llm` stamp, so `recheck_quotes.py` must run after it.
 - `tools/fetch/fetch_drug_history.py` — stdlib, offline. Offers, per drug, every sentence of the lead and
   history-like sections (EN History / Society and culture / Legal status, FR Histoire / Historique / ...)
-  of its stored EN and FR Wikipedia articles that carries a year and an approval or withdrawal word, into
-  `generated_cache/drug_history_worklist.json`, with no verdict. See docs/DRUGS.md Drugs (Regulatory history).
+  of its stored EN and FR Wikipedia articles that carries a year and an approval or withdrawal word (plus
+  the sentence before it as `context`), into `generated_cache/drug_history_worklist.json`, with no verdict
+  and with `instructions` (a withdrawal counts only for a marketed medicine). See docs/DRUGS.md Drugs (Regulatory history).
 - `tools/sourcing/apply_drug_history.py` — stdlib. Merges `drug_history_judged.json` (per drug
   `{approval: {index, year, country?, agency?} | null, withdrawals: [{index, year, country, reason}]}`)
   into `drugs_data.jsonl` behind gates (drug offered, index resolves, year in the quote, approval /
-  withdrawal wording, every vocabulary value attested by the quote, quote verbatim on its page).
+  withdrawal wording, no food / salt-substitute context on a withdrawal, every vocabulary value attested by the quote, quote verbatim on its page).
   Idempotent, sole writer of `first_approval`/`first_approval_sources`/`withdrawals`; writes no `llm`
   stamp, so run `recheck_quotes.py build --kinds drug_first_approval,drug_withdrawals` after it.
 - `tools/fetch/fetch_prodrug_worklist.py` — stdlib, offline. Offers every prodrug / inactive sentence of

@@ -16,7 +16,9 @@ Every gate is re-derived here, never trusted from the judged file:
 2. the index resolves into that drug's candidate list;
 3. the year is one the quote itself contains (``history.YEAR_RE``);
 4. an approval quote names an approval (``history.APPROVAL_RE``: a patent alone never
-   passes), a withdrawal quote names a withdrawal (``history.WITHDRAWAL_RE``);
+   passes), a withdrawal quote names a withdrawal (``history.WITHDRAWAL_RE``) of a
+   marketed medicine: neither it nor the sentence before it (the candidate's ``context``)
+   may be about a food / salt substitute / drink (``history.NOT_A_MEDICINE_RE``);
 5. every vocabulary value published (country, agency, reason) is in its closed
    vocabulary AND attested by the quote (``history.attests``); a withdrawal needs a
    country and a reason (``unstated`` when the sentence gives no why);
@@ -114,6 +116,8 @@ def gate_withdrawal(rec: dict, cands: list[dict], gate: PageGate) -> tuple[dict 
         return None, f"year {rec.get('year')!r} not stated in the quote"
     if not history.WITHDRAWAL_RE.search(quote):
         return None, "the quote names no withdrawal"
+    if history.NOT_A_MEDICINE_RE.search(f"{cand.get('context', '')} {quote}"):
+        return None, "the quote (or the sentence before it) is about a food, not a medicine"
     country, reason = rec.get("country"), rec.get("reason")
     if country not in history.COUNTRIES or not history.attests(history.COUNTRIES, country, quote):
         return None, f"country {country!r} unknown or not named by the quote"

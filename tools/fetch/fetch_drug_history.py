@@ -52,6 +52,15 @@ SECTIONS = {
                      "spécialités", "divers"},
 }
 MAX_LINE = 600
+INSTRUCTIONS = (
+    "Per drug, answer {approval: {index, year, country|null, agency|null} | null, "
+    "withdrawals: [{index, year, country, reason}]} by candidate index; each candidate's "
+    "`context` is the sentence before it. A withdrawal counts ONLY when the substance "
+    "was pulled AS A MARKETED MEDICINE: not a ban of it as a food, a table-salt "
+    "substitute or a drink, not a recreational-drug scheduling of a substance that was "
+    "never marketed there as a medicine, not a patent expiry or a single product's "
+    "brand being discontinued while the drug stays on the market. Omit what does not "
+    "qualify.")
 
 
 def section_sentences(text: str, corpus: str) -> list[str]:
@@ -81,13 +90,17 @@ def section_sentences(text: str, corpus: str) -> list[str]:
 def candidates_in(text: str, corpus: str, page: str) -> list[dict]:
     """Every offered sentence of one page: a year plus an approval/withdrawal word."""
     out, seen = [], set()
-    for s in section_sentences(text, corpus):
+    sents = section_sentences(text, corpus)
+    for i, s in enumerate(sents):
         if s in seen or len(s) > MAX_LINE or not history.YEAR_RE.search(s):
             continue
         if not (history.APPROVAL_RE.search(s) or history.WITHDRAWAL_RE.search(s)):
             continue
         seen.add(s)
-        out.append({"corpus": corpus, "page": page, "line": s})
+        # The sentence before, so the judge (and the applier's not-a-medicine gate) can
+        # read what a "This practice was banned" refers to.
+        out.append({"corpus": corpus, "page": page, "line": s,
+                    "context": sents[i - 1] if i else ""})
     return out
 
 
@@ -121,7 +134,7 @@ def build(only: set[str] | None = None) -> dict:
              for name, voc in (("countries", history.COUNTRIES),
                                ("agencies", history.AGENCIES),
                                ("reasons", history.WITHDRAWAL_REASONS))}
-    return {"vocabulary": vocab, "drugs": drugs}
+    return {"instructions": INSTRUCTIONS, "vocabulary": vocab, "drugs": drugs}
 
 
 def main() -> int:
