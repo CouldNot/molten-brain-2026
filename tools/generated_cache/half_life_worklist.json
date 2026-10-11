@@ -128,6 +128,39 @@
       "hours_max": 41.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67703803",
+    "line": "La demi vie apparente d'élimination plasmatique chez le sujet sain est en moyenne de 15 heures.",
+    "durations": [
+     {
+      "hours": 15.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67703803",
+    "line": "La demi vie s'allonge chez les sujets âgés, pouvant doubler (en moyenne 28 heures).",
+    "durations": [
+     {
+      "hours": 28.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67703803",
+    "line": "Dans l'insuffisance rénale on observe un allongement de la demi-vie proportionnel à l'aggravation de l'insuffisance rénale atteignant une demi-vie de 70 heures pour une clairance de la créatinine de 20 ml/min et de 7 jours dans l'insuffisance rénale terminale.",
+    "durations": [
+     {
+      "hours": 70.0
+     },
+     {
+      "hours": 168.0
+     }
+    ]
    }
   ]
  },
@@ -179,6 +212,38 @@
     "durations": [
      {
       "hours": 6.8
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60304050",
+    "line": "La demi-vie plasmatique du baclofène est en moyenne de 3 à 4 heures.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60304050",
+    "line": "Le temps de demi-vie d’élimination plasmatique se situe en moyenne entre 3 et 4 h.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60304050",
+    "line": "Une clairance plasmatique moyenne (Cl) de 315,9 mL/h/kg et une demi-vie plasmatique (T1/2) de 5,10 heures ont été rapportés.",
+    "durations": [
+     {
+      "hours": 5.1
      }
     ]
    }
@@ -256,6 +321,16 @@
      {
       "hours": 12.0,
       "hours_max": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "66796142",
+    "line": "La demi-vie d'élimination plasmatique du bromazépam est de 20 heures.",
+    "durations": [
+     {
+      "hours": 20.0
      }
     ]
    }
@@ -513,6 +588,16 @@
      },
      {
       "hours": 18.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "65558647",
+    "line": "La demi-vie d’élimination plasmatique du clotiazépam est de 4 heures.",
+    "durations": [
+     {
+      "hours": 4.0
      }
     ]
    }
@@ -930,6 +1015,16 @@
       "hours": 2.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "61547571",
+    "line": "La demi-vie d'élimination (t½ bêta) est d'environ 50 minutes.",
+    "durations": [
+     {
+      "hours": 0.833
+     }
+    ]
    }
   ]
  },
@@ -1027,6 +1122,27 @@
       "hours_max": 168.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67117128",
+    "line": "La demi-vie d'élimination plasmatique de l'imipramine varie d'un sujet à l'autre : elle est comprise entre 9 et 20 heures.",
+    "durations": [
+     {
+      "hours": 9.0,
+      "hours_max": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67117128",
+    "line": "L'imipramine est éliminée du sang avec une demi-vie de 19 heures.",
+    "durations": [
+     {
+      "hours": 19.0
+     }
+    ]
    }
   ]
  },
@@ -1097,6 +1213,17 @@
     "durations": [
      {
       "hours": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67348996",
+    "line": "La demi-vie de la lévomépromazine est très variable selon les sujets (15 à 80 heures).",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 80.0
      }
     ]
    }
@@ -1183,33 +1310,6 @@
    }
   ]
  },
- "lithium": {
-  "name": "Lithium",
-  "candidates": [
-   {
-    "corpus": "stahl",
-    "page": 445,
-    "line": "Half life 18–30 hours",
-    "durations": [
-     {
-      "hours": 18.0,
-      "hours_max": 30.0
-     }
-    ]
-   },
-   {
-    "corpus": "dailymed",
-    "page": "b839ff4b-f62d-41ab-a823-550a756d58ec",
-    "line": "The elimination half-life of lithium is approximately 18 to 36 hours.",
-    "durations": [
-     {
-      "hours": 18.0,
-      "hours_max": 36.0
-     }
-    ]
-   }
-  ]
- },
  "loprazolam": {
   "name": "Loprazolam",
   "candidates": [
@@ -1231,6 +1331,16 @@
     "durations": [
      {
       "hours": 19.8
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "69071035",
+    "line": "La demi-vie d'élimination plasmatique est de 8 heures environ.",
+    "durations": [
+     {
+      "hours": 8.0
      }
     ]
    }
@@ -1258,6 +1368,54 @@
      {
       "hours": 10.0,
       "hours_max": 12.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60186584",
+    "line": "L’absorption se produit avec une demi-vie de 0,5 à 0,9 heure.",
+    "durations": [
+     {
+      "hours": 0.5,
+      "hours_max": 0.9
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60186584",
+    "line": "Une fois que la concentration plasmatique maximale (Cmax) est atteinte, la concentration plasmatique diminue en deux phases caractérisées par une demi-vie de 2 à 2,5 heures pour la première phase et d’environ 10 heures pour la deuxième phase.",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 2.5
+     },
+     {
+      "hours": 10.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60186584",
+    "line": "Le taux d’élimination terminale a été estimé pour un calcul de demi-vie d’élimination à 13,6 heures.",
+    "durations": [
+     {
+      "hours": 13.6
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60186584",
+    "line": "L’élimination plasmatique du glucuroconjugué du lormétazépam était significativement moindre chez les personnes âgées (t1/2 = 20 heures) que chez les sujets jeunes (t1/2 = 12 heures).",
+    "durations": [
+     {
+      "hours": 20.0
+     },
+     {
+      "hours": 12.0
      }
     ]
    }
@@ -1447,6 +1605,36 @@
      {
       "hours": 0.333,
       "hours_max": 0.833
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "63820563",
+    "line": "La demi-vie d’élimination plasmatique (t½) est d’environ 45 minutes (plage normale : environ 30– 60 minutes) chez les adultes en bonne santé.",
+    "durations": [
+     {
+      "hours": 0.75
+     },
+     {
+      "hours": 0.5,
+      "hours_max": 1.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "63820563",
+    "line": "La demi-vie est comparable ou légèrement plus courte chez les enfants (0,67 ± 0,12 h pour les enfants prépubères et 0,78 ± 0,11 h pour les enfants pubères) par rapport aux adultes (0,79 ± 0,10 h).",
+    "durations": [
+     {
+      "hours": 0.12
+     },
+     {
+      "hours": 0.11
+     },
+     {
+      "hours": 0.1
      }
     ]
    }
@@ -1644,6 +1832,17 @@
       "hours_max": 1.35
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "62968616",
+    "line": "La demi-vie plasmatique est de 1-2 heures.",
+    "durations": [
+     {
+      "hours": 1.0,
+      "hours_max": 2.0
+     }
+    ]
    }
   ]
  },
@@ -1684,6 +1883,28 @@
      {
       "hours": 18.0,
       "hours_max": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60052222",
+    "line": "Le principal métabolite plasmatique de la nicotine, la cotinine, a une demi-vie de 15 à 20 heures et sa concentration peut être 10 fois supérieure à celle de la nicotine.",
+    "durations": [
+     {
+      "hours": 15.0,
+      "hours_max": 20.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60052222",
+    "line": "La clairance plasmatique moyenne de la nicotine est de 70 l/h et sa demi-vie est de 2 à 3 heures.",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 3.0
      }
     ]
    }
@@ -1809,6 +2030,39 @@
     "durations": [
      {
       "hours": 5.7
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60530882",
+    "line": "La demi-vie d’élimination terminale est d’environ 3 heures.",
+    "durations": [
+     {
+      "hours": 3.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60530882",
+    "line": "La majorité des métabolites excrétés (> 40 % de la dose administrée) sont des glucuronides et des conjugués de sulfate de 8-hydroxyondansétron, qui est pharmacologiquement actif mais ne peut pas être détecté (La demi-vie d’élimination peut être prolongée jusqu’à 5 heures chez le sujet âgé.",
+    "durations": [
+     {
+      "hours": 5.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60530882",
+    "line": "La demi-vie dans la population pédiatrique âgée de 1 à 4 mois était en moyenne de 6,7 heures et de 2,9 heures chez les patients âgés de 5 à 24 mois et de 3 à 12 ans.",
+    "durations": [
+     {
+      "hours": 6.7
+     },
+     {
+      "hours": 2.9
      }
     ]
    }
@@ -1988,6 +2242,21 @@
       "hours_max": 118.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "61475588",
+    "line": "La demi-vie plasmatique est de 50 à 140 h chez l'adulte et de 40 à 70 h chez l'enfant.",
+    "durations": [
+     {
+      "hours": 50.0,
+      "hours_max": 140.0
+     },
+     {
+      "hours": 40.0,
+      "hours_max": 70.0
+     }
+    ]
    }
   ]
  },
@@ -2070,6 +2339,16 @@
       "hours_max": 22.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "64210075",
+    "line": "La demi-vie plasmatique chez le sujet sain est de 22 heures en moyenne.",
+    "durations": [
+     {
+      "hours": 22.0
+     }
+    ]
    }
   ]
  },
@@ -2135,6 +2414,20 @@
       "hours_max": 200.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60534076",
+    "line": "La demi-vie d'élimination plasmatique du prazépam varie de 30 à 150 heures (en moyenne 65 heures).",
+    "durations": [
+     {
+      "hours": 30.0,
+      "hours_max": 150.0
+     },
+     {
+      "hours": 65.0
+     }
+    ]
    }
   ]
  },
@@ -2153,6 +2446,35 @@
      {
       "hours": 168.0,
       "hours_max": 672.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "65201684",
+    "line": "La demi-vie d'élimination de la primidone est d'environ 10 heures, mais elle est très variable avec un intervalle de 4-22 heures, en raison de la capacité de son métabolite principal, le phénobarbital, à induire les enzymes hépatiques.",
+    "durations": [
+     {
+      "hours": 10.0
+     },
+     {
+      "hours": 4.0,
+      "hours_max": 22.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "65201684",
+    "line": "Cette demi-vie est bien plus courte que celle du phénobarbital (50 à 160 heures) et de la PEMA (17 à 36 heures).",
+    "durations": [
+     {
+      "hours": 50.0,
+      "hours_max": 160.0
+     },
+     {
+      "hours": 17.0,
+      "hours_max": 36.0
      }
     ]
    }
@@ -2185,6 +2507,17 @@
      {
       "hours": 10.0,
       "hours_max": 19.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "69764032",
+    "line": "La demi-vie est comprise entre 10 et 15 heures.",
+    "durations": [
+     {
+      "hours": 10.0,
+      "hours_max": 15.0
      }
     ]
    }
@@ -2315,6 +2648,21 @@
      {
       "hours": 2.0,
       "hours_max": 8.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "62463044",
+    "line": "L'α-HTBZ et le β-HTBZ, ont des demi-vies d’élimination comprises respectivement entre 4 et 8 heures, et entre 2 et 4 heures.",
+    "durations": [
+     {
+      "hours": 4.0,
+      "hours_max": 8.0
+     },
+     {
+      "hours": 2.0,
+      "hours_max": 4.0
      }
     ]
    }
@@ -2743,6 +3091,34 @@
       "hours": 80.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "69671845",
+    "line": "La demi-vie d'élimination de la cabergoline est longue (63 à 68 heures chez des volontaires sains et 79 à 115 heures chez des patients hyperprolactinémiques).",
+    "durations": [
+     {
+      "hours": 63.0,
+      "hours_max": 68.0
+     },
+     {
+      "hours": 79.0,
+      "hours_max": 115.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "69671845",
+    "line": "Sur la base de la demi-vie d'élimination, l'état d'équilibre doit être atteint après 4 semaines, comme le confirment les concentrations plasmatiques maximales moyennes observées après administration d'une dose unique de 0,5 mg de cabergoline (37 ± 8 pg/ml) et après un traitement à doses répétées de 4 semaines (101 ± 43 pg/ml).",
+    "durations": [
+     {
+      "hours": 672.0
+     },
+     {
+      "hours": 672.0
+     }
+    ]
    }
   ]
  },
@@ -2803,6 +3179,60 @@
      {
       "hours": 20.0,
       "hours_max": 30.0
+     }
+    ]
+   }
+  ]
+ },
+ "bumetanide": {
+  "name": "Bumetanide",
+  "candidates": [
+   {
+    "corpus": "bdpm",
+    "page": "67563415",
+    "line": "La demi-vie est d'environ 1 h 30.",
+    "durations": [
+     {
+      "hours": 1.5
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67563415",
+    "line": "La demi-vie moyenne d'élimination diminue pendant le 1er mois de vie, passant de 6 heures chez le nouveau-né à 2,4 heures chez le nourrisson de 1 mois.",
+    "durations": [
+     {
+      "hours": 6.0
+     },
+     {
+      "hours": 2.4
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67563415",
+    "line": "La demi-vie moyenne d'élimination est respectivement de 2,5 heures et de 1,5 heures chez les nourrissons de moins de 2 mois et chez les nourrissons âgés de 2 à 6 mois.",
+    "durations": [
+     {
+      "hours": 2.5
+     },
+     {
+      "hours": 1.5
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67563415",
+    "line": "La demi-vie d'élimination apparente peut être prolongée jusqu'à 6 heures environ (avec des valeurs allant jusqu'à 15 heures) après administration IV chez le nouveau-né, prématuré ou à terme, atteint de troubles respiratoires.",
+    "durations": [
+     {
+      "hours": 6.0
+     },
+     {
+      "hours": 15.0
      }
     ]
    }
@@ -2943,6 +3373,27 @@
       "hours": 13.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60477650",
+    "line": "La demi-vie d'élimination est comprise entre 5 et 7 h chez le volontaire sain;",
+    "durations": [
+     {
+      "hours": 5.0,
+      "hours_max": 7.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60477650",
+    "line": "la demi-vie est en moyenne de 12 heures.",
+    "durations": [
+     {
+      "hours": 12.0
+     }
+    ]
    }
   ]
  },
@@ -2967,6 +3418,16 @@
     "durations": [
      {
       "hours": 4.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60811833",
+    "line": "Demi-vie plasmatique de l'ordre de 3 heures (chez l'adulte).",
+    "durations": [
+     {
+      "hours": 3.0
      }
     ]
    }
@@ -3054,6 +3515,27 @@
     "durations": [
      {
       "hours": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60282999",
+    "line": "Après administration d’ABSTRAL, la demi-vie d’élimination principale du fentanyl est d’environ 7 heures (3 à 12,5 heures) et sa demi-vie d’élimination terminale d’environ 20 heures (11,5 à 25 heures).",
+    "durations": [
+     {
+      "hours": 7.0
+     },
+     {
+      "hours": 3.0,
+      "hours_max": 12.5
+     },
+     {
+      "hours": 20.0
+     },
+     {
+      "hours": 11.5,
+      "hours_max": 25.0
      }
     ]
    }
@@ -3275,6 +3757,16 @@
      {
       "hours": 3.0,
       "hours_max": 14.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "63420868",
+    "line": "La demi-vie plasmatique moyenne, par voies orale et intraveineuse, est d’environ 9 heures, avec une large variabilité inter-sujets.",
+    "durations": [
+     {
+      "hours": 9.0
      }
     ]
    }
@@ -3609,6 +4101,28 @@
       "hours": 24.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "62286195",
+    "line": "La demi-vie de distribution a été calculée à 2 - 4 minutes.",
+    "durations": [
+     {
+      "hours": 0.033,
+      "hours_max": 0.067
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "62286195",
+    "line": "La demi-vie d'élimination durant la phase-ß est comprise entre 30 et 60 minutes.",
+    "durations": [
+     {
+      "hours": 0.5,
+      "hours_max": 1.0
+     }
+    ]
    }
   ]
  },
@@ -3683,6 +4197,17 @@
      {
       "hours": 2.9,
       "hours_max": 5.3
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "63444171",
+    "line": "Sa demi-vie terminale est d'environ 3 à 5 heures.",
+    "durations": [
+     {
+      "hours": 3.0,
+      "hours_max": 5.0
      }
     ]
    }
@@ -3767,6 +4292,19 @@
       "hours": 53.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "68481191",
+    "line": "La demi-vie d'élimination plasmatique est d'environ 60 heures chez l'adulte et d'environ 30 heures chez l'enfant en raison d'une plus forte clairance métabolique.",
+    "durations": [
+     {
+      "hours": 60.0
+     },
+     {
+      "hours": 30.0
+     }
+    ]
    }
   ]
  },
@@ -3845,6 +4383,16 @@
      },
      {
       "hours": 14.8
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60575525",
+    "line": "La demi-vie d’élimination du médicament sous forme de lacosamide est approximativement de 13 heures.",
+    "durations": [
+     {
+      "hours": 13.0
      }
     ]
    }
@@ -4073,6 +4621,16 @@
      },
      {
       "hours": 4.5
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "65562898",
+    "line": "Environ 92 % de la dose est éliminée lors de la phase β avec une demi-vie d’élimination courte de 30 minutes.",
+    "durations": [
+     {
+      "hours": 0.5
      }
     ]
    }
@@ -4383,6 +4941,19 @@
       "hours": 6.0
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "60149276",
+    "line": "Quand l'urine est acidifiée à pH = 5, la demi-vie est de 3 heures, quand l'urine est alcalinisée à pH = 6,3, la demi-vie est approximativement de 6 heures.",
+    "durations": [
+     {
+      "hours": 3.0
+     },
+     {
+      "hours": 6.0
+     }
+    ]
    }
   ]
  },
@@ -4502,6 +5073,27 @@
       "hours_max": 2.5
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "69816276",
+    "line": "La demi-vie d'élimination varie entre 0,25 et 2,5 heures après une dose unique.",
+    "durations": [
+     {
+      "hours": 0.25,
+      "hours_max": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "69816276",
+    "line": "Le métabolite actif 11-hydroxyyohimbine possède une demi-vie d'élimination plus élevée d’environ 6 heures.",
+    "durations": [
+     {
+      "hours": 6.0
+     }
+    ]
    }
   ]
  },
@@ -4619,6 +5211,17 @@
       "hours": 0.9
      }
     ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "63358772",
+    "line": "La demi-vie d’élimination est d’environ 2 à 5 heures.",
+    "durations": [
+     {
+      "hours": 2.0,
+      "hours_max": 5.0
+     }
+    ]
    }
   ]
  },
@@ -4646,6 +5249,16 @@
      },
      {
       "hours": 24.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "62132998",
+    "line": "La demi-vie d’élimination est de 3 heures et demie environ.",
+    "durations": [
+     {
+      "hours": 3.0
      }
     ]
    }

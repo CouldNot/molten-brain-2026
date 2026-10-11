@@ -1,0 +1,1838 @@
+{
+ "acamprosate": {
+  "brands": [
+   {
+    "cis": "63759295",
+    "name": "Aotal",
+    "quote": "AOTAL"
+   }
+  ]
+ },
+ "agomelatine": {
+  "brands": [
+   {
+    "cis": "67218369",
+    "name": "Valdoxan",
+    "quote": "VALDOXAN"
+   }
+  ],
+  "cis": "62525777",
+  "denomination": "AGOMELATINE ZENTIVA 25 mg, comprimé pelliculé",
+  "why": "plain oral"
+ },
+ "alimemazine": {
+  "brands": [
+   {
+    "cis": "66801066",
+    "name": "Theralene",
+    "quote": "THERALENE"
+   }
+  ]
+ },
+ "alprazolam": {
+  "brands": [
+   {
+    "cis": "60647049",
+    "name": "Xanax",
+    "quote": "XANAX"
+   }
+  ]
+ },
+ "amantadine": {
+  "brands": [
+   {
+    "cis": "67703803",
+    "name": "Mantadix",
+    "quote": "MANTADIX"
+   }
+  ],
+  "cis": "67703803",
+  "denomination": "MANTADIX 100 mg, capsule",
+  "why": "plain oral, brand-name product"
+ },
+ "amisulpride": {
+  "brands": [
+   {
+    "cis": "60019927",
+    "name": "Solian",
+    "quote": "SOLIAN"
+   }
+  ],
+  "cis": "60019927",
+  "denomination": "SOLIAN 100 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "amitriptyline": {
+  "brands": [
+   {
+    "cis": "62633436",
+    "name": "Laroxyl",
+    "quote": "LAROXYL"
+   },
+   {
+    "cis": "68925632",
+    "name": "Elavil",
+    "quote": "ELAVIL"
+   }
+  ]
+ },
+ "amoxapine": {
+  "brands": []
+ },
+ "amphetamine_d": {
+  "brands": [
+   {
+    "cis": "61746712",
+    "name": "Tentin",
+    "quote": "TENTIN"
+   }
+  ],
+  "cis": "61746712",
+  "denomination": "TENTIN 10 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "apomorphine": {
+  "brands": []
+ },
+ "aripiprazole": {
+  "brands": [
+   {
+    "cis": "60599533",
+    "name": "Abilify",
+    "quote": "ABILIFY"
+   }
+  ]
+ },
+ "atropine": {
+  "brands": [],
+  "cis": "63358772",
+  "denomination": "ATROPINE SULFATE AGUETTANT 0,1 mg/mL, solution injectable en seringue préremplie",
+  "why": "no plain-oral product; non-modified-release intramusculaire;intraveineuse"
+ },
+ "baclofen": {
+  "brands": [
+   {
+    "cis": "60304050",
+    "name": "Lioresal",
+    "quote": "LIORESAL"
+   },
+   {
+    "cis": "66009893",
+    "name": "Baclocur",
+    "quote": "BACLOCUR"
+   }
+  ],
+  "cis": "60304050",
+  "denomination": "LIORESAL 10 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "betahistine": {
+  "brands": [
+   {
+    "cis": "62132998",
+    "name": "Lectil",
+    "quote": "LECTIL"
+   },
+   {
+    "cis": "62972963",
+    "name": "Betaserc",
+    "quote": "BETASERC"
+   },
+   {
+    "cis": "66362637",
+    "name": "Serc",
+    "quote": "SERC"
+   }
+  ],
+  "cis": "62132998",
+  "denomination": "LECTIL 16 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "biperiden": {
+  "brands": [
+   {
+    "cis": "66782153",
+    "name": "Akineton",
+    "quote": "AKINETON"
+   }
+  ]
+ },
+ "brivaracetam": {
+  "brands": [
+   {
+    "cis": "60579228",
+    "name": "Briviact",
+    "quote": "BRIVIACT"
+   }
+  ]
+ },
+ "bromazepam": {
+  "brands": [
+   {
+    "cis": "66796142",
+    "name": "Lexomil",
+    "quote": "LEXOMIL"
+   }
+  ],
+  "cis": "66796142",
+  "denomination": "LEXOMIL 6 mg, comprimé quadrisécable",
+  "why": "plain oral, brand-name product"
+ },
+ "bromocriptine": {
+  "brands": [
+   {
+    "cis": "63369053",
+    "name": "Parlodel",
+    "quote": "PARLODEL"
+   }
+  ]
+ },
+ "bumetanide": {
+  "brands": [
+   {
+    "cis": "61834055",
+    "name": "Burinex",
+    "quote": "BURINEX"
+   }
+  ],
+  "cis": "67563415",
+  "denomination": "BURINEX 5 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "buprenorphine": {
+  "brands": [
+   {
+    "cis": "60549391",
+    "name": "Temgesic",
+    "quote": "TEMGESIC"
+   },
+   {
+    "cis": "63025935",
+    "name": "Subutex",
+    "quote": "SUBUTEX"
+   },
+   {
+    "cis": "67776438",
+    "name": "Orobupre",
+    "quote": "OROBUPRE"
+   }
+  ],
+  "cis": "60549391",
+  "denomination": "TEMGESIC 0,2 mg, comprimé sublingual",
+  "why": "no plain-oral product; non-modified-release sublinguale, brand-name product"
+ },
+ "bupropion": {
+  "brands": [
+   {
+    "cis": "64556383",
+    "name": "Zyban",
+    "quote": "ZYBAN"
+   }
+  ]
+ },
+ "buspirone": {
+  "brands": []
+ },
+ "cabergoline": {
+  "brands": [
+   {
+    "cis": "63313930",
+    "name": "Dostinex",
+    "quote": "DOSTINEX"
+   }
+  ],
+  "cis": "69671845",
+  "denomination": "DOSTINEX 0,5 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "caffeine": {
+  "brands": [
+   {
+    "cis": "63865537",
+    "name": "Gencebok",
+    "quote": "GENCEBOK"
+   }
+  ]
+ },
+ "cannabidiol": {
+  "brands": [
+   {
+    "cis": "61680130",
+    "name": "Epidyolex",
+    "quote": "EPIDYOLEX"
+   }
+  ]
+ },
+ "carbamazepine": {
+  "brands": [
+   {
+    "cis": "61009918",
+    "name": "Tegretol",
+    "quote": "TEGRETOL"
+   }
+  ],
+  "cis": "61009918",
+  "denomination": "TEGRETOL 200 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "chlorpromazine": {
+  "brands": [
+   {
+    "cis": "62184888",
+    "name": "Largactil",
+    "quote": "LARGACTIL"
+   }
+  ],
+  "cis": "62816804",
+  "denomination": "LARGACTIL 100 mg, comprimé pelliculé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "citalopram": {
+  "brands": [
+   {
+    "cis": "68231138",
+    "name": "Seropram",
+    "quote": "SEROPRAM"
+   }
+  ]
+ },
+ "clobazam": {
+  "brands": [
+   {
+    "cis": "62905911",
+    "name": "Urbanyl",
+    "quote": "URBANYL"
+   },
+   {
+    "cis": "65899602",
+    "name": "Likozam",
+    "quote": "LIKOZAM"
+   }
+  ]
+ },
+ "clomipramine": {
+  "brands": [
+   {
+    "cis": "61426025",
+    "name": "Anafranil",
+    "quote": "ANAFRANIL"
+   }
+  ]
+ },
+ "clonazepam": {
+  "brands": [
+   {
+    "cis": "61496251",
+    "name": "Rivotril",
+    "quote": "RIVOTRIL"
+   }
+  ]
+ },
+ "clonidine": {
+  "brands": [
+   {
+    "cis": "64256681",
+    "name": "Catapressan",
+    "quote": "CATAPRESSAN"
+   }
+  ]
+ },
+ "clorazepate": {
+  "brands": [
+   {
+    "cis": "62416105",
+    "name": "Tranxene",
+    "quote": "TRANXENE"
+   }
+  ],
+  "cis": "67956742",
+  "denomination": "TRANXENE 10 mg, gélule",
+  "why": "plain oral, brand-name product"
+ },
+ "clotiazepam": {
+  "brands": [
+   {
+    "cis": "65558647",
+    "name": "Veratran",
+    "quote": "VERATRAN"
+   }
+  ],
+  "cis": "65558647",
+  "denomination": "VERATRAN 5 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "clozapine": {
+  "brands": [
+   {
+    "cis": "62552920",
+    "name": "Leponex",
+    "quote": "LEPONEX"
+   }
+  ]
+ },
+ "codeine": {
+  "brands": [
+   {
+    "cis": "60811833",
+    "name": "Paderyl",
+    "quote": "PADERYL"
+   }
+  ],
+  "cis": "60811833",
+  "denomination": "PADERYL 19,5 mg, comprimé enrobé",
+  "why": "plain oral, brand-name product"
+ },
+ "cyamemazine": {
+  "brands": [
+   {
+    "cis": "60271248",
+    "name": "Tercian",
+    "quote": "TERCIAN"
+   }
+  ],
+  "cis": "60271248",
+  "denomination": "TERCIAN 100 mg, comprimé pelliculé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "cyproheptadine": {
+  "brands": [
+   {
+    "cis": "67231270",
+    "name": "Periactine",
+    "quote": "PERIACTINE"
+   }
+  ]
+ },
+ "daridorexant": {
+  "brands": [
+   {
+    "cis": "67801165",
+    "name": "Quviviq",
+    "quote": "QUVIVIQ"
+   }
+  ]
+ },
+ "dexmedetomidine": {
+  "brands": [
+   {
+    "cis": "64634939",
+    "name": "Dexdor",
+    "quote": "DEXDOR"
+   }
+  ],
+  "cis": "64729383",
+  "denomination": "DEXMEDETOMIDINE EVER PHARMA 100 microgrammes/mL, solution à diluer pour perfusion",
+  "why": "no plain-oral product; non-modified-release intraveineuse"
+ },
+ "diazepam": {
+  "brands": [
+   {
+    "cis": "60290800",
+    "name": "Valium",
+    "quote": "VALIUM"
+   }
+  ]
+ },
+ "dimenhydrinate": {
+  "brands": [
+   {
+    "cis": "60173964",
+    "name": "Nausicalm",
+    "quote": "NAUSICALM"
+   }
+  ]
+ },
+ "disulfiram": {
+  "brands": [
+   {
+    "cis": "61500746",
+    "name": "Esperal",
+    "quote": "ESPERAL"
+   }
+  ]
+ },
+ "domperidone": {
+  "brands": []
+ },
+ "donepezil": {
+  "brands": [
+   {
+    "cis": "62262995",
+    "name": "Aricept",
+    "quote": "ARICEPT"
+   }
+  ],
+  "cis": "62262995",
+  "denomination": "ARICEPT 5 mg, comprimé orodispersible",
+  "why": "plain oral, brand-name product"
+ },
+ "doxepin": {
+  "brands": [
+   {
+    "cis": "63046819",
+    "name": "Quitaxon",
+    "quote": "QUITAXON"
+   }
+  ]
+ },
+ "doxylamine": {
+  "brands": [
+   {
+    "cis": "62382724",
+    "name": "Donormyl",
+    "quote": "DONORMYL"
+   },
+   {
+    "cis": "64881366",
+    "name": "Lidene",
+    "quote": "LIDENE"
+   }
+  ]
+ },
+ "duloxetine": {
+  "brands": []
+ },
+ "entacapone": {
+  "brands": [
+   {
+    "cis": "68826958",
+    "name": "Comtan",
+    "quote": "COMTAN"
+   }
+  ],
+  "cis": "65562898",
+  "denomination": "ENTACAPONE VIATRIS 200 mg, comprimé pelliculé",
+  "why": "plain oral"
+ },
+ "ephedrine": {
+  "brands": [],
+  "cis": "60149276",
+  "denomination": "EPHEDRINE AGUETTANT 3 mg/ml, solution injectable en seringue préremplie",
+  "why": "no plain-oral product; non-modified-release intraveineuse"
+ },
+ "erenumab": {
+  "brands": []
+ },
+ "escitalopram": {
+  "brands": [
+   {
+    "cis": "60474889",
+    "name": "Seroplex",
+    "quote": "SEROPLEX"
+   }
+  ]
+ },
+ "esketamine": {
+  "brands": [
+   {
+    "cis": "60811559",
+    "name": "Eskesia",
+    "quote": "ESKESIA"
+   },
+   {
+    "cis": "67355371",
+    "name": "Spravato",
+    "quote": "SPRAVATO"
+   }
+  ]
+ },
+ "estazolam": {
+  "brands": [
+   {
+    "cis": "69888457",
+    "name": "Nuctalon",
+    "quote": "NUCTALON"
+   }
+  ]
+ },
+ "eszopiclone": {
+  "brands": []
+ },
+ "ethosuximide": {
+  "brands": [
+   {
+    "cis": "68481191",
+    "name": "Zarontin",
+    "quote": "ZARONTIN"
+   }
+  ],
+  "cis": "68481191",
+  "denomination": "ZARONTIN 250 mg/5 ml, sirop",
+  "why": "plain oral, brand-name product"
+ },
+ "etomidate": {
+  "brands": [
+   {
+    "cis": "63444171",
+    "name": "Hypnomidate",
+    "quote": "HYPNOMIDATE"
+   }
+  ],
+  "cis": "63444171",
+  "denomination": "HYPNOMIDATE 2 mg/ml, solution injectable",
+  "why": "no plain-oral product; non-modified-release intraveineuse, brand-name product"
+ },
+ "fenfluramine": {
+  "brands": [
+   {
+    "cis": "62154820",
+    "name": "Fintepla",
+    "quote": "FINTEPLA"
+   }
+  ]
+ },
+ "fentanyl": {
+  "brands": [
+   {
+    "cis": "60282999",
+    "name": "Abstral",
+    "quote": "ABSTRAL"
+   },
+   {
+    "cis": "60356727",
+    "name": "Matrifen",
+    "quote": "MATRIFEN"
+   },
+   {
+    "cis": "60616751",
+    "name": "Durogesic",
+    "quote": "DUROGESIC"
+   },
+   {
+    "cis": "60774438",
+    "name": "Recivit",
+    "quote": "RECIVIT"
+   },
+   {
+    "cis": "60975252",
+    "name": "Instanyl",
+    "quote": "INSTANYL"
+   },
+   {
+    "cis": "61300005",
+    "name": "Breakyl",
+    "quote": "BREAKYL"
+   },
+   {
+    "cis": "61576943",
+    "name": "Actiq",
+    "quote": "ACTIQ"
+   },
+   {
+    "cis": "66332028",
+    "name": "Pecfent",
+    "quote": "PECFENT"
+   }
+  ],
+  "cis": "60282999",
+  "denomination": "ABSTRAL 400 microgrammes, comprimé sublingual",
+  "why": "no plain-oral product; non-modified-release sublinguale, brand-name product"
+ },
+ "flumazenil": {
+  "brands": [],
+  "cis": "67248985",
+  "denomination": "FLUMAZENIL HIKMA 0,1 mg/mL, solution injectable/pour perfusion",
+  "why": "no plain-oral product; non-modified-release intraveineuse"
+ },
+ "flunarizine": {
+  "brands": []
+ },
+ "fluoxetine": {
+  "brands": []
+ },
+ "flupenthixol": {
+  "brands": [
+   {
+    "cis": "62571671",
+    "name": "Fluanxol",
+    "quote": "FLUANXOL"
+   }
+  ]
+ },
+ "fluvoxamine": {
+  "brands": [
+   {
+    "cis": "60439525",
+    "name": "Floxyfral",
+    "quote": "FLOXYFRAL"
+   }
+  ]
+ },
+ "furosemide": {
+  "brands": [
+   {
+    "cis": "61547571",
+    "name": "Lasilix",
+    "quote": "LASILIX"
+   }
+  ],
+  "cis": "61547571",
+  "denomination": "LASILIX SPECIAL 500 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "gabapentin": {
+  "brands": [
+   {
+    "cis": "61022591",
+    "name": "Neurontin",
+    "quote": "NEURONTIN"
+   }
+  ]
+ },
+ "galantamine": {
+  "brands": []
+ },
+ "granisetron": {
+  "brands": [
+   {
+    "cis": "63420868",
+    "name": "Kytril",
+    "quote": "KYTRIL"
+   }
+  ],
+  "cis": "63420868",
+  "denomination": "KYTRIL 2 mg, comprimé pelliculé",
+  "why": "plain oral, brand-name product"
+ },
+ "haloperidol": {
+  "brands": [
+   {
+    "cis": "61490049",
+    "name": "Haldol",
+    "quote": "HALDOL"
+   }
+  ]
+ },
+ "hydromorphone": {
+  "brands": [
+   {
+    "cis": "63771924",
+    "name": "Sophidone",
+    "quote": "SOPHIDONE"
+   }
+  ]
+ },
+ "hydroxyzine": {
+  "brands": [
+   {
+    "cis": "61162294",
+    "name": "Atarax",
+    "quote": "ATARAX"
+   }
+  ]
+ },
+ "imipramine": {
+  "brands": [
+   {
+    "cis": "67117128",
+    "name": "Tofranil",
+    "quote": "TOFRANIL"
+   }
+  ],
+  "cis": "67117128",
+  "denomination": "TOFRANIL 25 mg, comprimé enrobé",
+  "why": "plain oral, brand-name product"
+ },
+ "isoflurane": {
+  "brands": [
+   {
+    "cis": "63498500",
+    "name": "Aerrane",
+    "quote": "AERRANE"
+   },
+   {
+    "cis": "65849318",
+    "name": "Cedaconda",
+    "quote": "CEDACONDA"
+   }
+  ]
+ },
+ "ketamine": {
+  "brands": [],
+  "cis": "62768665",
+  "denomination": "KETAMINE PANPHARMA 10 mg/mL, solution injectable (I.V.-I.M.)",
+  "why": "no plain-oral product; non-modified-release intramusculaire;intraveineuse"
+ },
+ "lacosamide": {
+  "brands": [
+   {
+    "cis": "62229123",
+    "name": "Vimpat",
+    "quote": "VIMPAT"
+   }
+  ],
+  "cis": "60575525",
+  "denomination": "LACOSAMIDE EG 100 mg, comprimé pelliculé",
+  "why": "plain oral"
+ },
+ "lamotrigine": {
+  "brands": [
+   {
+    "cis": "61043653",
+    "name": "Lamictal",
+    "quote": "LAMICTAL"
+   }
+  ]
+ },
+ "levetiracetam": {
+  "brands": [
+   {
+    "cis": "60132330",
+    "name": "Keppra",
+    "quote": "KEPPRA"
+   },
+   {
+    "cis": "60591091",
+    "name": "Levidcen",
+    "quote": "LEVIDCEN"
+   }
+  ],
+  "cis": "60591091",
+  "denomination": "LEVIDCEN 1000 mg, granulés enrobés en sachet",
+  "why": "plain oral, brand-name product"
+ },
+ "levomepromazine": {
+  "brands": [
+   {
+    "cis": "64026417",
+    "name": "Nozinan",
+    "quote": "NOZINAN"
+   }
+  ],
+  "cis": "67348996",
+  "denomination": "NOZINAN 25 mg, comprimé pelliculé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "lisdexamfetamine": {
+  "brands": [
+   {
+    "cis": "64274416",
+    "name": "Xurta",
+    "quote": "XURTA"
+   }
+  ]
+ },
+ "lithium": {
+  "brands": [
+   {
+    "cis": "62124478",
+    "name": "Teralithe",
+    "quote": "TERALITHE"
+   }
+  ]
+ },
+ "loflazepate": {
+  "brands": [
+   {
+    "cis": "68104411",
+    "name": "Victan",
+    "quote": "VICTAN"
+   }
+  ],
+  "cis": "68104411",
+  "denomination": "VICTAN 2 mg, comprimé pelliculé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "loprazolam": {
+  "brands": [
+   {
+    "cis": "69071035",
+    "name": "Havlane",
+    "quote": "HAVLANE"
+   }
+  ],
+  "cis": "69071035",
+  "denomination": "HAVLANE, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "lorazepam": {
+  "brands": [
+   {
+    "cis": "67177709",
+    "name": "Temesta",
+    "quote": "TEMESTA"
+   }
+  ]
+ },
+ "lormetazepam": {
+  "brands": [],
+  "cis": "60186584",
+  "denomination": "LORMETAZEPAM ARROW 2 mg, comprimé sécable",
+  "why": "plain oral"
+ },
+ "loxapine": {
+  "brands": [
+   {
+    "cis": "64162292",
+    "name": "Loxapac",
+    "quote": "LOXAPAC"
+   }
+  ],
+  "cis": "64162292",
+  "denomination": "LOXAPAC 25 mg, comprimé pelliculé",
+  "why": "plain oral, brand-name product"
+ },
+ "maprotiline": {
+  "brands": [
+   {
+    "cis": "63912862",
+    "name": "Ludiomil",
+    "quote": "LUDIOMIL"
+   }
+  ]
+ },
+ "melatonin": {
+  "brands": [
+   {
+    "cis": "63820563",
+    "name": "Adaflex",
+    "quote": "ADAFLEX"
+   },
+   {
+    "cis": "64061763",
+    "name": "Slenyto",
+    "quote": "SLENYTO"
+   },
+   {
+    "cis": "66822516",
+    "name": "Voquily",
+    "quote": "VOQUILY"
+   },
+   {
+    "cis": "68578854",
+    "name": "Circadin",
+    "quote": "CIRCADIN"
+   }
+  ],
+  "cis": "63820563",
+  "denomination": "ADAFLEX 2 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "memantine": {
+  "brands": [
+   {
+    "cis": "61182432",
+    "name": "Ebixa",
+    "quote": "EBIXA"
+   }
+  ]
+ },
+ "methadone": {
+  "brands": []
+ },
+ "methylphenidate_dl": {
+  "brands": [
+   {
+    "cis": "60047182",
+    "name": "Concerta",
+    "quote": "CONCERTA"
+   },
+   {
+    "cis": "60059081",
+    "name": "Ritaline",
+    "quote": "RITALINE"
+   },
+   {
+    "cis": "61145640",
+    "name": "Medikinet",
+    "quote": "MEDIKINET"
+   },
+   {
+    "cis": "63814140",
+    "name": "Quasym",
+    "quote": "QUASYM"
+   }
+  ]
+ },
+ "metoclopramide": {
+  "brands": [
+   {
+    "cis": "61729093",
+    "name": "Primperan",
+    "quote": "PRIMPERAN"
+   },
+   {
+    "cis": "63845762",
+    "name": "Prokinyl",
+    "quote": "PROKINYL"
+   }
+  ]
+ },
+ "mianserin": {
+  "brands": [],
+  "cis": "60854845",
+  "denomination": "MIANSERINE ARROW 30 mg, comprimé pelliculé sécable",
+  "why": "plain oral"
+ },
+ "midazolam": {
+  "brands": [
+   {
+    "cis": "62149015",
+    "name": "Ozalin",
+    "quote": "OZALIN"
+   }
+  ],
+  "cis": "62149015",
+  "denomination": "OZALIN 2 mg/mL, solution buvable en récipient unidose",
+  "why": "plain oral, brand-name product"
+ },
+ "milnacipran": {
+  "brands": []
+ },
+ "mirtazapine": {
+  "brands": [
+   {
+    "cis": "65124914",
+    "name": "Norset",
+    "quote": "NORSET"
+   }
+  ]
+ },
+ "moclobemide": {
+  "brands": [
+   {
+    "cis": "62439997",
+    "name": "Moclamine",
+    "quote": "MOCLAMINE"
+   }
+  ]
+ },
+ "modafinil": {
+  "brands": [
+   {
+    "cis": "64841560",
+    "name": "Modiodal",
+    "quote": "MODIODAL"
+   }
+  ]
+ },
+ "morphine": {
+  "brands": [
+   {
+    "cis": "60328261",
+    "name": "Actiskenan",
+    "quote": "ACTISKENAN"
+   },
+   {
+    "cis": "60576901",
+    "name": "Moscontin",
+    "quote": "MOSCONTIN"
+   },
+   {
+    "cis": "60696651",
+    "name": "Skenan",
+    "quote": "SKENAN"
+   },
+   {
+    "cis": "60907447",
+    "name": "Sevredol",
+    "quote": "SEVREDOL"
+   },
+   {
+    "cis": "65036909",
+    "name": "Oramorph",
+    "quote": "ORAMORPH"
+   }
+  ],
+  "cis": "60328261",
+  "denomination": "ACTISKENAN 5 mg, comprimé orodispersible",
+  "why": "plain oral, brand-name product"
+ },
+ "nalmefene": {
+  "brands": [
+   {
+    "cis": "63957761",
+    "name": "Selincro",
+    "quote": "SELINCRO"
+   }
+  ]
+ },
+ "naloxone": {
+  "brands": [
+   {
+    "cis": "62968616",
+    "name": "Prenoxad",
+    "quote": "PRENOXAD"
+   },
+   {
+    "cis": "63868145",
+    "name": "Nyxoid",
+    "quote": "NYXOID"
+   },
+   {
+    "cis": "66569422",
+    "name": "Ventizolve",
+    "quote": "VENTIZOLVE"
+   }
+  ],
+  "cis": "62968616",
+  "denomination": "PRENOXAD 0,91 mg/ml, solution injectable en seringue préremplie",
+  "why": "no plain-oral product; non-modified-release intramusculaire, brand-name product"
+ },
+ "naltrexone": {
+  "brands": []
+ },
+ "nicotine": {
+  "brands": [
+   {
+    "cis": "60052222",
+    "name": "Nicotinell",
+    "quote": "NICOTINELL"
+   },
+   {
+    "cis": "60295320",
+    "name": "Nicorette",
+    "quote": "NICORETTE"
+   },
+   {
+    "cis": "61056501",
+    "name": "Niquitin",
+    "quote": "NIQUITIN"
+   },
+   {
+    "cis": "61634478",
+    "name": "Nicopatchlib",
+    "quote": "NICOPATCHLIB"
+   },
+   {
+    "cis": "62591460",
+    "name": "Nicoretteskin",
+    "quote": "NICORETTESKIN"
+   },
+   {
+    "cis": "64593798",
+    "name": "Nicorettespray",
+    "quote": "NICORETTESPRAY"
+   }
+  ],
+  "cis": "60052222",
+  "denomination": "NICOTINELL 1 mg/dose, solution pour pulvérisation buccale",
+  "why": "no plain-oral product; non-modified-release voie buccale autre, brand-name product"
+ },
+ "nitrazepam": {
+  "brands": [
+   {
+    "cis": "66205536",
+    "name": "Mogadon",
+    "quote": "MOGADON"
+   }
+  ]
+ },
+ "olanzapine": {
+  "brands": [
+   {
+    "cis": "60456154",
+    "name": "Zyprexa",
+    "quote": "ZYPREXA"
+   },
+   {
+    "cis": "62022612",
+    "name": "Zalasta",
+    "quote": "ZALASTA"
+   },
+   {
+    "cis": "63362240",
+    "name": "Zypadhera",
+    "quote": "ZYPADHERA"
+   }
+  ]
+ },
+ "ondansetron": {
+  "brands": [
+   {
+    "cis": "60530882",
+    "name": "Zophren",
+    "quote": "ZOPHREN"
+   },
+   {
+    "cis": "63832373",
+    "name": "Setofilm",
+    "quote": "SETOFILM"
+   }
+  ],
+  "cis": "60530882",
+  "denomination": "ZOPHREN 4 mg, comprimé pelliculé",
+  "why": "plain oral, brand-name product"
+ },
+ "oxazepam": {
+  "brands": [
+   {
+    "cis": "60351986",
+    "name": "Seresta",
+    "quote": "SERESTA"
+   }
+  ]
+ },
+ "oxcarbazepine": {
+  "brands": [
+   {
+    "cis": "61556061",
+    "name": "Trileptal",
+    "quote": "TRILEPTAL"
+   }
+  ],
+  "cis": "61556061",
+  "denomination": "TRILEPTAL 300 mg, comprimé pelliculé",
+  "why": "plain oral, brand-name product"
+ },
+ "oxycodone": {
+  "brands": [
+   {
+    "cis": "60629186",
+    "name": "Oxynorm",
+    "quote": "OXYNORM"
+   },
+   {
+    "cis": "61007415",
+    "name": "Oxynormoro",
+    "quote": "OXYNORMORO"
+   },
+   {
+    "cis": "61200108",
+    "name": "Oxycontin",
+    "quote": "OXYCONTIN"
+   }
+  ]
+ },
+ "paroxetine": {
+  "brands": [
+   {
+    "cis": "60160707",
+    "name": "Deroxat",
+    "quote": "DEROXAT"
+   }
+  ]
+ },
+ "perampanel": {
+  "brands": [
+   {
+    "cis": "61849146",
+    "name": "Fycompa",
+    "quote": "FYCOMPA"
+   }
+  ]
+ },
+ "phenobarbital": {
+  "brands": [
+   {
+    "cis": "61475588",
+    "name": "Gardenal",
+    "quote": "GARDENAL"
+   }
+  ],
+  "cis": "61475588",
+  "denomination": "GARDENAL 100 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "phenytoin": {
+  "brands": [
+   {
+    "cis": "62436200",
+    "name": "Dilantin",
+    "quote": "DILANTIN"
+   },
+   {
+    "cis": "66303560",
+    "name": "Di-Hydan",
+    "quote": "DI-HYDAN"
+   }
+  ]
+ },
+ "pimozide": {
+  "brands": [
+   {
+    "cis": "60625647",
+    "name": "Orap",
+    "quote": "ORAP"
+   }
+  ]
+ },
+ "pipamperone": {
+  "brands": [
+   {
+    "cis": "64210075",
+    "name": "Dipiperon",
+    "quote": "DIPIPERON"
+   }
+  ],
+  "cis": "64210075",
+  "denomination": "DIPIPERON 40 mg/ml, solution buvable en gouttes",
+  "why": "plain oral, brand-name product"
+ },
+ "pipothiazine": {
+  "brands": [
+   {
+    "cis": "62000861",
+    "name": "Piportil",
+    "quote": "PIPORTIL"
+   }
+  ],
+  "cis": "62000861",
+  "denomination": "PIPORTIL L4 25 mg/ml, solution injectable en ampoule (I.M.)",
+  "why": "no plain-oral product; non-modified-release intramusculaire, brand-name product"
+ },
+ "pitolisant": {
+  "brands": [
+   {
+    "cis": "60227166",
+    "name": "Ozawade",
+    "quote": "OZAWADE"
+   },
+   {
+    "cis": "61666846",
+    "name": "Wakix",
+    "quote": "WAKIX"
+   }
+  ]
+ },
+ "pizotifen": {
+  "brands": [
+   {
+    "cis": "65458611",
+    "name": "Sanmigran",
+    "quote": "SANMIGRAN"
+   }
+  ]
+ },
+ "pramipexole": {
+  "brands": [
+   {
+    "cis": "60267171",
+    "name": "Sifrol",
+    "quote": "SIFROL"
+   },
+   {
+    "cis": "61996139",
+    "name": "Oprymea",
+    "quote": "OPRYMEA"
+   }
+  ]
+ },
+ "prazepam": {
+  "brands": [
+   {
+    "cis": "60534076",
+    "name": "Lysanxia",
+    "quote": "LYSANXIA"
+   }
+  ],
+  "cis": "60534076",
+  "denomination": "LYSANXIA 15 mg/ml, solution buvable en gouttes",
+  "why": "plain oral, brand-name product"
+ },
+ "prazosin": {
+  "brands": []
+ },
+ "pregabalin": {
+  "brands": [
+   {
+    "cis": "60018088",
+    "name": "Lyrica",
+    "quote": "LYRICA"
+   }
+  ]
+ },
+ "primidone": {
+  "brands": [
+   {
+    "cis": "65201684",
+    "name": "Mysoline",
+    "quote": "MYSOLINE"
+   }
+  ],
+  "cis": "65201684",
+  "denomination": "MYSOLINE 250 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "promethazine": {
+  "brands": [
+   {
+    "cis": "69646945",
+    "name": "Phenergan",
+    "quote": "PHENERGAN"
+   }
+  ],
+  "cis": "69764032",
+  "denomination": "PHENERGAN 25 mg, comprimé enrobé",
+  "why": "plain oral, brand-name product"
+ },
+ "propofol": {
+  "brands": [
+   {
+    "cis": "60616445",
+    "name": "Diprivan",
+    "quote": "DIPRIVAN"
+   }
+  ],
+  "cis": "62286195",
+  "denomination": "PROPOFOL LIPURO 5 mg/ml, émulsion injectable ou pour perfusion",
+  "why": "no plain-oral product; non-modified-release intraveineuse"
+ },
+ "propranolol": {
+  "brands": [
+   {
+    "cis": "62914611",
+    "name": "Karnodyl",
+    "quote": "KARNODYL"
+   },
+   {
+    "cis": "63558075",
+    "name": "Hemangiol",
+    "quote": "HEMANGIOL"
+   }
+  ]
+ },
+ "quetiapine": {
+  "brands": [
+   {
+    "cis": "61489673",
+    "name": "Xeroquel",
+    "quote": "XEROQUEL"
+   }
+  ]
+ },
+ "rasagiline": {
+  "brands": [
+   {
+    "cis": "62722988",
+    "name": "Azilect",
+    "quote": "AZILECT"
+   }
+  ]
+ },
+ "rimegepant": {
+  "brands": [
+   {
+    "cis": "65899221",
+    "name": "Vydura",
+    "quote": "VYDURA"
+   }
+  ]
+ },
+ "risperidone": {
+  "brands": [
+   {
+    "cis": "60260497",
+    "name": "Risperdal",
+    "quote": "RISPERDAL"
+   },
+   {
+    "cis": "65893318",
+    "name": "Risperdalconsta",
+    "quote": "RISPERDALCONSTA"
+   }
+  ]
+ },
+ "rivastigmine": {
+  "brands": [
+   {
+    "cis": "63093669",
+    "name": "Exelon",
+    "quote": "EXELON"
+   }
+  ]
+ },
+ "ropinirole": {
+  "brands": [
+   {
+    "cis": "61497951",
+    "name": "Requip",
+    "quote": "REQUIP"
+   },
+   {
+    "cis": "67276995",
+    "name": "Adartrel",
+    "quote": "ADARTREL"
+   }
+  ]
+ },
+ "rotigotine": {
+  "brands": [
+   {
+    "cis": "60200500",
+    "name": "Neupro",
+    "quote": "NEUPRO"
+   }
+  ]
+ },
+ "safinamide": {
+  "brands": [
+   {
+    "cis": "61882445",
+    "name": "Xadago",
+    "quote": "XADAGO"
+   }
+  ]
+ },
+ "scopolamine": {
+  "brands": [
+   {
+    "cis": "63958849",
+    "name": "Scopoderm",
+    "quote": "SCOPODERM"
+   }
+  ]
+ },
+ "selegiline": {
+  "brands": [
+   {
+    "cis": "60498751",
+    "name": "Deprenyl",
+    "quote": "DEPRENYL"
+   }
+  ]
+ },
+ "sertraline": {
+  "brands": [
+   {
+    "cis": "60155788",
+    "name": "Zoloft",
+    "quote": "ZOLOFT"
+   }
+  ],
+  "cis": "60155788",
+  "denomination": "ZOLOFT 25 mg, gélule",
+  "why": "plain oral, brand-name product"
+ },
+ "sevoflurane": {
+  "brands": []
+ },
+ "sildenafil": {
+  "brands": [
+   {
+    "cis": "61021436",
+    "name": "Silandyltec",
+    "quote": "SILANDYLTEC"
+   },
+   {
+    "cis": "61187454",
+    "name": "Xybilun",
+    "quote": "XYBILUN"
+   },
+   {
+    "cis": "61645318",
+    "name": "Vizarsin",
+    "quote": "VIZARSIN"
+   },
+   {
+    "cis": "61718111",
+    "name": "Revatio",
+    "quote": "REVATIO"
+   },
+   {
+    "cis": "63593884",
+    "name": "Viagra",
+    "quote": "VIAGRA"
+   },
+   {
+    "cis": "64407293",
+    "name": "Cetinor",
+    "quote": "CETINOR"
+   },
+   {
+    "cis": "65835628",
+    "name": "Granpidam",
+    "quote": "GRANPIDAM"
+   }
+  ],
+  "cis": "61021436",
+  "denomination": "SILANDYLTEC 25 mg, film orodispersible",
+  "why": "plain oral, brand-name product"
+ },
+ "sodium_oxybate": {
+  "brands": []
+ },
+ "solriamfetol": {
+  "brands": [
+   {
+    "cis": "64617815",
+    "name": "Sunosi",
+    "quote": "SUNOSI"
+   }
+  ]
+ },
+ "sulpiride": {
+  "brands": [
+   {
+    "cis": "62344129",
+    "name": "Dogmatil",
+    "quote": "DOGMATIL"
+   }
+  ],
+  "cis": "62344129",
+  "denomination": "DOGMATIL 50 mg, gélule",
+  "why": "plain oral, brand-name product"
+ },
+ "sumatriptan": {
+  "brands": [
+   {
+    "cis": "64676030",
+    "name": "Imigrane",
+    "quote": "IMIGRANE"
+   }
+  ],
+  "cis": "64676030",
+  "denomination": "IMIGRANE 50 mg, comprimé pelliculé",
+  "why": "plain oral, brand-name product"
+ },
+ "tetrabenazine": {
+  "brands": [
+   {
+    "cis": "62463044",
+    "name": "Xenazine",
+    "quote": "XENAZINE"
+   },
+   {
+    "cis": "64487229",
+    "name": "Tetmodis",
+    "quote": "TETMODIS"
+   }
+  ],
+  "cis": "62463044",
+  "denomination": "XENAZINE 25 mg, comprimé sécable",
+  "why": "plain oral, brand-name product"
+ },
+ "tiagabine": {
+  "brands": [
+   {
+    "cis": "60058517",
+    "name": "Gabitril",
+    "quote": "GABITRIL"
+   }
+  ]
+ },
+ "tianeptine": {
+  "brands": [
+   {
+    "cis": "65411280",
+    "name": "Stablon",
+    "quote": "STABLON"
+   }
+  ]
+ },
+ "tiapride": {
+  "brands": [
+   {
+    "cis": "67890598",
+    "name": "Tiapridal",
+    "quote": "TIAPRIDAL"
+   }
+  ]
+ },
+ "tolcapone": {
+  "brands": [
+   {
+    "cis": "67077388",
+    "name": "Tasmar",
+    "quote": "TASMAR"
+   }
+  ]
+ },
+ "topiramate": {
+  "brands": [
+   {
+    "cis": "61913385",
+    "name": "Epitomax",
+    "quote": "EPITOMAX"
+   }
+  ]
+ },
+ "tramadol": {
+  "brands": [
+   {
+    "cis": "60344529",
+    "name": "Monocrixo",
+    "quote": "MONOCRIXO"
+   },
+   {
+    "cis": "60477650",
+    "name": "Contramal",
+    "quote": "CONTRAMAL"
+   },
+   {
+    "cis": "62355702",
+    "name": "Topalgic",
+    "quote": "TOPALGIC"
+   },
+   {
+    "cis": "64045143",
+    "name": "Orozamudol",
+    "quote": "OROZAMUDOL"
+   },
+   {
+    "cis": "65591743",
+    "name": "Zumalgic",
+    "quote": "ZUMALGIC"
+   },
+   {
+    "cis": "66006655",
+    "name": "Zamudol",
+    "quote": "ZAMUDOL"
+   },
+   {
+    "cis": "66317033",
+    "name": "Takadol",
+    "quote": "TAKADOL"
+   },
+   {
+    "cis": "68106394",
+    "name": "Biodalgic",
+    "quote": "BIODALGIC"
+   }
+  ],
+  "cis": "60477650",
+  "denomination": "CONTRAMAL 100 mg/ml, solution buvable",
+  "why": "plain oral, brand-name product"
+ },
+ "trihexyphenidyl": {
+  "brands": [
+   {
+    "cis": "60379544",
+    "name": "Artane",
+    "quote": "ARTANE"
+   },
+   {
+    "cis": "66238671",
+    "name": "Parkinane",
+    "quote": "PARKINANE"
+   },
+   {
+    "cis": "66377201",
+    "name": "Trihexy",
+    "quote": "TRIHEXY"
+   }
+  ]
+ },
+ "trimipramine": {
+  "brands": [
+   {
+    "cis": "63344192",
+    "name": "Surmontil",
+    "quote": "SURMONTIL"
+   }
+  ]
+ },
+ "tropatepine": {
+  "brands": [
+   {
+    "cis": "63531498",
+    "name": "Lepticur",
+    "quote": "LEPTICUR"
+   }
+  ]
+ },
+ "valproate": {
+  "brands": [
+   {
+    "cis": "60184188",
+    "name": "Depakine",
+    "quote": "DEPAKINE"
+   },
+   {
+    "cis": "60797287",
+    "name": "Depakote",
+    "quote": "DEPAKOTE"
+   },
+   {
+    "cis": "63413610",
+    "name": "Divalcote",
+    "quote": "DIVALCOTE"
+   }
+  ]
+ },
+ "varenicline": {
+  "brands": [
+   {
+    "cis": "60442838",
+    "name": "Champix",
+    "quote": "CHAMPIX"
+   }
+  ]
+ },
+ "venlafaxine": {
+  "brands": [
+   {
+    "cis": "61403425",
+    "name": "Effexor",
+    "quote": "EFFEXOR"
+   }
+  ],
+  "cis": "68880233",
+  "denomination": "VENLAFAXINE VIATRIS 50 mg, comprimé pelliculé",
+  "why": "plain oral"
+ },
+ "vigabatrin": {
+  "brands": [
+   {
+    "cis": "61139833",
+    "name": "Sabril",
+    "quote": "SABRIL"
+   },
+   {
+    "cis": "62674714",
+    "name": "Kigabeq",
+    "quote": "KIGABEQ"
+   }
+  ]
+ },
+ "vortioxetine": {
+  "brands": [
+   {
+    "cis": "60316362",
+    "name": "Brintellix",
+    "quote": "BRINTELLIX"
+   }
+  ]
+ },
+ "yohimbine": {
+  "brands": [
+   {
+    "cis": "69816276",
+    "name": "Yocoral",
+    "quote": "YOCORAL"
+   }
+  ],
+  "cis": "69816276",
+  "denomination": "YOCORAL 5 mg, comprimé",
+  "why": "plain oral, brand-name product"
+ },
+ "zolpidem": {
+  "brands": [
+   {
+    "cis": "63179285",
+    "name": "Stilnox",
+    "quote": "STILNOX"
+   }
+  ]
+ },
+ "zonisamide": {
+  "brands": [
+   {
+    "cis": "61088036",
+    "name": "Zonegran",
+    "quote": "ZONEGRAN"
+   }
+  ]
+ },
+ "zopiclone": {
+  "brands": [
+   {
+    "cis": "68508795",
+    "name": "Imovane",
+    "quote": "IMOVANE"
+   }
+  ]
+ },
+ "zuclopenthixol": {
+  "brands": [
+   {
+    "cis": "60209937",
+    "name": "Clopixol",
+    "quote": "CLOPIXOL"
+   }
+  ],
+  "cis": "60209937",
+  "denomination": "CLOPIXOL 2 POUR CENT, solution buvable en gouttes",
+  "why": "plain oral, brand-name product"
+ }
+}

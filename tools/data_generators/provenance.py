@@ -764,6 +764,33 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "url": "https://dailymed.nlm.nih.gov/",
         "pages_dir": "data_sources/dailymed/pages",
     },
+    "bdpm": {
+        # Pharmacokinetics + brand corpus #16: the French public drug database (ANSM
+        # "Base de donnees publique des medicaments"), the French counterpart of #14. Its
+        # summary of product characteristics (RCP) section 5.2 states a time to peak and
+        # an elimination half-life for most products authorised in France, including the
+        # European-only drugs no US label exists for, and its product table names every
+        # French commercial brand.
+        # tools/fetch/fetch_bdpm.py joins each drug to its single-active products through
+        # the French INN (exact, accent-folded, stereo-aware via tools/chirality.py) and
+        # picks ONE plain-oral RCP per drug (a prolonged-release "LP" product states a
+        # different product's peak, the Seroquel XR gotcha). `page` is the product's CIS
+        # code, a stable public identifier, so a citation resolves to
+        # base-donnees-publique.medicaments.gouv.fr/medicament/<page>/extrait.
+        # Tmax / half-life quotes are French sentences picked by a model and judged like
+        # any prose (four-step pipeline); a brand quote is the denomination's brand word,
+        # copied by code from the product table (`extraction: "code"`, no judge), and its
+        # page is that product's header page. Author-side pages, like #14.
+        # Licence: Licence Ouverte / Open Licence (Etalab); the citation names the source
+        # and the database as the licence asks.
+        "ref": "Base de données publique des médicaments (ANSM), RCP",
+        "citation": "ANSM / Ministère de la Santé. Base de données publique des "
+                    "médicaments, résumé des caractéristiques du produit (RCP) of the "
+                    "cited product, section 5.2. base-donnees-publique.medicaments.gouv.fr "
+                    "(Licence Ouverte; CIS code pinned per citation).",
+        "url": "https://base-donnees-publique.medicaments.gouv.fr/",
+        "pages_dir": "data_sources/bdpm/pages",
+    },
     "cpic": {
         # Pharmacogenomic guidance corpus #15: what a metabolizer phenotype *means* for
         # one prescription. The third layer over #13 (how common each clearance speed

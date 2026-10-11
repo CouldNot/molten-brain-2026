@@ -5,7 +5,7 @@
 drug Stahl never covers (caffeine, nicotine, MDMA, the dopamine agonists, every
 recreational substance) or whose monograph states none (phenelzine, perospirone) has
 no ``half_life`` at all. This pass fills that gap from the same three corpora the
-time-to-peak pass reads (#9 Wikipedia prose, #1 Stahl, #14 DailyMed), reusing
+time-to-peak pass reads (#9 Wikipedia prose, #1 Stahl, #14 DailyMed, #16 BDPM), reusing
 ``fetch_tmax``'s scan wholesale: only the fact a line must name changes.
 
 Stahl stays the owner of the T½ it states: a drug whose ``half_life_sources`` already
@@ -39,7 +39,7 @@ OUT_PATH = fetch_tmax.ROOT / "tools" / "generated_cache" / "half_life_worklist.j
 # pattern (a worklist vetoes nothing): a distribution or absorption half-life is
 # offered too and left for the judge to refuse.
 HALF_LIFE_RE = re.compile(r"(half[\s-]?li(?:fe|ves)|\bt\s*(?:½|1/2|_?\{?1/2\}?)|"
-                          r"\bt-half\b)", re.IGNORECASE)
+                          r"\bt-half\b|demi[\s-]?vies?)", re.IGNORECASE)  # FR: #16 RCPs
 
 
 def stahl_owned(drug: dict) -> bool:

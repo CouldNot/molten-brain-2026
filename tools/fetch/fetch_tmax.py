@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Build the time-to-peak (Tmax) worklist from the three corpora already on disk.
+"""Build the time-to-peak (Tmax) worklist from the four corpora already on disk.
 
 The simulation gives **every** drug one assumed 2 h time-to-peak (``TMAX_HOURS`` in
 ``js/sim-model.js``), so a drug that peaks in 20 minutes and one that peaks in 8 hours
@@ -12,7 +12,7 @@ This is the fetch / candidate-extraction half of the usual four-step pipeline, a
 states **no verdict of its own**: it offers, per drug, every line of the drug's own
 pages that names a peak AND carries a duration, already confirmed verbatim on a real
 page, and leaves the choosing to the LLM pass that reads
-``tools/generated_cache/tmax_worklist.json``. Three corpora are scanned, because none
+``tools/generated_cache/tmax_worklist.json``. Four corpora are scanned, because none
 covers the roster alone (measured over 301 drugs: Wikipedia prose reaches 102, Stahl 13,
 and 190 state it nowhere, which is what the labels are here for):
 
@@ -26,6 +26,10 @@ and 190 state it nowhere, which is what the labels are here for):
   marketed in the US and is what reaches the drugs the two above miss. Stored by
   ``tools/fetch/fetch_dailymed.py``, which picks one label per drug; this pass only
   reads what that fetcher put on disk, so it stays offline too.
+* **#16 ``bdpm``** (``page`` = a CIS code), the French summary of product
+  characteristics (RCP) section 5.2, in French, stored by ``tools/fetch/fetch_bdpm.py``
+  (one product per drug, like the labels above). It reaches the European-only drugs no
+  US label exists for; its lines are parsed by ``durations_in_fr``.
 
 The drugbox is deliberately NOT read. It has no Tmax row at all, and its ``Onset of
 action`` row is a different fact: on 60 of its 76 rows it is the clinical onset
@@ -68,17 +72,12 @@ OUT_PATH = ROOT / "tools" / "generated_cache" / "tmax_worklist.json"
 DAILYMED_PAGES = ROOT / "data_sources" / "dailymed" / "pages"
 DAILYMED_LABELS = ROOT / "tools" / "generated_cache" / "dailymed_labels.json"
 
-# Read once per process: the worklist walks every drug, and the label map is small.
-_LABELS_CACHE: dict | None = None
+BDPM_PAGES = ROOT / "data_sources" / "bdpm" / "pages"
+BDPM_LABELS = ROOT / "tools" / "generated_cache" / "bdpm_labels.json"
 
-
-def _dailymed_labels() -> dict:
-    """The drug -> chosen-label map ``fetch_dailymed.py`` wrote, empty when absent."""
-    global _LABELS_CACHE
-    if _LABELS_CACHE is None:
-        _LABELS_CACHE = (json.loads(DAILYMED_LABELS.read_text(encoding="utf-8"))
-                         if DAILYMED_LABELS.exists() else {})
-    return _LABELS_CACHE
+# Each fetcher's drug -> chosen-label map, read once per process (the worklist walks
+# every drug, and the maps are small).
+_LABELS: dict[Path, dict] = {}
 
 # A line worth offering: it names a PEAK. Kept permissive on purpose (a worklist
 # vetoes nothing), but it must name the peak itself, never merely an "onset", which is
@@ -87,7 +86,11 @@ PEAK_RE = re.compile(
     r"(t\s*_?max\b|\bc\s*max\b|peak\s+(?:plasma|serum|blood)|"
     r"peak\s+(?:plasma\s+|serum\s+)?(?:concentration|level)|"
     r"maximum\s+(?:plasma\s+|serum\s+)?concentration|time\s+to\s+peak|"
-    r"reach(?:es|ed|ing)?\s+(?:its\s+)?peak)", re.IGNORECASE)
+    r"reach(?:es|ed|ing)?\s+(?:its\s+)?peak|"
+    # French (corpus #16 BDPM RCPs): "concentrations plasmatiques maximales", "pic
+    # plasmatique". Phrases no English page holds, so the English scan is unchanged.
+    r"concentrations?\s+(?:plasmatiques?\s+|s[ée]riques?\s+)?maximales?|"
+    r"pics?\s+(?:plasmatiques?|s[ée]riques?|de\s+concentration))", re.IGNORECASE)
 
 # A candidate line longer than this is a paragraph the page happens to hold on one
 # line, not a sentence: it would make a quote nobody can check by eye.
@@ -125,6 +128,68 @@ def durations_in(line: str) -> list[dict]:
     return out
 
 
+# The French duration shape of an RCP: "1 heure", "1,5 h", "1 h 30", "1 à 3 heures",
+# "entre 2 et 4 heures", "30 min à 1 heure 30", "30 minutes". Separate from
+# ``fetch_pharmacokinetics``'s English table so the English corpora's parsed durations
+# never change under them.
+_NUM_FR = r"\d+(?:[.,]\d+)?"
+_UNIT_FR = r"(?:heures?|h|minutes?|min|jours?|semaines?)(?![^\W\d_])"
+# One amount: "1,5 h", "30 minutes", or hours-and-minutes "1 h 30" / "1h30" / "1 heure 30".
+_AMOUNT_FR = (rf"(?:(?P<{{g}}h>\d+)\s*h(?:eures?)?\s*(?P<{{g}}m>[0-5]\d)(?!\s*(?:%|\d|[.,]\d))"
+              rf"|(?P<{{g}}n>{_NUM_FR})\s*(?P<{{g}}u>{_UNIT_FR})?)")
+_DURATION_FR = re.compile(
+    r"(?P<entre>\bentre\s+)?" + _AMOUNT_FR.format(g="lo")
+    + r"(?:\s*(?P<conn>[-–]|à|et)\s*" + _AMOUNT_FR.format(g="hi") + r")?",
+    re.IGNORECASE)
+_UNIT_HOURS_FR = {"heure": 1.0, "h": 1.0, "minute": 1 / 60, "min": 1 / 60,
+                  "jour": 24.0, "semaine": 168.0}
+
+
+def _hours_fr(m, g: str, unit: str | None) -> float | None:
+    """One matched amount in hours, or None when it carries no unit."""
+    if m.group(f"{g}h"):
+        return int(m.group(f"{g}h")) + int(m.group(f"{g}m")) / 60
+    unit = (m.group(f"{g}u") or unit or "").lower().rstrip("s")
+    if not unit:
+        return None
+    return float(m.group(f"{g}n").replace(",", ".")) * _UNIT_HOURS_FR[unit]
+
+
+def durations_in_fr(line: str) -> list[dict]:
+    """``durations_in`` for a French line (decimal comma, "à" ranges, "1 h 30").
+
+    A range's low end borrows the high end's unit ("1 à 3 heures"). "et" joins a range
+    only after "entre": "en 2 et 3 heures respectivement" is two values, not a range.
+
+    >>> durations_in_fr("un Tmax atteint en 1 heure environ")
+    [{'hours': 1.0}]
+    >>> durations_in_fr("entre 1,5 et 3 heures, ou 30 minutes")
+    [{'hours': 1.5, 'hours_max': 3.0}, {'hours': 0.5}]
+    >>> durations_in_fr("30 min à 1 heure 30 plus tard; environ 1h30 après")
+    [{'hours': 0.5, 'hours_max': 1.5}, {'hours': 1.5}]
+    >>> durations_in_fr("atteintes respectivement en 2 et 3 heures")
+    [{'hours': 2.0}, {'hours': 3.0}]
+    """
+    out: list[dict] = []
+    for m in _DURATION_FR.finditer(line):
+        has_hi = bool(m.group("hih") or m.group("hin"))
+        hi = _hours_fr(m, "hi", None) if has_hi else None
+        hi_unit = m.group("hiu") if has_hi else None
+        lo = _hours_fr(m, "lo", hi_unit if has_hi else None)
+        if lo is None:
+            continue
+        lo = round(lo, 3)
+        if hi is None:
+            out.append({"hours": lo})
+        elif m.group("conn").lower() == "et" and not m.group("entre"):
+            out += [{"hours": lo}, {"hours": round(hi, 3)}]
+        elif hi >= lo:
+            out.append({"hours": lo, "hours_max": round(hi, 3)})
+        else:
+            out.append({"hours": lo})
+    return out
+
+
 def sentences(text: str):
     """Yield the page's checkable units: one sentence, or one flattened table row.
 
@@ -142,18 +207,20 @@ def sentences(text: str):
                 yield part
 
 
-def candidates_in(text: str, corpus: str, page, pattern=PEAK_RE) -> list[dict]:
+def candidates_in(text: str, corpus: str, page, pattern=PEAK_RE,
+                  durations=durations_in) -> list[dict]:
     """Every ``pattern``-naming, duration-carrying candidate of one page, deduplicated.
 
     ``pattern`` names the fact the line must be about (a peak here, a half-life for
-    ``fetch_half_life.py``, which reuses this whole scan).
+    ``fetch_half_life.py``, which reuses this whole scan); ``durations`` parses the
+    page's language (``durations_in_fr`` for a French RCP).
     """
     out: list[dict] = []
     seen: set[str] = set()
     for s in sentences(text):
         if len(s) > MAX_LINE or s in seen or not pattern.search(s):
             continue
-        durs = durations_in(s)
+        durs = durations(s)
         if not durs:
             continue
         seen.add(s)
@@ -185,23 +252,35 @@ def stahl_candidates(drug: dict, spans: dict, pattern=PEAK_RE) -> list[dict]:
     return out
 
 
-def dailymed_candidates(drug: dict, pattern=PEAK_RE) -> list[dict]:
-    """Candidates from the drug's stored US prescribing label (corpus #14).
+def _label_candidates(drug: dict, labels_path: Path, key: str, pages: Path,
+                      corpus: str, pattern, durations=durations_in) -> list[dict]:
+    """Candidates from the one label page a corpus fetcher chose for this drug.
 
-    The label chosen for a drug is whichever ``fetch_dailymed.py`` recorded in
-    ``dailymed_labels.json``, so the choice is made once, reviewably, in the fetcher
-    rather than re-litigated here.
+    The choice is whichever entry the fetcher recorded in its ``*_labels.json``
+    (``fetch_dailymed.py`` / ``fetch_bdpm.py``), so it is made once, reviewably, in the
+    fetcher rather than re-litigated here. ``key`` names the page id field.
     """
-    labels = _dailymed_labels()
-    entry = labels.get(drug["id"])
-    if not entry:
-        return []
-    setid = entry.get("setid")
-    path = DAILYMED_PAGES / f"{setid}.md" if setid else None
+    if labels_path not in _LABELS:
+        _LABELS[labels_path] = (json.loads(labels_path.read_text(encoding="utf-8"))
+                                if labels_path.exists() else {})
+    page = (_LABELS[labels_path].get(drug["id"]) or {}).get(key)
+    path = pages / f"{page}.md" if page else None
     if not path or not path.exists():
         return []
     return candidates_in(path.read_text(encoding="utf-8", errors="replace"),
-                         "dailymed", setid, pattern)
+                         corpus, page, pattern, durations)
+
+
+def bdpm_candidates(drug: dict, pattern=PEAK_RE) -> list[dict]:
+    """Candidates from the drug's stored French RCP section 5.2 (corpus #16)."""
+    return _label_candidates(drug, BDPM_LABELS, "cis", BDPM_PAGES, "bdpm", pattern,
+                             durations_in_fr)
+
+
+def dailymed_candidates(drug: dict, pattern=PEAK_RE) -> list[dict]:
+    """Candidates from the drug's stored US prescribing label (corpus #14)."""
+    return _label_candidates(drug, DAILYMED_LABELS, "setid", DAILYMED_PAGES, "dailymed",
+                             pattern)
 
 
 def build(only: set[str] | None = None, pattern=PEAK_RE, skip=None) -> dict[str, dict]:
@@ -223,7 +302,8 @@ def build(only: set[str] | None = None, pattern=PEAK_RE, skip=None) -> dict[str,
         # and putting it first would push the one-sentence answers down the list.
         cands = (wikipedia_candidates(drug, pattern)
                  + stahl_candidates(drug, spans, pattern)
-                 + dailymed_candidates(drug, pattern))
+                 + dailymed_candidates(drug, pattern)
+                 + bdpm_candidates(drug, pattern))
         if cands:
             worklist[drug["id"]] = {"name": drug.get("name") or drug["id"],
                                     "candidates": cands}

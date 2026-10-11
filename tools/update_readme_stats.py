@@ -84,6 +84,7 @@ CORPUS_DESC = {
     "gtopdb_ki":       ("Molecular pharmacology (IUPHAR/BPS database)", "Drug binding affinities (Ki) and direction"),
     "gtopdb_class":    ("Molecular pharmacology (IUPHAR/BPS database)", "Receptor & target mechanism class, receptor sign"),
     "dailymed":        ("US prescribing labels (NLM SPL archive)", "Drug time-to-peak (Tmax)"),
+    "bdpm":            ("French public drug database (ANSM RCPs)", "Drug Tmax, half-life, French brands"),
     "cpic":            ("Pharmacogenomic prescribing guidelines", "What a clearance speed implies for a drug"),
 }
 
