@@ -5,6 +5,15 @@
 //
 // Built with the help of Claude Code.
 
+/**
+ * The row label of a mapped `drug.firstApproval`: "First approved", or "First
+ * national approval" when its source only knows one country (Drugs@FDA), so a
+ * US-only year is never read as the first approval anywhere.
+ */
+export function approvalLabel(fa, t) {
+  return t(fa.national ? "drug.firstNationalApproval" : "drug.firstApproval");
+}
+
 /** "1994, United States (FDA)" from a mapped `drug.firstApproval`. */
 export function formatApproval(fa) {
   const where = fa.countryLabel ? `, ${fa.countryLabel}` : "";
@@ -59,10 +68,10 @@ export function appendDrugHistory(facts, drug,
     ? makeProvenancePill(node.provenance, sourcesTip(node.sources))
     : makeProvenancePill(node.provenance || null));
   if (drug.firstApproval) {
-    addFactRow(facts, t("drug.firstApproval"), formatApproval(drug.firstApproval), null, {
-      pill: pill(drug.firstApproval),
-    });
-    facts.lastChild.title = t("drug.firstApprovalTip");
+    addFactRow(facts, approvalLabel(drug.firstApproval, t), formatApproval(drug.firstApproval),
+      null, { pill: pill(drug.firstApproval) });
+    facts.lastChild.title = t(drug.firstApproval.national ? "drug.firstNationalApprovalTip"
+      : "drug.firstApprovalTip");
     facts.lastChild.classList.add("fact-history");
   }
   for (const g of groupWithdrawals(drug.withdrawals, lang)) {

@@ -877,6 +877,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       year: fa.year,
       countryLabel: fa.country ? historyCountries[fa.country] || fa.country : null,
       agencyLabel: fa.agency ? historyAgencies[fa.agency] || fa.agency : null,
+      // The earliest approval in that one country (a regulator's own register).
+      national: !!fa.national,
       sources: mapSources(d.first_approval_sources),
       provenance: strongestGrade(d.first_approval_sources),
     } : null;

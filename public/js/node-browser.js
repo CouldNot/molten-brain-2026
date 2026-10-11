@@ -15,7 +15,7 @@
 // this module never touches the scene.
 
 import { loadFlag, saveFlag } from "./prefs.js";
-import { formatApproval, formatWithdrawal } from "./drug-history.js";
+import { approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
 // sourced and verified for the same reason the Sources popup's bar does: the quote
@@ -316,7 +316,7 @@ export function collectNodes(data, deps, opts = {}) {
     }
     if (d.firstApproval) {
       push("drug_first_approval", d.name,
-        `${t("drug.firstApproval")} ${formatApproval(d.firstApproval)}`,
+        `${approvalLabel(d.firstApproval, t)} ${formatApproval(d.firstApproval)}`,
         d.firstApproval.provenance, go, { sources: d.firstApproval.sources });
     }
     if (d.prodrug) {

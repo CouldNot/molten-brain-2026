@@ -36,7 +36,7 @@ import { createSimulation } from "./simulation.js";
 import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
-import { appendDrugHistory, formatApproval, formatWithdrawal } from "./drug-history.js";
+import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -6155,7 +6155,7 @@ function buildKindExample(kind, data, nav) {
     case "drug_first_approval": {
       const d = pick(focusableDrugs, (x) => x.id === "sertraline" && x.firstApproval)
         || focusableDrugs.find((x) => x.firstApproval);
-      return d ? line(d.name, `${t("drug.firstApproval")} ${formatApproval(d.firstApproval)}`,
+      return d ? line(d.name, `${approvalLabel(d.firstApproval, t)} ${formatApproval(d.firstApproval)}`,
         () => nav.drug(d)) : null;
     }
     case "drug_prodrug": {
