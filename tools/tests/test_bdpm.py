@@ -190,6 +190,38 @@ class BrandApplyTest(unittest.TestCase):
                          "provenance": "verified", "extraction": "code"}]}])
         self.assertEqual(len(drugs[1]["brands"]), 1)       # accent-folded duplicate
 
+    def test_brand_key_folds_accents_case_and_spaces(self):
+        # French Wikipedia writes Stahl's "Risperdal Consta" as "Risperdalconsta" and
+        # "Tranxene" as "Tranxène": both once shipped as a second brand node.
+        import apply_brand_names as A
+        self.assertEqual(A.brand_key("Risperdal Consta"), A.brand_key("Risperdalconsta"))
+        self.assertEqual(A.brand_key("Tranxene"), A.brand_key("Tranxène"))
+        self.assertNotEqual(A.brand_key("Risperdal"), A.brand_key("Risperdal Consta"))
+        seen = {A.brand_key("Risperdal Consta")}
+        self.assertFalse(A.add_brand([], seen, "Risperdalconsta", "fr", {}))
+
+    def test_merge_duplicate_brands_keeps_first_and_unions(self):
+        import apply_brand_names as A
+        stahl = {"corpus": "stahl", "page": 199, "quote": "Tranxene"}
+        wiki = {"corpus": "wikipedia_fr", "page": "cloraz_pate", "quote": "Tranxène"}
+        other = {"name": "Tranxilium", "region": "eu", "sources": [wiki]}
+        drugs = [{"id": "clorazepate", "brands": [
+            {"name": "Tranxene", "region": "na", "sources": [stahl]},
+            {"name": "Tranxène", "region": "fr", "sources": [wiki]}, other]}]
+        self.assertEqual(A.merge_duplicate_brands(drugs),
+                         ["clorazepate: 'Tranxene' <- 'Tranxène'"])
+        self.assertEqual(drugs[0]["brands"], [
+            {"name": "Tranxene", "region": ["na", "fr"], "sources": [stahl, wiki]}, other])
+        self.assertEqual(A.merge_duplicate_brands(drugs), [])   # idempotent
+
+    def test_a_brand_region_may_be_a_list(self):
+        from data_generators.provenance import _drug_brands
+        got = _drug_brands("x", [{"name": "Tranxene", "region": ["na", "fr"]}])
+        self.assertEqual(got[0]["region"], ["na", "fr"])
+        for bad in (["na", "xx"], [], ["na", "na"], "xx"):
+            with self.assertRaises(ValueError):
+                _drug_brands("x", [{"name": "Tranxene", "region": bad}])
+
 
 if __name__ == "__main__":
     unittest.main()

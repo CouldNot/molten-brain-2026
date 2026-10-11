@@ -69,7 +69,7 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug binding -> a drug's `bindings[]` -> `drug_bindings`
 - drug binding direction -> a binding's `action` -> `drug_binding_action` (graded by the binding's quote sources only, a Ki attests binding never direction; `affinity_only` = NOSOURCE; metabolite bindings counted in this same kind)
 - drug NbN label -> a drug's `nbn` -> `drug_nbn`
-- drug commercial brand name -> a drug's `brands[]` -> `drug_brands` (each brand a graded node; `region` na/eu/fr orders them per locale, never shown; na from Stahl, eu/fr from Wikipedia)
+- drug commercial brand name -> a drug's `brands[]` -> `drug_brands` (each brand a graded node; `region` na/eu/fr (or a list of them when one name sells in several regions; appliers dedupe names case/accent/space-insensitively) orders them per locale, never shown; na from Stahl, eu/fr from Wikipedia)
 - drug class classification -> a drug's `categories` (+ `category_provenance`) -> `drug_categories`
 - drug elimination half-life (T½) -> a drug's `half_life` (+ `half_life_sources`) -> `drug_half_life`
 - drug time-to-peak (Tmax) -> a drug's `tmax` (+ `tmax_sources`) -> `drug_tmax` (the other end of the same curve as the T½ above, separately sourced and separately missing, so a separate kind)

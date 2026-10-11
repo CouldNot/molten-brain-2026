@@ -1011,7 +1011,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       : { na: 0, eu: 1, fr: 2 };
     const brandSeen = new Set();
     d.brandsOrdered = (d.brands || [])
-      .map((b, i) => ({ b, r: brandRank[b.region] ?? 9, i }))
+      // `region` is one tag, or a list when one name is sold in several regions.
+      .map((b, i) => ({ b, r: Math.min(...[].concat(b.region).map((g) => brandRank[g] ?? 9)), i }))
       .sort((x, y) => x.r - y.r || x.i - y.i)
       .map((x) => x.b)
       .filter((b) => {

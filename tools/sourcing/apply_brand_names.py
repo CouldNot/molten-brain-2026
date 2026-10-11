@@ -61,15 +61,16 @@ def load_json(path):
 
 
 def brand_key(name: str) -> str:
-    """The duplicate key of a brand name: case- AND accent-folded.
+    """The duplicate key of a brand name: case-, accent- AND space/punctuation-folded.
 
     Not ``normalize_for_match``, which turns an accent into a word break
     ("Théralène" -> "the rale ne"), so the BDPM table's unaccented "THERALENE" would
-    read as a second brand.
+    read as a second brand. Spaces go too: French Wikipedia writes Stahl's
+    "Risperdal Consta" as "Risperdalconsta", and Stahl's "Tranxene" as "Tranxène".
     """
     t = unicodedata.normalize("NFKD", name or "")
     t = "".join(c for c in t if not unicodedata.combining(c))
-    return " ".join(re.sub(r"[^a-z0-9]+", " ", t.lower()).split())
+    return re.sub(r"[^a-z0-9]+", "", t.lower())
 
 
 def add_brand(existing: list, seen: set, name: str, region: str, source: dict) -> bool:
@@ -81,6 +82,39 @@ def add_brand(existing: list, seen: set, name: str, region: str, source: dict) -
     seen.add(key)
     existing.append({"name": name, "region": region, "sources": [source]})
     return True
+
+
+def merge_duplicate_brands(drugs: list[dict]) -> list[str]:
+    """Fold every drug's same-``brand_key`` brands into the FIRST one, in place.
+
+    The kept node keeps its spelling and position; it gains the later ones' sources
+    (each still quoting its own page verbatim, e.g. "Risperdalconsta") and their regions
+    (``region`` becomes a list when they differ, so the locale ordering each region
+    earned survives). Returns ``"drug: kept <- dropped"`` lines, one per merge.
+    """
+    merged = []
+    for d in drugs:
+        kept: dict[str, dict] = {}
+        out = []
+        for b in d.get("brands") or []:
+            first = kept.get(brand_key(b["name"]))
+            if first is None:
+                kept[brand_key(b["name"])] = b
+                out.append(b)
+                continue
+            regions = [*([first["region"]] if isinstance(first["region"], str)
+                         else first["region"])]
+            for r in [b["region"]] if isinstance(b["region"], str) else b["region"]:
+                if r not in regions:
+                    regions.append(r)
+            first["region"] = regions[0] if len(regions) == 1 else regions
+            first["sources"] = [*(first.get("sources") or []),
+                                *(s for s in b.get("sources") or []
+                                  if s not in (first.get("sources") or []))]
+            merged.append(f"{d['id']}: {first['name']!r} <- {b['name']!r}")
+        if len(out) != len(d.get("brands") or []):
+            d["brands"] = out
+    return merged
 
 
 def apply_bdpm(drugs: list[dict], labels: dict, pages: Path = BDPM_PAGES):
@@ -119,19 +153,29 @@ def apply_bdpm(drugs: list[dict], labels: dict, pages: Path = BDPM_PAGES):
     return touched, added, present, misses
 
 
+def report_merges(drugs: list[dict]) -> list[str]:
+    """Run :func:`merge_duplicate_brands` and print what it folded (a pre-key-fix run's
+    leftovers; a fresh run never adds a duplicate)."""
+    merged = merge_duplicate_brands(drugs)
+    for line in merged:
+        print("  [merged duplicate]", line)
+    return merged
+
+
 def main_bdpm(dry_run: bool) -> None:
     if not BDPM_LABELS.exists() or not BDPM_PAGES.exists():
         print(f"missing {BDPM_LABELS} or {BDPM_PAGES}; run tools/fetch/fetch_bdpm.py first.")
         return
     drugs = drugs_io.load_drugs()
     touched, added, present, misses = apply_bdpm(drugs, load_json(BDPM_LABELS))
+    merged = report_merges(drugs)
     print(f"applied {touched} drugs (+{added} fr brand nodes from BDPM); "
           f"skipped-present {present}, gated-out {len(misses)}")
     for line in misses:
         print("  [gated out]", line)
     if dry_run:
         print("dry-run: drugs_data.jsonl not written")
-    elif added:
+    elif added or merged:
         drugs_io.save_drugs(drugs)
         print(f"wrote {drugs_io.DRUGS_PATH}")
 
@@ -207,10 +251,11 @@ def main():
     if len(misses) > 40:
         print(f"  ... and {len(misses) - 40} more")
 
+    merged = report_merges(drugs)
     if args.dry_run:
         print("dry-run: drugs_data.jsonl not written")
         return
-    if added:
+    if added or merged:
         drugs_io.save_drugs(drugs)
         print(f"wrote {drugs_io.DRUGS_PATH}")
 

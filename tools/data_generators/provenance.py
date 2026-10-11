@@ -930,7 +930,9 @@ def _drug_brands(drug_id: str, brands: Any) -> list[dict[str, Any]]:
 
     Each authored brand is ``{name, region, sources}``: ``name`` a non-empty brand
     string (a proper noun, so NOT run through the FR table), ``region`` a
-    :data:`BRAND_REGIONS` tag used only for per-locale ordering (never displayed),
+    :data:`BRAND_REGIONS` tag used only for per-locale ordering (never displayed), or a
+    list of them when one name is sold in several regions (one node, its sources merged:
+    Stahl's US "Tranxene" is also the French "Tranxène"),
     and ``sources`` the usual quote-level provenance (validated + quote-checked like
     an NbN source). List order is significant: the first brand of a region is its most
     iconic one (the one shown after the drug name in that locale). Returns the emitted
@@ -943,7 +945,9 @@ def _drug_brands(drug_id: str, brands: Any) -> list[dict[str, Any]]:
         if not (isinstance(name, str) and name.strip()):
             raise ValueError(f"Drug {drug_id!r} has a brand with no non-empty 'name'")
         region = br.get("region")
-        if region not in BRAND_REGIONS:
+        regions = region if isinstance(region, list) else [region]
+        if not regions or len(set(regions)) != len(regions) or any(
+                r not in BRAND_REGIONS for r in regions):
             raise ValueError(
                 f"Drug {drug_id!r} brand {name!r} has region {region!r} "
                 f"(not one of {BRAND_REGIONS})")

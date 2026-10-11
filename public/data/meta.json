@@ -3813,8 +3813,8 @@
         "missing": 0
       },
       "drug_brands": {
-        "total": 585,
-        "verified": 577,
+        "total": 583,
+        "verified": 575,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4057,14 +4057,14 @@
       }
     },
     "nodes": {
-      "total": 7164,
-      "verified": 5930,
+      "total": 7162,
+      "verified": 5928,
       "uncertain": 270,
       "sourced": 0,
       "llm": 268,
       "nosource": 696,
       "missing": 964,
-      "backed": 6200,
+      "backed": 6198,
       "pct_backed": 87
     },
     "ki_coverage": {
