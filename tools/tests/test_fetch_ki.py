@@ -192,5 +192,37 @@ class ProdrugSkipTest(unittest.TestCase):
         self.assertIn("ki", self.saved[0]["bindings"][0])
 
 
+class NonKiRowFilterTest(unittest.TestCase):
+    """Only radioligand-binding Ki enter a median. Regression (3.99.1 refresh):
+    methamphetamine's DAT median pooled Rothman 2003's 24.5 nM release potency (hot
+    ligand "Functional") with Tatsumi 1997's 2800 nM binding Ki and published 1412 nM;
+    and a "> 1000" row (the qualifier sits in the separate "ki Note" column) was read
+    as a real 1000 nM affinity."""
+
+    @staticmethod
+    def _row(num, hot, ki, note=""):
+        r = IdentityAliasPoolingTest._row(num, "X", "SLC6A3", ki)
+        r["Hotligand"], r["ki Note"] = hot, note
+        return r
+
+    def test_functional_readouts_are_not_binding_assays(self):
+        for hot in ("Functional", "35S-GTPGammaS", "R-SAT", "3H-DA UPTAKE",
+                    "3H-Dopamine release", "3H-cAMP"):
+            self.assertFalse(fetch_ki._is_binding_assay({"Hotligand": hot}), hot)
+        self.assertTrue(fetch_ki._is_binding_assay({"Hotligand": "3H-WIN 35,428"}))
+
+    def test_functional_row_left_out_of_median(self):
+        s = fetch_ki.summarize_target(
+            [self._row(1, "Functional", "24.5"), self._row(2, "3H-WIN 35,428", "2800")],
+            "dat")
+        self.assertEqual(s["ki_nm"]["median"], 2800.0)
+
+    def test_note_qualifier_is_a_bound_not_an_affinity(self):
+        s = fetch_ki.summarize_target(
+            [self._row(1, "3H-X", "1000", note=">"), self._row(2, "3H-X", "50")], "dat")
+        self.assertEqual(s["ki_nm"]["median"], 50.0)
+        self.assertEqual(s["qualified_excluded"], 1)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

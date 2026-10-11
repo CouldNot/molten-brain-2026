@@ -359,6 +359,33 @@ KI_ROW_BLOCKLIST = {
 }
 
 
+# PDSP files functional readouts in the same table as binding Ki, marking them only
+# through the hot-ligand column ("Functional", a GTPgammaS / cAMP / R-SAT readout, an
+# uptake or release assay). Their value is an EC50/IC50 of an effect, not an
+# equilibrium dissociation constant, and pooling one into a binding median moved
+# methamphetamine's DAT Ki from a 2800 nM binding assay to the 24.5 nM release
+# potency of Rothman 2003. Matched case-folded on these substrings.
+NON_BINDING_HOT = ("functional", "gtpgamma", "camp", "r-sat", "uptake", "release")
+
+
+def _is_binding_assay(r):
+    """A row measuring displacement of a radioligand (a Ki), not a functional readout."""
+    hot = (r.get(COL_RADIO) or "").strip().lower()
+    return not any(s in hot for s in NON_BINDING_HOT)
+
+
+def _row_ki(r):
+    """parse_ki of one row, with the qualifier PDSP keeps in its separate "ki Note"
+    column folded in: 2391 rows read "> 1000" there, a lower bound (the drug did not
+    bind at the highest tested dose), which a bare parse of "ki Val" took as a real
+    1000 nM affinity."""
+    p = parse_ki(r.get(COL_KI))
+    if p is None:
+        return None
+    note = (r.get(COL_NOTE) or "").strip()
+    return (p[0], p[1] or (note if note in ("<", ">") else ""))
+
+
 def _is_human(r):
     return (r.get(COL_SPECIES) or "").strip().upper() == "HUMAN"
 
@@ -375,13 +402,14 @@ def summarize_target(rows, our_target):
     inactive (>=10 uM) ceiling, counts human vs non-human, prefers human for the
     reported stats, and cites one representative CSV row (verified-grade source)."""
     hits = [r for r in rows if matches_our_target(resolve_target(r) or "", our_target)
-            and int(r.get(COL_ID) or 0) not in KI_ROW_BLOCKLIST]
+            and int(r.get(COL_ID) or 0) not in KI_ROW_BLOCKLIST
+            and _is_binding_assay(r)]
     if not hits:
         return None
 
     active, inactive, qualified = [], 0, 0
     for r in hits:
-        p = parse_ki(r.get(COL_KI))
+        p = _row_ki(r)
         if p is None:
             continue
         val, q = p
