@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.100.3",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "Lithium no longer shows a 1949 US market withdrawal: that ban was of lithium salts sold as a table-salt substitute, not of a lithium medicine. A withdrawal now has to be of the substance as a marketed medicine, so heroin's 1956 US entry and LSD's 1966 French one were dropped as well after a recheck of every withdrawal.",
+          "commits": [
+            "b9e38f9"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.100.2",
       "date": "2026-10-12",
       "entries": [
