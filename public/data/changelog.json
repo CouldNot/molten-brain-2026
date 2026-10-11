@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.97.1",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "The French interface calls the listed drugs \"substances\" rather than \"médicaments\", since the list holds every CNS-active compound, not only medicines.",
+          "commits": [
+            "5ca0515"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.97.0",
       "date": "2026-10-11",
       "entries": [
