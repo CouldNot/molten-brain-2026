@@ -342,8 +342,8 @@
  },
  "modafinil": {
   "index": 0,
-  "hours": 1.5,
-  "hours_max": 2.5
+  "hours": 2.0,
+  "hours_max": 4.0
  },
  "molindone": {
   "index": 0,

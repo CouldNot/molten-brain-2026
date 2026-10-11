@@ -19,6 +19,7 @@
   4
  ],
  "cocaine": [
+  8,
   40
  ],
  "cyclobarbital": null,
@@ -86,7 +87,7 @@
   0
  ],
  "pregabalin": [
-  0
+  2
  ],
  "prochlorperazine": [
   0
@@ -158,5 +159,14 @@
  "pizotifen": [
   1
  ],
- "tiapride": null
+ "tiapride": null,
+ "meprobamate": [
+  0
+ ],
+ "pentobarbital": [
+  4
+ ],
+ "tofisopam": [
+  1
+ ]
 }

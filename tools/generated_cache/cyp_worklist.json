@@ -1238,7 +1238,7 @@
      "heading": "Metabolism",
      "n": 0,
      "page": "clobazam",
-     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
+     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active N -desmethylclobazam-3',4'-dihydrodiol and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -5632,21 +5632,49 @@
      "heading": "(lead)",
      "n": 0,
      "page": "tizanidine",
-     "quote": "Metabolism | Liver ( CYP1A2 , 95%)"
+     "quote": "Metabolism | Extensive (>95%), primarily via CYP1A2"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Contraindications",
+     "n": 1,
+     "page": "tizanidine",
+     "quote": "Contraindications of tizanidine include concomitant use with strong CYP1A2 inhibitors and known hypersensitivity to tizanidine or its excipients ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Contraindications",
+     "n": 2,
+     "page": "tizanidine",
+     "quote": "Tizanidine is contraindicated with strong CYP1A2 inhibitors as these drugs profoundly increase tizanidine levels."
     },
     {
      "corpus": "wikipedia_pharm",
      "heading": "Interactions",
-     "n": 1,
+     "n": 3,
      "page": "tizanidine",
      "quote": "Concomitant use of tizanidine and moderate or potent CYP1A2 inhibitors (such as zileuton , certain antiarrhythmics ( amiodarone , mexiletine , propafenone , verapamil ), cimetidine , famotidine , aciclovir , ticlopidine and oral contraceptives ) is contraindicated."
     },
     {
      "corpus": "wikipedia_pharm",
      "heading": "Interactions",
-     "n": 2,
+     "n": 4,
      "page": "tizanidine",
      "quote": "Concomitant use of tizanidine with fluvoxamine , a potent CYP1A2 inhibitor in humans, resulted in a 33-fold increase in the tizanidine AUC (plasma drug concentration-time curve)."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Metabolism",
+     "n": 5,
+     "page": "tizanidine",
+     "quote": "The primary cytochrome P450 enzyme involved in the metabolism of tizanidine is CYP1A2 ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Metabolism",
+     "n": 6,
+     "page": "tizanidine",
+     "quote": "Strong CYP3A4 inhibitors such as fluvoxamine and ciprofloxacin can increase tizanidine exposure by 10- to 33-fold, indicating the key involvement of CYP1A2 in the metabolism of the drug."
     }
    ],
    "name": "Tizanidine"

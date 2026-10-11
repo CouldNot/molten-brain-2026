@@ -81,7 +81,7 @@ ENZYME_CONTRADICTIONS: dict[tuple[str, str, str], dict[str, Any]] = {
     # dropped: the hedge is Stahl's, the denial is the article's, and neither is ours.
     ("modafinil", "cyp2c9", "inhibitor"): _wiki(
         "modafinil",
-        "However, other in-vitro studies find no significant inhibition of CYP2C9"),
+        "However, other in-vitro work has shown no significant inhibition of CYP2C9"),
 }
 
 

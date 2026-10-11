@@ -3886,12 +3886,12 @@
       },
       "drug_enzyme_strength": {
         "total": 147,
-        "verified": 131,
+        "verified": 132,
         "uncertain": 3,
         "sourced": 0,
-        "llm": 13,
+        "llm": 12,
         "nosource": 0,
-        "missing": 13
+        "missing": 12
       },
       "drug_pgx": {
         "total": 104,
@@ -4085,13 +4085,13 @@
     },
     "nodes": {
       "total": 7161,
-      "verified": 5929,
+      "verified": 5930,
       "uncertain": 270,
       "sourced": 0,
-      "llm": 268,
+      "llm": 267,
       "nosource": 694,
-      "missing": 962,
-      "backed": 6199,
+      "missing": 961,
+      "backed": 6200,
       "pct_backed": 87
     },
     "ki_coverage": {

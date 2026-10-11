@@ -766,7 +766,7 @@
      "llm": "opus",
      "page": "clobazam",
      "provenance": "verified",
-     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
+     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active N -desmethylclobazam-3',4'-dihydrodiol and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
     }
    ]
   },
@@ -779,7 +779,7 @@
      "llm": "opus",
      "page": "clobazam",
      "provenance": "verified",
-     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
+     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active N -desmethylclobazam-3',4'-dihydrodiol and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
     }
    ]
   },
@@ -792,7 +792,7 @@
      "llm": "opus",
      "page": "clobazam",
      "provenance": "verified",
-     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
+     "quote": "N -desmethylclobazam, 4'-Hydroxy- N -desmethylclobazam, the former of which is active N -desmethylclobazam-3',4'-dihydrodiol and 4'-Hydroxyclobazam The demethylation is facilitated by CYP2C19 , CYP3A4 , and CYP2B6 and the 4'-Hydroxyclobazam by CYP2C18 and CYP2C19."
     }
    ]
   }
@@ -4513,7 +4513,7 @@
      "llm": "opus",
      "page": "tizanidine",
      "provenance": "verified",
-     "quote": "Metabolism | Liver ( CYP1A2 , 95%)"
+     "quote": "Metabolism | Extensive (>95%), primarily via CYP1A2"
     }
    ],
    "strength": "major"

@@ -527,12 +527,12 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "caffeine",
-     "line": "Caffeine is a central nervous system (CNS) stimulant of the methylxanthine class and is the most commonly consumed psychoactive substance globally."
+     "line": "Caffeine is a central nervous system (CNS) stimulant of the methylxanthine class and is the most commonly consumed psychoactive drug globally."
     },
     {
      "corpus": "wikipedia_pharm",
      "page": "caffeine",
-     "line": "It is mainly used for its eugeroic ( wakefulness promoting), ergogenic (physical performance-enhancing), or nootropic (cognitive-enhancing) properties; it is also used recreationally or in social settings."
+     "line": "It is mainly used for its eugeroic ( wakefulness promoting), ergogenic (physical performance-enhancing), or nootropic (cognitive-enhancing) properties (particularly in workplace settings); it is also used recreationally , often in social settings."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -567,12 +567,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "caffeine",
-     "line": "Some people drink beverages containing caffeine to relieve or prevent drowsiness and to improve cognitive performance."
-    },
-    {
-     "corpus": "wikipedia_pharm",
-     "page": "caffeine",
-     "line": "To make these drinks, caffeine is extracted by steeping the plant product in water, a process called infusion ."
+     "line": "Steeping the plant product in water—a process called infusion —extracts the caffeine and other components for various purposes."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -587,7 +582,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "caffeine",
-     "line": "Caffeine is the world's most widely consumed psychoactive drug ."
+     "line": "Caffeine is the world's most widely consumed psychoactive drug."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -667,7 +662,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "caffeine",
-     "line": "A 6 ounce cup of coffee typically contains 50–175 mg of caffeine, depending on what \"bean\" (seed) is used (and how much), how it is roasted, and how it is prepared (e.g., drip , percolation , or espresso )."
+     "line": "A 6-ounce cup of coffee typically contains 50–175 mg of caffeine, depending on what \"bean\" (seed) is used (and how much), how it is roasted, and how it is prepared (e.g., drip , percolation , or espresso )."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -682,7 +677,7 @@
     {
      "corpus": "wikipedia_fr",
      "page": "caf_ine",
-     "line": "Vous lisez un « bon article » labellisé en 2009."
+     "line": "Vous lisez un « bon article », labellisé en 2009."
     },
     {
      "corpus": "wikipedia_fr",
@@ -894,7 +889,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "cocaine",
-     "line": "Cocaine , also known as coke , is a central nervous system (CNS) stimulant and tropane alkaloid , derived primarily from the leaves of two coca species native to South America:"
+     "line": "Cocaine is a central nervous system (CNS) stimulant and tropane alkaloid , derived primarily from the leaves of two coca species native to South America:"
     },
     {
      "corpus": "wikipedia_pharm",
@@ -1084,7 +1079,7 @@
     {
      "corpus": "wikipedia_fr",
      "page": "coca_ne",
-     "line": "Célèbre psychotrope , elle est un très puissant stimulant du système nerveux central , et sa consommation est extrêmement addictive ."
+     "line": "Psychotrope , elle est un stimulant du système nerveux central , et sa consommation est très addictive ."
     },
     {
      "corpus": "wikipedia_fr",
@@ -1109,7 +1104,7 @@
     {
      "corpus": "wikipedia_fr",
      "page": "coca_ne",
-     "line": "D'autres pays ultra-restrictifs peuvent appliquer la peine de mort comme l'Arabie Saoudite ou les Émirats Arabes Unis ."
+     "line": "D'autres pays restrictifs peuvent appliquer la peine de mort comme l'Arabie Saoudite ou les Émirats Arabes Unis ."
     },
     {
      "corpus": "wikipedia_fr",
@@ -2936,12 +2931,12 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "methaqualone",
-     "line": "However, methaqualone continues to be used as a recreational drug in certain places such as South Africa and elsewhere up to the present."
+     "line": "However, methaqualone continues to be used as a recreational drug in certain places such as South Africa ."
     },
     {
      "corpus": "wikipedia_pharm",
      "page": "methaqualone",
-     "line": "In addition, methaqualone analogues with at least 100-fold greater potency than methaqualone itself such as mephenaqualone have emerged as novel designer drugs in the late 2010s and early 2020s."
+     "line": "In addition, methaqualone analogues with greater than 100-fold potency such as mephenaqualone have emerged as novel designer drugs in the late 2010s and early 2020s."
     },
     {
      "corpus": "wikipedia_fr",
@@ -3988,7 +3983,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "pregabalin",
-     "line": "Drug class | Gabapentinoid GABA analogue Anticonvulsant Anxiolytic"
+     "line": "Drug class | Gabapentinoid"
     },
     {
      "corpus": "wikipedia_pharm",
@@ -3998,7 +3993,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "pregabalin",
-     "line": "Pregabalin , sold under the brand names Axalid and Lyrica among others, is an anticonvulsant , analgesic , and anxiolytic amino acid medication used to treat epilepsy , neuropathic pain , fibromyalgia , restless legs syndrome , opioid withdrawal , generalized anxiety disorder (GAD), and postherpetic neuralgia (a type of nerve damage that can result from shingles )."
+     "line": "Pregabalin , sold under the brand name Lyrica among others, is an anticonvulsant , analgesic , and anxiolytic medication used to treat epilepsy , neuropathic pain , fibromyalgia , restless legs syndrome , opioid withdrawal , generalized anxiety disorder (GAD), and postherpetic neuralgia ."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -4043,12 +4038,12 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "pregabalin",
-     "line": "It is a gabapentinoid medication which is a class of drugs within the derivatives of γ-aminobutyric acid ( GABA analogues ), an inhibitory neurotransmitter ."
+     "line": "It is a gabapentinoid medication, a class of drugs within the chemical derivatives of γ-aminobutyric acid ( GABA analogues ), an inhibitory neurotransmitter ."
     },
     {
      "corpus": "wikipedia_pharm",
      "page": "pregabalin",
-     "line": "Although pregabalin is inactive at GABA receptors and GABA synapses , it acts by binding specifically to the α 2 δ-1 protein that was first described as an auxiliary subunit of voltage-gated calcium channels ."
+     "line": "Although pregabalin is inactive at GABA receptors and GABA synapses , it acts by binding specifically to the α 2 δ-1 protein that was first described as an auxiliary subunit of Voltage-gated calcium channels ."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -4058,7 +4053,7 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "pregabalin",
-     "line": "In the US, pregabalin is a Schedule V controlled substance under the Controlled Substances Act of 1970 , which means that the drug has low abuse potential compared to substances in Schedules I–IV, however, there is still a potential for misuse."
+     "line": "In the US, pregabalin is a Schedule V controlled substance under the Controlled Substances Act of 1970 , which means it has low abuse potential compared to substances in Schedules I–IV, though there is still a potential for misuse."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -5897,6 +5892,174 @@
      "corpus": "wikipedia_pharm",
      "page": "tiapride",
      "line": "A derivative of benzamide , tiapride is chemically and functionally similar to other benzamide antipsychotics such as sulpiride and amisulpride known for their dopamine antagonist effects."
+    }
+   ]
+  },
+  "meprobamate": {
+   "name": "Meprobamate",
+   "categories": [
+    "anxiolytic"
+   ],
+   "labels": [
+    "Anxiolytic"
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "meprobamate",
+     "line": "Meprobamate , sold under the brand names Miltown and Equanil , among others, is a carbamate derivative used as an anxiolytic drug."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "meprobamate",
+     "line": "It was the best-selling minor tranquilizer for a time, but has largely been replaced by the benzodiazepines due to their wider therapeutic index (lower risk of toxicity at therapeutically prescribed doses) and lower incidence of serious side effects."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "m_probamate",
+     "line": "Unités du SI et CNTP , sauf indication contraire."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "m_probamate",
+     "line": "Le méprobamate , anciennement commercialisé sous le nom Equanil ou Miltown , est un médicament faisant partie de la famille des carbamates primaires , famille dont il a été le plus répandu."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "m_probamate",
+     "line": "Il est toujours utilisé dans une dizaine de pays pour le traitement de l' anxiété ou de l' insomnie sévère , y compris parfois en médecine vétérinaire ."
+    }
+   ]
+  },
+  "pentobarbital": {
+   "name": "Pentobarbital",
+   "categories": [
+    "hypnotic"
+   ],
+   "labels": [
+    "Hypnotic / sedative"
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "Drug class | Barbiturate"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "Above: molecular structure of pentobarbitone (keto form) Below:"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "3D representation of pentobarbitone (keto form) molecule"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "IUPAC name 5-Ethyl-5-(1-methylbutyl)-2,4,6(1 H ,3 H ,5 H )-pyrimidinetrione"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "Pentobarbital is a short-acting barbiturate typically used as a sedative , a preanesthetic , and to control convulsions in emergencies."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "It can also be used for short-term treatment of insomnia but has been largely replaced by the benzodiazepine family of drugs."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "In high doses, pentobarbital causes death by respiratory arrest ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "It is frequently used for veterinary euthanasia , and is used by some US states and the United States federal government for executions by lethal injection ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "In some countries and states, it is also used for physician-assisted suicide ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "Pentobarbital was developed by Ernest H."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "Tabern at Abbott Laboratories in 1930."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "pentobarbital",
+     "line": "The drug was widely abused beginning in the late 1930s, and it is sometimes known as \"yellow jackets\" due to the yellow color of Nembutal-branded capsules."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "pentobarbital",
+     "line": "Unités du SI et CNTP , sauf indication contraire."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "pentobarbital",
+     "line": "Le pentobarbital (également : pentobarbitone - nom commercial :"
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "pentobarbital",
+     "line": "Nembutal ) est un barbiturique qui a été utilisé en anesthésie et comme somnifère (pour ses propriétés hypnotiques )."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "pentobarbital",
+     "line": "Il est réputé pour entraîner une certaine dépendance."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "pentobarbital",
+     "line": "Le pentobarbital est utilisé à fortes doses pour pratiquer des euthanasies , principalement vétérinaires, mais aussi dans l' aide au suicide dans les pays où cette pratique est légale, et provoque une mort sans douleur ."
+    }
+   ]
+  },
+  "tofisopam": {
+   "name": "Tofisopam",
+   "categories": [
+    "anxiolytic"
+   ],
+   "labels": [
+    "Anxiolytic"
+   ],
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "tofisopam",
+     "line": "IUPAC name 1-(3,4-dimethoxyphenyl)-5-ethyl-7,8-dimethoxy-4-methyl-5 H -2,3-benzodiazepine"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "tofisopam",
+     "line": "Tofisopam is chemically a 2,3-benzodiazepine marketed as an anxiolytic under trade names including Emandaxin and Grandaxin ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "tofisopam",
+     "line": "Unlike other anxiolytic benzodiazepines , which are generally 1,4- or 1,5-substituted, tofisopam does not have anticonvulsant , sedative , skeletal muscle relaxant , motor skill -impairing or amnestic properties."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "tofisopam",
+     "line": "Unités du SI et CNTP , sauf indication contraire."
+    },
+    {
+     "corpus": "wikipedia_fr",
+     "page": "tofisopam",
+     "line": "Le tofisopam (ou emandaxin ) est une molécule de synthèse dérivée des benzodiazépines ."
     }
    ]
   }

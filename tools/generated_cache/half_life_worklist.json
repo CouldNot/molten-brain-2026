@@ -2790,11 +2790,46 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "tizanidine",
-    "line": "Elimination half-life | Tizanidine: 2.54 hours Inactive metabolites: 20–40 hours",
+    "line": "Elimination half-life | Tizanidine: 2.5 hours Inactive metabolites: 20–40 hours",
     "durations": [
      {
-      "hours": 2.54
+      "hours": 2.5
      },
+     {
+      "hours": 20.0,
+      "hours_max": 40.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tizanidine",
+    "line": "Due to its short elimination half-life and duration , tizanidine is generally taken once every 6 to 8 hours as needed, with a maximum of 3 doses per 24 hours.",
+    "durations": [
+     {
+      "hours": 6.0,
+      "hours_max": 8.0
+     },
+     {
+      "hours": 24.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tizanidine",
+    "line": "Its elimination half-life is approximately 2.5 hours.",
+    "durations": [
+     {
+      "hours": 2.5
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tizanidine",
+    "line": "The inactive metabolites of tizanidine have half-lives of 20 to 40 hours.",
+    "durations": [
      {
       "hours": 20.0,
       "hours_max": 40.0

@@ -217,5 +217,9 @@
  "bumetanide": {
   "index": 0,
   "hours": 1.5
+ },
+ "tizanidine": {
+  "index": 2,
+  "hours": 2.5
  }
 }
