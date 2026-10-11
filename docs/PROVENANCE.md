@@ -23,9 +23,10 @@ coloured **pill**; the grade is **data**. Grades (`PROVENANCE_LEVELS`, weakest t
 
 Every node's grade rides its own row/heading (`makeProvenancePill(level)`), never a separate bottom
 "Sources" block (a source only ever grades one node); a node with no source shows `NOSOURCE`, never a
-blank. The pill's tooltip shows the concrete source (the verbatim quote + citation) then the grade in
-words (`prov.name.*`, so a bare ✕ still says "No source") and a small "Click
-for details" cue (`makeDetailsCue`) that opens the Sources & provenance popup: that popup is the single
+blank. The pill's tooltip leads with the grade in words (`prov.name.*`, a one-line gloss, so a bare ✕
+still says "No source"), then the concrete source (the verbatim quote + citation), then an explicit
+call to action ("Click to read how every piece of information in neurarium is sourced",
+`makeDetailsCue`) that opens the Sources & provenance popup: that popup is the single
 place explaining what each grade means, so the verbose per-grade paragraph is not inlined into every
 pill (it stays only as the pill's `aria-label`, `info.prov*`). The popup's tally is
 **progressive-disclosure** (`buildAboutSourcing`): one global bar over all knowledge nodes by default,

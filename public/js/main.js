@@ -2303,7 +2303,7 @@ function createInfoPanel(data, sourcingModal) {
     // gap. Neutral, and its tooltip says why.
     dataset: { glyph: "◌", tip: "info.provDataset" },
   };
-  // A small "Click for details" cue for a provenance tooltip: opens the Sources &
+  // The closing call to action of a provenance tooltip: opens the Sources &
   // provenance popup (the single place that explains what each grade means) and
   // dismisses its own tooltip first. Replaces the verbose per-grade paragraph that
   // used to be inlined into every pill (see makeProvenancePill).
@@ -2319,25 +2319,24 @@ function createInfoPanel(data, sourcingModal) {
     return cue;
   };
 
-  // `extra` (optional) is the concrete source shown *first* in the tooltip (the
-  // per-claim drug pill's verbatim quote + page ref, or a bibliographic citation);
-  // under it sits a "Click for details" cue that opens the Sources & provenance
-  // popup for the grade key (the verbose per-grade explainer is no longer inlined
-  // into every pill). `base` (the full grade text) stays as the pill's aria-label.
+  // Tooltip = the grade in words, then `extra` (optional: the concrete source, i.e.
+  // the verbatim quote + page ref, or a bibliographic citation), then a call-to-action
+  // cue opening the Sources & provenance popup (the one place the grades are
+  // explained). `base` (the full grade text) stays as the pill's aria-label.
   // (.help-tip is white-space:pre-line so the newlines show.)
   const makeProvenancePill = (level, extra) => {
     const spec = PROVENANCE_PILLS[level];
     const base = spec ? t(spec.tip) : t("info.provNone");
     const tip = document.createDocumentFragment();
+    // The grade in words always leads, so even a pill with nothing else to show (a
+    // bare ✕) says what it is; the closing cue then names what its click opens.
+    tip.append(el("strong", "src-grade-name", t(`prov.name.${spec ? level : "none"}`)),
+      document.createTextNode("\n\n"));
     if (extra instanceof Node) {
       tip.append(extra, document.createTextNode("\n\n"));
     } else if (extra) {
       tip.append(document.createTextNode(`${extra}\n\n`));
     }
-    // The grade in words, always: a pill with nothing else to show (a bare ✕) would
-    // otherwise tooltip only "Click for details", which names nothing.
-    tip.append(el("strong", "src-grade-name", t(`prov.name.${spec ? level : "none"}`)),
-      document.createTextNode("\n"));
     tip.append(makeDetailsCue());
     const cls = spec ? `src-pill src-prov-${level}` : "src-pill src-todo";
     const pill = el("button", cls, spec ? spec.glyph : NOSOURCE_GLYPH);
