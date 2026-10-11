@@ -50,7 +50,7 @@ YEAR_RE = re.compile(r"\b(1[89]\d\d|20\d\d)\b")
 # articles use ("withdrawn worldwide", "withdrawn from most markets").
 COUNTRIES: dict[str, dict[str, str]] = {
     "us": {"en": "United States", "fr": "États-Unis",
-           "attests": r"\bUnited States\b|\bU\.?S\.?A?\b|\bFDA\b|[ÉE]tats-Unis|américain|\bAmerica"},
+           "attests": r"\bUnited States\b|\bU\.?S\.?A?\b|\bFDA\b|Food and Drug Administration|[ÉE]tats-Unis|américain|\bAmerica"},
     "uk": {"en": "United Kingdom", "fr": "Royaume-Uni",
            "attests": r"United Kingdom|\bUK\b|\bU\.K\.|Britain|British|England|Royaume-Uni|britannique"},
     "fr": {"en": "France", "fr": "France", "attests": r"\bFrance\b|\bFrench\b|français|\bANSM\b"},
@@ -64,7 +64,9 @@ COUNTRIES: dict[str, dict[str, str]] = {
     "dk": {"en": "Denmark", "fr": "Danemark", "attests": r"Denmark|Danish|Danemark"},
     "at": {"en": "Austria", "fr": "Autriche", "attests": r"Austria|Autriche"},
     "eu": {"en": "European Union", "fr": "Union européenne",
-           "attests": r"\bEurope|\bEU\b|\bEMA\b|europ[ée]en"},
+           "attests": r"European Union|\bEU\b|\bEMA\b|European Medicines Agency|"
+                      r"European Commission|Union européenne|Commission européenne|"
+                      r"Agence européenne des médicaments|autorités européennes"},
     "ca": {"en": "Canada", "fr": "Canada", "attests": r"Canad"},
     "au": {"en": "Australia", "fr": "Australie", "attests": r"Australi"},
     "nz": {"en": "New Zealand", "fr": "Nouvelle-Zélande",

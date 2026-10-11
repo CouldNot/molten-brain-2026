@@ -1,0 +1,2206 @@
+{
+ "2cb": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "acamprosate": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1989
+  },
+  "withdrawals": []
+ },
+ "agomelatine": {
+  "approval": {
+   "agency": null,
+   "country": "eu",
+   "index": 0,
+   "year": 2009
+  },
+  "withdrawals": []
+ },
+ "alimemazine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "alpidem": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1991
+  },
+  "withdrawals": [
+   {
+    "country": "fr",
+    "index": 1,
+    "reason": "liver",
+    "year": 1993
+   }
+  ]
+ },
+ "alprazolam": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1981
+  },
+  "withdrawals": []
+ },
+ "amantadine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 5,
+   "year": 1966
+  },
+  "withdrawals": []
+ },
+ "amisulpride": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "amitriptyline": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1961
+  },
+  "withdrawals": []
+ },
+ "amobarbital": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1923
+  },
+  "withdrawals": []
+ },
+ "amoxapine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1980
+  },
+  "withdrawals": []
+ },
+ "amphetamine_dl": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1932
+  },
+  "withdrawals": []
+ },
+ "aripiprazole": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 2,
+   "year": 2002
+  },
+  "withdrawals": []
+ },
+ "armodafinil": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2007
+  },
+  "withdrawals": []
+ },
+ "asenapine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2009
+  },
+  "withdrawals": []
+ },
+ "atomoxetine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2002
+  },
+  "withdrawals": [
+   {
+    "country": "fr",
+    "index": 4,
+    "reason": "unstated",
+    "year": 2012
+   }
+  ]
+ },
+ "atropine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "baclofen": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1971
+  },
+  "withdrawals": []
+ },
+ "benperidol": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1966
+  },
+  "withdrawals": []
+ },
+ "benztropine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1954
+  },
+  "withdrawals": []
+ },
+ "betahistine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1966
+  },
+  "withdrawals": []
+ },
+ "biperiden": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1959
+  },
+  "withdrawals": []
+ },
+ "blonanserin": {
+  "approval": {
+   "agency": null,
+   "country": "jp",
+   "index": 0,
+   "year": 2008
+  },
+  "withdrawals": []
+ },
+ "bremelanotide": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2019
+  },
+  "withdrawals": []
+ },
+ "brexanolone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2019
+  },
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 0,
+    "reason": "unstated",
+    "year": 2025
+   }
+  ]
+ },
+ "brexpiprazole": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2015
+  },
+  "withdrawals": []
+ },
+ "brivaracetam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 2016
+  },
+  "withdrawals": []
+ },
+ "bromazepam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1974
+  },
+  "withdrawals": []
+ },
+ "bromocriptine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1975
+  },
+  "withdrawals": []
+ },
+ "brotizolam": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "bumetanide": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "buprenorphine": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 1,
+   "year": 1977
+  },
+  "withdrawals": []
+ },
+ "bupropion": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 2,
+   "year": 1985
+  },
+  "withdrawals": []
+ },
+ "buspirone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1986
+  },
+  "withdrawals": []
+ },
+ "cabergoline": {
+  "approval": {
+   "agency": null,
+   "country": "nl",
+   "index": 1,
+   "year": 1992
+  },
+  "withdrawals": []
+ },
+ "caffeine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "cannabidiol": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2018
+  },
+  "withdrawals": []
+ },
+ "caprylidene": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "carbamazepine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1962
+  },
+  "withdrawals": []
+ },
+ "cariprazine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2015
+  },
+  "withdrawals": []
+ },
+ "chloral_hydrate": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "chlordiazepoxide": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1960
+  },
+  "withdrawals": []
+ },
+ "chlorpromazine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 3,
+   "year": 1952
+  },
+  "withdrawals": []
+ },
+ "chlorprothixene": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1959
+  },
+  "withdrawals": []
+ },
+ "citalopram": {
+  "approval": {
+   "agency": null,
+   "country": "dk",
+   "index": 1,
+   "year": 1989
+  },
+  "withdrawals": []
+ },
+ "clobazam": {
+  "approval": {
+   "agency": null,
+   "country": "au",
+   "index": 0,
+   "year": 1970
+  },
+  "withdrawals": []
+ },
+ "clomipramine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1970
+  },
+  "withdrawals": []
+ },
+ "clonazepam": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1975
+  },
+  "withdrawals": []
+ },
+ "clonidine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1966
+  },
+  "withdrawals": []
+ },
+ "clorazepate": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1967
+  },
+  "withdrawals": []
+ },
+ "clozapine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 3,
+   "year": 1971
+  },
+  "withdrawals": []
+ },
+ "cocaine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "codeine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "cyamemazine": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1972
+  },
+  "withdrawals": []
+ },
+ "cyclobarbital": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "cyproheptadine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1961
+  },
+  "withdrawals": []
+ },
+ "daridorexant": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2022
+  },
+  "withdrawals": []
+ },
+ "desipramine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "desvenlafaxine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 3,
+   "year": 2008
+  },
+  "withdrawals": []
+ },
+ "deutetrabenazine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2017
+  },
+  "withdrawals": []
+ },
+ "dexmedetomidine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1999
+  },
+  "withdrawals": []
+ },
+ "dextromethorphanbupropion": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2022
+  },
+  "withdrawals": []
+ },
+ "dextromethorphanquinidine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2010
+  },
+  "withdrawals": []
+ },
+ "diazepam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 3,
+   "year": 1963
+  },
+  "withdrawals": []
+ },
+ "diphenhydramine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1946
+  },
+  "withdrawals": []
+ },
+ "disulfiram": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "dmt": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "domperidone": {
+  "approval": {
+   "agency": null,
+   "country": "ch",
+   "index": 1,
+   "year": 1979
+  },
+  "withdrawals": []
+ },
+ "donepezil": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 1996
+  },
+  "withdrawals": []
+ },
+ "dothiepin": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 0,
+   "year": 1969
+  },
+  "withdrawals": []
+ },
+ "doxepin": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1969
+  },
+  "withdrawals": []
+ },
+ "doxylamine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "duloxetine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 2,
+   "year": 2004
+  },
+  "withdrawals": []
+ },
+ "ephedrine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1926
+  },
+  "withdrawals": []
+ },
+ "erenumab": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2018
+  },
+  "withdrawals": []
+ },
+ "escitalopram": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2002
+  },
+  "withdrawals": []
+ },
+ "esketamine": {
+  "approval": {
+   "agency": null,
+   "country": "de",
+   "index": 2,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "eszopiclone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2004
+  },
+  "withdrawals": []
+ },
+ "ethanol": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "ethosuximide": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1960
+  },
+  "withdrawals": []
+ },
+ "etomidate": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1972
+  },
+  "withdrawals": []
+ },
+ "fenfluramine": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1963
+  },
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 1,
+    "reason": "cardiac",
+    "year": 1997
+   },
+   {
+    "country": "fr",
+    "index": 9,
+    "reason": "cardiac",
+    "year": 1997
+   },
+   {
+    "country": "in",
+    "index": 4,
+    "reason": "unstated",
+    "year": 1998
+   }
+  ]
+ },
+ "fentanyl": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1968
+  },
+  "withdrawals": []
+ },
+ "flibanserin": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 5,
+   "year": 2015
+  },
+  "withdrawals": []
+ },
+ "flumazenil": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1987
+  },
+  "withdrawals": []
+ },
+ "flunarizine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "flunitrazepam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1972
+  },
+  "withdrawals": []
+ },
+ "fluoxetine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 4,
+   "year": 1986
+  },
+  "withdrawals": []
+ },
+ "flupenthixol": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1965
+  },
+  "withdrawals": []
+ },
+ "fluphenazine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1959
+  },
+  "withdrawals": []
+ },
+ "fluvoxamine": {
+  "approval": {
+   "agency": null,
+   "country": "ch",
+   "index": 0,
+   "year": 1983
+  },
+  "withdrawals": []
+ },
+ "furosemide": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1964
+  },
+  "withdrawals": []
+ },
+ "gabapentin": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 0,
+   "year": 1993
+  },
+  "withdrawals": []
+ },
+ "glutethimide": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "granisetron": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 0,
+   "year": 1991
+  },
+  "withdrawals": []
+ },
+ "guanfacine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 1986
+  },
+  "withdrawals": []
+ },
+ "haloperidol": {
+  "approval": {
+   "agency": null,
+   "country": "be",
+   "index": 0,
+   "year": 1959
+  },
+  "withdrawals": []
+ },
+ "heroin": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1898
+  },
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 1,
+    "reason": "unstated",
+    "year": 1924
+   },
+   {
+    "country": "us",
+    "index": 7,
+    "reason": "unstated",
+    "year": 1956
+   }
+  ]
+ },
+ "hydromorphone": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1926
+  },
+  "withdrawals": []
+ },
+ "hydroxyzine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1956
+  },
+  "withdrawals": []
+ },
+ "ibogaine": {
+  "approval": null,
+  "withdrawals": [
+   {
+    "country": "fr",
+    "index": 1,
+    "reason": "unstated",
+    "year": 1966
+   }
+  ]
+ },
+ "iloperidone": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 2,
+   "year": 2009
+  },
+  "withdrawals": []
+ },
+ "imipramine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1957
+  },
+  "withdrawals": []
+ },
+ "indalpine": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1983
+  },
+  "withdrawals": []
+ },
+ "isoflurane": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1979
+  },
+  "withdrawals": []
+ },
+ "istradefylline": {
+  "approval": {
+   "agency": null,
+   "country": "jp",
+   "index": 0,
+   "year": 2013
+  },
+  "withdrawals": []
+ },
+ "ketamine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1970
+  },
+  "withdrawals": []
+ },
+ "lacosamide": {
+  "approval": {
+   "agency": null,
+   "country": "eu",
+   "index": 2,
+   "year": 2008
+  },
+  "withdrawals": []
+ },
+ "lamotrigine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1990
+  },
+  "withdrawals": []
+ },
+ "lemborexant": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2019
+  },
+  "withdrawals": []
+ },
+ "levetiracetam": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1999
+  },
+  "withdrawals": []
+ },
+ "levodopa": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1970
+  },
+  "withdrawals": []
+ },
+ "levomepromazine": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1957
+  },
+  "withdrawals": []
+ },
+ "levomilnacipran": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2013
+  },
+  "withdrawals": []
+ },
+ "lisdexamfetamine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2007
+  },
+  "withdrawals": []
+ },
+ "lithium": {
+  "approval": null,
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 0,
+    "reason": "safety",
+    "year": 1949
+   }
+  ]
+ },
+ "lofepramine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "lofexidine": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 1,
+   "year": 1992
+  },
+  "withdrawals": []
+ },
+ "loprazolam": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "lorazepam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1977
+  },
+  "withdrawals": []
+ },
+ "lormetazepam": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "loxapine": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1978
+  },
+  "withdrawals": []
+ },
+ "lsd": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1947
+  },
+  "withdrawals": [
+   {
+    "country": "fr",
+    "index": 8,
+    "reason": "unstated",
+    "year": 1966
+   }
+  ]
+ },
+ "lumateperone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2019
+  },
+  "withdrawals": []
+ },
+ "lurasidone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2010
+  },
+  "withdrawals": []
+ },
+ "maprotiline": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1974
+  },
+  "withdrawals": []
+ },
+ "mdma": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "memantine": {
+  "approval": {
+   "agency": null,
+   "country": "de",
+   "index": 0,
+   "year": 1989
+  },
+  "withdrawals": []
+ },
+ "meprobamate": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1955
+  },
+  "withdrawals": [
+   {
+    "country": "eu",
+    "index": 1,
+    "reason": "safety",
+    "year": 2012
+   },
+   {
+    "country": "ca",
+    "index": 1,
+    "reason": "unstated",
+    "year": 2013
+   }
+  ]
+ },
+ "mesoridazine": {
+  "approval": null,
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 0,
+    "reason": "cardiac",
+    "year": 2004
+   }
+  ]
+ },
+ "methadone": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "methamphetamine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1938
+  },
+  "withdrawals": []
+ },
+ "methaqualone": {
+  "approval": null,
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 1,
+    "reason": "unstated",
+    "year": 1983
+   }
+  ]
+ },
+ "methylphenidate_d": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2001
+  },
+  "withdrawals": []
+ },
+ "methylphenidate_dl": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1955
+  },
+  "withdrawals": []
+ },
+ "metoclopramide": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1964
+  },
+  "withdrawals": []
+ },
+ "mianserin": {
+  "approval": {
+   "agency": null,
+   "country": "de",
+   "index": 0,
+   "year": 1975
+  },
+  "withdrawals": []
+ },
+ "midazolam": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 1,
+   "year": 1986
+  },
+  "withdrawals": []
+ },
+ "milnacipran": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1996
+  },
+  "withdrawals": []
+ },
+ "mirtazapine": {
+  "approval": {
+   "agency": null,
+   "country": "nl",
+   "index": 0,
+   "year": 1994
+  },
+  "withdrawals": []
+ },
+ "moclobemide": {
+  "approval": {
+   "agency": null,
+   "country": "se",
+   "index": 3,
+   "year": 1989
+  },
+  "withdrawals": []
+ },
+ "modafinil": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1994
+  },
+  "withdrawals": []
+ },
+ "molindone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 1,
+   "year": 1974
+  },
+  "withdrawals": []
+ },
+ "morphine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1817
+  },
+  "withdrawals": []
+ },
+ "nabilone": {
+  "approval": {
+   "agency": "health_canada",
+   "country": "ca",
+   "index": 0,
+   "year": 1981
+  },
+  "withdrawals": [
+   {
+    "country": "us",
+    "index": 1,
+    "reason": "commercial",
+    "year": 1989
+   }
+  ]
+ },
+ "nalmefene": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1995
+  },
+  "withdrawals": []
+ },
+ "naloxone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1971
+  },
+  "withdrawals": []
+ },
+ "naltrexone": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 1984
+  },
+  "withdrawals": []
+ },
+ "naltrexonebupropion": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2014
+  },
+  "withdrawals": []
+ },
+ "nefazodone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 4,
+   "year": 1994
+  },
+  "withdrawals": [
+   {
+    "country": "most_markets",
+    "index": 0,
+    "reason": "liver",
+    "year": 2004
+   },
+   {
+    "country": "ca",
+    "index": 7,
+    "reason": "unstated",
+    "year": 2003
+   }
+  ]
+ },
+ "nitrazepam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1965
+  },
+  "withdrawals": []
+ },
+ "nitrous_oxide": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "nortriptyline": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1963
+  },
+  "withdrawals": []
+ },
+ "olanzapine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1996
+  },
+  "withdrawals": []
+ },
+ "olanzapinesamidorphan": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2021
+  },
+  "withdrawals": []
+ },
+ "ondansetron": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1990
+  },
+  "withdrawals": []
+ },
+ "opipramol": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1961
+  },
+  "withdrawals": []
+ },
+ "oxazepam": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1964
+  },
+  "withdrawals": []
+ },
+ "oxcarbazepine": {
+  "approval": {
+   "agency": null,
+   "country": "dk",
+   "index": 0,
+   "year": 1990
+  },
+  "withdrawals": []
+ },
+ "oxycodone": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "paliperidone": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2006
+  },
+  "withdrawals": []
+ },
+ "pargyline": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1963
+  },
+  "withdrawals": []
+ },
+ "paroxetine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1992
+  },
+  "withdrawals": []
+ },
+ "pentazocine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1964
+  },
+  "withdrawals": []
+ },
+ "pentobarbital": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "perampanel": {
+  "approval": {
+   "agency": null,
+   "country": "eu",
+   "index": 1,
+   "year": 2012
+  },
+  "withdrawals": []
+ },
+ "perospirone": {
+  "approval": {
+   "agency": null,
+   "country": "jp",
+   "index": 0,
+   "year": 2001
+  },
+  "withdrawals": []
+ },
+ "pethidine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1943
+  },
+  "withdrawals": []
+ },
+ "phenazepam": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "phencyclidine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "phenobarbital": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "phentermine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 2,
+   "year": 1959
+  },
+  "withdrawals": [
+   {
+    "country": "uk",
+    "index": 1,
+    "reason": "unstated",
+    "year": 2000
+   }
+  ]
+ },
+ "phenterminetopiramate": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2012
+  },
+  "withdrawals": []
+ },
+ "phenytoin": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1953
+  },
+  "withdrawals": []
+ },
+ "pimavanserin": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 2,
+   "year": 2016
+  },
+  "withdrawals": []
+ },
+ "pimozide": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1985
+  },
+  "withdrawals": []
+ },
+ "pipothiazine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1980
+  },
+  "withdrawals": []
+ },
+ "pitolisant": {
+  "approval": {
+   "agency": "ema",
+   "country": "eu",
+   "index": 1,
+   "year": 2016
+  },
+  "withdrawals": []
+ },
+ "pramipexole": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "pregabalin": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2004
+  },
+  "withdrawals": []
+ },
+ "primidone": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "prochlorperazine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1956
+  },
+  "withdrawals": []
+ },
+ "promethazine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1951
+  },
+  "withdrawals": []
+ },
+ "propofol": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 0,
+   "year": 1986
+  },
+  "withdrawals": []
+ },
+ "propranolol": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1964
+  },
+  "withdrawals": []
+ },
+ "protriptyline": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1966
+  },
+  "withdrawals": []
+ },
+ "pseudoephedrine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "psilocybin": {
+  "approval": {
+   "agency": null,
+   "country": "au",
+   "index": 0,
+   "year": 2023
+  },
+  "withdrawals": []
+ },
+ "quetiapine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 6,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "ramelteon": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 1,
+   "year": 2005
+  },
+  "withdrawals": []
+ },
+ "rasagiline": {
+  "approval": {
+   "agency": "ema",
+   "country": "eu",
+   "index": 1,
+   "year": 2005
+  },
+  "withdrawals": []
+ },
+ "reboxetine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "reserpine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1954
+  },
+  "withdrawals": []
+ },
+ "rimegepant": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 3,
+   "year": 2020
+  },
+  "withdrawals": []
+ },
+ "rimonabant": {
+  "approval": {
+   "agency": null,
+   "country": "eu",
+   "index": 1,
+   "year": 2006
+  },
+  "withdrawals": [
+   {
+    "country": "worldwide",
+    "index": 0,
+    "reason": "psychiatric",
+    "year": 2008
+   },
+   {
+    "country": "eu",
+    "index": 9,
+    "reason": "safety",
+    "year": 2008
+   }
+  ]
+ },
+ "risperidone": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 1993
+  },
+  "withdrawals": []
+ },
+ "rizatriptan": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1998
+  },
+  "withdrawals": []
+ },
+ "ropinirole": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "rotigotine": {
+  "approval": {
+   "agency": "ema",
+   "country": "eu",
+   "index": 1,
+   "year": 2006
+  },
+  "withdrawals": []
+ },
+ "safinamide": {
+  "approval": {
+   "agency": null,
+   "country": "eu",
+   "index": 0,
+   "year": 2015
+  },
+  "withdrawals": []
+ },
+ "scopolamine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "secobarbital": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "selegiline": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1977
+  },
+  "withdrawals": []
+ },
+ "serdexmethylphenidate": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2021
+  },
+  "withdrawals": []
+ },
+ "sertindole": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "sertraline": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "sibutramine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 4,
+   "year": 1997
+  },
+  "withdrawals": [
+   {
+    "country": "most_markets",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "us",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "eu",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "uk",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "ca",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "au",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "nz",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "cn",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   },
+   {
+    "country": "in",
+    "index": 2,
+    "reason": "cardiac",
+    "year": 2010
+   }
+  ]
+ },
+ "sildenafil": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 1998
+  },
+  "withdrawals": []
+ },
+ "sodium_oxybate": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1964
+  },
+  "withdrawals": []
+ },
+ "solriamfetol": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 2,
+   "year": 2019
+  },
+  "withdrawals": []
+ },
+ "sulfonmethane": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "sumatriptan": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1991
+  },
+  "withdrawals": []
+ },
+ "suvorexant": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2014
+  },
+  "withdrawals": []
+ },
+ "tapentadol": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2008
+  },
+  "withdrawals": []
+ },
+ "tasimelteon": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2014
+  },
+  "withdrawals": []
+ },
+ "temazepam": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "tetrabenazine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2008
+  },
+  "withdrawals": []
+ },
+ "thc": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "thiopental": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "thioridazine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "thiothixene": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1967
+  },
+  "withdrawals": []
+ },
+ "tiagabine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 1,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "tianeptine": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1983
+  },
+  "withdrawals": []
+ },
+ "tizanidine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1996
+  },
+  "withdrawals": []
+ },
+ "tolcapone": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1997
+  },
+  "withdrawals": []
+ },
+ "topiramate": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1996
+  },
+  "withdrawals": []
+ },
+ "tramadol": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1977
+  },
+  "withdrawals": []
+ },
+ "tranylcypromine": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 0,
+   "year": 1960
+  },
+  "withdrawals": []
+ },
+ "trazodone": {
+  "approval": {
+   "agency": null,
+   "country": "it",
+   "index": 1,
+   "year": 1972
+  },
+  "withdrawals": []
+ },
+ "trifluoperazine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1959
+  },
+  "withdrawals": []
+ },
+ "trihexyphenidyl": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 1949
+  },
+  "withdrawals": []
+ },
+ "triiodothyronine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "trimipramine": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1966
+  },
+  "withdrawals": []
+ },
+ "valbenazine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 0,
+   "year": 2017
+  },
+  "withdrawals": []
+ },
+ "valproate": {
+  "approval": {
+   "agency": null,
+   "country": "fr",
+   "index": 0,
+   "year": 1967
+  },
+  "withdrawals": []
+ },
+ "varenicline": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 2006
+  },
+  "withdrawals": []
+ },
+ "venlafaxine": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1993
+  },
+  "withdrawals": []
+ },
+ "vigabatrin": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 0,
+   "year": 1989
+  },
+  "withdrawals": []
+ },
+ "vilazodone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2011
+  },
+  "withdrawals": []
+ },
+ "viloxazine": {
+  "approval": {
+   "agency": null,
+   "country": "uk",
+   "index": 5,
+   "year": 1974
+  },
+  "withdrawals": [
+   {
+    "country": "worldwide",
+    "index": 3,
+    "reason": "commercial",
+    "year": 2002
+   }
+  ]
+ },
+ "vortioxetine": {
+  "approval": {
+   "agency": "fda",
+   "country": "us",
+   "index": 1,
+   "year": 2013
+  },
+  "withdrawals": []
+ },
+ "zaleplon": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 1999
+  },
+  "withdrawals": []
+ },
+ "ziprasidone": {
+  "approval": {
+   "agency": null,
+   "country": "se",
+   "index": 1,
+   "year": 1998
+  },
+  "withdrawals": []
+ },
+ "zolpidem": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "zonisamide": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1989
+  },
+  "withdrawals": []
+ },
+ "zopiclone": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 0,
+   "year": 1986
+  },
+  "withdrawals": []
+ },
+ "zotepine": {
+  "approval": null,
+  "withdrawals": []
+ },
+ "zuclopenthixol": {
+  "approval": {
+   "agency": null,
+   "country": null,
+   "index": 1,
+   "year": 1978
+  },
+  "withdrawals": []
+ },
+ "zuranolone": {
+  "approval": {
+   "agency": null,
+   "country": "us",
+   "index": 0,
+   "year": 2023
+  },
+  "withdrawals": []
+ }
+}
