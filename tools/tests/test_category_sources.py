@@ -89,5 +89,15 @@ class ScopedWorklistMergeTest(unittest.TestCase):
         self.assertEqual(out["drugs"], {"x": {"candidates": [1]}, "y": {"candidates": [3]}})
         self.assertEqual(out["vocabulary"], {"a": "A", "b": "B"})
 
+    def test_list_worklist_merge_keeps_other_entries(self):
+        """``fetch_metabolite_bindings --only`` once overwrote all 24 metabolite entries
+        with the one it rebuilt; the list-shaped merge keeps them, in place."""
+        from worklist_io import merge_scoped_list
+        existing = [{"key": "a", "v": 1}, {"key": "b", "v": 2}]
+        out = merge_scoped_list(existing, [{"key": "b", "v": 3}, {"key": "c", "v": 4}], "key")
+        self.assertEqual(out, [{"key": "a", "v": 1}, {"key": "b", "v": 3},
+                               {"key": "c", "v": 4}])
+
+
 if __name__ == "__main__":
     unittest.main()

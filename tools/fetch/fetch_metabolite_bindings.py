@@ -67,6 +67,7 @@ sys.path.insert(0, HERE)          # sibling fetch_wikipedia_pharmacology.py + fe
 import fetch_wikipedia_pharmacology as wp  # noqa: E402  (reuse fetch/store/extract; no dup)
 import fetch_ki as ki  # noqa: E402  (PDSP Ki: discover a metabolite's measured targets, corpus #5)
 import drugs_io  # noqa: E402
+from worklist_io import merge_scoped_list  # noqa: E402
 
 WORKLIST = os.path.join(REPO, "tools", "generated_cache",
                         "metabolite_bindings_worklist.json")
@@ -95,6 +96,8 @@ OWN_ARTICLE = {
     "o-desmethylvenlafaxine": "Desvenlafaxine",
     "diethyldithiocarbamate": "Sodium diethyldithiocarbamate",
     "carbon disulfide": "Carbon disulfide",
+    "psilocin": "Psilocin",
+    "desmethyldiazepam (nordazepam)": "Nordazepam",
 }
 
 # Action verbs that mark a paragraph line as a candidate for sourcing a binding's
@@ -338,8 +341,12 @@ def main() -> int:
                 entry["wiki_title"] = real_title
             if slug not in entry["pages"]:   # a judged quote may gate against ANY read page
                 entry["pages"].append(slug)
+            # An own article is about the metabolite throughout, so its long comma-rich
+            # Pharmacology prose is the claim, not a navbox (Nordazepam's GABA-A line has
+            # seven commas): the enumeration cap only guards a parent page.
             for line in action_lines(page_text,
-                                     must_mention=None if is_own else m["name"]):
+                                     must_mention=None if is_own else m["name"],
+                                     max_commas=None if is_own else 5):
                 if line not in seen_lines:
                     seen_lines.add(line)
                     entry["action_candidates"].append(line)
@@ -363,6 +370,11 @@ def main() -> int:
               f"{n_act} action lines, {n_pdsp} PDSP targets, pages={entry['pages']}")
         worklist.append(entry)
 
+    # A scoped (--only) run merges into the committed worklist: overwriting it would
+    # orphan every other metabolite's already-applied picks.
+    if args.only and os.path.exists(WORKLIST):
+        with open(WORKLIST, encoding="utf-8") as f:
+            worklist = merge_scoped_list(json.load(f), worklist, "key")
     os.makedirs(os.path.dirname(WORKLIST), exist_ok=True)
     with open(WORKLIST, "w", encoding="utf-8") as f:
         json.dump(worklist, f, ensure_ascii=False, indent=2)

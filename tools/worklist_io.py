@@ -18,3 +18,16 @@ def merge_scoped(existing: dict, scoped: dict, key: str) -> dict:
     out = {**existing, **{k: v for k, v in scoped.items() if k != key}}
     out[key] = {**existing.get(key, {}), **scoped.get(key, {})}
     return out
+
+
+def merge_scoped_list(existing: list, scoped: list, key: str) -> list:
+    """The list-shaped twin of :func:`merge_scoped`: entries matched on ``entry[key]``,
+    a scoped entry replacing its old self in place, a new one appended.
+
+    >>> merge_scoped_list([{"k": "a", "v": 1}, {"k": "b", "v": 2}],
+    ...                   [{"k": "b", "v": 3}, {"k": "c", "v": 4}], "k")
+    [{'k': 'a', 'v': 1}, {'k': 'b', 'v': 3}, {'k': 'c', 'v': 4}]
+    """
+    fresh = {e[key]: e for e in scoped}
+    out = [fresh.pop(e[key], e) for e in existing]
+    return out + list(fresh.values())
