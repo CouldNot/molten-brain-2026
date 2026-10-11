@@ -1,6 +1,29 @@
 {
   "versions": [
     {
+      "version": "3.99.0",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A drug's panel now says when it was first approved for medical use (the year, plus the country or agency when the source names one), and, in caution ink, every time it was withdrawn from a market, with where, when and why. Each is its own sourced claim with a grade pill, and both are listed in the data browser.",
+          "commits": [
+            "ac44c69",
+            "6de6ef4",
+            "897e9cd",
+            "1dce3cd"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Dated the first approval of 201 drugs and recorded 31 market withdrawals over 17 drugs (nefazodone and alpidem for the liver, sibutramine, fenfluramine and mesoridazine for the heart, rimonabant for psychiatric harm, among others), each sentence from the drug's English or French Wikipedia article and confirmed by an independent judge.",
+          "commits": [
+            "33f4a94"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.98.1",
       "date": "2026-10-11",
       "entries": [
