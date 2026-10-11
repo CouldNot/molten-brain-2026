@@ -75,6 +75,7 @@ from data_generators.addons import (  # noqa: E402
     ADDON_SECTIONS,
     ADDON_SLOTS,
     ADDON_TONES,
+    ADDON_BASES,
     build_addons,
 )
 
@@ -1855,6 +1856,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         "addon_sections": ADDON_SECTIONS,
         "addon_displays": list(ADDON_DISPLAYS),
         "addon_tones": ADDON_TONES,
+        # What an addon is a claim about (see addons.ADDON_BASES): a `dataset`
+        # statement draws its own neutral pill and stays out of the tally.
+        "addon_bases": list(ADDON_BASES),
         # The closed vocabulary of "uncertain" reason kinds (see quotes/uncertainty.py).
         # Emitted so the viewer knows which i18n sentence a bullet takes and check_data.py
         # can reject a kind that is not one of these, from one list rather than three.

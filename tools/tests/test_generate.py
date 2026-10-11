@@ -766,9 +766,29 @@ class AddonTest(unittest.TestCase):
         self.assertEqual(a["sources"], [])
         self.assertEqual(a["slot"], "section.projections")
 
+    def test_dataset_statements_are_flagged_not_left_as_nosource(self):
+        # A statement about the dataset itself (its coverage, its mirroring) cannot be
+        # sourced, so it must say so through the closed basis vocabulary instead of
+        # drawing the red NOSOURCE pill a merely-unsourced claim gets.
+        self.assertIn("dataset", self.meta["addon_bases"])
+        by_id = {a["id"]: a for a in self.addons}
+        for aid in ("projection_bilaterality", "enzyme_list_not_exhaustive"):
+            self.assertEqual(by_id[aid]["basis"], "dataset", aid)
+        for a in self.addons:
+            self.assertIn(a["basis"], self.meta["addon_bases"])
+
+    def test_an_unknown_or_sourced_dataset_basis_raises(self):
+        with self.assertRaises(KeyError):
+            self.mod._addon_record(self._authored(basis="opinion"))
+        src = {"corpus": "stahl", "page": 1, "quote": "x", "provenance": "verified"}
+        with self.assertRaises(KeyError):
+            self.mod._addon_record(self._authored(basis="dataset", sources=[src]))
+
     def test_the_tally_counts_them_as_nodes(self):
+        # Knowledge addons only: a dataset statement is not a node of the tally.
         c = self.meta["provenance_stats"]["by_kind"]["addons"]
-        self.assertEqual(c["total"], len(self.addons))
+        claims = [a for a in self.addons if a["basis"] != "dataset"]
+        self.assertEqual(c["total"], len(claims))
         self.assertEqual(c["verified"] + c["uncertain"] + c["sourced"] + c["missing"],
                          c["total"])
 

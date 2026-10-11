@@ -198,7 +198,7 @@ Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
 ## Addon nodes (panel annotations)
 
-An **addon** is the node kind for a claim with no implied home (a caveat over a section, a flag on one drug), and it **carries its own insertion point** (`owner_kind` + `owner` + `slot`), so adding one is a data edit, never a viewer edit. Authored in `tools/data_generators/addons.py` with closed vocabularies `ADDON_SLOTS` / `ADDON_SECTIONS` / `ADDON_DISPLAYS` / `ADDON_TONES` emitted into meta.
+An **addon** is the node kind for a claim with no implied home (a caveat over a section, a flag on one drug), and it **carries its own insertion point** (`owner_kind` + `owner` + `slot`), so adding one is a data edit, never a viewer edit. Authored in `tools/data_generators/addons.py` with closed vocabularies `ADDON_SLOTS` / `ADDON_SECTIONS` / `ADDON_DISPLAYS` / `ADDON_TONES` / `ADDON_BASES` emitted into meta. A `basis: "dataset"` addon (a statement about the dataset itself) is unsourceable by design: neutral ◌ pill, untallied.
 
 - **A slot exists only if `js/main.js` calls `appendAddons(host, ownerKind, ownerId, slot)` for it**, else its node is silently swallowed; the generator, `check_data.py` and `test_generate.AddonTest` enforce this. Slots today: `drug.top`, `drug.metabolism`, `drug.timing` (under the Tmax / half-life chips), `receptor.top`, `target.top`, `structure.top` (anchors the hemisphere-less base), `section.projections`, `section.metabolism` (the enzyme list is never exhaustive, said once for every drug).
 - The `drug.metabolism` slot has a derived fallback (`autoModulation` -> `derivedAutoModulation`, conditional wording, no pill) that fires **only when the slot holds no authored addon**.

@@ -1439,7 +1439,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       text: localize(a.text),
       // Reduced to one display grade the same way every other node is, so an addon's
       // pill reads identically in its panel, in the Data browser and in the tally.
-      provenance: strongestGrade(a.sources),
+      // A `dataset` addon (meta.addon_bases) states something about this dataset,
+      // not about the brain or a drug: unsourceable by design, untallied, and drawn
+      // with its own neutral pill instead of the red NOSOURCE one.
+      provenance: a.basis === "dataset" ? "dataset" : strongestGrade(a.sources),
       glyph: addonTones[a.tone] || "",
     };
   });

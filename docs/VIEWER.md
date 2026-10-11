@@ -209,7 +209,9 @@ a line in the tally.
 - **Data.** `tools/data_generators/addons.py`: the authored `ADDONS` list plus four **closed**
   vocabularies emitted into meta so the hook registry is data, not JS: `ADDON_SLOTS`
   (`meta.addon_slots`, slot -> the node kind whose panel it is in), `ADDON_SECTIONS`, `ADDON_DISPLAYS`,
-  `ADDON_TONES` (tone -> glyph; the colour ramp each tone paints with is chrome and lives in `index.html`).
+  `ADDON_TONES` (tone -> glyph; the colour ramp each tone paints with is chrome and lives in `index.html`),
+  `ADDON_BASES` (`meta.addon_bases`): `claim` (default, knowledge, sourced + tallied) or `dataset` (a
+  statement about this dataset itself, see the two section anchors below).
 - **A slot exists only if the viewer calls it.** Each `ADDON_SLOTS` key has exactly one
   `appendAddons(host, ownerKind, ownerId, slot)` call in `js/main.js`; a slot with no call site
   would swallow its node silently (well-formed, graded, counted, never drawn), which is why the
@@ -232,9 +234,10 @@ a line in the tally.
 - Five today. One `drug.timing`: lithium's brain half-life (7Li MRS, 28 h) outlasting its serum one
   (16 h), from corpus #17. Two `drug.metabolism`: paroxetine + MDMA inhibit the CYP2D6 that clears them
   (mechanism-based / autoinhibition), so their kinetics are non-linear, which the per-isoform rows
-  below cannot state (a row gives a role, never a curve). Two section anchors, both deliberately
-  **sourceless** (a red NOSOURCE pill) because each states what no corpus backs rather than what one
-  does: `section.projections`, bilaterality (nearly every pathway is authored once and mirrored) as a
+  below cannot state (a row gives a role, never a curve). Two section anchors, both `basis: "dataset"`:
+  unsourceable by construction because each states what no corpus backs rather than what one does, so
+  they draw a neutral dashed **◌** pill ("about this dataset", `.src-prov-dataset`) instead of the red
+  ✕, and stay out of the tally and the Data browser (see `docs/PROVENANCE.md`): `section.projections`, bilaterality (nearly every pathway is authored once and mirrored) as a
   modelling assumption, one node over the whole collection rather than an uncertainty flag on ~90
   arrows; and `section.metabolism`, under every drug's enzyme rows, saying the list holds the routes
   some source happens to name and never claims to be complete, so a missing isoform is a hole in the

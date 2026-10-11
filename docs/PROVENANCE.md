@@ -11,13 +11,20 @@ coloured **pill**; the grade is **data**. Grades (`PROVENANCE_LEVELS`, weakest t
 - **`verified`** (green **✓**): an LLM extracted a quote, it was *programmatically* confirmed present in
   the source, and a separate LLM agreed it supports the claim. Highest grade; still LLM-driven.
 - absence -> a red **✕** pill (`NOSOURCE_GLYPH`, `.src-todo`). Not a stored grade.
+- a neutral dashed **◌** pill (`.src-prov-dataset`) is not a grade at all: it marks an addon whose
+  `basis` is `dataset` (`meta.addon_bases`), a statement about this dataset itself (e.g. "the enzyme list
+  is not exhaustive"), which no corpus could ever source. Such a node is **excluded from the tally** (and
+  from the Data browser, whose counts must match it): it is not knowledge, so counting it as missing would
+  understate coverage and counting it as backed would overstate it. The flag is authored data, never a
+  special case by id, and `check_data.py` rejects one that carries sources.
 - **`uncertain`** (orange **⚠**): not a stored grade either but a **display grade**, taken by a node
   whose `uncertainty` bullets are non-empty (see below). It replaces the green ✓ on the pill and in the
   tally, and buckets as **backed** (the quote really was checked).
 
 Every node's grade rides its own row/heading (`makeProvenancePill(level)`), never a separate bottom
 "Sources" block (a source only ever grades one node); a node with no source shows `NOSOURCE`, never a
-blank. The pill's tooltip shows the concrete source (the verbatim quote + citation) then a small "Click
+blank. The pill's tooltip shows the concrete source (the verbatim quote + citation) then the grade in
+words (`prov.name.*`, so a bare ✕ still says "No source") and a small "Click
 for details" cue (`makeDetailsCue`) that opens the Sources & provenance popup: that popup is the single
 place explaining what each grade means, so the verbose per-grade paragraph is not inlined into every
 pill (it stays only as the pill's `aria-label`, `info.prov*`). The popup's tally is

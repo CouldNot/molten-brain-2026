@@ -3672,6 +3672,10 @@
     "info": "ℹ",
     "caution": "⚠"
   },
+  "addon_bases": [
+    "claim",
+    "dataset"
+  ],
   "uncertainty_reasons": {
     "side_effect_rule": {
       "source": "own_quote",
@@ -3775,13 +3779,13 @@
   "provenance_stats": {
     "by_kind": {
       "addons": {
-        "total": 5,
+        "total": 3,
         "verified": 3,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
-        "nosource": 2,
-        "missing": 2
+        "nosource": 0,
+        "missing": 0
       },
       "enzyme_variability": {
         "total": 5,
@@ -4064,13 +4068,13 @@
       }
     },
     "nodes": {
-      "total": 7163,
+      "total": 7161,
       "verified": 5929,
       "uncertain": 270,
       "sourced": 0,
       "llm": 268,
-      "nosource": 696,
-      "missing": 964,
+      "nosource": 694,
+      "missing": 962,
       "backed": 6199,
       "pct_backed": 87
     },

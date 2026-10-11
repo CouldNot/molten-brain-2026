@@ -86,6 +86,15 @@ ADDON_TONES: dict[str, str] = {
     "caution": "⚠",
 }
 
+# What an addon's text is a claim ABOUT, which decides how it is graded.
+# ``claim`` (the default) is knowledge about the brain or a drug, sourced and tallied
+# like any other node. ``dataset`` is a statement about this dataset itself (how it
+# models something, what it leaves out): no corpus could ever be cited for it, so it
+# carries no sources by construction, draws a neutral "about this dataset" pill
+# instead of the red NOSOURCE one, and stays out of the coverage tally (it is not
+# knowledge, so counting it as missing would understate coverage and counting it as
+# backed would overstate it). Emitted as ``meta.addon_bases``.
+ADDON_BASES: tuple[str, ...] = ("claim", "dataset")
 
 # ---------------------------------------------------------------------------
 # The authored addons. Each is one sourceable claim, so it is graded like any
@@ -220,6 +229,7 @@ ADDONS: list[dict[str, Any]] = [
         # (a red NOSOURCE pill): the claim it makes is precisely that nothing backs
         # the mirroring, so citing something for it would contradict its own text.
         "id": "projection_bilaterality",
+        "basis": "dataset",
         "owner_kind": "section",
         "owner": "projections",
         "slot": "section.projections",
@@ -259,6 +269,7 @@ ADDONS: list[dict[str, Any]] = [
         # **sourceless** (a red NOSOURCE pill) for the same reason: the claim is
         # about this dataset's coverage, so no corpus could be cited for it.
         "id": "enzyme_list_not_exhaustive",
+        "basis": "dataset",
         "owner_kind": "section",
         "owner": "metabolism",
         "slot": "section.metabolism",
@@ -313,6 +324,14 @@ def _addon_record(addon: dict[str, Any]) -> dict[str, Any]:
     if tone not in ADDON_TONES:
         raise KeyError(f"{what} has unknown tone {tone!r} "
                        f"(valid: {sorted(ADDON_TONES)})")
+    basis = addon.get("basis", "claim")
+    if basis not in ADDON_BASES:
+        raise KeyError(f"{what} has unknown basis {basis!r} "
+                       f"(valid: {list(ADDON_BASES)})")
+    # A dataset statement is unsourceable by construction (see ADDON_BASES), so a
+    # citation on one means it was misfiled as such.
+    if basis == "dataset" and addon.get("sources"):
+        raise KeyError(f"{what} is a dataset statement but cites sources")
     if not addon.get("owner"):
         raise KeyError(f"{what} has no owner id")
     # The title is optional (a bare note needs no heading); the text is the claim,
@@ -326,6 +345,7 @@ def _addon_record(addon: dict[str, Any]) -> dict[str, Any]:
         "slot": slot,
         "display": display,
         "tone": tone,
+        "basis": basis,
         "text": addon["text"],
         "sources": _quote_sources(addon.get("sources"), what),
     }

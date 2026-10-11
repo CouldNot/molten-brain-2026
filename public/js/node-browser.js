@@ -348,6 +348,9 @@ export function collectNodes(data, deps, opts = {}) {
   // the node it annotates (so it reads like every other row: subject, then claim) and
   // navigates to that node's panel, where the annotation is spliced in.
   for (const a of data.addons || []) {
+    // A statement about the dataset itself is not knowledge, so it is no node of the
+    // tally (provenance.py) and no row here either: the counts must agree.
+    if (a.basis === "dataset") continue;
     const go = a.focus ? () => nav[a.focus.nav](a.focus.arg) : null;
     push("addons", a.ownerName, a.title || a.text, a.provenance, go, a);
   }

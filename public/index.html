@@ -2273,6 +2273,14 @@
         background: rgba(240, 145, 63, 0.16);
         border: 1px solid rgba(240, 145, 63, 0.55);
       }
+      /* Not a grade: a statement about this dataset itself (an addon whose basis is
+         `dataset`), unsourceable by design. Neutral and dashed so it reads as "not
+         applicable" rather than as the red "nothing found yet". */
+      .src-prov-dataset {
+        color: var(--muted);
+        background: rgba(var(--ink), 0.05);
+        border: 1px dashed rgba(var(--ink), 0.35);
+      }
       /* The reasons-to-doubt block at the top of an uncertain pill's tooltip. Each
          row carries an inert badge (green ✓ / red ✕) so a sourced reason and an
          absence-of-evidence reason are told apart at a glance. */

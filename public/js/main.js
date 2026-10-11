@@ -2298,6 +2298,10 @@ function createInfoPanel(data, sourcingModal) {
     // It shares the green of `verified` because both are an inspectable, non-LLM
     // extract of a real source (the tooltip names which).
     wikipedia: { glyph: "✓", tip: "info.provWikipedia" },
+    // Not a grade: an addon whose basis is `dataset` (meta.addon_bases) states how this
+    // dataset is built, so no source could back it and the red ✕ would misread as a
+    // gap. Neutral, and its tooltip says why.
+    dataset: { glyph: "◌", tip: "info.provDataset" },
   };
   // A small "Click for details" cue for a provenance tooltip: opens the Sources &
   // provenance popup (the single place that explains what each grade means) and
@@ -2330,6 +2334,10 @@ function createInfoPanel(data, sourcingModal) {
     } else if (extra) {
       tip.append(document.createTextNode(`${extra}\n\n`));
     }
+    // The grade in words, always: a pill with nothing else to show (a bare ✕) would
+    // otherwise tooltip only "Click for details", which names nothing.
+    tip.append(el("strong", "src-grade-name", t(`prov.name.${spec ? level : "none"}`)),
+      document.createTextNode("\n"));
     tip.append(makeDetailsCue());
     const cls = spec ? `src-pill src-prov-${level}` : "src-pill src-todo";
     const pill = el("button", cls, spec ? spec.glyph : NOSOURCE_GLYPH);
@@ -2450,7 +2458,18 @@ function createInfoPanel(data, sourcingModal) {
   // `{sources?, ki?, uncertainty?}`, which is the shape a binding already has and the
   // shape the Data browser's rows are built in, so both go through this one path and
   // a node badges identically wherever it is shown.
-  const sourceBackedPill = (grade, node) => {
+  // `what` (optional) names the claim the pill grades, as the tooltip's first line:
+  // for a row carrying two pills (an enzyme row's role + its strength), so neither
+  // reads as an unlabeled duplicate of the other.
+  const sourceBackedPill = (grade, node, what) => {
+    const labelled = (extra) => {
+      if (!what) return extra;
+      const frag = document.createDocumentFragment();
+      frag.append(el("strong", null, what), document.createTextNode("\n\n"));
+      if (extra instanceof Node) frag.append(extra);
+      else if (extra) frag.append(document.createTextNode(extra));
+      return frag;
+    };
     const doubt = node && node.uncertainty && node.uncertainty.length
       ? node.uncertainty : null;
     // A doubted node reads orange whatever its own quote scored: `uncertain` is a
@@ -2461,11 +2480,11 @@ function createInfoPanel(data, sourcingModal) {
     const shown = shownGrade(grade, doubt);
     const sources = node && node.sources;
     if (sources && sources.length)
-      return makeProvenancePill(shown, withUncertainty(doubt, sourcesTip(sources)));
+      return makeProvenancePill(shown, labelled(withUncertainty(doubt, sourcesTip(sources))));
     if (node && node.ki)
       return makeProvenancePill(shown,
-        withUncertainty(doubt, kiCorpusRefNode(node.ki, { dash: true })));
-    return makeProvenancePill(shown, withUncertainty(doubt, null));
+        labelled(withUncertainty(doubt, kiCorpusRefNode(node.ki, { dash: true }))));
+    return makeProvenancePill(shown, labelled(withUncertainty(doubt, null)));
   };
   const bindingProvenancePill = (binding) => sourceBackedPill(binding.provenance, binding);
 
@@ -3067,26 +3086,36 @@ function createInfoPanel(data, sourcingModal) {
   const enzymeRow = (row, label, onClick, { showRole = false } = {}) => {
     const li = el("li");
     const text = el("span", "bind-text");
-    text.appendChild(el("span", "bind-target", label));
-    const parts = [];
-    if (showRole) parts.push(row.roleLabel);
-    if (row.strengthLabel) parts.push(row.strengthLabel);
-    if (parts.length) {
-      text.appendChild(el("span", "bind-action", ` ${parts.join(" · ")}`));
+    const nameLine = el("span", "bind-name");
+    nameLine.appendChild(el("span", "bind-target", label));
+    text.appendChild(nameLine);
+    // Each pill sits right after the words it grades, and names them in its tooltip:
+    // the (enzyme, role) claim is one node, how MUCH of the clearing this isoform does
+    // is another (the CYP quote gate checks the isoform is named, never the tier; see
+    // quotes/attestation.py), so a row can carry two pills that must not read as one
+    // unlabeled pair. Both go through the shared node pill, so the quote and any
+    // "another corpus denies this" lead (quotes/contradictions.py) still show.
+    const rolePill = sourceBackedPill(row.provenance || null, row,
+      t("enzyme.gradesRole", { role: row.roleLabel }));
+    // On the enzyme panel the rows sit under a role heading, so the role is not
+    // printed and its pill rides the name.
+    let actionLine = null;
+    if (showRole) {
+      actionLine = el("span", "bind-name");
+      actionLine.append(el("span", "bind-action", row.roleLabel), rolePill);
+    } else {
+      nameLine.appendChild(rolePill);
     }
-    li.appendChild(text);
-    // How MUCH of the clearing this isoform does is its own graded node (the CYP quote
-    // gate checks the isoform is named, never the tier), so the tier carries its own
-    // pill beside the row's rather than sharing it. See quotes/attestation.py.
-    const strength = (row.claims || {}).strength;
-    // The shared node pill, so a tier another corpus states otherwise reads orange.
     if (row.strengthLabel) {
-      li.appendChild(sourceBackedPill((strength && strength.grade) || "llm", strength));
+      const strength = (row.claims || {}).strength;
+      if (!actionLine) actionLine = el("span", "bind-name");
+      actionLine.append(
+        el("span", "bind-action", showRole ? `· ${row.strengthLabel}` : row.strengthLabel),
+        sourceBackedPill((strength && strength.grade) || "llm", strength,
+          t("enzyme.gradesStrength", { strength: row.strengthLabel })));
     }
-    // Through the shared node pill, so a metabolism row badges like every other node:
-    // its quote in the tooltip, and the orange "another corpus denies this" lead when
-    // the row carries one (quotes/contradictions.py).
-    li.appendChild(sourceBackedPill(row.provenance || null, row));
+    if (actionLine) text.appendChild(actionLine);
+    li.appendChild(text);
     if (onClick) {
       li.classList.add("clickable");
       li.addEventListener("click", onClick);

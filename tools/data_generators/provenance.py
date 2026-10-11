@@ -1428,7 +1428,10 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # graded by its own quote sources. Its *slot* is where it draws, not what it
     # claims, so it tallies like any other claim: the whole point of the kind is that
     # a panel-placed caveat is held to the same sourcing bar as a binding.
-    addon_grades = [_strongest_grade(a.get("sources")) for a in addons]
+    # A ``dataset`` addon is a statement about this dataset, not knowledge (see
+    # addons.ADDON_BASES), so it is not a node of the tally at all.
+    addon_grades = [_strongest_grade(a.get("sources")) for a in addons
+                    if a.get("basis", "claim") != "dataset"]
 
     # Enzyme variability (kind ``enzyme_variability``): one node per isoform carrying a
     # metabolizer-status profile. An isoform PharmFreq does not cover is not a node at

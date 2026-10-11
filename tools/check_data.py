@@ -665,6 +665,15 @@ def check_reachability(report, meta, structures, projections, circuits,
         elif addon.get("owner") not in pool:
             report.error(f"addon {aid!r}: anchors {kind} {addon.get('owner')!r}, "
                          f"which is not a known {kind} id")
+        bases = meta.get("addon_bases") or ("claim",)
+        basis = addon.get("basis", "claim")
+        if basis not in bases:
+            report.error(f"addon {aid!r}: basis {basis!r} is not in meta.addon_bases "
+                         f"({list(bases)})")
+        elif basis == "dataset" and addon.get("sources"):
+            # A statement about the dataset itself cannot be sourced (and is kept out
+            # of the tally on that ground), so a citation means it was misfiled.
+            report.error(f"addon {aid!r}: a dataset statement carries sources")
         if not addon.get("text"):
             report.error(f"addon {aid!r}: no text (an addon IS its claim)")
     if addons and report.errors == addon_before:
