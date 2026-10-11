@@ -187,3 +187,12 @@ def attests(vocab: dict[str, dict[str, str]], key: str, quote: str) -> bool:
 def labels(vocab: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
     """The ``{id: {en, fr}}`` label map emitted into meta (patterns stay author-side)."""
     return {k: {"en": v["en"], "fr": v["fr"]} for k, v in vocab.items()}
+
+
+def earliest_wins(new: dict[str, Any], current: dict[str, Any] | None) -> bool:
+    """Whether first approval ``new`` should replace ``current``: an earlier dated
+    approval proves the later one was not the first, whichever source states it. A tie
+    keeps ``current``, so the two appliers (Drugs@FDA vs Wikipedia) settle on the same
+    winner whatever order they run in: each only displaces the other when strictly
+    earlier."""
+    return not current or new["year"] < current["year"]

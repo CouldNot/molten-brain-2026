@@ -104,13 +104,24 @@ class ApplyTest(unittest.TestCase):
                          {"year": 1991, "country": "us", "agency": "fda", "national": True})
         self.assertEqual(drugs[0]["first_approval_sources"][0]["extraction"], "code")
 
-    def test_never_overwrites_a_wikipedia_approval_reports_earlier(self):
-        wiki = {"year": 1995, "country": "fr"}
-        drugs = [{"id": "sertraline", "first_approval": dict(wiki),
+    def test_earlier_fda_date_replaces_a_later_wikipedia_approval(self):
+        """Regression (loxapine 1978 fr vs FDA 1975): an earlier dated approval proves
+        ours was not the first, so it wins, worded as a national approval."""
+        drugs = [{"id": "sertraline", "first_approval": {"year": 1995, "country": "fr"},
                   "first_approval_sources": [{"corpus": "wikipedia_pharm"}]}]
-        filled, _, earlier = A.apply(self.cache, drugs, self.pages)
-        self.assertEqual((filled, drugs[0]["first_approval"]), ([], wiki))
-        self.assertIn("FDA 1991-12-30", earlier[0])
+        filled, _, replaced = A.apply(self.cache, drugs, self.pages)
+        self.assertEqual(filled, ["sertraline"])
+        self.assertEqual(drugs[0]["first_approval"],
+                         {"year": 1991, "country": "us", "agency": "fda", "national": True})
+        self.assertIn("FDA 1991-12-30", replaced[0])
+
+    def test_same_or_later_fda_date_leaves_a_wikipedia_approval(self):
+        for year in (1991, 1980):
+            wiki = {"year": year, "country": "fr"}
+            drugs = [{"id": "sertraline", "first_approval": dict(wiki),
+                      "first_approval_sources": [{"corpus": "wikipedia_pharm"}]}]
+            filled, _, replaced = A.apply(self.cache, drugs, self.pages)
+            self.assertEqual((filled, replaced, drugs[0]["first_approval"]), ([], [], wiki))
 
     def test_quote_must_be_on_page(self):
         self.cache["sertraline"]["quote"] = self.QUOTE.replace("1991-12-30", "1991-12-31")
@@ -135,6 +146,26 @@ class CoexistTest(unittest.TestCase):
                                          "line": "X was approved in 1990."}]}}
         H.apply({"x": {"approval": None, "withdrawals": []}}, offered, drugs, PageGate({}))
         self.assertEqual(drugs[0]["first_approval"], fa)
+
+    def _history(self, wiki_year):
+        fa = {"year": 1991, "country": "us", "agency": "fda", "national": True}
+        drugs = [{"id": "x", "first_approval": dict(fa),
+                  "first_approval_sources": [{"corpus": "drugsfda"}]}]
+        line = f"X was approved in {wiki_year}."
+        gate = PageGate({})
+        gate.on_page = lambda corpus, page, quote: True
+        offered = {"x": {"candidates": [{"corpus": "wikipedia_pharm", "page": "x",
+                                         "line": line}]}}
+        H.apply({"x": {"approval": {"index": 0, "year": wiki_year}, "withdrawals": []}},
+                offered, drugs, gate)
+        return drugs[0]["first_approval"]
+
+    def test_history_applier_earliest_approval_wins(self):
+        """The history applier honours the same rule: a later Wikipedia year never
+        displaces an earlier Drugs@FDA one; an earlier or same-year one does."""
+        self.assertEqual(self._history(1995)["year"], 1991)
+        self.assertEqual(self._history(1985), {"year": 1985})
+        self.assertEqual(self._history(1991), {"year": 1991})  # a tie: worldwide wording
 
     def test_national_needs_a_country(self):
         with self.assertRaises(ValueError):

@@ -6,12 +6,15 @@ NDA it could date into ``tools/generated_cache/drugsfda_approvals.json``. No mod
 in between (the row is code-copied from the export, ``extraction: "code"``), so no
 ``recheck_quotes.py`` run follows.
 
-Fallback only: Drugs@FDA knows the US alone, so its year is the first **US** approval
-(``first_approval = {year, country: "us", agency: "fda", national: true}``), written onto
-a drug that has no first approval at all, or whose one is already this corpus's (a
-refresh). A Wikipedia-sourced approval (``apply_drug_history.py``, which leaves this
-corpus's approvals alone) is never overwritten; where the FDA date is earlier than it,
-the run reports the pair for a human to look at instead.
+Fallback, and earliest dated approval wins: Drugs@FDA knows the US alone, so its year is
+the first **US** approval (``first_approval = {year, country: "us", agency: "fda",
+national: true}``, shown as "first national approval"), written onto a drug that has no
+first approval at all, whose one is already this corpus's (a refresh), or whose
+Wikipedia-sourced one (``apply_drug_history.py``) is dated LATER than the FDA one: an
+earlier dated approval proves the later one was not the first, so it replaces it, and
+the wording follows the source that won (``national``, since a US date is not proven
+first worldwide). ``apply_drug_history.py`` applies the same rule the other way round
+(``history.earliest_wins``), so the two appliers agree whatever order they run in.
 
 Gates, re-derived from the cache and the stored page, never trusted: the record is
 ``found``, the year sits in the quote, the quote is verbatim on its page.
@@ -33,6 +36,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
+from data_generators import history  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 import fetch_drugsfda as fda  # noqa: E402
 
@@ -63,15 +67,18 @@ def gate(rec: dict, pages: PageGate) -> tuple[dict | None, str]:
 
 
 def apply(cache: dict, drugs: list[dict], pages: PageGate):
-    """Mutate ``drugs``; return (filled ids, cleared ids, earlier-than-ours lines)."""
+    """Mutate ``drugs``; return (filled ids, cleared ids, replaced-as-later lines)."""
     filled, cleared, earlier = [], [], []
     for drug in drugs:
         rec = cache.get(drug["id"]) or {}
         if not owned(drug):
-            ours = drug["first_approval"]["year"]
-            if rec.get("status") == "found" and rec["year"] < ours:
+            ours = drug["first_approval"]
+            got, _ = gate(rec, pages)
+            if got and history.earliest_wins(got["first_approval"], ours):
                 earlier.append(f"{drug['id']}: FDA {rec['date']} ({rec['application']}) "
-                               f"< ours {ours} {drug['first_approval'].get('country') or ''}")
+                               f"replaces later {ours['year']} {ours.get('country') or ''}")
+                drug.update(got)
+                filled.append(drug["id"])
             continue
         got, _ = gate(rec, pages)
         had = bool(drug.get("first_approval"))
@@ -104,7 +111,7 @@ def main() -> int:
     print(f"{tag}first approvals {before} -> {after}: {len(filled)} from Drugs@FDA, "
           f"{len(cleared)} cleared")
     for line in earlier:
-        print(f"  [earlier] {line}")
+        print(f"  [replaced] {line}")
     if not args.dry_run:
         drugs_io.save_drugs(drugs)
         print(f"wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}")
