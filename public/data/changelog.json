@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "version": "3.99.1",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Refreshed the PDSP binding-affinity database to its October 2026 export: 31 drugs see updated Ki values (mostly antipsychotics such as brexpiprazole, cariprazine, iloperidone and quetiapine, from newly published PDSP-certified human assays), 30 new measured binding sites appear and 4 weak ones drop out. Paliperidone keeps all its assays measured under its other name, 9-hydroxyrisperidone.",
+          "commits": [
+            "7e7e847",
+            "68038fd"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.99.0",
       "date": "2026-10-11",
       "entries": [
