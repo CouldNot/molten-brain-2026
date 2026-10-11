@@ -1858,6 +1858,7 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         "drug_category_labels": DRUG_CATEGORY_LABELS,
         # Regulatory history vocabularies (first approval + withdrawals): id -> {en,fr}.
         "drug_history_countries": history.labels(history.COUNTRIES),
+        "drug_history_scopes": list(history.SCOPES),
         "drug_history_agencies": history.labels(history.AGENCIES),
         "drug_withdrawal_reasons": history.labels(history.WITHDRAWAL_REASONS),
         # Merged binding-target map (DRUG_TARGETS + every receptor id), plus the

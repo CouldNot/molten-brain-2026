@@ -18,14 +18,43 @@ export function formatWithdrawal(w) {
 }
 
 /**
+ * Withdrawals sharing a (year, reason) folded into one row each, so sibutramine's
+ * nine "2010, <country>: cardiac risk" nodes read as one "2010: cardiac risk,
+ * Australia, Canada, ..." line. Each withdrawal stays its own node (its own pill
+ * rides right after its country). Groups keep the authored order of their first
+ * member; within a group a market scope ("most markets", "worldwide") comes first,
+ * then countries alphabetically in the reading language (`lang`, e.g. "fr").
+ * @param {object[]} withdrawals  mapped `drug.withdrawals` (`year`, `reason`,
+ *   `reasonLabel`, `countryLabel`, `scope`, ...)
+ * @param {string} [lang]         collation locale
+ * @returns {{year: number, reasonLabel: string, items: object[]}[]}
+ */
+export function groupWithdrawals(withdrawals, lang) {
+  const collator = new Intl.Collator(lang);
+  const groups = new Map();
+  for (const w of withdrawals || []) {
+    const key = `${w.year}|${w.reason}`;
+    if (!groups.has(key)) groups.set(key, { year: w.year, reasonLabel: w.reasonLabel, items: [] });
+    groups.get(key).items.push(w);
+  }
+  for (const g of groups.values()) {
+    g.items.sort((a, b) => (b.scope ? 1 : 0) - (a.scope ? 1 : 0)
+      || collator.compare(a.countryLabel, b.countryLabel));
+  }
+  return [...groups.values()];
+}
+
+/**
  * Append the drug's history rows to its facts block.
  *
  * `addFactRow`, `makeProvenancePill`, `sourcesTip` and `t` are the panel's own helpers
  * (js/main.js), passed in so this module owns only the history wording. A withdrawal
  * row carries the `fact-warning` class (caution ink, see index.html); both kinds carry
- * `fact-history` (no capitalization of the prose value).
+ * `fact-history` (no capitalization of the prose value). Withdrawals render one row
+ * per (year, reason) group (see groupWithdrawals), each country followed by its pill.
  */
-export function appendDrugHistory(facts, drug, { addFactRow, makeProvenancePill, sourcesTip, t }) {
+export function appendDrugHistory(facts, drug,
+  { addFactRow, makeProvenancePill, sourcesTip, t, lang }) {
   const pill = (node) => (node.sources && node.sources.length
     ? makeProvenancePill(node.provenance, sourcesTip(node.sources))
     : makeProvenancePill(node.provenance || null));
@@ -36,8 +65,20 @@ export function appendDrugHistory(facts, drug, { addFactRow, makeProvenancePill,
     facts.lastChild.title = t("drug.firstApprovalTip");
     facts.lastChild.classList.add("fact-history");
   }
-  for (const w of drug.withdrawals || []) {
-    addFactRow(facts, t("drug.withdrawn"), formatWithdrawal(w), null, { pill: pill(w) });
-    facts.lastChild.classList.add("fact-history", "fact-warning");
+  for (const g of groupWithdrawals(drug.withdrawals, lang)) {
+    addFactRow(facts, t("drug.withdrawn"),
+      t("drug.withdrawnGroup", { year: g.year, reason: g.reasonLabel }), null);
+    const row = facts.lastChild;
+    row.classList.add("fact-history", "fact-warning");
+    const value = row.querySelector(".fact-value");
+    // One unbreakable "<country> [pill]," chip per withdrawal node, so a wrapped
+    // line never strands a pill or a comma away from its country.
+    g.items.forEach((w, i) => {
+      const place = document.createElement("span");
+      place.className = "fact-place";
+      place.append(w.countryLabel, pill(w));
+      if (i < g.items.length - 1) place.append(",");
+      value.appendChild(place);
+    });
   }
 }

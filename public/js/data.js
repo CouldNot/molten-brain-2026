@@ -318,6 +318,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   const drugCategoryLabels = localizeMap(metaRecord.drug_category_labels);
   // Regulatory history vocabularies (first approval + withdrawals): id -> label.
   const historyCountries = localizeMap(metaRecord.drug_history_countries);
+  const historyScopes = new Set(metaRecord.drug_history_scopes || []);
   const historyAgencies = localizeMap(metaRecord.drug_history_agencies);
   const withdrawalReasons = localizeMap(metaRecord.drug_withdrawal_reasons);
   const drugTargets = metaRecord.drug_targets || {};
@@ -889,6 +890,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       year: w.year,
       country: w.country,
       countryLabel: historyCountries[w.country] || w.country,
+      // A market scope ("worldwide", "most markets") rather than one country: the
+      // panel lists it first in a grouped row (js/drug-history.js groupWithdrawals).
+      scope: historyScopes.has(w.country),
+      reason: w.reason,
       reasonLabel: withdrawalReasons[w.reason] || w.reason,
       sources: mapSources(w.sources),
       provenance: strongestGrade(w.sources),

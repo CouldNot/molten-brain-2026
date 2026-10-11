@@ -4184,7 +4184,8 @@ function createInfoPanel(data, sourcingModal) {
           note: drug.nbnNonstandard ? t("drug.nbnNonstandard") : null,
         });
       }
-      appendDrugHistory(facts, drug, { addFactRow, makeProvenancePill, sourcesTip, t });
+      appendDrugHistory(facts, drug,
+        { addFactRow, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
       if (facts.childElementCount) body.appendChild(facts);
 
       // Commercial brand names, each its own graded node (Stahl backs na, Wikipedia

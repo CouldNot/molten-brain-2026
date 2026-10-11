@@ -221,6 +221,10 @@
     "worldwide": "worldwide",
     "most_markets": "most markets"
   },
+  "drug_history_scopes": [
+    "worldwide",
+    "most_markets"
+  ],
   "drug_history_agencies": {
     "fda": "FDA",
     "ema": "EMA",

@@ -46,8 +46,10 @@ WITHDRAWAL_RE = re.compile(
 YEAR_RE = re.compile(r"\b(1[89]\d\d|20\d\d)\b")
 
 # Country (or market) id -> {en, fr, attests}. ``attests`` must match the quote for the
-# id to be published. ``worldwide`` / ``most_markets`` are the two non-country scopes
-# articles use ("withdrawn worldwide", "withdrawn from most markets").
+# id to be published. The SCOPES are the two non-country ids articles use ("withdrawn
+# worldwide", "withdrawn from most markets"); emitted into meta so the panel lists a
+# scope before the countries of a grouped withdrawal row (js/drug-history.js).
+SCOPES: tuple[str, ...] = ("worldwide", "most_markets")
 COUNTRIES: dict[str, dict[str, str]] = {
     "us": {"en": "United States", "fr": "États-Unis",
            "attests": r"\bUnited States\b|\bU\.?S\.?A?\b|\bFDA\b|Food and Drug Administration|[ÉE]tats-Unis|américain|\bAmerica"},
