@@ -3568,47 +3568,54 @@
       "citation": "Harding SD, Armstrong JF, Faccenda E, et al. The IUPHAR/BPS Guide to Pharmacology. Nucleic Acids Res. guidetopharmacology.org.",
       "url": "https://www.guidetopharmacology.org/",
       "pages_dir": "data_sources/gtopdb/pages",
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "pdsp_ki": {
       "ref": "PDSP Ki Database (NIMH PDSP)",
       "citation": "NIMH Psychoactive Drug Screening Program (PDSP) Ki Database, directed by Bryan L. Roth, University of North Carolina at Chapel Hill.",
       "url": "https://pdspdb.unc.edu/databases/kidb.php",
       "csv": "data_sources/books/pdsp_ki/KiDatabase.csv",
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "allen_ahba": {
       "ref": "Allen Human Brain Atlas, microarray (Hawrylycz et al. 2012)",
       "citation": "Hawrylycz MJ, Lein ES, Guillozet-Bongaarts AL, et al. An anatomically comprehensive atlas of the adult human brain transcriptome. Nature. 2012;489(7416):391-399. human.brain-map.org.",
       "url": "https://human.brain-map.org/",
       "pages_dir": "data_sources/allen/pages",
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "wikipedia_pharm": {
       "ref": "Wikipedia (English), drug article (pharmacology sections)",
       "citation": "Wikipedia contributors. Pharmacology sections of the cited drug article. Wikipedia, The Free Encyclopedia. en.wikipedia.org (revision pinned per citation).",
       "url": "https://en.wikipedia.org/",
-      "pages_dir": "data_sources/wikipedia/pages"
+      "pages_dir": "data_sources/wikipedia/pages",
+      "editable": true
     },
     "wikipedia_fr": {
       "ref": "Wikipedia (French), drug article (commercial names)",
       "citation": "Wikipedia contributors. Commercial names of the cited drug article. Wikipedia, l'encyclopedie libre. fr.wikipedia.org (revision pinned per citation).",
       "url": "https://fr.wikipedia.org/",
-      "pages_dir": "data_sources/wikipedia/pages_fr"
+      "pages_dir": "data_sources/wikipedia/pages_fr",
+      "editable": true
     },
     "gtopdb_ki": {
       "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), ligand interactions",
       "citation": "Harding SD, Armstrong JF, Faccenda E, et al. The IUPHAR/BPS Guide to Pharmacology: ligand-target interaction table. guidetopharmacology.org (CC BY-SA 4.0 / ODbL).",
       "url": "https://www.guidetopharmacology.org/",
       "pages_dir": "data_sources/gtopdb/pages_ki",
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "gtopdb_class": {
       "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), target classification",
       "citation": "Harding SD, Armstrong JF, Faccenda E, et al. The IUPHAR/BPS Guide to Pharmacology: target type and transduction. guidetopharmacology.org (CC BY-SA 4.0 / ODbL).",
       "url": "https://www.guidetopharmacology.org/",
       "pages_dir": "data_sources/gtopdb/pages_class",
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "pharmfreq": {
       "ref": "PharmFreq, metabolizer status by population",
@@ -3623,19 +3630,22 @@
         "metabolizer_data_CYP3A5_2026-09-09.txt": "f080da45dfa3b533cd888584e3a8d405d8dc0f4f7ccb8cd0da12fa87e92139fa",
         "metabolizer_data_UGT1A1_2026-09-09.txt": "2bcd553404cb06a5e944e7f031785bd3ae06ab32c6f21dc95de221c5ce839049"
       },
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "dailymed": {
       "ref": "DailyMed (U.S. NLM), prescribing label, clinical pharmacology",
       "citation": "U.S. National Library of Medicine. DailyMed Structured Product Label, Pharmacokinetics section of the cited label. dailymed.nlm.nih.gov (label set id pinned per citation).",
       "url": "https://dailymed.nlm.nih.gov/",
-      "pages_dir": "data_sources/dailymed/pages"
+      "pages_dir": "data_sources/dailymed/pages",
+      "editable": true
     },
     "bdpm": {
       "ref": "Base de données publique des médicaments (ANSM), RCP",
       "citation": "ANSM / Ministère de la Santé. Base de données publique des médicaments, résumé des caractéristiques du produit (RCP) of the cited product, section 5.2. base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS code pinned per citation).",
       "url": "https://base-donnees-publique.medicaments.gouv.fr/",
-      "pages_dir": "data_sources/bdpm/pages"
+      "pages_dir": "data_sources/bdpm/pages",
+      "editable": true
     },
     "cpic": {
       "ref": "CPIC, clinical pharmacogenetics dosing guideline",
@@ -3645,13 +3655,15 @@
       "export_sha256": {
         "cpic_recommendations.json": "961aaf617aadc612869f3976b661d4e1002e19faa1ab630e8d0140c11b149f7b"
       },
-      "machine": true
+      "machine": true,
+      "editable": true
     },
     "europepmc": {
       "ref": "Europe PMC, journal article abstract",
       "citation": "Europe PMC (EMBL-EBI). Abstract of the cited journal article, PubMed id pinned per citation. europepmc.org.",
       "url": "https://europepmc.org/",
-      "pages_dir": "data_sources/europepmc/pages"
+      "pages_dir": "data_sources/europepmc/pages",
+      "editable": false
     }
   },
   "addon_slots": {

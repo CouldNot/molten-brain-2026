@@ -105,6 +105,11 @@ def http_json(url: str, tries: int = 3):
     raise SystemExit(f"error: failed to fetch {url}: {last}")
 
 
+def file_date(path: Path) -> str:
+    """A file's modification date (YYYY-MM-DD), the download date of an unstamped cache."""
+    return time.strftime("%Y-%m-%d", time.localtime(path.stat().st_mtime))
+
+
 def clean(text: str) -> str:
     """Strip GtoPdb's inline HTML (<i>, <sub>, ...) + unescape entities + collapse
     whitespace, so the stored quote and the cached page line are the same plain text
@@ -165,15 +170,19 @@ def main() -> int:
                 f"{BASE}/targets/{tgt['target_id']}/tissueDistribution")
             payload = {"receptor_id": rid, "gene": gene,
                        "target_id": tgt["target_id"], "target_name": tgt["name"],
-                       "entries": entries or []}
+                       "entries": entries or [],
+                       "fetched": time.strftime("%Y-%m-%d")}
             raw_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
         entries = payload.get("entries", [])
         # Write the corpus page: every cleaned tissue string on its own line, so a
         # stored quote (one such string) is a verbatim substring of pages/<id>.md.
+        # The header stamps the download date (data_generators/freshness.py reads it);
+        # a raw cache from before stamping falls back to its own file date.
         lines = [clean(e.get("tissue", "")) for e in entries if e.get("tissue")]
         page = PAGES / f"{payload['target_id']}.md"
-        page.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+        page.write_text(f"fetched: {payload.get('fetched') or file_date(raw_path)}\n"
+                        + "\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
 
         candidates = []
         for e in entries:

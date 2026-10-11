@@ -41,6 +41,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -48,6 +49,7 @@ from fetch_gtopdb import (  # noqa: E402  (path shim above)
     BASE,
     RECEPTOR_GENES,
     clean,
+    file_date,
     http_json,
 )
 
@@ -125,11 +127,12 @@ def fetch_one(owner: str, gene: str, kind: str, refresh: bool) -> dict | None:
         # Transduction is a GPCR-only table; other types return an empty list.
         entries = http_json(f"{BASE}/targets/{rec['target_id']}/transduction") or []
         payload = {"owner": owner, "kind": kind, "gene": gene, **rec,
-                   "transduction_raw": entries}
+                   "transduction_raw": entries, "fetched": time.strftime("%Y-%m-%d")}
         raw_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
     subj = subject(payload, gene)
-    lines: list[str] = []
+    # The header stamps the download date (data_generators/freshness.py reads it).
+    lines: list[str] = [f"fetched: {payload.get('fetched') or file_date(raw_path)}"]
     type_quote = f"{subj} | type: {payload['type']}"
     if payload.get("family"):
         type_quote += f" | family: {payload['family']}"

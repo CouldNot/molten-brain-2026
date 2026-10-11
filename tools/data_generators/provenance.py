@@ -523,7 +523,10 @@ def _density_node(registry: dict[str, dict[str, Any]], owner_id: str,
 # skipped while the structural checks still run. ``url`` is *optional* and carried
 # only by the web corpora that have a free landing page: a copyrighted book has no
 # such link, and the provenance pill (not a link) is what conveys the grade, so the
-# key is omitted rather than filled with a placeholder.
+# key is omitted rather than filled with a placeholder. ``editable`` marks a corpus
+# whose pages can change upstream (a wiki, a live database): each of its cited pages
+# carries its download date and must be refetched within a year (see
+# data_generators/freshness.py); a book omits the key.
 SOURCE_CORPORA: dict[str, dict[str, str]] = {
     "stahl": {
         # Label for the per-claim tooltip ref ("<ref>, p. N"). The full book title
@@ -588,6 +591,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "url": "https://www.guidetopharmacology.org/",
         "pages_dir": "data_sources/gtopdb/pages",
         "machine": True,
+        "editable": True,
     },
     "pdsp_ki": {
         # Binding-affinity corpus: measured Ki (nM) values backing a drug binding's
@@ -603,6 +607,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "url": "https://pdspdb.unc.edu/databases/kidb.php",
         "csv": "data_sources/books/pdsp_ki/KiDatabase.csv",
         "machine": True,
+        "editable": True,
     },
     "allen_ahba": {
         # Expression corpus: the Allen Human Brain Atlas microarray, backing a
@@ -623,6 +628,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "url": "https://human.brain-map.org/",
         "pages_dir": "data_sources/allen/pages",
         "machine": True,
+        "editable": True,
     },
     "wikipedia_pharm": {
         # Corpus #9: a drug's English Wikipedia article, stored whole (article text +
@@ -644,6 +650,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
                     "en.wikipedia.org (revision pinned per citation).",
         "url": "https://en.wikipedia.org/",
         "pages_dir": "data_sources/wikipedia/pages",
+        "editable": True,
     },
     "wikipedia_fr": {
         # Brand-name corpus #10: the French Wikipedia article, the source for a drug's
@@ -662,6 +669,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
                     "per citation).",
         "url": "https://fr.wikipedia.org/",
         "pages_dir": "data_sources/wikipedia/pages_fr",
+        "editable": True,
     },
     "gtopdb_ki": {
         # Binding corpus #11: GtoPdb's *other* half. Where corpus #7 uses its tissue
@@ -684,6 +692,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "url": "https://www.guidetopharmacology.org/",
         "pages_dir": "data_sources/gtopdb/pages_ki",
         "machine": True,
+        "editable": True,
     },
     "gtopdb_class": {
         # Classification corpus #12: GtoPdb's third slice (after #7 tissue distribution
@@ -708,6 +717,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "url": "https://www.guidetopharmacology.org/",
         "pages_dir": "data_sources/gtopdb/pages_class",
         "machine": True,
+        "editable": True,
     },
     "pharmfreq": {
         # Enzyme variability corpus #13: how fast people clear a drug through one
@@ -738,6 +748,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "tsv_dir": pharmfreq.EXPORT_DIR,
         "export_sha256": dict(ENZYME_VARIABILITY_PINS),
         "machine": True,
+        "editable": True,
     },
     "dailymed": {
         # Pharmacokinetics corpus #14: the US prescribing label (DailyMed / NLM
@@ -763,6 +774,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
                     "dailymed.nlm.nih.gov (label set id pinned per citation).",
         "url": "https://dailymed.nlm.nih.gov/",
         "pages_dir": "data_sources/dailymed/pages",
+        "editable": True,
     },
     "bdpm": {
         # Pharmacokinetics + brand corpus #16: the French public drug database (ANSM
@@ -790,6 +802,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
                     "(Licence Ouverte; CIS code pinned per citation).",
         "url": "https://base-donnees-publique.medicaments.gouv.fr/",
         "pages_dir": "data_sources/bdpm/pages",
+        "editable": True,
     },
     "cpic": {
         # Pharmacogenomic guidance corpus #15: what a metabolizer phenotype *means* for
@@ -819,6 +832,7 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "tsv_dir": cpic.EXPORT_DIR,
         "export_sha256": dict(CPIC_GUIDANCE_PINS),
         "machine": True,
+        "editable": True,
     },
     "europepmc": {
         # Primary-literature corpus #17: a hand-listed handful of paper abstracts, for
@@ -836,6 +850,9 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
                     "PubMed id pinned per citation. europepmc.org.",
         "url": "https://europepmc.org/",
         "pages_dir": "data_sources/europepmc/pages",
+        # Not editable: a published abstract does not change under a citation, so
+        # its pages carry no freshness deadline (see data_generators/freshness.py).
+        "editable": False,
     },
 }
 

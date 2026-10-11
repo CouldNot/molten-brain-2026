@@ -24,6 +24,7 @@ import json
 import os
 from typing import Any
 
+from . import freshness
 from .provenance import quote_extraction, quote_pipeline
 
 # Accumulated quote nodes: quote_id -> {"id", "corpus", "page", "quote", "species"?, "llm"?}.
@@ -138,6 +139,11 @@ def externalize_quotes(obj):
             entry["llm"] = _LLM_OVERRIDES[qid]
         if qid in _HEADERS:
             entry["heading"] = _HEADERS[qid]
+        # The page's download date (editable corpora only): a property of the page, so
+        # it rides the quote node, like the heading, and stays out of the id hash.
+        fetched = freshness.stamp(obj)
+        if fetched:
+            entry["fetched"] = fetched
         existing = QUOTES.get(qid)
         if existing is not None and existing != entry:
             raise ValueError(
@@ -165,7 +171,13 @@ def externalize_quotes(obj):
                 ref[k] = externalize_quotes(v)
         return ref
     if isinstance(obj, dict):
-        return {k: externalize_quotes(v) for k, v in obj.items()}
+        out = {k: externalize_quotes(v) for k, v in obj.items()}
+        # A quote-less source of an editable corpus (a PDSP Ki row) gets its download
+        # date inline, since it has no quote node to carry it.
+        fetched = freshness.stamp(obj)
+        if fetched:
+            out["fetched"] = fetched
+        return out
     if isinstance(obj, list):
         return [externalize_quotes(v) for v in obj]
     return obj

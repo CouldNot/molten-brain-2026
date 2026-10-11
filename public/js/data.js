@@ -67,7 +67,7 @@ function rehydrateQuotes(node, byId) {
     if (typeof node.quote_id === "string") {
       const q = byId[node.quote_id];
       if (q) {
-        for (const k of ["corpus", "page", "quote", "species", "llm", "heading"]) {
+        for (const k of ["corpus", "page", "quote", "species", "llm", "heading", "fetched"]) {
           if (k in q) node[k] = q[k];
         }
       }
