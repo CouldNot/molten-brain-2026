@@ -765,3 +765,24 @@ class SectionAddonAnchorTest(unittest.TestCase):
         report, out = self._run(owner="circuits")
         self.assertTrue(report.errors)
         self.assertIn("not a known section id", out)
+
+
+class BindingDupTest(unittest.TestCase):
+    """3.98.0 collapsed amphetamine's DAT reuptake_inhibitor + releaser pair onto two
+    releaser rows; family 1 must catch a (target, action) listed twice."""
+
+    def _errors(self, drugs):
+        report = check_data.Report()
+        with redirect_stdout(io.StringIO()):
+            check_data.check_binding_dups(report, drugs)
+        return report.errors
+
+    def test_collapsed_pair_is_an_error(self):
+        drug = {"id": "x", "bindings": [{"target": "dat", "action": "releaser"},
+                                        {"target": "dat", "action": "releaser"}]}
+        self.assertTrue(self._errors([drug]))
+
+    def test_dual_mechanism_is_fine(self):
+        drug = {"id": "x", "bindings": [{"target": "dat", "action": "reuptake_inhibitor"},
+                                        {"target": "dat", "action": "releaser"}]}
+        self.assertFalse(self._errors([drug]))

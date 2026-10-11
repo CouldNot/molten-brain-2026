@@ -381,6 +381,22 @@ def check_projection_dups(report, projections):
         report.ok(f"projections: {len(projections)} pathways, no duplicate from->to")
 
 
+def check_binding_dups(report, drugs):
+    """A drug may list one target twice (a dual mechanism: amphetamine both blocks DAT
+    reuptake and releases through it), but never the same (target, action) twice: that
+    is a dual pair one bulk edit collapsed onto a single action, losing the other."""
+    n = 0
+    for drug in drugs:
+        pairs = Counter((b.get("target"), b.get("action")) for b in drug.get("bindings", []))
+        for (target, action), count in sorted(pairs.items(), key=str):
+            if count > 1:
+                n += 1
+                report.error(f"drug {drug.get('id')}: binding {target}/{action} listed "
+                             f"{count} times (a collapsed dual-mechanism pair?)")
+    if not n:
+        report.ok("drug bindings: no (target, action) pair listed twice")
+
+
 def check_duplicates(report, meta, structures, projections, circuits,
                      projection_groups, receptors, drugs):
     report.header("1. Duplicates (exact + normalized)")
@@ -394,6 +410,7 @@ def check_duplicates(report, meta, structures, projections, circuits,
     targets = [dict(value, id=key) for key, value in meta.get("drug_targets", {}).items()]
     check_id_collection(report, "targets", targets)
     check_projection_dups(report, projections)
+    check_binding_dups(report, drugs)
 
 
 # --------------------------------------------------------------------------- #
