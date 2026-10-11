@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.101.2",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "When the US drug register dates an approval earlier than the \"first approval\" Wikipedia gives, the earlier date now wins and is shown as the first national approval: loxapine (1975), midazolam (1985), pimozide (1984) and pethidine (1942).",
+          "commits": [
+            "a7947bd"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.101.1",
       "date": "2026-10-12",
       "entries": [
