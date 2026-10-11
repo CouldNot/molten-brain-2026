@@ -854,6 +854,27 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         # its pages carry no freshness deadline (see data_generators/freshness.py).
         "editable": False,
     },
+    "drugsfda": {
+        # Regulatory register corpus #18: Drugs@FDA, the FDA's own list of approved
+        # applications, read from openFDA's bulk drug/drugsfda export (www.fda.gov
+        # refuses scripted downloads). It exists for one fact: a drug's first US
+        # approval, as the fallback where Wikipedia (#9/#10) states no first approval.
+        # tools/fetch/fetch_drugsfda.py takes, per drug, the earliest original (ORIG)
+        # approval among the NDAs whose single active ingredient is that drug (never an
+        # ANDA, never a combination), and only when that NDA's own FDA class is "new
+        # molecular entity" (a "new dosage form" NDA says an older approval exists, and
+        # the export misses some old applications). `page` is the application number
+        # (NDA019839), resolving at accessdata.fda.gov/scripts/cder/daf/ (ApplNo); the
+        # quote is the product row copied by code (`extraction: "code"`, no judge).
+        # Author-side pages like #14. Licence: openFDA data is public domain (CC0).
+        "ref": "Drugs@FDA (U.S. FDA), approved application history",
+        "citation": "U.S. Food and Drug Administration. Drugs@FDA: FDA-approved drugs, "
+                    "cited application's original approval (openFDA drug/drugsfda "
+                    "export, public domain; application number pinned per citation).",
+        "url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
+        "pages_dir": "data_sources/drugsfda/pages",
+        "editable": True,
+    },
 }
 
 

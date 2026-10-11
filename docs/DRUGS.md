@@ -107,7 +107,7 @@ fixed Stahl list.
   deliberately not read: it has no Tmax row, and its `Onset of action` row is clinical onset on 60 of
   its 76 rows.
 - **Regulatory history (first approval + withdrawals, Wikipedia EN then FR).** A drug carries an optional
-  `first_approval` (`{year, country?, agency?}`, kind `drug_first_approval`, source `first_approval_sources`)
+  `first_approval` (`{year, country?, agency?, national?}`, kind `drug_first_approval`, source `first_approval_sources`)
   and an optional `withdrawals[]` (`{year, country, reason, sources}`, kind `drug_withdrawals`, one node
   each), shown as rows of the panel's facts block by `js/drug-history.js` (a withdrawal in caution ink).
   Every value is an id from a closed vocabulary in `tools/data_generators/history.py` (`COUNTRIES`, with
@@ -126,6 +126,14 @@ fixed Stahl list.
   formulation discontinued, a scheduling ban of a substance not marketed there as a medicine, a ban of it
   as a food (lithium salts sold as a table-salt substitute, US 1949), or "withdrawal" symptoms are not
   market withdrawals; the worklist's `instructions` say so to the judge.
+  **Drugs@FDA fallback** (corpus #18): where Wikipedia dates no first approval, `tools/sourcing/apply_drugsfda.py`
+  writes the first **US** one, `{year, country: "us", agency: "fda", national: true}`, from the earliest original
+  approval of a new-molecular-entity NDA whose only active ingredient is the drug (`tools/fetch/fetch_drugsfda.py`,
+  code-read, no judge). `national` relabels the row "First national approval" (`approvalLabel` in
+  `js/drug-history.js`), since a US-only register says nothing about earlier approvals abroad. Nothing is
+  published when a matching NDA is undated (pre-1982 records) or the earliest one is classed a new dosage form,
+  formulation, salt or a drug already marketed unapproved (the export misses some old applications: OxyContin's
+  1995 NDA is absent). It never overwrites a Wikipedia approval; it prints the drugs where the FDA date is earlier.
 - **Prodrugs (inactive until metabolised).** A drug whose source says it is itself inactive and acts through a named active metabolite carries `prodrug: true` + `prodrug_sources` (kind `drug_prodrug`, ONE node per prodrug) and **no binding of its own**: its pharmacology is its metabolite's, either a linked modeled drug (`drug_id`, e.g. lisdexamfetamine -> Dextroamphetamine) or the metabolite's own sourced `bindings[]` (psilocybin -> Psilocin, clorazepate / prazepam -> nordazepam). The viewer (`js/data.js`, the prodrug pass before the drug loop) borrows those bindings tagged `viaMetabolite`, so focusing the prodrug lights the 3D scene, flow and "Acts on" (each row reads "via <metabolite>"), while receptor panels, the node browser and the simulation skip the tag, since the metabolite already owns that node. A drug active itself AND through a metabolite (codeine, heroin, oxcarbazepine, levodopa, bupropion) is not a prodrug here. Four-step pipeline: `tools/fetch/fetch_prodrug_worklist.py` offers every prodrug / inactive sentence of the drug's EN article (#9) with no verdict; one LLM pass answers by index into `prodrug_judged.json`; `tools/sourcing/apply_prodrug.py` gates (drug offered; index resolves; the quote says prodrug / inactive; it names the metabolite; quote verbatim on its page), is the sole writer of `prodrug` / `prodrug_sources`, adds the metabolite when missing and drops the drug's own bindings; then `recheck_quotes.py` stamps the judge. `generate_data.py` raises on a prodrug with a binding or without a metabolite, and `fetch_ki.py --apply` / `fetch_wikipedia_pharmacology.py` never add a binding to one.
 - **Non-modeled-metabolite receptor bindings (Wikipedia).** A metabolite that is not itself a modeled
   drug carries its own `bindings[]` (kind `drug_metabolite_bindings`), sourced from the metabolite's own

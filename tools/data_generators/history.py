@@ -3,7 +3,10 @@
 Two node kinds hang off a drug here (see ``docs/DRUGS.md`` "Regulatory history"):
 
 * ``drug_first_approval``: ONE node per drug, ``first_approval = {year, country?,
-  agency?}``, the earliest approval or introduction for medical use its source states.
+  agency?, national?}``, the earliest approval or introduction for medical use its
+  source states. ``national: true`` marks the earliest approval in ``country`` only (a
+  regulator's own register, Drugs@FDA corpus #18, knows nothing abroad), labelled
+  "First national approval" rather than "First approved".
 * ``drug_withdrawals``: ONE node per withdrawal, ``withdrawals[] = {year, country,
   reason}``. A drug never withdrawn carries no node at all (absence is not a claim).
 
@@ -146,7 +149,9 @@ def drug_history(drug: dict[str, Any]) -> dict[str, Any]:
         for field, vocab in (("country", COUNTRIES), ("agency", AGENCIES)):
             if fa.get(field) is not None and fa[field] not in vocab:
                 raise KeyError(f"Drug {did!r} first_approval {field} {fa[field]!r} unknown")
-        out["first_approval"] = {k: fa[k] for k in ("year", "country", "agency")
+        if fa.get("national") not in (None, True) or (fa.get("national") and not fa.get("country")):
+            raise ValueError(f"Drug {did!r} first_approval national must be true + a country")
+        out["first_approval"] = {k: fa[k] for k in ("year", "country", "agency", "national")
                                  if fa.get(k) is not None}
         srcs = _quote_sources(drug.get("first_approval_sources"),
                               f"Drug {did!r} first_approval")

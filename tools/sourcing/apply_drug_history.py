@@ -25,9 +25,11 @@ Every gate is re-derived here, never trusted from the judged file:
 6. the quote is verbatim on its page (``prose_gate.PageGate``, the checker's normalizer).
 
 A drug's picks land all or nothing per node: a bad approval drops only the approval, a
-bad withdrawal only that withdrawal. Sole writer of ``first_approval`` /
-``first_approval_sources`` / ``withdrawals``, and idempotent: a judged drug's history is
-replaced from the current judged file; a drug absent from it is left untouched.
+bad withdrawal only that withdrawal. Sole writer of ``withdrawals`` and of a Wikipedia
+``first_approval`` / ``first_approval_sources`` (a Drugs@FDA one, written by
+``apply_drugsfda.py`` as the fallback, is kept unless a judged approval replaces it), and
+idempotent: a judged drug's history is replaced from the current judged file; a drug
+absent from it is left untouched.
 
 It writes no ``llm`` stamp, so ``tools/sourcing/recheck_quotes.py`` must run afterwards
 (``--kinds drug_first_approval,drug_withdrawals``) or ``check_data.py`` family 5 flags the
@@ -148,7 +150,12 @@ def apply(judged: dict, offered: dict, drugs: list[dict],
             rejected.append(f"{did}: the fetcher offers no candidate for this drug")
             continue
         rec = rec or {}
-        for key in ("first_approval", "first_approval_sources", "withdrawals"):
+        # A Drugs@FDA approval (apply_drugsfda.py, the fallback) stays unless this
+        # pass now has an approval of its own to publish.
+        fda = any(s.get("corpus") == "drugsfda"
+                  for s in drug.get("first_approval_sources") or [])
+        for key in (("withdrawals",) if fda and not rec.get("approval") else
+                    ("first_approval", "first_approval_sources", "withdrawals")):
             drug.pop(key, None)
         if rec.get("approval"):
             got, why = gate_approval(rec["approval"], cands, gate)

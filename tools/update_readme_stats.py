@@ -87,6 +87,7 @@ CORPUS_DESC = {
     "bdpm":            ("French public drug database (ANSM RCPs)", "Drug Tmax, half-life, French brands"),
     "cpic":            ("Pharmacogenomic prescribing guidelines", "What a clearance speed implies for a drug"),
     "europepmc":       ("Primary literature (Europe PMC abstracts)", "Claims only a study measures (e.g. brain half-life)"),
+    "drugsfda":        ("US regulator register (Drugs@FDA)", "First US approval, where no other source dates one"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).

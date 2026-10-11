@@ -1,0 +1,1907 @@
+{
+ "drugs": {
+  "2cb": {
+   "status": "none"
+  },
+  "acamprosate": {
+   "application": "NDA021431",
+   "applications": 1,
+   "date": "2004-07-29",
+   "quote": "NDA021431 | CAMPRAL | ACAMPROSATE CALCIUM | TABLET, DELAYED RELEASE | ORIG approved 2004-07-29",
+   "status": "found",
+   "year": 2004
+  },
+  "agomelatine": {
+   "status": "none"
+  },
+  "alimemazine": {
+   "status": "none"
+  },
+  "alpidem": {
+   "status": "none"
+  },
+  "alprazolam": {
+   "application": "NDA018276",
+   "applications": 3,
+   "date": "1981-10-16",
+   "quote": "NDA018276 | XANAX | ALPRAZOLAM | TABLET | ORIG approved 1981-10-16",
+   "status": "found",
+   "year": 1981
+  },
+  "amantadine": {
+   "applications": [
+    "NDA016020"
+   ],
+   "status": "undated"
+  },
+  "amisulpride": {
+   "application": "NDA209510",
+   "applications": 1,
+   "date": "2020-02-26",
+   "quote": "NDA209510 | BARHEMSYS | AMISULPRIDE | SOLUTION | ORIG approved 2020-02-26",
+   "status": "found",
+   "year": 2020
+  },
+  "amitriptyline": {
+   "application": "NDA012703",
+   "applications": 2,
+   "date": "1961-04-07",
+   "quote": "NDA012703 | ELAVIL | AMITRIPTYLINE HYDROCHLORIDE | TABLET | ORIG approved 1961-04-07",
+   "status": "found",
+   "year": 1961
+  },
+  "amobarbital": {
+   "status": "none"
+  },
+  "amoxapine": {
+   "application": "NDA018021",
+   "applications": 1,
+   "date": "1980-09-22",
+   "quote": "NDA018021 | ASENDIN | AMOXAPINE | TABLET | ORIG approved 1980-09-22",
+   "status": "found",
+   "year": 1980
+  },
+  "amphetamine_d": {
+   "application": "NDA017078",
+   "class": "Type 5 - New Formulation or New Manufacturer",
+   "date": "1976-08-02",
+   "status": "superseded"
+  },
+  "amphetamine_dl": {
+   "application": "NDA204326",
+   "class": "Type 5 - New Formulation or New Manufacturer",
+   "date": "2016-01-27",
+   "status": "superseded"
+  },
+  "apomorphine": {
+   "application": "NDA021264",
+   "applications": 3,
+   "date": "2004-04-20",
+   "quote": "NDA021264 | APOKYN | APOMORPHINE HYDROCHLORIDE | INJECTABLE | ORIG approved 2004-04-20",
+   "status": "found",
+   "year": 2004
+  },
+  "aripiprazole": {
+   "application": "NDA021436",
+   "applications": 9,
+   "date": "2002-11-15",
+   "quote": "NDA021436 | ABILIFY | ARIPIPRAZOLE | TABLET | ORIG approved 2002-11-15",
+   "status": "found",
+   "year": 2002
+  },
+  "armodafinil": {
+   "application": "NDA021875",
+   "class": "Type 5 - New Formulation or New Manufacturer",
+   "date": "2007-06-15",
+   "status": "superseded"
+  },
+  "asenapine": {
+   "application": "NDA022117",
+   "applications": 2,
+   "date": "2009-08-13",
+   "quote": "NDA022117 | SAPHRIS | ASENAPINE MALEATE | TABLET | ORIG approved 2009-08-13",
+   "status": "found",
+   "year": 2009
+  },
+  "atomoxetine": {
+   "application": "NDA021411",
+   "applications": 2,
+   "date": "2002-11-26",
+   "quote": "NDA021411 | STRATTERA | ATOMOXETINE HYDROCHLORIDE | CAPSULE | ORIG approved 2002-11-26",
+   "status": "found",
+   "year": 2002
+  },
+  "atropine": {
+   "application": "NDA017106",
+   "class": "Type 5 - New Formulation or New Manufacturer",
+   "date": "1973-05-15",
+   "status": "superseded"
+  },
+  "azacyclonol": {
+   "status": "none"
+  },
+  "baclofen": {
+   "application": "NDA017851",
+   "applications": 7,
+   "date": "1977-11-22",
+   "quote": "NDA017851 | LIORESAL | BACLOFEN | TABLET | ORIG approved 1977-11-22",
+   "status": "found",
+   "year": 1977
+  },
+  "benperidol": {
+   "status": "none"
+  },
+  "benserazide": {
+   "status": "none"
+  },
+  "benztropine": {
+   "application": "NDA009193",
+   "applications": 2,
+   "date": "1954-03-05",
+   "quote": "NDA009193 | COGENTIN | BENZTROPINE MESYLATE | TABLET | ORIG approved 1954-03-05",
+   "status": "found",
+   "year": 1954
+  },
+  "betahistine": {
+   "status": "none"
+  },
+  "biperiden": {
+   "application": "NDA012003",
+   "applications": 2,
+   "date": "1959-09-08",
+   "quote": "NDA012003 | AKINETON | BIPERIDEN HYDROCHLORIDE | TABLET | ORIG approved 1959-09-08",
+   "status": "found",
+   "year": 1959
+  },
+  "blonanserin": {
+   "status": "none"
+  },
+  "bremelanotide": {
+   "application": "NDA210557",
+   "applications": 1,
+   "date": "2019-06-21",
+   "quote": "NDA210557 | VYLEESI (AUTOINJECTOR) | BREMELANOTIDE ACETATE | SOLUTION | ORIG approved 2019-06-21",
+   "status": "found",
+   "year": 2019
+  },
+  "brexanolone": {
+   "application": "NDA211371",
+   "applications": 1,
+   "date": "2019-03-19",
+   "quote": "NDA211371 | ZULRESSO | BREXANOLONE | SOLUTION | ORIG approved 2019-03-19",
+   "status": "found",
+   "year": 2019
+  },
+  "brexpiprazole": {
+   "application": "NDA205422",
+   "class": "Efficacy",
+   "date": "2015-07-10",
+   "status": "superseded"
+  },
+  "brivaracetam": {
+   "application": "NDA205836",
+   "applications": 3,
+   "date": "2016-02-18",
+   "quote": "NDA205836 | BRIVIACT | BRIVARACETAM | TABLET | ORIG approved 2016-02-18",
+   "status": "found",
+   "year": 2016
+  },
+  "bromazepam": {
+   "status": "none"
+  },
+  "bromocriptine": {
+   "application": "NDA017962",
+   "applications": 2,
+   "date": "1978-06-28",
+   "quote": "NDA017962 | PARLODEL | BROMOCRIPTINE MESYLATE | TABLET | ORIG approved 1978-06-28",
+   "status": "found",
+   "year": 1978
+  },
+  "bromperidol": {
+   "status": "none"
+  },
+  "brotizolam": {
+   "status": "none"
+  },
+  "bumetanide": {
+   "application": "NDA018225",
+   "applications": 3,
+   "date": "1983-02-28",
+   "quote": "NDA018225 | BUMEX | BUMETANIDE | TABLET | ORIG approved 1983-02-28",
+   "status": "found",
+   "year": 1983
+  },
+  "buprenorphine": {
+   "application": "NDA018401",
+   "applications": 7,
+   "date": "1981-12-29",
+   "quote": "NDA018401 | BUPRENEX | BUPRENORPHINE HYDROCHLORIDE | INJECTABLE | ORIG approved 1981-12-29",
+   "status": "found",
+   "year": 1981
+  },
+  "bupropion": {
+   "application": "NDA018644",
+   "applications": 6,
+   "date": "1985-12-30",
+   "quote": "NDA018644 | WELLBUTRIN | BUPROPION HYDROCHLORIDE | TABLET | ORIG approved 1985-12-30",
+   "status": "found",
+   "year": 1985
+  },
+  "buspirone": {
+   "application": "NDA018731",
+   "applications": 2,
+   "date": "1986-09-29",
+   "quote": "NDA018731 | BUSPAR | BUSPIRONE HYDROCHLORIDE | TABLET | ORIG approved 1986-09-29",
+   "status": "found",
+   "year": 1986
+  },
+  "butobarbital": {
+   "status": "none"
+  },
+  "cabergoline": {
+   "application": "NDA020664",
+   "applications": 1,
+   "date": "1996-12-23",
+   "quote": "NDA020664 | DOSTINEX | CABERGOLINE | TABLET | ORIG approved 1996-12-23",
+   "status": "found",
+   "year": 1996
+  },
+  "caffeine": {
+   "application": "NDA020793",
+   "class": "Type 2 - New Active Ingredient",
+   "date": "1999-09-21",
+   "status": "superseded"
+  },
+  "calcium_carbimide": {
+   "status": "none"
+  },
+  "cannabidiol": {
+   "application": "NDA210365",
+   "applications": 1,
+   "date": "2018-06-25",
+   "quote": "NDA210365 | EPIDIOLEX | CANNABIDIOL | SOLUTION | ORIG approved 2018-06-25",
+   "status": "found",
+   "year": 2018
+  },
+  "cannabinol": {
+   "status": "none"
+  },
+  "caprylidene": {
+   "status": "none"
+  },
+  "carbamazepine": {
+   "application": "NDA016608",
+   "applications": 7,
+   "date": "1968-03-11",
+   "quote": "NDA016608 | TEGRETOL | CARBAMAZEPINE | TABLET | ORIG approved 1968-03-11",
+   "status": "found",
+   "year": 1968
+  },
+  "carbidopa": {
+   "application": "NDA017830",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1977-04-25",
+   "status": "superseded"
+  },
+  "cariprazine": {
+   "application": "NDA204370",
+   "applications": 1,
+   "date": "2015-09-17",
+   "quote": "NDA204370 | VRAYLAR | CARIPRAZINE HYDROCHLORIDE | CAPSULE | ORIG approved 2015-09-17",
+   "status": "found",
+   "year": 2015
+  },
+  "chloral_hydrate": {
+   "status": "none"
+  },
+  "chlordiazepoxide": {
+   "application": "NDA012249",
+   "applications": 3,
+   "date": "1960-02-24",
+   "quote": "NDA012249 | LIBRIUM | CHLORDIAZEPOXIDE HYDROCHLORIDE | CAPSULE | ORIG approved 1960-02-24",
+   "status": "found",
+   "year": 1960
+  },
+  "chlorpromazine": {
+   "application": "NDA011120",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1957-09-18",
+   "status": "superseded"
+  },
+  "chlorprothixene": {
+   "application": "NDA012487",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1962-03-23",
+   "status": "superseded"
+  },
+  "citalopram": {
+   "application": "NDA020822",
+   "applications": 4,
+   "date": "1998-07-17",
+   "quote": "NDA020822 | CELEXA | CITALOPRAM HYDROBROMIDE | TABLET | ORIG approved 1998-07-17",
+   "status": "found",
+   "year": 1998
+  },
+  "clobazam": {
+   "application": "NDA202067",
+   "applications": 3,
+   "date": "2011-10-21",
+   "quote": "NDA202067 | ONFI | CLOBAZAM | TABLET | ORIG approved 2011-10-21",
+   "status": "found",
+   "year": 2011
+  },
+  "clomethiazole": {
+   "status": "none"
+  },
+  "clomipramine": {
+   "application": "NDA019906",
+   "applications": 1,
+   "date": "1989-12-29",
+   "quote": "NDA019906 | ANAFRANIL | CLOMIPRAMINE HYDROCHLORIDE | CAPSULE | ORIG approved 1989-12-29",
+   "status": "found",
+   "year": 1989
+  },
+  "clonazepam": {
+   "application": "NDA017533",
+   "applications": 2,
+   "date": "1975-06-04",
+   "quote": "NDA017533 | KLONOPIN | CLONAZEPAM | TABLET | ORIG approved 1975-06-04",
+   "status": "found",
+   "year": 1975
+  },
+  "clonidine": {
+   "application": "NDA017407",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1974-09-03",
+   "status": "superseded"
+  },
+  "clorazepate": {
+   "application": "NDA017105",
+   "applications": 1,
+   "date": "1972-06-23",
+   "quote": "NDA017105 | TRANXENE | CLORAZEPATE DIPOTASSIUM | TABLET | ORIG approved 1972-06-23",
+   "status": "found",
+   "year": 1972
+  },
+  "clorgiline": {
+   "status": "none"
+  },
+  "clotiazepam": {
+   "status": "none"
+  },
+  "clozapine": {
+   "application": "NDA019758",
+   "applications": 3,
+   "date": "1989-09-26",
+   "quote": "NDA019758 | CLOZARIL | CLOZAPINE | TABLET | ORIG approved 1989-09-26",
+   "status": "found",
+   "year": 1989
+  },
+  "cocaine": {
+   "application": "NDA209963",
+   "class": "Type 5 - New Formulation or New Manufacturer",
+   "date": "2017-12-14",
+   "status": "superseded"
+  },
+  "codeine": {
+   "application": "NDA022402",
+   "class": "Type 7 - Drug Already Marketed without Approved NDA",
+   "date": "2009-07-16",
+   "status": "superseded"
+  },
+  "cyamemazine": {
+   "status": "none"
+  },
+  "cyclobarbital": {
+   "status": "none"
+  },
+  "cyproheptadine": {
+   "application": "NDA012649",
+   "applications": 2,
+   "date": "1961-10-17",
+   "quote": "NDA012649 | PERIACTIN | CYPROHEPTADINE HYDROCHLORIDE | TABLET | ORIG approved 1961-10-17",
+   "status": "found",
+   "year": 1961
+  },
+  "cytisine": {
+   "status": "none"
+  },
+  "daridorexant": {
+   "application": "NDA214985",
+   "applications": 1,
+   "date": "2022-01-07",
+   "quote": "NDA214985 | QUVIVIQ | DARIDOREXANT HYDROCHLORIDE | TABLET | ORIG approved 2022-01-07",
+   "status": "found",
+   "year": 2022
+  },
+  "desipramine": {
+   "application": "NDA014399",
+   "class": "Type 2 - New Active Ingredient",
+   "date": "1964-11-20",
+   "status": "superseded"
+  },
+  "desvenlafaxine": {
+   "application": "NDA021992",
+   "applications": 5,
+   "date": "2008-02-29",
+   "quote": "NDA021992 | PRISTIQ | DESVENLAFAXINE SUCCINATE | TABLET, EXTENDED RELEASE | ORIG approved 2008-02-29",
+   "status": "found",
+   "year": 2008
+  },
+  "deutetrabenazine": {
+   "application": "NDA208082",
+   "applications": 3,
+   "date": "2017-04-03",
+   "quote": "NDA208082 | AUSTEDO | DEUTETRABENAZINE | TABLET | ORIG approved 2017-04-03",
+   "status": "found",
+   "year": 2017
+  },
+  "dexmedetomidine": {
+   "application": "NDA021038",
+   "applications": 3,
+   "date": "1999-12-17",
+   "quote": "NDA021038 | PRECEDEX | DEXMEDETOMIDINE HYDROCHLORIDE | INJECTABLE | ORIG approved 1999-12-17",
+   "status": "found",
+   "year": 1999
+  },
+  "dextromethorphanbupropion": {
+   "status": "combo"
+  },
+  "dextromethorphanquinidine": {
+   "status": "combo"
+  },
+  "diazepam": {
+   "applications": [
+    "NDA018179",
+    "NDA019287",
+    "NDA212641",
+    "NDA218623"
+   ],
+   "status": "undated"
+  },
+  "dimenhydrinate": {
+   "status": "none"
+  },
+  "diphenhydramine": {
+   "applications": [
+    "NDA006514"
+   ],
+   "status": "undated"
+  },
+  "disulfiram": {
+   "application": "NDA007883",
+   "applications": 1,
+   "date": "1951-08-28",
+   "quote": "NDA007883 | ANTABUSE | DISULFIRAM | TABLET | ORIG approved 1951-08-28",
+   "status": "found",
+   "year": 1951
+  },
+  "dmt": {
+   "status": "none"
+  },
+  "domperidone": {
+   "status": "none"
+  },
+  "donepezil": {
+   "application": "NDA020690",
+   "applications": 5,
+   "date": "1996-11-25",
+   "quote": "NDA020690 | ARICEPT | DONEPEZIL HYDROCHLORIDE | TABLET | ORIG approved 1996-11-25",
+   "status": "found",
+   "year": 1996
+  },
+  "dothiepin": {
+   "status": "none"
+  },
+  "doxepin": {
+   "application": "NDA016798",
+   "applications": 5,
+   "date": "1969-09-23",
+   "quote": "NDA016798 | SINEQUAN | DOXEPIN HYDROCHLORIDE | CAPSULE | ORIG approved 1969-09-23",
+   "status": "found",
+   "year": 1969
+  },
+  "doxylamine": {
+   "applications": [
+    "NDA019440"
+   ],
+   "status": "undated"
+  },
+  "duloxetine": {
+   "application": "NDA021427",
+   "applications": 6,
+   "date": "2004-08-03",
+   "quote": "NDA021427 | CYMBALTA | DULOXETINE HYDROCHLORIDE | CAPSULE, DELAYED REL PELLETS | ORIG approved 2004-08-03",
+   "status": "found",
+   "year": 2004
+  },
+  "entacapone": {
+   "application": "NDA020796",
+   "applications": 1,
+   "date": "1999-10-19",
+   "quote": "NDA020796 | COMTAN | ENTACAPONE | TABLET | ORIG approved 1999-10-19",
+   "status": "found",
+   "year": 1999
+  },
+  "ephedrine": {
+   "application": "NDA208289",
+   "class": "Type 7 - Drug Already Marketed without Approved NDA",
+   "date": "2016-04-29",
+   "status": "superseded"
+  },
+  "erenumab": {
+   "status": "none"
+  },
+  "escitalopram": {
+   "application": "NDA021323",
+   "class": "Type 3 - New Dosage Form",
+   "date": "2002-08-14",
+   "status": "superseded"
+  },
+  "esketamine": {
+   "application": "NDA211243",
+   "class": "Type 2 - New Active Ingredient",
+   "date": "2019-03-05",
+   "status": "superseded"
+  },
+  "estazolam": {
+   "application": "NDA019080",
+   "applications": 1,
+   "date": "1990-12-26",
+   "quote": "NDA019080 | PROSOM | ESTAZOLAM | TABLET | ORIG approved 1990-12-26",
+   "status": "found",
+   "year": 1990
+  },
+  "eszopiclone": {
+   "application": "NDA021476",
+   "applications": 1,
+   "date": "2004-12-15",
+   "quote": "NDA021476 | LUNESTA | ESZOPICLONE | TABLET | ORIG approved 2004-12-15",
+   "status": "found",
+   "year": 2004
+  },
+  "ethanol": {
+   "status": "none"
+  },
+  "ethosuximide": {
+   "application": "NDA012380",
+   "applications": 1,
+   "date": "1960-11-02",
+   "quote": "NDA012380 | ZARONTIN | ETHOSUXIMIDE | CAPSULE | ORIG approved 1960-11-02",
+   "status": "found",
+   "year": 1960
+  },
+  "etomidate": {
+   "application": "NDA018227",
+   "applications": 1,
+   "date": "1982-09-07",
+   "quote": "NDA018227 | AMIDATE | ETOMIDATE | INJECTABLE | ORIG approved 1982-09-07",
+   "status": "found",
+   "year": 1982
+  },
+  "fenfluramine": {
+   "application": "NDA212102",
+   "class": "Type 3 - New Dosage Form",
+   "date": "2020-06-25",
+   "status": "superseded"
+  },
+  "fentanyl": {
+   "application": "NDA016619",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1968-02-19",
+   "status": "superseded"
+  },
+  "flibanserin": {
+   "application": "NDA022526",
+   "applications": 1,
+   "date": "2015-08-18",
+   "quote": "NDA022526 | ADDYI | FLIBANSERIN | TABLET | ORIG approved 2015-08-18",
+   "status": "found",
+   "year": 2015
+  },
+  "flumazenil": {
+   "application": "NDA020073",
+   "applications": 1,
+   "date": "1991-12-20",
+   "quote": "NDA020073 | ROMAZICON | FLUMAZENIL | INJECTABLE | ORIG approved 1991-12-20",
+   "status": "found",
+   "year": 1991
+  },
+  "flunarizine": {
+   "status": "none"
+  },
+  "flunitrazepam": {
+   "status": "none"
+  },
+  "fluoxetine": {
+   "application": "NDA018936",
+   "applications": 6,
+   "date": "1987-12-29",
+   "quote": "NDA018936 | SARAFEM | FLUOXETINE HYDROCHLORIDE | CAPSULE | ORIG approved 1987-12-29",
+   "status": "found",
+   "year": 1987
+  },
+  "flupenthixol": {
+   "status": "none"
+  },
+  "fluphenazine": {
+   "application": "NDA012034",
+   "applications": 7,
+   "date": "1959-09-09",
+   "quote": "NDA012034 | PERMITIL | FLUPHENAZINE HYDROCHLORIDE | TABLET | ORIG approved 1959-09-09",
+   "status": "found",
+   "year": 1959
+  },
+  "flurazepam": {
+   "application": "NDA016721",
+   "applications": 1,
+   "date": "1970-04-07",
+   "quote": "NDA016721 | DALMANE | FLURAZEPAM HYDROCHLORIDE | CAPSULE | ORIG approved 1970-04-07",
+   "status": "found",
+   "year": 1970
+  },
+  "fluspirilene": {
+   "status": "none"
+  },
+  "fluvoxamine": {
+   "application": "NDA020243",
+   "applications": 4,
+   "date": "1994-12-05",
+   "quote": "NDA020243 | LUVOX | FLUVOXAMINE MALEATE | TABLET | ORIG approved 1994-12-05",
+   "status": "found",
+   "year": 1994
+  },
+  "furosemide": {
+   "applications": [
+    "NDA018370",
+    "NDA018419",
+    "NDA018420",
+    "NDA018507",
+    "NDA018670",
+    "NDA018868",
+    "NDA019036"
+   ],
+   "status": "undated"
+  },
+  "gabapentin": {
+   "application": "NDA020235",
+   "applications": 8,
+   "date": "1993-12-30",
+   "quote": "NDA020235 | NEURONTIN | GABAPENTIN | CAPSULE | ORIG approved 1993-12-30",
+   "status": "found",
+   "year": 1993
+  },
+  "galantamine": {
+   "application": "NDA021169",
+   "applications": 3,
+   "date": "2001-02-28",
+   "quote": "NDA021169 | RAZADYNE | GALANTAMINE HYDROBROMIDE | TABLET | ORIG approved 2001-02-28",
+   "status": "found",
+   "year": 2001
+  },
+  "glutethimide": {
+   "application": "NDA009519",
+   "applications": 1,
+   "date": "1957-04-16",
+   "quote": "NDA009519 | DORIDEN | GLUTETHIMIDE | CAPSULE | ORIG approved 1957-04-16",
+   "status": "found",
+   "year": 1957
+  },
+  "granisetron": {
+   "application": "NDA020239",
+   "applications": 5,
+   "date": "1993-12-29",
+   "quote": "NDA020239 | KYTRIL | GRANISETRON HYDROCHLORIDE | INJECTABLE | ORIG approved 1993-12-29",
+   "status": "found",
+   "year": 1993
+  },
+  "guanfacine": {
+   "application": "NDA019032",
+   "applications": 2,
+   "date": "1986-10-27",
+   "quote": "NDA019032 | TENEX | GUANFACINE HYDROCHLORIDE | TABLET | ORIG approved 1986-10-27",
+   "status": "found",
+   "year": 1986
+  },
+  "haloperidol": {
+   "applications": [
+    "NDA017079",
+    "NDA020074"
+   ],
+   "status": "undated"
+  },
+  "heroin": {
+   "status": "none"
+  },
+  "hydromorphone": {
+   "application": "NDA019034",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1984-01-11",
+   "status": "superseded"
+  },
+  "hydroxyzine": {
+   "application": "NDA010392",
+   "applications": 5,
+   "date": "1956-04-12",
+   "quote": "NDA010392 | ATARAX | HYDROXYZINE HYDROCHLORIDE | TABLET | ORIG approved 1956-04-12",
+   "status": "found",
+   "year": 1956
+  },
+  "ibogaine": {
+   "status": "none"
+  },
+  "iloperidone": {
+   "application": "NDA022192",
+   "applications": 1,
+   "date": "2009-05-06",
+   "quote": "NDA022192 | FANAPT | ILOPERIDONE | TABLET | ORIG approved 2009-05-06",
+   "status": "found",
+   "year": 2009
+  },
+  "imipramine": {
+   "application": "NDA011836",
+   "applications": 4,
+   "date": "1959-04-16",
+   "quote": "NDA011836 | PRESAMINE | IMIPRAMINE HYDROCHLORIDE | TABLET | ORIG approved 1959-04-16",
+   "status": "found",
+   "year": 1959
+  },
+  "indalpine": {
+   "status": "none"
+  },
+  "isocarboxazid": {
+   "application": "NDA011961",
+   "applications": 1,
+   "date": "1959-07-01",
+   "quote": "NDA011961 | MARPLAN | ISOCARBOXAZID | TABLET | ORIG approved 1959-07-01",
+   "status": "found",
+   "year": 1959
+  },
+  "isoflurane": {
+   "application": "NDA017624",
+   "applications": 1,
+   "date": "1979-12-18",
+   "quote": "NDA017624 | FORANE | ISOFLURANE | LIQUID | ORIG approved 1979-12-18",
+   "status": "found",
+   "year": 1979
+  },
+  "istradefylline": {
+   "application": "NDA022075",
+   "applications": 1,
+   "date": "2019-08-27",
+   "quote": "NDA022075 | NOURIANZ | ISTRADEFYLLINE | TABLET | ORIG approved 2019-08-27",
+   "status": "found",
+   "year": 2019
+  },
+  "ketamine": {
+   "application": "NDA016812",
+   "applications": 1,
+   "date": "1970-02-19",
+   "quote": "NDA016812 | KETALAR | KETAMINE HYDROCHLORIDE | INJECTABLE | ORIG approved 1970-02-19",
+   "status": "found",
+   "year": 1970
+  },
+  "ketanserin": {
+   "status": "none"
+  },
+  "lacosamide": {
+   "application": "NDA022253",
+   "applications": 4,
+   "date": "2008-10-28",
+   "quote": "NDA022253 | VIMPAT | LACOSAMIDE | TABLET | ORIG approved 2008-10-28",
+   "status": "found",
+   "year": 2008
+  },
+  "lamotrigine": {
+   "application": "NDA020241",
+   "applications": 6,
+   "date": "1994-12-27",
+   "quote": "NDA020241 | LAMICTAL | LAMOTRIGINE | TABLET | ORIG approved 1994-12-27",
+   "status": "found",
+   "year": 1994
+  },
+  "lemborexant": {
+   "application": "NDA212028",
+   "applications": 1,
+   "date": "2019-12-20",
+   "quote": "NDA212028 | DAYVIGO | LEMBOREXANT | TABLET | ORIG approved 2019-12-20",
+   "status": "found",
+   "year": 2019
+  },
+  "levetiracetam": {
+   "application": "NDA021035",
+   "applications": 7,
+   "date": "1999-11-30",
+   "quote": "NDA021035 | KEPPRA | LEVETIRACETAM | TABLET | ORIG approved 1999-11-30",
+   "status": "found",
+   "year": 1999
+  },
+  "levodopa": {
+   "applications": [
+    "NDA016948"
+   ],
+   "status": "undated"
+  },
+  "levomepromazine": {
+   "applications": [
+    "NDA015865"
+   ],
+   "status": "undated"
+  },
+  "levomilnacipran": {
+   "application": "NDA204168",
+   "class": "Type 2 - New Active Ingredient",
+   "date": "2013-07-25",
+   "status": "superseded"
+  },
+  "lisdexamfetamine": {
+   "application": "NDA021977",
+   "applications": 3,
+   "date": "2007-02-23",
+   "quote": "NDA021977 | VYVANSE | LISDEXAMFETAMINE DIMESYLATE | CAPSULE | ORIG approved 2007-02-23",
+   "status": "found",
+   "year": 2007
+  },
+  "lithium": {
+   "applications": [
+    "NDA017672"
+   ],
+   "status": "undated"
+  },
+  "lofepramine": {
+   "status": "none"
+  },
+  "lofexidine": {
+   "application": "NDA209229",
+   "applications": 1,
+   "date": "2018-05-16",
+   "quote": "NDA209229 | LUCEMYRA | LOFEXIDINE HYDROCHLORIDE | TABLET | ORIG approved 2018-05-16",
+   "status": "found",
+   "year": 2018
+  },
+  "loflazepate": {
+   "status": "none"
+  },
+  "loprazolam": {
+   "status": "none"
+  },
+  "lorazepam": {
+   "application": "NDA017794",
+   "applications": 3,
+   "date": "1977-09-30",
+   "quote": "NDA017794 | ATIVAN | LORAZEPAM | TABLET | ORIG approved 1977-09-30",
+   "status": "found",
+   "year": 1977
+  },
+  "lormetazepam": {
+   "status": "none"
+  },
+  "loxapine": {
+   "application": "NDA017525",
+   "applications": 4,
+   "date": "1975-02-25",
+   "quote": "NDA017525 | LOXITANE | LOXAPINE SUCCINATE | TABLET | ORIG approved 1975-02-25",
+   "status": "found",
+   "year": 1975
+  },
+  "lsd": {
+   "status": "none"
+  },
+  "lumateperone": {
+   "application": "NDA209500",
+   "applications": 1,
+   "date": "2019-12-20",
+   "quote": "NDA209500 | CAPLYTA | LUMATEPERONE TOSYLATE | CAPSULE | ORIG approved 2019-12-20",
+   "status": "found",
+   "year": 2019
+  },
+  "lurasidone": {
+   "application": "NDA200603",
+   "applications": 1,
+   "date": "2010-10-28",
+   "quote": "NDA200603 | LATUDA | LURASIDONE HYDROCHLORIDE | TABLET | ORIG approved 2010-10-28",
+   "status": "found",
+   "year": 2010
+  },
+  "maprotiline": {
+   "application": "NDA017543",
+   "applications": 1,
+   "date": "1980-12-01",
+   "quote": "NDA017543 | LUDIOMIL | MAPROTILINE HYDROCHLORIDE | TABLET | ORIG approved 1980-12-01",
+   "status": "found",
+   "year": 1980
+  },
+  "mdma": {
+   "status": "none"
+  },
+  "meclizine": {
+   "application": "NDA010721",
+   "applications": 1,
+   "date": "1957-02-14",
+   "quote": "NDA010721 | ANTIVERT | MECLIZINE HYDROCHLORIDE | TABLET | ORIG approved 1957-02-14",
+   "status": "found",
+   "year": 1957
+  },
+  "melatonin": {
+   "status": "none"
+  },
+  "melperone": {
+   "status": "none"
+  },
+  "memantine": {
+   "application": "NDA021487",
+   "applications": 3,
+   "date": "2003-10-16",
+   "quote": "NDA021487 | NAMENDA | MEMANTINE HYDROCHLORIDE | TABLET | ORIG approved 2003-10-16",
+   "status": "found",
+   "year": 2003
+  },
+  "meprobamate": {
+   "applications": [
+    "NDA011284",
+    "NDA012455",
+    "NDA014322",
+    "NDA014368",
+    "NDA014474",
+    "NDA014601",
+    "NDA015139",
+    "NDA015426",
+    "NDA015438",
+    "NDA016069",
+    "NDA016928"
+   ],
+   "status": "undated"
+  },
+  "mescaline": {
+   "status": "none"
+  },
+  "mesoridazine": {
+   "application": "NDA016774",
+   "applications": 3,
+   "date": "1970-02-27",
+   "quote": "NDA016774 | SERENTIL | MESORIDAZINE BESYLATE | TABLET | ORIG approved 1970-02-27",
+   "status": "found",
+   "year": 1970
+  },
+  "methadone": {
+   "application": "NDA006134",
+   "applications": 6,
+   "date": "1947-08-13",
+   "quote": "NDA006134 | DOLOPHINE HYDROCHLORIDE | METHADONE HYDROCHLORIDE | SYRUP | ORIG approved 1947-08-13",
+   "status": "found",
+   "year": 1947
+  },
+  "methamphetamine": {
+   "application": "NDA005378",
+   "applications": 1,
+   "date": "1943-12-31",
+   "quote": "NDA005378 | DESOXYN | METHAMPHETAMINE HYDROCHLORIDE | TABLET, EXTENDED RELEASE | ORIG approved 1943-12-31",
+   "status": "found",
+   "year": 1943
+  },
+  "methaqualone": {
+   "status": "none"
+  },
+  "methylfolate_l": {
+   "status": "none"
+  },
+  "methylphenidate_d": {
+   "application": "NDA021278",
+   "class": "Type 3 - New Dosage Form",
+   "date": "2001-11-13",
+   "status": "superseded"
+  },
+  "methylphenidate_dl": {
+   "application": "NDA010187",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1955-12-05",
+   "status": "superseded"
+  },
+  "metoclopramide": {
+   "application": "NDA017862",
+   "applications": 6,
+   "date": "1979-02-07",
+   "quote": "NDA017862 | REGLAN | METOCLOPRAMIDE HYDROCHLORIDE | INJECTABLE | ORIG approved 1979-02-07",
+   "status": "found",
+   "year": 1979
+  },
+  "mianserin": {
+   "status": "none"
+  },
+  "midazolam": {
+   "application": "NDA018654",
+   "applications": 7,
+   "date": "1985-12-20",
+   "quote": "NDA018654 | VERSED | MIDAZOLAM HYDROCHLORIDE | INJECTABLE | ORIG approved 1985-12-20",
+   "status": "found",
+   "year": 1985
+  },
+  "milnacipran": {
+   "application": "NDA022256",
+   "applications": 1,
+   "date": "2009-01-14",
+   "quote": "NDA022256 | SAVELLA | MILNACIPRAN HYDROCHLORIDE | TABLET | ORIG approved 2009-01-14",
+   "status": "found",
+   "year": 2009
+  },
+  "mirtazapine": {
+   "application": "NDA020415",
+   "applications": 2,
+   "date": "1996-06-14",
+   "quote": "NDA020415 | REMERON | MIRTAZAPINE | TABLET | ORIG approved 1996-06-14",
+   "status": "found",
+   "year": 1996
+  },
+  "moclobemide": {
+   "status": "none"
+  },
+  "modafinil": {
+   "application": "NDA020717",
+   "applications": 1,
+   "date": "1998-12-24",
+   "quote": "NDA020717 | PROVIGIL | MODAFINIL | TABLET | ORIG approved 1998-12-24",
+   "status": "found",
+   "year": 1998
+  },
+  "molindone": {
+   "application": "NDA017111",
+   "applications": 2,
+   "date": "1974-01-18",
+   "quote": "NDA017111 | MOBAN | MOLINDONE HYDROCHLORIDE | TABLET | ORIG approved 1974-01-18",
+   "status": "found",
+   "year": 1974
+  },
+  "morphine": {
+   "application": "NDA018565",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1984-09-18",
+   "status": "superseded"
+  },
+  "nabilone": {
+   "application": "NDA018677",
+   "applications": 1,
+   "date": "1985-12-26",
+   "quote": "NDA018677 | CESAMET | NABILONE | CAPSULE | ORIG approved 1985-12-26",
+   "status": "found",
+   "year": 1985
+  },
+  "nalmefene": {
+   "application": "NDA020459",
+   "applications": 3,
+   "date": "1995-04-17",
+   "quote": "NDA020459 | REVEX | NALMEFENE HYDROCHLORIDE | SOLUTION | ORIG approved 1995-04-17",
+   "status": "found",
+   "year": 1995
+  },
+  "naloxone": {
+   "application": "NDA016636",
+   "applications": 10,
+   "date": "1971-04-13",
+   "quote": "NDA016636 | NARCAN | NALOXONE HYDROCHLORIDE | INJECTABLE | ORIG approved 1971-04-13",
+   "status": "found",
+   "year": 1971
+  },
+  "naltrexone": {
+   "application": "NDA018932",
+   "applications": 2,
+   "date": "1984-11-20",
+   "quote": "NDA018932 | REVIA | NALTREXONE HYDROCHLORIDE | TABLET | ORIG approved 1984-11-20",
+   "status": "found",
+   "year": 1984
+  },
+  "naltrexonebupropion": {
+   "status": "combo"
+  },
+  "nefazodone": {
+   "application": "NDA020152",
+   "applications": 1,
+   "date": "1994-12-22",
+   "quote": "NDA020152 | SERZONE | NEFAZODONE HYDROCHLORIDE | TABLET | ORIG approved 1994-12-22",
+   "status": "found",
+   "year": 1994
+  },
+  "niaprazine": {
+   "status": "none"
+  },
+  "nicotine": {
+   "application": "NDA018612",
+   "applications": 10,
+   "date": "1984-01-13",
+   "quote": "NDA018612 | NICORETTE | NICOTINE POLACRILEX | GUM, CHEWING | ORIG approved 1984-01-13",
+   "status": "found",
+   "year": 1984
+  },
+  "nimetazepam": {
+   "status": "none"
+  },
+  "nitrazepam": {
+   "status": "none"
+  },
+  "nitrous_oxide": {
+   "application": "NDA205704",
+   "class": "Medical Gas",
+   "date": "2013-06-16",
+   "status": "superseded"
+  },
+  "nortriptyline": {
+   "application": "NDA014684",
+   "applications": 4,
+   "date": "1964-11-06",
+   "quote": "NDA014684 | AVENTYL HYDROCHLORIDE | NORTRIPTYLINE HYDROCHLORIDE | CAPSULE | ORIG approved 1964-11-06",
+   "status": "found",
+   "year": 1964
+  },
+  "olanzapine": {
+   "application": "NDA020592",
+   "applications": 4,
+   "date": "1996-09-30",
+   "quote": "NDA020592 | ZYPREXA | OLANZAPINE | TABLET | ORIG approved 1996-09-30",
+   "status": "found",
+   "year": 1996
+  },
+  "olanzapinesamidorphan": {
+   "status": "combo"
+  },
+  "ondansetron": {
+   "application": "NDA020007",
+   "applications": 6,
+   "date": "1991-01-04",
+   "quote": "NDA020007 | ZOFRAN | ONDANSETRON HYDROCHLORIDE | INJECTABLE | ORIG approved 1991-01-04",
+   "status": "found",
+   "year": 1991
+  },
+  "opipramol": {
+   "status": "none"
+  },
+  "oxazepam": {
+   "application": "NDA015539",
+   "applications": 1,
+   "date": "1965-06-04",
+   "quote": "NDA015539 | SERAX | OXAZEPAM | TABLET | ORIG approved 1965-06-04",
+   "status": "found",
+   "year": 1965
+  },
+  "oxcarbazepine": {
+   "application": "NDA021014",
+   "applications": 3,
+   "date": "2000-01-14",
+   "quote": "NDA021014 | TRILEPTAL | OXCARBAZEPINE | TABLET | ORIG approved 2000-01-14",
+   "status": "found",
+   "year": 2000
+  },
+  "oxycodone": {
+   "application": "NDA020932",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1998-10-26",
+   "status": "superseded"
+  },
+  "paliperidone": {
+   "application": "NDA021999",
+   "applications": 5,
+   "date": "2006-12-19",
+   "quote": "NDA021999 | INVEGA | PALIPERIDONE | TABLET, EXTENDED RELEASE | ORIG approved 2006-12-19",
+   "status": "found",
+   "year": 2006
+  },
+  "pargyline": {
+   "applications": [
+    "NDA013448"
+   ],
+   "status": "undated"
+  },
+  "paroxetine": {
+   "application": "NDA020031",
+   "applications": 6,
+   "date": "1992-12-29",
+   "quote": "NDA020031 | PAXIL | PAROXETINE HYDROCHLORIDE | TABLET | ORIG approved 1992-12-29",
+   "status": "found",
+   "year": 1992
+  },
+  "pentazocine": {
+   "application": "NDA016194",
+   "applications": 2,
+   "date": "1967-07-24",
+   "quote": "NDA016194 | TALWIN | PENTAZOCINE LACTATE | INJECTABLE | ORIG approved 1967-07-24",
+   "status": "found",
+   "year": 1967
+  },
+  "pentobarbital": {
+   "status": "none"
+  },
+  "perampanel": {
+   "application": "NDA202834",
+   "applications": 2,
+   "date": "2012-10-22",
+   "quote": "NDA202834 | FYCOMPA | PERAMPANEL | TABLET | ORIG approved 2012-10-22",
+   "status": "found",
+   "year": 2012
+  },
+  "perazine": {
+   "status": "none"
+  },
+  "perospirone": {
+   "status": "none"
+  },
+  "perphenazine": {
+   "applications": [
+    "NDA011294",
+    "NDA011361"
+   ],
+   "status": "undated"
+  },
+  "pethidine": {
+   "application": "NDA005010",
+   "applications": 2,
+   "date": "1942-11-10",
+   "quote": "NDA005010 | DEMEROL | MEPERIDINE HYDROCHLORIDE | TABLET | ORIG approved 1942-11-10",
+   "status": "found",
+   "year": 1942
+  },
+  "phenazepam": {
+   "status": "none"
+  },
+  "phencyclidine": {
+   "status": "none"
+  },
+  "phenelzine": {
+   "application": "NDA011909",
+   "applications": 1,
+   "date": "1961-06-09",
+   "quote": "NDA011909 | NARDIL | PHENELZINE SULFATE | TABLET | ORIG approved 1961-06-09",
+   "status": "found",
+   "year": 1961
+  },
+  "phenobarbital": {
+   "application": "NDA215910",
+   "class": "Type 3 - New Dosage Form",
+   "date": "2022-11-17",
+   "status": "superseded"
+  },
+  "phentermine": {
+   "applications": [
+    "NDA012737"
+   ],
+   "status": "undated"
+  },
+  "phenterminetopiramate": {
+   "status": "combo"
+  },
+  "phenytoin": {
+   "application": "NDA008762",
+   "class": "Type 2 - New Active Ingredient",
+   "date": "1953-01-06",
+   "status": "superseded"
+  },
+  "pimavanserin": {
+   "application": "NDA207318",
+   "applications": 2,
+   "date": "2016-04-29",
+   "quote": "NDA207318 | NUPLAZID | PIMAVANSERIN TARTRATE | TABLET | ORIG approved 2016-04-29",
+   "status": "found",
+   "year": 2016
+  },
+  "pimozide": {
+   "application": "NDA017473",
+   "applications": 1,
+   "date": "1984-07-31",
+   "quote": "NDA017473 | ORAP | PIMOZIDE | TABLET | ORIG approved 1984-07-31",
+   "status": "found",
+   "year": 1984
+  },
+  "pipamperone": {
+   "status": "none"
+  },
+  "pipothiazine": {
+   "status": "none"
+  },
+  "pitolisant": {
+   "application": "NDA211150",
+   "applications": 1,
+   "date": "2019-08-14",
+   "quote": "NDA211150 | WAKIX | PITOLISANT HYDROCHLORIDE | TABLET | ORIG approved 2019-08-14",
+   "status": "found",
+   "year": 2019
+  },
+  "pizotifen": {
+   "status": "none"
+  },
+  "pramipexole": {
+   "application": "NDA020667",
+   "applications": 3,
+   "date": "1997-07-01",
+   "quote": "NDA020667 | MIRAPEX | PRAMIPEXOLE DIHYDROCHLORIDE | TABLET | ORIG approved 1997-07-01",
+   "status": "found",
+   "year": 1997
+  },
+  "prazepam": {
+   "applications": [
+    "NDA017415"
+   ],
+   "status": "undated"
+  },
+  "prazosin": {
+   "application": "NDA017442",
+   "applications": 2,
+   "date": "1976-06-23",
+   "quote": "NDA017442 | MINIPRESS | PRAZOSIN HYDROCHLORIDE | CAPSULE | ORIG approved 1976-06-23",
+   "status": "found",
+   "year": 1976
+  },
+  "pregabalin": {
+   "application": "NDA021446",
+   "applications": 5,
+   "date": "2004-12-30",
+   "quote": "NDA021446 | LYRICA | PREGABALIN | CAPSULE | ORIG approved 2004-12-30",
+   "status": "found",
+   "year": 2004
+  },
+  "primidone": {
+   "application": "NDA009170",
+   "applications": 1,
+   "date": "1954-03-08",
+   "quote": "NDA009170 | MYSOLINE | PRIMIDONE | TABLET | ORIG approved 1954-03-08",
+   "status": "found",
+   "year": 1954
+  },
+  "prochlorperazine": {
+   "applications": [
+    "NDA011276"
+   ],
+   "status": "undated"
+  },
+  "promethazine": {
+   "application": "NDA007935",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1951-03-29",
+   "status": "superseded"
+  },
+  "propofol": {
+   "application": "NDA019627",
+   "applications": 1,
+   "date": "1989-10-02",
+   "quote": "NDA019627 | DIPRIVAN | PROPOFOL | INJECTABLE | ORIG approved 1989-10-02",
+   "status": "found",
+   "year": 1989
+  },
+  "propranolol": {
+   "application": "NDA016418",
+   "applications": 6,
+   "date": "1967-11-13",
+   "quote": "NDA016418 | INDERAL | PROPRANOLOL HYDROCHLORIDE | TABLET | ORIG approved 1967-11-13",
+   "status": "found",
+   "year": 1967
+  },
+  "prothipendyl": {
+   "status": "none"
+  },
+  "protriptyline": {
+   "application": "NDA016012",
+   "applications": 1,
+   "date": "1967-09-27",
+   "quote": "NDA016012 | VIVACTIL | PROTRIPTYLINE HYDROCHLORIDE | TABLET | ORIG approved 1967-09-27",
+   "status": "found",
+   "year": 1967
+  },
+  "pseudoephedrine": {
+   "applications": [
+    "NDA017941"
+   ],
+   "status": "undated"
+  },
+  "psilocybin": {
+   "status": "none"
+  },
+  "quazepam": {
+   "application": "NDA018708",
+   "applications": 1,
+   "date": "1985-12-27",
+   "quote": "NDA018708 | DORAL | QUAZEPAM | TABLET | ORIG approved 1985-12-27",
+   "status": "found",
+   "year": 1985
+  },
+  "quetiapine": {
+   "application": "NDA020639",
+   "applications": 3,
+   "date": "1997-09-26",
+   "quote": "NDA020639 | SEROQUEL | QUETIAPINE FUMARATE | TABLET | ORIG approved 1997-09-26",
+   "status": "found",
+   "year": 1997
+  },
+  "ramelteon": {
+   "application": "NDA021782",
+   "applications": 1,
+   "date": "2005-07-22",
+   "quote": "NDA021782 | ROZEREM | RAMELTEON | TABLET | ORIG approved 2005-07-22",
+   "status": "found",
+   "year": 2005
+  },
+  "rasagiline": {
+   "application": "NDA021641",
+   "applications": 1,
+   "date": "2006-05-16",
+   "quote": "NDA021641 | AZILECT | RASAGILINE MESYLATE | TABLET | ORIG approved 2006-05-16",
+   "status": "found",
+   "year": 2006
+  },
+  "reboxetine": {
+   "status": "none"
+  },
+  "reserpine": {
+   "applications": [
+    "NDA009357",
+    "NDA009376",
+    "NDA009391",
+    "NDA009453",
+    "NDA009627",
+    "NDA009631",
+    "NDA009645",
+    "NDA009663",
+    "NDA009667",
+    "NDA009859",
+    "NDA010012",
+    "NDA010441",
+    "NDA011185"
+   ],
+   "status": "undated"
+  },
+  "rimegepant": {
+   "application": "NDA212728",
+   "applications": 1,
+   "date": "2020-02-27",
+   "quote": "NDA212728 | NURTEC ODT | RIMEGEPANT SULFATE | TABLET, ORALLY DISINTEGRATING | ORIG approved 2020-02-27",
+   "status": "found",
+   "year": 2020
+  },
+  "rimonabant": {
+   "status": "none"
+  },
+  "risperidone": {
+   "application": "NDA020272",
+   "applications": 8,
+   "date": "1993-12-29",
+   "quote": "NDA020272 | RISPERDAL | RISPERIDONE | TABLET | ORIG approved 1993-12-29",
+   "status": "found",
+   "year": 1993
+  },
+  "rivastigmine": {
+   "application": "NDA020823",
+   "applications": 3,
+   "date": "2000-04-21",
+   "quote": "NDA020823 | EXELON | RIVASTIGMINE TARTRATE | CAPSULE | ORIG approved 2000-04-21",
+   "status": "found",
+   "year": 2000
+  },
+  "rizatriptan": {
+   "application": "NDA020864",
+   "applications": 3,
+   "date": "1998-06-29",
+   "quote": "NDA020864 | MAXALT | RIZATRIPTAN BENZOATE | TABLET | ORIG approved 1998-06-29",
+   "status": "found",
+   "year": 1998
+  },
+  "ropinirole": {
+   "application": "NDA020658",
+   "applications": 2,
+   "date": "1997-09-19",
+   "quote": "NDA020658 | REQUIP | ROPINIROLE HYDROCHLORIDE | TABLET | ORIG approved 1997-09-19",
+   "status": "found",
+   "year": 1997
+  },
+  "rotigotine": {
+   "application": "NDA021829",
+   "applications": 1,
+   "date": "2007-05-09",
+   "quote": "NDA021829 | NEUPRO | ROTIGOTINE | FILM, EXTENDED RELEASE | ORIG approved 2007-05-09",
+   "status": "found",
+   "year": 2007
+  },
+  "rubidium_chloride": {
+   "status": "none"
+  },
+  "safinamide": {
+   "application": "NDA207145",
+   "applications": 1,
+   "date": "2017-03-21",
+   "quote": "NDA207145 | XADAGO | SAFINAMIDE MESYLATE | TABLET | ORIG approved 2017-03-21",
+   "status": "found",
+   "year": 2017
+  },
+  "salvinorin_a": {
+   "status": "none"
+  },
+  "scopolamine": {
+   "application": "NDA017874",
+   "class": "Type 3 - New Dosage Form",
+   "date": "1979-12-31",
+   "status": "superseded"
+  },
+  "secobarbital": {
+   "application": "NDA007392",
+   "class": "Type 2 - New Active Ingredient",
+   "date": "1950-07-19",
+   "status": "superseded"
+  },
+  "selegiline": {
+   "application": "NDA019334",
+   "applications": 5,
+   "date": "1989-06-05",
+   "quote": "NDA019334 | SELEGILINE HYDROCHLORIDE | SELEGILINE HYDROCHLORIDE | TABLET | ORIG approved 1989-06-05",
+   "status": "found",
+   "year": 1989
+  },
+  "serdexmethylphenidate": {
+   "status": "none"
+  },
+  "sertindole": {
+   "status": "none"
+  },
+  "sertraline": {
+   "application": "NDA019839",
+   "applications": 3,
+   "date": "1991-12-30",
+   "quote": "NDA019839 | ZOLOFT | SERTRALINE HYDROCHLORIDE | TABLET | ORIG approved 1991-12-30",
+   "status": "found",
+   "year": 1991
+  },
+  "sevoflurane": {
+   "application": "NDA020478",
+   "applications": 1,
+   "date": "1995-06-07",
+   "quote": "NDA020478 | ULTANE | SEVOFLURANE | LIQUID | ORIG approved 1995-06-07",
+   "status": "found",
+   "year": 1995
+  },
+  "sibutramine": {
+   "application": "NDA020632",
+   "applications": 1,
+   "date": "1997-11-22",
+   "quote": "NDA020632 | MERIDIA | SIBUTRAMINE HYDROCHLORIDE | CAPSULE | ORIG approved 1997-11-22",
+   "status": "found",
+   "year": 1997
+  },
+  "sildenafil": {
+   "application": "NDA020895",
+   "applications": 6,
+   "date": "1998-03-27",
+   "quote": "NDA020895 | VIAGRA | SILDENAFIL CITRATE | TABLET | ORIG approved 1998-03-27",
+   "status": "found",
+   "year": 1998
+  },
+  "sodium_oxybate": {
+   "application": "NDA021196",
+   "applications": 2,
+   "date": "2002-07-17",
+   "quote": "NDA021196 | XYREM | SODIUM OXYBATE | SOLUTION | ORIG approved 2002-07-17",
+   "status": "found",
+   "year": 2002
+  },
+  "solriamfetol": {
+   "application": "NDA211230",
+   "applications": 1,
+   "date": "2019-03-20",
+   "quote": "NDA211230 | SUNOSI | SOLRIAMFETOL HYDROCHLORIDE | TABLET | ORIG approved 2019-03-20",
+   "status": "found",
+   "year": 2019
+  },
+  "sulfonmethane": {
+   "status": "none"
+  },
+  "sulpiride": {
+   "status": "none"
+  },
+  "sumatriptan": {
+   "application": "NDA020080",
+   "applications": 9,
+   "date": "1992-12-28",
+   "quote": "NDA020080 | IMITREX STATDOSE (AUTOINJECTOR) | SUMATRIPTAN SUCCINATE | SOLUTION | ORIG approved 1992-12-28",
+   "status": "found",
+   "year": 1992
+  },
+  "suvorexant": {
+   "application": "NDA204569",
+   "applications": 1,
+   "date": "2014-08-13",
+   "quote": "NDA204569 | BELSOMRA | SUVOREXANT | TABLET | ORIG approved 2014-08-13",
+   "status": "found",
+   "year": 2014
+  },
+  "tapentadol": {
+   "application": "NDA022304",
+   "applications": 3,
+   "date": "2008-11-20",
+   "quote": "NDA022304 | NUCYNTA | TAPENTADOL HYDROCHLORIDE | TABLET | ORIG approved 2008-11-20",
+   "status": "found",
+   "year": 2008
+  },
+  "tasimelteon": {
+   "application": "NDA205677",
+   "applications": 2,
+   "date": "2014-01-31",
+   "quote": "NDA205677 | HETLIOZ | TASIMELTEON | CAPSULE | ORIG approved 2014-01-31",
+   "status": "found",
+   "year": 2014
+  },
+  "temazepam": {
+   "application": "NDA018163",
+   "applications": 1,
+   "date": "1981-02-27",
+   "quote": "NDA018163 | RESTORIL | TEMAZEPAM | CAPSULE | ORIG approved 1981-02-27",
+   "status": "found",
+   "year": 1981
+  },
+  "tetrabenazine": {
+   "application": "NDA021894",
+   "applications": 1,
+   "date": "2008-08-15",
+   "quote": "NDA021894 | XENAZINE | TETRABENAZINE | TABLET | ORIG approved 2008-08-15",
+   "status": "found",
+   "year": 2008
+  },
+  "thc": {
+   "application": "NDA018651",
+   "applications": 2,
+   "date": "1985-05-31",
+   "quote": "NDA018651 | MARINOL | DRONABINOL | CAPSULE | ORIG approved 1985-05-31",
+   "status": "found",
+   "year": 1985
+  },
+  "thiopental": {
+   "application": "NDA011679",
+   "applications": 1,
+   "date": "1959-09-23",
+   "quote": "NDA011679 | PENTOTHAL | THIOPENTAL SODIUM | SUSPENSION | ORIG approved 1959-09-23",
+   "status": "found",
+   "year": 1959
+  },
+  "thioridazine": {
+   "application": "NDA011808",
+   "applications": 2,
+   "date": "1962-03-15",
+   "quote": "NDA011808 | MELLARIL | THIORIDAZINE HYDROCHLORIDE | CONCENTRATE | ORIG approved 1962-03-15",
+   "status": "found",
+   "year": 1962
+  },
+  "thiothixene": {
+   "application": "NDA016584",
+   "applications": 3,
+   "date": "1967-07-24",
+   "quote": "NDA016584 | NAVANE | THIOTHIXENE | CAPSULE | ORIG approved 1967-07-24",
+   "status": "found",
+   "year": 1967
+  },
+  "tiagabine": {
+   "application": "NDA020646",
+   "applications": 1,
+   "date": "1997-09-30",
+   "quote": "NDA020646 | GABITRIL | TIAGABINE HYDROCHLORIDE | TABLET | ORIG approved 1997-09-30",
+   "status": "found",
+   "year": 1997
+  },
+  "tianeptine": {
+   "status": "none"
+  },
+  "tiapride": {
+   "status": "none"
+  },
+  "tizanidine": {
+   "application": "NDA020397",
+   "applications": 3,
+   "date": "1996-11-27",
+   "quote": "NDA020397 | ZANAFLEX | TIZANIDINE HYDROCHLORIDE | TABLET | ORIG approved 1996-11-27",
+   "status": "found",
+   "year": 1996
+  },
+  "tofisopam": {
+   "status": "none"
+  },
+  "tolcapone": {
+   "application": "NDA020697",
+   "applications": 1,
+   "date": "1998-01-29",
+   "quote": "NDA020697 | TASMAR | TOLCAPONE | TABLET | ORIG approved 1998-01-29",
+   "status": "found",
+   "year": 1998
+  },
+  "topiramate": {
+   "application": "NDA020505",
+   "applications": 5,
+   "date": "1996-12-24",
+   "quote": "NDA020505 | TOPAMAX | TOPIRAMATE | TABLET | ORIG approved 1996-12-24",
+   "status": "found",
+   "year": 1996
+  },
+  "tramadol": {
+   "application": "NDA020281",
+   "applications": 6,
+   "date": "1995-03-03",
+   "quote": "NDA020281 | ULTRAM | TRAMADOL HYDROCHLORIDE | TABLET | ORIG approved 1995-03-03",
+   "status": "found",
+   "year": 1995
+  },
+  "tranylcypromine": {
+   "application": "NDA012342",
+   "applications": 1,
+   "date": "1961-02-21",
+   "quote": "NDA012342 | PARNATE | TRANYLCYPROMINE SULFATE | TABLET | ORIG approved 1961-02-21",
+   "status": "found",
+   "year": 1961
+  },
+  "trazodone": {
+   "application": "NDA018207",
+   "applications": 3,
+   "date": "1981-12-24",
+   "quote": "NDA018207 | DESYREL | TRAZODONE HYDROCHLORIDE | TABLET | ORIG approved 1981-12-24",
+   "status": "found",
+   "year": 1981
+  },
+  "triazolam": {
+   "application": "NDA017892",
+   "applications": 1,
+   "date": "1982-11-15",
+   "quote": "NDA017892 | HALCION | TRIAZOLAM | TABLET | ORIG approved 1982-11-15",
+   "status": "found",
+   "year": 1982
+  },
+  "trifluoperazine": {
+   "application": "NDA011552",
+   "applications": 1,
+   "date": "1959-04-16",
+   "quote": "NDA011552 | STELAZINE | TRIFLUOPERAZINE HYDROCHLORIDE | INJECTABLE | ORIG approved 1959-04-16",
+   "status": "found",
+   "year": 1959
+  },
+  "trihexyphenidyl": {
+   "application": "NDA006773",
+   "applications": 2,
+   "date": "1949-05-13",
+   "quote": "NDA006773 | ARTANE | TRIHEXYPHENIDYL HYDROCHLORIDE | ELIXIR | ORIG approved 1949-05-13",
+   "status": "found",
+   "year": 1949
+  },
+  "triiodothyronine": {
+   "application": "NDA010379",
+   "applications": 2,
+   "date": "1956-05-08",
+   "quote": "NDA010379 | CYTOMEL | LIOTHYRONINE SODIUM | TABLET | ORIG approved 1956-05-08",
+   "status": "found",
+   "year": 1956
+  },
+  "trimipramine": {
+   "application": "NDA016792",
+   "applications": 1,
+   "date": "1979-06-12",
+   "quote": "NDA016792 | SURMONTIL | TRIMIPRAMINE MALEATE | CAPSULE | ORIG approved 1979-06-12",
+   "status": "found",
+   "year": 1979
+  },
+  "tropatepine": {
+   "status": "none"
+  },
+  "valbenazine": {
+   "application": "NDA209241",
+   "applications": 2,
+   "date": "2017-04-11",
+   "quote": "NDA209241 | INGREZZA | VALBENAZINE TOSYLATE | CAPSULE | ORIG approved 2017-04-11",
+   "status": "found",
+   "year": 2017
+  },
+  "valproate": {
+   "application": "NDA018081",
+   "applications": 10,
+   "date": "1978-02-28",
+   "quote": "NDA018081 | DEPAKENE | VALPROIC ACID | CAPSULE | ORIG approved 1978-02-28",
+   "status": "found",
+   "year": 1978
+  },
+  "varenicline": {
+   "application": "NDA021928",
+   "applications": 2,
+   "date": "2006-05-10",
+   "quote": "NDA021928 | CHANTIX | VARENICLINE TARTRATE | TABLET | ORIG approved 2006-05-10",
+   "status": "found",
+   "year": 2006
+  },
+  "venlafaxine": {
+   "application": "NDA020151",
+   "applications": 4,
+   "date": "1993-12-28",
+   "quote": "NDA020151 | EFFEXOR | VENLAFAXINE HYDROCHLORIDE | TABLET | ORIG approved 1993-12-28",
+   "status": "found",
+   "year": 1993
+  },
+  "vigabatrin": {
+   "application": "NDA020427",
+   "applications": 3,
+   "date": "2009-08-21",
+   "quote": "NDA020427 | SABRIL | VIGABATRIN | TABLET | ORIG approved 2009-08-21",
+   "status": "found",
+   "year": 2009
+  },
+  "vilazodone": {
+   "application": "NDA022567",
+   "applications": 1,
+   "date": "2011-01-21",
+   "quote": "NDA022567 | VIIBRYD | VILAZODONE HYDROCHLORIDE | TABLET | ORIG approved 2011-01-21",
+   "status": "found",
+   "year": 2011
+  },
+  "viloxazine": {
+   "application": "NDA211964",
+   "applications": 1,
+   "date": "2021-04-02",
+   "quote": "NDA211964 | QELBREE | VILOXAZINE HYDROCHLORIDE | CAPSULE, EXTENDED RELEASE | ORIG approved 2021-04-02",
+   "status": "found",
+   "year": 2021
+  },
+  "vortioxetine": {
+   "application": "NDA204447",
+   "applications": 1,
+   "date": "2013-09-30",
+   "quote": "NDA204447 | TRINTELLIX | VORTIOXETINE HYDROBROMIDE | TABLET | ORIG approved 2013-09-30",
+   "status": "found",
+   "year": 2013
+  },
+  "xanomeline": {
+   "status": "none"
+  },
+  "xenon": {
+   "status": "none"
+  },
+  "yohimbine": {
+   "status": "none"
+  },
+  "zaleplon": {
+   "application": "NDA020859",
+   "applications": 1,
+   "date": "1999-08-13",
+   "quote": "NDA020859 | SONATA | ZALEPLON | CAPSULE | ORIG approved 1999-08-13",
+   "status": "found",
+   "year": 1999
+  },
+  "zimelidine": {
+   "status": "none"
+  },
+  "ziprasidone": {
+   "application": "NDA020825",
+   "applications": 3,
+   "date": "2001-02-05",
+   "quote": "NDA020825 | GEODON | ZIPRASIDONE HYDROCHLORIDE | CAPSULE | ORIG approved 2001-02-05",
+   "status": "found",
+   "year": 2001
+  },
+  "zolpidem": {
+   "application": "NDA019908",
+   "applications": 7,
+   "date": "1992-12-16",
+   "quote": "NDA019908 | AMBIEN | ZOLPIDEM TARTRATE | TABLET | ORIG approved 1992-12-16",
+   "status": "found",
+   "year": 1992
+  },
+  "zonisamide": {
+   "application": "NDA020789",
+   "applications": 2,
+   "date": "2000-03-27",
+   "quote": "NDA020789 | ZONEGRAN | ZONISAMIDE | CAPSULE | ORIG approved 2000-03-27",
+   "status": "found",
+   "year": 2000
+  },
+  "zopiclone": {
+   "status": "none"
+  },
+  "zotepine": {
+   "status": "none"
+  },
+  "zuclopenthixol": {
+   "status": "none"
+  },
+  "zuranolone": {
+   "application": "NDA217369",
+   "applications": 1,
+   "date": "2023-08-04",
+   "quote": "NDA217369 | ZURZUVAE | ZURANOLONE | CAPSULE | ORIG approved 2023-08-04",
+   "status": "found",
+   "year": 2023
+  }
+ },
+ "export_last_updated": "2026-10-09"
+}
