@@ -73,6 +73,8 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug class classification -> a drug's `categories` (+ `category_provenance`) -> `drug_categories`
 - drug elimination half-life (T½) -> a drug's `half_life` (+ `half_life_sources`) -> `drug_half_life`
 - drug time-to-peak (Tmax) -> a drug's `tmax` (+ `tmax_sources`) -> `drug_tmax` (the other end of the same curve as the T½ above, separately sourced and separately missing, so a separate kind)
+- drug first approval -> a drug's `first_approval` (`{year, country?, agency?}`, + `first_approval_sources`) -> `drug_first_approval` (ONE node per drug: the earliest approval or introduction for medical use its source states)
+- drug market withdrawal -> a drug's `withdrawals[]` (`{year, country, reason, sources}`) -> `drug_withdrawals` (one node per withdrawal; a drug never withdrawn carries none, since absence is not a claim)
 - drug metabolism role -> a drug's `enzymes[]` (`{enzyme, role, strength?}`) -> `drug_enzymes` (one node per (enzyme, role) pair; pharmacokinetics, so it has no anatomy, see Drug metabolism in DRUGS.md)
 - drug metabolism **strength tier** -> that row's `claims.strength` -> `drug_enzyme_strength` (only on a row that states a tier; the CYP quote gate checks the isoform is named, never the tier, so it is graded by the same word test the pathway claims use, `quotes/attestation.py`)
 - enzyme population variability -> an enzyme's `variability` -> `enzyme_variability` (ONE node per isoform for the whole profile, not one per population group, for the same reason a density profile is one node: a single published aggregation ranking the groups against each other)
@@ -442,6 +444,7 @@ Viewer (`public/`):
   banners), `js/theme.js` (Theme), `js/loading.js` `createLoadingScreen()` (Loading overlay), `version.js`
   `window.__APP_VERSION__` (Versioning), `js/render-order.js` `DECOR_RENDER_ORDER`
   (Rendering / decoration draw order).
+- `js/drug-history.js`: `appendDrugHistory` (a drug's first-approval + withdrawal fact rows) and the `formatApproval` / `formatWithdrawal` wording the node browser shares.
 - `js/node-browser.js`: `collectNodes` + `createNodeBrowser`, the Data browser (`#nodes`): every
   graded knowledge node as one filterable/sortable list, opened as a **detail tab** (deep link
   `#tabs=browser:1`) rather than an accordion section, each row carrying its own backing so its pill

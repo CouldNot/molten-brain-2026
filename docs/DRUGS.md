@@ -106,6 +106,22 @@ fixed Stahl list.
   its page) and is the sole writer, then `recheck_quotes.py` stamps the judge. The drugbox is
   deliberately not read: it has no Tmax row, and its `Onset of action` row is clinical onset on 60 of
   its 76 rows.
+- **Regulatory history (first approval + withdrawals, Wikipedia EN then FR).** A drug carries an optional
+  `first_approval` (`{year, country?, agency?}`, kind `drug_first_approval`, source `first_approval_sources`)
+  and an optional `withdrawals[]` (`{year, country, reason, sources}`, kind `drug_withdrawals`, one node
+  each), shown as rows of the panel's facts block by `js/drug-history.js` (a withdrawal in caution ink).
+  Every value is an id from a closed vocabulary in `tools/data_generators/history.py` (`COUNTRIES`, with
+  the `worldwide` / `most_markets` scopes; `AGENCIES`; `WITHDRAWAL_REASONS`, with `unstated` for a
+  sentence that gives no why), emitted into meta as `drug_history_countries` / `drug_history_agencies` /
+  `drug_withdrawal_reasons`. Each entry carries the pattern its quote must contain, so the LLM picks the
+  sentence and code checks the sentence says it. Four-step pipeline: `tools/fetch/fetch_drug_history.py`
+  offers every year-bearing approval/withdrawal sentence of the lead and the history-like sections of the
+  stored EN (#9) and FR (#10) articles, with no verdict; one LLM pass answers by index into
+  `drug_history_judged.json`; `tools/sourcing/apply_drug_history.py` gates (drug offered; index resolves;
+  the year is in the quote; an approval quote names an approval, so a patent-only sentence never passes;
+  a withdrawal quote names a withdrawal; every country / agency / reason is attested by the quote; quote
+  verbatim on its page) and is the sole writer; then `recheck_quotes.py` stamps the judge. A brand or
+  formulation discontinued, a scheduling ban, or "withdrawal" symptoms are not market withdrawals.
 - **Non-modeled-metabolite receptor bindings (Wikipedia).** A metabolite that is not itself a modeled
   drug carries its own `bindings[]` (kind `drug_metabolite_bindings`), sourced from the metabolite's own
   English Wikipedia pharmacology (corpus #9 `wikipedia_pharm`) + the PDSP Ki database (corpus #5): **target

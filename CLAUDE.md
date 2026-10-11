@@ -68,7 +68,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - target `meta.drug_targets` -> `targets`; `polarity_provenance` -> `target_polarity`
 - expression: `location_sources` -> `receptor_locations` / `target_locations`; `density` -> `receptor_density` / `target_density` (ONE node per profile, not per region)
 - drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
-- drug `nbn` -> `drug_nbn`; `brands[]` -> `drug_brands`; `categories` -> `drug_categories`; `half_life` / `tmax` -> `drug_half_life` / `drug_tmax`
+- drug `nbn` -> `drug_nbn`; `brands[]` -> `drug_brands`; `categories` -> `drug_categories`; `half_life` / `tmax` -> `drug_half_life` / `drug_tmax`; `first_approval` -> `drug_first_approval`; `withdrawals[]` -> `drug_withdrawals` (one node per withdrawal; none when never withdrawn)
 - metabolism: `enzymes[]` -> `drug_enzymes` (per (enzyme, role)); `claims.strength` -> `drug_enzyme_strength`; enzyme `variability` -> `enzyme_variability` (ONE node per isoform, not per population group)
 - pharmacogenomics: `pgx[].rows[]` -> `drug_pgx` (ONE node per (drug, gene, phenotype), carrying TWO citations: CPIC's implication then its recommendation)
 - metabolites: `metabolites[]` -> `drug_metabolites`; `formed_by[]` -> `drug_metabolite_enzyme`; `bindings[]` -> `drug_metabolite_bindings`
@@ -89,7 +89,7 @@ Full detail (principles, data flow, module graph, boot sequence, per-file map): 
 - Any UI change must be checked against `js/tour.js` by running the tour end to end (headless, step by step): its steps (in `js/main.js`) anchor on selectors and `data-tour-*` hooks and break silently.
 - Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.
 
-Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
+Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `drug-history.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
 
 ## Running
 

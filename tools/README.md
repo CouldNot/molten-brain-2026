@@ -458,6 +458,16 @@ Screenshots).
   hours equal a duration the quote states (re-parsed here, so the model supplies no number),
   `MAX_TMAX_HOURS` = 24 h oral plausibility, quote verbatim on its page). Idempotent, sole writer of
   `tmax`/`tmax_sources`; writes no `llm` stamp, so `recheck_quotes.py` must run after it.
+- `tools/fetch/fetch_drug_history.py` — stdlib, offline. Offers, per drug, every sentence of the lead and
+  history-like sections (EN History / Society and culture / Legal status, FR Histoire / Historique / ...)
+  of its stored EN and FR Wikipedia articles that carries a year and an approval or withdrawal word, into
+  `generated_cache/drug_history_worklist.json`, with no verdict. See docs/DRUGS.md Drugs (Regulatory history).
+- `tools/sourcing/apply_drug_history.py` — stdlib. Merges `drug_history_judged.json` (per drug
+  `{approval: {index, year, country?, agency?} | null, withdrawals: [{index, year, country, reason}]}`)
+  into `drugs_data.jsonl` behind gates (drug offered, index resolves, year in the quote, approval /
+  withdrawal wording, every vocabulary value attested by the quote, quote verbatim on its page).
+  Idempotent, sole writer of `first_approval`/`first_approval_sources`/`withdrawals`; writes no `llm`
+  stamp, so run `recheck_quotes.py build --kinds drug_first_approval,drug_withdrawals` after it.
 - `tools/fetch/fetch_metabolite_bindings.py` — `uv run` (deps: beautifulsoup4). Reuses
   `fetch_wikipedia_pharmacology` as a library to mine each non-modeled active metabolite's own English
   Wikipedia article (an allow-list of confirmed own-articles; the rest fall back to the parent article
@@ -618,6 +628,9 @@ there is no node-level catch-all `sources` block.
   takes the pill over, see docs/PROVENANCE.md)),
   optional `half_life` (`{hours, hours_max?}`, elimination T½) + `half_life_sources[]`,
   optional `tmax` (same shape, time to peak plasma concentration, kind `drug_tmax`) + `tmax_sources[]`,
+  optional `first_approval` (`{year, country?, agency?}`, kind `drug_first_approval`) +
+  `first_approval_sources[]`, optional `withdrawals[]` (`{year, country, reason, sources[]}`, kind
+  `drug_withdrawals`; ids from `data_generators/history.py`, written by `apply_drug_history.py`),
   optional
   `enzymes[]` (each: `enzyme` (a `meta.enzymes` key), `role`, optional `strength`, `sources[]`;
   one node per (enzyme, role) pair, kind `drug_enzymes`, merged in from the committed
