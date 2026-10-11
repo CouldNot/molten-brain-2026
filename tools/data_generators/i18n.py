@@ -729,6 +729,49 @@ def externalize(obj):
     return obj
 
 
+# The record fields whose value is the name a visitor would type into search. A
+# per-hemisphere ``name`` is skipped where a ``base_name`` exists: search lists one
+# row per bilateral pair, under its base name.
+SEARCH_NAME_KEYS = ("name", "base_name", "label")
+SEARCH_NAME_COLLECTIONS = ("structures", "projections", "circuits",
+                           "projection_groups", "receptors", "drugs")
+
+
+def search_names(data: dict) -> dict[str, str]:
+    """The ``en -> fr`` pairs of every searchable name in ``data`` (pre-externalize).
+
+    Walks each record of :data:`SEARCH_NAME_COLLECTIONS` (nested lists included, so
+    a drug's metabolite names count) plus ``meta.drug_targets`` and the drug-class
+    labels, keeping a bilingual value under a :data:`SEARCH_NAME_KEYS` key whose two
+    sides differ. e.g. ``{"Hippocampus": "Hippocampe", "Frontal lobe": "Lobe frontal"}``.
+    """
+    out: dict[str, str] = {}
+
+    def keep(value: object) -> None:
+        if _is_bilingual(value) and value["en"] != value["fr"]:
+            out[value["en"]] = value["fr"]
+
+    def walk(obj: object) -> None:
+        if isinstance(obj, list):
+            for v in obj:
+                walk(v)
+        elif isinstance(obj, dict) and not _is_bilingual(obj):
+            for k, v in obj.items():
+                if k in SEARCH_NAME_KEYS:
+                    if not (k == "name" and "base_name" in obj):
+                        keep(v)
+                else:
+                    walk(v)
+
+    for name in SEARCH_NAME_COLLECTIONS:
+        walk(data[name])
+    meta = data["meta"]
+    walk(meta.get("drug_targets") or {})
+    for label in (meta.get("drug_category_labels") or {}).values():
+        keep(label)
+    return out
+
+
 def _side_name(base: dict[str, str], gender: str, side: str) -> dict[str, str]:
     """Compose a per-hemisphere display name in both languages from a base name.
 

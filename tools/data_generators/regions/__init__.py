@@ -30,3 +30,27 @@ MIDLINE: list[dict[str, Any]] = (
     + hindbrain.MIDLINE
     + brainstem_nuclei.MIDLINE
 )
+
+
+# Search-only alternate names of a region, keyed by its *base* id (both hemispheres
+# share them): the acronyms a reader types ("VTA", "LC", "NAc") and that the region's
+# own name does not contain. Like ``drugs.DRUG_ALIASES`` these are never rendered and
+# never graded (a fact about how people refer to a region, not a claim about the
+# brain). The search box folds accents + case, and the French name is already found
+# via ``search_names.fr.json``, so only genuinely different words belong here.
+# The frontal lobe answers "PFC" because it holds the prefrontal cortex until that
+# finer cut is modeled (see CLAUDE.md, structure granularity).
+STRUCTURE_ALIASES: dict[str, list[str]] = {
+    "frontal": ["PFC", "prefrontal cortex", "cortex préfrontal", "CPF"],
+    "cingulate": ["ACC", "anterior cingulate cortex", "cortex cingulaire antérieur"],
+    "globus_pallidus": ["GP", "GPe", "GPi", "pallidum"],
+    "subthalamic_nucleus": ["STN"],
+    "substantia_nigra": ["SN", "SNc", "SNr", "pars compacta", "pars reticulata"],
+    "accumbens": ["NAc", "NAcc", "ventral striatum", "striatum ventral"],
+    "locus_coeruleus": ["LC"],
+    "vta": ["VTA", "AVT"],
+    "tuberomammillary": ["TMN"],
+    "nucleus_basalis": ["NBM", "nbM"],
+    "raphe": ["DRN", "dorsal raphe", "raphé dorsal"],
+    "hypothalamus": ["HPA axis"],
+}

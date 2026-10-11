@@ -178,6 +178,7 @@ from data_generators.i18n import (  # noqa: E402
     _t,
     externalize,
     reset_translations,
+    search_names,
 )
 # Serialization-time quote externalization: the per-node source quotes are
 # collapsed into a single deduplicated public/data/quotes.jsonl side table.
@@ -292,7 +293,7 @@ from data_generators.geometry import (  # noqa: E402
     _scale_sdf,
     _scale_triple,
 )
-from data_generators.regions import MIDLINE, PAIRED  # noqa: E402
+from data_generators.regions import MIDLINE, PAIRED, STRUCTURE_ALIASES  # noqa: E402
 
 # Neurotransmitter receptors. Each entry is one receptor (the clinically relevant
 # brain receptors from Wikipedia's "Example neurotransmitter receptors" table plus
@@ -398,6 +399,9 @@ def _structure_record(entry: dict[str, Any], structure_id: str,
             record["classification_provenance"] = anatomy_quote["provenance"]
     # External reference link (same article for both hemispheres of a pair),
     # tagged with its provenance grade for the source pill (see _wiki_provenance).
+    aliases = STRUCTURE_ALIASES.get(entry["base"])
+    if aliases:
+        record["aliases"] = list(aliases)  # search-only, never rendered nor graded
     wiki = WIKIPEDIA.get(entry["base"])
     if wiki:
         record["wikipedia"] = wiki
@@ -679,6 +683,18 @@ def _check_drug_aliases(drug_ids: set[str]) -> None:
     if unknown:
         raise SystemExit(
             f"DRUG_ALIASES keys are not drug ids: {unknown}; "
+            f"fix the id or drop the entry"
+        )
+
+
+def _check_structure_aliases() -> None:
+    """Fail loud when a STRUCTURE_ALIASES key is not a region base id (a typo would
+    be silently inert, exactly like a DRUG_ALIASES one)."""
+    bases = {e["base"] for e in PAIRED} | {e["base"] for e in MIDLINE}
+    unknown = sorted(set(STRUCTURE_ALIASES) - bases)
+    if unknown:
+        raise SystemExit(
+            f"STRUCTURE_ALIASES keys are not region base ids: {unknown}; "
             f"fix the id or drop the entry"
         )
 
@@ -1903,6 +1919,7 @@ def write_artifacts(root: Path) -> None:
     """
     _check_tone_rules()
     _check_genes()
+    _check_structure_aliases()
     data, shapes = build_records()
 
     data_dir = root / "data"
@@ -1971,6 +1988,17 @@ def write_artifacts(root: Path) -> None:
         json.dumps(TRANSLATIONS, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8")
     log.info("wrote %s (%d pairs)", tr_path, len(TRANSLATIONS))
+
+    # The bilingual search table: just the searchable NAMES (en -> fr), so a visitor
+    # finds "Hippocampe" from the English UI and "Hippocampus" from the French one.
+    # A small subset of translations.fr.json, fetched in both languages but only
+    # when the search popup first opens (see js/data.js loadSearchNames).
+    sn_path = data_dir / "search_names.fr.json"
+    names = search_names(data)
+    sn_path.write_text(
+        json.dumps(names, ensure_ascii=False, indent=0, sort_keys=True) + "\n",
+        encoding="utf-8")
+    log.info("wrote %s (%d names)", sn_path, len(names))
 
     for sid, payload in shapes.items():
         path = shapes_dir / f"{sid}.json"

@@ -85,10 +85,10 @@ Full detail (principles, data flow, module graph, boot sequence, per-file map): 
 - Caddy `encode` uses an explicit content-type list (a new asset type ships uncompressed until added) and pins `.webmanifest`/`.jsonl` types.
 - SEO canonical / `og:url` / `og:image` / JSON-LD URLs are hardcoded (4 spots in `index.html` + `sitemap.xml`/`robots.txt`).
 - UI-chrome colours are `--accent*` tokens in `index.html`; data colours live in `meta.json`.
-- A control is searchable via `data-search` in `index.html`; `js/url-state.js` writes nothing at defaults; `js/prefs.js` is the only `localStorage` touch for flags.
+- Search matches both languages (`data/search_names.fr.json`) and search-only acronyms (`aliases` on structures via `STRUCTURE_ALIASES`, on drugs via `DRUG_ALIASES`). A control is searchable via `data-search` in `index.html`; `js/url-state.js` writes nothing at defaults; `js/prefs.js` is the only `localStorage` touch for flags.
 - Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.
 
-Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
+Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
 
 ## Running
 

@@ -9,7 +9,7 @@ corpus locations are in `CLAUDE.local.md`.
 ## Changing the data
 
 1. Edit the relevant list in `generate_data.py` (or `tools/data/drugs_data.jsonl` for drugs).
-   - **Structures**: edit `PAIRED` / `MIDLINE`. Paired entries are auto-mirrored (define on the right,
+   - **Structures**: edit `PAIRED` / `MIDLINE`; search-only acronyms ("VTA", "LC") go in `regions/__init__.py` `STRUCTURE_ALIASES` keyed by base id (emitted as `aliases`, never rendered nor graded; an unknown key fails the build, like `DRUG_ALIASES`). Paired entries are auto-mirrored (define on the right,
      x > 0; the generator emits one right-side shape file and the `_L` member references it with
      `mirror:true`). A region is a noise-deformed ellipsoid by default; blob/curve/composite shape knobs
      are in the Geometry section (`medial=True` derives the right medial clip; `clip_planes` is auto via

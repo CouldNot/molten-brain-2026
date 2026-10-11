@@ -381,6 +381,29 @@ class MetaAndTranslationsTest(unittest.TestCase):
         )
 
 
+    def test_search_names_bilingual_base_names_only(self):
+        """search_names.fr.json maps a searchable English base name to its French
+        (so "Hippocampe" finds the hippocampus from the English UI), and carries no
+        per-hemisphere name: search lists one row per bilateral pair."""
+        names = json.loads(
+            (DATA_DIR / "search_names.fr.json").read_text(encoding="utf-8"))
+        self.assertEqual(names.get("Hippocampus"), "Hippocampe")
+        self.assertEqual(names.get("Frontal lobe"), "Lobe frontal")
+        sided = [k for k in names if k.startswith(("Right ", "Left "))]
+        self.assertFalse(sided, f"per-hemisphere names leaked: {sided[:5]}")
+        tr = json.loads(
+            (DATA_DIR / "translations.fr.json").read_text(encoding="utf-8"))
+        drift = {k: v for k, v in names.items() if tr.get(k) != v}
+        self.assertFalse(drift, f"search names disagree with translations: {drift}")
+
+    def test_structure_aliases_emitted_on_both_hemispheres(self):
+        recs = {json.loads(line)["id"]: json.loads(line) for line in
+                (DATA_DIR / "structures.jsonl").read_text(encoding="utf-8").splitlines()}
+        for sid in ("vta_R", "vta_L"):
+            self.assertIn("VTA", recs[sid].get("aliases", []), sid)
+        self.assertIn("LC", recs["locus_coeruleus_R"].get("aliases", []))
+
+
 def _walk(node):
     """Yield every dict nested anywhere within ``node``."""
     if isinstance(node, dict):

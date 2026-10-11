@@ -395,6 +395,11 @@ DRUG_ALIASES: dict[str, list[str]] = {
     "rimonabant": ["Acomplia", "SR141716", "SR141716A"],
     "ketamine": ["special K", "ketalar"],
     "esketamine": ["S-ketamine", "S(+)-ketamine"],
+    # The acronyms clinicians write: MPH (methylphenidate), DXM (dextromethorphan).
+    "methylphenidate_d": ["MPH", "d-MPH", "dexmethylphenidate"],
+    "methylphenidate_dl": ["MPH"],
+    "dextromethorphanbupropion": ["DXM"],
+    "dextromethorphanquinidine": ["DXM"],
     "cocaine": ["coke", "crack", "benzoylmethylecgonine"],
     "nicotine": ["tobacco", "tabac", "cigarette", "vaping"],
     "caffeine": ["coffee", "cafe", "the", "tea", "guarana"],

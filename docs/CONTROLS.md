@@ -255,7 +255,7 @@ arrow carrying a projection. A node whose owner has nothing to focus renders ine
   drug panel's clickable Class + Nomenclature build such a query (`info.onSearch` ->
   `openSearchWithQuery`). A **"?"** toggles `#search-syntax`. Connection results carry a
   `connectionSideTag`. **Ctrl/Cmd+F** intercepts page-find + opens search; **Esc** closes. Results
-  are relevance-ranked (label-prefix > substring > keyword-only), capped, and keyboard-navigable.
+  are relevance-ranked (`rankMatch`, `js/search-rank.js`: label prefix > whole-word keyword or label word start > mid-word label > mid-word keyword, so an acronym alias like "LC" beats "acetylcholine"), capped, and keyboard-navigable. **Bilingual**: every row's `names` gain their other-language twin in `keywords`, from `data/search_names.fr.json` (`loadSearchNames`, fetched the first time search opens, answering both en->fr and fr->en), so "Hippocampe" finds the hippocampus in English and "Hippocampus" in French. Structures (`aliases`, see `STRUCTURE_ALIASES`) and drugs (`DRUG_ALIASES`) carry search-only acronyms.
 - **Keyboard-shortcuts help popup** (`#shortcuts-modal`, `wireShortcutsHelp`): a centered dialog,
   rows mirroring `wireShortcuts` (so it can't drift), labels from `shortcuts.*` i18n. Opened by the
   keyboard button or **?**; closed by ×, backdrop, or Esc (routed first when open).

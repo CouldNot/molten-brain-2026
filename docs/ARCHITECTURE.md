@@ -454,6 +454,7 @@ Viewer (`public/`):
   **detail tab** (deep link `#tabs=simulation:1`) like the Data browser.
 - `js/sim-plots.js`: `buildPkPlot` / `buildRxPlot` (+ `formatKi`), the tab's two inline-SVG plots,
   given rows and returning an `<svg>` plus the readers a pointer needs.
+- `js/search-rank.js`: `rankMatch(label, keywords, query)`, the pure relevance rank behind the search popup (unit-tested by `tools/tests/search_rank.test.mjs`).
 - `js/url-state.js`: `createUrlState()`, the `key -> {read, write}` registry that makes the URL
   fragment a complete description of the UI (open tabs + their order, active tab, popup, sliders,
   toggles, panel layout, open section, search + filter text, camera). Each control registers its

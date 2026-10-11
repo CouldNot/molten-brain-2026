@@ -188,6 +188,29 @@ function localize(field) {
  * @param {string} [dataDir="data"] Directory the data files live under.
  * @returns {Promise<BrainData>}
  */
+/**
+ * The bilingual search table (data/search_names.fr.json, English name -> French
+ * name, emitted by generate_data.py's search_names), as one lookup that answers in
+ * BOTH directions: `other("Hippocampus")` -> "Hippocampe" and
+ * `other("Hippocampe")` -> "Hippocampus". The search box appends that other-language
+ * name to each row's keywords, so either spelling finds a row in either UI language.
+ * Fetched lazily by the search popup, not at startup; a failed fetch resolves to a
+ * lookup that knows nothing (search then simply stays monolingual).
+ * @param {string} [dataDir="data"]
+ * @returns {Promise<(name:string)=>string|undefined>}
+ */
+export async function loadSearchNames(dataDir = "data") {
+  let enFr = {};
+  try {
+    enFr = await (await fetchOrThrow(`${dataDir}/search_names.fr.json`)).json();
+  } catch (e) {
+    console.error("Could not load the bilingual search names.", e);
+  }
+  const both = new Map(Object.entries(enFr));
+  for (const [en, fr] of Object.entries(enFr)) if (!both.has(fr)) both.set(fr, en);
+  return (name) => both.get(name);
+}
+
 export async function loadBrainData(dataDir = "data", onProgress = null) {
   onProgress?.({ stage: "meta" });
   // The emitted data is English-only; the French translations live in a single

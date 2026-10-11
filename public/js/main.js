@@ -13,7 +13,8 @@
 
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { loadBrainData } from "./data.js";
+import { loadBrainData, loadSearchNames } from "./data.js";
+import { rankMatch } from "./search-rank.js";
 import { buildStructureMesh } from "./shapes.js";
 import { createSdfPool } from "./sdf-pool.js";
 import { geometryFromArrays } from "./sdf.js";
@@ -6838,6 +6839,8 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
         // base_name is the hemisphere-stripped name ("frontal lobe"); fall back to
         // the full name for a genuine singleton.
         label: s.base_name || s.name,
+        names: [s.base_name || s.name],
+        keywords: (s.aliases || []).join(" "),
         select: () => selectStructure(rep, { frame: true, isolate: true }),
         preview: () => selectStructure(rep, { isolate: true, preview: true }),
       };
@@ -6851,6 +6854,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       return {
         type: "connection",
         label: proj.label + (tag ? ` · ${tag}` : ""),
+        names: [proj.label],
         // Frame + isolate both twins, so a connection search pick dims the rest of the
         // brain and lights both hemispheres, not just the picked side.
         select: () => selectConnection(rep, { frame: true, isolate: true, siblings }),
@@ -6868,6 +6872,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       return {
         type: "target",
         label: tgt.name + (tag ? ` · ${tag}` : ""),
+        names: [tgt.name],
         keywords: tgt.keywords || "",
         select: () => focusTarget(tgt, { frame: true }),
         preview: () => focusTarget(tgt, { preview: true }),
@@ -6880,6 +6885,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     ...(data.drugs || []).filter((d) => d.focusable).map((drug) => ({
       type: "drug",
       label: drug.displayName + (drug.category ? ` · ${drug.category}` : ""),
+      names: [drug.name, ...drug.categoryLabels],
       keywords: drug.keywords || "",
       fields: {
         class: foldText(drug.categoryLabels.join(" ")),
@@ -6923,6 +6929,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       return [...byKey.values()].map((e) => ({
         type: "drug",
         label: `${e.name} · ${t("drug.metaboliteOf", { prodrug: e.prodrugs.join(", ") })}`,
+        names: [e.name],
         keywords: e.keywords,
         select: () => focusDrug(e.drug, { frame: true, highlightMetabolite: e.name }),
         preview: () => focusDrug(e.drug, { preview: true }),
@@ -6935,6 +6942,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     ...(data.enzymes || []).map((enz) => ({
       type: "enzyme",
       label: `${enz.label} · ${t("search.tagEnzyme")}`,
+      names: [enz.label],
       keywords: enz.keywords || "",
       select: () => focusEnzyme(enz),
       // No preview: an enzyme focus is a panel, not a scene state, so there is
@@ -6946,6 +6954,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     ...(data.circuits || []).map((circuit) => ({
       type: "circuit",
       label: `${circuit.name} · ${t("search.tagCircuit")}`,
+      names: [circuit.name],
       keywords: circuit.description || "",
       select: () => focusCircuit(circuit, { frame: true }),
       preview: () => focusCircuit(circuit, { preview: true }),
@@ -6957,6 +6966,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     ...(data.projectionGroups || []).map((group) => ({
       type: "group",
       label: `${group.name} · ${t("search.tagPathways")}`,
+      names: [group.name],
       keywords: group.description || "",
       select: () => focusProjectionGroup(group, { frame: true }),
       preview: () => focusProjectionGroup(group, { preview: true }),
@@ -7033,8 +7043,8 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     // box scrolls). Plain name search stays capped short.
     const cap = field ? 40 : 8;
     // Score each surviving item so the most relevant rise to the top of the capped
-    // list: a label that *starts with* the query beats one that merely contains it,
-    // which beats a keyword-only match. Without this, array order alone buried the
+    // list (rankMatch, js/search-rank.js: label prefix, then a whole-word alias or a
+    // label word start, then mid-word hits). Without this, array order alone buried the
     // late entries (circuits, projection groups) under a common query like
     // "dopamine". An empty query (browse-all) and field-only filters leave `rest`
     // empty -> every item scores 0 -> the stable `idx` tiebreak keeps the original
@@ -7049,11 +7059,8 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       }
       let score = 0;
       if (rest) {
-        const label = foldText(it.label);
-        if (label.startsWith(rest)) score = 0;
-        else if (label.includes(rest)) score = 1;
-        else if (foldText(it.keywords || "").includes(rest)) score = 2;
-        else return; // no match in label or keywords
+        score = rankMatch(foldText(it.label), foldText(it.keywords || ""), rest);
+        if (score === null) return; // no match in label or keywords
       }
       scored.push({ it, score, idx });
     });
@@ -7088,7 +7095,23 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     highlight(0); // pre-highlight the first match: Enter selects it straight away
   }
 
+  // Bilingual matching: each row's `names` gain their other-language twin in
+  // `keywords`, so "Hippocampe" finds the hippocampus from the English UI and
+  // "Hippocampus" from the French one. The table is fetched the first time search
+  // opens (never at startup) and folded in once; the open popup then re-renders.
+  let bilingual = null;
+  function loadBilingualNames() {
+    bilingual ??= loadSearchNames().then((other) => {
+      for (const item of items) {
+        const alt = (item.names || []).map(other).filter(Boolean);
+        if (alt.length) item.keywords = `${item.keywords || ""} ${alt.join(" ")}`;
+      }
+      if (!searchBox.hidden) renderResults();
+    });
+  }
+
   function openSearch() {
+    loadBilingualNames();
     // Search is a popup over the scene, but a pick lands in the panel (a detail tab,
     // or a flashed control in Settings), so a collapsed panel is expanded first or
     // the pick would happen out of sight.
