@@ -1,6 +1,21 @@
 {
   "versions": [
     {
+      "version": "3.101.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "New source: Drugs@FDA, the US regulator's own register of approved drugs. 28 drugs that had no dated first approval now show their first US approval (for example sertraline, 1991), read straight from the FDA's record. It is labelled \"First national approval\", since a US register says nothing about earlier approvals abroad, and it never replaces an approval another source already dates.",
+          "commits": [
+            "7f2ac1a",
+            "fa9da02",
+            "c83df36"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.100.3",
       "date": "2026-10-12",
       "entries": [
