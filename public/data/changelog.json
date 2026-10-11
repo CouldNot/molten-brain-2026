@@ -1,6 +1,28 @@
 {
   "versions": [
     {
+      "version": "3.98.1",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "Seven drugs with two mechanisms at one target got both back: amphetamine (and lisdexamfetamine) again both block and reverse the dopamine and noradrenaline transporters, and amisulpride, lumateperone, pimavanserin and pitolisant again list both their actions. A data check now catches this.",
+          "commits": [
+            "aacd272",
+            "b43826e"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Re-sourced the claims of twelve Wikipedia pages against their current revision (caffeine, clobazam, cocaine, meprobamate, methaqualone, modafinil, pentobarbital, phenobarbital, pimozide, pregabalin, tizanidine, tofisopam): modafinil's time to peak now reads 2 to 4 hours and tizanidine's half-life 2.5 hours, as the articles now state.",
+          "commits": [
+            "bf0ccf6",
+            "b43826e"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.98.0",
       "date": "2026-10-11",
       "entries": [
