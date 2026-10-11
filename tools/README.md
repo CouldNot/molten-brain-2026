@@ -473,6 +473,14 @@ Screenshots).
   withdrawal wording, every vocabulary value attested by the quote, quote verbatim on its page).
   Idempotent, sole writer of `first_approval`/`first_approval_sources`/`withdrawals`; writes no `llm`
   stamp, so run `recheck_quotes.py build --kinds drug_first_approval,drug_withdrawals` after it.
+- `tools/fetch/fetch_prodrug_worklist.py` — stdlib, offline. Offers every prodrug / inactive sentence of
+  each drug's stored EN Wikipedia article into `generated_cache/prodrug_worklist.json`, with no verdict
+  (`--only` merges). See docs/DRUGS.md Drugs (Prodrugs).
+- `tools/sourcing/apply_prodrug.py` — stdlib. Merges `prodrug_judged.json` (per drug `{index, metabolite,
+  drug_id|null}`) into `drugs_data.jsonl` behind gates (drug offered, index resolves, prodrug wording,
+  metabolite named, quote verbatim on its page); sole writer of `prodrug`/`prodrug_sources`, adds the
+  metabolite when missing and drops the drug's own bindings (printed). Writes no `llm` stamp, so run
+  `recheck_quotes.py build --kinds drug_prodrug` after it.
 - `tools/fetch/fetch_metabolite_bindings.py` — `uv run` (deps: beautifulsoup4). Reuses
   `fetch_wikipedia_pharmacology` as a library to mine each non-modeled active metabolite's own English
   Wikipedia article (an allow-list of confirmed own-articles; the rest fall back to the parent article
@@ -636,6 +644,8 @@ there is no node-level catch-all `sources` block.
   optional `first_approval` (`{year, country?, agency?}`, kind `drug_first_approval`) +
   `first_approval_sources[]`, optional `withdrawals[]` (`{year, country, reason, sources[]}`, kind
   `drug_withdrawals`; ids from `data_generators/history.py`, written by `apply_drug_history.py`),
+  optional `prodrug: true` + `prodrug_sources[]` (kind `drug_prodrug`, written by `apply_prodrug.py`;
+  a prodrug carries no `bindings`, its metabolite does),
   optional
   `enzymes[]` (each: `enzyme` (a `meta.enzymes` key), `role`, optional `strength`, `sources[]`;
   one node per (enzyme, role) pair, kind `drug_enzymes`, merged in from the committed

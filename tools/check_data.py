@@ -119,7 +119,7 @@ _PROVENANCE_LEVELS = {"llm", "sourced", "verified"}
 NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "drug_brands",
               "drug_categories",
               "drug_half_life", "drug_tmax", "drug_first_approval", "drug_withdrawals",
-              "drug_enzymes", "drug_enzyme_strength",
+              "drug_prodrug", "drug_enzymes", "drug_enzyme_strength",
               "enzyme_variability", "drug_pgx",
               "drug_metabolites",
               "drug_metabolite_enzyme", "drug_metabolite_bindings",
@@ -901,6 +901,8 @@ def check_provenance(report, meta, structures, projections, circuits,
             grade(src.get("provenance"), f"drug {drug.get('id')} tmax_sources[{i}]")
         for i, src in enumerate(drug.get("first_approval_sources", []) or []):
             grade(src.get("provenance"), f"drug {drug.get('id')} first_approval_sources[{i}]")
+        for i, src in enumerate(drug.get("prodrug_sources", []) or []):
+            grade(src.get("provenance"), f"drug {drug.get('id')} prodrug_sources[{i}]")
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 grade(src.get("provenance"), f"drug {drug.get('id')} withdrawals[{wi}] sources[{i}]")
@@ -1338,6 +1340,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             check_one(f"drug {did} tmax_sources[{i}]", src)
         for i, src in enumerate(drug.get("first_approval_sources", []) or []):
             check_one(f"drug {did} first_approval_sources[{i}]", src)
+        for i, src in enumerate(drug.get("prodrug_sources", []) or []):
+            check_one(f"drug {did} prodrug_sources[{i}]", src)
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 check_one(f"drug {did} withdrawals[{wi}] sources[{i}]", src)

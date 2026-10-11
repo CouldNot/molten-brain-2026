@@ -308,6 +308,12 @@ def reconstruct_claims(quotes):
                        f"({HIST.COUNTRIES[w['country']]['en']}) in {w['year']}, "
                        f"reason: {why}.",
                     CS.site("drug", d["id"], f"withdrawals[{CS.withdrawal_key(w)}]"))
+        kind["now"] = "drug_prodrug"
+        for q in _qids(d.get("prodrug_sources", [])):
+            mets = ", ".join(m["name"] for m in d.get("metabolites", []))
+            add(q, f"Drug {nm} is a prodrug: inactive itself, its effect comes from "
+                   f"its active metabolite ({mets}).",
+                CS.site("drug", d["id"], "prodrug"))
         kind["now"] = "drug_enzymes"
         for e in d.get("enzymes", []):
             tier = f", {e['strength']}" if e.get("strength") else ""

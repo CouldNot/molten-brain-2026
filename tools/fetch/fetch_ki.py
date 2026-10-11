@@ -232,7 +232,8 @@ def parse_ki(val):
 
 # --- resolving our drug -> PDSP rows ----------------------------------------
 # Curated alias map for drugs PDSP lists under a chemically-related name (an
-# enantiomer, salt, prodrug or active metabolite). Each maps our drug id -> the
+# enantiomer, salt or active metabolite; a ``prodrug: true`` drug is skipped, its
+# metabolite carries the Ki). Each maps our drug id -> the
 # EXACT PDSP ligand name(s) to borrow, plus the chemical relation and a human note.
 # EVERY aliased match is flagged so the viewer warns which compound the Ki was
 # actually measured on. Deutetrabenazine / valbenazine are deliberately NOT here:
@@ -254,9 +255,6 @@ ALIAS = {
     "zopiclone": (["eszopiclone"], "enantiomer", "eszopiclone"),
     "quazepam": (["2-Oxoquazepam"], "metabolite", "2-oxoquazepam"),
     "lofexidine": (["Levlofexidine"], "enantiomer", "levlofexidine"),
-    "lisdexamfetamine": (["Amphetamine,(+)", "(+)-Amphetamine"], "prodrug",
-                         "(+)-amphetamine"),
-    "serdexmethylphenidate": (["METHYLPHENIDATE"], "prodrug", "methylphenidate"),
     "pethidine": (["Meperidine"], "identity", "meperidine"),
 }
 
@@ -566,6 +564,8 @@ def apply_all(only=None):
                 b.pop("ki", None)
 
         if combo_constituents(d["name"]):     # combos handled in the viewer, not here
+            continue
+        if d.get("prodrug"):    # inactive itself: its metabolite carries the pharmacology
             continue
         rows, mapping = resolve_rows(d["name"], d["id"])
         if not rows:

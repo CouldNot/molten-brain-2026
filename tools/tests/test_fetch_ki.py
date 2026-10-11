@@ -163,5 +163,34 @@ class SplitExportTest(unittest.TestCase):
         self.assertEqual(recs, [(7, rec1), (8, rec2)])
 
 
+class ProdrugSkipTest(unittest.TestCase):
+    """A ``prodrug: true`` drug is inactive itself, so ``--apply`` must not re-add the
+    Ki its active metabolite was measured with (lisdexamfetamine borrowed every
+    (+)-amphetamine assay before the prodrug rule)."""
+
+    def setUp(self):
+        self._saved = (fetch_ki._ALL_ROWS, fetch_ki.drugs_io.load_drugs,
+                       fetch_ki.drugs_io.save_drugs)
+        fetch_ki._ALL_ROWS = [IdentityAliasPoolingTest._row(1, "Psilocybin", "HTR2A", "10")]
+        self.drugs = [{"id": "psilocybin", "name": "Psilocybin", "prodrug": True,
+                       "bindings": [{"target": "5ht2a", "action": "agonist"}]}]
+        self.saved = None
+        fetch_ki.drugs_io.load_drugs = lambda: self.drugs
+        fetch_ki.drugs_io.save_drugs = lambda d: setattr(self, "saved", d)
+
+    def tearDown(self):
+        (fetch_ki._ALL_ROWS, fetch_ki.drugs_io.load_drugs,
+         fetch_ki.drugs_io.save_drugs) = self._saved
+
+    def test_prodrug_gets_no_ki(self):
+        fetch_ki.apply_all()
+        self.assertNotIn("ki", self.saved[0]["bindings"][0])
+
+    def test_control_non_prodrug_does_get_one(self):
+        del self.drugs[0]["prodrug"]
+        fetch_ki.apply_all()
+        self.assertIn("ki", self.saved[0]["bindings"][0])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

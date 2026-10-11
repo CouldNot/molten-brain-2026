@@ -118,7 +118,8 @@ def _drug_facet(rest: list) -> str | None:
     # stored, not what it is.
     return {"category_sources": "categories", "nbn_sources": "nbn",
             "half_life_sources": "half_life", "tmax_sources": "tmax",
-            "first_approval_sources": "first_approval"}.get(head)
+            "first_approval_sources": "first_approval",
+            "prodrug_sources": "prodrug"}.get(head)
 
 
 def _metabolite_facet(tail: list) -> str | None:

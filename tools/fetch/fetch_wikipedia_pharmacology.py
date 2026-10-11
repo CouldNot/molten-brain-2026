@@ -583,6 +583,8 @@ def apply_all(only: str | None = None) -> None:
         for b in d["bindings"]:
             if _is_wiki_ki(b):
                 b.pop("ki", None)
+        if d.get("prodrug"):    # inactive itself: its metabolite carries the pharmacology
+            continue
         bound = {b["target"] for b in d["bindings"]}
         touched = False
         for b in d["bindings"]:

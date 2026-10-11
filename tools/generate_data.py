@@ -1196,6 +1196,26 @@ def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
             for k, v in merged.items()}
 
 
+def _drug_prodrug(drug: dict[str, Any]) -> dict[str, Any]:
+    """The emitted prodrug flag (kind ``drug_prodrug``) of one drug, ``{}`` if none.
+
+    A prodrug is inactive until metabolised, so it carries no binding of its own and
+    the viewer borrows its active metabolite's (js/data.js). A prodrug with a binding
+    would double-count; one without a metabolite would light nothing: both raise.
+    See apply_prodrug.py."""
+    if not drug.get("prodrug"):
+        return {}
+    if drug.get("bindings"):
+        raise ValueError(f"Drug {drug['id']!r} is a prodrug but has own bindings")
+    if not drug.get("metabolites"):
+        raise ValueError(f"Drug {drug['id']!r} is a prodrug without a metabolite")
+    out: dict[str, Any] = {"prodrug": True}
+    sources = _quote_sources(drug.get("prodrug_sources"), f"Drug {drug['id']!r} prodrug")
+    if sources:
+        out["prodrug_sources"] = sources
+    return out
+
+
 def _drug_record(drug: dict[str, Any], valid_targets: set[str],
                  known_bases: set[str],
                  molecule_ids: set[str],
@@ -1313,6 +1333,7 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # Regulatory history: first approval + market withdrawals (kinds
     # drug_first_approval / drug_withdrawals). See apply_drug_history.py.
     out.update(history.drug_history(drug))
+    out.update(_drug_prodrug(drug))
     # Active metabolites named in the source (one graded node each, kind
     # `drug_metabolites`); a metabolite that is itself a modeled drug links via
     # drug_id and reuses its bindings/T½ (no duplication), see _drug_metabolites.

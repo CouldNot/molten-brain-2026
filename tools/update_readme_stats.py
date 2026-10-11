@@ -101,6 +101,7 @@ KIND_LABELS = {
     "drug_tmax": "Drug time-to-peak (Tmax)",
     "drug_first_approval": "Drug first approval",
     "drug_withdrawals": "Drug market withdrawals",
+    "drug_prodrug": "Drug prodrug flags",
     "drug_enzymes": "Drug metabolising enzymes",
     "drug_enzyme_strength": "Drug metabolism strength tier",
     "drug_metabolites": "Drug active metabolites",
