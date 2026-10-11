@@ -13,7 +13,7 @@
 
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { loadBrainData, loadSearchNames } from "./data.js";
+import { loadBrainData, loadSearchNames, withFetched } from "./data.js";
 import { rankMatch } from "./search-rank.js";
 import { buildStructureMesh } from "./shapes.js";
 import { createSdfPool } from "./sdf-pool.js";
@@ -2368,9 +2368,9 @@ function createInfoPanel(data, sourcingModal) {
     const corpora = (data.meta && data.meta.sourceCorpora) || {};
     const c = corpora[s.corpus] || {};
     const label = c.ref || c.short || s.corpus;
-    const ref = s.page != null
+    const ref = withFetched(s.page != null
       ? t("info.sourceRef", { corpus: label, page: s.page })
-      : label;
+      : label, s.fetched, t);
     // Where in the book the passage sits, above the passage itself. The same
     // sentence reads very differently under "How the Drug Works" (a mechanism the
     // book attributes to this drug) than under "How Drug Causes Side Effects" (a
@@ -2440,6 +2440,9 @@ function createInfoPanel(data, sourcingModal) {
     } else {
       frag.append(label + (ki.reference ? "\n" + ki.reference : ""));
     }
+    // The download date of the corpus the Ki was read from (PDSP's CSV, the
+    // Wikipedia table), after the link so the link keeps its plain corpus label.
+    if (ki.fetched) frag.append(withFetched("", ki.fetched, t));
     return frag;
   };
 

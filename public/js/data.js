@@ -60,6 +60,20 @@ async function fetchJsonl(url) {
  * @param {*} node       Any value (object/array/scalar) to walk.
  * @param {object} byId  quote_id -> quote node map.
  */
+/**
+ * A source's reference line with its download date appended, for a page of an
+ * editable online corpus (Wikipedia, PDSP, GtoPdb, ...: the `fetched` date stamped by
+ * tools/data_generators/freshness.py). A book page carries no date and keeps `ref`
+ * as is. `tr` is the i18n `t()`, injected so this stays pure (and node-testable).
+ * @param {string} ref       e.g. "Wikipedia (EN), p. vortioxetine"
+ * @param {string} fetched   e.g. "2026-10-11", or falsy
+ * @param {Function} tr      (key, vars) -> localized string
+ * @returns {string}         e.g. "Wikipedia (EN), p. vortioxetine, downloaded 2026-10-11"
+ */
+export function withFetched(ref, fetched, tr) {
+  return fetched ? `${ref}, ${tr("info.sourceFetched", { date: fetched })}` : ref;
+}
+
 function rehydrateQuotes(node, byId) {
   if (Array.isArray(node)) {
     for (const v of node) rehydrateQuotes(v, byId);
@@ -674,6 +688,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       // with the chain, so a reader can tell a parser copying a table cell from a
       // model reading a book page.
       pipeline: s.pipeline || null,
+      // The page's download date (editable online corpora only, see withFetched).
+      fetched: s.fetched || null,
     }));
   // The per-claim split (tools/data_generators/quotes/attestation.py): a node that
   // asserts several things at once carries one graded entry per part, so the part a
@@ -731,6 +747,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       corpusRef: corpus.ref || src.corpus, corpusUrl: corpus.url || "",
       mapped: !!src.mapped, measuredAs: src.measured_as || "",
       relation: src.relation || "", pdspNames: src.pdsp_names || [],
+      fetched: src.fetched || null,
     };
   };
   // Resolve the display + provenance fields of a binding, shared by a drug's own
