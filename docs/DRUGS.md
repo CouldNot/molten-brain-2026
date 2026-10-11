@@ -82,7 +82,7 @@ fixed Stahl list.
   `metabolites[]` list, each an **active metabolite** (a `name`, its own `half_life`/`half_life_sources`,
   and `sources`; graded node kind `drug_metabolites`; a `drug_id` when the metabolite is itself a modeled
   drug so the panel links to it). `showDrug` renders T½ as an `hl-chip` (auto-scaled to min/h/days via
-  `formatHalfLife`, in a **Timing** section between the brands and the **Acts on** list, beside the Tmax
+  `formatHalfLife`, in a **Pharmacokinetics** section between the brands and the **Acts on** list, beside the Tmax
   chip below) and an **Active metabolites** section
   (each row its name + its own T½ chip, "a bit like the Ki"). In `buildDrugLegend` a default-on
   **Show active metabolites** toggle (`#drugs-show-metabolites`, persisted `neurarium.metabolites`) adds
@@ -92,7 +92,7 @@ fixed Stahl list.
   writes `pk_judged.json`, and `tools/sourcing/apply_pharmacokinetics.py` quote-gates + merges T½/metabolites
   into `drugs_data.jsonl` (idempotent, sole writer).
 - **Time-to-peak (Tmax, Wikipedia + Stahl + DailyMed).** A drug carries a `tmax` in the same `{hours, hours_max?}`
-  shape (kind `drug_tmax`, source `tmax_sources`), chipped beside the T½ in the panel's **Timing**
+  shape (kind `drug_tmax`, source `tmax_sources`), chipped beside the T½ in the panel's **Pharmacokinetics**
   section. It is what turns the simulation's single assumed peak into a per-drug one
   (`js/sim-model.js` `tmaxHours`): the T½ says how the curve falls, this says how it rises, and a drug
   with no sourced peak keeps `TMAX_HOURS`. Four-step pipeline, over three corpora since none covers
