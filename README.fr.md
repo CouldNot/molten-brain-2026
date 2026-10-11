@@ -200,7 +200,7 @@ Projection groups                     ██████████████
 Pathway transmitter                   ████████████████████░░░░░░   77%     85/110
 Receptor pre/postsynaptic site        ████████████████████░░░░░░   75%      42/56
 Pathway sign (excit./inhib.)          ████████████████░░░░░░░░░░   61%      23/38
-Drug binding directions               ███████████████░░░░░░░░░░░   57%  1113/1943
+Drug binding directions               ███████████████░░░░░░░░░░░   58%  1119/1943
 ```
 
 Separately, **measured binding affinity (PDSP Ki) covers 87% of the 1856 drug bindings**; 90 of 279 drugs carry no Ki on any binding (sourced by book quote only, or not yet sourced). A Ki is a measured value, not a grade: this tracks where one was never looked up, complementing the sourcing figure above.
