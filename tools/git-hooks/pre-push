@@ -45,6 +45,17 @@ if [ "$status" -eq 0 ]; then
   fi
 fi
 
+# Same footing for the freshness family of the dataset check (check_data.py
+# --only freshness): an editable online corpus (Wikipedia, PDSP, GtoPdb, ...) cited
+# from a download over 12 months old must be refetched, and that must not hinge on
+# answering "y" below. It reads only committed files, so it runs on any clone.
+if [ "$status" -eq 0 ] && [ -n "$py" ]; then
+  if ! "$py" tools/check_data.py --only freshness >&2; then
+    echo "pre-push: an editable corpus is stale or undated; refetch it (tools/README.md). Aborting push." >&2
+    status=1
+  fi
+fi
+
 # offer to run the dataset integrity check
 # (tools/check_data.py) before letting the push through. Prompt + answer go
 # to the controlling terminal, because stdin here is git's ref list (consumed
