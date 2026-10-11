@@ -15,6 +15,7 @@
 // this module never touches the scene.
 
 import { loadFlag, saveFlag } from "./prefs.js";
+import { formatApproval, formatWithdrawal } from "./drug-history.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
 // sourced and verified for the same reason the Sources popup's bar does: the quote
@@ -48,6 +49,8 @@ const KIND_ORDER = [
   "drug_categories",
   "drug_half_life",
   "drug_tmax",
+  "drug_first_approval",
+  "drug_withdrawals",
   "drug_enzymes",
   "drug_enzyme_strength",
   "drug_metabolites",
@@ -308,6 +311,15 @@ export function collectNodes(data, deps, opts = {}) {
     if (d.tmax) {
       push("drug_tmax", d.name, `${t("drug.tmax")} ${formatHalfLife(d.tmax)}`,
         d.tmaxProvenance, go, { sources: d.tmaxSources });
+    }
+    if (d.firstApproval) {
+      push("drug_first_approval", d.name,
+        `${t("drug.firstApproval")} ${formatApproval(d.firstApproval)}`,
+        d.firstApproval.provenance, go, { sources: d.firstApproval.sources });
+    }
+    for (const w of d.withdrawals || []) {
+      push("drug_withdrawals", d.name, `${t("drug.withdrawn")} ${formatWithdrawal(w)}`,
+        w.provenance, go, { sources: w.sources });
     }
     for (const e of d.enzymes || []) {
       push("drug_enzymes", d.name, `${e.label}: ${e.roleLabel}`, e.provenance, go, e);

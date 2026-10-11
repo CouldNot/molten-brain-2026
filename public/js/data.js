@@ -315,6 +315,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // as raw maps (their `name`/`label` are localized per binding below); the colour
   // map is language-neutral.
   const drugCategoryLabels = localizeMap(metaRecord.drug_category_labels);
+  // Regulatory history vocabularies (first approval + withdrawals): id -> label.
+  const historyCountries = localizeMap(metaRecord.drug_history_countries);
+  const historyAgencies = localizeMap(metaRecord.drug_history_agencies);
+  const withdrawalReasons = localizeMap(metaRecord.drug_withdrawal_reasons);
   const drugTargets = metaRecord.drug_targets || {};
   const drugActions = metaRecord.drug_actions || {};
   const drugEffectColors = metaRecord.drug_effect_colors || {};
@@ -846,6 +850,25 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     d.tmax = d.tmax || null;
     d.tmaxSources = mapSources(d.tmax_sources);
     d.tmaxProvenance = strongestGrade(d.tmax_sources);
+    // Regulatory history: the earliest approval the source states (one node) and
+    // each market withdrawal (one node each; none at all when never withdrawn).
+    // Labels resolved here so the panel and the node browser share one wording.
+    const fa = d.first_approval;
+    d.firstApproval = fa ? {
+      year: fa.year,
+      countryLabel: fa.country ? historyCountries[fa.country] || fa.country : null,
+      agencyLabel: fa.agency ? historyAgencies[fa.agency] || fa.agency : null,
+      sources: mapSources(d.first_approval_sources),
+      provenance: strongestGrade(d.first_approval_sources),
+    } : null;
+    d.withdrawals = (d.withdrawals || []).map((w) => ({
+      year: w.year,
+      country: w.country,
+      countryLabel: historyCountries[w.country] || w.country,
+      reasonLabel: withdrawalReasons[w.reason] || w.reason,
+      sources: mapSources(w.sources),
+      provenance: strongestGrade(w.sources),
+    }));
     // Metabolism: which enzymes handle this drug, or are inhibited/induced by it.
     // Pharmacokinetics, so unlike a binding it lights nothing in the 3D scene; it
     // feeds the panel's Metabolism list, the Enzymes browse section, and the derived

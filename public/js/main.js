@@ -36,6 +36,7 @@ import { createSimulation } from "./simulation.js";
 import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
+import { appendDrugHistory, formatApproval, formatWithdrawal } from "./drug-history.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -4181,6 +4182,7 @@ function createInfoPanel(data, sourcingModal) {
           note: drug.nbnNonstandard ? t("drug.nbnNonstandard") : null,
         });
       }
+      appendDrugHistory(facts, drug, { addFactRow, makeProvenancePill, sourcesTip, t });
       if (facts.childElementCount) body.appendChild(facts);
 
       // Commercial brand names, each its own graded node (Stahl backs na, Wikipedia
@@ -5782,6 +5784,8 @@ const KIND_LABELS = {
   drug_categories: "about.kindDrugCategories",
   drug_half_life: "about.kindDrugHalfLife",
   drug_tmax: "about.kindDrugTmax",
+  drug_first_approval: "about.kindDrugFirstApproval",
+  drug_withdrawals: "about.kindDrugWithdrawals",
   drug_enzymes: "about.kindDrugEnzymes",
   drug_enzyme_strength: "about.kindDrugEnzymeStrength",
   enzyme_variability: "about.kindEnzymeVariability",
@@ -6134,6 +6138,18 @@ function buildKindExample(kind, data, nav) {
         || focusableDrugs.find((x) => x.tmax);
       const s = d && d.tmax && formatHalfLife(d.tmax);
       return s ? line(d.name, `${t("drug.tmax")} ${s}`, () => nav.drug(d)) : null;
+    }
+    case "drug_first_approval": {
+      const d = pick(focusableDrugs, (x) => x.id === "sertraline" && x.firstApproval)
+        || focusableDrugs.find((x) => x.firstApproval);
+      return d ? line(d.name, `${t("drug.firstApproval")} ${formatApproval(d.firstApproval)}`,
+        () => nav.drug(d)) : null;
+    }
+    case "drug_withdrawals": {
+      const d = pick(focusableDrugs, (x) => x.id === "nefazodone" && x.withdrawals.length)
+        || focusableDrugs.find((x) => x.withdrawals.length);
+      return d ? line(d.name, `${t("drug.withdrawn")} ${formatWithdrawal(d.withdrawals[0])}`,
+        () => nav.drug(d)) : null;
     }
     case "drug_enzymes": {
       // A metabolism row: the drug is the clickable subject, the notion names the

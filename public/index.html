@@ -2143,6 +2143,10 @@
         font-style: italic;
         text-transform: none;
       }
+      /* A drug's regulatory-history rows (js/drug-history.js): prose values, so not
+         capitalized; a market withdrawal reads in caution ink. */
+      .info-fact.fact-history .fact-value { text-transform: none; }
+      .info-fact.fact-warning .fact-value { color: var(--sem-caution); }
       /* Receptor "found in" region list. Each row is name + its own expression
          provenance pill, pushed to the right (the claim "this receptor is expressed
          here" is graded per region). */
