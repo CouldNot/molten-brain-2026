@@ -1,6 +1,83 @@
 {
   "versions": [
     {
+      "version": "3.97.0",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Search now opens in its own popup over the scene, closed by its × button, a click outside it, or Escape, instead of replacing the settings pane.",
+          "commits": [
+            "43fcfae"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "Search finds a name typed in either language (for example \"noyau caudé\" in English, \"caudate nucleus\" in French) and common acronyms such as VTA, LC, NAc, PFC, STN, MPH or DXM. Names starting with what you typed are listed first.",
+          "commits": [
+            "1e0558c"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "The Wikipedia summary at the top of a panel is clipped to its first few lines, with a Read more button to unfold the rest.",
+          "commits": [
+            "d1ed1b9"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "A drug with no receptor binding, such as lithium, can now be opened from search and from the drug list.",
+          "commits": [
+            "8190411"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "A drug's metabolism section groups its enzymes under one heading per role (substrate of, inhibits, induces), one enzyme per line, with the \"not the full set of routes\" note folded above the list.",
+          "commits": [
+            "adfccb9"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The drug panel's timing block is named Pharmacokinetics, and its half-life is labelled as the plasma elimination half-life.",
+          "commits": [
+            "2114aef"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The What's new popup is wider on large screens.",
+          "commits": [
+            "c1cfa92"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Every source pill now names its grade in words, and its tooltip explains the grade then says what to click; enzyme pills sit after the enzyme they grade.",
+          "commits": [
+            "f01c324",
+            "09f7d11"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The Simulation tab's beta tag sits right after its name.",
+          "commits": [
+            "87e876c"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "The data tools share one accent-folding helper instead of eight copies.",
+          "commits": [
+            "3a0166c"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.96.0",
       "date": "2026-10-11",
       "entries": [
