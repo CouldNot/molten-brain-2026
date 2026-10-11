@@ -14,7 +14,7 @@ endpoints and could close something:
 * ``transmitter``: the window carries the stored transmitter's word
   (``attestation.pattern_for``);
 * ``sign``: it carries the stored sign's word;
-* ``route``: the pathway is ``blanket_claim``-flagged (the window must name the target the
+* ``route``: the pathway is ``blanket_claim``- or ``set_claim``-flagged (the window must name the target the
   way ``uncertainty._names_region`` reads it, the test that clears the flag) or has no
   source at all.
 

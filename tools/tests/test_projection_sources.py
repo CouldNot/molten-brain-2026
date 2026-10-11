@@ -117,9 +117,9 @@ class SetLevelAllowanceTest(unittest.TestCase):
 
 
 class SetClaimFlagTest(unittest.TestCase):
-    """``uncertainty.apply_set_claim_uncertainty``: a sub-claim backed only by a sentence
-    naming neither endpoint, shared by pathways from two or more origins, is flagged on
-    the sub-claim (never the pathway); one origin, or a named endpoint, is not."""
+    """``uncertainty.apply_set_claim_uncertainty``: a sub-claim (or the route) backed only
+    by a sentence naming neither endpoint, shared by pathways from two or more origins, is
+    flagged where that sentence backs it; one origin, or a named endpoint, is not."""
 
     SET = "Signals from the cerebral cortex to the striatum are glutamatergic."
 
@@ -130,14 +130,17 @@ class SetClaimFlagTest(unittest.TestCase):
         cls.structures = [{"id": f"{b}_R", "base_name": b}
                           for b in ("frontal", "parietal", "caudate", "putamen")]
 
-    def proj(self, frm, to, quote):
+    ROUTE = "The caudate receives cortical input."
+
+    def proj(self, frm, to, quote, route=None):
         src = {"corpus": "kandel", "page": 1, "quote": quote, "provenance": "verified"}
-        return {"from": frm, "to": to, "sources": [src],
+        rsrc = dict(src, quote=route) if route else src
+        return {"from": frm, "to": to, "sources": [rsrc],
                 "claims": {"transmitter": {"grade": "verified", "sources": [src]}}}
 
     def test_two_origins_flag_the_sub_claim(self):
-        ps = [self.proj("frontal_R", "caudate_R", self.SET),
-              self.proj("parietal_R", "caudate_R", self.SET)]
+        ps = [self.proj("frontal_R", "caudate_R", self.SET, route=self.ROUTE),
+              self.proj("parietal_R", "caudate_R", self.SET, route=self.ROUTE)]
         self.apply(ps, self.structures)
         for p in ps:
             bullets = p["claims"]["transmitter"].get("uncertainty")
@@ -155,6 +158,23 @@ class SetClaimFlagTest(unittest.TestCase):
         self.apply(ps, self.structures)
         for p in ps:
             self.assertFalse(p["claims"]["transmitter"].get("uncertainty"), p["to"])
+
+    def test_a_set_level_route_is_flagged_on_the_pathway(self):
+        # parietal / temporal -> caudate rest on Kandel p981 "input from most regions of
+        # the cerebral cortex" (to the striatum): two origins, one target, neither named.
+        # The one-origin blanket grouping cannot see it; the route set_claim does, and it
+        # is appended after a bullet the pathway already carries.
+        route = ("The striatum receives direct input from most regions of the cerebral "
+                 "cortex.")
+        ps = [self.proj("parietal_R", "caudate_R", self.SET, route=route),
+              self.proj("frontal_R", "caudate_R", self.SET, route=route)]
+        ps[0]["uncertainty"] = [{"kind": "blanket_claim"}]
+        self.apply(ps, self.structures)
+        self.assertEqual([b["kind"] for b in ps[0]["uncertainty"]],
+                         ["blanket_claim", "set_claim"])
+        self.assertEqual([b["kind"] for b in ps[1]["uncertainty"]], ["set_claim"])
+        self.assertEqual(ps[1]["uncertainty"][0]["args"], {"n": 2})
+        self.assertEqual(ps[1]["uncertainty"][0]["sources"][0]["quote"], route)
 
 
 if __name__ == "__main__":

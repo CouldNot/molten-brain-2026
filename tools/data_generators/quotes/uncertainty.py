@@ -516,15 +516,22 @@ def apply_set_claim_uncertainty(projections: list[dict[str, Any]],
     onto any one lobe is our split. One origin with many unnamed targets is
     ``blanket_claim``'s case instead, on the pathway itself.
 
-    Must run after ``attestation.apply_projection_claims``, which creates the claims.
+    The ROUTE is checked the same way, under the name ``route``: "it receives direct input
+    from most regions of the cerebral cortex" (to the striatum) is the only route source of
+    parietal / temporal -> caudate. Each arrow leaves a different lobe, so the one-origin
+    ``blanket_claim`` grouping never sees the set; this does. Its bullet joins the
+    pathway's own ``uncertainty`` (after any ``blanket_claim``).
+
+    Must run after ``attestation.apply_projection_claims`` (which creates the claims) and
+    after ``apply_projection_uncertainty`` (whose route bullets this appends to).
     """
     des = _designations_by_base(structures)
     by_quote: dict[tuple[str, str], list[int]] = collections.defaultdict(list)
     source_of: dict[tuple[str, str], dict[str, Any]] = {}
     for i, p in enumerate(projections):
         ends = (des.get(_base_id(p["from"]), set()), des.get(_base_id(p["to"]), set()))
-        for claim, entry in (p.get("claims") or {}).items():
-            quotes = [s for s in entry.get("sources") or [] if s.get("quote")]
+        for claim, sources in _set_claim_candidates(p):
+            quotes = [s for s in sources if s.get("quote")]
             if not quotes or any(_names_region(s["quote"], d)
                                  for s in quotes for d in ends):
                 continue
@@ -541,9 +548,25 @@ def apply_set_claim_uncertainty(projections: list[dict[str, Any]],
                 widest[(i, key[0])] = (len(idx), source_of[key])
     for (i, claim), (n, source) in widest.items():
         p = projections[i]
-        p["claims"][claim]["uncertainty"] = [_uncertainty_bullet(
+        bullet = _uncertainty_bullet(
             "set_claim", what=f"Projection {p['from']!r} -> {p['to']!r} {claim}",
-            node=p, source=source, args={"n": n})]
+            node=p, source=source, args={"n": n})
+        if claim == ROUTE:
+            p["uncertainty"] = [*(p.get("uncertainty") or []), bullet]
+        else:
+            p["claims"][claim]["uncertainty"] = [bullet]
+
+
+# The pseudo-claim name the route (the pathway's own ``sources``) is checked under by
+# :func:`apply_set_claim_uncertainty`. No real sub-claim is called this.
+ROUTE = "route"
+
+
+def _set_claim_candidates(p: dict[str, Any]):
+    """``(claim name, its sources)`` for the route and every sub-claim of pathway ``p``."""
+    yield ROUTE, p.get("sources") or []
+    for claim, entry in (p.get("claims") or {}).items():
+        yield claim, entry.get("sources") or []
 
 
 def _flag_contradicted(table: dict[tuple, dict[str, Any]],
