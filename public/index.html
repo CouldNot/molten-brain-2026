@@ -1251,6 +1251,12 @@
          header and each version heading have to carry the reading rather than blend into
          the bullets under them. */
       #changelog-modal h2 { font-size: 18px; }
+      /* A long release list in the shared 540px column reads as a thin strip on a
+         desktop monitor, so widen it on wide viewports only (phones keep the shared
+         full-width .modal rule; the media floor keeps it above that breakpoint). */
+      @media (min-width: 900px) {
+        #changelog-modal .modal { width: min(880px, 64vw); }
+      }
       .changelog-release { margin: 0 0 18px; }
       .changelog-release:last-child { margin-bottom: 2px; }
       .changelog-release > h3 {
