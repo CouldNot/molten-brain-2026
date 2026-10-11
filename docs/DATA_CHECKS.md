@@ -6,8 +6,8 @@
 
 `tools/check_data.py` (stdlib) runs over the **emitted** `public/data/`,
 independent of `generate_data.py`. Exit 0 = no errors (warnings allowed), 1 =
-errors. Functions take loaded data as args (unit-testable). Thirteen families (numbered
-0-12 in the output):
+errors. Functions take loaded data as args (unit-testable). Fourteen families (numbered
+0-13 in the output):
 
 - **Quote table** (referential integrity of the externalized `quotes.jsonl`): every node's
   `{quote_id, provenance}` source must resolve to a quote node, and every quote node must be
@@ -150,3 +150,4 @@ errors. Functions take loaded data as args (unit-testable). Thirteen families (n
   edges, so a missing route quietly removes interactions (clomipramine's gained 11 when the row
   landed). Either side can open the gap: a CPIC refresh adding a pair, or a CYP fetcher re-run
   dropping a row.
+- **Freshness** (editable corpora downloaded within 12 months): a book page or a published abstract does not change under a citation, but a Wikipedia article or a live database does, so every source of a corpus flagged `editable` in `meta.source_corpora` carries a `fetched` date (the day its page was downloaded, stamped by `generate_data.py` from the committed ledger `tools/generated_cache/fetch_dates.json`, see [`PROVENANCE.md`](PROVENANCE.md) "Freshness"). A cited page with no date, or one older than `FRESHNESS_MAX_MONTHS` (12, in `tools/data_generators/freshness.py`), is an **error**: refetch that corpus (recipe in [`tools/README.md`](../tools/README.md)). Author-side, a page whose own header date disagrees with the emitted one is an **error** too (refetched but not restamped). Runs on a clone (the dates are committed), and alone via `python tools/check_data.py --only freshness`, which the `pre-push` hook runs unskippably, so a stale corpus blocks a push even when the full data check is skipped.

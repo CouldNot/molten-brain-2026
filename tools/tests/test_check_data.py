@@ -567,6 +567,44 @@ class CorpusUrlTest(unittest.TestCase):
         self.assertEqual(self._errors({"stahl": {"ref": "Stahl", "url": "TODO"}}), 1)
 
 
+class FreshnessTest(unittest.TestCase):
+    """Family 13: a cited page of an editable corpus older than 12 months fails.
+
+    A Wikipedia article or a live database can change under a citation, so its
+    download date rides every source and ages into an error. Today is pinned, so the
+    test does not itself go stale.
+    """
+
+    TODAY = check_data.date(2026, 10, 11)
+    META = {"source_corpora": {"wikipedia_pharm": {"ref": "W", "editable": True},
+                               "stahl": {"ref": "S"}}}
+
+    def _errors(self, sources):
+        report = check_data.Report()
+        with redirect_stdout(io.StringIO()):
+            check_data.check_freshness(report, self.META, [[{"sources": sources}]],
+                                       today=self.TODAY)
+        return report.errors
+
+    def test_fresh_page_passes(self):
+        self.assertEqual(self._errors([{"corpus": "wikipedia_pharm", "page": "x_fresh",
+                                        "fetched": "2026-10-11"}]), 0)
+
+    def test_thirteen_month_old_page_fails(self):
+        self.assertEqual(self._errors([{"corpus": "wikipedia_pharm", "page": "x_old",
+                                        "fetched": "2025-09-11"}]), 1)
+
+    def test_exactly_twelve_months_still_passes(self):
+        self.assertEqual(self._errors([{"corpus": "wikipedia_pharm", "page": "x_edge",
+                                        "fetched": "2025-10-11"}]), 0)
+
+    def test_undated_page_fails(self):
+        self.assertEqual(self._errors([{"corpus": "wikipedia_pharm", "page": "x_none"}]), 1)
+
+    def test_book_page_needs_no_date(self):
+        self.assertEqual(self._errors([{"corpus": "stahl", "page": 15}]), 0)
+
+
 class FamilyCountTest(unittest.TestCase):
     """The numbered families, against the two docs that count them in prose.
 
