@@ -38,6 +38,11 @@ ADDON_SLOTS: dict[str, str] = {
     # above the first enzyme row: a caveat about how the drug is cleared, which
     # the per-isoform rows below cannot express (they state a role, not a curve).
     "drug.metabolism": "drug",
+    # Inside the drug panel's pharmacokinetic timing block, under the Tmax / half-life
+    # chips: a caveat about what those two numbers measure (e.g. a serum half-life
+    # that the brain does not follow). Drawn whenever the drug has either duration,
+    # unlike drug.metabolism, which needs enzyme rows to exist at all.
+    "drug.timing": "drug",
     # Top of a receptor / non-receptor-target / structure panel, same role as
     # drug.top for the other three panel kinds.
     "receptor.top": "receptor",
@@ -89,6 +94,41 @@ ADDON_TONES: dict[str, str] = {
 # ---------------------------------------------------------------------------
 
 ADDONS: list[dict[str, Any]] = [
+    {
+        # The half-life chip above is lithium's SERUM elimination half-life (Stahl);
+        # the organ it acts on lets go of it more slowly. One small 7Li MRS study (two
+        # healthy volunteers at steady state), so the text says how thin it is.
+        "id": "lithium_brain_half_life",
+        "owner_kind": "drug",
+        "owner": "lithium",
+        "slot": "drug.timing",
+        "display": "admonition",
+        "tone": "caution",
+        "title": {
+            "en": "The brain lets go of lithium more slowly",
+            "fr": "Le cerveau élimine le lithium plus lentement",
+        },
+        "text": {
+            "en": "Measured directly in the brain (7Li magnetic resonance "
+                  "spectroscopy, a small study of two volunteers at steady state), "
+                  "lithium's median half-life was 28 h there against 16 h in serum: "
+                  "the brain clears it more slowly than the blood does.",
+            "fr": "Mesurée directement dans le cerveau (spectroscopie par résonance "
+                  "magnétique du 7Li, une petite étude de deux volontaires à "
+                  "l'équilibre), la demi-vie médiane "
+                  "du lithium y était de 28 h contre 16 h dans le sérum : le cerveau "
+                  "l'élimine plus lentement que le sang.",
+        },
+        "sources": [
+            {
+                "corpus": "europepmc",
+                "page": "7827213",
+                "quote": "The median half-life for lithium was 28 hr in the brain, and "
+                         "16 hr in serum.",
+                "provenance": "verified",
+            },
+        ],
+    },
     {
         "id": "paroxetine_nonlinear_pk",
         "owner_kind": "drug",

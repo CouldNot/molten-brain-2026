@@ -820,6 +820,23 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         "export_sha256": dict(CPIC_GUIDANCE_PINS),
         "machine": True,
     },
+    "europepmc": {
+        # Primary-literature corpus #17: a hand-listed handful of paper abstracts, for
+        # the claims only a study measures (lithium's brain half-life, from 7Li MRS,
+        # being longer than its serum one: no book, label or article on disk says so).
+        # tools/fetch/fetch_europepmc.py stores each paper's Europe PMC abstract as one
+        # page, one sentence per line; `page` is the PubMed id, so a citation resolves
+        # to europepmc.org/article/MED/<page>. Its PAPERS registry names the claim each
+        # paper was added for, so the corpus never grows into a crawl. Quotes are prose
+        # picked by a model and judged like any other (no `extraction: "code"`).
+        # Author-side pages like #14/#16 (abstracts are the publishers' copyright: a
+        # short verbatim sentence is a citation, the page itself is never shipped).
+        "ref": "Europe PMC, journal article abstract",
+        "citation": "Europe PMC (EMBL-EBI). Abstract of the cited journal article, "
+                    "PubMed id pinned per citation. europepmc.org.",
+        "url": "https://europepmc.org/",
+        "pages_dir": "data_sources/europepmc/pages",
+    },
 }
 
 

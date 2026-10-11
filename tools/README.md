@@ -444,6 +444,7 @@ Screenshots).
   label per drug in `generated_cache/dailymed_labels.json`. States no claim: it only puts pages on disk
   for `fetch_tmax.py` to read. See docs/PROVENANCE.md (corpus #14).
 - `tools/fetch/fetch_bdpm.py` — stdlib, network. Corpus #16 fetcher: downloads the BDPM (French public drug database) tables, joins each drug to its single-active marketed products by exact INN, picks ONE plain systemic RCP and stores its section 5.2 as `data_sources/bdpm/pages/<cis>.md`, plus the chosen RCP and the French brand names per drug in `generated_cache/bdpm_labels.json`. States no claim: `fetch_tmax.py` / `fetch_half_life.py` read the pages, `apply_brand_names.py --bdpm` writes the brands (code read, no judge). See docs/PROVENANCE.md (corpus #16).
+- `tools/fetch/fetch_europepmc.py` — stdlib, network (`www.ebi.ac.uk`). Corpus #17 fetcher: stores the Europe PMC abstract of each paper in its hand-listed `PAPERS` registry (PMID -> the claim it was added for) as `data_sources/europepmc/pages/<pmid>.md`. States no claim. See docs/PROVENANCE.md (corpus #17).
 - `tools/fetch/fetch_tmax.py` — stdlib. Offers, per drug, every line of its own stored Wikipedia article
   (#9), Stahl monograph (#1) and DailyMed label (#14) that names a PEAK and carries a duration, pre-parsed into every
   `{hours, hours_max?}` it states, into `tools/generated_cache/tmax_worklist.json`. States no verdict of

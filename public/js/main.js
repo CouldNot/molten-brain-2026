@@ -4204,6 +4204,9 @@ function createInfoPanel(data, sourcingModal) {
           }
           hlEl.appendChild(chip);
         }
+        // Addon slot: a caveat about what these two numbers measure (a serum
+        // half-life the brain does not follow), right under the chips it qualifies.
+        appendAddons(hlEl, "drug", drug.id, "drug.timing");
         body.appendChild(hlEl);
       }
 

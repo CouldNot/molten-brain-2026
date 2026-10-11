@@ -200,7 +200,7 @@ Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
 An **addon** is the node kind for a claim with no implied home (a caveat over a section, a flag on one drug), and it **carries its own insertion point** (`owner_kind` + `owner` + `slot`), so adding one is a data edit, never a viewer edit. Authored in `tools/data_generators/addons.py` with closed vocabularies `ADDON_SLOTS` / `ADDON_SECTIONS` / `ADDON_DISPLAYS` / `ADDON_TONES` emitted into meta.
 
-- **A slot exists only if `js/main.js` calls `appendAddons(host, ownerKind, ownerId, slot)` for it**, else its node is silently swallowed; the generator, `check_data.py` and `test_generate.AddonTest` enforce this. Slots today: `drug.top`, `drug.metabolism`, `receptor.top`, `target.top`, `structure.top` (anchors the hemisphere-less base), `section.projections`, `section.metabolism` (the enzyme list is never exhaustive, said once for every drug).
+- **A slot exists only if `js/main.js` calls `appendAddons(host, ownerKind, ownerId, slot)` for it**, else its node is silently swallowed; the generator, `check_data.py` and `test_generate.AddonTest` enforce this. Slots today: `drug.top`, `drug.metabolism`, `drug.timing` (under the Tmax / half-life chips), `receptor.top`, `target.top`, `structure.top` (anchors the hemisphere-less base), `section.projections`, `section.metabolism` (the enzyme list is never exhaustive, said once for every drug).
 - The `drug.metabolism` slot has a derived fallback (`autoModulation` -> `derivedAutoModulation`, conditional wording, no pill) that fires **only when the slot holds no authored addon**.
 
 Full detail: [`docs/VIEWER.md`](docs/VIEWER.md).
@@ -232,6 +232,7 @@ Corpora (`SOURCE_CORPORA`):
 - #13 `pharmfreq`: enzyme metabolizer-phenotype variability. #14 `dailymed`: US label Tmax.
 - #15 `cpic`: what a metabolizer phenotype implies for one prescription (implication + recommendation + strength), `page` = guideline ClinPGx id.
 - #16 `bdpm`: French RCP section 5.2 Tmax/half-life + fr brands (code read of the denomination), `page` = product CIS.
+- #17 `europepmc`: hand-listed paper abstracts (`fetch_europepmc.PAPERS`, each with the claim it was added for) for what only a study measures, `page` = PMID.
 
 Full detail (sourcing model, citation sites, book heading trails, the four uncertainty flags, per-corpus mechanics, the "% sourced" maths): [`docs/PROVENANCE.md`](docs/PROVENANCE.md).
 

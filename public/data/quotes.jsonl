@@ -717,6 +717,7 @@
 {"id": "q_2d077db44550", "corpus": "gtopdb_ki", "page": "cabergoline", "quote": "cabergoline at D2 receptor (DRD2, Human): Agonist / Partial agonist, pKi 9-9.2 [PMID 12388666]", "species": "Human"}
 {"id": "q_2d082d0e00e2", "corpus": "wikipedia_pharm", "page": "olanzapine", "quote": "5-HT 1F | 310 | ND"}
 {"id": "q_2d08c69e5810", "corpus": "stahl", "page": 919, "quote": "Metabolized by CYP3A4", "llm": "opus", "heading": ["Ziprasidone", "Dosing and use", "Pharmacokinetics"]}
+{"id": "q_2d247ede009c", "corpus": "europepmc", "page": "7827213", "quote": "The median half-life for lithium was 28 hr in the brain, and 16 hr in serum.", "llm": "opus"}
 {"id": "q_2d29a1511f4d", "corpus": "wikipedia_pharm", "page": "sibutramine", "quote": "The drug itself reaches its peak plasma level after 1 hour and has also a half-life of 1 hour.", "llm": "sonnet"}
 {"id": "q_2d2cc75ffc60", "corpus": "wikipedia_pharm", "page": "apomorphine", "quote": "5-HT 1A | 2,523 | partial agonist"}
 {"id": "q_2d2eae5497ee", "corpus": "gtopdb_class", "page": 295, "quote": "mGlu7 receptor (GRM7), GtoPdb target 295 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Calcium channel"}

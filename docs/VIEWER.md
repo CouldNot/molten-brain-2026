@@ -215,7 +215,8 @@ a line in the tally.
   would swallow its node silently (well-formed, graded, counted, never drawn), which is why the
   generator AND `check_data.py` both reject an unknown slot / display / tone or an anchor naming
   no real node, and why `test_generate.AddonTest` looks each slot's literal up in `main.js`.
-  Today: `drug.top`, `drug.metabolism`, `receptor.top`, `target.top`,
+  Today: `drug.top`, `drug.metabolism`, `drug.timing` (under the Tmax / half-life chips, drawn
+  whenever the drug has either duration, so it does not need enzyme rows), `receptor.top`, `target.top`,
   `structure.top` (a structure addon anchors the hemisphere-less **base**, so it shows on both),
   `section.projections`, `section.metabolism`.
 - **A section anchor is the owner kind that is not a node** (`ADDON_SECTIONS`, `meta.addon_sections`,
@@ -228,7 +229,8 @@ a line in the tally.
   recipe the Data browser and the Sources popup both hand to their own nav table) and indexes them
   as `addonsBySlot` keyed `${ownerKind}:${owner}:${slot}`. `js/main.js` `ADDON_RENDERERS` dispatches
   on `display`; a second form is one entry there plus one string in `ADDON_DISPLAYS`.
-- Four today. Two `drug.metabolism`: paroxetine + MDMA inhibit the CYP2D6 that clears them
+- Five today. One `drug.timing`: lithium's brain half-life (7Li MRS, 28 h) outlasting its serum one
+  (16 h), from corpus #17. Two `drug.metabolism`: paroxetine + MDMA inhibit the CYP2D6 that clears them
   (mechanism-based / autoinhibition), so their kinetics are non-linear, which the per-isoform rows
   below cannot state (a row gives a role, never a curve). Two section anchors, both deliberately
   **sourceless** (a red NOSOURCE pill) because each states what no corpus backs rather than what one

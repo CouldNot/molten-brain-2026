@@ -86,6 +86,7 @@ CORPUS_DESC = {
     "dailymed":        ("US prescribing labels (NLM SPL archive)", "Drug time-to-peak (Tmax)"),
     "bdpm":            ("French public drug database (ANSM RCPs)", "Drug Tmax, half-life, French brands"),
     "cpic":            ("Pharmacogenomic prescribing guidelines", "What a clearance speed implies for a drug"),
+    "europepmc":       ("Primary literature (Europe PMC abstracts)", "Claims only a study measures (e.g. brain half-life)"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
