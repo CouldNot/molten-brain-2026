@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.100.2",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A drug withdrawn from several markets at once now reads as one line per year and reason (\"2010: cardiac risk, most markets, Australia, Canada, ...\"), each market keeping its own source pill, instead of one line per country.",
+          "commits": [
+            "2d4fd2e"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.100.1",
       "date": "2026-10-11",
       "entries": [
