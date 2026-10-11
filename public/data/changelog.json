@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "3.100.0",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Prodrugs now act through their active metabolite. A drug its source calls inactive until the body converts it (psilocybin into psilocin, lisdexamfetamine into dextroamphetamine, serdexmethylphenidate into dexmethylphenidate, clorazepate and prazepam into nordazepam) shows a sourced \"Prodrug\" line and no longer claims bindings of its own. Focusing it still lights the brain regions and pathways its metabolite reaches, and each target in \"Acts on\" says which metabolite it comes from.",
+          "commits": [
+            "815c5f7",
+            "e6eb46f"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Psilocin and nordazepam gain their own sourced receptor actions (psilocin: agonist at 5-HT2A, 5-HT2C and 5-HT1A, plus 16 measured binding sites; nordazepam: partial agonist at the GABA-A receptor).",
+          "commits": [
+            "dddca9c"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.99.1",
       "date": "2026-10-11",
       "entries": [
