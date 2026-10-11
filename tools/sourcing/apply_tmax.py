@@ -50,7 +50,6 @@ Built with the help of Claude Code.
 import argparse
 import importlib.util
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -59,7 +58,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 
 import drugs_io                                                 # noqa: E402
-from data_generators.provenance import SOURCE_CORPORA           # noqa: E402
+from data_generators.provenance import corpus_page_path         # noqa: E402
 import fetch_tmax                                               # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "tmax_judged.json"
@@ -78,22 +77,9 @@ _spec.loader.exec_module(_cd)
 normalize_for_match = _cd.normalize_for_match
 
 
-def page_path(corpus: str, page) -> Path | None:
-    """The stored page a candidate's ``(corpus, page)`` pair cites, or None.
-
-    Resolved through the corpus registry's ``pages_dir`` (as ``check_data.py`` does),
-    so a corpus a worklist offers needs no branch here.
-    """
-    pages_dir = SOURCE_CORPORA.get(corpus, {}).get("pages_dir")
-    page = str(page if page is not None else "").strip()
-    return ROOT / pages_dir / f"{page}.md" if pages_dir and page else None
-    if corpus == "wikipedia_pharm":
-        slug = str(page or "")
-        return (WIKI_PAGES / f"{slug}.md") if slug else None
-    if corpus == "dailymed":
-        setid = str(page or "")
-        return (DAILYMED_PAGES / f"{setid}.md") if setid else None
-    return None
+# The stored page a candidate's ``(corpus, page)`` pair cites, via the corpus
+# registry's ``pages_dir``, so a corpus a worklist offers needs no branch here.
+page_path = corpus_page_path
 
 
 def same_duration(judged: dict, stated: dict) -> bool:

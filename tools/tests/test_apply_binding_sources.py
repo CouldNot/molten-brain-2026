@@ -2,6 +2,7 @@
 so loading it as a top-level module (the script's original path hack) crashed before
 any gate ran. Built with the help of Claude Code."""
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
@@ -14,11 +15,12 @@ class ImportTest(unittest.TestCase):
             "apply_binding_sources", ROOT / "tools" / "sourcing" / "apply_binding_sources.py")
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        self.assertIn("wikipedia_pharm", mod.SOURCE_CORPORA)
+        corpora = sys.modules["data_generators.provenance"].SOURCE_CORPORA
+        self.assertIsNotNone(mod.corpus_page_path("wikipedia_pharm", "sertraline"))
         for (drug, target), src in mod.BINDING_SOURCES.items():
             self.assertTrue(drug and target)
             self.assertEqual(src["provenance"], "verified")
-            self.assertIn(src["corpus"], mod.SOURCE_CORPORA)
+            self.assertIn(src["corpus"], corpora)
 
 
 if __name__ == "__main__":

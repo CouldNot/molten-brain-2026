@@ -59,7 +59,7 @@ _spec.loader.exec_module(_cd)
 normalize_for_match = _cd.normalize_for_match
 
 # Imported as a package member: provenance.py uses relative imports.
-from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
+from data_generators.provenance import corpus_page_path  # noqa: E402
 
 
 def _rows(drug: str, targets: list[str], corpus: str, page: Any, quote: str) -> dict:
@@ -154,11 +154,8 @@ CONFLICTS: list[tuple[str, str]] = [
 
 def _page_text(corpus: str, page: Any) -> str | None:
     """The author-side page file for a source, or None when the corpus tree is absent."""
-    entry = SOURCE_CORPORA.get(corpus)
-    if not entry or not entry.get("pages_dir"):
-        return None
-    md = ROOT / entry["pages_dir"] / f"{page}.md"
-    if not md.exists():
+    md = corpus_page_path(corpus, page)
+    if md is None or not md.exists():
         return None
     return md.read_text(encoding="utf-8", errors="replace")
 

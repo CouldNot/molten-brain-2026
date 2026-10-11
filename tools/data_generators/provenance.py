@@ -857,6 +857,24 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
 }
 
 
+def corpus_page_path(corpus: str, page: Any) -> Path | None:
+    """The author-side page file ``<pages_dir>/<page>.md`` a ``(corpus, page)`` citation
+    names, or None when the corpus has no ``pages_dir`` or the page is empty.
+
+    The one resolver every applier / freshness pass uses (``check_data.py`` resolves
+    the same rule from the *emitted* registry, since it checks what shipped). Whether
+    the file exists is the caller's question: the tree is author-side.
+
+    >>> corpus_page_path("bdpm", "69071035").parts[-3:]
+    ('bdpm', 'pages', '69071035.md')
+    """
+    pages_dir = SOURCE_CORPORA.get(corpus, {}).get("pages_dir")
+    page = str(page if page is not None else "").strip()
+    if not pages_dir or not page:
+        return None
+    return Path(__file__).resolve().parent.parent.parent / pages_dir / f"{page}.md"
+
+
 def build_enzymes(enzymes: dict[str, Any]) -> dict[str, Any]:
     """``ENZYMES`` with each isoform's metabolizer-status profile merged in.
 

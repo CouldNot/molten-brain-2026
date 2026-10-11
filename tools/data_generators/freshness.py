@@ -34,7 +34,7 @@ import re
 from typing import Any, Callable
 
 from . import cpic, pharmfreq
-from .provenance import SOURCE_CORPORA
+from .provenance import SOURCE_CORPORA, corpus_page_path
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 LEDGER_PATH = os.path.join(ROOT, "tools", "generated_cache", "fetch_dates.json")
@@ -115,10 +115,8 @@ def header_date(path: str) -> str | None:
 
 def page_path(corpus: str, page: Any) -> str | None:
     """The author-side page file a per-page corpus cites, or None for a bulk corpus."""
-    pages_dir = SOURCE_CORPORA.get(corpus, {}).get("pages_dir")
-    if corpus in BULK_DATES or not pages_dir:
-        return None
-    return os.path.join(_repo(pages_dir), f"{page}.md")
+    path = None if corpus in BULK_DATES else corpus_page_path(corpus, page)
+    return str(path) if path else None
 
 
 def scan(corpus: str) -> str | dict[str, str] | None:
