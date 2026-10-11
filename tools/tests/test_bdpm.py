@@ -163,5 +163,33 @@ class FrenchDurationTest(unittest.TestCase):
         self.assertIsNone(apply_tmax.page_path("nope", "1"))
 
 
+class BrandApplyTest(unittest.TestCase):
+    """``apply_brand_names.apply_bdpm``: code-read brands, gated on the product page."""
+
+    def test_add_skip_and_gate(self):
+        import tempfile
+        import apply_brand_names as A
+        with tempfile.TemporaryDirectory() as tmp:
+            pages = Path(tmp)
+            (pages / "1.md").write_text("# HAVLANE, comprimé sécable\ncis: 1\n", "utf-8")
+            (pages / "2.md").write_text("# THERALENE 5 mg, comprimé\ncis: 2\n", "utf-8")
+            (pages / "3.md").write_text("# OTHER, comprimé\ncis: 3\n", "utf-8")
+            drugs = [{"id": "loprazolam", "brands": []},
+                     {"id": "alimemazine", "brands": [{"name": "Théralène", "region": "fr",
+                                                       "sources": []}]}]
+            labels = {"loprazolam": {"brands": [
+                          {"name": "Havlane", "quote": "HAVLANE", "cis": "1"},
+                          {"name": "Ghost", "quote": "GHOST", "cis": "3"}]},
+                      "alimemazine": {"brands": [
+                          {"name": "Theralene", "quote": "THERALENE", "cis": "2"}]}}
+            touched, added, present, misses = A.apply_bdpm(drugs, labels, pages)
+        self.assertEqual((touched, added, present, len(misses)), (1, 1, 1, 1))
+        self.assertEqual(drugs[0]["brands"], [{
+            "name": "Havlane", "region": "fr",
+            "sources": [{"corpus": "bdpm", "page": "1", "quote": "HAVLANE",
+                         "provenance": "verified", "extraction": "code"}]}])
+        self.assertEqual(len(drugs[1]["brands"]), 1)       # accent-folded duplicate
+
+
 if __name__ == "__main__":
     unittest.main()

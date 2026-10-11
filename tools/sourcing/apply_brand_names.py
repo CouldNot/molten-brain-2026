@@ -22,13 +22,18 @@ English); it is never shown. Idempotent: a name already present (any region) is
 skipped, so a re-run adds nothing. Stdlib only; author-side (needs the gitignored
 data_sources/wikipedia/pages_fr tree the fetch pass wrote).
 
-Usage (from the repo root): python tools/sourcing/apply_brand_names.py [--dry-run]
+Usage (from the repo root): python tools/sourcing/apply_brand_names.py [--dry-run] [--bdpm]
+
+``--bdpm`` instead adds the French brands corpus #16 (BDPM) reads off its product table:
+a code read, gated on the product's stored page, no LLM in the loop (see ``apply_bdpm``).
 """
 import argparse
 import importlib.util
 import json
 import os
+import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
@@ -46,15 +51,101 @@ _spec.loader.exec_module(_cd)
 normalize_for_match = _cd.normalize_for_match
 
 
+BDPM_LABELS = ROOT / "tools" / "generated_cache" / "bdpm_labels.json"
+BDPM_PAGES = ROOT / "data_sources" / "bdpm" / "pages"
+
+
 def load_json(path):
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
+def brand_key(name: str) -> str:
+    """The duplicate key of a brand name: case- AND accent-folded.
+
+    Not ``normalize_for_match``, which turns an accent into a word break
+    ("Théralène" -> "the rale ne"), so the BDPM table's unaccented "THERALENE" would
+    read as a second brand.
+    """
+    t = unicodedata.normalize("NFKD", name or "")
+    t = "".join(c for c in t if not unicodedata.combining(c))
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", t.lower()).split())
+
+
+def add_brand(existing: list, seen: set, name: str, region: str, source: dict) -> bool:
+    """Append one brand node unless the drug already carries that name (any region,
+    see ``brand_key``). Returns whether it was added."""
+    key = brand_key(name)
+    if not key or key in seen:
+        return False
+    seen.add(key)
+    existing.append({"name": name, "region": region, "sources": [source]})
+    return True
+
+
+def apply_bdpm(drugs: list[dict], labels: dict, pages: Path = BDPM_PAGES):
+    """Add the French brands ``fetch_bdpm.py`` read off the BDPM product table.
+
+    A code read, not a model's: the brand is the denomination's first word, already
+    stripped of generics by ``fetch_bdpm.brand_of``. Each is re-found on its product's
+    stored header page (the denomination line), stamped ``extraction: "code"`` so no
+    judge is needed, and tagged ``fr`` (every BDPM product is marketed in France).
+    Returns ``(drugs touched, brands added, skipped-present, misses)``.
+    """
+    touched = added = present = 0
+    misses = []
+    for d in drugs:
+        brands = (labels.get(d["id"]) or {}).get("brands") or []
+        existing = d.get("brands") or []
+        seen = {brand_key(b["name"]) for b in existing}
+        new_here = 0
+        for b in brands:
+            if brand_key(b["name"]) in seen:
+                present += 1
+                continue
+            path = pages / f"{b['cis']}.md"
+            head = path.read_text(encoding="utf-8").split("\n", 1)[0] if path.exists() else ""
+            if normalize_for_match(b["quote"]) not in normalize_for_match(head):
+                misses.append(f"{d['id']}: {b['quote']!r} not on BDPM page {b['cis']} header")
+                continue
+            source = {"corpus": "bdpm", "page": b["cis"], "quote": b["quote"],
+                      "provenance": "verified", "extraction": "code"}
+            if add_brand(existing, seen, b["name"], "fr", source):
+                new_here += 1
+        if new_here:
+            d["brands"] = existing
+            touched += 1
+            added += new_here
+    return touched, added, present, misses
+
+
+def main_bdpm(dry_run: bool) -> None:
+    if not BDPM_LABELS.exists() or not BDPM_PAGES.exists():
+        print(f"missing {BDPM_LABELS} or {BDPM_PAGES}; run tools/fetch/fetch_bdpm.py first.")
+        return
+    drugs = drugs_io.load_drugs()
+    touched, added, present, misses = apply_bdpm(drugs, load_json(BDPM_LABELS))
+    print(f"applied {touched} drugs (+{added} fr brand nodes from BDPM); "
+          f"skipped-present {present}, gated-out {len(misses)}")
+    for line in misses:
+        print("  [gated out]", line)
+    if dry_run:
+        print("dry-run: drugs_data.jsonl not written")
+    elif added:
+        drugs_io.save_drugs(drugs)
+        print(f"wrote {drugs_io.DRUGS_PATH}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--bdpm", action="store_true",
+                    help="add the French brands of corpus #16 (BDPM product table) "
+                         "instead of the judged FR Wikipedia names")
     args = ap.parse_args()
+    if args.bdpm:
+        main_bdpm(args.dry_run)
+        return
 
     if not JUDGED.exists() or not WORKLIST.exists():
         print(f"missing {JUDGED} or {WORKLIST}; run fetch_brand_names.py + the LLM judge first.")
@@ -86,32 +177,24 @@ def main():
         page_norm = page_cache[fr_slug]
 
         existing = d.setdefault("brands", [])
-        seen = {normalize_for_match(b["name"]) for b in existing}
+        seen = {brand_key(b["name"]) for b in existing}
         new_here = 0
         for name in names:
             name = (name or "").strip()
-            key = normalize_for_match(name)
+            key = brand_key(name)
             if not key or key in seen:
                 if key:
                     skipped_present += 1
                 continue
-            if key not in page_norm:
+            if normalize_for_match(name) not in page_norm:
                 gated_out += 1
                 misses.append(f"{did}: {name!r} not verbatim on FR page {fr_slug}")
                 continue
-            seen.add(key)
             # First surviving name = the primary French brand; the rest, other European.
             region = "fr" if new_here == 0 else "eu"
-            existing.append({
-                "name": name,
-                "region": region,
-                "sources": [{
-                    "corpus": "wikipedia_fr",
-                    "page": fr_slug,
-                    "quote": name,
-                    "provenance": "verified",
-                }],
-            })
+            add_brand(existing, seen, name, region,
+                      {"corpus": "wikipedia_fr", "page": fr_slug, "quote": name,
+                       "provenance": "verified"})
             new_here += 1
             added += 1
         if new_here:
