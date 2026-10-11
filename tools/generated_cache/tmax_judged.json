@@ -614,5 +614,141 @@
   "index": 0,
   "hours": 1.0,
   "hours_max": 2.0
+ },
+ "agomelatine": {
+  "index": 0,
+  "hours": 1.0,
+  "hours_max": 2.0
+ },
+ "amantadine": {
+  "index": 1,
+  "hours": 4.0
+ },
+ "amphetamine_d": {
+  "index": 1,
+  "hours": 1.5
+ },
+ "baclofen": {
+  "index": 0,
+  "hours": 0.5,
+  "hours_max": 1.5
+ },
+ "buprenorphine": {
+  "index": 1,
+  "hours": 1.5
+ },
+ "carbamazepine": {
+  "index": 0,
+  "hours": 12.0
+ },
+ "clotiazepam": {
+  "index": 0,
+  "hours": 1.0
+ },
+ "donepezil": {
+  "index": 2,
+  "hours": 3.0,
+  "hours_max": 4.0
+ },
+ "furosemide": {
+  "index": 1,
+  "hours": 1.0
+ },
+ "levetiracetam": {
+  "index": 3,
+  "hours": 1.3
+ },
+ "levomepromazine": {
+  "index": 0,
+  "hours": 1.0,
+  "hours_max": 3.0
+ },
+ "loflazepate": {
+  "index": 0,
+  "hours": 1.5
+ },
+ "loprazolam": {
+  "index": 0,
+  "hours": 1.0
+ },
+ "lormetazepam": {
+  "index": 0,
+  "hours": 1.5
+ },
+ "loxapine": {
+  "index": 0,
+  "hours": 1.5
+ },
+ "melatonin": {
+  "index": 0,
+  "hours": 0.25,
+  "hours_max": 1.5
+ },
+ "mianserin": {
+  "index": 0,
+  "hours": 2.0,
+  "hours_max": 3.0
+ },
+ "midazolam": {
+  "index": 1,
+  "hours": 0.5,
+  "hours_max": 1.0
+ },
+ "ondansetron": {
+  "index": 0,
+  "hours": 1.5
+ },
+ "phenobarbital": {
+  "index": 1,
+  "hours": 8.0
+ },
+ "pipamperone": {
+  "index": 0,
+  "hours": 2.0
+ },
+ "primidone": {
+  "index": 0,
+  "hours": 3.0
+ },
+ "sertraline": {
+  "index": 2,
+  "hours": 4.5,
+  "hours_max": 8.4
+ },
+ "sildenafil": {
+  "index": 2,
+  "hours": 0.5,
+  "hours_max": 2.0
+ },
+ "sulpiride": {
+  "index": 0,
+  "hours": 3.0,
+  "hours_max": 6.0
+ },
+ "venlafaxine": {
+  "index": 0,
+  "hours": 2.0
+ },
+ "cabergoline": {
+  "index": 0,
+  "hours": 0.5,
+  "hours_max": 4.0
+ },
+ "tramadol": {
+  "index": 0,
+  "hours": 2.0
+ },
+ "lacosamide": {
+  "index": 2,
+  "hours": 0.5,
+  "hours_max": 4.0
+ },
+ "entacapone": {
+  "index": 2,
+  "hours": 1.0
+ },
+ "sumatriptan": {
+  "index": 0,
+  "hours": 2.0
  }
 }

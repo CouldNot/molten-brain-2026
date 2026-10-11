@@ -218,5 +218,9 @@
   "hours": 16.0,
   "hours_max": 23.0,
   "index": 1
+ },
+ "bumetanide": {
+  "index": 0,
+  "hours": 1.5
  }
 }
