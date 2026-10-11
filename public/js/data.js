@@ -812,6 +812,23 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // buprenorphine is not Suboxone. See the primaryBrand pick below.
   const BRAND_NOTE = /\s*\([^()]*\)\s*$/;
   const BRAND_COMBO = /\((?:with|in combination|\+)/i;
+  // A prodrug (node kind drug_prodrug) is inactive itself and carries no binding of
+  // its own, yet focusing it should light what its active metabolite hits. So before
+  // the loop resolves bindings, it borrows each metabolite's raw bindings (its own
+  // `bindings[]`, else its linked modeled drug's), tagged `via_metabolite`: the scene,
+  // flow and "Acts on" treat them like the drug's, while every list that counts a
+  // binding node once (receptor panels, node browser, simulation) skips the tag,
+  // since the metabolite already owns that node. Runs on raw records, before any
+  // drug's bindings are mapped.
+  const rawDrugById = new Map(drugs.map((d) => [d.id, d]));
+  for (const d of drugs) {
+    if (!d.prodrug) continue;
+    d.bindings = (d.metabolites || []).flatMap((m) => {
+      const linked = m.drug_id ? rawDrugById.get(m.drug_id) : null;
+      const own = (m.bindings || []).length ? m.bindings : linked ? linked.bindings || [] : [];
+      return own.map((b) => ({ ...b, via_metabolite: m.name }));
+    });
+  }
   for (const d of drugs) {
     d.description = d.description ? localize(d.description) : "";
     // Provenance grade of the description (llm synthesis vs a sourced Wikipedia
@@ -860,6 +877,12 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       agencyLabel: fa.agency ? historyAgencies[fa.agency] || fa.agency : null,
       sources: mapSources(d.first_approval_sources),
       provenance: strongestGrade(d.first_approval_sources),
+    } : null;
+    // Prodrug flag (kind drug_prodrug): its own graded claim; the borrowed
+    // bindings are wired by the prodrug pass above this loop.
+    d.prodrug = d.prodrug ? {
+      sources: mapSources(d.prodrug_sources),
+      provenance: strongestGrade(d.prodrug_sources),
     } : null;
     d.withdrawals = (d.withdrawals || []).map((w) => ({
       year: w.year,
@@ -1013,6 +1036,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         uncertainty: disp.uncertainty,
         // The measured PDSP Ki (own verified badge), null when absent.
         ki: disp.ki,
+        // Borrowed by a prodrug from this active metabolite (see the prodrug pass
+        // above the loop); null on the drug's own bindings.
+        viaMetabolite: b.via_metabolite || null,
       };
     });
     d.structureIds = [...affected];
@@ -1216,7 +1242,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   for (const d of drugs) {
     const seen = new Set();
     for (const b of d.bindings) {
-      if (seen.has(b.target)) continue;
+      if (b.viaMetabolite || seen.has(b.target)) continue;  // the metabolite's own row
       seen.add(b.target);
       if (!drugsByTarget.has(b.target)) drugsByTarget.set(b.target, []);
       drugsByTarget.get(b.target).push({ drug: d, binding: b });

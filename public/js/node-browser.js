@@ -51,6 +51,7 @@ const KIND_ORDER = [
   "drug_tmax",
   "drug_first_approval",
   "drug_withdrawals",
+  "drug_prodrug",
   "drug_enzymes",
   "drug_enzyme_strength",
   "drug_metabolites",
@@ -290,6 +291,7 @@ export function collectNodes(data, deps, opts = {}) {
   for (const d of data.drugs || []) {
     const go = d.focusable ? () => nav.drug(d) : null;
     for (const b of d.bindings || []) {
+      if (b.viaMetabolite) continue;  // a prodrug's borrowed binding: the metabolite's node
       push("drug_bindings", d.name, bindingNotion(b), b.provenance, go, b);
       push("drug_binding_action", d.name, actionNotion(b), b.actionProvenance, go,
         actionBacking(b));
@@ -316,6 +318,10 @@ export function collectNodes(data, deps, opts = {}) {
       push("drug_first_approval", d.name,
         `${t("drug.firstApproval")} ${formatApproval(d.firstApproval)}`,
         d.firstApproval.provenance, go, { sources: d.firstApproval.sources });
+    }
+    if (d.prodrug) {
+      push("drug_prodrug", d.name, t("drug.prodrug"), d.prodrug.provenance, go,
+        { sources: d.prodrug.sources });
     }
     for (const w of d.withdrawals || []) {
       push("drug_withdrawals", d.name, `${t("drug.withdrawn")} ${formatWithdrawal(w)}`,

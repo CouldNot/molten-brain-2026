@@ -177,7 +177,8 @@ export function ligandsOf(drug, { metabolites = true } = {}) {
   const tmax = tmaxHours(drug);
   const own = pkCurve(halfLifeHours(drug.halfLife), { tmax });
   const out = [{ key: drug.id, name: drug.name, drug, metabolite: null,
-    bindings: drug.bindings || [], curve: own }];
+    // A prodrug's borrowed bindings (viaMetabolite) are its metabolite ligand's below.
+    bindings: (drug.bindings || []).filter((b) => !b.viaMetabolite), curve: own }];
   if (!metabolites) return out;
   for (const m of drug.metabolites || []) {
     const hl = halfLifeHours(m.halfLife);

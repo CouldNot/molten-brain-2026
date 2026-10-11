@@ -2828,7 +2828,9 @@ function createInfoPanel(data, sourcingModal) {
     if (!affinity) nameRow.appendChild(bindingProvenancePill(binding));
     txt.appendChild(nameRow);
     const parts = [affinity ? t("drug.affinityOnly") : binding.actionLabel,
-                   binding.note];
+                   binding.note,
+                   binding.viaMetabolite
+                     ? t("drug.viaMetabolite", { name: binding.viaMetabolite }) : null];
     if (binding.tentative) parts.push(t("drug.speculative"));
     if (binding.peripheral) parts.push(t("drug.peripheral"));
     const detail = parts.filter(Boolean).join(" · ");
@@ -4275,6 +4277,15 @@ function createInfoPanel(data, sourcingModal) {
       const acts = el("div", "info-bindings");
       acts.dataset.tourSec = "bindings"; // guided-tour section anchor
       acts.appendChild(el("h3", null, t("drug.actsOn")));
+      // A prodrug's own graded claim (kind drug_prodrug): it binds nothing itself, so
+      // every row below is borrowed from its active metabolite ("via ...").
+      if (drug.prodrug) {
+        const p = el("p", "info-desc", `${t("drug.prodrug")} `);
+        p.title = t("drug.prodrugTip");
+        p.appendChild(makeProvenancePill(drug.prodrug.provenance,
+          sourcesTip(drug.prodrug.sources)));
+        acts.appendChild(p);
+      }
       if (!drug.bindings.length) {
         acts.appendChild(el("p", "info-desc", t("drug.noTargets")));
       } else {
@@ -5786,6 +5797,7 @@ const KIND_LABELS = {
   drug_tmax: "about.kindDrugTmax",
   drug_first_approval: "about.kindDrugFirstApproval",
   drug_withdrawals: "about.kindDrugWithdrawals",
+  drug_prodrug: "about.kindDrugProdrug",
   drug_enzymes: "about.kindDrugEnzymes",
   drug_enzyme_strength: "about.kindDrugEnzymeStrength",
   enzyme_variability: "about.kindEnzymeVariability",
@@ -6144,6 +6156,12 @@ function buildKindExample(kind, data, nav) {
         || focusableDrugs.find((x) => x.firstApproval);
       return d ? line(d.name, `${t("drug.firstApproval")} ${formatApproval(d.firstApproval)}`,
         () => nav.drug(d)) : null;
+    }
+    case "drug_prodrug": {
+      // e.g. Psilocybin "Prodrug: inactive itself, acts through its active metabolite".
+      const d = pick(focusableDrugs, (x) => x.id === "psilocybin" && x.prodrug)
+        || focusableDrugs.find((x) => x.prodrug);
+      return d ? line(d.name, t("drug.prodrug"), () => nav.drug(d)) : null;
     }
     case "drug_withdrawals": {
       const d = pick(focusableDrugs, (x) => x.id === "nefazodone" && x.withdrawals.length)
