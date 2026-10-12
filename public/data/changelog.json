@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "version": "3.104.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Active metabolites are now checked against the Guide to Pharmacology like their parent drugs: norfluoxetine is shown to block 5-HT2B (it was only known to bind there), and norquetiapine's hold on the norepinephrine transporter gains a measured affinity (12 nM).",
+          "commits": [
+            "bc7ceb0",
+            "2148678"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.103.1",
       "date": "2026-10-12",
       "entries": [
