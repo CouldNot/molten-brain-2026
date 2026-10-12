@@ -51,12 +51,12 @@ CACHE = ROOT / "tools" / "generated_cache"
 WORKLIST = CACHE / "projection_worklist.json"
 JUDGED = CACHE / "projection_judged.json"
 OUT = CACHE / "projection_sources.json"
-BOOKS = ROOT / "data_sources" / "books"
-PAGES = {
-    "kandel": BOOKS / "eric_kandel" / "pages",
-    "nieuwenhuys": BOOKS / "nieuwenhuys_atlas" / "pages",
-    "stahl_essential": BOOKS / "stahl_essential_pharmacology" / "pages",
-}
+from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
+
+# The prose corpora a pathway can be quoted from, each at its registered page tree
+# (Europe PMC, corpus #17, for what only a primary paper states, e.g. the claustrum).
+PAGES = {c: ROOT / SOURCE_CORPORA[c]["pages_dir"]
+         for c in ("kandel", "nieuwenhuys", "stahl_essential", "europepmc")}
 ATTRS = ("transmitter", "sign", "route")
 
 

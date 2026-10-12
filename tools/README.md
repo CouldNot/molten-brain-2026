@@ -522,7 +522,22 @@ Screenshots).
   to resolve, and gate 5 becomes "the row opens with its target cell and that cell resolves to the
   target claimed" under the fetcher's own resolver; the source is stamped `extraction: "code"`, so this
   input needs no `recheck_quotes.py` pass. Needs beautifulsoup4 on the path for that resolver.
+  **`--search`** applies the UNKNOWN search's picks (`binding_directions_search_judged.json`, index
+  per site into `binding_directions_search_worklist.json`) through the same `_Gate`, the citation
+  carrying the candidate's own corpus (EN/FR Wikipedia or a Europe PMC abstract) and page; a metabolite
+  pick is written under every parent. **`--unknown-log`** (run after the recheck) writes
+  `tools/generated_cache/unknown_searches.json`: every searched binding still `affinity_only` whose
+  search found no direction anywhere, with its per-corpus search record (see docs/PROVENANCE.md, UNKNOWN).
   See docs/DRUGS.md Drugs (Binding directions).
+- The UNKNOWN search, end to end (binding directions; the recipe for any kind in
+  `unknown.UNKNOWN_REQUIRED_SOURCES`):
+  `python tools/fetch/fetch_europepmc.py --binding-search` (network, resumable, ledger
+  `tools/generated_cache/europepmc_binding_search.json`, top 5 abstracts per binding stored as corpus #17
+  pages) -> `uv run --with beautifulsoup4 tools/fetch/fetch_binding_directions.py --search` (offline,
+  builds the worklist over PDSP, GtoPdb, EN + FR Wikipedia and those abstracts, recording what each corpus
+  was asked and returned) -> one LLM pick by index -> `apply_binding_directions.py --search` ->
+  `recheck_quotes.py build --kinds drug_bindings,drug_metabolite_bindings --unjudged` + an independent
+  judge + `apply --llm <model>` -> `apply_binding_directions.py --unknown-log` -> `generate_data.py`.
 - `tools/target_aliases.py`: stdlib **library**, imported by both halves above: every name a modeled
   drug target goes by in prose (Greek folded to Latin, separator-tolerant, boundary-strict, so `d2`
   never fires on `CYP2D6` and `alpha2` never absorbs `alpha2A`). One definition, because a gate that

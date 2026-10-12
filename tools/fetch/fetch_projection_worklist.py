@@ -56,12 +56,12 @@ from data_generators.presentation import KIND_TO_SIGN  # noqa: E402
 
 OUT_PATH = ROOT / "tools" / "generated_cache" / "projection_worklist.json"
 DATA = ROOT / "public" / "data"
-BOOKS = ROOT / "data_sources" / "books"
-CORPUS_PAGES = {
-    "kandel": BOOKS / "eric_kandel" / "pages",
-    "nieuwenhuys": BOOKS / "nieuwenhuys_atlas" / "pages",
-    "stahl_essential": BOOKS / "stahl_essential_pharmacology" / "pages",
-}
+from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
+
+# The prose corpora a pathway can be quoted from, each at its registered page tree
+# (Europe PMC, corpus #17, for what only a primary paper states, e.g. the claustrum).
+CORPUS_PAGES = {c: ROOT / SOURCE_CORPORA[c]["pages_dir"]
+         for c in ("kandel", "nieuwenhuys", "stahl_essential", "europepmc")}
 MAX_CANDIDATES = 60   # per projection, best-first; the judge reads every one
 # A bibliography entry ("Smith J (1983) Title. J Comp Neurol 12:3-4") or a figure key
 # ("1 Caudate nucleus 2 Putamen ...") names regions without the book asserting anything.
