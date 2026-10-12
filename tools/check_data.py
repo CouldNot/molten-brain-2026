@@ -224,6 +224,14 @@ def normalize_for_match(text):
     fuzzy / similarity matching, which would manufacture false confidence. A miss
     is therefore a real miss to investigate, not a threshold to tune."""
     text = re.sub(r"-\s*\n\s*", "", text)            # join hyphenated line breaks
+    # A soft hyphen (U+00AD) is a typesetting break hint, never text: a table cell
+    # wrapped at one ("Brexpi­\nprazole") is one word, so it joins like a
+    # hyphenated break instead of splitting the word in two.
+    text = re.sub("­\\s*", "", text)
+    # Inline markup the Markdown split keeps (`<u>` underline in a table cell,
+    # `<sup>` around a reference number) is formatting: dropping only the tag keeps
+    # its content, so `<u>CYP1A2</u>` reads as the word, not "u cyp1a2 u".
+    text = re.sub(r"</?(?:u|b|i|em|strong|sup|sub)>", " ", text)
     text = unicodedata.normalize("NFKD", text)
     text = text.lower()
     text = re.sub(r"[^a-z0-9]+", " ", text)          # drops combining marks too

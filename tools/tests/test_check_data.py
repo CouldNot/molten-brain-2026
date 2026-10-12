@@ -37,6 +37,25 @@ def _run_check(meta, drugs, projections, receptors):
     return report, warns
 
 
+class NormalizeForMatchTest(unittest.TestCase):
+    """The quote gate's canonical form folds typesetting away, never text."""
+
+    def test_soft_hyphen_line_break_joins_the_word(self):
+        # A table cell wrapped at a soft hyphen (the AGNP TDM Table 5 drug column)
+        # used to split into "brexpi prazole", so the row's quote could not match.
+        page = check_data.normalize_for_match("Brexpi\u00ad\nprazole + \n24 h")
+        self.assertIn(check_data.normalize_for_match("Brexpiprazole 24 h"), page)
+
+    def test_underline_tag_keeps_its_content(self):
+        # Table 1 underlines enzymes as `<u>CYP1A2,</u>`; the tag used to leave a
+        # stray "u" word between the drug and its enzyme.
+        page = check_data.normalize_for_match("Clozapine **<u>CYP1A2, CYP2C19,</u>** CYP3A4")
+        self.assertIn(check_data.normalize_for_match("Clozapine CYP1A2, CYP2C19, CYP3A4"), page)
+
+    def test_a_real_u_word_survives(self):
+        self.assertEqual(check_data.normalize_for_match("vitamin U"), "vitamin u")
+
+
 class AffinityWeightTest(unittest.TestCase):
     def test_no_ki_is_neutral_mid(self):
         self.assertAlmostEqual(check_data._affinity_weight(None), 0.55)
