@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.104.1",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Etomidate's GABA-A binding now names its own binding site (the β+/α− transmembrane site of β2/β3-containing receptors) instead of the neuroactive-steroid site, backed by a second quote from its Wikipedia pharmacology section.",
+          "commits": [
+            "81b048a"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.104.0",
       "date": "2026-10-12",
       "entries": [
