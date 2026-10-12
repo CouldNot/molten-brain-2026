@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "3.103.1",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Guide to Pharmacology tissue-distribution and target-classification pages downloaded again (2026-10-12): every cited quote still stands; six receptor-signalling quotes now name the adenylyl cyclase effect GtoPdb added, and sigma-1's GtoPdb name is updated.",
+          "commits": [
+            "5e24dc0"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Refreshing the Guide to Pharmacology classification no longer leaves an outdated quote beside its updated version, and a download that hits the database's rate limit now waits and retries.",
+          "commits": [
+            "9ca6db4",
+            "245118f"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.103.0",
       "date": "2026-10-12",
       "entries": [
