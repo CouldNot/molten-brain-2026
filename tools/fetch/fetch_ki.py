@@ -246,7 +246,8 @@ def parse_ki(val):
 # prodrug | metabolite) is turned into a localized phrase by the viewer.
 ALIAS = {
     "paliperidone": (["9-OH-risperidone"], "identity", "9-OH-risperidone"),
-    "esketamine": (["(S)-(+)-ketamine"], "enantiomer", "(S)-ketamine"),
+    # Esketamine IS (S)-ketamine (the INN of that one enantiomer), not a relative of it.
+    "esketamine": (["(S)-(+)-ketamine"], "identity", "(S)-ketamine"),
     "amphetamine_d": (["Amphetamine,(+)", "(+)-Amphetamine"], "identity",
                       "(+)-amphetamine"),
     "amphetamine_dl": (["Amphetamine"], "identity", "amphetamine"),

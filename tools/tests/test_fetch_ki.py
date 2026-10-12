@@ -152,6 +152,11 @@ class IdentityAliasNoWarningTest(unittest.TestCase):
         self.assertEqual(src["relation"], "identity")
         self.assertEqual(src["pdsp_names"], ["X"])
 
+    def test_esketamine_alias_is_identity(self):
+        """Esketamine is the INN of (S)-ketamine, so PDSP's "(S)-(+)-ketamine" rows are
+        the drug itself: an ``enantiomer`` relation raised a false "measured as" badge."""
+        self.assertEqual(fetch_ki.ALIAS["esketamine"][1], "identity")
+
     def test_enantiomer_flagged(self):
         src = self._stamp("enantiomer")
         self.assertTrue(src["mapped"])
