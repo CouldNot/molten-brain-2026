@@ -16,6 +16,7 @@
 
 import { loadFlag, saveFlag } from "./prefs.js";
 import { approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
+import { formatAlert, formatRange } from "./tdm.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
 // sourced and verified for the same reason the Sources popup's bar does: the quote
@@ -54,6 +55,8 @@ const KIND_ORDER = [
   "drug_first_approval",
   "drug_withdrawals",
   "drug_prodrug",
+  "drug_therapeutic_range",
+  "drug_alert_level",
   "drug_enzymes",
   "drug_enzyme_strength",
   "drug_metabolites",
@@ -325,6 +328,16 @@ export function collectNodes(data, deps, opts = {}) {
     if (d.prodrug) {
       push("drug_prodrug", d.name, t("drug.prodrug"), d.prodrug.provenance, go,
         { sources: d.prodrug.sources });
+    }
+    if (d.therapeuticRange) {
+      push("drug_therapeutic_range", d.name, `${t("drug.therapeuticRange")} `
+        + formatRange(d.therapeuticRange, window.__I18N__.lang),
+        d.therapeuticRange.provenance, go, { sources: d.therapeuticRange.sources });
+    }
+    if (d.alertLevel) {
+      push("drug_alert_level", d.name, `${t("drug.alertLevel")} `
+        + formatAlert(d.alertLevel, window.__I18N__.lang),
+        d.alertLevel.provenance, go, { sources: d.alertLevel.sources });
     }
     for (const w of d.withdrawals || []) {
       push("drug_withdrawals", d.name, `${t("drug.withdrawn")} ${formatWithdrawal(w)}`,

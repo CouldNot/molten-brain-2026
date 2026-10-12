@@ -37,6 +37,7 @@ import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
 import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
+import { appendTdmChips, formatAlert, formatRange } from "./tdm.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -4263,8 +4264,10 @@ function createInfoPanel(data, sourcingModal) {
       // and the binding list and formatted to days/hours/minutes. They share one
       // section because they are the two ends of one curve (the peak is when the
       // drug arrives, the T½ how long it takes to leave), which is also how
-      // js/sim-model.js reads them; either may be missing on its own.
-      if (drug.halfLife || drug.tmax) {
+      // js/sim-model.js reads them; either may be missing on its own. The blood
+      // levels the AGNP guideline monitors (therapeutic range, alert level) close
+      // the block: they are where on that curve the concentration should sit.
+      if (drug.halfLife || drug.tmax || drug.therapeuticRange || drug.alertLevel) {
         const hlEl = el("div", "info-bindings info-halflife");
         hlEl.appendChild(el("h3", null, t("drug.pkTiming")));
         if (drug.tmax) {
@@ -4303,6 +4306,8 @@ function createInfoPanel(data, sourcingModal) {
         }
         // Addon slot: a caveat about what these two numbers measure (a serum
         // half-life the brain does not follow), right under the chips it qualifies.
+        appendTdmChips(hlEl, drug,
+          { el, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
         appendAddons(hlEl, "drug", drug.id, "drug.timing");
         body.appendChild(hlEl);
       }
@@ -5834,6 +5839,8 @@ const KIND_LABELS = {
   drug_first_approval: "about.kindDrugFirstApproval",
   drug_withdrawals: "about.kindDrugWithdrawals",
   drug_prodrug: "about.kindDrugProdrug",
+  drug_therapeutic_range: "about.kindDrugTherapeuticRange",
+  drug_alert_level: "about.kindDrugAlertLevel",
   drug_enzymes: "about.kindDrugEnzymes",
   drug_enzyme_strength: "about.kindDrugEnzymeStrength",
   enzyme_variability: "about.kindEnzymeVariability",
@@ -6217,6 +6224,19 @@ function buildKindExample(kind, data, nav) {
       const d = pick(focusableDrugs, (x) => x.id === "psilocybin" && x.prodrug)
         || focusableDrugs.find((x) => x.prodrug);
       return d ? line(d.name, t("drug.prodrug"), () => nav.drug(d)) : null;
+    }
+    case "drug_therapeutic_range": {
+      // e.g. Clozapine "Therapeutic range 350–600 ng/mL".
+      const d = pick(focusableDrugs, (x) => x.id === "clozapine" && x.therapeuticRange)
+        || focusableDrugs.find((x) => x.therapeuticRange);
+      return d ? line(d.name, `${t("drug.therapeuticRange")} `
+        + formatRange(d.therapeuticRange, window.__I18N__.lang), () => nav.drug(d)) : null;
+    }
+    case "drug_alert_level": {
+      const d = pick(focusableDrugs, (x) => x.id === "clozapine" && x.alertLevel)
+        || focusableDrugs.find((x) => x.alertLevel);
+      return d ? line(d.name, `${t("drug.alertLevel")} `
+        + formatAlert(d.alertLevel, window.__I18N__.lang), () => nav.drug(d)) : null;
     }
     case "drug_withdrawals": {
       const d = pick(focusableDrugs, (x) => x.id === "nefazodone" && x.withdrawals.length)

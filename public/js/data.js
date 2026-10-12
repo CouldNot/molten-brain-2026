@@ -979,6 +979,21 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       sources: mapSources(d.prodrug_sources),
       provenance: strongestGrade(d.prodrug_sources),
     } : null;
+    // Therapeutic drug monitoring (kinds drug_therapeutic_range / drug_alert_level,
+    // AGNP corpus #19): each its own graded node, both from one Table 5 row.
+    const trr = d.therapeutic_range;
+    d.therapeuticRange = trr ? {
+      low: trr.low, high: trr.high, unit: trr.unit, analyte: trr.analyte || null,
+      tdmLevel: trr.tdm_level || null,
+      sources: mapSources(d.therapeutic_range_sources),
+      provenance: strongestGrade(d.therapeutic_range_sources),
+    } : null;
+    const al = d.alert_level;
+    d.alertLevel = al ? {
+      value: al.value, unit: al.unit, analyte: al.analyte || null,
+      sources: mapSources(d.alert_level_sources),
+      provenance: strongestGrade(d.alert_level_sources),
+    } : null;
     d.withdrawals = (d.withdrawals || []).map((w) => ({
       year: w.year,
       country: w.country,
