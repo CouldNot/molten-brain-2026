@@ -1,6 +1,33 @@
 {
   "versions": [
     {
+      "version": "3.108.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "The 2026 AGNP drug-monitoring guideline's enzyme table now adds the metabolic routes no other source named: 141 new \"Substrate of\" rows over 78 drugs, 34 of which had no metabolising enzyme listed before (bromazepam, triazolam, cyamemazine...). Six enzymes join the list: CYP1A1, UGT1A1, UGT1A3, UGT1A6, UGT2B4 and UGT2B10",
+          "commits": [
+            "2ffc84f"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The expression-sources update script writes its cache in the committed format again, so a re-run changes only the lines it should",
+          "commits": [
+            "b0949dc"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "The sourcing-gaps notes record what the AGNP enzyme table added and the four isoforms left out, with why",
+          "commits": [
+            "c6ce60c"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.107.0",
       "date": "2026-10-12",
       "entries": [
