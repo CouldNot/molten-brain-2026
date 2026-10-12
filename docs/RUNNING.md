@@ -60,6 +60,8 @@ A separate startup flag, `?tour=1`, forces the guided tour to run on every load,
 bypassing the once-per-visitor "seen" gate (it still waits for the intro + Sources
 gate). Read directly in the tour wiring, not by `applyViewParams`.
 
+`tools/tour_walk.py [--lang en|fr]` walks the whole tour headlessly with real mouse input (Next, tap the ringed target, drag the brain, wheel the panel) and fails on a stuck step, an unclean end state (overlay still up, "seen" unset, click guard still swallowing clicks) or any console error; run it after any UI change (`PLAYWRIGHT_BROWSERS_PATH=~/.cache/ms-playwright uv run --with playwright==1.61.0 python tools/tour_walk.py`, about 10 min under SwiftShader).
+
 ### Deep links: the URL fragment IS the UI state
 
 Everything on screen is described by the URL **fragment**, so the address bar is always
