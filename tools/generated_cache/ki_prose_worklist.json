@@ -1,0 +1,254 @@
+{
+ "drugs": {
+  "amantadine": {
+   "name": "Amantadine",
+   "missing": {
+    "nmda": "NMDA"
+   },
+   "context": [
+    "In 1993, amantadine was found to bind to the sigma σ 1 receptor with relatively high affinity (K i = 20.25 μM). [ 11 ] [ 48 ] In 2004, it was discovered that amantadine and memantine bind to and act as agonists of the sigma σ 1 receptor (K i = 7.44 μM and 2.60 μM, respectively) and that activation of the σ 1 receptor is potentially involved in the dopaminergic effects of amantadine at therapeutically relevant concentrations. [ 49 ] σ 1 receptor activation is one of amantadine's more potent actions. [ 11 ] [ 49 ] σ 1 receptor agonists enhance tyrosine hydroxylase activity, modulate NMDA -stimulated dopamine release, increase dopamine release in the striatum in vivo , and decrease dopamine reuptake . [ 11 ] As such, σ 1 receptor activation may be involved in the antiparkinsonian and other central nervous system effects of amantadine. [ 11 ] [ 49 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "8309617",
+     "line": "The Ki values ranged from 0.237 +/- 0.019 microM for 1-N-dimethyl-amino-3,5-dimethyl-adamantane to 20.25 +/- 16.48 microM for amantadine."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "8309617",
+     "line": "The Ki value of memantine was 19.98 +/- 3.08 microM and was thus very similar to that of amantadine."
+    }
+   ]
+  },
+  "amoxapine": {
+   "name": "Amoxapine",
+   "missing": {
+    "alpha1b": "α1B",
+    "alpha1d": "α1D"
+   },
+   "context": [
+    "Amoxapine possesses a wide array of pharmacological effects. It is a moderate and strong reuptake inhibitor of serotonin and norepinephrine , respectively, [ 21 ] and binds to the 5-HT 2A , [ 29 ] 5-HT 2B , [ 30 ] 5-HT 2C , [ 29 ] 5-HT 3 , [ 31 ] 5-HT 6 , [ 23 ] 5-HT 7 , [ 23 ] D 2 , [ 25 ] α 1 -adrenergic , [ 25 ] D 3 , [ 26 ] D 4 , [ 26 ] and H 1 receptors [ 25 ] with varying but significant affinity , where it acts as an antagonist (or inverse agonist depending on the receptor in question) at all sites. It has weak but negligible affinity for the dopamine transporter and the 5-HT 1A , [ 31 ] 5-HT 1B , [ 31 ] D 1 , [ 32 ] α 2 -adrenergic , [ 25 ] H 4 , [ 33 ] mACh , [ 25 ] and GABA A receptors , [ 32 ] and no affinity for the β-adrenergic receptors or the allosteric benzodiazepine site on the GABA A receptor. [ 32 ] Amoxapine is also a weak GlyT2 blocker , [ 34 ] as well as a weak (K i = 2.5 μM, EC 50 = 0.98 μM) δ-opioid receptor partial agonist . [ 35 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "6086881",
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "7908055",
+     "line": "Several dopamine-selective antipsychotic agents (raclopride, rimcazole and penfluridol) had essentially no affinity for either the 5-HT6 or 5-HT7 receptors (Ki values > 5000 nM).(ABSTRACT TRUNCATED AT 250 WORDS)"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "8876023",
+     "line": "Fluoxetine displayed relatively high affinity for the 5-HT2C receptor in the choroid plexus, with a Ki value for inhibition of [3H]mesulergine binding of 55.4 nM."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "8876023",
+     "line": "The Ki values for imipramine, norfluoxetine and citalopram were 136 nM, 203 nM, and 298 nM, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+    }
+   ]
+  },
+  "dothiepin": {
+   "name": "Dothiepin",
+   "missing": {
+    "alpha1a": "α1A",
+    "alpha1b": "α1B",
+    "alpha1d": "α1D"
+   },
+   "context": [
+    "Although Heal & Cheetham (1992) reported relatively high K i values of 12 and 15 nM for dosulepin and northiaden at the rat α 2 -adrenergic receptor and suggested that antagonism of the receptor could be involved in the antidepressant effects of dosulepin, [ 11 ] Richelson & Nelson (1984) found a low K D of only 2,400 nM for dosulepin at this receptor using human brain tissue. [ 18 ] This suggests that it in fact has low potency for this action, similarly to other TCAs. [ 18 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "6086881",
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+    }
+   ]
+  },
+  "flibanserin": {
+   "name": "Flibanserin",
+   "missing": {
+    "alpha1a": "α1A",
+    "alpha1b": "α1B",
+    "alpha1d": "α1D"
+   },
+   "context": [
+    "Flibanserin acts as a full agonist in the frontal cortex and the dorsal raphe nucleus , but only as a partial agonist in the CA3 region of the hippocampus [ 12 ] of the 5-HT 1A receptor ( serotonin receptor ) (K i = 1 nM in CHO cells , but only 15–50 nM in cortex, hippocampus and dorsal raphe) [ 4 ] and, with lower affinity , as an antagonist of the 5-HT 2A receptor (K i = 49 nM) and antagonist or very weak partial agonist of the D 4 receptor (K i = 4–24 nM, [ 13 ] K i = 8–650 nM [ 14 ] ). [ 15 ] [ 16 ] [ 17 ] Flibanserin demonstrates selectivity for postsynaptic 5-HT 1A receptors. [ 17 ] [ 18 ] Despite the much greater affinity of flibanserin for the 5-HT 1A receptor, and for reasons that are unknown (although it might be caused by the competition with endogenous serotonin), flibanserin occupies the 5-HT 1A and 5-HT 2A receptors in vivo with similar percentages. [ 4 ] [ 19 ] Flibanserin also has low affinity for the 5-HT 2B receptor (K i = 89.3 nM) and the 5-HT 2C receptor (K i = 88.3 nM), both of which it behaves as an antagonist of. [ 17 ] Flibanserin preferentially activates 5-HT 1A receptors in the prefrontal cortex , demonstrating regional selectivity, and has been found to increase dopamine and norepinephrine levels and decrease serotonin levels in the rat prefrontal cortex, actions that were determined to be mediated by activation of the 5-HT 1A receptor. [ 15 ] As such, flibanserin has been described as a norepinephrine–dopamine disinhibitor (NDDI). [ 17 ] [ 20 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "8584042",
+     "line": "In the search for antidepressant agents with a rapid onset of action, we have found that compound BIMT 17 (1-[2-[4-(3-trifluoromethylphenyl)piperazin-1- yl]ethyl]benzimidazol-[1H]-2-one) shows a good affinity for cerebral cortical 5-HT1A (pKi = 7.72) and 5-HT2A (pKi = 6.90) receptors, with no appreciable affinity for the other 5-HT receptor subtypes, including 5-HT2C."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "8584042",
+     "line": "BIMT 17 reduced forskolin-stimulated cAMP accumulation in the cerebral cortex (pEC50 = 6.09) and in the hippocampus (pEC50 = 6.50), and antagonized 5-HT-induced phosphatidylinositol turnover (pKi = 6.96) in the cerebral cortex."
+    }
+   ]
+  },
+  "niaprazine": {
+   "name": "Niaprazine",
+   "missing": {
+    "5ht2a": "5-HT2A",
+    "alpha1a": "α1A",
+    "alpha1b": "α1B",
+    "alpha1d": "α1D"
+   },
+   "context": [
+    "Originally believed to act as an antihistamine and anticholinergic , [ 11 ] niaprazine was later discovered to have low or no binding affinity for the H 1 and mACh receptors (K i = > 1 μM), and was instead found to act as a potent and selective 5-HT 2A and α 1 -adrenergic receptor antagonist (K i = 75 nM and 86 nM, respectively). [ 12 ] It possesses low or no affinity for the 5-HT 1A , 5-HT 2B , D 2 , and β-adrenergic , as well as at SERT and VMAT (K i = all > 1 μM), but it does have some affinity for the α 2 -adrenergic receptor (K i = 730 nM). [ 12 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "2853885",
+     "line": "Niaprazine, particularly the (+)stereoisomer, has a higher affinity for alpha 1 (Ki = 77 nM) and 5-HT2 (Ki = 25 nM) binding sites, but is poorly recognized by 5-HT1A and 5-HT1B binding sites (Ki sigma mciroM)."
+    }
+   ]
+  },
+  "nortriptyline": {
+   "name": "Nortriptyline",
+   "missing": {
+    "alpha1b": "α1B",
+    "alpha1d": "α1D"
+   },
+   "context": [
+    "In one study, nortriptyline had the highest affinity for the dopamine transporter among the tricyclic antidepressants (K D = 1,140 nM) besides amineptine (a norepinephrine–dopamine reuptake inhibitor ), although its affinity for this transporter was still 261- and 63-fold lower than for the norepinephrine and serotonin transporters (K D = 4.37 and 18 nM, respectively). [ 26 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+    }
+   ]
+  },
+  "trazodone": {
+   "name": "Trazodone",
+   "missing": {
+    "alpha1b": "α1B",
+    "alpha1d": "α1D"
+   },
+   "context": [
+    "Trazodone is a mixed agonist and antagonist of various serotonin receptors , antagonist of adrenergic receptors , weak histamine H 1 receptor antagonist, and weak serotonin reuptake inhibitor . [ 12 ] [ 13 ] More specifically, it is an antagonist of 5-HT 2A and 5-HT 2B receptors , a partial agonist of the 5-HT 1A receptor , and an antagonist of the α 1 - and α 2 -adrenergic receptors . [ 13 ] [ 12 ] It is also a ligand of the 5-HT 2C receptor with lower affinity than for the 5-HT 2A receptor. [ 12 ] [ 13 ] However, it is unknown whether trazodone acts as a full agonist , partial agonist, or antagonist of the 5-HT 2C receptor. [ 12 ] Trazodone is a 5-HT 1A receptor partial agonist similarly to buspirone and tandospirone but with comparatively greater intrinsic activity . [ 94 ] [ 111 ] [ 112 ] A range of weak affinities (K i ) have been reported for trazodone at the human histamine H 1 receptor , including 220 nM, [ 94 ] 350 nM, [ 109 ] 500 nM, [ 113 ] and 1,100 nM. [ 98 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "1387963",
+     "line": "The Ki values for etoperidone, trazodone and MCPP (m-chlorophenylpiperazine dihydrochloride) at 5-HT1A sites (using rat cerebral cortical synaptosomes and [3H]8-OH-DPAT) were determined to be 20.2, 23.6 and 18.9 nM, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "6086881",
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+    }
+   ]
+  },
+  "trimipramine": {
+   "name": "Trimipramine",
+   "missing": {
+    "alpha1b": "α1B",
+    "alpha1d": "α1D",
+    "m1": "M1",
+    "m2": "M2",
+    "m3": "M3",
+    "m4": "M4",
+    "m5": "M5",
+    "nav": "Voltage-gated sodium channel"
+   },
+   "context": [
+    "Studies have generally found only very weak inhibition of serotonin and norepinephrine reuptake with trimipramine, [ 25 ] and the drug has been described by various authors as devoid of monoamine reuptake inhibition. [ 10 ] Richelson & Pfenning (1984) found a relatively high K i for the NET of 510 nM in rat brain synaptosomes [ 32 ] and Tatsumi et al. (1997) found a relatively high K D of 149 nM for the SERT in human HEK293 cells, [ 24 ] but other authors and a more recent study with an improved design have not had the same findings. [ 25 ] In the most recent study, by Haenisch et al. (2011), the researchers suggested that the discrepant findings from the Tatsumi et al. study were due to methodological differences, in particular the use of radioligand binding in isolated membranes (K D ) to study interactions as opposed to actual functional reuptake inhibition (IC 50 ). [ 25 ]",
+    "Trimipramine is a very potent antihistamine ; it has the third highest affinity for the H 1 receptor (K i = 0.27 nM) after doxepin (K i = 0.24 nM) and mirtazapine (K i = 0.14 nM) among the TCAs and tetracyclic antidepressants (TeCAs). [ 20 ] [ 37 ] The TeCA mianserin (K i = 0.40) and the TCA amitriptyline (K i = 1.0) are also very potent H 1 receptor antagonists, [ 20 ] [ 37 ] [ 38 ] whereas other TCAs and TeCAs are less potent. [ 10 ] These TCAs and TeCAs, including trimipramine, are far more potent than the standard antihistamine diphenhydramine (approximately 800 times for doxepin and 250 times for trimipramine), [ 39 ] and are among the most potent antihistamines available. [ 38 ] [ 40 ]",
+    "Trimipramine is a weak but significant antagonist of the dopamine D 1 and D 2 receptors , and also binds to the D 4 receptor (K i = 275 nM). [ 6 ] [ 25 ] Its affinities for various monoamine receptors including the D 2 and 5-HT 2A receptors closely resemble those of the atypical antipsychotic clozapine . [ 6 ] In accordance, high doses of trimipramine have been found to have antipsychotic effects in schizophrenic patients, notably without causing extrapyramidal symptoms , and trimipramine has recently been found to be effective in reducing psychotic symptoms in patients with delusional depression . [ 6 ] [ 25 ] The lack of extrapyramidal symptoms with trimipramine may be related to its affinity for the D 4 receptor, these both being properties it shares with clozapine. [ 27 ] Unlike other TCAs, but reminiscent of antipsychotics, trimipramine has been found to markedly increase plasma prolactin levels (a marker of D 2 receptor antagonism) at a dose of 75 mg/day and to increase nocturnal prolactin secretion at doses of 75 and 200 mg/day. [ 6 ] These findings are suggestive of important antidopaminergic actions of trimipramine. [ 6 ] [ 25 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "1663593",
+     "line": "In radioligand binding studies, D,L-trimipramine showed fairly high affinities (KI 10-60 nM) for some dopamine (DA), noradrenaline and 5-hydroxytryptamine (5-HT) receptor subtypes (5-HT2 receptors = alpha 1A/B-adrenoceptors greater than or equal to D2 receptors), intermediate affinities (300-550 nM) for D1 receptors, alpha 2B-adrenoceptors and 5-HT1C receptors but only low affinities (greater than 1000 nM) for alpha 2A-adrenoceptors, 5-HT1A, 5-HT1D and 5-HT3 receptors."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "6086881",
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+    }
+   ]
+  },
+  "viloxazine": {
+   "name": "Viloxazine",
+   "missing": {
+    "5ht2b": "5-HT2B",
+    "5ht2c": "5-HT2C"
+   },
+   "context": [
+    "Viloxazine acts as a selective norepinephrine reuptake inhibitor (sNRI) and this is believed to be responsible for its therapeutic effectiveness in the treatment of conditions like ADHD and depression. [ 6 ] [ 1 ] [ 22 ] [ 23 ] The affinities (K D ) of viloxazine at the human monoamine transporters are 155 to 630 nM for the norepinephrine transporter (NET), 17,300 nM for the serotonin transporter (SERT), and >100,000 nM for the dopamine transporter (DAT). [ 22 ] [ 23 ] Viloxazine has negligible affinity for a variety of assessed receptors , including the serotonin 5-HT 1A and 5-HT 2A receptors , the dopamine D 2 receptor , the α 1 - and α 2 -adrenergic receptors , the histamine H 1 receptor , and the muscarinic acetylcholine receptors (all >10,000 nM). [ 24 ] [ 25 ]",
+    "More recent research has found that the pharmacodynamics of viloxazine may be more complex than previously assumed. [ 6 ] [ 23 ] In 2020, viloxazine was reported to have significant affinity for the serotonin 5-HT 2B and 5-HT 2C receptors (K i = 3,900 nM and 6,400 nM) and to act as an antagonist and agonist of these receptors, respectively. [ 23 ] [ 5 ] [ 26 ] It also showed weak antagonistic activity at the serotonin 5-HT 7 receptor and the α 1B - and β 2 -adrenergic receptors . [ 23 ] [ 5 ] [ 26 ] These actions, although relatively weak, might be involved in its effects and possibly its therapeutic effectiveness in the treatment of ADHD. [ 6 ] [ 23 ] [ 26 ]"
+   ],
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": "3816971",
+     "line": "At the serotonin S1 receptor, the most and least potent antidepressants were trazodone (KD = 60 nM) and bupropion (KD = 170 microM), respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "3816971",
+     "line": "At the serotonin S2 receptor, the most and least potent antidepressants were amoxapine (KD = 0.6 nM) and bupropion (KD = 90 microM), respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "3816971",
+     "line": "Buspirone, a new anxiolytic agent, possessed high affinity for the serotonin S1 receptor (KD = 3.8 nM)."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "6086881",
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "9537821",
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+    }
+   ]
+  }
+ }
+}

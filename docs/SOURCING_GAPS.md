@@ -417,9 +417,21 @@ publishing a binding we cannot cite is worse than an `NOSOURCE` pill.
 Every binding with a measured Ki but no direction (709: 666 drug + 43 metabolite) was searched for its direction across the five corpora `unknown.UNKNOWN_REQUIRED_SOURCES` requires: PDSP (#5, Ki rows only, never a direction), GtoPdb's action column (#11), the EN Wikipedia article's Ki-table Action column and prose (#9), the FR article (#10), and Europe PMC (#17, `ligand AND target AND direction word`, top 5 abstracts stored). An Opus picker answered by index, an independent Opus judge rechecked; recipe in `tools/README.md`.
 
 - **52 directions landed** (40 antagonist, 9 agonist, 2 reuptake inhibitor, 1 each inverse agonist / partial agonist / releaser, minus the 2 the judge refused: (-)-propranolol is one enantiomer, and thiothixene's H2 sentence only says the antagonism was *studied*).
-- **1 direction found but not applied:** GtoPdb records norfluoxetine at 5-HT2B as an antagonist (pKi 5.3, PMID 11104741), but the GtoPdb ligand pass (`apply_gtopdb_ki.py`) covers parent drugs only, so a metabolite's row has no page to cite yet. It stays red ✕, not UNKNOWN.
+- **1 direction found later by the GtoPdb ligand pass:** GtoPdb records norfluoxetine at 5-HT2B as an antagonist (pKi 5.3, PMID 11104741); once `apply_gtopdb_ki.py` covered active metabolites (3.104.0) it landed with that page as its source.
 - **656 are UNKNOWN** (∅ pill, logged in `tools/generated_cache/unknown_searches.json`, out of the headline denominator). 306 of them returned not a single Europe PMC abstract; the other 350 were offered sentences (198 bindings) none of which states the direction for that exact ligand and target. The typical miss: an abstract uses the drug as a tool compound, a sentence names the receptor family not the subtype, or "DMT" means dexmedetomidine.
 - The searches expire after 12 months (`check_data.py` family 13), so the log has to be re-run by 2027-10-12.
+
+### 3c. Binding Ki from the papers Wikipedia cites (surveyed 2026-10-12)
+
+**What.** 253 directional bindings carry no Ki (PDSP, GtoPdb and the Wikipedia Ki tables all empty for the pair). Some drug articles state a Ki in prose and cite the paper it comes from (viloxazine: "K i = 3,900 nM and 6,400 nM" at 5-HT2B / 5-HT2C, citing Yu et al. 2020). `python tools/fetch/fetch_europepmc.py --ki-prose` follows those citations: it keeps each article paragraph that states an affinity (a Ki / Kd next to a concentration or pK value; an IC50 alone does not count, as in the GtoPdb pass), stores the abstracts of the PubMed ids it cites, and offers every abstract sentence that itself states an affinity in `tools/generated_cache/ki_prose_worklist.json`.
+
+**Yield: 0.** 9 drugs got candidates (32 sentences), and none states a Ki for a missing (drug, modeled target) pair:
+- most candidates measure other drugs (the abstract compares a panel of antidepressants);
+- amantadine's Ki (20 µM, Kornhuber 1993) is at the sigma site, not NMDA;
+- niaprazine's "alpha 1 (Ki = 77 nM)" and "5-HT2 (Ki = 25 nM)" name a subtype-less α1 and 5-HT2 site (the PDSP pass drops exactly these rows) and leave open whether the value is the racemate's or the (+) isomer's;
+- trimipramine's "KI 10-60 nM" is one range across 5-HT2, α1A/B and D2 together, not a value for α1B.
+
+**Why so little.** The values live in the papers' tables, not their abstracts: the viloxazine paper (PMID 32943948) states no number in its abstract. **The lever** is open-access full text: that paper is in PMC (PMC7473988, CC BY-NC), and Europe PMC serves such full text as XML. Taking it would change corpus #17's "abstract only" rule (a per-paper licence check, a page per table row), so it is left as a decision, not done. No applier was written, since nothing would pass it.
 
 ### 4. `receptor_locations`, 23 / 383 missing (**limit, not a gap**)
 

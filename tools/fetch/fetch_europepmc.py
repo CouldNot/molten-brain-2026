@@ -44,6 +44,20 @@ search log cites. Resumable: a binding already in the ledger is skipped unless
 
     python tools/fetch/fetch_europepmc.py --binding-search
 
+**The cited-paper mode, ``--ki-prose``**, follows a Wikipedia article's own citations to a
+measured affinity its prose states but no table or database carries (viloxazine's
+"K i = 3,900 nM and 6,400 nM" at 5-HT2B / 5-HT2C, PDSP and GtoPdb having nothing). For
+every drug with a binding that has no Ki, it reads the drug's stored EN article
+(``data_sources/wikipedia/raw/<slug>.html``, corpus #9), keeps each paragraph that states
+an affinity (:func:`states_affinity`: a Ki / Kd and a concentration), stores the abstracts
+of the PubMed ids that paragraph cites, and offers every abstract sentence that itself
+states an affinity, with **no verdict**, in ``tools/generated_cache/ki_prose_worklist.json``.
+The paragraph is the reason the page exists (it rides along as ``context``), never a
+source: the Ki is quoted from the paper. One LLM pass answers by index, and
+``tools/sourcing/apply_ki_prose.py`` gates and writes (see its docstring)::
+
+    python tools/fetch/fetch_europepmc.py --ki-prose          # --only <drug ids> scopes
+
 Built with the help of Claude Code.
 """
 import argparse
@@ -160,6 +174,111 @@ def store(rec: dict, refresh: bool = False) -> bool:
     return True
 
 
+KI_PROSE_WORKLIST = ROOT / "tools" / "generated_cache" / "ki_prose_worklist.json"
+WIKI_RAW = ROOT / "data_sources" / "wikipedia" / "raw"
+# A measured affinity named in text: Ki / Kd (the subscript flattens to "K i") or their
+# log forms, next to a concentration or a pK value. IC50 / EC50 are not affinities (a
+# functional potency), so they never make a sentence a candidate on their own.
+_AFFINITY = re.compile(r"\bp?K\s?[iIdD]\b")
+_CONC = re.compile(r"\d\s*(?:nM|pM|μM|µM|uM|microM|[nµμ]mol/[lL]|(?:nano|micro|pico)molar)\b"
+                   r"|\bpK\s?[iIdD]\b\D{0,12}\d")
+_PARAGRAPH = re.compile(r"<p[ >].*?</p>", re.S)
+# MediaWiki escapes the note ids ("cite&#95;note-Pinder&#95;1977-2"), so both ends of a
+# citation link are unescaped before they are matched.
+_REF_ITEM = re.compile(r'<li id="(cite(?:_|&#95;)note-[^"]+)"[^>]*>(.*?)</li>', re.S)
+_REF_LINK = re.compile(r'href="#(cite(?:_|&#95;)note-[^"]+)"')
+_PUBMED = re.compile(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)|ncbi\.nlm\.nih\.gov/pubmed/(\d+)")
+
+
+def _plain(fragment: str) -> str:
+    """An HTML fragment as one line of text."""
+    return " ".join(html.unescape(_TAG.sub(" ", fragment)).split())
+
+
+def states_affinity(text: str) -> bool:
+    """Whether a sentence or paragraph states a measured affinity with its value.
+
+    >>> states_affinity("affinity for 5-HT 2B (K i = 3,900 nM)")
+    True
+    >>> states_affinity("an IC 50 of 40 nM"), states_affinity("a high K i at NET")
+    (False, False)
+    """
+    return bool(_AFFINITY.search(text) and _CONC.search(text))
+
+
+def cited_affinity_pmids(raw_html: str) -> list[tuple[str, list[str]]]:
+    """``(paragraph text, PubMed ids it cites)`` for every article paragraph stating an
+    affinity and citing at least one paper Europe PMC can resolve."""
+    refs = {html.unescape(rid): [a or b for a, b in _PUBMED.findall(body)]
+            for rid, body in _REF_ITEM.findall(raw_html)}
+    out = []
+    for para in _PARAGRAPH.findall(raw_html):
+        text = _plain(para)
+        if not states_affinity(text):
+            continue
+        pmids = sorted({pm for rid in _REF_LINK.findall(para)
+                        for pm in refs.get(html.unescape(rid), [])})
+        if pmids:
+            out.append((text, pmids))
+    return out
+
+
+def abstract_lines(pmid: str) -> list[str]:
+    """The stored abstract's sentences (the page minus its provenance header)."""
+    page = PAGES_DIR / f"{pmid}.md"
+    if not page.exists():
+        return []
+    body = page.read_text("utf-8").split("\n\n", 1)
+    return [ln for ln in (body[1] if len(body) > 1 else "").splitlines() if ln.strip()]
+
+
+def ki_prose(only: set | None, refresh: bool) -> int:
+    """The ``--ki-prose`` worklist (see the module docstring)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import drugs_io  # noqa: E402
+    import target_aliases as ta  # noqa: E402
+    import worklist_io  # noqa: E402
+    from fetch_cyp_wikipedia import page_for  # noqa: E402 (drug -> stored article)
+
+    names = ta.target_names()
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    PAGES_DIR.mkdir(parents=True, exist_ok=True)
+    drugs, failed = {}, 0
+    for d in drugs_io.load_drugs():
+        if only is not None and d["id"] not in only:
+            continue
+        missing = sorted({b["target"] for b in d.get("bindings", []) if not b.get("ki")})
+        path = page_for(d) if missing else None
+        raw = WIKI_RAW / f"{Path(path).stem}.html" if path else None
+        if not raw or not raw.exists():
+            continue
+        paragraphs = cited_affinity_pmids(raw.read_text("utf-8"))
+        cands = []
+        for pmid in sorted({pm for _, pms in paragraphs for pm in pms}):
+            if not (PAGES_DIR / f"{pmid}.md").exists() or refresh:
+                rec = record(pmid)
+                if not rec or not store(rec, refresh):
+                    failed += rec is None
+                    continue
+            cands += [{"corpus": "europepmc", "page": pmid, "line": ln}
+                      for ln in abstract_lines(pmid) if states_affinity(ln)]
+        if cands:
+            drugs[d["id"]] = {"name": d["name"],
+                              "missing": {t: names.get(t, t) for t in missing},
+                              "context": [text for text, _ in paragraphs],
+                              "candidates": cands}
+            print(f"{d['id']}: {len(cands)} candidate sentence(s)")
+    built = {"drugs": drugs}
+    if only is not None and KI_PROSE_WORKLIST.exists():
+        built = worklist_io.merge_scoped(json.loads(KI_PROSE_WORKLIST.read_text("utf-8")),
+                                         built, "drugs")
+    KI_PROSE_WORKLIST.write_text(json.dumps(built, ensure_ascii=False, indent=1) + "\n",
+                                 "utf-8")
+    print(f"{len(drugs)} drug(s) with candidates -> "
+          f"{KI_PROSE_WORKLIST.relative_to(ROOT)}; {failed} failed request(s)")
+    return 1 if failed else 0
+
+
 def binding_search(only: set | None, refresh: bool) -> int:
     """The UNKNOWN search's Europe PMC leg (see the module docstring)."""
     sys.path.insert(0, str(ROOT / "tools"))
@@ -207,10 +326,13 @@ def main() -> int:
     ap.add_argument("--refresh", action="store_true", help="re-download stored records")
     ap.add_argument("--binding-search", action="store_true",
                     help="search every direction-less binding (the UNKNOWN search)")
+    ap.add_argument("--ki-prose", action="store_true",
+                    help="store the papers Wikipedia cites for a Ki its prose states, "
+                         "and write the ki_prose worklist")
     args = ap.parse_args()
-    if args.binding_search:
+    if args.binding_search or args.ki_prose:
         only = {d.strip() for d in args.only.split(",")} if args.only else None
-        return binding_search(only, args.refresh)
+        return (binding_search if args.binding_search else ki_prose)(only, args.refresh)
     pmids = [p.strip() for p in args.only.split(",")] if args.only else list(PAPERS)
     unknown = [p for p in pmids if p not in PAPERS]
     if unknown:
@@ -226,13 +348,10 @@ def main() -> int:
             print(f"[skip] {pmid}: page on disk")
             continue
         rec = record(pmid)
-        if not rec or not rec.get("abstractText"):
+        if not rec or not store(rec, refresh=True):
             print(f"[warn] {pmid}: no record / no abstract", file=sys.stderr)
             failed += 1
             continue
-        (RAW_DIR / f"{pmid}.json").write_text(
-            json.dumps(rec, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-        page.write_text(page_text(rec), encoding="utf-8")
         print(f"[ok] {pmid}: {page.relative_to(ROOT)}")
     return 1 if failed else 0
 
