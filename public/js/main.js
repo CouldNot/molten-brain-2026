@@ -9077,8 +9077,11 @@ async function main() {
       before: () => { tourReset(); setNo3d(true, { persist: false }); tourExpandPanel(); } },
     { title: t("tour.collapsePanel.title"), body: t("tour.collapsePanel.body"),
       // stayAfterTap: the fold is the thing to watch, so the step holds while the
-      // panel collapses and Next (not the tap) moves on.
-      target: "#controls-toggle", interactive: true, stayAfterTap: true,
+      // panel collapses and Next (not the tap) moves on. The ring hugs the
+      // "neurarium" title, not the full-row hit button, whose centre sits on the
+      // byline's author link; a tap on the title falls through to that button.
+      target: "#controls-header .panel-title", tapTarget: "#controls-toggle",
+      interactive: true, stayAfterTap: true,
       before: () => {
         tourReset();
         setNo3d(false, { persist: false });

@@ -36,6 +36,11 @@
 //     stayAfterTap?: boolean,      // (interactive) the tap fires a demo to watch:
 //                                  // stay on the step, step the spotlight aside,
 //                                  // ungrey Next instead of auto-advancing.
+//     tapTarget?: sel|el|fn,       // (interactive) the element whose click counts,
+//                                  // when it is not the ringed one: e.g. ring a
+//                                  // pointer-events:none label so the ring hugs
+//                                  // it, while the tap lands on the hit button
+//                                  // under it. Default: the first target.
 //     gate?: (signal) => cleanup,  // arm a gesture gate: call signal() when the
 //                                  // required action happens; returns a teardown.
 //     gateAdvances?: boolean,      // (gate) auto-advance on signal() instead of
@@ -265,8 +270,8 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
   // CSS selector, an Element, or a function returning any of those or an array
   // (a group highlight, e.g. the five browse sections). Elements with no box
   // (display:none) are dropped, so an unresolved target degrades to a caption.
-  function resolveTargets(step) {
-    let t = step.target;
+  function resolveTargets(step, key = "target") {
+    let t = step[key];
     if (typeof t === "function") t = t();
     if (t == null) return [];
     const raw = Array.isArray(t) ? t : [t];
@@ -277,8 +282,12 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
     }
     return els;
   }
-  // The element an interactive step listens on / scrolls to: the first target.
+  // The element an interactive step scrolls to: the first target.
   const primaryTarget = (step) => resolveTargets(step)[0] || null;
+  // The element an interactive step listens on: its `tapTarget`, else the primary
+  // target. Must contain whatever a tap inside the ring hits, or the guard eats it.
+  const tapTarget = (step) =>
+    (step.tapTarget ? resolveTargets(step, "tapTarget")[0] : primaryTarget(step)) || null;
   // Bounding box of one or many elements (the spotlight ring spans them all).
   function unionRect(els) {
     let L = Infinity, T = Infinity, R = -Infinity, B = -Infinity;
@@ -670,7 +679,7 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
     //     stays put; the spotlight steps aside (see layout `consumed`) and Next
     //     ungreys so the user proceeds when ready.
     if (step.interactive) {
-      const el = primaryTarget(step);
+      const el = tapTarget(step);
       if (el) {
         waitEl = el;
         waitFn = () => {
