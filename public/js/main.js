@@ -4396,9 +4396,12 @@ function createInfoPanel(data, sourcingModal) {
           const head = el("div", "metab-head");
           const linked = m.drugId ? drugById.get(m.drugId) : null;
           if (linked && m.linkFocusable) {
-            const btn = el("button", "combo-link", m.name);
-            btn.addEventListener("click", () => onDrugPick(linked));
-            head.appendChild(btn);
+            // A metabolite that IS a modeled drug: its name is the link to that drug's
+            // panel, where its bindings live (never re-listed here: one source of truth).
+            const a = drugNameLink(linked, m.name);
+            if (linked.bindings.length)
+              a.title = t("drug.metabSeeBindings", { n: linked.bindings.length });
+            head.appendChild(a);
           } else {
             head.appendChild(el("span", "bind-target", m.name));
           }
@@ -4451,20 +4454,6 @@ function createInfoPanel(data, sourcingModal) {
               const onActivate = tgt && tgt.focusable ? () => onTargetPick(tgt) : null;
               bul.appendChild(bindingRow(b, drug, b.targetName, onActivate));
             }
-            li.appendChild(bul);
-          } else if (linked && m.linkFocusable && linked.bindings.length) {
-            // A metabolite that IS a modeled drug keeps its bindings on its own panel,
-            // so listing them again here would duplicate the source of truth. It used to
-            // render nothing at all though, which reads as "nothing known" for a
-            // nortriptyline that has 22 bindings one tap away. Same indented slot, one
-            // row, pointing at where they live.
-            const bul = el("ul", "metab-bindings");
-            const jump = el("li", "metab-jump");
-            const btn = el("button", "combo-link",
-              t("drug.metabSeeBindings", { n: linked.bindings.length }));
-            btn.addEventListener("click", () => onDrugPick(linked));
-            jump.appendChild(btn);
-            bul.appendChild(jump);
             li.appendChild(bul);
           }
           ul.appendChild(li);
