@@ -28,7 +28,7 @@
  *
  * Bump CACHE when the caching logic itself changes; activate() prunes older caches.
  */
-const CACHE = "neurarium-v3";
+const CACHE = "neurarium-v4";
 
 // Minimal app shell precached on install so a first offline launch has a page +
 // icons even before anything else was visited. The bulk of assets (js/*, data/*,
@@ -40,6 +40,9 @@ const SHELL = [
   "favicon.svg",
   "icon-192.png",
   "icon-512.png",
+  "icon-maskable-192.png",
+  "icon-maskable-512.png",
+  "apple-touch-icon.png",
 ];
 
 self.addEventListener("install", (event) => {
