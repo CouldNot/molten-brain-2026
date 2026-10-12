@@ -81,7 +81,7 @@ class GeneratorTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             T.drug_tdm("x", _quote_sources)
 
-    def test_enzymes_confirm_only(self):
+    def test_enzymes_confirm_and_add(self):
         q = [{"corpus": "agnp_tdm", "page": 7, "quote": "Agomelatine CYP1A2, CYP2C19",
               "provenance": "verified", "extraction": "code"}]
         self._with({"enzymes": {"agomelatine": [
@@ -89,12 +89,25 @@ class GeneratorTest(unittest.TestCase):
             {"enzyme": "cyp2c19", "role": "substrate", "sources": q}]}})
         merged = {"agomelatine": [{"enzyme": "cyp1a2", "role": "substrate",
                                    "sources": [{"corpus": "stahl", "page": 1}]}]}
-        self.assertEqual(T.confirm_enzymes(merged), 1)
-        rows = merged["agomelatine"]
-        self.assertEqual(len(rows), 1)                    # no cyp2c19 row added
-        self.assertEqual([s["corpus"] for s in rows[0]["sources"]], ["stahl", "agnp_tdm"])
-        self.assertEqual(T.confirm_enzymes(merged), 0)   # idempotent
+        vocab = {"cyp1a2", "cyp2c19"}
+        self.assertEqual(T.merge_enzymes(merged, vocab), (1, 1))
+        rows = {r["enzyme"]: r for r in merged["agomelatine"]}
+        self.assertEqual([s["corpus"] for s in rows["cyp1a2"]["sources"]],
+                         ["stahl", "agnp_tdm"])
+        self.assertEqual(rows["cyp2c19"]["sources"], q)   # a row of its own
+        self.assertNotIn("strength", rows["cyp2c19"])
+        self.assertEqual(T.merge_enzymes(merged, vocab), (0, 0))   # idempotent
 
+    def test_enzymes_outside_vocabulary(self):
+        q = [{"corpus": "agnp_tdm", "page": 9, "quote": "x", "provenance": "verified"}]
+        self._with({"enzymes": {"lamotrigine": [
+            {"enzyme": "ugt3b7", "role": "substrate", "sources": q}]}})
+        merged: dict = {}
+        self.assertEqual(T.merge_enzymes(merged, {"ugt1a4"}), (0, 0))   # NOT_ADDED
+        self._with({"enzymes": {"x": [
+            {"enzyme": "cyp9z9", "role": "substrate", "sources": q}]}})
+        with self.assertRaises(ValueError):
+            T.merge_enzymes(merged, {"ugt1a4"})
 
 if __name__ == "__main__":
     unittest.main()

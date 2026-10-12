@@ -22,10 +22,9 @@ per-drug facts this pass reads with pymupdf's table finder, pure code, no model:
   ``skipped`` instead, since picking one of two would be a judgement the table does
   not make.
 - **Table 1** (PDF pages 7-11): the enzymes and transporters metabolising each drug.
-  Read for a **confirm-only** cross-check of our substrate rows
-  (``generate_data._load_drug_enzymes``): a quote is offered per (drug, enzyme) the
-  table names, and the generator attaches it only to a substrate row another corpus
-  already states. It never adds a route.
+  A quote is offered per (drug, enzyme) the table names, and the generator
+  (``data_generators/tdm.merge_enzymes``) attaches it to the substrate row another
+  corpus states, or adds the row when none does.
 
 The quote is the table row's cells copied by code in the page's own reading order
 (``extraction: "code"``, so no judge), and is written only once it is found on the

@@ -1188,6 +1188,10 @@ def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
             have = {(r["enzyme"], r["role"]) for r in merged.get(drug_id, [])}
             merged.setdefault(drug_id, []).extend(
                 r for r in rows if (r["enzyme"], r["role"]) not in have)
+    # The AGNP guideline's Table 1 (corpus #19) ranks last: it adds a second quote to
+    # a row the corpora above state, and a row of its own where none does. Merged
+    # before the generic-UGT pass so its named isoforms supersede a generic row too.
+    tdm.merge_enzymes(merged, ENZYMES)
     # A source that names no isoform ("metabolized by UGTs") writes the generic `ugt`
     # row. When another source names the isoform for that same role, the generic one
     # says strictly less about the same fact, so it is dropped rather than listed
@@ -1198,9 +1202,6 @@ def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
                     if r["enzyme"].startswith("ugt") and r["enzyme"] != "ugt"}
         merged[drug_id] = [r for r in rows
                            if not (r["enzyme"] == "ugt" and r["role"] in specific)]
-    # The AGNP guideline's Table 1 (corpus #19) only ever adds a second quote to a
-    # substrate row the corpora above already state: confirm-only, never a new row.
-    tdm.confirm_enzymes(merged)
     return {k: sorted(v, key=lambda r: (r["enzyme"], r["role"]))
             for k, v in merged.items()}
 

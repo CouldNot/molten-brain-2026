@@ -118,8 +118,10 @@ fixed Stahl list.
   the committed `tools/generated_cache/agnp_tdm.json` (`tools/fetch/fetch_agnp_tdm.py`, code-read Table 5 rows, no
   judge). Shown as chips closing the Pharmacokinetics block (`js/tdm.js`, numbers in the reading language's
   format); the TDM recommendation level rides in the range chip's tooltip. `analyte` names what is measured when it
-  is not the drug alone (amitriptyline + nortriptyline). The same cache's Table 1 rows add a confirming quote to
-  existing substrate `enzymes[]` rows (`tdm.confirm_enzymes`, called last in `_load_drug_enzymes`), never a new row.
+  is not the drug alone (amitriptyline + nortriptyline). The same cache's Table 1 rows are the last-ranked
+  metabolism source (`tdm.merge_enzymes`, in `_load_drug_enzymes` before the generic-UGT pass): a confirming quote on a
+  substrate row another corpus states, a substrate row of their own where none does (no `strength`: the table's bold
+  marks an in vivo interaction size, not a major route); isoforms outside `ENZYMES` are listed in `tdm.NOT_ADDED`.
 - **Regulatory history (first approval + withdrawals, Wikipedia EN then FR).** A drug carries an optional
   `first_approval` (`{year, country?, agency?, national?}`, kind `drug_first_approval`, source `first_approval_sources`)
   and an optional `withdrawals[]` (`{year, country, reason, sources}`, kind `drug_withdrawals`, one node

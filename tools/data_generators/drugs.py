@@ -239,6 +239,7 @@ TONE_RULES: dict[str, dict[str, list]] = {
 # glucuronidation, plasma esterases, MAO) are common and will want the same field.
 ENZYMES: dict[str, dict[str, Any]] = {
     "cyp1a2": {"label": "CYP1A2", "wikipedia": "https://en.wikipedia.org/wiki/CYP1A2"},
+    "cyp1a1": {"label": "CYP1A1", "wikipedia": "https://en.wikipedia.org/wiki/CYP1A1"},
     "cyp2a6": {"label": "CYP2A6", "wikipedia": "https://en.wikipedia.org/wiki/CYP2A6"},
     "cyp2b6": {"label": "CYP2B6", "wikipedia": "https://en.wikipedia.org/wiki/CYP2B6"},
     "cyp2c8": {"label": "CYP2C8", "wikipedia": "https://en.wikipedia.org/wiki/CYP2C8"},
@@ -261,16 +262,26 @@ ENZYMES: dict[str, dict[str, Any]] = {
              "wikipedia": "https://en.wikipedia.org/wiki/FMO3"},
     # A drugbox often names glucuronidation without an isoform ("UGTs"), and the
     # dataset does not guess which: that source gets the generic row, and only a
-    # source naming the isoform gets one of the four below.
+    # source naming the isoform gets one of the isoform rows below.
     "ugt": {"label": "UGT (glucuronidation)",
             "wikipedia":
                 "https://en.wikipedia.org/wiki/UDP-glucuronosyltransferase"},
+    "ugt1a1": {"label": "UGT1A1",
+               "wikipedia": "https://en.wikipedia.org/wiki/UGT1A1"},
+    "ugt1a3": {"label": "UGT1A3",
+               "wikipedia": "https://en.wikipedia.org/wiki/UGT1A3"},
     "ugt1a4": {"label": "UGT1A4",
                "wikipedia": "https://en.wikipedia.org/wiki/UGT1A4"},
+    "ugt1a6": {"label": "UGT1A6",
+               "wikipedia": "https://en.wikipedia.org/wiki/UGT1A6"},
     "ugt1a9": {"label": "UGT1A9",
                "wikipedia": "https://en.wikipedia.org/wiki/UGT1A9"},
+    "ugt2b4": {"label": "UGT2B4",
+               "wikipedia": "https://en.wikipedia.org/wiki/UGT2B4"},
     "ugt2b7": {"label": "UGT2B7",
                "wikipedia": "https://en.wikipedia.org/wiki/UGT2B7"},
+    "ugt2b10": {"label": "UGT2B10",
+                "wikipedia": "https://en.wikipedia.org/wiki/UGT2B10"},
     "ugt2b15": {"label": "UGT2B15",
                 "wikipedia": "https://en.wikipedia.org/wiki/UGT2B15"},
 }

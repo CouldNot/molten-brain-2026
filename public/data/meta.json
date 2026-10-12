@@ -3161,6 +3161,10 @@
       "label": "CYP1A2",
       "wikipedia": "https://en.wikipedia.org/wiki/CYP1A2"
     },
+    "cyp1a1": {
+      "label": "CYP1A1",
+      "wikipedia": "https://en.wikipedia.org/wiki/CYP1A1"
+    },
     "cyp2a6": {
       "label": "CYP2A6",
       "wikipedia": "https://en.wikipedia.org/wiki/CYP2A6"
@@ -3508,17 +3512,37 @@
       "label": "UGT (glucuronidation)",
       "wikipedia": "https://en.wikipedia.org/wiki/UDP-glucuronosyltransferase"
     },
+    "ugt1a1": {
+      "label": "UGT1A1",
+      "wikipedia": "https://en.wikipedia.org/wiki/UGT1A1"
+    },
+    "ugt1a3": {
+      "label": "UGT1A3",
+      "wikipedia": "https://en.wikipedia.org/wiki/UGT1A3"
+    },
     "ugt1a4": {
       "label": "UGT1A4",
       "wikipedia": "https://en.wikipedia.org/wiki/UGT1A4"
+    },
+    "ugt1a6": {
+      "label": "UGT1A6",
+      "wikipedia": "https://en.wikipedia.org/wiki/UGT1A6"
     },
     "ugt1a9": {
       "label": "UGT1A9",
       "wikipedia": "https://en.wikipedia.org/wiki/UGT1A9"
     },
+    "ugt2b4": {
+      "label": "UGT2B4",
+      "wikipedia": "https://en.wikipedia.org/wiki/UGT2B4"
+    },
     "ugt2b7": {
       "label": "UGT2B7",
       "wikipedia": "https://en.wikipedia.org/wiki/UGT2B7"
+    },
+    "ugt2b10": {
+      "label": "UGT2B10",
+      "wikipedia": "https://en.wikipedia.org/wiki/UGT2B10"
     },
     "ugt2b15": {
       "label": "UGT2B15",
@@ -4010,8 +4034,8 @@
         "unknown": 0
       },
       "drug_enzymes": {
-        "total": 429,
-        "verified": 426,
+        "total": 567,
+        "verified": 564,
         "uncertain": 3,
         "sourced": 0,
         "llm": 0,
@@ -4020,13 +4044,13 @@
         "unknown": 0
       },
       "drug_enzyme_strength": {
-        "total": 147,
+        "total": 145,
         "verified": 132,
         "uncertain": 3,
         "sourced": 0,
-        "llm": 12,
+        "llm": 10,
         "nosource": 0,
-        "missing": 12,
+        "missing": 10,
         "unknown": 0
       },
       "drug_pgx": {
@@ -4241,15 +4265,15 @@
       }
     },
     "nodes": {
-      "total": 7182,
-      "verified": 6621,
+      "total": 7318,
+      "verified": 6759,
       "uncertain": 266,
       "sourced": 0,
-      "llm": 259,
+      "llm": 257,
       "nosource": 36,
-      "missing": 295,
+      "missing": 293,
       "unknown": 656,
-      "backed": 6887,
+      "backed": 7025,
       "pct_backed": 96
     },
     "ki_coverage": {
