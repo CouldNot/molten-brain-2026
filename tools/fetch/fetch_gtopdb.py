@@ -54,7 +54,7 @@ WORKLIST = OUT / "worklist.json"
 RECEPTORS_JSONL = REPO / "public" / "data" / "receptors.jsonl"
 BASE = "https://www.guidetopharmacology.org/services"
 UA = "neurarium-source-tool/1.0 (github; contact via repo issues)"
-DELAY_S = 0.5  # polite gap between requests
+DELAY_S = 1.0  # polite gap between requests
 
 # receptor id (our ids) -> HGNC gene symbol, the key GtoPdb resolves via
 # ?geneSymbol=. Only receptors that carry an explicit region list are here
@@ -112,8 +112,15 @@ def api_key() -> str:
     return key
 
 
-def http_json(url: str, tries: int = 3):
-    """GET a JSON URL politely, with a couple of retries. Returns parsed JSON."""
+def _backoff_s(exc: urllib.error.HTTPError, attempt: int) -> float:
+    """Seconds to wait after a 429: the server's ``Retry-After`` when it sends one,
+    else a doubling pause (10, 20, 40 s ...). The keyed API rate-limits a burst."""
+    retry_after = (exc.headers or {}).get("Retry-After", "") if exc.headers else ""
+    return float(retry_after) if str(retry_after).isdigit() else 10.0 * 2 ** attempt
+
+
+def http_json(url: str, tries: int = 6):
+    """GET a JSON URL politely, with retries (a 429 backs off). Returns parsed JSON."""
     headers = {"User-Agent": UA, "Accept": "application/json", API_KEY_HEADER: api_key()}
     last = None
     for attempt in range(tries):
@@ -128,7 +135,7 @@ def http_json(url: str, tries: int = 3):
                 raise SystemExit(f"error: GtoPdb refused the API key ({exc.code}) for {url}; "
                                  f"check {API_KEY_ENV} / {API_KEY_FILE.relative_to(REPO)}") from None
             last = exc
-            time.sleep(1.0 + attempt)
+            time.sleep(_backoff_s(exc, attempt) if exc.code == 429 else 1.0 + attempt)
         except (urllib.error.URLError, TimeoutError, ValueError) as exc:  # noqa: PERF203
             last = exc
             time.sleep(1.0 + attempt)

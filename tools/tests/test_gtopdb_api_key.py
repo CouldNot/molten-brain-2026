@@ -114,5 +114,27 @@ class ApiKeyTest(unittest.TestCase):
             self.assertEqual(fetch_gtopdb.api_key(), SENTINEL)
 
 
+class RateLimitTest(unittest.TestCase):
+    """A 429 from the keyed API is waited out, not turned into a hard failure."""
+
+    def test_429_is_retried_with_backoff(self):
+        import urllib.error
+        calls, sleeps = [], []
+
+        def urlopen(req, timeout=30):
+            calls.append(req.full_url)
+            if len(calls) == 1:
+                raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests",
+                                             {"Retry-After": "7"}, None)
+            return _Resp(b"[1]")
+
+        with mock.patch.dict(os.environ, {fetch_gtopdb.API_KEY_ENV: SENTINEL}), \
+                mock.patch("urllib.request.urlopen", urlopen), \
+                mock.patch("time.sleep", sleeps.append):
+            self.assertEqual(fetch_gtopdb.http_json("https://example.org/x"), [1])
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(sleeps[0], 7.0)
+
+
 if __name__ == "__main__":
     unittest.main()
