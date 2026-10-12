@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.105.6",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Six new brain pathways from primate tract-tracing studies: serotonin from the raphe to the globus pallidus, the locus coeruleus to the caudate, putamen, globus pallidus and substantia nigra, and dopamine from the VTA to the parietal lobe, each cited to its PubMed abstract",
+          "commits": [
+            "5400fb4"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.5",
       "date": "2026-10-12",
       "entries": [
