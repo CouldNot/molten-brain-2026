@@ -27,13 +27,43 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-import pymupdf4llm
+# pymupdf4llm is imported inside main(), so the pure helper below stays importable
+# (and unit-testable) without the PDF dependency installed.
+
+# A page whose Markdown keeps under this share of the text layer's alphanumerics
+# lost its body: pymupdf4llm silently drops rotated (landscape) text, so a
+# sideways table page comes back as nothing but its running header. Measured on
+# the AGNP TDM guideline: the 33 landscape Table 5 pages keep 2-3%, every
+# other page of the book over 90%, so the cut is nowhere near a real page.
+MIN_KEPT_SHARE = 0.5
 
 # Defaults target the Stahl corpus from the repo root, so a bare
 # `uv run tools/fetch/pdf_to_pages.py` regenerates the pages the quote-verification gate
 # (tools/check_data.py) checks against. Point --pdf/--out elsewhere for another book.
 DEFAULT_PDF = "data_sources/books/stahl/Prescriber's Guide_ Stahl's Essential Psychopharmacology.pdf"
 DEFAULT_OUT = "data_sources/books/stahl/pages"
+
+
+def _alnum(text: str) -> int:
+    return sum(ch.isalnum() for ch in text)
+
+
+def pick_page_text(markdown: str, text_layer: str) -> str:
+    """The page's Markdown, or its plain text layer when the Markdown lost the body.
+
+    The fallback is pymupdf's classic ``get_text()``: reading order cell by cell,
+    one wrapped fragment per line, which the quote gate's normalization
+    (``check_data.normalize_for_match``: hyphen joins + whitespace collapse) reads
+    as the row's running text.
+
+    >>> pick_page_text("Header", "Header Drug 12 h 80-200 ng/mL")
+    'Header Drug 12 h 80-200 ng/mL'
+    >>> pick_page_text("Body text", "Body text")
+    'Body text'
+    """
+    if _alnum(markdown) < MIN_KEPT_SHARE * _alnum(text_layer):
+        return text_layer
+    return markdown
 
 
 def main() -> None:
@@ -74,6 +104,9 @@ def main() -> None:
     # off unless asked, so extraction stays fast and faithful to the PDF's text
     # layer (the original Stahl split predates this engine). Older versions lack
     # the toggle, so guard on it.
+    import pymupdf  # a pymupdf4llm dependency, so no extra install
+    import pymupdf4llm
+
     if hasattr(pymupdf4llm, "use_layout"):
         pymupdf4llm.use_layout(args.layout)
 
@@ -81,13 +114,21 @@ def main() -> None:
     # of each page is under the "text" key.
     pages = pymupdf4llm.to_markdown(str(args.pdf), page_chunks=True)
     width = len(str(len(pages))) if args.zero_pad else 0
+    doc = pymupdf.open(str(args.pdf))
 
+    fallbacks = []
     for index, page in enumerate(pages, start=1):
         name = f"{index:0{width}d}.md" if width else f"{index}.md"
-        text = page["text"] if isinstance(page, dict) else str(page)
+        markdown = page["text"] if isinstance(page, dict) else str(page)
+        text = pick_page_text(markdown, doc[index - 1].get_text())
+        if text is not markdown:
+            fallbacks.append(index)
         (args.out / name).write_text(text, encoding="utf-8")
 
     print(f"Wrote {len(pages)} pages to {args.out}/")
+    if fallbacks:
+        print(f"  {len(fallbacks)} page(s) fell back to the plain text layer "
+              f"(rotated text Markdown dropped): {fallbacks}")
 
 
 if __name__ == "__main__":
