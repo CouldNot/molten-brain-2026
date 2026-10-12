@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.105.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A receptor or target panel now also lists a prodrug that acts there through a modeled metabolite drug (lisdexamfetamine on the dopamine transporter, via dextroamphetamine), without counting it twice.",
+          "commits": [
+            "ad9a23f"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.104.1",
       "date": "2026-10-12",
       "entries": [
