@@ -1,6 +1,21 @@
 {
   "versions": [
     {
+      "version": "3.105.4",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "neurarium has its own icon: a purple brain seen from the side, with its folds, cerebellum and brainstem, glowing dots on its rim and one projection arrow. It replaces the placeholder in the browser tab, the installed app and the README; the tab icon is a simplified version that stays readable at its tiny size, and every icon now has a transparent background so it looks right in both dark and light mode.",
+          "commits": [
+            "dbfff0c",
+            "65755e8",
+            "47b5100"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.3",
       "date": "2026-10-12",
       "entries": [
