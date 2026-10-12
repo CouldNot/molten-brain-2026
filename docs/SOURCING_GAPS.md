@@ -423,15 +423,15 @@ Every binding with a measured Ki but no direction (709: 666 drug + 43 metabolite
 
 ### 3c. Binding Ki from the papers Wikipedia cites (surveyed 2026-10-12)
 
-**What.** 253 directional bindings carry no Ki (PDSP, GtoPdb and the Wikipedia Ki tables all empty for the pair). Some drug articles state a Ki in prose and cite the paper it comes from (viloxazine: "K i = 3,900 nM and 6,400 nM" at 5-HT2B / 5-HT2C, citing Yu et al. 2020). `python tools/fetch/fetch_europepmc.py --ki-prose` follows those citations: it keeps each article paragraph that states an affinity (a Ki / Kd next to a concentration or pK value; an IC50 alone does not count, as in the GtoPdb pass), stores the abstracts of the PubMed ids it cites, and offers every abstract sentence that itself states an affinity in `tools/generated_cache/ki_prose_worklist.json`.
+**What.** 253 directional bindings carried no Ki (PDSP, GtoPdb and the Wikipedia Ki tables all empty for the pair). Some drug articles state a Ki in prose and cite the paper it comes from (viloxazine: "K i = 3,900 nM and 6,400 nM" at 5-HT2B / 5-HT2C, citing Yu et al. 2020). `python tools/fetch/fetch_europepmc.py --ki-prose` follows those citations: it keeps each article paragraph that states an affinity (a Ki / Kd next to a concentration or pK value; an IC50 alone does not count, as in the GtoPdb pass), stores each cited paper (abstract, plus the open-access full text when Europe PMC has one), and offers every line that may state an affinity (a sentence, a table caption, or every numeric row of a table whose caption or header names a Ki / Kd) in `tools/generated_cache/ki_prose_worklist.json`. One pick by index (`ki_prose_judged.json`), then `tools/sourcing/apply_ki_prose.py` gates and writes, then an independent judge (`recheck_quotes.py`).
 
-**Yield: 0.** 9 drugs got candidates (32 sentences), and none states a Ki for a missing (drug, modeled target) pair:
+**Yield: 2** (viloxazine 5-HT2B 3900 nM, 5-HT2C 6400 nM, from Table 3's title in the OA full text of PMID 32943948 = PMC7473988, CC BY-NC; Opus judged). The paper's own Results prose swaps the two values; the table's occupancies settle it for the title, and the source `note` says so. The paper never states how or in which species those Ki were obtained. Of the 18 cited papers only 5 are open access (licences: CC BY-NC for the viloxazine paper; the other four, reviews, bring no Ki for a missing pair). The other 8 drugs stay Ki-less:
 - most candidates measure other drugs (the abstract compares a panel of antidepressants);
-- amantadine's Ki (20 µM, Kornhuber 1993) is at the sigma site, not NMDA;
+- amantadine's Ki (20 µM, Kornhuber 1993) is at the sigma site, not NMDA; the OA review (PMID 33624170) compiles its in vitro potencies in a Table 4 that the XML ships only as an image (nothing to quote), and its prose gives NMDA effects as IC50s, not a Ki;
 - niaprazine's "alpha 1 (Ki = 77 nM)" and "5-HT2 (Ki = 25 nM)" name a subtype-less α1 and 5-HT2 site (the PDSP pass drops exactly these rows) and leave open whether the value is the racemate's or the (+) isomer's;
 - trimipramine's "KI 10-60 nM" is one range across 5-HT2, α1A/B and D2 together, not a value for α1B.
 
-**Why so little.** The values live in the papers' tables, not their abstracts: the viloxazine paper (PMID 32943948) states no number in its abstract. **The lever** is open-access full text: that paper is in PMC (PMC7473988, CC BY-NC), and Europe PMC serves such full text as XML. Taking it would change corpus #17's "abstract only" rule (a per-paper licence check, a page per table row), so it is left as a decision, not done. No applier was written, since nothing would pass it.
+**Why so little.** The values live in the papers' tables, and most cited papers are 1980s-1990s pharmacology with no open-access copy: their full text cannot be read under the "OA only, never a publisher site" rule.
 
 ### 4. `receptor_locations`, 23 / 383 missing (**limit, not a gap**)
 

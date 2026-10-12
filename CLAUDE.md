@@ -235,7 +235,7 @@ Corpora (`SOURCE_CORPORA`):
 - #13 `pharmfreq`: enzyme metabolizer-phenotype variability. #14 `dailymed`: US label Tmax.
 - #15 `cpic`: what a metabolizer phenotype implies for one prescription (implication + recommendation + strength), `page` = guideline ClinPGx id.
 - #16 `bdpm`: French RCP section 5.2 Tmax/half-life + fr brands (code read of the denomination), `page` = product CIS.
-- #17 `europepmc`: hand-listed paper abstracts (`fetch_europepmc.PAPERS`, each with the claim it was added for) for what only a study measures, `page` = PMID.
+- #17 `europepmc`: paper abstracts, plus Europe PMC's open-access full text (tables as `cell | cell` rows, licence recorded) where one exists, for what only a study measures (hand-listed `fetch_europepmc.PAPERS`, or a Wikipedia-cited paper for a missing Ki), `page` = PMID.
 - #19 `agnp_tdm`: AGNP TDM consensus guideline 2026 (Table 5 therapeutic range + alert level, Table 1 confirm-only CYP substrates), code-read table rows, `page` = PDF page.
 - #18 `drugsfda`: Drugs@FDA (openFDA export), the fallback first **US** approval (`national: true`, code-read, no judge) where no other source dates one, `page` = NDA number.
 

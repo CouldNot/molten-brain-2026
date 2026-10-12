@@ -228,7 +228,7 @@ Every `~` and `✓` grade is checked against one of the sources below. Each is a
 | [DailyMed (U.S. NLM), prescribing label, clinical pharmacology](https://dailymed.nlm.nih.gov/) | US prescribing labels (NLM SPL archive) | Drug time-to-peak (Tmax) |
 | [Base de données publique des médicaments (ANSM), RCP](https://base-donnees-publique.medicaments.gouv.fr/) | French public drug database (ANSM RCPs) | Drug Tmax, half-life, French brands |
 | [CPIC, clinical pharmacogenetics dosing guideline](https://cpicpgx.org/) | Pharmacogenomic prescribing guidelines | What a clearance speed implies for a drug |
-| [Europe PMC, journal article abstract](https://europepmc.org/) | Primary literature (Europe PMC abstracts) | Claims only a study measures (e.g. brain half-life) |
+| [Europe PMC, journal article](https://europepmc.org/) | Primary literature (Europe PMC abstracts + open-access full text) | Claims only a study measures (e.g. brain half-life, a Ki only a paper's table states) |
 | [Drugs@FDA (U.S. FDA), approved application history](https://www.accessdata.fda.gov/scripts/cder/daf/) | US regulator register (Drugs@FDA) | First US approval, where no other source dates one |
 | [AGNP Consensus Guidelines for TDM in Neuropsychopharmacology, 2026](https://doi.org/10.1055/a-2860-7861) | Consensus guideline (AGNP TDM, 2026) | Therapeutic range, alert level, CYP substrate cross-check |
 
