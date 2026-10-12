@@ -145,12 +145,18 @@ def apply(judged: dict, drugs: list[dict], pages: PageGate,
         mets = drug.setdefault("metabolites", [])
         for m in rec.get("metabolites", []) or []:
             name = (m.get("name") or "").strip()
-            if not name or not gated(m):
+            # A quote-less entry only re-dates an existing metabolite (its T½), keeping
+            # the identity source another pass wrote (a prodrug's metabolite).
+            has_quote = bool(m.get("quote"))
+            if not name or (has_quote and not gated(m)):
                 warnings.append(f"{did}: metabolite {name!r} quote failed the gate")
                 continue
             want = _names(name)
             mrec = next((x for x in mets if want & _names(x["name"])), None)
             if mrec is None:
+                if not has_quote:
+                    warnings.append(f"{did}: new metabolite {name!r} has no quote")
+                    continue
                 mrec = {"name": name}
                 mets.append(mrec)
             # The judged name wins, so one molecule two parents share is spelled alike
@@ -166,7 +172,8 @@ def apply(judged: dict, drugs: list[dict], pages: PageGate,
             if linked and linked != did:
                 mrec["drug_id"] = linked
             set_half_life(m, mrec, f"{did}/{name}")
-            mrec["sources"] = [source(m)]
+            if has_quote:
+                mrec["sources"] = [source(m)]
             n_met += 1
         if not mets:
             del drug["metabolites"]

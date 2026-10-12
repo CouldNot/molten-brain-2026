@@ -347,13 +347,19 @@
   "metabolites": []
  },
  "clorazepate": {
-  "half_life": {
-   "hours": 40.0,
-   "page": 201,
-   "quote": "Elimination half-life 40–50 hours",
-   "hours_max": 50.0
-  },
-  "metabolites": []
+  "half_life": null,
+  "metabolites": [
+   {
+    "name": "Desmethyldiazepam (nordazepam)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "nordazepam",
+     "quote": "Elimination half-life | 36–200 hours",
+     "hours": 36,
+     "hours_max": 200
+    }
+   }
+  ]
  },
  "clozapine": {
   "half_life": {
@@ -635,13 +641,22 @@
   "metabolites": []
  },
  "flurazepam": {
-  "half_life": {
-   "hours": 24.0,
-   "page": 350,
-   "quote": "Elimination half-life approximately 24–100 hours",
-   "hours_max": 100.0
-  },
-  "metabolites": []
+  "half_life": null,
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "flurazepam",
+    "quote": "Flurazepam generates an active metabolite , N-desalkylflurazepam , with a very long elimination half-life .",
+    "name": "N-desalkylflurazepam (descarboxyloflazepate)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "flurazepam",
+     "quote": "Elimination half-life | 2.3 hours N -desalkylflurazepam: 47–100 hours",
+     "hours": 47,
+     "hours_max": 100
+    }
+   }
+  ]
  },
  "fluvoxamine": {
   "half_life": {
@@ -775,7 +790,18 @@
    "page": 461,
    "quote": "Elimination half-life approximately 122 hours (ultra-long half-life)"
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "name": "N-desalkylflurazepam (descarboxyloflazepate)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "flurazepam",
+     "quote": "Elimination half-life | 2.3 hours N -desalkylflurazepam: 47–100 hours",
+     "hours": 47,
+     "hours_max": 100
+    }
+   }
+  ]
  },
  "lorazepam": {
   "half_life": {
@@ -801,11 +827,7 @@
   ]
  },
  "lumateperone": {
-  "half_life": {
-   "hours": 18.0,
-   "page": 482,
-   "quote": "Terminal half-life approximately 18 hours after intravenous administration"
-  },
+  "half_life": null,
   "metabolites": []
  },
  "lurasidone": {
@@ -1554,6 +1576,21 @@
     "quote": "At least seven metabolites have been identified in the urine, with the main metabolites being amphetamine (active) and 4-hydroxymethamphetamine.",
     "name": "Amphetamine",
     "drug_id": "amphetamine_d"
+   }
+  ]
+ },
+ "prazepam": {
+  "half_life": null,
+  "metabolites": [
+   {
+    "name": "Desmethyldiazepam (nordazepam)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "nordazepam",
+     "quote": "Elimination half-life | 36–200 hours",
+     "hours": 36,
+     "hours_max": 200
+    }
    }
   ]
  }

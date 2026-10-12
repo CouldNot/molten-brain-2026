@@ -72,8 +72,9 @@
   "index": 3
  },
  "fentanyl": {
-  "hours": 16.0,
-  "index": 0
+  "index": 3,
+  "hours": 3.0,
+  "hours_max": 12.5
  },
  "flupenthixol": {
   "hours": 35.0,
@@ -221,5 +222,18 @@
  "tizanidine": {
   "index": 2,
   "hours": 2.5
+ },
+ "flurazepam": {
+  "index": 0,
+  "hours": 2.3
+ },
+ "lumateperone": {
+  "index": 0,
+  "hours": 18.0
+ },
+ "oxycodone": {
+  "index": 0,
+  "hours": 2.0,
+  "hours_max": 3.0
  }
 }

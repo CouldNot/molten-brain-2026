@@ -208,7 +208,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "baclofen",
-    "line": "however, one source gives a half-life of 6.8 hr, using a more complex calculation combining urinary and serum data.",
+    "line": "however, one source gives a half-life of 6.8 hours, using a more complex calculation combining urinary and serum data.",
     "durations": [
      {
       "hours": 6.8
@@ -560,6 +560,54 @@
      {
       "hours": 50.0,
       "hours_max": 100.0
+     }
+    ]
+   }
+  ]
+ },
+ "clorazepate": {
+  "name": "Clorazepate",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clorazepate",
+    "line": "Elimination half-life | 48 hours",
+    "durations": [
+     {
+      "hours": 48.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clorazepate",
+    "line": "Clorazepate produces the active metabolite desmethyl-diazepam , which is a partial agonist of the GABA A receptor and has a half-life of 20–179 hours;",
+    "durations": [
+     {
+      "hours": 20.0,
+      "hours_max": 179.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 201,
+    "line": "Elimination half-life 40–50 hours",
+    "durations": [
+     {
+      "hours": 40.0,
+      "hours_max": 50.0
+     }
+    ]
+   },
+   {
+    "corpus": "bdpm",
+    "page": "67956742",
+    "line": "Le métabolite principal du clorazépate est le desméthyldiazépam, également actif, dont la demi-vie est plus importante que celle de la molécule-mère (entre 30 et 150 heures).",
+    "durations": [
+     {
+      "hours": 30.0,
+      "hours_max": 150.0
      }
     ]
    }
@@ -939,7 +987,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "doxylamine",
-    "line": "Because of its relatively long elimination half-life (10–12 hours), doxylamine is associated with next-day effects including sedation , drowsiness , grogginess , dry mouth , and tiredness when used as a hypnotic .",
+    "line": "Because of its relatively long elimination half-life ( 10–12 hours), doxylamine is associated with next-day effects including sedation , drowsiness , grogginess , dry mouth , and tiredness when used as a hypnotic .",
     "durations": [
      {
       "hours": 10.0,
@@ -950,7 +998,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "doxylamine",
-    "line": "The shorter elimination half-life of diphenhydramine (4–8 hours) compared to doxylamine may give it an advantage over doxylamine as a sleep aid in this regard.",
+    "line": "The shorter elimination half-life of diphenhydramine ( 4–8 hours) compared to doxylamine may give it an advantage over doxylamine as a sleep aid in this regard.",
     "durations": [
      {
       "hours": 4.0,
@@ -1003,9 +1051,67 @@
    }
   ]
  },
+ "flurazepam": {
+  "name": "Flurazepam",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "flurazepam",
+    "line": "Elimination half-life | 2.3 hours N -desalkylflurazepam: 47–100 hours",
+    "durations": [
+     {
+      "hours": 2.3
+     },
+     {
+      "hours": 47.0,
+      "hours_max": 100.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 350,
+    "line": "Elimination half-life approximately 24–100 hours",
+    "durations": [
+     {
+      "hours": 24.0,
+      "hours_max": 100.0
+     }
+    ]
+   }
+  ]
+ },
  "furosemide": {
   "name": "Furosemide",
   "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "furosemide",
+    "line": "Elimination half-life | up to 100 minutes",
+    "durations": [
+     {
+      "hours": 1.667
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "furosemide",
+    "line": "Elimination half-life (hrs) 2 Prolonged in congestive heart failure (mean 3.4 hrs) Prolonged in severe kidney failure (4 – 6 hrs) and anephric patients (1.5 – 9 hrs)",
+    "durations": [
+     {
+      "hours": 3.4
+     },
+     {
+      "hours": 4.0,
+      "hours_max": 6.0
+     },
+     {
+      "hours": 1.5,
+      "hours_max": 9.0
+     }
+    ]
+   },
    {
     "corpus": "dailymed",
     "page": "0b3d986c-eecc-adbe-e063-6294a90a0fb2",
@@ -1525,6 +1631,35 @@
    }
   ]
  },
+ "lumateperone": {
+  "name": "Lumateperone",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "lumateperone",
+    "line": "After taking the medication by mouth, lumateperone reaches maximum plasma concentrations within 1–2 hours and has a terminal elimination half-life of 18 hours.",
+    "durations": [
+     {
+      "hours": 1.0,
+      "hours_max": 2.0
+     },
+     {
+      "hours": 18.0
+     }
+    ]
+   },
+   {
+    "corpus": "stahl",
+    "page": 482,
+    "line": "Terminal half-life approximately 18 hours after intravenous administration",
+    "durations": [
+     {
+      "hours": 18.0
+     }
+    ]
+   }
+  ]
+ },
  "mdma": {
   "name": "MDMA",
   "candidates": [
@@ -1579,7 +1714,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "mdma",
-    "line": "Whereas peak plasma concentrations and subjective effects occurred between 2 and 4 hours following administration, drug effect measures had largely returned to baseline values by 8 hours despite continued exposure to the drug (mean half-life = 8 hours following a 40 mg dose (Dolder et al., 2017)).",
+    "line": "Whereas peak plasma concentrations and subjective effects occurred between 2 and 4 hours following administration, drug effect measures had largely returned to baseline values by 8 hours despite continued exposure to the drug (mean half-life=8 hours following a 40 mg dose (Dolder et al., 2017)).",
     "durations": [
      {
       "hours": 4.0
@@ -2624,7 +2759,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "secobarbital",
-    "line": "Elimination half-life | 15-40 hours",
+    "line": "Elimination half-life | 15–40 hours",
     "durations": [
      {
       "hours": 15.0,
@@ -3223,6 +3358,16 @@
   "name": "Bumetanide",
   "candidates": [
    {
+    "corpus": "wikipedia_pharm",
+    "page": "bumetanide",
+    "line": "Elimination half-life | ~0.8 hours",
+    "durations": [
+     {
+      "hours": 0.8
+     }
+    ]
+   },
+   {
     "corpus": "bdpm",
     "page": "67563415",
     "line": "La demi-vie est d'environ 1 h 30.",
@@ -3277,6 +3422,41 @@
   "name": "Cannabidiol",
   "candidates": [
    {
+    "corpus": "wikipedia_pharm",
+    "page": "cannabidiol",
+    "line": "Elimination half-life | 18–32 hours",
+    "durations": [
+     {
+      "hours": 18.0,
+      "hours_max": 32.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cannabidiol",
+    "line": "The elimination half-life of cannabidiol in blood is 56–61 hours after oral doses twice per day over 7 days.",
+    "durations": [
+     {
+      "hours": 56.0,
+      "hours_max": 61.0
+     },
+     {
+      "hours": 168.0
+     }
+    ]
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cannabidiol",
+    "line": "Based on the pharmacokinetic analysis of long-term dosing of cannabidiol in humans, the terminal elimination half-life is estimated to be >134 hours.",
+    "durations": [
+     {
+      "hours": 134.0
+     }
+    ]
+   },
+   {
     "corpus": "dailymed",
     "page": "8bf27097-4870-43fb-94f0-f3d0871d1eec",
     "line": "The half-life of cannabidiol in plasma was 56 to 61 hours after twice-daily dosing for 7 days in healthy subjects.",
@@ -3292,9 +3472,37 @@
    }
   ]
  },
+ "cannabinol": {
+  "name": "Cannabinol",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cannabinol",
+    "line": "A small study of six cannabis users found a highly variable half life of 32 ± 17 hours upon intravenous administration.",
+    "durations": [
+     {
+      "hours": 17.0
+     }
+    ]
+   }
+  ]
+ },
  "nabilone": {
   "name": "Nabilone",
   "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nabilone",
+    "line": "Elimination half-life | 2 hours, with metabolites around 35 hours",
+    "durations": [
+     {
+      "hours": 2.0
+     },
+     {
+      "hours": 35.0
+     }
+    ]
+   },
    {
     "corpus": "dailymed",
     "page": "83c7ac15-ece9-47de-b83c-d575544fa449",
@@ -3302,6 +3510,25 @@
     "durations": [
      {
       "hours": 35.0
+     }
+    ]
+   }
+  ]
+ },
+ "rimonabant": {
+  "name": "Rimonabant",
+  "candidates": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "rimonabant",
+    "line": "Elimination half-life | Variable: 6 to 9 days with normal BMI 16 days if BMI >30",
+    "durations": [
+     {
+      "hours": 144.0,
+      "hours_max": 216.0
+     },
+     {
+      "hours": 384.0
      }
     ]
    }

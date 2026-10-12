@@ -75,6 +75,21 @@ class MergeTest(unittest.TestCase):
         self.assertEqual(m["sources"][0]["page"], "nordazepam")
         self.assertEqual(m["bindings"], [{"target": "gaba_a"}])
 
+    def test_quoteless_entry_only_sets_an_existing_metabolites_half_life(self):
+        src = [{"corpus": "wikipedia_pharm", "page": "prazepam", "quote": "prodrug"}]
+        drugs = [{"id": "prazepam", "name": "Prazepam", "metabolites": [
+            {"name": "Desmethyldiazepam (nordazepam)", "sources": src}]}]
+        q = {"corpus": "wikipedia_pharm", "page": "nordazepam",
+             "quote": "Elimination half-life | 36-200 hours", "hours": 36, "hours_max": 200}
+        judged = {"prazepam": {"metabolites": [
+            {"name": "Desmethyldiazepam (nordazepam)", "half_life": q},
+            {"name": "Unknown", "half_life": q}]}}
+        _, _, warnings = PK.apply(judged, drugs, self.pages)
+        (m,) = drugs[0]["metabolites"]
+        self.assertEqual(m["sources"], src)
+        self.assertEqual(m["half_life"], {"hours": 36.0, "hours_max": 200.0})
+        self.assertIn("no quote", warnings[0])
+
     def test_off_page_quote_writes_nothing(self):
         drugs = [{"id": "x", "name": "X"}]
         judged = {"x": {"metabolites": [{"name": "Y", "page": 1, "quote": "not there"}]}}
