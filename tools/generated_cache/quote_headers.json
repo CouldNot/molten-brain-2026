@@ -130,6 +130,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_03110b6650fd": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_035ce7a5d70b": [
       "Risperidone",
       "Therapeutics",
@@ -214,6 +217,14 @@
       "Therapeutics",
       "Class"
     ],
+    "q_072b75a13d10": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
+    "q_072fb9f9ccf0": [
+      "Esketamine",
+      "Dosing and use",
+      "Pharmacokinetics"
+    ],
     "q_0739866949dd": [
       "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
     ],
@@ -292,11 +303,6 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_0aa10b1c2d2a": [
-      "Ramelteon",
-      "Therapeutics",
-      "Class"
-    ],
     "q_0ad987cb6515": [
       "Carbamazepine",
       "Dosing and use",
@@ -332,11 +338,6 @@
       "Caprylidene",
       "Therapeutics"
     ],
-    "q_0beb93d3b8dc": [
-      "Clorazepate",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
     "q_0bf2797fc947": [
       "Side Effect Management",
       "Amantadine (Gocovri, Symmetrel) Fact Sheet [G]"
@@ -344,11 +345,6 @@
     "q_0c265070ae51": [
       "Levomilnacipran",
       "Therapeutics"
-    ],
-    "q_0c358ff12c7e": [
-      "40 The Brain Stem",
-      "Monoaminergic Neurons in the Brain Stem Modulate Sensory, Motor, Autonomic, and Behavioral Functions",
-      "Monoaminergic Neurons Share Many Cellular Properties"
     ],
     "q_0c4c48d89171": [
       "Zopiclone",
@@ -383,6 +379,9 @@
     "q_0d5ed17f0018": [
       "Cyamemazine",
       "Therapeutics"
+    ],
+    "q_0d8428afda0f": [
+      "12. Telencephalon Hippocampus and Related Structures"
     ],
     "q_0e03f0a51bf4": [
       "Hydroxyzine",
@@ -759,6 +758,11 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_1c6cd400a901": [
+      "Lisdexamfetamine",
+      "Dosing and use",
+      "Pharmacokinetics"
+    ],
     "q_1c8a17299056": [
       "Thioridazine",
       "Therapeutics",
@@ -828,10 +832,18 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_1f49d7c88f0f": [
+      "Flupenthixol",
+      "Dosing and use",
+      "Pharmacokinetics"
+    ],
     "q_1f96761b69c7": [
       "Reboxetine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_1fc6c42f7bbe": [
+      "14. Telencephalon Basal Ganglia"
     ],
     "q_1fe2db4363a6": [
       "Methylphenidate (D,L)",
@@ -847,6 +859,9 @@
       "Perospirone",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_20616948256d": [
+      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
     ],
     "q_209ad2389cd7": [
       "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
@@ -904,11 +919,6 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_21dd96c5357e": [
-      "Lorazepam",
-      "Therapeutics",
-      "Brands"
-    ],
     "q_21f5ec58551c": [
       "Propranolol",
       "Therapeutics",
@@ -949,10 +959,16 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_22fc343f487d": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
     "q_2329237fd7b8": [
       "Clorazepate",
       "Therapeutics",
       "Brands"
+    ],
+    "q_233f2be71cbd": [
+      "11. Telencephalon Introduction and Olfactory System"
     ],
     "q_2375ef73b473": [
       "Protriptyline",
@@ -978,10 +994,6 @@
       "Propranolol",
       "Therapeutics",
       "How the Drug Works"
-    ],
-    "q_243a2a2a4604": [
-      "Sexual Dysfunction Medications",
-      "Cyproheptadine (Periactin) Fact Sheet [G]"
     ],
     "q_24410e5f4d7e": [
       "Lurasidone",
@@ -1113,6 +1125,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_29104f629d34": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
     "q_291282293aba": [
       "Milnacipran",
       "Therapeutics",
@@ -1138,11 +1153,6 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
-    "q_2a2f29799b03": [
-      "Phentermine–Topiramate",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_2a30c6ce8da3": [
       "Thiothixene",
       "Dosing and use",
@@ -1157,6 +1167,11 @@
       "Chlordiazepoxide",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_2adad0c74e5e": [
+      "Valproate",
+      "Dosing and use",
+      "Pharmacokinetics"
     ],
     "q_2b143bad1675": [
       "Mirtazapine",
@@ -1347,6 +1362,11 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_337e10bd0e4f": [
+      "Lofepramine",
+      "Therapeutics",
+      "Class"
+    ],
     "q_33b35a439a64": [
       "Lumateperone",
       "Therapeutics",
@@ -1386,6 +1406,9 @@
       "Part I Overall Perspective",
       "4 The Neuroanatomical Bases by Which Neural Circuits Mediate Behavior",
       "The Thalamus Is an Essential Link Between Sensory Receptors and the Cerebral Cortex"
+    ],
+    "q_3500d4caa0b8": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_351c03f5ef8e": [
       "Zaleplon",
@@ -1545,6 +1568,9 @@
       "Topiramate",
       "Therapeutics",
       "Brands"
+    ],
+    "q_3caf5cfcf542": [
+      "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
     ],
     "q_3cfa78c2bcd0": [
       "Bupropion",
@@ -1742,11 +1768,6 @@
       "Therapeutics",
       "Class"
     ],
-    "q_438e6063e762": [
-      "Sildenafil",
-      "Therapeutics",
-      "Tests"
-    ],
     "q_439b9dfeccf3": [
       "Fluoxetine",
       "Therapeutics",
@@ -1754,6 +1775,9 @@
     ],
     "q_43ca72ac5495": [
       "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
+    ],
+    "q_44340709825a": [
+      "15. Telencephalon Neocortex"
     ],
     "q_4448192ad104": [
       "6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"
@@ -1767,11 +1791,6 @@
       "Dothiepin",
       "Therapeutics",
       "How the Drug Works"
-    ],
-    "q_4503bd83976a": [
-      "Methylfolate (L)",
-      "Dosing and use",
-      "Pharmacokinetics"
     ],
     "q_450c0c54b727": [
       "Pimozide",
@@ -1843,6 +1862,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_487deca3f9e8": [
+      "Dextromethorphan–Quinidine"
+    ],
     "q_488ce8e9f4fc": [
       "Sertraline",
       "Dosing and use",
@@ -1852,6 +1874,9 @@
       "Ramelteon",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_4917812c11fb": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_4932a7724ab9": [
       "Olanzapine–Samidorphan",
@@ -1865,6 +1890,9 @@
       "Eszopiclone",
       "Therapeutics",
       "Brands"
+    ],
+    "q_4b9ed6571d81": [
+      "14. Telencephalon Basal Ganglia"
     ],
     "q_4be2a84acf63": [
       "Vilazodone",
@@ -1885,6 +1913,11 @@
       "Thiothixene",
       "Therapeutics",
       "Brands"
+    ],
+    "q_4ca41a5ece4a": [
+      "Cariprazine",
+      "Dosing and use",
+      "Pharmacokinetics"
     ],
     "q_4cdaf1490fe3": [
       "Daridorexant",
@@ -2018,6 +2051,11 @@
       "Molindone",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_51d8fad772b0": [
+      "40 The Brain Stem",
+      "Monoaminergic Neurons in the Brain Stem Modulate Sensory, Motor, Autonomic, and Behavioral Functions",
+      "Many Modulatory Systems Use Monoamines as Neurotransmitters"
     ],
     "q_51f2559abbf7": [
       "Chlorpromazine",
@@ -2164,11 +2202,6 @@
       "Therapeutics",
       "Class"
     ],
-    "q_58b00ff5f241": [
-      "Flupenthixol",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_58b75257e8db": [
       "Flupenthixol",
       "Therapeutics",
@@ -2289,9 +2322,6 @@
       "Therapeutics",
       "Class"
     ],
-    "q_5e0ce9e5dbec": [
-      "Dextromethorphan–Quinidine"
-    ],
     "q_5e23d6b2b14f": [
       "Dextromethorphan–Bupropion",
       "Therapeutics"
@@ -2311,15 +2341,13 @@
       "Therapeutics",
       "Class"
     ],
+    "q_5f3dd8bc5669": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_5f4f1037aa22": [
       "Sulpiride",
       "Therapeutics",
       "How the Drug Works"
-    ],
-    "q_5f60a626871f": [
-      "61 Disorders of Mood and Anxiety",
-      "Major Depression and Anxiety Disorders Can Be Treated Effectively",
-      "Current Antidepressant Drugs Affect Monoaminergic Neural Systems"
     ],
     "q_5f6fcf0e31e2": [
       "Selegiline",
@@ -2330,6 +2358,11 @@
       "Lithium",
       "Therapeutics",
       "How Long Until It Works"
+    ],
+    "q_5f978d74e211": [
+      "42 Emotion",
+      "The Amygdala Has Been Implicated in Both Learned and Innate Fear",
+      "The Amygdala Is Important for Fear in Humans"
     ],
     "q_6018739b7089": [
       "Zonisamide",
@@ -2413,6 +2446,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_643b9f3c29b9": [
+      "11. Telencephalon Introduction and Olfactory System"
+    ],
     "q_6479ea783e88": [
       "38 The Basal Ganglia",
       "Physiological Signals Provide Further Clues to Function in the Basal Ganglia",
@@ -2438,11 +2474,6 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_64f42ae0e9ab": [
-      "Dextromethorphan–Quinidine",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_6507e74cca59": [
       "Lofepramine",
       "Dosing and use",
@@ -2452,6 +2483,9 @@
       "Ramelteon",
       "Therapeutics",
       "Class"
+    ],
+    "q_6569434aee3c": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_656d27d1ff9f": [
       "Levomilnacipran",
@@ -2765,6 +2799,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_6fee0b38d526": [
+      "15. Telencephalon Neocortex"
+    ],
     "q_70174ed78b63": [
       "Maprotiline",
       "Therapeutics",
@@ -2800,6 +2837,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_7187261ae2f3": [
+      "14. Telencephalon Basal Ganglia"
+    ],
     "q_71bad2288fdd": [
       "Nortriptyline",
       "Dosing and use",
@@ -2812,6 +2852,11 @@
     ],
     "q_71bf78f6ce82": [
       "Prazosin",
+      "Dosing and use",
+      "Pharmacokinetics"
+    ],
+    "q_730136a6c907": [
+      "Ramelteon",
       "Dosing and use",
       "Pharmacokinetics"
     ],
@@ -2866,6 +2911,9 @@
       "Paliperidone",
       "Therapeutics",
       "Class"
+    ],
+    "q_751315383896": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_75322cd20ea6": [
       "Lemborexant",
@@ -2981,6 +3029,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_79aa487fd6f7": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_79ccd0d2adf6": [
       "Paliperidone",
       "Therapeutics",
@@ -3003,6 +3054,9 @@
     "q_7a8c91cf2ec4": [
       "Amitriptyline",
       "Therapeutics"
+    ],
+    "q_7b7a1a9aa45c": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_7bcbf1cb0154": [
       "Flumazenil",
@@ -3032,6 +3086,9 @@
       "Clonazepam",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_7c98cd837703": [
+      "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
     ],
     "q_7d242c3e7c5f": [
       "Sodium Oxybate",
@@ -3136,6 +3193,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_81608d82b90c": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_81a9ab279162": [
       "Tiagabine",
       "Therapeutics",
@@ -3180,6 +3240,14 @@
       "Pregabalin",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_84683291b942": [
+      "9. Diencephalon Ventral Thalamus or Subthalamus"
+    ],
+    "q_84ae20404e7a": [
+      "Part VIII Learning, Memory, Language and Cognition",
+      "54 The Hippocampus and the Neural Basis of Explicit Memory Storage",
+      "Explicit Memory in Mammals Involves Synaptic Plasticity in the Hippocampus"
     ],
     "q_84eccead07d2": [
       "Buspirone",
@@ -3283,11 +3351,6 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_89d01a2a38cb": [
-      "Part VIII Learning, Memory, Language and Cognition",
-      "53 Cellular Mechanisms of Implicit Memory Storage and the Biological Basis of Individuality",
-      "Memory of Threat Learning in Mammals Involves the Amygdala"
-    ],
     "q_89fc4c9312ca": [
       "Sodium Oxybate",
       "Therapeutics",
@@ -3297,6 +3360,9 @@
       "61 Disorders of Mood and Anxiety",
       "Major Depression and Anxiety Disorders Can Be Treated Effectively",
       "Current Antidepressant Drugs Affect Monoaminergic Neural Systems"
+    ],
+    "q_8a3efe8ac7b0": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_8a6976e3104b": [
       "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
@@ -3328,11 +3394,6 @@
       "Chlordiazepoxide",
       "Therapeutics",
       "Brands"
-    ],
-    "q_8be6256b3e24": [
-      "Ketamine",
-      "Therapeutics",
-      "Class"
     ],
     "q_8c0125808cbf": [
       "Perphenazine",
@@ -3369,6 +3430,9 @@
       "Major Depression and Anxiety Disorders Can Be Treated Effectively",
       "Current Antidepressant Drugs Affect Monoaminergic Neural Systems"
     ],
+    "q_8da1114cd208": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
     "q_8da58fe30ead": [
       "Naltrexone",
       "Dosing and use",
@@ -3378,6 +3442,9 @@
       "Sildenafil",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_8e1151434183": [
+      "6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"
     ],
     "q_8e1d9758ee45": [
       "Temazepam",
@@ -3460,6 +3527,12 @@
       "Therapeutics",
       "Class"
     ],
+    "q_90e6207b2c74": [
+      "13 Impulsivity, Compulsivity, and Addiction"
+    ],
+    "q_90fd485852ea": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
     "q_9132241f3bae": [
       "Diphenhydramine",
       "Therapeutics",
@@ -3494,11 +3567,6 @@
       "Clozapine",
       "Side effects",
       "How Drug Causes Side Effects"
-    ],
-    "q_91ffe5d2cdb7": [
-      "Dextromethorphan–Bupropion",
-      "Dosing and use",
-      "Pharmacokinetics"
     ],
     "q_92104f7f53b5": [
       "Guanfacine",
@@ -3577,11 +3645,6 @@
     ],
     "q_953f31118eba": [
       "Trimipramine",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
-    "q_954af7fff09e": [
-      "Amisulpride",
       "Therapeutics",
       "How the Drug Works"
     ],
@@ -3680,11 +3743,6 @@
       "Therapeutics",
       "How the Drug Works"
     ],
-    "q_991da4e8bc9e": [
-      "Cariprazine",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_9924e877c92e": [
       "Topiramate",
       "Therapeutics",
@@ -3756,11 +3814,6 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_9a81c55fbb0d": [
-      "Tasimelteon",
-      "Therapeutics",
-      "Class"
-    ],
     "q_9a8c66df2b39": [
       "Sertraline",
       "Dosing and use",
@@ -3792,10 +3845,6 @@
       "Zaleplon",
       "Therapeutics",
       "Class"
-    ],
-    "q_9b5ca21bc3f5": [
-      "Olanzapine",
-      "Therapeutics"
     ],
     "q_9b9d967cfcf4": [
       "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
@@ -3833,20 +3882,15 @@
       "Therapeutics",
       "Class"
     ],
-    "q_9d247c2159d2": [
-      "Pregabalin",
-      "Therapeutics",
-      "Class"
+    "q_9d17f76cc190": [
+      "43 Motivation, Reward, and Addictive States",
+      "Motivational States Influence Goal-Directed Behavior",
+      "Dopamine May Act as a Learning Signal"
     ],
     "q_9d5724888443": [
       "29 Smell and Taste: The Chemical Senses",
       "Olfactory Information Is Transformed Along the Pathway to the Brain",
       "The Olfactory Bulb Transmits Information to the Olfactory Cortex"
-    ],
-    "q_9d8a40fad9ba": [
-      "Diazepam",
-      "Therapeutics",
-      "Brands"
     ],
     "q_9de78726faad": [
       "Clozapine",
@@ -3890,6 +3934,9 @@
       "Olanzapine–Samidorphan",
       "Therapeutics",
       "Class"
+    ],
+    "q_9f05648abd16": [
+      "6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"
     ],
     "q_9f08b708d209": [
       "Levetiracetam",
@@ -4204,6 +4251,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_ab2a4ca02edf": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
     "q_ab304f4860ce": [
       "Nefazodone",
       "Therapeutics",
@@ -4325,16 +4375,6 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
-    "q_b05448fae384": [
-      "Lisdexamfetamine",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
-    "q_b079d09d689b": [
-      "Lumateperone",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
     "q_b081e3d9e04f": [
       "Flurazepam",
       "Therapeutics"
@@ -4394,10 +4434,18 @@
       "Dosing and use",
       "How to Stop"
     ],
+    "q_b325ea20e158": [
+      "Lithium",
+      "Dosing and use",
+      "Dosing Tips"
+    ],
     "q_b350583e58ad": [
       "Cyamemazine",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_b3ea54264080": [
+      "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
     ],
     "q_b414a208b494": [
       "Sildenafil",
@@ -4413,6 +4461,9 @@
       "Bremelanotide",
       "Dosing and use",
       "Habit Forming?"
+    ],
+    "q_b45c45ab851d": [
+      "14. Telencephalon Basal Ganglia"
     ],
     "q_b47682bd71e6": [
       "Atomoxetine",
@@ -4454,6 +4505,9 @@
       "Fluvoxamine",
       "Therapeutics",
       "Class"
+    ],
+    "q_b6696f04c3c5": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_b67a119d5e8d": [
       "Fluphenazine",
@@ -4548,11 +4602,6 @@
       "Dosing and use",
       "Dosing Tips"
     ],
-    "q_ba6c37bd701c": [
-      "Deutetrabenazine",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_bab5aacd496b": [
       "Part IV Perception",
       "20 Pain",
@@ -4589,6 +4638,9 @@
       "Modafinil",
       "Therapeutics",
       "Class"
+    ],
+    "q_bcc02e4f3aab": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
     ],
     "q_bce150cc860b": [
       "Isocarboxazid",
@@ -4672,11 +4724,6 @@
       "Therapeutics",
       "How the Drug Works"
     ],
-    "q_c23dd6329dde": [
-      "Carbamazepine",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
     "q_c28f986b4485": [
       "Diphenhydramine",
       "Dosing and use",
@@ -4699,6 +4746,11 @@
       "Citalopram",
       "Therapeutics",
       "Class"
+    ],
+    "q_c2a976e1a27b": [
+      "38 The Basal Ganglia",
+      "Physiological Signals Provide Further Clues to Function in the Basal Ganglia",
+      "Ventral Midbrain Dopamine Neurons Receive Input From External Structures and Other Basal Ganglia Nuclei"
     ],
     "q_c2d7b8f222ac": [
       "Lorazepam",
@@ -4790,6 +4842,9 @@
       "Benztropine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_c540f0c55276": [
+      "14. Telencephalon Basal Ganglia"
     ],
     "q_c60508371af8": [
       "Lofexidine",
@@ -4888,11 +4943,6 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
-    "q_ca4596b87f6f": [
-      "Reboxetine",
-      "Therapeutics",
-      "Class"
-    ],
     "q_ca8fec6c103d": [
       "Nefazodone",
       "Therapeutics",
@@ -4975,6 +5025,9 @@
       "Milnacipran",
       "Therapeutics",
       "Brands"
+    ],
+    "q_ceabc0e44939": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_cebba66dbfb3": [
       "Naltrexone",
@@ -5102,15 +5155,13 @@
       "Side effects",
       "How Drug Causes Side Effects"
     ],
+    "q_d3aa2355bbf2": [
+      "6. Topography of Spinal Cord, Brain Stem and Cerebellum"
+    ],
     "q_d3c971a0543a": [
       "Risperidone",
       "Therapeutics",
       "Brands"
-    ],
-    "q_d3d725f95c28": [
-      "Topiramate",
-      "Therapeutics",
-      "Class"
     ],
     "q_d41b9d0830db": [
       "Amphetamine (D)",
@@ -5179,10 +5230,6 @@
       "Pitolisant",
       "Dosing and use",
       "Pharmacokinetics"
-    ],
-    "q_d6fa026d7f08": [
-      "Diphenhydramine",
-      "Therapeutics"
     ],
     "q_d74ef970c140": [
       "13 Impulsivity, Compulsivity, and Addiction"
@@ -5261,16 +5308,6 @@
       "Amphetamine (D,L)",
       "Therapeutics",
       "Class"
-    ],
-    "q_da6f20978229": [
-      "40 The Brain Stem",
-      "Monoaminergic Neurons in the Brain Stem Modulate Sensory, Motor, Autonomic, and Behavioral Functions",
-      "Many Modulatory Systems Use Monoamines as Neurotransmitters"
-    ],
-    "q_da757af94909": [
-      "Maprotiline",
-      "Side effects",
-      "How Drug Causes Side Effects"
     ],
     "q_dacd80157ac1": [
       "Benztropine",
@@ -5438,9 +5475,6 @@
       "Lumateperone",
       "Therapeutics"
     ],
-    "q_e1968c119f74": [
-      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
-    ],
     "q_e1d06754d5d3": [
       "Fluoxetine",
       "Dosing and use",
@@ -5454,6 +5488,9 @@
     "q_e28677243274": [
       "Olanzapine",
       "Therapeutics"
+    ],
+    "q_e2a716fe0c7c": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_e2e6c20bbca3": [
       "Methylphenidate (D,L)",
@@ -5520,9 +5557,6 @@
     ],
     "q_e49af9451ed2": [
       "9 Chronic Pain and Its Treatment"
-    ],
-    "q_e4d4948e9b80": [
-      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
     ],
     "q_e4d94e7ebfa7": [
       "Levetiracetam",
@@ -5612,10 +5646,8 @@
       "Dosing and use",
       "Dosing Tips"
     ],
-    "q_e87c368afebf": [
-      "Serdexmethylphenidate",
-      "Therapeutics",
-      "How the Drug Works"
+    "q_e7db4dc686a1": [
+      "8 Anxiety, Trauma, and Treatment"
     ],
     "q_e8bbea4b89fe": [
       "Sildenafil",
@@ -5670,6 +5702,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_ea6978e15d73": [
+      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
+    ],
     "q_eac21731a65a": [
       "Sertraline",
       "Therapeutics",
@@ -5715,10 +5750,6 @@
       "Therapeutics",
       "How the Drug Works"
     ],
-    "q_ebbb204dc785": [
-      "Mirtazapine",
-      "Therapeutics"
-    ],
     "q_ebe249970073": [
       "Dothiepin",
       "Dosing and use",
@@ -5734,10 +5765,20 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_ecc7d5eeffc8": [
+      "Bremelanotide",
+      "Dosing and use",
+      "Pharmacokinetics"
+    ],
     "q_ed18b1b9c7db": [
       "Moclobemide",
       "Therapeutics",
       "Class"
+    ],
+    "q_edd49539486b": [
+      "Carbamazepine",
+      "Dosing and use",
+      "Pharmacokinetics"
     ],
     "q_ede701b6ef1e": [
       "Topiramate",
@@ -5865,10 +5906,8 @@
       "Therapeutics",
       "Commonly Prescribed for"
     ],
-    "q_f21fcaaac73a": [
-      "Lofepramine",
-      "Therapeutics",
-      "Class"
+    "q_f2139dc49129": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_f25aa84f6c5c": [
       "Benztropine",
@@ -5893,6 +5932,9 @@
       "Diazepam",
       "Therapeutics",
       "Class"
+    ],
+    "q_f2af5893c79c": [
+      "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
     ],
     "q_f3054d1f3c27": [
       "Asenapine",
@@ -5938,6 +5980,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_f4c5191a5646": [
+      "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
     "q_f4d7f33deacb": [
       "Methylphenidate (D,L)",
       "Therapeutics",
@@ -5946,6 +5991,9 @@
     "q_f4de3ce72e09": [
       "Levetiracetam",
       "Therapeutics"
+    ],
+    "q_f4f3c56700af": [
+      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
     ],
     "q_f4fa666ae07d": [
       "Nortriptyline",
@@ -6012,11 +6060,6 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_f7ca591e323a": [
-      "Perospirone",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
     "q_f7d4120e5c0b": [
       "Quetiapine",
       "Therapeutics"
@@ -6051,6 +6094,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_f92ed6189bbe": [
+      "6. Topography of Spinal Cord, Brain Stem and Cerebellum"
+    ],
     "q_f9510cad5e68": [
       "Mianserin",
       "Therapeutics",
@@ -6060,6 +6106,9 @@
       "Duloxetine",
       "Therapeutics",
       "Class"
+    ],
+    "q_f99d4aaa4022": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_f9caaa4a6b97": [
       "Dexmedetomidine",
@@ -6075,6 +6124,11 @@
       "Viloxazine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_fa7bf45fa5e4": [
+      "40 The Brain Stem",
+      "Monoaminergic Neurons in the Brain Stem Modulate Sensory, Motor, Autonomic, and Behavioral Functions",
+      "Many Modulatory Systems Use Monoamines as Neurotransmitters"
     ],
     "q_fad8e5ca1225": [
       "Vilazodone",
@@ -6132,11 +6186,6 @@
       "Flunitrazepam",
       "Dosing and use",
       "Pharmacokinetics"
-    ],
-    "q_fccce07c0dff": [
-      "Valbenazine",
-      "Side effects",
-      "Best Augmenting Agents for Side Effects"
     ],
     "q_fd07438aa9c4": [
       "Amphetamine (D,L)",
