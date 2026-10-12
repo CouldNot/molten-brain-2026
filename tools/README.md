@@ -258,6 +258,7 @@ Screenshots).
   nothing. See [`docs/BAKED_MESHES.md`](../docs/BAKED_MESHES.md).
 - `tools/serve.py` — stdlib dev server, `Cache-Control: no-store`, roots at `public/` (see CLAUDE.md Running).
 - `tools/shot.py` — Playwright screenshot helper (see CLAUDE.md Screenshots).
+- `tools/icons/brain_icon.py`: stdlib generator of every app icon: the README / PWA brain (`docs/images/neurarium-icon.svg`, `public/icon-*.png`, `public/apple-touch-icon.png`) and the simplified favicon (`public/favicon.svg`); PNG export via `rsvg-convert`. Edit it, never the generated files.
 - `tools/demos/` — Playwright demo-video recorder: `recorder.py` (a `Demo` API) + `neurarium.py`
   (the showcase tour, writes the README hero `docs/images/preview.gif`). Needs ffmpeg+gifski+GPU; see
   `tools/demos/README.md`.
