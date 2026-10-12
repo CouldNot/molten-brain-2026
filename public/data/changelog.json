@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.105.3",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Quote tooltips now show where in the book every recently added quote sits (chapter and section), including the newer pathway and receptor quotes from Stahl's Essential Psychopharmacology and Nieuwenhuys.",
+          "commits": [
+            "510be9d"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.2",
       "date": "2026-10-12",
       "entries": [
