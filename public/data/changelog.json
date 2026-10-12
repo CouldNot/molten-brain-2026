@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "3.106.2",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Viloxazine's 5-HT2B and 5-HT2C bindings now show a measured Ki (3900 nM and 6400 nM), quoted from the open-access full text of Yu et al. 2020 (CC BY-NC) and checked by an independent judge. The paper's own prose swaps the two values; the source note explains why the table title is taken",
+          "commits": [
+            "0b72f0a",
+            "4a16ae4"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "The Europe PMC source is now named \"Europe PMC, journal article\": besides abstracts it can quote a paper's open-access full text, with the paper's licence recorded",
+          "commits": [
+            "516865e"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.106.1",
       "date": "2026-10-12",
       "entries": [
