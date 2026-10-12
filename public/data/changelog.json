@@ -1,6 +1,47 @@
 {
   "versions": [
     {
+      "version": "3.107.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Paliperidone now reads \"Paliperidone (9-OH-risperidone)\", and its panel opens with \"Active metabolite of Risperidone\" (sourced, clickable). Risperidone's active-metabolite row names the same molecule, and searching \"9-OH-risperidone\" or \"9-hydroxyrisperidone\" finds it",
+          "commits": [
+            "8e5518d"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "Drug panels are shorter: every section (brands, pharmacokinetics, bindings, metabolites, projections, metabolism, interactions...) starts collapsed, and clicking its heading opens it with its content indented. A jump into a section, and the guided tour, open it for you",
+          "commits": [
+            "b554d2e"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "An active metabolite that is itself a modeled drug is now simply its clickable name, styled like the drug list, instead of a \"See its N bindings\" button",
+          "commits": [
+            "63cc10f"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Paliperidone, amphetamine, methylphenidate and pethidine no longer warn \"measured as ...\" on their affinities: the database files them under another name of the very same molecule, so there was nothing to warn about",
+          "commits": [
+            "8e5518d"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "In French, time to peak and half-life now use the decimal comma like the therapeutic range beside them (\"0,3–3 h\")",
+          "commits": [
+            "b5666ce"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.106.2",
       "date": "2026-10-12",
       "entries": [
