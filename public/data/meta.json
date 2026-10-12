@@ -3871,23 +3871,23 @@
       },
       "drug_bindings": {
         "total": 1910,
-        "verified": 1781,
+        "verified": 1788,
         "uncertain": 103,
         "sourced": 0,
         "llm": 0,
-        "nosource": 26,
-        "missing": 26,
+        "nosource": 19,
+        "missing": 19,
         "unknown": 0
       },
       "drug_binding_action": {
-        "total": 1978,
-        "verified": 1023,
+        "total": 1322,
+        "verified": 1085,
         "uncertain": 103,
         "sourced": 0,
-        "llm": 143,
-        "nosource": 709,
-        "missing": 852,
-        "unknown": 0
+        "llm": 133,
+        "nosource": 1,
+        "missing": 134,
+        "unknown": 656
       },
       "drug_nbn": {
         "total": 116,
@@ -4031,22 +4031,22 @@
       },
       "projections": {
         "total": 110,
-        "verified": 68,
+        "verified": 69,
         "uncertain": 40,
         "sourced": 0,
         "llm": 0,
-        "nosource": 2,
-        "missing": 2,
+        "nosource": 1,
+        "missing": 1,
         "unknown": 0
       },
       "projection_transmitter": {
         "total": 110,
-        "verified": 81,
+        "verified": 82,
         "uncertain": 4,
         "sourced": 0,
-        "llm": 25,
+        "llm": 24,
         "nosource": 0,
-        "missing": 25,
+        "missing": 24,
         "unknown": 0
       },
       "projection_sign": {
@@ -4201,16 +4201,16 @@
       }
     },
     "nodes": {
-      "total": 7560,
-      "verified": 6277,
+      "total": 6904,
+      "verified": 6348,
       "uncertain": 264,
       "sourced": 0,
-      "llm": 266,
-      "nosource": 753,
-      "missing": 1019,
-      "unknown": 0,
-      "backed": 6541,
-      "pct_backed": 87
+      "llm": 255,
+      "nosource": 37,
+      "missing": 292,
+      "unknown": 656,
+      "backed": 6612,
+      "pct_backed": 96
     },
     "ki_coverage": {
       "bindings_total": 1891,

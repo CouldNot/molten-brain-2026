@@ -1,0 +1,262 @@
+{
+ "drug:2cb/bindings[5ht1a]": {
+  "action": "agonist",
+  "index": 0,
+  "note": "2CB high affinity as agonist at 5-HT2 and 5-HT1A"
+ },
+ "drug:2cb/bindings[sert]": {
+  "action": "reuptake_inhibitor",
+  "index": 0,
+  "note": "2C-B non-competitive SERT inhibitor / reuptake inhibitor"
+ },
+ "drug:amisulpride/bindings[d4]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "labels amisulpride a D2, D3, D4 receptor antagonist"
+ },
+ "drug:aripiprazole/bindings[5ht3]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "FR: actions d'antagoniste pour les recepteurs 5-HT3"
+ },
+ "drug:buspirone/bindings[5ht2c]": {
+  "action": "antagonist",
+  "index": 2,
+  "note": "Buspirone was found to be a weak 5-HT2C antagonist"
+ },
+ "drug:clozapine/bindings[5ht3]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "Clozapine is a potent antagonist of 5-HT3 receptors"
+ },
+ "drug:clozapine/bindings[alpha2]": {
+  "action": "antagonist",
+  "index": 7,
+  "note": "potent alpha2-adrenoceptor antagonistic action of clozapine"
+ },
+ "drug:clozapine/bindings[alpha2c]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "selective antagonism of alpha2C receptors by clozapine"
+ },
+ "drug:clozapine/bindings[h2]": {
+  "action": "inverse_agonist",
+  "index": 0,
+  "note": "clozapine is a full inverse agonist at H2"
+ },
+ "drug:cyamemazine/bindings[5ht3]": {
+  "action": "antagonist",
+  "index": 2,
+  "note": "Cyamemazine behaves as an antagonist at 5-HT3"
+ },
+ "drug:cyamemazine/bindings[d1]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "FR: antagoniste, recepteurs D1..D5 listed"
+ },
+ "drug:cyamemazine/bindings[d3]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "FR: antagoniste, recepteurs D1..D5 listed"
+ },
+ "drug:cyamemazine/bindings[d4]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "FR: antagoniste, recepteurs D1..D5 listed"
+ },
+ "drug:cyproheptadine/bindings[5ht2c]": {
+  "action": "antagonist",
+  "index": 1,
+  "note": "cyproheptadine: H1 and 5-HT2A/2B/2C antagonist"
+ },
+ "drug:desipramine/bindings[sigma1]": {
+  "action": "agonist",
+  "index": 1,
+  "note": "sigma1/2 receptor agonists such as desipramine"
+ },
+ "drug:ibogaine/bindings[dat]": {
+  "action": "reuptake_inhibitor",
+  "index": 6,
+  "note": "Ibogaine noncompetitively inhibited transport by SERT and DAT"
+ },
+ "drug:ibogaine/bindings[kappa]": {
+  "action": "agonist",
+  "index": 1,
+  "note": "this molecule's (ibogaine) pharmacology: kappa-opioid agonism"
+ },
+ "drug:ibogaine/bindings[mu]": {
+  "action": "antagonist",
+  "index": 1,
+  "note": "ibogaine ... were MOR antagonists, functional Ke"
+ },
+ "drug:ibogaine/bindings[nmda]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "this molecule's (ibogaine) pharmacology: NMDA antagonism"
+ },
+ "drug:iloperidone/bindings[d1]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "antagonist at all tested receptors except 5-HT2A; D1 listed"
+ },
+ "drug:iloperidone/bindings[d3]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "Antagonism occurs at ... D3"
+ },
+ "drug:iloperidone/bindings[d4]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "antagonism at all other receptors incl. D4"
+ },
+ "drug:loxapine/bindings[d1]": {
+  "action": "antagonist",
+  "index": 1,
+  "note": "loxapine, dopamine antagonist with high affinity for D1"
+ },
+ "drug:melperone/bindings[5ht2a]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "melperone has 5-HT2A receptor antagonistic activity"
+ },
+ "drug:mescaline/bindings[5ht2c]": {
+  "action": "agonist",
+  "index": 1,
+  "note": "FR: agit comme agoniste, 5-HT2A et 5-HT2C"
+ },
+ "drug:methamphetamine/bindings[alpha2b]": {
+  "action": "agonist",
+  "index": 0,
+  "note": "methamphetamine navbox biomolecular targets: alpha2B (agonist)"
+ },
+ "drug:methamphetamine/bindings[alpha2c]": {
+  "action": "agonist",
+  "index": 0,
+  "note": "methamphetamine navbox biomolecular targets: alpha2C (agonist)"
+ },
+ "drug:mianserin/bindings[5ht1d]": {
+  "action": "antagonist",
+  "index": 1,
+  "note": "FR: antagoniste/agoniste inverse des recepteurs ... 5-HT1D"
+ },
+ "drug:mianserin/bindings[alpha2a]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "mianserin behaves as antagonist at alpha2A-ARs"
+ },
+ "drug:mianserin/bindings[d2]": {
+  "action": "antagonist",
+  "index": 2,
+  "note": "labels mianserin a 5-HT2/D2 antagonist"
+ },
+ "drug:mianserin/bindings[h2]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "mianserin inhibited H2-mediated cAMP stimulation, Ki given"
+ },
+ "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1a]": {
+  "action": "partial_agonist",
+  "index": 1,
+  "note": "ref title: mCPP as partial agonist at 5-HT1A"
+ },
+ "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1b]": {
+  "action": "agonist",
+  "index": 1,
+  "note": "5-HT1B/2C receptor agonist meta-chlorophenylpiperazine"
+ },
+ "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[sert]": {
+  "action": "releaser",
+  "index": 0,
+  "note": "mCPP is SRI and serotonin releasing agent; releaser chosen"
+ },
+ "drug:pentazocine/bindings[sigma1]": {
+  "action": "agonist",
+  "index": 2,
+  "note": "sigma1 receptors agonist, pentazocine"
+ },
+ "drug:perphenazine/bindings[d1]": {
+  "action": "antagonist",
+  "index": 3,
+  "note": "mixed D1/D2 dopamine antagonists, perphenazine"
+ },
+ "drug:pizotifen/bindings[h1]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "pizotifen possesses high H1-antihistamine activity"
+ },
+ "drug:pramipexole/bindings[d4]": {
+  "action": "agonist",
+  "index": 0,
+  "note": "acting as an agonist for D2, D3 and D4"
+ },
+ "drug:propranolol/bindings[5ht1a]": {
+  "action": "antagonist",
+  "index": 3,
+  "note": "5-HT1A ... antagonist Propranolol"
+ },
+ "drug:quetiapine/bindings[5ht2b]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: 5-HT2B receptor antagonist"
+ },
+ "drug:quetiapine/bindings[5ht6]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: 5-HT6 receptor antagonist"
+ },
+ "drug:quetiapine/bindings[alpha2]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: alpha1/alpha2 antagonist"
+ },
+ "drug:quetiapine/bindings[d1]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: D1-D5 antagonist"
+ },
+ "drug:quetiapine/bindings[d3]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: D1-D5 antagonist"
+ },
+ "drug:quetiapine/bindings[d4]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: D1-D5 antagonist"
+ },
+ "drug:quetiapine/bindings[d5]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "quetiapine actions list: D1-D5 antagonist"
+ },
+ "drug:risperidone/bindings[5ht2b]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "risperidone dose-dependent inhibitor of 5-HT2B activity"
+ },
+ "drug:risperidone/bindings[d1]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "antagonist of D1 (D1, D5) family"
+ },
+ "drug:risperidone/bindings[d4]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "antagonist of D2 (D2, D3, D4) family"
+ },
+ "drug:risperidone/bindings[d5]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "antagonist of D1 (D1, D5) family"
+ },
+ "drug:sertindole/bindings[5ht6]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "sertindole's directly-binding inhibition of 5-HT6"
+ },
+ "drug:trifluoperazine/bindings[d1]": {
+  "action": "antagonist",
+  "index": 0,
+  "note": "works by blockading dopamine D1 and D2 receptors"
+ }
+}

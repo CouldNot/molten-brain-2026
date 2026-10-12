@@ -274,5 +274,16 @@
   "sign": [
    0
   ]
+ },
+ "claustrum_R->frontal_R": {
+  "transmitter": [
+   0,
+   14
+  ],
+  "route": [
+   0,
+   25,
+   30
+  ]
  }
 }

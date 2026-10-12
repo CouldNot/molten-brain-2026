@@ -11435,9 +11435,463 @@
    "label": "Claustro-frontal projection",
    "candidates": [
     {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39814878,
+     "line": "The ventrolateral pallial (VLp) excitatory neurons in the claustro-amygdalar complex and piriform cortex (PIR; which forms part of the palaeocortex) form reciprocal connections with the prefrontal cortex (PFC), integrating cognitive and sensory information that results in adaptive behaviours 1-5 .",
+     "attrs": [
+      "sign",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively. These data provide the basis for elucidating the neuronal organization underlying diverse claustral functions.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39814878,
+     "line": "The ventrolateral pallial (VLp) excitatory neurons in the claustro-amygdalar complex and piriform cortex (PIR; which forms part of the palaeocortex) form reciprocal connections with the prefrontal cortex (PFC), integrating cognitive and sensory information that results in adaptive behaviours 1-5 . Early-life disruptions in these circuits are linked to neuropsychiatric disorders 4-8 , highlighting the importance of understanding their development.",
+     "attrs": [
+      "sign",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Joint analysis of whole-brain connectivity and single-cell spatial transcriptome showed that these four zones containing distinct compositions of glutamatergic (but not GABAergic) cell types preferentially connected to specific brain regions with a strong ipsilateral bias. Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40920646,
+     "line": "We employed both in vivo and ex vivo electrophysiology and optogenetics in mice to dissect the synaptic organization of projections from the CLA to the anterior cingulate cortex (ACC), a robust claustro-cortical pathway implicated in cognitive functions. Optogenetic stimulation of CLA neurons expressing calcium/calmodulin-dependent protein kinase II alpha (CaMKIIa) or vesicular glutamate transporter-2 (VGLUT2) evoked distinct multiphasic excitatory and inhibitory responses in the ACC that depended on the stimulated CLA neuron population and the recipient layer in the ACC.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "We found that fentanyl transcriptionally activates frontal-projecting claustrum neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "We report that claustral neurons projecting to the frontal cortex limit oral fentanyl self-administration in mice.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "Upregulation of activity in the claustro-frontal projection may be a promising strategy for reducing human opioid addiction.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36192309,
+     "line": "This model proposes that frontal cortices direct the claustrum to flexibly instantiate cortical networks to subserve cognitive control.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41921604,
+     "line": "Altogether, we uncovered a hyper-excitatory drive of the claustrum by the anterior cingulate cortex following chronic alcohol exposure.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "Optogenetic stimulation of frontal-projecting claustral neurons, intervening in this suppression, decreased bouts of fentanyl consumption.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "Together, our results indicate that claustrum neurons exert inhibitory control over frontal cortical neurons to restrict oral fentanyl intake.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39289358,
+     "line": "The Claustrum/dorsal endopiriform cortex complex (CLA) is an enigmatic brain region with extensive glutamatergic projections to multiple cortical areas.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32975316,
+     "line": "The topographic organization of excitatory and inhibitory cell types may enable parallel claustrum outputs to independently coordinate distinct cortical networks.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
      "corpus": "nieuwenhuys",
      "page": 596,
      "line": "The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 19168664,
+     "line": "Using anatomical methods, we found that the rat claustrum is present only at striatal levels of the telencephalon and does not extend to frontal cortical territories.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39578634,
+     "line": "These findings indicate the claustrum can participate in orchestrating neural communication across cortical regions through modulation of prefrontal cortical activity.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41538288,
+     "line": "In this study, we determined that the claustrum (CL) connects the ventral tegmental area (VTA) with the medial prefrontal cortex (mPFC), forming the VTA-CL-mPFC circuit.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31483857,
+     "line": "ClaST neurons were morphologically heterogeneous and mainly located in the dorsal and anterior claustrum, in regions known to project to frontal, motor, and cingulate cortical areas.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40667970,
+     "line": "Individual claustrum neurons were responsive to inputs from more than one cortical region in a cell-type and projection-specific manner, particularly between areas of frontal cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41526356,
+     "line": "Bidirectional communication between medial prefrontal cortex (mPFC) and claustrum (CL) plays a critical role in drug reward memory, particularly for conditioned drug-associated cues.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "In contrast, constitutive inhibition of frontal-projecting claustral neurons in the context of a novel, group-housed self-administration procedure increased fentanyl bout consumption.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "Latexin was expressed, in the macaque, only in the claustrum. The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32975316,
+     "line": "The claustrum core projects predominantly to frontal-midline cortical regions, whereas the dorsal and ventral shell project to the cortical motor system and temporal lobe, respectively.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40667970,
+     "line": "We found that neurons in the claustrum communicate with each other across efferent projection-defined modules which were differentially innervated by sensory and frontal cortical areas.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27038224,
+     "line": "Here we employed neuroanatomical tracers to map projections from the claustrum-insular region to the medial prefrontal and anterior cingulate cortex of the common marmoset (Callithrx jacchus).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27038224,
+     "line": "Medial prefrontal connections were restricted mainly to a ventromedial strip located in the rostral half of the claustrum, with a second, smaller patch of cells in the caudal, ventrolateral portion.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 26973027,
+     "line": "We propose that the overlap between the frontal inputs and the inputs from the sensory modalities may underlie executive regulation of the communication between the claustrum and the cortical modalities.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "We report that claustral neurons projecting to the frontal cortex limit oral fentanyl self-administration in mice. We found that fentanyl transcriptionally activates frontal-projecting claustrum neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "We found that fentanyl transcriptionally activates frontal-projecting claustrum neurons. These neurons also exhibit a unique suppression of Ca 2+ activity upon initiation of bouts of fentanyl consumption.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36807960,
+     "line": "Meanwhile, neurobiological dysfunctions were also observed in a distributed network including the fusiform gyrus, inferior temporal gyrus, insula, prefrontal cortex, anterior cingulate cortex, and claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "The synthetic opioid fentanyl is a major contributor to the current opioid addiction crisis. We report that claustral neurons projecting to the frontal cortex limit oral fentanyl self-administration in mice.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36515182,
+     "line": "In the AD group, high FC of claustrum with regions of sensorimotor cortex and cortical regions related to cognitive control, including cingulate gyrus, supramarginal gyrus, and insular cortex were demonstrated.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41145210,
+     "line": "The claustrum (CLA), a brain area with remarkable interconnectivity to frontal cortices, has recently been shown to have a dense population of serotonin 2 receptors (5-HT2Rs) that are activated by psychedelics.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39578634,
+     "line": "Using mesoscale calcium imaging and Gi and Gq DREADDs in anesthetized mice, we show that decreasing claustral activity enhances prefrontal cortical activity, while activation reduces prefrontal cortical activity.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41212268,
+     "line": "Our findings demonstrate a distinct claustro-amygdalo-prefrontal subcircuit in the marmoset, providing structural foundation for future studies examining the functional relevance of this circuitry in the primate brain.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 26973027,
+     "line": "In this study we mapped the projections from cortical modalities (visual, auditory, somatosensory, motor, and olfactory), and prefrontal regions (anterior cingulate cortex and orbitofrontal cortex) to the claustrum in mice.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 26973027,
+     "line": "Our results clearly demonstrate a dorsoventral laminar organization of projections from the sensory cortices to the claustrum, whereas frontal inputs are more extensive and overlap with the inputs from the sensory cortices.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41212268,
+     "line": "Here, we investigated structural connectivity between the claustrum complex, amygdala, and prefrontal cortex in the adult common marmoset (Callithrix jacchus) using diffusion-weighted tractography and neuroanatomical tracing.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39578634,
+     "line": "These insights deepen our understanding of the claustrum's impact on prefrontal connectivity, large-scale network dynamics, and sensory processing, positioning the claustrum as a key node modulating large-scale cortical dynamics.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41526356,
+     "line": "Bidirectional communication between medial prefrontal cortex (mPFC) and claustrum (CL) plays a critical role in drug reward memory, particularly for conditioned drug-associated cues. However, their precise circuitry remains unclear.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32383444,
+     "line": "In return, layer 5 neurons in the insular cortex and other prefrontal areas, along with a dense cluster of cells dorsal to the claustrum, send a descending projection to subregions of the PB that contain cortically projecting neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36543121,
+     "line": "Using a discovery based functional magnetic resonance imaging (fMRI) approach in mouse, we observe frontal and posterior cortical regions that demonstrate significant functional connectivity with the subcortical nucleus, the claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39578634,
+     "line": "Claustrum inhibition increased the local coupling between frontal cortex areas, but reduced the correlation between anterior medial regions and lateral/posterior regions, while also enhancing sensory-evoked responses in the visual cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 38614082,
+     "line": "Moreover, we discover pathological activity of the claustrum and a region near the posterior inferior frontal sulcus of the right dorsolateral prefrontal cortex (piDLPFC) in migraine patients during acute pain and cognitive task performance.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41503986,
+     "line": "CTB + neurons were mainly observed in the motor cortices, cingulate cortex (Cg), prelimbic cortex (PrL), and insular cortex (IC) with sparse distributions in the sensory cortices, orbitofrontal cortex (OFC), piriform cortex (Pir) and claustrum (CL).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36192309,
+     "line": "This model proposes that frontal cortices direct the claustrum to flexibly instantiate cortical networks to subserve cognitive control. We present literature support for this model and provide testable predictions arising from this conceptual framework.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "These neurons also exhibit a unique suppression of Ca 2+ activity upon initiation of bouts of fentanyl consumption. Optogenetic stimulation of frontal-projecting claustral neurons, intervening in this suppression, decreased bouts of fentanyl consumption.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40808791,
+     "line": "Using an open resource of 234 functional MRI scans from awake marmosets, we found claustrum connectivity to the prefrontal cortex, posterior parietal cortex, temporal cortices, cingulate cortex, sensory cortices, limbic areas, basal ganglia, and cerebellum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections. Taken together, our data suggest a partial commonality between claustral neurons and a subtype of cortical neurons in the monkey brain.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31483857,
+     "line": "ClaST neurons were morphologically heterogeneous and mainly located in the dorsal and anterior claustrum, in regions known to project to frontal, motor, and cingulate cortical areas. The ratio of ClaST to WMNsST was about 4:1 averaged across the four injections.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39289358,
+     "line": "The Claustrum/dorsal endopiriform cortex complex (CLA) is an enigmatic brain region with extensive glutamatergic projections to multiple cortical areas. The transcription factor Nurr1 is highly expressed in the CLA, but its role in this region is not understood.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41538288,
+     "line": "Drug-associated environmental cues can trigger drug-seeking behavior and precipitate relapse. In this study, we determined that the claustrum (CL) connects the ventral tegmental area (VTA) with the medial prefrontal cortex (mPFC), forming the VTA-CL-mPFC circuit.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37379841,
+     "line": "Together, our results indicate that claustrum neurons exert inhibitory control over frontal cortical neurons to restrict oral fentanyl intake. Upregulation of activity in the claustro-frontal projection may be a promising strategy for reducing human opioid addiction.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32531275,
+     "line": "These cortical regions were predominantly frontal and limbic regions and not primary sensorimotor regions. We show that CLA-ACC neurons receive monosynaptic input from the insular cortex, thereby revealing a potential claustrum substrate mediating the Salience Network.",
      "attrs": [
       "route"
      ]
@@ -11451,49 +11905,17 @@
      ]
     },
     {
+     "corpus": "europepmc",
+     "page": 19168664,
+     "line": "Using anatomical methods, we found that the rat claustrum is present only at striatal levels of the telencephalon and does not extend to frontal cortical territories. Moreover, the claustrum is surrounded on all sides by layer VI insular cortex cells in both the rat and primate.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
      "corpus": "nieuwenhuys",
      "page": 596,
      "line": "The _inferior_ _occipitofrontal_ _fasciculus_ and the _uncinate_ _fasciculus_ form part of a single fibre complex. The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 596,
-     "line": "The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe. The inferior occipitofrontal fasciculus consists of fibres that connect the lateral parts of the frontal lobe with the inferior temporal and medial and lateral occipitotemporal gyri and with the occipital lobe.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 785,
-     "line": "In the frontal eye field, neural signals related to saccades are located more dorsally than those related to smooth pursuit (Fig. The frontal eye fields are connected with striatum, claustrum, thalamus and centres such as the superior colliculus, the vertical and horizontal gaze centres, the nucleus prepositus hypoglossi and the precerebellar nucleus reticularis tegmenti pontis and the pontine nuclei (Fig.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 785,
-     "line": "The frontal eye fields are connected with striatum, claustrum, thalamus and centres such as the superior colliculus, the vertical and horizontal gaze centres, the nucleus prepositus hypoglossi and the precerebellar nucleus reticularis tegmenti pontis and the pontine nuclei (Fig. Thalamic connections of the parietal eye fields, like those of areas MT and MST, are with the inferior, lateral and medial pulvinar [89].",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 423,
-     "line": "sensory cortex S1 (areas 3, 1, 2), the somatosensory association areas 5 and 7, the visual areas 17, 18 and 19, the auditory association area 22, the primary motor cortex (area 4), the premotor cortex (area 6, lateral part), the supplementary motor cortex (area 6, medial part), the prefrontal area 46, the orbitofrontal area 12, the temperopolar area 38 and the cingulate area 24 (Fig. The entorhinal area 28 and the paleocortical, olfactory area 51 are connected with the ventral part of the claustrum (Fig.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 542,
-     "line": "10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex. The claustral and amygdaloid efferents have been discussed in Chap.",
      "attrs": [
       "route"
      ]
@@ -11514,9 +11936,208 @@
    "label": "Claustro-insular projection",
    "candidates": [
     {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons. Comparison of macaque, marmoset, and mouse transcriptomes revealed macaque-specific cell types.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Claustrum orchestrates brain functions via its connections with numerous brain regions, but its molecular and cellular organization remains unresolved. Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "We found UCMA to be the most significantly enriched gene in the insular cortex and confirmed specific expression of NR4A2 , NTNG2 , and LXN in the claustrum. Furthermore, the insula was found to have enriched expression of genes associated with mood disorders, learning, cardiac muscle contraction, oxygen transport, glutamate and dopamine signaling.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 42361098,
+     "line": "Claustrum exhibited anatomical connectivity with regions representing all implicated networks, and claustrum effective connectivity suggested an excitatory influence on regions in multiple task-associated networks. Task response and connectivity measures differed between the claustrum and regions prominently implicated in directing network states-the anterior insula and pulvinar.",
+     "attrs": [
+      "sign",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "Furthermore, the insula was found to have enriched expression of genes associated with mood disorders, learning, cardiac muscle contraction, oxygen transport, glutamate and dopamine signaling. Specific expression in the claustrum was enriched for genes pertaining to human immunodeficiency virus (HIV), severe intellectual disability, epileptic encephalopathy, intracellular transport, spine development, and macroautophagy.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40920646,
+     "line": "We employed both in vivo and ex vivo electrophysiology and optogenetics in mice to dissect the synaptic organization of projections from the CLA to the anterior cingulate cortex (ACC), a robust claustro-cortical pathway implicated in cognitive functions. Optogenetic stimulation of CLA neurons expressing calcium/calmodulin-dependent protein kinase II alpha (CaMKIIa) or vesicular glutamate transporter-2 (VGLUT2) evoked distinct multiphasic excitatory and inhibitory responses in the ACC that depended on the stimulated CLA neuron population and the recipient layer in the ACC.",
+     "attrs": [
+      "transmitter",
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "Dendrites of claustral neurons did not invade the overlying insular territory.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36516730,
+     "line": "The human claustrum is a gray matter structure in the white matter between insula and striatum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27580962,
+     "line": "The claustrum is a small, elongated nucleus close to the external capsule and deep in the insular cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 30534060,
+     "line": "The claustrum is a narrow subcortical brain structure that resides between the striatum and insular cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 19168664,
+     "line": "Moreover, the claustrum is surrounded on all sides by layer VI insular cortex cells in both the rat and primate.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 38635579,
+     "line": "This coactivation has been reported in the left claustrum/insular cortex or in the right claustrum/insular cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "Altogether, our results provide a novel molecular perspective on the unique properties of the insula and claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "Brain-wide, we find that markers of the adult claustrum are most specifically expressed in the fetal and adult insula.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 30534060,
+     "line": "In contrast, the insular cortex and endopiriform nucleus surrounding the claustrum had rich interconnectivity with aINS.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "In addition, specific insular and claustral expression of genes pertaining to diseases, addiction, and depression was tested.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27741357,
+     "line": "In the human brain, the claustrum is a small subcortical telencephalic nucleus, situated between the insular cortex and the putamen.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "Exceptions include high insular expression of genes linked to cocaine abuse and genes associated with ever smoking in the claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41921604,
+     "line": "Altogether, we uncovered a hyper-excitatory drive of the claustrum by the anterior cingulate cortex following chronic alcohol exposure.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40838426,
+     "line": "The claustrum is a band-like gray matter structure located between putamen and insula whose exact functions are still actively researched.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41431109,
+     "line": "Nurr1-deficient claustral cells aberrantly migrate into insular cortex, shaping claustrum from a crescent-like into a wing-like structure.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
      "corpus": "nieuwenhuys",
      "page": 421,
      "line": "The claustrum can be divided into a compact dorsal or insular part and a more diffuse temporal or ventral part [24, 39, 101, 124, 169, 196].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 38635579,
+     "line": "One of the most extended cognitive processes attributed to the claustrum is the salience process, which is also related to the insular cortex.",
      "attrs": [
       "route"
      ]
@@ -11530,9 +12151,129 @@
      ]
     },
     {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "We tested for enrichment of genes related to addiction and depression, but they were generally not highly specific to the insula-claustrum region.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 37095366,
+     "line": "The present study, employing a comparative proteomic approach, analyzes the protein profile of pig claustrum (CLA), putamen (PU), and insula (IN).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 28077707,
+     "line": "The claustrum, a subcortical structure situated between the insular cortex and striatum, is reciprocally connected with almost all neocortical regions.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 16147522,
+     "line": "The claustrum is a thin, irregular, sheet-like neuronal structure hidden beneath the inner surface of the neocortex in the general region of the insula.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39289358,
+     "line": "The Claustrum/dorsal endopiriform cortex complex (CLA) is an enigmatic brain region with extensive glutamatergic projections to multiple cortical areas.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 38707622,
+     "line": "Background The claustrum (CLA), a subcortical area between the insular cortex and striatum, innervates almost all cortical regions of the mammalian brain.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "NetrinG2 and nurr1 genes were co-expressed across entire cortex and claustrum, but cux2 and nurr1 were co-expressed only in the insular cortex and claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "We found UCMA to be the most significantly enriched gene in the insular cortex and confirmed specific expression of NR4A2 , NTNG2 , and LXN in the claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40242731,
+     "line": "The IFOF was found to traverse through key areas, including the extreme capsule, insula, and claustrum, and was closely associated with the uncinate fasciculus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "The insular cortex has been linked to a multitude of functions. In contrast, the nearby claustrum is a densely connected subcortical region with unclear function.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "To view the insula-claustrum region from the molecular perspective we analyzed the transcriptomic profile of these areas in six adult and four fetal human brains.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32531275,
+     "line": "We show that CLA-ACC neurons receive monosynaptic input from the insular cortex, thereby revealing a potential claustrum substrate mediating the Salience Network.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32975316,
+     "line": "The topographic organization of excitatory and inhibitory cell types may enable parallel claustrum outputs to independently coordinate distinct cortical networks.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40920646,
+     "line": "The claustrum (CLA) is a thin and elongated brain structure that is located between the insula and lateral striatum and is implicated in a wide range of behaviors.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
      "corpus": "nieuwenhuys",
      "page": 596,
      "line": "The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 25653596,
+     "line": "The claustrum is a telencephalic structure which consists of dorsal segment adjoining the insular cortex and a ventral segment termed also endopiriform nucleus (END).",
      "attrs": [
       "route"
      ]
@@ -11546,9 +12287,113 @@
      ]
     },
     {
+     "corpus": "europepmc",
+     "page": 42361098,
+     "line": "Task response and connectivity measures differed between the claustrum and regions prominently implicated in directing network states-the anterior insula and pulvinar.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24319409,
+     "line": "A role is proposed for the phasic activation of the basal forebrain cholinergic nucleus by cortical projections from the complex consisting of the insula and claustrum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
      "corpus": "nieuwenhuys",
      "page": 421,
      "line": "5.4–5.8, 5.31–5.34, 6.35–6.41). The claustrum can be divided into a compact dorsal or insular part and a more diffuse temporal or ventral part [24, 39, 101, 124, 169, 196].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "At the anatomical level, we used brain-wide analyses to determine the specificity of our results and to determine the transcriptomic similarity of the insula-claustrum region.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 17275187,
+     "line": "The paralimbic cortices including the insular and transentorhinal cortices may connect visual areas with limbic areas by relay of the visuo-claustral or visuo-amygdaloid pathway.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "Latexin was expressed, in the macaque, only in the claustrum. The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 38027491,
+     "line": "The neural circuits involved are PBN-amygdala, LC-RVM, amygdala-insula, ACC-amygdala, claustrum-ACC, bed nucleus of the stria terminalis-PVN and the PVN-ventral lateral septum circuit.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 38635579,
+     "line": "In the same way, studies with human subjects and functional magnetic resonance imaging have reported the coactivation of the claustrum/insular cortex in the integration of sensory signals.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "The identity of the claustrum as a part of cerebral cortex, and in particular of the adjacent insular cortex, has been investigated by connectivity features and patterns of gene expression.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27580962,
+     "line": "The claustrum is a small, elongated nucleus close to the external capsule and deep in the insular cortex. In rodents, this nucleus is characterized by a dense cluster of parvalbumin labeling.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27038224,
+     "line": "Here we employed neuroanatomical tracers to map projections from the claustrum-insular region to the medial prefrontal and anterior cingulate cortex of the common marmoset (Callithrx jacchus).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27038224,
+     "line": "The resulting distribution of transported label showed rostral-caudal and dorsal-ventral topographic arrangement of claustrum connections and clear rostral-caudal topography of insular projections.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 24904319,
+     "line": "Moreover, in the embryonic (E110) macaque brain, many nurr1 (+) neurons were scattered in the white matter between the claustrum and the insular cortex, possibly representing their migratory history.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 30534060,
+     "line": "In contrast, the insular cortex and endopiriform nucleus surrounding the claustrum had rich interconnectivity with aINS. Additionally, we observed a modest interconnectivity between ACC and the aINS.",
      "attrs": [
       "route"
      ]
@@ -11570,89 +12415,9 @@
      ]
     },
     {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "**Topography,** **Subdivision** **and** **Structure** The claustrum is a thin sheet of grey matter, embedded in the white matter of the cerebral hemispheres and largely situated between the putamen and the insular cortex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "Most authors held, however, that the claustrum arises independently from both the insular cortex and the striatum [47, 57, 58, 77, 91, 167, 168]. According to Holmgren [77] and Källén [91] the claustrum is clearly of pallial derivation.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 596,
-     "line": "The _inferior_ _occipitofrontal_ _fasciculus_ and the _uncinate_ _fasciculus_ form part of a single fibre complex. The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "Brodmann [26] and Rose [178] considered it to be derived from the insular cortex. Brodmann thought that the claustrum is the product of a doubling of the deepest (i.e. the sixth) layer of the insular cortex, but according to Rose it develops directly from the insular cortical plate.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "The claustrum is a thin sheet of grey matter, embedded in the white matter of the cerebral hemispheres and largely situated between the putamen and the insular cortex. It is separated from these structures by the _extreme_ _capsule_ laterally and the _external_ _capsule_ medially (Figs.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "The claustrum can be divided into a compact dorsal or insular part and a more diffuse temporal or ventral part [24, 39, 101, 124, 169, 196]. The latter, which is fragmented by fibre bundles related to the anterior commissure and the uncinate fasciculus, extends laterally to the amygdaloid complex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "Brodmann thought that the claustrum is the product of a doubling of the deepest (i.e. the sixth) layer of the insular cortex, but according to Rose it develops directly from the insular cortical plate. Most authors held, however, that the claustrum arises independently from both the insular cortex and the striatum [47, 57, 58, 77, 91, 167, 168].",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 596,
-     "line": "The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe. The inferior occipitofrontal fasciculus consists of fibres that connect the lateral parts of the frontal lobe with the inferior temporal and medial and lateral occipitotemporal gyri and with the occipital lobe.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 343,
-     "line": "ac Anterior commissure acc Accumbens nucleus bla Basolateral amygdaloid nucleus bma Basomedial amygdaloid nucleus bst Bed nucleus of stria terminalis cau Caudate nucleus cc Corpus callosum cea Central amygdaloid nucleus cldl Claustrum, dorsolateral part clvm Claustrum, ventromedial part DP Dorsal pallium gp Globus pallidus hipc Hippocampal cortex ic Internal capsule ins Insula insc Insular cortex isCal Island of Calleja la Lateral amygdaloid nucleus",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 343,
-     "line": "338 Section II Structure of Spinal Cord and Brain Parts ac Anterior commissure acc Accumbens nucleus bla Basolateral amygdaloid nucleus bma Basomedial amygdaloid nucleus bst Bed nucleus of stria terminalis cau Caudate nucleus cc Corpus callosum cea Central amygdaloid nucleus cldl Claustrum, dorsolateral part clvm Claustrum, ventromedial part DP Dorsal pallium gp Globus pallidus hipc Hippocampal cortex ic Internal capsule ins Insula insc Insular cortex isCal Island of Calleja la Lateral amygdaloid nucleus",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 343,
-     "line": "ac Anterior commissure acc Accumbens nucleus bla Basolateral amygdaloid nucleus bma Basomedial amygdaloid nucleus bst Bed nucleus of stria terminalis cau Caudate nucleus cc Corpus callosum cea Central amygdaloid nucleus cldl Claustrum, dorsolateral part clvm Claustrum, ventromedial part DP Dorsal pallium gp Globus pallidus hipc Hippocampal cortex ic Internal capsule ins Insula insc Insular cortex isCal Island of Calleja la Lateral amygdaloid nucleus LGE Lateral ganglionic eminence lot Lateral olfactory tract lv Lateral ventricle LP Lateral pallium ma Medial amygdaloid nucleus MGE Medial ganglionic eminence MP Medial pallium nc Neocortex ndb Nucleus of the diagonal band ot Olfactory tubercle pirc Piriform cortex psb Palliosubpallial boundary put Putamen sep Septum VP Ventral pallium vp Ventral pallidum vst Ventral striatum",
+     "corpus": "europepmc",
+     "page": 36807960,
+     "line": "Meanwhile, neurobiological dysfunctions were also observed in a distributed network including the fusiform gyrus, inferior temporal gyrus, insula, prefrontal cortex, anterior cingulate cortex, and claustrum.",
      "attrs": [
       "route"
      ]

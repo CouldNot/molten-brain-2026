@@ -14,6 +14,32 @@
     "provenance": "verified"
    }
   ],
+  "claustrum_R->frontal_R": [
+   {
+    "corpus": "europepmc",
+    "page": 40185102,
+    "quote": "Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 32975316,
+    "quote": "The claustrum core projects predominantly to frontal-midline cortical regions, whereas the dorsal and ventral shell project to the cortical motor system and temporal lobe, respectively.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 37379841,
+    "quote": "We report that claustral neurons projecting to the frontal cortex limit oral fentanyl self-administration in mice. We found that fentanyl transcriptionally activates frontal-projecting claustrum neurons.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 39289358,
+    "quote": "The Claustrum/dorsal endopiriform cortex complex (CLA) is an enigmatic brain region with extensive glutamatergic projections to multiple cortical areas.",
+    "provenance": "verified"
+   }
+  ],
   "frontal_L->frontal_R": [
    {
     "corpus": "nieuwenhuys",

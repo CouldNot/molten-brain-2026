@@ -401,6 +401,8 @@ chlorpromazine.
 - **Trimipramine at Nav** (tentative): Stahl says only "blockade of ion channels", and the
   existing Nav precedent requires an explicit sodium-channel statement.
 
+**Europe PMC follow-up (2026-10-12, Claude Code + Opus).** Abstract searches (ligand AND GABA-A AND a modulation word) closed brotizolam (PMID 2569655, enhances GABA-stimulated chloride influx through the benzodiazepine receptor), plus meprobamate (PMID 9067327), chloral hydrate (PMID 18383504), etomidate and brivaracetam (their own article prose). The independent judge refused glutethimide (an abstract that only shows it weakly enhances GABA *binding* while inhibiting diazepam binding) and phenazepam (listed among "agonists" in a fish-brain ATPase assay); butobarbital, cyclobarbital, nimetazepam and secobarbital returned no abstract stating it at all. These are directed bindings, so they stay red ✕ rather than UNKNOWN (only a missing *direction* can be UNKNOWN today).
+
 **Known conflict, deliberately not resolved.** Stahl p788 explains sulpiride's sedation and dry
 mouth by antihistaminic and muscarinic blockade (the source now on H1, matching its already
 sourced M1-M5 and α1 siblings), while the English Wikipedia article states a "lack of α1
@@ -409,6 +411,15 @@ on every run rather than arbitrating it.
 
 **How to tackle the rest.** Primary literature only. Some will honestly stay unsourced:
 publishing a binding we cannot cite is worse than an `NOSOURCE` pill.
+
+### 3b. `drug_binding_action` on affinity-only bindings: the UNKNOWN search (2026-10-12)
+
+Every binding with a measured Ki but no direction (709: 666 drug + 43 metabolite) was searched for its direction across the five corpora `unknown.UNKNOWN_REQUIRED_SOURCES` requires: PDSP (#5, Ki rows only, never a direction), GtoPdb's action column (#11), the EN Wikipedia article's Ki-table Action column and prose (#9), the FR article (#10), and Europe PMC (#17, `ligand AND target AND direction word`, top 5 abstracts stored). An Opus picker answered by index, an independent Opus judge rechecked; recipe in `tools/README.md`.
+
+- **52 directions landed** (40 antagonist, 9 agonist, 2 reuptake inhibitor, 1 each inverse agonist / partial agonist / releaser, minus the 2 the judge refused: (-)-propranolol is one enantiomer, and thiothixene's H2 sentence only says the antagonism was *studied*).
+- **1 direction found but not applied:** GtoPdb records norfluoxetine at 5-HT2B as an antagonist (pKi 5.3, PMID 11104741), but the GtoPdb ligand pass (`apply_gtopdb_ki.py`) covers parent drugs only, so a metabolite's row has no page to cite yet. It stays red ✕, not UNKNOWN.
+- **656 are UNKNOWN** (∅ pill, logged in `tools/generated_cache/unknown_searches.json`, out of the headline denominator). 306 of them returned not a single Europe PMC abstract; the other 350 were offered sentences (198 bindings) none of which states the direction for that exact ligand and target. The typical miss: an abstract uses the drug as a tool compound, a sentence names the receptor family not the subtype, or "DMT" means dexmedetomidine.
+- The searches expire after 12 months (`check_data.py` family 13), so the log has to be re-run by 2027-10-12.
 
 ### 4. `receptor_locations`, 23 / 383 missing (**limit, not a gap**)
 
