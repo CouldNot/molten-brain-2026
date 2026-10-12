@@ -1250,11 +1250,16 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     d.primaryBrand = (stems.find((e) => e.plain)
       || stems.find((e) => selfCombo || !e.combo)
       || {}).stem || d.brandNames[0] || null;
-    d.displayName = d.primaryBrand ? `${d.name} (${d.primaryBrand})` : d.name;
+    // `label` = the name plus its display-only chemical synonym when the generator
+    // emits one (DRUG_NAME_QUALIFIERS: "Paliperidone (9-OH-risperidone)"); `name`
+    // itself stays the INN, which the external lookup links search by.
+    d.label = d.name_qualifier ? `${d.name} (${d.name_qualifier})` : d.name;
+    d.displayName = d.primaryBrand ? `${d.label} (${d.primaryBrand})` : d.label;
     // `aliases` are the search-only alternate names (GHB for sodium oxybate, ecstasy
     // for MDMA, ...). They join the haystack and are never rendered: a drug is always
     // shown under its own name, so an alias only ever helps someone find it.
     d.keywords = [...d.categoryLabels, d.nbn, ...d.brandNames, ...(d.aliases || []),
+                  d.name_qualifier,
                   ...d.bindings.map((b) => b.targetName)]
       .filter(Boolean)
       .join(" ");
@@ -1318,7 +1323,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         };
       });
       return {
-        name: m.name,
+        // A metabolite that IS a modeled drug shows under that drug's label, so the
+        // reader sees it is the same molecule (risperidone's "Paliperidone
+        // (9-OH-risperidone)" row is the paliperidone drug).
+        name: linked ? linked.label || linked.name : m.name,
         drugId: linkedId,
         formedBy,
         // Whether the link points at a standalone, clickable drug (so we can jump to
@@ -1335,6 +1343,18 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         provenance: strongestGrade(m.sources),
       };
     });
+  }
+
+  // The reverse of a linked metabolite: on the metabolite drug's own panel, which
+  // drugs it is the active metabolite of (paliperidone -> risperidone), each with
+  // the parent's sourced metabolite entry so the claim keeps its pill.
+  for (const d of drugs) {
+    for (const m of d.metabolites) {
+      const child = m.drugId && drugById.get(m.drugId);
+      if (!child || child === d) continue;
+      (child.metaboliteOf ||= []).push({ parent: d, sources: m.sources,
+                                         provenance: m.provenance });
+    }
   }
 
   const { drugsByTarget, prodrugsByTarget } = indexDrugsByTarget(drugs);

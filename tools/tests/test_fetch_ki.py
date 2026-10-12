@@ -130,8 +130,32 @@ class IdentityAliasPoolingTest(unittest.TestCase):
         direct = fetch_ki.summarize_target(rows, "alpha2")
         for s in (aliased, direct):
             fetch_ki._stamp_mapping(s, mapping)
-        self.assertTrue(aliased["source"].get("mapped"))
-        self.assertNotIn("mapped", direct["source"])
+        self.assertEqual(aliased["source"].get("relation"), "identity")
+        self.assertNotIn("relation", direct["source"])
+
+
+class IdentityAliasNoWarningTest(unittest.TestCase):
+    """An ``identity`` alias is the same molecule, so its Ki carries no "measured as"
+    badge (regression: paliperidone showed "measured as 9-OH-risperidone" on every
+    binding), while a real chemical relation (enantiomer) still does."""
+
+    def _stamp(self, relation):
+        src = {"ki_id": 7, "mapped": True, "measured_as": "stale"}
+        fetch_ki._stamp_mapping({"source": src}, {
+            "pdsp_names": ["X"], "relation": relation, "note": "x", "ki_ids": [7]})
+        return src
+
+    def test_identity_not_flagged(self):
+        src = self._stamp("identity")
+        self.assertNotIn("mapped", src)
+        self.assertNotIn("measured_as", src)
+        self.assertEqual(src["relation"], "identity")
+        self.assertEqual(src["pdsp_names"], ["X"])
+
+    def test_enantiomer_flagged(self):
+        src = self._stamp("enantiomer")
+        self.assertTrue(src["mapped"])
+        self.assertEqual(src["measured_as"], "x")
 
 
 class DownloadContextTest(unittest.TestCase):

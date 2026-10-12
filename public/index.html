@@ -2707,6 +2707,9 @@
       /* Same slot, for a metabolite that is itself a modeled drug: its bindings live
          on its own panel, so this points there instead of duplicating them. */
       .info-metabolites .metab-jump { font-size: 12px; }
+      /* A drug name that jumps to its drug (js/main.js drugNameLink): the Drugs-list
+         row look (.legend-item.clickable), inline so it can sit in a sentence. */
+      .drug-name-link { display: inline-flex; margin: 0; }
       /* Brief highlight on the row a jump landed ON, so arriving in another node's
          panel has a visible anchor (a metabolite reached from a receptor's
          Interacting-drugs list, an isoform reached from another drug's Interactions

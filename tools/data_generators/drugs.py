@@ -354,6 +354,16 @@ METABOLIZER_GROUPS: dict[str, dict[str, str]] = {
     "south_american": {"en": "South American", "fr": "Amérique du Sud"},
 }
 
+# A chemical synonym SHOWN beside a drug's name ("Paliperidone (9-OH-risperidone)"),
+# for the rare drug better understood through another molecule it literally is.
+# Display-only: the record's `name` stays the INN, since the fetchers join corpora on
+# it (PDSP, DailyMed, Wikipedia). Also searchable. Ungraded like DRUG_ALIASES (a
+# naming fact, not a brain claim); the relationship itself is sourced elsewhere
+# (risperidone's `metabolites[]` entry links paliperidone with a Stahl quote).
+DRUG_NAME_QUALIFIERS: dict[str, str] = {
+    "paliperidone": "9-OH-risperidone",
+}
+
 # Extra names a user might type in the search box for a drug we already model:
 # street names, chemical synonyms, abbreviations, and the alternate INN/USAN spellings
 # a non-English reader reaches for. Search-only, never displayed, which is why they are
@@ -398,6 +408,7 @@ DRUG_ALIASES: dict[str, list[str]] = {
     # The acronyms clinicians write: MPH (methylphenidate), DXM (dextromethorphan).
     "methylphenidate_d": ["MPH", "d-MPH", "dexmethylphenidate"],
     "methylphenidate_dl": ["MPH"],
+    "paliperidone": ["9-hydroxyrisperidone"],
     "dextromethorphanbupropion": ["DXM"],
     "dextromethorphanquinidine": ["DXM"],
     "cocaine": ["coke", "crack", "benzoylmethylecgonine"],

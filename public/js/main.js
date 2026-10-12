@@ -2828,6 +2828,19 @@ function createInfoPanel(data, sourcingModal) {
     return frag;
   };
 
+  // A drug's name as a plain clickable label, the same `.legend-item.clickable` look
+  // as the Drugs list rows, so a name that jumps to a drug reads alike everywhere.
+  const drugNameLink = (drug, text = drug.label || drug.name) => {
+    const a = el("span", "legend-item clickable drug-name-link", text);
+    a.setAttribute("role", "link");
+    a.tabIndex = 0;
+    a.addEventListener("click", () => onDrugPick(drug));
+    a.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onDrugPick(drug); }
+    });
+    return a;
+  };
+
   // One binding row, shared by the drug panel's "Acts on" list and a
   // receptor/target panel's "Interacting drugs" list: the two render the *same*
   // resolved binding from opposite ends (a drug's target vs a target's drug), so
@@ -4065,8 +4078,22 @@ function createInfoPanel(data, sourcingModal) {
     //   from another drug's Interactions row, which names the isoform they share.
     showDrug(drug, opts = {}) {
       clearBody();
-      body.appendChild(el("h2", "info-title", drug.name));
+      body.appendChild(el("h2", "info-title", drug.label || drug.name));
       if (drug.category) body.appendChild(el("div", "info-group", drug.category));
+      // This drug IS another drug's active metabolite (paliperidone = risperidone's
+      // 9-hydroxy metabolite): say so up top, each parent a link, the claim carrying
+      // the parent's sourced metabolite pill.
+      if (drug.metaboliteOf && drug.metaboliteOf.length) {
+        const p = el("p", "info-desc metab-of", `${t("drug.activeMetaboliteOf")} `);
+        drug.metaboliteOf.forEach(({ parent, sources, provenance }, i) => {
+          if (i) p.appendChild(document.createTextNode(", "));
+          p.appendChild(drugNameLink(parent));
+          p.appendChild(sources && sources.length
+            ? makeProvenancePill(provenance, sourcesTip(sources))
+            : makeProvenancePill(provenance || null));
+        });
+        body.appendChild(p);
+      }
 
       // Combination drug: no PDSP Ki of its own (it is a mixture). Warn, and link to
       // each constituent we model as a standalone drug so its binding profile is one

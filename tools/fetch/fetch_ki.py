@@ -236,8 +236,9 @@ def parse_ki(val):
 # enantiomer, salt or active metabolite; a ``prodrug: true`` drug is skipped, its
 # metabolite carries the Ki). Each maps our drug id -> the
 # EXACT PDSP ligand name(s) to borrow, plus the chemical relation and a human note.
-# EVERY aliased match is flagged so the viewer warns which compound the Ki was
-# actually measured on. Deutetrabenazine / valbenazine are deliberately NOT here:
+# Every non-``identity`` aliased match is flagged so the viewer warns which
+# compound the Ki was actually measured on (an identity alias is the same molecule,
+# see `_stamp_mapping`). Deutetrabenazine / valbenazine are deliberately NOT here:
 # PDSP has only a single distant `tetrabenazine` assay, too weak to map honestly.
 # Each value is (pdsp_names, relation, compound): `compound` is a short, language-
 # neutral chemical label of what PDSP actually measured (shown in the viewer's "⚠
@@ -485,13 +486,22 @@ def find_drug(query):
 
 def _stamp_mapping(summary, mapping):
     """Mark a summary's source as recovered through the alias map, so the viewer can
-    warn which compound the Ki was actually measured on."""
+    warn which compound the Ki was actually measured on.
+
+    An ``identity`` alias is the SAME molecule under another PDSP label
+    (paliperidone = 9-OH-risperidone), so there is nothing to warn about: it keeps
+    the traceability fields (``relation``, ``pdsp_names``) but never ``mapped`` /
+    ``measured_as``, which are what raise the viewer's "measured as" badge."""
     if (summary and mapping and summary.get("source")
             and summary["source"].get("ki_id") in mapping["ki_ids"]):
-        summary["source"]["mapped"] = True
-        summary["source"]["measured_as"] = mapping["note"]
-        summary["source"]["relation"] = mapping["relation"]
-        summary["source"]["pdsp_names"] = mapping["pdsp_names"]
+        src = summary["source"]
+        for k in ("mapped", "measured_as"):
+            src.pop(k, None)
+        if mapping["relation"] != "identity":
+            src["mapped"] = True
+            src["measured_as"] = mapping["note"]
+        src["relation"] = mapping["relation"]
+        src["pdsp_names"] = mapping["pdsp_names"]
 
 
 def analyze(rows, bound):

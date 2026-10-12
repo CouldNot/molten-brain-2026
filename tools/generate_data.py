@@ -102,6 +102,7 @@ from data_generators import history  # noqa: E402 (regulatory history vocabulari
 from data_generators.drugs import (  # noqa: E402
     DRUG_ACTIONS,
     DRUG_ALIASES,
+    DRUG_NAME_QUALIFIERS,
     DRUG_CATEGORY_LABELS,
     DRUG_EFFECT_COLORS,
     DRUG_EFFECT_LABELS,
@@ -683,12 +684,14 @@ def _check_drug_aliases(drug_ids: set[str]) -> None:
     An alias keyed on a typo is silently inert (nothing ever looks it up), which
     would read as "GHB still doesn't find it" with nothing to grep for.
     """
-    unknown = sorted(set(DRUG_ALIASES) - drug_ids)
-    if unknown:
-        raise SystemExit(
-            f"DRUG_ALIASES keys are not drug ids: {unknown}; "
-            f"fix the id or drop the entry"
-        )
+    for name, table in (("DRUG_ALIASES", DRUG_ALIASES),
+                        ("DRUG_NAME_QUALIFIERS", DRUG_NAME_QUALIFIERS)):
+        unknown = sorted(set(table) - drug_ids)
+        if unknown:
+            raise SystemExit(
+                f"{name} keys are not drug ids: {unknown}; "
+                f"fix the id or drop the entry"
+            )
 
 
 def _check_structure_aliases() -> None:
@@ -1377,6 +1380,9 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     aliases = DRUG_ALIASES.get(drug["id"])
     if aliases:
         out["aliases"] = list(aliases)
+    # Display-only chemical synonym shown beside the name (see DRUG_NAME_QUALIFIERS).
+    if drug["id"] in DRUG_NAME_QUALIFIERS:
+        out["name_qualifier"] = DRUG_NAME_QUALIFIERS[drug["id"]]
     # A combination product is normally NAMED after its parts, so the viewer reads
     # them off the name. A salt of two molecules carries an INN of its own instead
     # (dimenhydrinate IS diphenhydramine + 8-chlorotheophylline), so it states them
