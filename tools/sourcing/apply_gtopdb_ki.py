@@ -42,6 +42,7 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import json
 import sys
 from pathlib import Path
@@ -118,6 +119,83 @@ def strip_previous(binding: dict) -> None:
         _drop_our_source(binding)
 
 
+def apply_entry(binding: dict, entry: dict | None, owner: str, page_cache: dict,
+                tally: Counter, refinements: list, conflicts: list) -> None:
+    """Merge one GtoPdb proposal into one binding (a drug's or a metabolite's).
+
+    The four guarantees of the module docstring, applied identically to either owner:
+    the gate, Ki only where none, a direction only onto an affinity-only binding, and
+    the row as the citation of a direction we already state uncited."""
+    strip_previous(binding)
+    if not entry:
+        return
+    src = entry["source"]
+    if not gate(src["quote"], src["page"], page_cache):
+        tally["gate_fail"] += 1
+        return
+    source = {k: v for k, v in src.items() if v is not None}
+
+    if entry.get("ki") and not binding.get("ki"):
+        ki = dict(entry["ki"])
+        param = ki.pop("param", None)
+        ki["source"] = {**source,
+                        # The affinity is a pKi/pKd converted to nM; keep the
+                        # original parameter visible so a reader knows which.
+                        **({"note": f"GtoPdb {param}"} if param else {}),
+                        "value_nm": ki["median"]}
+        binding["ki"] = ki
+        tally["ki"] += 1
+    elif entry.get("ki"):
+        tally["kept_ki"] += 1
+
+    action = entry.get("action")
+    if action and binding.get("affinity_only"):
+        binding.pop("affinity_only")
+        binding["action"] = action
+        binding["provisional_action"] = True
+        binding.setdefault("sources", []).append(source)
+        tally["action"] += 1
+    elif action and action == binding.get("action") and not binding.get("sources"):
+        # GtoPdb states the very direction we already state, and nothing else
+        # sourced it. That row IS the citation for the direction (a Ki, where
+        # there is one, only ever backed the *affinity*), so record it rather
+        # than leaving the claim reading NOSOURCE next to a corpus that spells
+        # it out. Never overwrites: a binding that already cites something
+        # keeps its own source, and a disagreement still falls through below.
+        binding["confirmed_action"] = True
+        binding["sources"] = [source]
+        tally["confirm"] += 1
+    elif action and binding.get("action") and action != binding["action"]:
+        tally["kept_action"] += 1
+        line = f"{owner} {binding['target']}: ours {binding['action']!r} vs GtoPdb {action!r}"
+        (refinements if {action, binding["action"]} in COMPATIBLE else conflicts).append(line)
+
+
+def apply_all(drugs: list[dict], proposals: dict, metab_proposals: dict,
+              page_cache: dict) -> tuple[Counter, list, list]:
+    """Merge every proposal into ``drugs`` in place: each drug's own bindings, then each
+    non-modeled active metabolite's (keyed by metabolite name; a metabolite linked to a
+    modeled drug reuses that drug's bindings and carries none of its own). Confirm-only
+    for both: only a binding already listed is ever touched."""
+    tally: Counter = Counter()
+    refinements: list[str] = []
+    conflicts: list[str] = []
+    for drug in drugs:
+        per_target = proposals.get(drug["id"], {})
+        for binding in drug.get("bindings", []):
+            apply_entry(binding, per_target.get(binding.get("target")), drug["id"],
+                        page_cache, tally, refinements, conflicts)
+        for m in drug.get("metabolites", []):
+            per_target = metab_proposals.get(m["name"], {})
+            for binding in m.get("bindings", []):
+                before = tally["ki"] + tally["action"] + tally["confirm"]
+                apply_entry(binding, per_target.get(binding.get("target")),
+                            f"{drug['id']}/{m['name']}", page_cache, tally,
+                            refinements, conflicts)
+                tally["metabolite"] += tally["ki"] + tally["action"] + tally["confirm"] - before
+    return tally, refinements, conflicts
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -130,69 +208,17 @@ def main() -> int:
         raise SystemExit(f"error: {PAGES} missing (author-side corpus); "
                          f"run tools/fetch/fetch_gtopdb_ki.py first")
 
-    proposals = json.loads(CACHE.read_text("utf-8"))["drugs"]
+    cache = json.loads(CACHE.read_text("utf-8"))
     drugs = drugs_io.load_drugs()
-    page_cache: dict[str, str] = {}
-    n_ki = n_action = n_confirm = n_gate_fail = 0
-    kept_ki = kept_action = 0
-    conflicts: list[str] = []
-    refinements: list[str] = []
-
-    for drug in drugs:
-        per_target = proposals.get(drug["id"], {})
-        for binding in drug.get("bindings", []):
-            strip_previous(binding)
-            entry = per_target.get(binding.get("target"))
-            if not entry:
-                continue
-            src = entry["source"]
-            if not gate(src["quote"], src["page"], page_cache):
-                n_gate_fail += 1
-                continue
-            source = {k: v for k, v in src.items() if v is not None}
-
-            if entry.get("ki") and not binding.get("ki"):
-                ki = dict(entry["ki"])
-                param = ki.pop("param", None)
-                ki["source"] = {**source,
-                                # The affinity is a pKi/pKd converted to nM; keep the
-                                # original parameter visible so a reader knows which.
-                                **({"note": f"GtoPdb {param}"} if param else {}),
-                                "value_nm": ki["median"]}
-                binding["ki"] = ki
-                n_ki += 1
-            elif entry.get("ki"):
-                kept_ki += 1
-
-            action = entry.get("action")
-            if action and binding.get("affinity_only"):
-                binding.pop("affinity_only")
-                binding["action"] = action
-                binding["provisional_action"] = True
-                binding.setdefault("sources", []).append(source)
-                n_action += 1
-            elif action and action == binding.get("action") and not binding.get("sources"):
-                # GtoPdb states the very direction we already state, and nothing else
-                # sourced it. That row IS the citation for the direction (a Ki, where
-                # there is one, only ever backed the *affinity*), so record it rather
-                # than leaving the claim reading NOSOURCE next to a corpus that spells
-                # it out. Never overwrites: a binding that already cites something
-                # keeps its own source, and a disagreement still falls through below.
-                binding["confirmed_action"] = True
-                binding["sources"] = [source]
-                n_confirm += 1
-            elif action and binding.get("action") and action != binding["action"]:
-                kept_action += 1
-                line = (f"{drug['id']} {binding['target']}: "
-                        f"ours {binding['action']!r} vs GtoPdb {action!r}")
-                if {action, binding["action"]} in COMPATIBLE:
-                    refinements.append(line)
-                else:
-                    conflicts.append(line)
+    tally, refinements, conflicts = apply_all(drugs, cache["drugs"],
+                                              cache.get("metabolites", {}), {})
+    n_ki, kept_ki, n_action, n_confirm, n_gate_fail = (
+        tally["ki"], tally["kept_ki"], tally["action"], tally["confirm"], tally["gate_fail"])
 
     print(f"affinity: {n_ki} binding(s) given a Ki, {kept_ki} left alone (already measured)")
     print(f"direction: {n_action} affinity-only binding(s) given a provisional action, "
           f"{n_confirm} stated direction(s) given GtoPdb's row as their citation")
+    print(f"metabolites: {tally['metabolite']} of those writes on an active metabolite's binding")
     if n_gate_fail:
         print(f"gate: {n_gate_fail} proposal(s) dropped, quote not verbatim on its page")
     if refinements:

@@ -117,43 +117,6 @@ TARGET_HINT_RE = re.compile(
 MAX_ACTION_LINES = 14   # cap candidate lines per metabolite (keeps the worklist compact)
 
 
-def non_modeled_metabolites(drugs: list[dict]) -> list[dict]:
-    """Every metabolite that is not itself a modeled drug, deduped by identity.
-
-    Mirrors ``js/data.js``: a metabolite links to a modeled drug by explicit
-    ``drug_id`` or by its name matching a drug id, and those reuse that drug's
-    bindings (nothing to source here). The rest are returned as
-    ``{name, parents, key}`` (``key`` = a stable lowercase id for --only / worklist).
-
-    A single metabolite can be produced by more than one modeled drug (e.g. mCPP by
-    nefazodone AND trazodone). Its bindings are a property of the molecule, not of the
-    parent relationship, so it is sourced ONCE: we key by ``wp.slugify(name).lower()``
-    and collect every parent into ``parents``. The applier then writes that one judged
-    binding list identically under each parent (check_data guards they stay identical),
-    and the tally + viewer dedup the same way -- so a shared metabolite is never
-    double-counted or double-listed."""
-    drug_ids = {d["id"] for d in drugs}
-    by_norm = {}
-    for d in drugs:
-        by_norm[re.sub(r"[^a-z0-9]+", "", d.get("name", "").lower())] = d["id"]
-    by_key: dict[str, dict] = {}
-    for d in drugs:
-        for m in d.get("metabolites", []):
-            name = m["name"]
-            linked = m.get("drug_id") or by_norm.get(
-                re.sub(r"[^a-z0-9]+", "", name.lower()))
-            if linked and linked in drug_ids:
-                continue
-            key = wp.slugify(name).lower()
-            entry = by_key.get(key)
-            if entry:
-                if d["id"] not in entry["parents"]:
-                    entry["parents"].append(d["id"])
-            else:
-                by_key[key] = {"name": name, "parents": [d["id"]], "key": key}
-    return list(by_key.values())
-
-
 def _norm(s: str) -> str:
     """Lowercase + drop every non-alphanumeric, so a metabolite name matches its
     mention regardless of hyphens/spaces/commas (Carbamazepine-10,11-epoxide)."""
@@ -298,7 +261,7 @@ def main() -> int:
     drugs = drugs_io.load_drugs()
     valid_ids = wp.load_valid_ids()
     ptitles = parent_titles(drugs)
-    metabs = non_modeled_metabolites(drugs)
+    metabs = drugs_io.non_modeled_metabolites(drugs, key=lambda n: wp.slugify(n).lower())
     if args.only:
         want = {k.strip().lower() for k in args.only.split(",") if k.strip()}
         metabs = [m for m in metabs if m["key"] in want]

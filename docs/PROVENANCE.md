@@ -235,7 +235,9 @@ The corpora (`SOURCE_CORPORA`), each quote-gated author-side as above unless not
   `data_sources/gtopdb/pages_ki/<slug>.md`, and a proposal's `quote` is one verbatim row line, so
   the normal quote gate applies unchanged. `apply_gtopdb_ki.py` merges **confirm-only** (never
   adds a target) and **PDSP-first** (a Ki only where there is none; a stated direction always
-  wins), reporting rather than resolving a disagreement. Only a pKi/pKd becomes a `ki`: a
+  wins), reporting rather than resolving a disagreement. The same pass covers each non-modeled active
+  metabolite's own GtoPdb ligand record (keyed by metabolite name, chirality-guarded like a drug's),
+  writing only onto bindings the metabolite already lists. Only a pKi/pKd becomes a `ki`: a
   functional potency (pIC50/pEC50) rides along as the direction's citation. Contents CC BY-SA 4.0,
   database ODbL.
 - **Citing GtoPdb (#7, #11, #12).** GtoPdb's "How to cite" page (`guidetopharmacology.org/citing.jsp`) asks a general citation of its current Nucleic Acids Research database paper (Harding SD, Armstrong JF, Faccenda E, Southan C, Alexander SPH, Davenport AP, Spedding M, Davies JA. The IUPHAR/BPS Guide to PHARMACOLOGY in 2026. Nucleic Acids Res. 2026;54(D1):D1446-D1456, doi:10.1093/nar/gkaf1067), plus the relevant section of the Concise Guide to PHARMACOLOGY 2025/26 (Br J Pharmacol) for work on target data; its contents are CC BY-SA 4.0. These live once in `tools/data_generators/provenance.py` (`GTOPDB_*_CITATION`) and ride each corpus as `required_citations` (the target corpora #7/#12 add the Concise Guide, the ligand corpus #11 does not), which the viewer prints under every source pill of those corpora and in the Sources popup, and `update_readme_stats.py` lists under the README sources table. Read 2026-10-12 from the page's 2026-07-31 snapshot (the live site was down for maintenance). Added with Claude Code.

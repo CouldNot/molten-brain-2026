@@ -414,7 +414,7 @@ Screenshots).
   (corpus #11 `gtopdb_ki`) + the proposals into `tools/generated_cache/gtopdb_ki.json`. Only a pKi/pKd
   becomes a Ki (`10^(9-pKi)` nM); a functional potency rides along as the direction's citation. No judge:
   the CSV's own `type` column is the direction. See docs/PROVENANCE.md (corpus #11).
-- `tools/sourcing/apply_gtopdb_ki.py` — merges those proposals into `drugs_data.jsonl`: confirm-only (never
+- `tools/sourcing/apply_gtopdb_ki.py` — merges those proposals into `drugs_data.jsonl` (a drug's bindings and each non-modeled active metabolite's): confirm-only (never
   adds a target), PDSP-first (a `ki` only where there is none), and a `provisional_action` only on an
   `affinity_only` binding, so a stated direction always wins. A disagreement is reported, split into
   compatible refinements (`COMPATIBLE`) and genuine conflicts, never auto-resolved. Re-gates every quote

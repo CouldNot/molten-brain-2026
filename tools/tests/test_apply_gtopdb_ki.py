@@ -15,6 +15,7 @@ by corpus alone quietly deleted furosemide's GABA-A alpha6 citation on every run
 Built with the help of Claude Code.
 """
 
+import copy
 import sys
 import unittest
 from pathlib import Path
@@ -74,6 +75,45 @@ class StripPreviousTest(unittest.TestCase):
         apply_gtopdb_ki.strip_previous(binding)
         self.assertEqual(binding["sources"], [hand])
         self.assertTrue(binding["affinity_only"])
+
+
+class MetaboliteTest(unittest.TestCase):
+    """A non-modeled active metabolite's bindings get the same confirm-only pass."""
+
+    QUOTE = "norfluoxetine at 5-HT2B receptor (HTR2B, Human): Antagonist / Antagonist, pKi 5.3"
+
+    def _run(self, metab_bindings, proposals):
+        drugs = [{"id": "fluoxetine", "bindings": [],
+                  "metabolites": [{"name": "Norfluoxetine", "bindings": metab_bindings}]}]
+        cache = {"norfluoxetine": apply_gtopdb_ki.normalize_for_match(self.QUOTE)}
+        tally, _, _ = apply_gtopdb_ki.apply_all(drugs, {}, proposals, cache)
+        return drugs[0]["metabolites"][0]["bindings"], tally
+
+    def _entry(self):
+        return {"Norfluoxetine": {"5ht2b": {
+            "action": "antagonist",
+            "ki": {"median": 5011.87, "min": 5011.87, "max": 5011.87, "param": "pKi"},
+            "source": {"corpus": CORPUS, "page": "norfluoxetine", "quote": self.QUOTE,
+                       "provenance": "verified"}}}}
+
+    def test_affinity_only_metabolite_binding_gains_direction(self):
+        out, tally = self._run([{"target": "5ht2b", "affinity_only": True}], self._entry())
+        self.assertEqual(out[0]["action"], "antagonist")
+        self.assertNotIn("affinity_only", out[0])
+        self.assertEqual(out[0]["ki"]["source"]["corpus"], CORPUS)
+        self.assertEqual(tally["metabolite"], 2)
+
+    def test_confirm_only_never_adds_a_metabolite_target(self):
+        out, tally = self._run([], self._entry())
+        self.assertEqual(out, [])
+        self.assertEqual(tally["metabolite"], 0)
+
+    def test_rerun_is_idempotent(self):
+        b = [{"target": "5ht2b", "affinity_only": True}]
+        out1, _ = self._run(b, self._entry())
+        once = copy.deepcopy(out1)
+        out2, _ = self._run(out1, self._entry())
+        self.assertEqual(out2, once)
 
 
 if __name__ == "__main__":

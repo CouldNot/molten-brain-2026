@@ -305,9 +305,81 @@ def index_by_ligand(rows: list[dict]) -> dict[str, list[tuple]]:
 
 
 def ligand_rows(by_ligand: dict[str, list[tuple]], name: str, drug_id: str) -> list[dict]:
-    """The interaction rows that are this compound's own (alias + chirality aware)."""
-    key = LIGAND_ALIASES.get(norm(name), norm(name))
-    return [r for tag, r in by_ligand.get(key, []) if chirality.tag_allowed(tag, drug_id)]
+    """The interaction rows that are this compound's own (alias + chirality aware).
+
+    A name that itself carries an optical-rotation tag (a metabolite such as
+    "(+)-alpha-Dihydrotetrabenazine") names one enantiomer, so only rows tagged the
+    same join; otherwise :func:`chirality.tag_allowed` decides by ``drug_id``."""
+    stem, own_tag = chirality.split_stereo(name)
+    key = LIGAND_ALIASES.get(norm(stem), norm(stem))
+    rows = by_ligand.get(key, [])
+    if own_tag:
+        return [r for tag, r in rows if tag == own_tag]
+    return [r for tag, r in rows if chirality.tag_allowed(tag, drug_id)]
+
+
+def compound_proposals(cands: list[dict], gene_owner: dict[str, set[str]],
+                       stats: dict, version: str) -> dict[str, dict]:
+    """Write one compound's quote-gate page and return its per-target proposals.
+
+    Shared by a modeled drug and a non-modeled active metabolite: a metabolite's own
+    GtoPdb ligand record is read exactly like a drug's (same page shape, same row
+    pick, same Ki-vs-potency split, same 10 uM ceiling)."""
+    slug = slugify(cands[0].get("Ligand"))
+    lines = sorted({row_line(r) for r in cands})
+    (PAGES / f"{slug}.md").write_text(
+        f"# GtoPdb interactions: {plain(cands[0].get('Ligand'))}\n"
+        f"# source: {URL} ({version})\n\n" + "\n".join(lines) + "\n",
+        encoding="utf-8")
+    stats["pages"] += 1
+
+    per_target: dict[str, list[dict]] = defaultdict(list)
+    for r in cands:
+        for owner in gene_owner.get((r.get("Target Gene Symbol") or "").upper(), ()):
+            per_target[owner].append(r)
+
+    found: dict[str, dict] = {}
+    for target, trows in per_target.items():
+        row = pick_row(trows, target)
+        if row is None:
+            continue
+        entry: dict = {
+            "source": {
+                "corpus": "gtopdb_ki",
+                "page": slug,
+                "quote": row_line(row),
+                "provenance": "verified",
+                "species": row.get("Target Species") or None,
+            },
+        }
+        nm = nm_from(row)
+        # Only a true binding affinity (pKi/pKd) becomes a Ki. A functional
+        # potency (pIC50/pEC50/pKB/pA2) is a different measurement, so it rides
+        # along as the direction's citation without pretending to be a Ki.
+        # PDSP's own ceiling, applied here too so one number does not mean
+        # "measured affinity" from one corpus and "tested, inactive" from the
+        # other: past 10 uM the assay is saying the compound does not really
+        # bind (vigabatrin's 851 uM at its own enzyme, which it inhibits
+        # irreversibly rather than by sitting in the site). The binding and
+        # its direction stay; only the affinity chip is withheld.
+        if nm and nm[0] >= INACTIVE_NM:
+            stats["weak"] += 1
+            nm = None
+        if nm and (row.get("Affinity Units") in KI_PARAMS):
+            entry["ki"] = {
+                "median": round(nm[0], 4), "min": round(nm[1], 4), "max": round(nm[2], 4),
+                "n_human": 1 if row.get("Target Species") == "Human" else 0,
+                "n_nonhuman": 0 if row.get("Target Species") == "Human" else 1,
+                "param": row.get("Affinity Units"),
+            }
+            stats["ki"] += 1
+        action = action_for(row, target)
+        if action:
+            entry["action"] = action
+            stats["action"] += 1
+        entry["pmid"] = (row.get("PubMed ID") or "").split("|")[0] or None
+        found[target] = entry
+    return found
 
 
 def main() -> int:
@@ -334,7 +406,7 @@ def main() -> int:
 
     PAGES.mkdir(parents=True, exist_ok=True)
     proposals: dict[str, dict[str, dict]] = {}
-    stats = {"drugs": 0, "unmatched": 0, "ki": 0, "action": 0, "pages": 0, "weak": 0}
+    stats = {"drugs": 0, "metabolites": 0, "unmatched": 0, "ki": 0, "action": 0, "pages": 0, "weak": 0}
     unmatched: list[str] = []
 
     for drug in drugs:
@@ -348,64 +420,27 @@ def main() -> int:
                 stats["unmatched"] += 1
             continue
 
-        slug = slugify(cands[0].get("Ligand"))
-        lines = sorted({row_line(r) for r in cands})
-        (PAGES / f"{slug}.md").write_text(
-            f"# GtoPdb interactions: {plain(cands[0].get('Ligand'))}\n"
-            f"# source: {URL} ({version})\n\n" + "\n".join(lines) + "\n",
-            encoding="utf-8")
-        stats["pages"] += 1
-
-        per_target: dict[str, list[dict]] = defaultdict(list)
-        for r in cands:
-            for owner in gene_owner.get((r.get("Target Gene Symbol") or "").upper(), ()):
-                per_target[owner].append(r)
-
-        found: dict[str, dict] = {}
-        for target, trows in per_target.items():
-            row = pick_row(trows, target)
-            if row is None:
-                continue
-            entry: dict = {
-                "source": {
-                    "corpus": "gtopdb_ki",
-                    "page": slug,
-                    "quote": row_line(row),
-                    "provenance": "verified",
-                    "species": row.get("Target Species") or None,
-                },
-            }
-            nm = nm_from(row)
-            # Only a true binding affinity (pKi/pKd) becomes a Ki. A functional
-            # potency (pIC50/pEC50/pKB/pA2) is a different measurement, so it rides
-            # along as the direction's citation without pretending to be a Ki.
-            # PDSP's own ceiling, applied here too so one number does not mean
-            # "measured affinity" from one corpus and "tested, inactive" from the
-            # other: past 10 uM the assay is saying the compound does not really
-            # bind (vigabatrin's 851 uM at its own enzyme, which it inhibits
-            # irreversibly rather than by sitting in the site). The binding and
-            # its direction stay; only the affinity chip is withheld.
-            if nm and nm[0] >= INACTIVE_NM:
-                stats["weak"] += 1
-                nm = None
-            if nm and (row.get("Affinity Units") in KI_PARAMS):
-                entry["ki"] = {
-                    "median": round(nm[0], 4), "min": round(nm[1], 4), "max": round(nm[2], 4),
-                    "n_human": 1 if row.get("Target Species") == "Human" else 0,
-                    "n_nonhuman": 0 if row.get("Target Species") == "Human" else 1,
-                    "param": row.get("Affinity Units"),
-                }
-                stats["ki"] += 1
-            action = action_for(row, target)
-            if action:
-                entry["action"] = action
-                stats["action"] += 1
-            entry["pmid"] = (row.get("PubMed ID") or "").split("|")[0] or None
-            found[target] = entry
+        found = compound_proposals(cands, gene_owner, stats, version)
 
         if found:
             proposals[drug["id"]] = found
             stats["drugs"] += 1
+
+    # Non-modeled active metabolites, read the same way and keyed by name (a metabolite
+    # shared by two parents is one molecule, so one proposal set). A metabolite has no
+    # STEREO entry of its own: its key goes to tag_allowed, so only untagged or racemic
+    # rows join unless its name names the enantiomer (see ligand_rows).
+    metab_proposals: dict[str, dict[str, dict]] = {}
+    for m in drugs_io.non_modeled_metabolites(drugs):
+        if only and not set(m["parents"]) & only:
+            continue
+        cands = ligand_rows(by_ligand, m["name"], f"metabolite:{m['key']}")
+        if not cands:
+            continue
+        found = compound_proposals(cands, gene_owner, stats, version)
+        if found:
+            metab_proposals[m["name"]] = found
+            stats["metabolites"] += 1
 
     # A scoped run only ever *looked* at `only`, so its proposals cannot stand for the
     # whole corpus: merge them over the committed cache instead of replacing it (a plain
@@ -416,15 +451,22 @@ def main() -> int:
             prior.pop(did, None)
         prior.update(proposals)
         proposals = prior
+        prior_m = json.loads(CACHE.read_text(encoding="utf-8")).get("metabolites", {})
+        for m in drugs_io.non_modeled_metabolites(drugs):
+            if set(m["parents"]) & only:
+                prior_m.pop(m["name"], None)
+        prior_m.update(metab_proposals)
+        metab_proposals = prior_m
 
     CACHE.parent.mkdir(parents=True, exist_ok=True)
-    CACHE.write_text(json.dumps({"version": version, "url": URL, "drugs": proposals},
+    CACHE.write_text(json.dumps({"version": version, "url": URL, "drugs": proposals,
+                                            "metabolites": metab_proposals},
                                 indent=1, ensure_ascii=False, sort_keys=True) + "\n",
                      encoding="utf-8")
 
     if unmatched:
         log(f"no GtoPdb ligand for {len(unmatched)}: {', '.join(sorted(unmatched))}")
-    log(f"{stats['drugs']} drug(s) matched, {stats['pages']} page(s) written, "
+    log(f"{stats['drugs']} drug(s) + {stats['metabolites']} metabolite(s) matched, {stats['pages']} page(s) written, "
         f"{stats['ki']} affinity + {stats['action']} direction proposal(s)"
         f"; {stats['weak']} affinity value(s) withheld as >= 10 uM")
     log(f"wrote {CACHE.relative_to(REPO)}")
