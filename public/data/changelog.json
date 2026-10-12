@@ -1,6 +1,36 @@
 {
   "versions": [
     {
+      "version": "3.106.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "added",
+          "text": "New source: the 2026 AGNP consensus guidelines for therapeutic drug monitoring in neuropsychopharmacology. 136 drugs now show their therapeutic reference range and 130 their laboratory alert level in the Pharmacokinetics block (for example clozapine 350–600 ng/mL, alert 1,000 ng/mL), each copied from the guideline's table and checked on its page; the range's tooltip gives how strongly the guideline recommends measuring it",
+          "commits": [
+            "9e834c2",
+            "3667de8"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "The same guideline's enzyme table now backs 184 existing \"metabolised by\" rows with a second quote; where it names an enzyme we do not (or the reverse), nothing changes and the difference is listed for review",
+          "commits": [
+            "9e834c2",
+            "537e185"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Quote checking now reads pages split from rotated (landscape) PDF tables, and ignores soft hyphens and inline formatting tags inside a quoted sentence",
+          "commits": [
+            "c87f9e4",
+            "504fb72"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.6",
       "date": "2026-10-12",
       "entries": [
