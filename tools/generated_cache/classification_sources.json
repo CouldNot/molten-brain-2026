@@ -532,7 +532,7 @@
      "corpus": "gtopdb_class",
      "page": 25,
      "provenance": "verified",
-     "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Phospholipase A2 stimulation"
+     "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Phospholipase A2 stimulation"
     }
    ],
    "synaptic": [
@@ -572,7 +572,7 @@
      "corpus": "gtopdb_class",
      "page": 26,
      "provenance": "verified",
-     "quote": "α2B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Other - See Comments"
+     "quote": "α2B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Other - See Comments"
     }
    ],
    "synaptic": [
@@ -606,7 +606,7 @@
      "corpus": "gtopdb_class",
      "page": 27,
      "provenance": "verified",
-     "quote": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Other - See Comments"
+     "quote": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Other - See Comments"
     }
    ]
   },
@@ -730,7 +730,7 @@
      "corpus": "gtopdb_class",
      "page": 29,
      "provenance": "verified",
-     "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | transduction: Gs family"
+     "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"
     }
    ]
   },
@@ -756,7 +756,7 @@
      "corpus": "gtopdb_class",
      "page": 30,
      "provenance": "verified",
-     "quote": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | transduction: Gs family"
+     "quote": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | transduction: Gs family | effectors: Adenylyl cyclase stimulation"
     }
    ]
   },
@@ -1892,7 +1892,7 @@
      "corpus": "gtopdb_class",
      "page": 2552,
      "provenance": "verified",
-     "quote": "sigma non-opioid intracellular receptor 1 (SIGMAR1), GtoPdb target 2552 | type: other_protein | family: Sigma receptors"
+     "quote": "sigma receptor chaperone 1 (SIGMAR1), GtoPdb target 2552 | type: other_protein | family: Sigma receptors"
     }
    ],
    "receptor_class": [
@@ -1954,7 +1954,6 @@
     "quote": "MC4 receptor (MC4R), GtoPdb target 285 | type: gpcr | family: Melanocortin receptors"
    }
   ],
-  "nkcc1": [],
   "pde5": [
    {
     "corpus": "gtopdb_class",

@@ -349,14 +349,14 @@
     "target_name": "\u03b12A-adrenoceptor",
     "transduction": [
       {
-        "effectors": "Potassium channel, Calcium channel, Phospholipase A2 stimulation",
-        "quote": "\u03b12A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Phospholipase A2 stimulation",
+        "effectors": "Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Phospholipase A2 stimulation",
+        "quote": "\u03b12A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Phospholipase A2 stimulation",
         "secondary": false,
         "transducers": "Gi/Go family"
       },
       {
-        "effectors": "",
-        "quote": "\u03b12A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gs family | secondary mechanism",
+        "effectors": "Adenylyl cyclase stimulation",
+        "quote": "\u03b12A-adrenoceptor (ADRA2A), GtoPdb target 25 | transduction: Gs family | effectors: Adenylyl cyclase stimulation | secondary mechanism",
         "secondary": true,
         "transducers": "Gs family"
       }
@@ -372,14 +372,14 @@
     "target_name": "\u03b12B-adrenoceptor",
     "transduction": [
       {
-        "effectors": "Potassium channel, Calcium channel, Other - See Comments",
-        "quote": "\u03b12B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Other - See Comments",
+        "effectors": "Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Other - See Comments",
+        "quote": "\u03b12B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Other - See Comments",
         "secondary": false,
         "transducers": "Gi/Go family"
       },
       {
-        "effectors": "",
-        "quote": "\u03b12B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gs family | secondary mechanism",
+        "effectors": "Adenylyl cyclase stimulation",
+        "quote": "\u03b12B-adrenoceptor (ADRA2B), GtoPdb target 26 | transduction: Gs family | effectors: Adenylyl cyclase stimulation | secondary mechanism",
         "secondary": true,
         "transducers": "Gs family"
       }
@@ -395,8 +395,8 @@
     "target_name": "\u03b12C-adrenoceptor",
     "transduction": [
       {
-        "effectors": "Potassium channel, Calcium channel, Other - See Comments",
-        "quote": "\u03b12C-adrenoceptor (ADRA2C), GtoPdb target 27 | transduction: Gi/Go family | effectors: Potassium channel, Calcium channel, Other - See Comments",
+        "effectors": "Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Other - See Comments",
+        "quote": "\u03b12C-adrenoceptor (ADRA2C), GtoPdb target 27 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Potassium channel, Calcium channel, Other - See Comments",
         "secondary": false,
         "transducers": "Gi/Go family"
       }
@@ -445,14 +445,14 @@
     "target_name": "\u03b22-adrenoceptor",
     "transduction": [
       {
-        "effectors": "",
-        "quote": "\u03b22-adrenoceptor (ADRB2), GtoPdb target 29 | transduction: Gs family",
+        "effectors": "Adenylyl cyclase stimulation",
+        "quote": "\u03b22-adrenoceptor (ADRB2), GtoPdb target 29 | transduction: Gs family | effectors: Adenylyl cyclase stimulation",
         "secondary": false,
         "transducers": "Gs family"
       },
       {
-        "effectors": "Guanylate cyclase stimulation",
-        "quote": "\u03b22-adrenoceptor (ADRB2), GtoPdb target 29 | transduction: Gi/Go family | effectors: Guanylate cyclase stimulation | secondary mechanism",
+        "effectors": "Adenylyl cyclase inhibition, Guanylate cyclase stimulation",
+        "quote": "\u03b22-adrenoceptor (ADRB2), GtoPdb target 29 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Guanylate cyclase stimulation | secondary mechanism",
         "secondary": true,
         "transducers": "Gi/Go family"
       }
@@ -468,8 +468,8 @@
     "target_name": "\u03b23-adrenoceptor",
     "transduction": [
       {
-        "effectors": "",
-        "quote": "\u03b23-adrenoceptor (ADRB3), GtoPdb target 30 | transduction: Gs family",
+        "effectors": "Adenylyl cyclase stimulation",
+        "quote": "\u03b23-adrenoceptor (ADRB3), GtoPdb target 30 | transduction: Gs family | effectors: Adenylyl cyclase stimulation",
         "secondary": false,
         "transducers": "Gs family"
       },
@@ -1174,9 +1174,9 @@
     "gene": "SIGMAR1",
     "kind": "receptor",
     "target_id": 2552,
-    "target_name": "sigma non-opioid intracellular receptor 1",
+    "target_name": "sigma receptor chaperone 1",
     "transduction": [],
     "type": "other_protein",
-    "type_quote": "sigma non-opioid intracellular receptor 1 (SIGMAR1), GtoPdb target 2552 | type: other_protein | family: Sigma receptors"
+    "type_quote": "sigma receptor chaperone 1 (SIGMAR1), GtoPdb target 2552 | type: other_protein | family: Sigma receptors"
   }
 }
