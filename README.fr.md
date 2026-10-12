@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/favicon.svg" alt="logo neurarium" width="120" height="120">
+  <img src="docs/images/neurarium-icon.svg" alt="logo neurarium" width="120" height="120">
 </p>
 
 # neurarium
