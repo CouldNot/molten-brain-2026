@@ -3239,6 +3239,7 @@
 {"id": "q_b56c4ffba9d7", "corpus": "wikipedia_fr", "page": "chlorpromazine", "quote": "Largactil", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_b57a9d5b8393", "corpus": "bdpm", "page": "63046819", "quote": "QUITAXON", "fetched": "2026-10-10"}
 {"id": "q_b587ef6e6f49", "corpus": "nieuwenhuys", "page": 900, "quote": "The cerebellar noradrenergic innervation of the cerebellum and the inferior olive stems from the locus coeruleus and the groups A5 and A7", "llm": "opus", "heading": ["22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"]}
+{"id": "q_b592841154f0", "corpus": "wikipedia_pharm", "page": "etomidate", "quote": "Its binding site is located in the transmembrane section of this receptor between the beta and alpha subunits (β + α − ).", "llm": "opus", "fetched": "2026-10-11"}
 {"id": "q_b598ebb59be7", "corpus": "wikipedia_fr", "page": "ph_nobarbital", "quote": "Gardénal", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_b5b716d86bb8", "corpus": "wikipedia_pharm", "page": "doxepin", "quote": "5-HT 1A | 276 | Human", "fetched": "2026-10-11"}
 {"id": "q_b5bd1bcc08a8", "corpus": "wikipedia_pharm", "page": "sertindole", "quote": "β 1 | 5000", "fetched": "2026-10-11"}
