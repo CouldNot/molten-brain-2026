@@ -402,6 +402,7 @@
       "info.sourceRef": "{corpus}, p. {page}",
       "info.sourceFetched": "downloaded {date}",
       "info.sourceSpecies": "Assay species: {species}",
+      "info.citeAs": "This source asks to be cited as:",
       "info.noConnections": "No mapped connections yet.",
       "info.connections": "Connections",
 
@@ -705,6 +706,7 @@
         "AI only: may be a hallucination.",
       "about.gradeNone": "No source: none gathered yet.",
       "about.gradeUnknown": "Unknown: every required source was searched on a recorded date, and none states it. Set aside from the % (neither backed nor missing); redone yearly.",
+      "about.requiredCitations": "Some sources ask that any reuse of their data cite them. Neurarium does so here, and under each of their source pills:",
       "about.quoteChains": "Not every green check was earned the same way: some quotes were copied out of a machine-readable table by code alone, others were found on a book page by an LLM, checked word for word against that page, then judged by a second LLM that had not seen the first one’s reasoning. Each source tooltip ends with the exact chain that produced it, so you can weigh it yourself.",
       "about.gradeUncertain":
         "Uncertain: the quote is confirmed present, but it does not attribute the claim. " +
@@ -1136,6 +1138,7 @@
       "info.sourceRef": "{corpus}, p. {page}",
       "info.sourceFetched": "téléchargé le {date}",
       "info.sourceSpecies": "Espèce testée : {species}",
+      "info.citeAs": "Cette source demande à être citée ainsi :",
       "info.noConnections": "Aucune connexion répertoriée pour l’instant.",
       "info.connections": "Connexions",
 
@@ -1449,6 +1452,7 @@
         "IA seule : peut être une hallucination.",
       "about.gradeNone": "Sans source : aucune réunie pour l’instant.",
       "about.gradeUnknown": "Inconnu : toutes les sources requises ont été consultées à une date enregistrée, et aucune ne l’indique. Mis à part du % (ni étayé ni manquant) ; refait chaque année.",
+      "about.requiredCitations": "Certaines sources demandent que toute réutilisation de leurs données les cite. Neurarium le fait ici, et sous chacune de leurs pastilles de source :",
       "about.quoteChains": "Toutes les coches vertes ne s’obtiennent pas de la même manière : certaines citations ont été recopiées d’un tableau lisible par machine par du code seul, d’autres ont été trouvées sur une page de livre par un LLM, vérifiées mot pour mot sur cette page, puis jugées par un second LLM qui n’avait pas vu le raisonnement du premier. Chaque infobulle de source se termine par le parcours exact qui l’a produite, pour que vous puissiez en juger vous-même.",
       "about.gradeUncertain":
         "Incertain : la citation est bien présente, mais elle n’attribue pas " +

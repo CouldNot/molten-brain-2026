@@ -165,6 +165,11 @@ def render_sources_table(corpora: dict) -> str:
         url = c.get("url", "") or ""
         name = f"[{ref}]({url})" if url.startswith(("http://", "https://")) else ref
         lines.append(f"| {name} | {field} | {grades} |")
+    # A source's own "how to cite us" request (GtoPdb's), deduplicated across corpora.
+    cites = list(dict.fromkeys(x for c in corpora.values() for x in c.get("required_citations", [])))
+    if cites:
+        lines += ["", "Some sources ask that any reuse of their data cite them:", ""]
+        lines += [f"- {x}" for x in cites]
     lines += ["", SRC_END]
     return "\n".join(lines)
 

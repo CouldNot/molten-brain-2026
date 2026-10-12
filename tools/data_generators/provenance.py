@@ -527,7 +527,28 @@ def _density_node(registry: dict[str, dict[str, Any]], owner_id: str,
 # whose pages can change upstream (a wiki, a live database): each of its cited pages
 # carries its download date and must be refetched within a year (see
 # data_generators/freshness.py); a book omits the key.
-SOURCE_CORPORA: dict[str, dict[str, str]] = {
+# GtoPdb's "How to cite" page (guidetopharmacology.org/citing.jsp, read 2026-10-12
+# from its 2026-07-31 snapshot while the live site was down for maintenance) asks a
+# general citation of its current Nucleic Acids Research database paper, plus the
+# relevant section of the Concise Guide to PHARMACOLOGY for work on target data, and
+# its contents are CC BY-SA 4.0. Shared by corpora #7, #11 and #12 as
+# ``required_citations``: a corpus's own request to be cited, which the viewer prints
+# under its source pills + in the Sources popup and the README lists under its table.
+GTOPDB_NAR_CITATION = (
+    "Harding SD, Armstrong JF, Faccenda E, Southan C, Alexander SPH, Davenport AP, "
+    "Spedding M, Davies JA. The IUPHAR/BPS Guide to PHARMACOLOGY in 2026. Nucleic "
+    "Acids Res. 2026;54(D1):D1446-D1456. doi:10.1093/nar/gkaf1067. PMID 41160876.")
+GTOPDB_CONCISE_GUIDE_CITATION = (
+    "Alexander SPH, Davenport AP, Kelly E, et al. The Concise Guide to PHARMACOLOGY "
+    "2025/26: G protein-coupled receptors. Br J Pharmacol. 2025;182:S24-S151 (and the "
+    "matching 2025/26 chapter for each other target family).")
+GTOPDB_LICENCE = ("IUPHAR/BPS Guide to PHARMACOLOGY content licensed under CC BY-SA 4.0 "
+                  "(database ODbL).")
+GTOPDB_TARGET_CITATIONS = [GTOPDB_NAR_CITATION, GTOPDB_CONCISE_GUIDE_CITATION, GTOPDB_LICENCE]
+GTOPDB_LIGAND_CITATIONS = [GTOPDB_NAR_CITATION, GTOPDB_LICENCE]
+
+
+SOURCE_CORPORA: dict[str, dict] = {
     "stahl": {
         # Label for the per-claim tooltip ref ("<ref>, p. N"). The full book title
         # + edition, not a bare "Stahl", so a page citation is unambiguous on its
@@ -585,9 +606,8 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         # applies unchanged. Many entries are rat/mouse, so each source carries a
         # `species` (the viewer flags a non-human claim; see _quote_sources).
         "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), tissue distribution",
-        "citation": "Harding SD, Armstrong JF, Faccenda E, et al. The IUPHAR/BPS "
-                    "Guide to Pharmacology. Nucleic Acids Res. "
-                    "guidetopharmacology.org.",
+        "citation": GTOPDB_NAR_CITATION,
+        "required_citations": GTOPDB_TARGET_CITATIONS,
         "url": "https://www.guidetopharmacology.org/",
         "pages_dir": "data_sources/gtopdb/pages",
         "machine": True,
@@ -686,9 +706,8 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         # Licence: contents CC BY-SA 4.0, database ODbL; both need attribution, which
         # the citation below carries into every pill tooltip.
         "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), ligand interactions",
-        "citation": "Harding SD, Armstrong JF, Faccenda E, et al. The IUPHAR/BPS "
-                    "Guide to Pharmacology: ligand-target interaction table. "
-                    "guidetopharmacology.org (CC BY-SA 4.0 / ODbL).",
+        "citation": GTOPDB_NAR_CITATION,
+        "required_citations": GTOPDB_LIGAND_CITATIONS,
         "url": "https://www.guidetopharmacology.org/",
         "pages_dir": "data_sources/gtopdb/pages_ki",
         "machine": True,
@@ -711,9 +730,8 @@ SOURCE_CORPORA: dict[str, dict[str, str]] = {
         # pre/post-synaptic field, so `synaptic` is out of this corpus's reach.
         # Licence: contents CC BY-SA 4.0, database ODbL, as for #7 and #11.
         "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), target classification",
-        "citation": "Harding SD, Armstrong JF, Faccenda E, et al. The IUPHAR/BPS "
-                    "Guide to Pharmacology: target type and transduction. "
-                    "guidetopharmacology.org (CC BY-SA 4.0 / ODbL).",
+        "citation": GTOPDB_NAR_CITATION,
+        "required_citations": GTOPDB_TARGET_CITATIONS,
         "url": "https://www.guidetopharmacology.org/",
         "pages_dir": "data_sources/gtopdb/pages_class",
         "machine": True,

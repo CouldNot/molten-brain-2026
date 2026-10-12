@@ -2404,7 +2404,16 @@ function createInfoPanel(data, sourcingModal) {
     // read off a book page and a table cell a parser copied are different evidence, and
     // the reader is the one entitled to weigh that.
     const chain = quoteChain(s.pipeline);
-    return chain ? `${withSpecies}\n${chain}` : withSpecies;
+    return [withSpecies, chain, corpusCitations(s.corpus)].filter(Boolean).join("\n");
+  };
+
+  // The citation a corpus asks for (meta.sourceCorpora[id].required_citations, e.g.
+  // GtoPdb's database paper + licence), as a tooltip block, else "". Data-driven, so
+  // honouring a new source's "how to cite us" is a generator edit only.
+  const corpusCitations = (corpusId) => {
+    const c = ((data.meta && data.meta.sourceCorpora) || {})[corpusId] || {};
+    const cites = c.required_citations || [];
+    return cites.length ? `${t("info.citeAs")}\n${cites.map((x) => `• ${x}`).join("\n")}` : "";
   };
 
   // "Clozapine › Side effects › How Drug Causes Side Effects\n" for a source that
@@ -2457,6 +2466,8 @@ function createInfoPanel(data, sourcingModal) {
     // The download date of the corpus the Ki was read from (PDSP's CSV, the
     // Wikipedia table), after the link so the link keeps its plain corpus label.
     if (ki.fetched) frag.append(withFetched("", ki.fetched, t));
+    const cites = corpusCitations(ki.corpus);
+    if (cites) frag.append("\n" + cites);
     return frag;
   };
 
@@ -6061,6 +6072,17 @@ function buildAboutSourcing(meta, opts = {}) {
   }
   host.appendChild(wrap);
   host.appendChild(key);
+
+  // The citations a source asks every reuse to carry (GtoPdb's database paper,
+  // its Concise Guide chapter, its licence), deduplicated across its corpora.
+  const cites = [...new Set(Object.values(meta.sourceCorpora || {})
+    .flatMap((c) => c.required_citations || []))];
+  if (cites.length) {
+    host.appendChild(h("p", "about-text", t("about.requiredCitations")));
+    const list = h("ul", "src-cite-list");
+    for (const c of cites) list.appendChild(h("li", null, c));
+    host.appendChild(list);
+  }
 }
 
 /**

@@ -229,6 +229,12 @@ Every `~` and `✓` grade is checked against one of the sources below. Each is a
 | [Europe PMC, journal article abstract](https://europepmc.org/) | Primary literature (Europe PMC abstracts) | Claims only a study measures (e.g. brain half-life) |
 | [Drugs@FDA (U.S. FDA), approved application history](https://www.accessdata.fda.gov/scripts/cder/daf/) | US regulator register (Drugs@FDA) | First US approval, where no other source dates one |
 
+Some sources ask that any reuse of their data cite them:
+
+- Harding SD, Armstrong JF, Faccenda E, Southan C, Alexander SPH, Davenport AP, Spedding M, Davies JA. The IUPHAR/BPS Guide to PHARMACOLOGY in 2026. Nucleic Acids Res. 2026;54(D1):D1446-D1456. doi:10.1093/nar/gkaf1067. PMID 41160876.
+- Alexander SPH, Davenport AP, Kelly E, et al. The Concise Guide to PHARMACOLOGY 2025/26: G protein-coupled receptors. Br J Pharmacol. 2025;182:S24-S151 (and the matching 2025/26 chapter for each other target family).
+- IUPHAR/BPS Guide to PHARMACOLOGY content licensed under CC BY-SA 4.0 (database ODbL).
+
 <!-- SOURCES_TABLE:END -->
 
 **Wikipedia** sits outside the table above. The drug and structure descriptions and the
