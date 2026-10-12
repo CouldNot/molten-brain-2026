@@ -792,6 +792,14 @@
      "provenance": "verified",
      "quote": "ADORA2A detected in accumbens: probe 1059366 PACall present in 15/15 samples (donors 9861,10021,12876,14380,15697)",
      "species": "Human"
+    },
+    {
+     "corpus": "gtopdb",
+     "llm": "opus",
+     "page": 19,
+     "provenance": "verified",
+     "quote": "CNS: perikarya and neuropil labelling in regions such as the striatum, nucleus accumbens, olfactory tubercles, extended amygdala, globus pallidus, nucleus of the solitary tract, cortex, hippocampus, thalamus, cerebellum, medulla, pons. Very high levels of A1 receptor expression in the striatum are important in the regulation of dopamine receptors and Parkinson's desease.",
+     "species": "Rat"
     }
    ],
    "caudate": [
