@@ -232,6 +232,9 @@ def normalize_for_match(text):
     # Inline markup the Markdown split keeps (`<u>` underline in a table cell,
     # `<sup>` around a reference number) is formatting: dropping only the tag keeps
     # its content, so `<u>CYP1A2</u>` reads as the word, not "u cyp1a2 u".
+    # A tag INSIDE a word ("9-hydroxyrisperi<u>done)</u>", where the PDF underline
+    # starts mid-word) is dropped outright, so the word stays one word.
+    text = re.sub(r"(?<=\w)</?(?:u|b|i|em|strong)>(?=\w)", "", text)
     text = re.sub(r"</?(?:u|b|i|em|strong|sup|sub)>", " ", text)
     text = unicodedata.normalize("NFKD", text)
     text = text.lower()

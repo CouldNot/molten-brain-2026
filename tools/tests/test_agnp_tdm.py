@@ -50,6 +50,29 @@ class CellParserTest(unittest.TestCase):
         self.assertEqual(F.drug_ids("Ginkgo", idx), [])
 
 
+class MidWordMarkupTest(unittest.TestCase):
+    """Table 1's paliperidone row prints ``9-hydroxyrisperi<u>done)</u>`` (an underline
+    starting mid-word). The shared fold dropped the tag as a space, splitting the word,
+    so the row's quote never matched its page and paliperidone lost its CYP3A4 / UGT
+    rows. A mid-word tag now vanishes; a tag between words still separates them."""
+
+    PAGE = "Paliperidone (9-hydroxyrisperi<u>done)</u>\n\nRenal clearance, CYP3A4, UGT\n"
+
+    def test_fold_keeps_the_word_whole(self):
+        self.assertEqual(F.normalize_for_match("risperi<u>done)</u> x <u>CYP1A2</u>"),
+                         "risperidone x cyp1a2")
+
+    def test_table1_row_is_confirmed(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "10.md").write_text(self.PAGE, encoding="utf-8")
+            idx = F.roster_index([{"id": "paliperidone", "name": "Paliperidone"}])
+            rows = [{"page": 10, "drug": "Paliperidone (9-hydroxyrisperidone)",
+                     "enzymes": "Renal clearance, CYP3A4, UGT"}]
+            got = F.enzyme_confirmations(rows, idx, F.Pages(Path(d)))
+        self.assertEqual([r["enzyme"] for r in got["paliperidone"]], ["cyp3a4", "ugt"])
+
+
 class GeneratorTest(unittest.TestCase):
     SRC = [{"corpus": "agnp_tdm", "page": 28, "quote": "Clozapine 12 h 350–600 ng/mL",
             "provenance": "verified", "extraction": "code"}]

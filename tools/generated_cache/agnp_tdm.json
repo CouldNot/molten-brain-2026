@@ -5572,6 +5572,34 @@
     ]
    }
   ],
+  "paliperidone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Paliperidone (9-hydroxyrisperidone) Renal clearance, CYP3A4, UGT, P-gp (ABCB1), BCRP (ABCG2)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Paliperidone (9-hydroxyrisperidone) Renal clearance, CYP3A4, UGT, P-gp (ABCB1), BCRP (ABCG2)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
   "paroxetine": [
    {
     "enzyme": "cyp2d6",
