@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.105.1",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "docs",
+          "text": "The sourcing tools can now follow a Wikipedia article's citations to the paper behind a binding affinity its prose states. A first pass found no abstract stating a missing value, and the sourcing-gaps notes say why (the numbers sit in the papers' tables).",
+          "commits": [
+            "6887130"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.0",
       "date": "2026-10-12",
       "entries": [
