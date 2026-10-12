@@ -98,6 +98,17 @@ OWN_ARTICLE = {
     "carbon disulfide": "Carbon disulfide",
     "psilocin": "Psilocin",
     "desmethyldiazepam (nordazepam)": "Nordazepam",
+    "o-desmethyltramadol (desmetramadol)": "Desmetramadol",
+    "norclozapine (n-desmethylclozapine)": "N-Desmethylclozapine",
+    "norfenfluramine": "Norfenfluramine",
+    "dextrorphan": "Dextrorphan",
+    "norbuprenorphine": "Norbuprenorphine",
+    "oxymorphone": "Oxymorphone",
+    "norketamine": "Norketamine",
+    "hydroxynorketamine": "Hydroxynorketamine",
+    "3,4-methylenedioxyamphetamine (mda)": "3,4-Methylenedioxyamphetamine",
+    "cotinine": "Cotinine",
+    "nordoxepin": "Nordoxepin",
     # Ethyl loflazepate's descarboxyloflazepate IS N-desalkylflurazepam (Wikipedia
     # redirects one to the other), the metabolite flurazepam and quazepam share.
     "n-desalkylflurazepam (descarboxyloflazepate)": "N-Desalkylflurazepam",

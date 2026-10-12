@@ -148,4 +148,18 @@ METABOLITE_ENZYME_QUOTES: dict[tuple[str, str], list[dict[str, Any]]] = {
                                  "2,2,2-trichloroethanol (TCE) and trichloroacetic acid "
                                  "(TCA) by alcohol dehydrogenase", "adh"),
     ],
+    # Added with the metabolites they form (each sentence names the isoform making it;
+    # buprenorphine's CYP2C8 is hedged "seems to be involved", kept as the source says).
+    ('doxepin', 'Nordoxepin'): [
+        _wiki('doxepin', "The major active metabolite of doxepin, nordoxepin , is formed mainly by CYP2C19 (>50% contribution), while CYP1A2 and CYP2C9 are involved to a lesser extent, and CYP2D6 and CYP3A4 are not involved.",
+              'cyp2c19'),
+        _wiki('doxepin', "The major active metabolite of doxepin, nordoxepin , is formed mainly by CYP2C19 (>50% contribution), while CYP1A2 and CYP2C9 are involved to a lesser extent, and CYP2D6 and CYP3A4 are not involved.",
+              'cyp1a2'),
+        _wiki('doxepin', "The major active metabolite of doxepin, nordoxepin , is formed mainly by CYP2C19 (>50% contribution), while CYP1A2 and CYP2C9 are involved to a lesser extent, and CYP2D6 and CYP3A4 are not involved.",
+              'cyp2c9'),
+    ],
+    ('trazodone', 'Meta-chlorophenylpiperazine'): [
+        _wiki('trazodone', "Its active metabolite meta -chlorophenylpiperazine (mCPP) is known to be formed by CYP3A4 and metabolized by CYP2D6.",
+              'cyp3a4'),
+    ],
 }

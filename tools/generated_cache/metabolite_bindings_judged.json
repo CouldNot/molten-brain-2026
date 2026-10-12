@@ -218,5 +218,204 @@
         "quote": "It is long-acting, prone to accumulation, and binds unselectively to the various benzodiazepine receptor subtypes."
       }
     ]
+  },
+  "norbuprenorphine": {
+    "bindings": [
+      {
+        "target": "mu",
+        "action": "agonist",
+        "quote": "It is a μ-opioid , δ-opioid , and nociceptin receptor full agonist"
+      },
+      {
+        "target": "delta",
+        "action": "agonist",
+        "quote": "It is a μ-opioid , δ-opioid , and nociceptin receptor full agonist"
+      },
+      {
+        "target": "kappa",
+        "action": "partial_agonist",
+        "quote": "a κ-opioid receptor partial agonist"
+      }
+    ]
+  },
+  "dextrorphan": {
+    "bindings": [
+      {
+        "target": "nmda",
+        "action": "antagonist",
+        "quote": "Dextrorphan is an NMDA antagonist"
+      },
+      {
+        "target": "net",
+        "action": "reuptake_inhibitor",
+        "quote": "retains DXM's activity as a norepinephrine reuptake inhibitor"
+      }
+    ]
+  },
+  "nordoxepin": {
+    "bindings": [
+      {
+        "target": "net",
+        "action": "reuptake_inhibitor",
+        "quote": "the demethylated variants of tertiary amine TCAs like doxepin are much more potent norepinephrine reuptake inhibitors"
+      }
+    ]
+  },
+  "norketamine": {
+    "bindings": [
+      {
+        "target": "nmda",
+        "action": "antagonist",
+        "quote": "norketamine acts as a noncompetitive NMDA receptor antagonist"
+      },
+      {
+        "target": "nachr_a7",
+        "action": "antagonist",
+        "quote": "norketamine is much more potent as an antagonist of the α 7 -nicotinic acetylcholine receptor"
+      }
+    ]
+  },
+  "hydroxynorketamine": {
+    "bindings": [
+      {
+        "target": "nachr_a7",
+        "action": "nam",
+        "quote": "act as a potent and selective negative allosteric modulator of the α 7 -nicotinic acetylcholine receptor"
+      }
+    ]
+  },
+  "cotinine": {
+    "bindings": [
+      {
+        "target": "nachr_a4b2",
+        "action": "agonist",
+        "quote": "cotinine binds to, activates, and desensitizes neuronal nicotinic acetylcholine receptors"
+      }
+    ]
+  },
+  "oxymorphone": {
+    "bindings": [
+      {
+        "target": "mu",
+        "action": "agonist",
+        "quote": "Oxymorphone elicits its effects by binding to and activating the μ-opioid receptor (MOR)"
+      },
+      {
+        "target": "delta",
+        "action": "agonist",
+        "quote": "and, to a much lesser extent, the δ-opioid receptor (DOR) and κ-opioid receptor (KOR)"
+      },
+      {
+        "target": "kappa",
+        "action": "agonist",
+        "quote": "and, to a much lesser extent, the δ-opioid receptor (DOR) and κ-opioid receptor (KOR)"
+      }
+    ]
+  },
+  "norfenfluramine": {
+    "bindings": [
+      {
+        "target": "5ht2a",
+        "action": "agonist",
+        "quote": "a potent serotonin 5-HT 2A , 5-HT 2B , and 5-HT 2C receptor agonist"
+      },
+      {
+        "target": "5ht2b",
+        "action": "agonist",
+        "quote": "a potent serotonin 5-HT 2A , 5-HT 2B , and 5-HT 2C receptor agonist"
+      },
+      {
+        "target": "5ht2c",
+        "action": "agonist",
+        "quote": "a potent serotonin 5-HT 2A , 5-HT 2B , and 5-HT 2C receptor agonist"
+      },
+      {
+        "target": "sert",
+        "action": "releaser",
+        "quote": "Norfenfluramine acts as a serotonin–norepinephrine releasing agent (SNRA)"
+      },
+      {
+        "target": "net",
+        "action": "releaser",
+        "quote": "Norfenfluramine acts as a serotonin–norepinephrine releasing agent (SNRA)"
+      }
+    ]
+  },
+  "norclozapine_n_desmethylclozapine": {
+    "bindings": [
+      {
+        "target": "d2",
+        "action": "partial_agonist",
+        "quote": "acts as a weak partial agonist at these sites"
+      },
+      {
+        "target": "d3",
+        "action": "partial_agonist",
+        "quote": "acts as a weak partial agonist at these sites"
+      },
+      {
+        "target": "m1",
+        "action": "agonist",
+        "quote": "act as a potent and efficacious agonist at the muscarinic acetylcholine M 1 receptor"
+      },
+      {
+        "target": "delta",
+        "action": "agonist",
+        "quote": "act as a potent and efficacious agonist at the muscarinic acetylcholine M 1 receptor and the δ-opioid receptor"
+      },
+      {
+        "target": "m2",
+        "action": "partial_agonist",
+        "quote": "a moderate-efficacy partial agonist of the muscarinic acetylcholine M 1 and M 2 receptors"
+      },
+      {
+        "target": "m4",
+        "action": "antagonist",
+        "quote": "a silent antagonist of the M 4 receptor"
+      }
+    ]
+  },
+  "3_4_methylenedioxyamphetamine_mda": {
+    "bindings": [
+      {
+        "target": "5ht2a",
+        "action": "agonist",
+        "quote": "a serotonin 5-HT 2 receptor agonist , including of the serotonin 5-HT 2A receptor"
+      },
+      {
+        "target": "sert",
+        "action": "releaser",
+        "quote": "MDA is a serotonin–norepinephrine–dopamine releasing agent (SNDRA)"
+      },
+      {
+        "target": "net",
+        "action": "releaser",
+        "quote": "MDA is a serotonin–norepinephrine–dopamine releasing agent (SNDRA)"
+      },
+      {
+        "target": "dat",
+        "action": "releaser",
+        "quote": "MDA is a serotonin–norepinephrine–dopamine releasing agent (SNDRA)"
+      }
+    ]
+  },
+  "o_desmethyltramadol_desmetramadol": {
+    "bindings": [
+      {
+        "target": "mu",
+        "action": "agonist",
+        "quote": "(+)-Desmetramadol is a G-protein biased μ-opioid receptor full agonist"
+      },
+      {
+        "target": "net",
+        "action": "reuptake_inhibitor",
+        "quote": "(−)-desmetramadol retains activity as a norepinephrine reuptake inhibitor"
+      },
+      {
+        "target": "5ht2c",
+        "action": "antagonist",
+        "quote": "Desmetramadol is also an antagonist of the serotonin 5-HT 2C receptor"
+      }
+    ]
   }
 }

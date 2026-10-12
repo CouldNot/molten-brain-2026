@@ -199,7 +199,14 @@
    "quote": "Elimination half-life of sublingual buprenorphine is 24–42 hours",
    "hours_max": 42.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "buprenorphine",
+    "quote": "One of the major active metabolites of buprenorphine is norbuprenorphine, which, in contrast to buprenorphine itself, is a full agonist of the MOR, DOR, and ORL-1, and a partial agonist at the KOR.",
+    "name": "Norbuprenorphine"
+   }
+  ]
  },
  "bupropion": {
   "half_life": {
@@ -292,6 +299,19 @@
     "page": "chlordiazepoxide",
     "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours;",
     "name": "Oxazepam"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "demoxepam",
+    "quote": "It is a metabolite of chlordiazepoxide and has anticonvulsant properties and presumably other characteristic benzodiazepine properties.",
+    "name": "Demoxepam",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "demoxepam",
+     "quote": "Elimination half-life | 35–40 hours",
+     "hours": 35,
+     "hours_max": 40
+    }
    }
   ]
  },
@@ -368,7 +388,14 @@
    "quote": "Half-life 5–16 hours",
    "hours_max": 16.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "clozapine",
+    "quote": "The major metabolite, norclozapine ( desmethyl -clozapine), is pharmacologically active.",
+    "name": "Norclozapine (N-desmethylclozapine)"
+   }
+  ]
  },
  "cyamemazine": {
   "half_life": {
@@ -421,20 +448,24 @@
   "metabolites": []
  },
  "dextromethorphanbupropion": {
-  "half_life": {
-   "hours": 22.0,
-   "page": 249,
-   "quote": "Mean elimination half-life of dextromethorphan/bupropion is 22 hours and 15 hours, respectively"
-  },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dextromethorphan_bupropion",
+    "quote": "This is because bupropion is a potent CYP2D6 inhibitor and prevents the bioactivation of dextromethorphan into dextrorphan , a much more potent NMDA receptor antagonist and weaker serotonin reuptake inhibitor than dextromethorphan itself.",
+    "name": "Dextrorphan"
+   }
+  ]
  },
  "dextromethorphanquinidine": {
-  "half_life": {
-   "hours": 13.0,
-   "page": 254,
-   "quote": "Elimination half-life of dextromethorphan is approximately 13 hours"
-  },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "dextromethorphan_quinidine",
+    "quote": "Quinidine prevents the metabolism of dextromethorphan into its active metabolite dextrorphan , which is a much more potent NMDA receptor antagonist but much less potent serotonin reuptake inhibitor than dextromethorphan.",
+    "name": "Dextrorphan"
+   }
+  ]
  },
  "diazepam": {
   "half_life": {
@@ -533,7 +564,21 @@
    "quote": "Half-life approximately 8–24 hours",
    "hours_max": 24.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "doxepin",
+    "quote": "The major active metabolite of doxepin, nordoxepin , is formed mainly by CYP2C19 (>50% contribution), while CYP1A2 and CYP2C9 are involved to a lesser extent, and CYP2D6 and CYP3A4 are not involved.",
+    "name": "Nordoxepin",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "doxepin",
+     "quote": "Elimination half-life | Doxepin: 8–24 hours (mean 17 hours) Nordoxepin : 28–31 hours",
+     "hours": 28,
+     "hours_max": 31
+    }
+   }
+  ]
  },
  "duloxetine": {
   "half_life": {
@@ -726,7 +771,20 @@
    "quote": "Plasma half-life: alpha: 10–15 minutes; beta: 2.5 hours; 1–3 hours intramuscular; 2.5–3 hours orally; 12 hours norketamine",
    "hours_max": 0.25
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ketamine",
+    "quote": "The presence of norketamine, a pharmacologically active metabolite, is useful for confirmation of ketamine ingestion.",
+    "name": "Norketamine"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ketamine",
+    "quote": "the active metabolite of ketamine, hydroxynorketamine , which does not significantly interact with the NMDA receptor but nonetheless indirectly activates AMPA receptors , may also or alternatively be involved in the rapid-onset antidepressant effects of ketamine.",
+    "name": "Hydroxynorketamine"
+   }
+  ]
  },
  "lamotrigine": {
   "half_life": {
@@ -1383,7 +1441,14 @@
    "quote": "Half-life is biphasic; first phase is approximately 3–6 hours; second phase is approximately 5–9 hours",
    "hours_max": 9.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "trazodone",
+    "quote": "Its active metabolite meta -chlorophenylpiperazine (mCPP) is known to be formed by CYP3A4 and metabolized by CYP2D6.",
+    "name": "Meta-chlorophenylpiperazine"
+   }
+  ]
  },
  "triazolam": {
   "half_life": {
@@ -1591,6 +1656,85 @@
      "hours": 36,
      "hours_max": 200
     }
+   }
+  ]
+ },
+ "tramadol": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "tramadol",
+    "quote": "Tramadol is converted in the liver to O -desmethyltramadol (desmetramadol) , an opioid with a stronger affinity for the μ-opioid receptor .",
+    "name": "O-Desmethyltramadol (desmetramadol)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "tramadol",
+     "quote": "Of these, desmetramadol ( O -desmethyltramadol) is the most significant, since it has 200 times the μ-affinity of (+)-tramadol, and furthermore has an elimination half-life of 9 hours, compared with 6 hours for tramadol itself.",
+     "hours": 9
+    }
+   }
+  ]
+ },
+ "fenfluramine": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "fenfluramine",
+    "quote": "Fenfluramine and its active metabolite norfenfluramine affect the 5-HT 2B receptors , which are plentiful in human cardiac valves.",
+    "name": "Norfenfluramine"
+   }
+  ]
+ },
+ "oxycodone": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "oxycodone",
+    "quote": "While higher CYP2D6 activity increases the effects of oxycodone (owing to increased conversion into oxymorphone), higher CYP3A4 activity has the opposite effect and decreases the effects of oxycodone (owing to increased metabolism into noroxycodone and noroxymorphone).",
+    "name": "Oxymorphone"
+   }
+  ]
+ },
+ "mdma": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mdma",
+    "quote": "MDMA produces MDA as a minor active metabolite .",
+    "name": "3,4-Methylenedioxyamphetamine (MDA)"
+   }
+  ]
+ },
+ "nicotine": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nicotine",
+    "quote": "Cotinine is an active metabolite of nicotine that remains in the blood with a half-life of 18–20 hours, making it easier to analyze due to longer half-life than that of nicotine itself.",
+    "name": "Cotinine",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotine",
+     "quote": "Cotinine is an active metabolite of nicotine that remains in the blood with a half-life of 18–20 hours, making it easier to analyze due to longer half-life than that of nicotine itself.",
+     "hours": 18,
+     "hours_max": 20
+    }
+   }
+  ]
+ },
+ "sibutramine": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sibutramine",
+    "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors.",
+    "name": "Desmethylsibutramine"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "sibutramine",
+    "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors.",
+    "name": "Didesmethylsibutramine"
    }
   ]
  }
