@@ -2625,6 +2625,10 @@
       .ki-mapped { color: var(--sem-caution); font-size: 10px; white-space: nowrap; }
       /* Affinity-only (PDSP) binding: no known direction, panel-only, slightly muted. */
       .info-bindings li.affinity-only .bind-action { font-style: italic; }
+      /* The action line's direction pill follows a bare text node, which
+         :first-child ignores, so .help-icon:first-child would strip its gap and let
+         italic text run under the pill. Restore the trailing-pill margin. */
+      .info-bindings .bind-action > .help-icon { margin-left: var(--sp-m); }
       /* Elimination half-life (T½) chip: a value + its provenance pill. The value
          is styled like a brand name (plain bold --text, not the accent colour a
          Ki uses): a T½ is a stated property of the drug, like its trade name, not
