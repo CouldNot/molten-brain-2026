@@ -3358,14 +3358,22 @@ function createInfoPanel(data, sourcingModal) {
   // Shared by the receptor + target views: the drugs that act on this target, so
   // you can go from a target to every drug touching it (grouped by category, see
   // appendDrugsByCategory). Omitted entirely when no drug in the dataset acts on it.
+  // A prodrug acting through a metabolite drug (lisdexamfetamine via
+  // dextroamphetamine) is listed beside it, its row reading "via <metabolite>", but
+  // left out of the count: the binding node is the metabolite's (see
+  // data.prodrugsByTarget).
+  const interactorsOf = (targetId) => ({
+    list: (data.drugsByTarget && data.drugsByTarget.get(targetId)) || [],
+    borrowed: (data.prodrugsByTarget && data.prodrugsByTarget.get(targetId)) || [],
+  });
   const appendInteractingDrugs = (targetId) => {
-    const list = (data.drugsByTarget && data.drugsByTarget.get(targetId)) || [];
-    if (!list.length) return;
+    const { list, borrowed } = interactorsOf(targetId);
+    if (!list.length && !borrowed.length) return;
     const wrap = el("div", "info-bindings info-interactors");
     wrap.dataset.tourSec = "drugs"; // guided-tour section anchor
     wrap.appendChild(el(
       "h3", null, `${t("targets.interactingDrugs")} (${list.length})`));
-    appendDrugsByCategory(list, wrap);
+    appendDrugsByCategory([...list, ...borrowed], wrap);
     body.appendChild(wrap);
   };
 
@@ -3378,20 +3386,19 @@ function createInfoPanel(data, sourcingModal) {
   const appendSubtypeInteractors = (subtypes) => {
     if (!Array.isArray(subtypes) || !subtypes.length) return;
     const withDrugs = subtypes
-      .map((sid) => ({
-        sid, list: (data.drugsByTarget && data.drugsByTarget.get(sid)) || [],
-      }))
-      .filter((s) => s.list.length);
+      .map(interactorsOf)
+      .filter((s) => s.list.length || s.borrowed.length);
     if (!withDrugs.length) return;
     const wrap = el("div", "info-bindings info-interactors info-subtype-interactors");
     wrap.appendChild(el("h3", null, t("targets.bySubtype")));
-    for (const { list } of withDrugs) {
+    for (const { list, borrowed } of withDrugs) {
+      const rows = [...list, ...borrowed];
       // The subtype's display name comes off the resolved binding (localized), so it
       // needs no separate receptor lookup and stays in sync with the drug panel.
-      const name = (list[0].binding && list[0].binding.targetName) || "";
+      const name = (rows[0].binding && rows[0].binding.targetName) || "";
       const details = el("details", "disclosure subtype-group");
       details.appendChild(el("summary", null, `${name} (${list.length})`));
-      appendDrugsByCategory(list, details);
+      appendDrugsByCategory(rows, details);
       wrap.appendChild(details);
     }
     body.appendChild(wrap);
