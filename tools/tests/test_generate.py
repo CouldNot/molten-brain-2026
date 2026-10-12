@@ -283,12 +283,16 @@ class MetaAndTranslationsTest(unittest.TestCase):
 
         kind = meta["provenance_stats"]["by_kind"].get("drug_binding_action")
         self.assertIsNotNone(kind, "drug_binding_action missing from the tally")
-        self.assertEqual(kind["total"], len(bindings),
+        # UNKNOWN (a logged search that found nothing) sits outside the total.
+        self.assertEqual(kind["total"] + kind["unknown"], len(bindings),
                          "drug_binding_action tally != drug + unique metabolite bindings")
-        # No action => no direction claim at all => NOSOURCE, never a borrowed Ki grade.
+        # No action => no direction claim at all => NOSOURCE, never a borrowed Ki grade,
+        # unless a recorded search makes it UNKNOWN.
         n_affinity_only = sum(1 for b in bindings if not b.get("action"))
-        self.assertEqual(kind["nosource"], n_affinity_only,
-                         "every affinity_only binding must count as a missing direction")
+        n_unknown = sum(1 for b in bindings if not b.get("action") and b.get("unknown"))
+        self.assertEqual(kind["unknown"], n_unknown)
+        self.assertEqual(kind["nosource"], n_affinity_only - n_unknown,
+                         "every unsearched affinity_only binding must count as missing")
         self.assertTrue(n_affinity_only, "expected some affinity_only bindings")
         # A direction authored with no quote behind it floors at ``llm``: weaker than a
         # quote, stronger than nothing, and not liftable by the Ki sitting beside it.
