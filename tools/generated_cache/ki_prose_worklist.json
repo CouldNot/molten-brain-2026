@@ -220,6 +220,104 @@
    "candidates": [
     {
      "corpus": "europepmc",
+     "page": "32943948",
+     "line": "In addition to its clinical profile, historical in vitro pharmacology data indicate that the inhibitory potency of viloxazine for NE and 5-HT uptake is different from that of other known NRIs, such as atomoxetine and reboxetine. Previous data have demonstrated that viloxazine exhibits a more moderate inhibitory effect on NE uptake, with an inhibitory constant (Ki) of 2300 nM, compared to the Ki of 3.4 and 8.2 nM for atomoxetine and reboxetine, respectively (Table 1).15–18 Viloxazine is almost devoid of any 5-HT uptake inhibitory activity (Ki > 10,000 nM), while atomoxetine and reboxetine have a moderate potency for 5-HT uptake inhibition (Ki = 390 and 1070 nM, respectively). Likewise, viloxazine has consistently demonstrated a relatively low affinity towards the NE transporter (NET) in in vitro binding competition assays. Still, viloxazine exhibits higher selectivity towards NET over the 5-HT transporter (SERT) (dissociation constant KD ratio = 110) and almost negligible affinity for the dopamine (DA) transporter (DAT) (KD > 100,000 nM; Table 1)."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "[3H]-NE uptake | 2300a | 3.4b | 8.2c",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "[3H]-5-HT uptake | >10,000a | 390b | 1070c",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "[3H]-DA uptake | NCa | 1750b | NCc",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "NET binding | 155d | 2d–5e | 1.1e–11f",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "SERT binding | 17,300d | 9d–77e | 129e–440f",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "DAT binding | >100,000d | 1080d–1451e | >10,000f",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "KD (SERT)/KD (NET) | 111 | 4 | ",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "Ki (SERT)/Ki (NET) |  | 15 | 40–117",
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "The receptor occupancies at clinical doses of 100, 200, 400, and 600 mg/day were calculated based on the Ki values of 630, 3900, and 6400 nM for NET, 5-HT2C, and 5-HT2B, respectively (Table 3). The dose and calculated receptor occupancy relationship is depicted in Figure 4."
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "NET | 5-HT2B | 5-HT2C",
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "100 | 96.5 | 81.4 | 72.8",
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "200 | 98.6 | 91.7 | 87.1",
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "400 | 99.3 | 95.7 | 93.2",
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "600 | 99.3 | 96.1 | 93.7",
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+    },
+    {
+     "corpus": "europepmc",
+     "page": "32943948",
+     "line": "As mentioned above, administration of viloxazine demonstrated a minimal increase of DA in the Acb to approximately 180% in freely moving rats. Vehicle-treated rats demonstrated an increase in DA of approximately 120%. These results are likely due to the lack of binding affinity of viloxazine at the DAT (KD >100 µM).18 In addition, viloxazine does not directly interact with the dopaminergic receptors D1 and D2S. Based on the minimal effect on DA in the Acb, viloxazine is expected to have low substance abuse liability."
+    },
+    {
+     "corpus": "europepmc",
      "page": "3816971",
      "line": "At the serotonin S1 receptor, the most and least potent antidepressants were trazodone (KD = 60 nM) and bupropion (KD = 170 microM), respectively."
     },
