@@ -140,6 +140,44 @@ def page_text(target_id: int, cache: dict[int, str]) -> str:
     return cache[target_id]
 
 
+CORPUS = "gtopdb_class"
+
+
+def strip_corpus(rec_out: dict, tgt_out: dict, corpus: str = CORPUS) -> int:
+    """Drop every ``corpus`` citation (pruning emptied buckets) so a re-run rewrites them.
+
+    The GtoPdb pass owns its corpus's citations: after a ``--refresh`` a line GtoPdb
+    reworded must REPLACE the old quote (no longer on the page), not sit beside it.
+    Prose citations (other corpora) are left alone. Returns how many were dropped."""
+    dropped = 0
+    for owner in list(rec_out):
+        for attr in list(rec_out[owner]):
+            keep = [s for s in rec_out[owner][attr] if s.get("corpus") != corpus]
+            dropped += len(rec_out[owner][attr]) - len(keep)
+            if keep:
+                rec_out[owner][attr] = keep
+            else:
+                del rec_out[owner][attr]
+        if not rec_out[owner]:
+            del rec_out[owner]
+    for owner in list(tgt_out):
+        keep = [s for s in tgt_out[owner] if s.get("corpus") != corpus]
+        dropped += len(tgt_out[owner]) - len(keep)
+        if keep:
+            tgt_out[owner] = keep
+        else:
+            del tgt_out[owner]
+    return dropped
+
+
+def write_out(rec_out: dict, tgt_out: dict) -> None:
+    """The one writer of classification_sources.json, shared by both modes."""
+    payload = {k: v for k, v in (("receptors", rec_out), ("targets", tgt_out)) if v}
+    OUT.write_text(json.dumps(payload, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
+                   encoding="utf-8")
+    print(f"wrote {OUT.relative_to(REPO)}")
+
+
 def current_values() -> tuple[dict[str, dict], dict[str, dict]]:
     """What the dataset states today: (receptor_id -> record, target_id -> record).
     The confirm-only comparison is against these, never against an authored table."""
@@ -261,9 +299,7 @@ def main() -> int:
         if args.dry_run:
             print("(dry run: not written)")
             return 0
-        OUT.write_text(json.dumps({"receptors": rec_out, "targets": tgt_out}, indent=1,
-                                  sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
-        print(f"wrote {OUT.relative_to(REPO)}")
+        write_out(rec_out, tgt_out)
         return 0
 
     if not CACHE.exists():
@@ -274,6 +310,7 @@ def main() -> int:
     existing = json.loads(OUT.read_text("utf-8")) if OUT.exists() else {}
     rec_out: dict[str, dict[str, list]] = existing.get("receptors", {})
     tgt_out: dict[str, list] = existing.get("targets", {})
+    replaced = strip_corpus(rec_out, tgt_out)
 
     ptext: dict[int, str] = {}
     applied, conflicts, skipped = 0, [], []
@@ -284,7 +321,7 @@ def main() -> int:
         if text and normalize_for_match(quote) not in text:
             skipped.append(f"{owner}/{attr}: quote not on page {tid}")
             return None
-        return {"corpus": "gtopdb_class", "page": tid, "quote": quote,
+        return {"corpus": CORPUS, "page": tid, "quote": quote,
                 "provenance": "verified"}
 
     for owner, prop in sorted(proposals.items()):
@@ -354,16 +391,11 @@ def main() -> int:
           f"{sum(len(v) for v in tgt_out.values())} target sources over {len(tgt_out)} targets")
     print(f"{len(conflicts)} conflict(s) reported (not resolved), {len(skipped)} skipped")
 
-    payload = {}
-    if rec_out:
-        payload["receptors"] = rec_out
-    if tgt_out:
-        payload["targets"] = tgt_out
+    print(f"({replaced} previous {CORPUS} citation(s) rewritten from the current pages)")
     if args.dry_run:
         print("(dry run: not written)")
         return 0
-    OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"wrote {OUT.relative_to(REPO)}")
+    write_out(rec_out, tgt_out)
     return 0
 
 

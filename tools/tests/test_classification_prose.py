@@ -82,5 +82,20 @@ class ProseGateTest(unittest.TestCase):
         self.assertEqual(len(rec_out["nmda"]["sign"]), 1)
 
 
+class StripCorpusTest(unittest.TestCase):
+    """A GtoPdb re-run replaces its own citations instead of stacking a reworded line
+    beside the stale one (the bug a 2026-10 refetch surfaced: 6 attributes double-cited)."""
+
+    def test_only_the_gtopdb_citations_are_dropped(self):
+        prose = {"corpus": "stahl_essential", "page": 1, "quote": PRE}
+        rec_out = {"d2": {"sign": [{"corpus": A.CORPUS, "page": 2, "quote": "old line"}],
+                          "synaptic": [prose, {"corpus": A.CORPUS, "page": 2, "quote": "x"}]},
+                   "h1": {"family": [{"corpus": A.CORPUS, "page": 3, "quote": "y"}]}}
+        tgt_out = {"pde5": [{"corpus": A.CORPUS, "page": 4, "quote": "z"}]}
+        self.assertEqual(A.strip_corpus(rec_out, tgt_out), 4)
+        self.assertEqual(rec_out, {"d2": {"synaptic": [prose]}})
+        self.assertEqual(tgt_out, {})
+
+
 if __name__ == "__main__":
     unittest.main()
