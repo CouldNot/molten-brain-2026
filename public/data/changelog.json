@@ -1,6 +1,26 @@
 {
   "versions": [
     {
+      "version": "3.103.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Data from the Guide to Pharmacology now carries the citation that database asks for (its 2026 Nucleic Acids Research paper, the Concise Guide to PHARMACOLOGY chapter for target data, and its CC BY-SA 4.0 licence), under each of its source pills and in the Sources popup.",
+          "commits": [
+            "6e05f72"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The Guide to Pharmacology now requires an API key for its web services; the tools that download its tissue-distribution and target-classification data send one, so those sources can be refreshed again.",
+          "commits": [
+            "cef4a23"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.102.0",
       "date": "2026-10-12",
       "entries": [
