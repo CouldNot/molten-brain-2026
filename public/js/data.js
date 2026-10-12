@@ -910,7 +910,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   const BRAND_NOTE = /\s*\([^()]*\)\s*$/;
   const BRAND_COMBO = /\((?:with|in combination|\+)/i;
   // A prodrug (node kind drug_prodrug) is inactive itself and carries no binding of
-  // its own, yet focusing it should light what its active metabolite hits. So before
+  // its own (bar the activating enzyme it is the substrate of, levodopa at AADC, kept
+  // first), yet focusing it should light what its active metabolite hits. So before
   // the loop resolves bindings, it borrows each metabolite's raw bindings (its own
   // `bindings[]`, else its linked modeled drug's), tagged `via_metabolite`: the scene,
   // flow and "Acts on" treat them like the drug's, while every list that counts a
@@ -920,11 +921,11 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   const rawDrugById = new Map(drugs.map((d) => [d.id, d]));
   for (const d of drugs) {
     if (!d.prodrug) continue;
-    d.bindings = (d.metabolites || []).flatMap((m) => {
+    d.bindings = (d.bindings || []).concat((d.metabolites || []).flatMap((m) => {
       const linked = m.drug_id ? rawDrugById.get(m.drug_id) : null;
       const own = (m.bindings || []).length ? m.bindings : linked ? linked.bindings || [] : [];
       return own.map((b) => ({ ...b, via_metabolite: m.name }));
-    });
+    }));
   }
   for (const d of drugs) {
     d.description = d.description ? localize(d.description) : "";

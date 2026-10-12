@@ -153,6 +153,9 @@ def apply(judged: dict, drugs: list[dict], pages: PageGate,
             if mrec is None:
                 mrec = {"name": name}
                 mets.append(mrec)
+            # The judged name wins, so one molecule two parents share is spelled alike
+            # everywhere (a shared spelling = one bindings entry, see the bindings pass).
+            mrec["name"] = name
             # Link a metabolite that is itself a modeled drug (never the parent itself),
             # so the viewer reuses its bindings + T½ and jumps to it. An explicit
             # ``drug_id`` covers a synonym the name match cannot see (ODV = desvenlafaxine).

@@ -1140,7 +1140,7 @@
     "corpus": "wikipedia_pharm",
     "page": "quazepam",
     "quote": "In addition, it has now been documented in the medical literature that one of the major metabolites of quazepam, N -desalkyl-2-oxoquazepam ( N -desalkylflurazepam ), which is long-acting and prone to accumulation, binds unselectively to benzodiazepine receptors, thus quazepam may not differ all that much pharmacologically from other benzodiazepines.",
-    "name": "N-desalkylflurazepam",
+    "name": "N-desalkylflurazepam (descarboxyloflazepate)",
     "half_life": {
      "corpus": "wikipedia_pharm",
      "page": "flurazepam",

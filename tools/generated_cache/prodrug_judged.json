@@ -3,5 +3,10 @@
  "lisdexamfetamine": {"index": 2, "metabolite": "Dextroamphetamine", "drug_id": "amphetamine_d"},
  "serdexmethylphenidate": {"index": 0, "metabolite": "Dexmethylphenidate", "drug_id": "methylphenidate_d"},
  "clorazepate": {"index": 0, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null},
- "prazepam": {"index": 1, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null}
+ "prazepam": {"index": 1, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null},
+ "codeine": {"index": 1, "metabolite": "Morphine", "drug_id": "morphine"},
+ "heroin": {"index": 0, "metabolite": "Morphine", "drug_id": "morphine"},
+ "levodopa": {"index": 2, "metabolite": "Dopamine", "drug_id": null},
+ "oxcarbazepine": {"index": 0, "metabolite": "Licarbazepine", "drug_id": null},
+ "loflazepate": {"index": 0, "metabolite": "N-desalkylflurazepam (descarboxyloflazepate)", "drug_id": null}
 }

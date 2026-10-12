@@ -101,6 +101,7 @@ from data_generators.presentation import (  # noqa: E402
 from data_generators import history  # noqa: E402 (regulatory history vocabularies)
 from data_generators.drugs import (  # noqa: E402
     DRUG_ACTIONS,
+    PRODRUG_OWN_ACTIONS,
     DRUG_ALIASES,
     DRUG_NAME_QUALIFIERS,
     DRUG_CATEGORY_LABELS,
@@ -1209,14 +1210,15 @@ def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
 def _drug_prodrug(drug: dict[str, Any]) -> dict[str, Any]:
     """The emitted prodrug flag (kind ``drug_prodrug``) of one drug, ``{}`` if none.
 
-    A prodrug is inactive until metabolised, so it carries no binding of its own and
-    the viewer borrows its active metabolite's (js/data.js). A prodrug with a binding
-    would double-count; one without a metabolite would light nothing: both raise.
+    A prodrug is inactive until metabolised, so it carries no binding of its own (bar
+    :data:`PRODRUG_OWN_ACTIONS`, its activating enzyme) and the viewer borrows its
+    active metabolite's (js/data.js). A prodrug with another binding would double-count; one without a metabolite would light nothing: both raise.
     See apply_prodrug.py."""
     if not drug.get("prodrug"):
         return {}
-    if drug.get("bindings"):
-        raise ValueError(f"Drug {drug['id']!r} is a prodrug but has own bindings")
+    if any(b.get("action") not in PRODRUG_OWN_ACTIONS for b in drug.get("bindings") or []):
+        raise ValueError(f"Drug {drug['id']!r} is a prodrug but has own bindings "
+                         f"(only {sorted(PRODRUG_OWN_ACTIONS)} may stay)")
     if not drug.get("metabolites"):
         raise ValueError(f"Drug {drug['id']!r} is a prodrug without a metabolite")
     out: dict[str, Any] = {"prodrug": True}

@@ -58,6 +58,14 @@ class GateTest(unittest.TestCase):
         self.assertEqual(d["metabolites"][0]["name"], "Psilocin")
         self.assertEqual(d["prodrug_sources"][0]["quote"], LINES[0])
 
+    def test_activating_enzyme_substrate_binding_is_kept(self):
+        """Levodopa is AADC's substrate: that IS the conversion, so it stays."""
+        aadc = {"target": "aadc", "action": "precursor"}
+        self.drugs[0]["bindings"].append(aadc)
+        _, dropped, _ = self.run_apply({"index": 0, "metabolite": "Psilocin"})
+        self.assertEqual(self.drugs[0]["bindings"], [aadc])
+        self.assertEqual(dropped, ["psilocybin: 5ht2a agonist"])
+
     def test_metabolite_not_named_rejected(self):
         _, _, rejected = self.run_apply({"index": 1, "metabolite": "Psilocin"})
         self.assertIn("not named", rejected[0])
@@ -88,6 +96,13 @@ class GeneratorTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             G._drug_prodrug({"id": "x", "prodrug": True, "bindings": [{"target": "d2"}],
                              "metabolites": [{"name": "Y"}]})
+
+    def test_prodrug_may_keep_its_precursor_binding(self):
+        self.assertEqual(G._drug_prodrug({"id": "x", "prodrug": True,
+                                          "bindings": [{"target": "aadc",
+                                                        "action": "precursor"}],
+                                          "metabolites": [{"name": "Y"}]}),
+                         {"prodrug": True})
 
     def test_prodrug_without_metabolite_raises(self):
         with self.assertRaises(ValueError):

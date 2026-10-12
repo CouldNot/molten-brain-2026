@@ -614,7 +614,10 @@
     "from_parent": false,
     "ki_bindings": [],
     "unresolved_ki": [],
-    "action_candidates": [],
+    "action_candidates": [
+      "Licarbazepine is a voltage-gated sodium channel blocker with anticonvulsant and mood-stabilizing effects that is related to oxcarbazepine . It is an active metabolite of oxcarbazepine . In addition, an enantiomer of licarbazepine, eslicarbazepine (( S )-(+)-licarbazepine), is an active metabolite of eslicarbazepine acetate . Oxcarbazepine and eslicarbazepine acetate are inactive on their own, and behave instead as prodrugs to licarbazepine and eslicarbazepine, respectively, to produce their therapeutic effects.",
+      "Both oxcarbazepine and licarbazepine were found to show anticonvulsant properties in seizure models done on animals. These compounds had protective functions whenever tonic extension seizures were induced electrically, but such protection was less apparent whenever seizures were induced chemically. There was no observable tolerance during a four weeks course of treatment with daily administration of oxcarbazepine or licarbazepine in electroshock test on mice and rats. Most of the antiepileptic activity can be attributed to licarbazepine. Aside from its reduction in side effects, it is presumed to have the same main mechanism as carbamazepine, sodium channel inhibition, and is generally used to treat the same conditions."
+    ],
     "pages": [
       "licarbazepine",
       "oxcarbazepine"
@@ -1136,5 +1139,137 @@
         "value_nm": 10.0
       }
     ]
+  },
+  {
+    "metabolite": "Descarboxyloflazepate",
+    "parents": [
+      "loflazepate"
+    ],
+    "key": "descarboxyloflazepate",
+    "wiki_title": "",
+    "slug": "",
+    "own_article": false,
+    "found": false,
+    "from_parent": true,
+    "ki_bindings": [],
+    "unresolved_ki": [],
+    "action_candidates": [],
+    "pages": [],
+    "pdsp_targets": []
+  },
+  {
+    "metabolite": "Dopamine",
+    "parents": [
+      "levodopa"
+    ],
+    "key": "dopamine",
+    "wiki_title": "Levodopa",
+    "slug": "levodopa",
+    "own_article": false,
+    "found": true,
+    "from_parent": true,
+    "ki_bindings": [],
+    "unresolved_ki": [],
+    "action_candidates": [
+      "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+    ],
+    "pages": [
+      "levodopa"
+    ],
+    "pdsp_targets": [
+      {
+        "target": "5ht1a",
+        "ki_id": 3347,
+        "value_nm": 8248.0
+      },
+      {
+        "target": "5ht2c",
+        "ki_id": 722,
+        "value_nm": 6030.0
+      },
+      {
+        "target": "5ht5a",
+        "ki_id": 5229,
+        "value_nm": 1000.0
+      },
+      {
+        "target": "5ht7",
+        "ki_id": 35041,
+        "value_nm": 1000.0
+      },
+      {
+        "target": "alpha2",
+        "ki_id": 12590,
+        "value_nm": 9989.0
+      },
+      {
+        "target": "cb1",
+        "ki_id": 50063,
+        "value_nm": 1000.0
+      },
+      {
+        "target": "d1",
+        "ki_id": 16126,
+        "value_nm": 2340.0
+      },
+      {
+        "target": "d2",
+        "ki_id": 13410,
+        "value_nm": 540.0
+      },
+      {
+        "target": "d3",
+        "ki_id": 16975,
+        "value_nm": 33.9
+      },
+      {
+        "target": "d4",
+        "ki_id": 83280,
+        "value_nm": 630.0
+      },
+      {
+        "target": "d5",
+        "ki_id": 16153,
+        "value_nm": 228.0
+      },
+      {
+        "target": "dat",
+        "ki_id": 4659,
+        "value_nm": 3100.0
+      },
+      {
+        "target": "net",
+        "ki_id": 10009,
+        "value_nm": 323.0
+      },
+      {
+        "target": "sert",
+        "ki_id": 33037,
+        "value_nm": 1000.0
+      }
+    ]
+  },
+  {
+    "metabolite": "N-desalkylflurazepam (descarboxyloflazepate)",
+    "parents": [
+      "loflazepate",
+      "quazepam"
+    ],
+    "key": "n_desalkylflurazepam_descarboxyloflazepate",
+    "wiki_title": "N-Desalkylflurazepam",
+    "slug": "n_desalkylflurazepam",
+    "own_article": true,
+    "found": true,
+    "from_parent": false,
+    "ki_bindings": [],
+    "unresolved_ki": [],
+    "action_candidates": [
+      "N -Desalkylflurazepam (also known as norflurazepam ) is a benzodiazepine analog and an active metabolite of several other benzodiazepine drugs including flurazepam , flutoprazepam , fludiazepam , midazolam , flutazolam , quazepam , and ethyl loflazepate . It is long-acting, prone to accumulation, and binds unselectively to the various benzodiazepine receptor subtypes. It has been sold as a designer drug from 2016 onward."
+    ],
+    "pages": [
+      "n_desalkylflurazepam",
+      "ethyl_loflazepate"
+    ],
+    "pdsp_targets": []
   }
 ]

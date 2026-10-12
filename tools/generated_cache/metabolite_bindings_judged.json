@@ -171,5 +171,52 @@
         "quote": "Nordazepam is a partial agonist at the GABA A receptor , which makes it less potent than other benzodiazepines, particularly in its amnesic and muscle-relaxing effects."
       }
     ]
+  },
+  "licarbazepine": {
+    "bindings": [
+      {
+        "target": "nav",
+        "action": "blocker",
+        "quote": "Licarbazepine is a voltage-gated sodium channel blocker with anticonvulsant and mood-stabilizing effects that is related to oxcarbazepine ."
+      }
+    ]
+  },
+  "dopamine": {
+    "bindings": [
+      {
+        "target": "d1",
+        "action": "agonist",
+        "quote": "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+      },
+      {
+        "target": "d2",
+        "action": "agonist",
+        "quote": "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+      },
+      {
+        "target": "d3",
+        "action": "agonist",
+        "quote": "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+      },
+      {
+        "target": "d4",
+        "action": "agonist",
+        "quote": "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+      },
+      {
+        "target": "d5",
+        "action": "agonist",
+        "quote": "Levodopa is a dopamine precursor and prodrug of dopamine and hence acts as a non-selective dopamine receptor agonist , including of the D 1 -like receptors ( D 1 , D 5 ) and the D 2 -like receptors ( D 2 , D 3 , D 4 )."
+      }
+    ]
+  },
+  "n_desalkylflurazepam_descarboxyloflazepate": {
+    "bindings": [
+      {
+        "target": "gaba_a",
+        "action": "pam",
+        "quote": "It is long-acting, prone to accumulation, and binds unselectively to the various benzodiazepine receptor subtypes."
+      }
+    ]
   }
 }

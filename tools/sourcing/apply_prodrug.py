@@ -18,7 +18,8 @@ Every gate is re-derived here, never trusted from the judged file:
 
 A gated drug gets ``prodrug: true`` + ``prodrug_sources``, its active metabolite (added,
 sourced by the same quote, when the drug did not list it yet; linked to a modeled drug
-via ``drug_id``), and **loses its own bindings**: a prodrug's pharmacology is its
+via ``drug_id``), and **loses its own bindings** (bar ``PRODRUG_OWN_ACTIONS``: levodopa
+stays AADC's substrate, the conversion itself): a prodrug's pharmacology is its
 metabolite's (a linked drug's bindings, or the metabolite's own ``bindings[]`` written by
 ``apply_metabolite_bindings.py``). Every dropped binding is printed so it can be re-sourced
 on the metabolite. Sole writer of ``prodrug`` / ``prodrug_sources``; idempotent.
@@ -44,6 +45,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
+from data_generators.drugs import PRODRUG_OWN_ACTIONS  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 import fetch_prodrug_worklist as wl  # noqa: E402
 
@@ -107,9 +109,13 @@ def apply(judged: dict, offered: dict, drugs: list[dict],
             mets.append(met)
         if rec.get("drug_id"):
             met["drug_id"] = rec["drug_id"]
+        kept = []
         for b in drug.get("bindings") or []:
-            dropped.append(f"{did}: {b['target']} {b.get('action') or 'affinity-only'}")
-        drug["bindings"] = []
+            if b.get("action") in PRODRUG_OWN_ACTIONS:
+                kept.append(b)
+            else:
+                dropped.append(f"{did}: {b['target']} {b.get('action') or 'affinity-only'}")
+        drug["bindings"] = kept
         applied.append(did)
     return applied, dropped, rejected
 

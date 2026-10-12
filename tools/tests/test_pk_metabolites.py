@@ -70,7 +70,7 @@ class MergeTest(unittest.TestCase):
         self.assertNotIn("half_life", d)
         self.assertNotIn("half_life_sources", d)
         (m,) = d["metabolites"]
-        self.assertEqual(m["name"], "Desmethyldiazepam (nordazepam)")   # matched by synonym
+        self.assertEqual(m["name"], "Nordazepam")   # matched by synonym, judged name wins
         self.assertEqual(m["half_life"], {"hours": 36.0, "hours_max": 200.0})
         self.assertEqual(m["sources"][0]["page"], "nordazepam")
         self.assertEqual(m["bindings"], [{"target": "gaba_a"}])

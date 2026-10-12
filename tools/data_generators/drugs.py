@@ -106,6 +106,12 @@ DRUG_CATEGORY_LABELS: dict[str, dict[str, str]] = {
 # modulate) is the net direction of the drug's action at that target and drives
 # the animation colour (DRUG_EFFECT_COLORS). A binding may override ``effect`` for
 # an edge case (e.g. an enzyme inhibitor that does not raise a transmitter).
+# The one action a prodrug keeps of its own: being the substrate of the enzyme that
+# activates it (levodopa at AADC) IS the conversion, not pharmacology the metabolite
+# owns, so apply_prodrug.py keeps it and the generator allows it (js/data.js then adds
+# the borrowed metabolite bindings after it).
+PRODRUG_OWN_ACTIONS = frozenset({"precursor"})
+
 DRUG_ACTIONS: dict[str, dict[str, Any]] = {
     "agonist": {"label": {"en": "Agonist", "fr": "Agoniste"}, "effect": "boost"},
     "partial_agonist": {"label": {"en": "Partial agonist", "fr": "Agoniste partiel"},

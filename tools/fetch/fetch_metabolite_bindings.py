@@ -98,6 +98,9 @@ OWN_ARTICLE = {
     "carbon disulfide": "Carbon disulfide",
     "psilocin": "Psilocin",
     "desmethyldiazepam (nordazepam)": "Nordazepam",
+    # Ethyl loflazepate's descarboxyloflazepate IS N-desalkylflurazepam (Wikipedia
+    # redirects one to the other), the metabolite flurazepam and quazepam share.
+    "n-desalkylflurazepam (descarboxyloflazepate)": "N-Desalkylflurazepam",
 }
 
 # Action verbs that mark a paragraph line as a candidate for sourcing a binding's
@@ -112,7 +115,7 @@ ACTION_RE = re.compile(
 TARGET_HINT_RE = re.compile(
     r"\b(5-?HT|receptor|transporter|SERT|NET|DAT|adrenerg|dopamin|serotonin|"
     r"histamin|muscarinic|H1|H2|D[1-5]\b|M[1-5]\b|alpha|beta|α|β|MAO|"
-    r"NMDA|sigma|opioid|GABA|nicotinic|cholinerg)\b", re.I)
+    r"NMDA|sigma|opioid|GABA|nicotinic|cholinerg|channel)\b", re.I)
 
 MAX_ACTION_LINES = 14   # cap candidate lines per metabolite (keeps the worklist compact)
 
