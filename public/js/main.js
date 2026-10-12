@@ -37,7 +37,7 @@ import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
 import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
-import { appendTdmChips, formatAlert, formatRange } from "./tdm.js";
+import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -1017,22 +1017,7 @@ function addLegendItem(container, color, label, line = false) {
 // a missing value. Module-level so BOTH the drug panel (showDrug) and the drugs list
 // (buildDrugLegend) can format T½ the same way.
 function formatHalfLife(hl) {
-  if (!hl || typeof hl.hours !== "number") return "";
-  const lo = hl.hours;
-  const hi = typeof hl.hours_max === "number" ? hl.hours_max : null;
-  const ref = hi != null ? hi : lo; // pick the display unit off the upper bound
-  let div, unit;
-  if (ref < 1) { div = 1 / 60; unit = t("drug.hlMinutes"); }
-  else if (ref < 48) { div = 1; unit = t("drug.hlHours"); }
-  else { div = 24; unit = t("drug.hlDays"); }
-  // Show integers plainly, otherwise one decimal (a near-integer snaps to int).
-  const fmt = (h) => {
-    const v = h / div;
-    return Math.abs(v - Math.round(v)) < 0.05 ? String(Math.round(v)) : v.toFixed(1);
-  };
-  return hi != null && hi !== lo
-    ? `${fmt(lo)}–${fmt(hi)} ${unit}`
-    : `${fmt(lo)} ${unit}`;
+  return formatDuration(hl, t, window.__I18N__.lang);
 }
 
 /**
@@ -4297,24 +4282,18 @@ function createInfoPanel(data, sourcingModal) {
       if (drug.halfLife || drug.tmax || drug.therapeuticRange || drug.alertLevel) {
         const hlEl = el("div", "info-bindings info-halflife");
         hlEl.appendChild(el("h3", null, t("drug.pkTiming")));
+        const chipHelpers = { el, makeProvenancePill, sourcesTip, t,
+                              lang: window.__I18N__.lang };
         if (drug.tmax) {
-          const tchip = el("span", "hl-chip");
-          const tlabel = el("span", "hl-label", `${t("drug.tmax")} `);
-          tlabel.title = t("drug.tmaxTip");
-          tchip.appendChild(tlabel);
-          tchip.appendChild(el("span", "hl-val", formatHalfLife(drug.tmax)));
-          tchip.appendChild(drug.tmaxSources && drug.tmaxSources.length
-            ? makeProvenancePill(drug.tmaxProvenance, sourcesTip(drug.tmaxSources))
-            : makeProvenancePill(drug.tmaxProvenance || null));
-          hlEl.appendChild(tchip);
+          hlEl.appendChild(valueChip(chipHelpers, {
+            label: t("drug.tmax"), tip: t("drug.tmaxTip"),
+            value: formatHalfLife(drug.tmax),
+            provenance: drug.tmaxProvenance, sources: drug.tmaxSources }));
         }
         if (drug.halfLife) {
-          const chip = el("span", "hl-chip");
-          chip.appendChild(el("span", "hl-label", `${t("drug.halfLife")} `));
-          chip.appendChild(el("span", "hl-val", formatHalfLife(drug.halfLife)));
-          chip.appendChild(drug.halfLifeSources && drug.halfLifeSources.length
-            ? makeProvenancePill(drug.halfLifeProvenance, sourcesTip(drug.halfLifeSources))
-            : makeProvenancePill(drug.halfLifeProvenance || null));
+          const chip = valueChip(chipHelpers, {
+            label: t("drug.halfLife"), value: formatHalfLife(drug.halfLife),
+            provenance: drug.halfLifeProvenance, sources: drug.halfLifeSources });
           if (nonLinearPk) {
             const warn = el("button", "hl-warn",
               (data.meta.addonTones || {}).caution || "⚠");
@@ -4333,8 +4312,7 @@ function createInfoPanel(data, sourcingModal) {
         }
         // Addon slot: a caveat about what these two numbers measure (a serum
         // half-life the brain does not follow), right under the chips it qualifies.
-        appendTdmChips(hlEl, drug,
-          { el, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
+        appendTdmChips(hlEl, drug, chipHelpers);
         appendAddons(hlEl, "drug", drug.id, "drug.timing");
         body.appendChild(hlEl);
       }
@@ -4434,13 +4412,9 @@ function createInfoPanel(data, sourcingModal) {
           }
           const hlStr = formatHalfLife(m.halfLife);
           if (hlStr) {
-            const chip = el("span", "hl-chip metab-hl");
-            chip.appendChild(el("span", "hl-label", `${t("drug.halfLife")} `));
-            chip.appendChild(el("span", "hl-val", hlStr));
-            if (m.halfLifeSources && m.halfLifeSources.length)
-              chip.appendChild(makeProvenancePill(
-                m.halfLifeProvenance, sourcesTip(m.halfLifeSources)));
-            li.appendChild(chip);
+            li.appendChild(valueChip({ el, makeProvenancePill, sourcesTip }, {
+              label: t("drug.halfLife"), value: hlStr, cls: "metab-hl", bare: true,
+              provenance: m.halfLifeProvenance, sources: m.halfLifeSources }));
           }
           // A non-modeled metabolite's OWN sourced receptor bindings (m.ownBindings,
           // resolved in js/data.js from its Wikipedia/PDSP pharmacology). Rendered with

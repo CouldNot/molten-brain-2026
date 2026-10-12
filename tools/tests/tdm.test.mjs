@@ -2,7 +2,7 @@
 // tools/tests/test_js_units.py via `node --test`.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { formatAlert, formatRange } from "../../public/js/tdm.js";
+import { formatAlert, formatDuration, formatRange } from "../../public/js/tdm.js";
 
 test("range reads in the reading language", () => {
   const r = { low: 0.4, high: 0.8, unit: "mmol/L" };
@@ -15,4 +15,16 @@ test("thousands are grouped and an analyte is named", () => {
   assert.equal(formatRange({ low: 80, high: 200, unit: "ng/mL",
     analyte: "amitriptyline + nortriptyline" }, "en"),
   "80–200 ng/mL (amitriptyline + nortriptyline)");
+});
+
+test("durations use the same locale number format as the TDM chips", () => {
+  const t = (k) => ({ "drug.hlMinutes": "min", "drug.hlHours": "h", "drug.hlDays": "d" })[k];
+  // Regression: the half-life / Tmax chips printed "0.3–3 h" in French while the
+  // TDM chips beside them used the French decimal comma.
+  assert.equal(formatDuration({ hours: 0.3, hours_max: 3 }, t, "fr"), "0,3–3 h");
+  assert.equal(formatDuration({ hours: 0.3, hours_max: 3 }, t, "en"), "0.3–3 h");
+  assert.equal(formatDuration({ hours: 0.25 }, t, "en"), "15 min");
+  assert.equal(formatDuration({ hours: 60 }, t, "fr"), "2,5 d");
+  assert.equal(formatDuration({ hours: 23.98 }, t, "en"), "24 h");
+  assert.equal(formatDuration(null, t, "en"), "");
 });
