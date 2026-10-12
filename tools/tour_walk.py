@@ -94,14 +94,17 @@ def settle(page, key: str, timeout: float = 4.0) -> dict:
 
 
 # Points inside the ring a user would tap: the centre first, then a grid, skipping any
-# that land on a link (the panel header's ring also covers the byline's author link,
-# which opens a new tab instead of folding the panel) or on the tour's own bubble.
+# that land on the tour's own bubble. Links are NOT skipped: a ring whose centre is a
+# link (a visitor's natural tap opens it instead of doing the step) is reported by
+# walk() as a problem, so a sloppy anchor fails here instead of being worked around.
 TAP_POINTS_JS = """([x, y, w, h]) => {
   const pts = [[x + w / 2, y + h / 2]];
   for (const fy of [0.5, 0.25, 0.75]) for (const fx of [0.2, 0.4, 0.6, 0.8]) pts.push([x + w * fx, y + h * fy]);
   return pts.filter(([px, py]) => { const el = document.elementFromPoint(px, py);
-    return el && !el.closest('a, .tour-bubble'); });
+    return el && !el.closest('.tour-bubble'); });
 }"""
+# Whether the ring centre lands on a link (see TAP_POINTS_JS).
+CENTRE_LINK_JS = """([x, y, w, h]) => !!document.elementFromPoint(x + w / 2, y + h / 2)?.closest('a')"""
 
 
 def act(page, state: dict, attempt: int = 0) -> str:
@@ -122,6 +125,13 @@ def act(page, state: dict, attempt: int = 0) -> str:
             r = state["ring"]  # off the thumb, so the click changes the value
             x, y = r[0] + r[2] * 0.7, r[1] + r[3] / 2
         else:
+            if page.evaluate(CENTRE_LINK_JS, state["ring"]):
+                # A ring still gliding to a scrolled-in row can pass over the header
+                # byline: only a centre that stays on a link once at rest counts.
+                page.wait_for_timeout(1500)
+                state = settle(page, "ring")
+                if page.evaluate(CENTRE_LINK_JS, state["ring"]):
+                    return "tap target (ring centre is a link)"
             pts = page.evaluate(TAP_POINTS_JS, state["ring"]) or [centre(state["ring"])]
             x, y = pts[attempt % len(pts)]
         page.mouse.click(x, y)
@@ -172,6 +182,9 @@ def walk(page, max_actions: int = 200) -> list[str]:
             print(f"step {n}/{total}: {state['title']}")
         page.wait_for_timeout(400)  # let before() + the reveal timer run, like a reader
         what = act(page, page.evaluate(STATE_JS), stuck)
+        if "is a link" in what:
+            problems.append(f"step {n}: ring centre is a link, a centre tap opens it")
+            break
         deadline = time.time() + 8
         while time.time() < deadline:
             after = page.evaluate(STATE_JS)
