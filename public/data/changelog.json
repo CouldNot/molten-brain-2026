@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "3.105.5",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Binding data from the Guide to Pharmacology is refreshed to its latest release (2026.3.1, published 2026-10-12). No value changed; the refresh caught a renamed entry that would have counted one mirror-image form of propranolol as the ordinary drug, and keeps the two apart.",
+          "commits": [
+            "a197298",
+            "e76c5a3"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "The adenosine A2A receptor's presence in the nucleus accumbens is now also backed by the Guide to Pharmacology (rat tissue study), alongside the Allen human brain atlas.",
+          "commits": [
+            "bc5b790"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.4",
       "date": "2026-10-12",
       "entries": [
