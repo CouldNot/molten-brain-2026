@@ -135,6 +135,12 @@ def collect_allen() -> tuple[list[tuple], list[str], int]:
     return out, warnings, skipped
 
 
+def serialize(payload: dict) -> str:
+    """The committed cache's own format (indent 1, sorted keys, UTF-8 kept, no
+    trailing newline), so a re-run diffs only what it changed."""
+    return json.dumps(payload, indent=1, sort_keys=True, ensure_ascii=False)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--corpus", choices=["gtopdb", "allen"], default="gtopdb",
@@ -183,7 +189,7 @@ def main() -> int:
     if args.dry_run:
         print("(dry run: not written)")
         return 0
-    OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_text(serialize(payload), encoding="utf-8")
     print(f"wrote {OUT.relative_to(REPO)}")
     return 0
 
