@@ -2430,8 +2430,14 @@ function createInfoPanel(data, sourcingModal) {
     // read off a book page and a table cell a parser copied are different evidence, and
     // the reader is the one entitled to weigh that.
     const chain = quoteChain(s.pipeline);
-    return [withSpecies, chain, corpusCitations(s.corpus)].filter(Boolean).join("\n");
+    return [withSpecies, licenceLine(s.licence), chain, corpusCitations(s.corpus)]
+      .filter(Boolean).join("\n");
   };
+
+  // "Text licence: CC BY-NC" for a citation quoting an open-access text that asks for
+  // credit (a Europe PMC full-text paper), else "". Shared by every source line and the
+  // Ki reference, so any citation carrying a `licence` credits it the same way.
+  const licenceLine = (licence) => (licence ? t("info.sourceLicence", { licence }) : "");
 
   // The citation a corpus asks for (meta.sourceCorpora[id].required_citations, e.g.
   // GtoPdb's database paper + licence), as a tooltip block, else "". Data-driven, so
@@ -2492,6 +2498,8 @@ function createInfoPanel(data, sourcingModal) {
     // The download date of the corpus the Ki was read from (PDSP's CSV, the
     // Wikipedia table), after the link so the link keeps its plain corpus label.
     if (ki.fetched) frag.append(withFetched("", ki.fetched, t));
+    const licence = licenceLine(ki.licence);
+    if (licence) frag.append("\n" + licence);
     const cites = corpusCitations(ki.corpus);
     if (cites) frag.append("\n" + cites);
     return frag;

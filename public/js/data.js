@@ -783,6 +783,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       pipeline: s.pipeline || null,
       // The page's download date (editable online corpora only, see withFetched).
       fetched: s.fetched || null,
+      // The reuse licence of an open-access text quoted from (a Europe PMC full-text
+      // paper, e.g. "CC BY-NC"), credited in the tooltip; null for every other source.
+      licence: s.licence || null,
     }));
   // The per-claim split (tools/data_generators/quotes/attestation.py): a node that
   // asserts several things at once carries one graded entry per part, so the part a
@@ -841,6 +844,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       mapped: !!src.mapped, measuredAs: src.measured_as || "",
       relation: src.relation || "", pdspNames: src.pdsp_names || [],
       fetched: src.fetched || null,
+      licence: src.licence || null,
     };
   };
   // Resolve the display + provenance fields of a binding, shared by a drug's own
