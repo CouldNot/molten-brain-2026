@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.108.1",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A source quoted from an open-access paper now names its text licence in the provenance pill's tooltip (e.g. \"Text licence: CC BY-NC\" on viloxazine's 5-HT2B and 5-HT2C Ki)",
+          "commits": [
+            "4c27576"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.108.0",
       "date": "2026-10-12",
       "entries": [
