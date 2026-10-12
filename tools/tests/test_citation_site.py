@@ -99,7 +99,7 @@ def _authoring_sites():
                 found[quote_id(src)].add(site)
             return False
 
-    ed = Probe({}, D._page_dirs())
+    ed = Probe({}, D.emitted_page_dirs())
     with open(D.DRUGS, encoding="utf-8") as fh:
         for line in fh:
             if line.strip():

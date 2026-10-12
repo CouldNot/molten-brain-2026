@@ -80,30 +80,17 @@ from data_generators.provenance import SOURCING_LLMS  # noqa: E402
 from data_generators import history as HIST  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import citation_site as CS  # noqa: E402
+from check_data import emitted_page_dirs  # noqa: E402
 
 # Weakest model first, so a pass can tell a corroboration from a demotion: a second,
 # weaker read that confirms a quote adds confidence without lowering the stamp, while a
 # weaker read that DOUBTS one is a disagreement to escalate, not a verdict to apply.
 LLM_RANK = {m: i for i, m in enumerate(SOURCING_LLMS)}
 
-# corpus -> author-side page directory (the same trees check_data.py's quote gate reads).
-# Allen AHBA is intentionally absent: its quotes are deterministic, not LLM-sourced.
-def _page_dirs():
-    """``corpus -> author-side page directory``, read from the emitted
-    ``meta.source_corpora``.
-
-    Not a hardcoded map: the corpus registry already carries every ``pages_dir``
-    (generate_data.py's SOURCE_CORPORA), and a copy here silently went stale as
-    corpora #9-#12 were added, crashing this script with a KeyError on the first
-    quote from a corpus it had never heard of. A corpus with no ``pages_dir`` (a Ki
-    CSV) has no page text to embed and is skipped like the excluded ones."""
-    with open(os.path.join(DATA, "meta.json"), encoding="utf-8") as fh:
-        corpora = json.load(fh).get("source_corpora", {})
-    return {name: entry["pages_dir"] for name, entry in corpora.items()
-            if entry.get("pages_dir")}
-
-
-PAGE_DIR = _page_dirs()
+# corpus -> author-side page directory (the same trees check_data.py's quote gate reads),
+# read off the emitted registry rather than a hardcoded map, which once went stale.
+# Allen AHBA is intentionally absent from the judging: its quotes are deterministic.
+PAGE_DIR = emitted_page_dirs()
 EXCLUDE_CORPUS = {"allen_ahba"}
 MAX_Q, MAX_P = 22, 7  # per-batch caps (quotes, distinct pages)
 

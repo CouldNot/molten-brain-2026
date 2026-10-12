@@ -63,7 +63,8 @@ DATA = os.path.join(ROOT, "public", "data")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from data_generators.quote_table import quote_id  # noqa: E402
-from check_data import normalize_for_match  # noqa: E402
+from check_data import emitted_page_dirs, normalize_for_match  # noqa: E402
+from prose_gate import PageGate  # noqa: E402
 import citation_site as CS  # noqa: E402
 
 # The applier-written caches that can hold a quote-bearing source. The hand-authored
@@ -98,14 +99,6 @@ def _dedupe_sources(members: list) -> list:
     return out
 
 
-def _page_dirs() -> dict[str, str]:
-    """``corpus -> author-side page directory``, read from the emitted registry."""
-    with open(os.path.join(DATA, "meta.json"), encoding="utf-8") as fh:
-        corpora = json.load(fh).get("source_corpora", {})
-    return {name: entry["pages_dir"] for name, entry in corpora.items()
-            if entry.get("pages_dir")}
-
-
 class Editor:
     """Walks a loaded JSON tree, rewriting or dropping the sources named by id."""
 
@@ -114,7 +107,8 @@ class Editor:
         # optionally narrowed by "sites" to some of the quote's citations (see
         # citation_site.py): one sentence can back the binding and not the class.
         self.targets = targets
-        self.pages = pages
+        # The shared page reader (normalized text, cached, None when absent).
+        self.gate = PageGate({c: os.path.join(ROOT, d) for c, d in pages.items()})
         self.removed: list[str] = []
         self.replaced: list[str] = []
         self.rejected: list[str] = []
@@ -125,17 +119,6 @@ class Editor:
         # Quotes a site filter spared at least one citation of: they keep their node, so
         # they must also keep their judging stamp.
         self.partial: set[str] = set()
-
-    def _page_text(self, corpus, page):
-        """The cited page, normalized, or ``None`` when the corpus is not on disk."""
-        d = self.pages.get(corpus)
-        if not d:
-            return None
-        md = os.path.join(ROOT, d, f"{page}.md")
-        if not os.path.exists(md):
-            return None
-        with open(md, encoding="utf-8") as fh:
-            return normalize_for_match(fh.read())
 
     def _apply_one(self, src, root=None, path=()):
         """``True`` when this source should be dropped from the list holding it."""
@@ -166,7 +149,7 @@ class Editor:
         # the same verbatim check check_data.py will run on it later. A proposal that
         # does not match the page is not written at all, and the source is removed
         # instead: that is the honest fallback, not a silently-kept bad quote.
-        text = self._page_text(src["corpus"], src.get("page"))
+        text = self.gate.text(src["corpus"], src.get("page"))
         if text is not None and normalize_for_match(new) not in text:
             self.rejected.append(qid)
             self.removed.append(qid)
@@ -253,7 +236,7 @@ def main() -> None:
     if not targets:
         sys.exit("nothing to do: pass --flagged, --ids or --replace")
 
-    ed = Editor(targets, _page_dirs())
+    ed = Editor(targets, emitted_page_dirs())
 
     with open(DRUGS, encoding="utf-8") as fh:
         rows = [json.loads(line) for line in fh if line.strip()]

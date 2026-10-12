@@ -66,7 +66,6 @@ sys.path.insert(0, os.path.join(REPO, "tools"))
 import check_data  # noqa: E402  (reuse the quote gate's normalizer + INDEX parser)
 
 STAHL = "stahl"
-META = os.path.join(REPO, "public", "data", "meta.json")
 QUOTES = os.path.join(REPO, "public", "data", "quotes.jsonl")
 CACHE = os.path.join(REPO, "tools", "generated_cache", "quote_headers.json")
 
@@ -109,13 +108,8 @@ def book_corpora() -> dict[str, str]:
     sibling, which is what tells chapters from the flat page stores (GtoPdb, Allen,
     Wikipedia) where "the heading above this quote" has no meaning.
     """
-    with open(META, encoding="utf-8") as fh:
-        corpora = json.load(fh).get("source_corpora", {})
     out = {}
-    for name, entry in corpora.items():
-        pages = entry.get("pages_dir")
-        if not pages:
-            continue
+    for name, pages in check_data.emitted_page_dirs().items():
         pages = os.path.join(REPO, pages)
         if os.path.exists(os.path.join(os.path.dirname(pages), "INDEX.md")):
             out[name] = pages

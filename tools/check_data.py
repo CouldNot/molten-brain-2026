@@ -256,6 +256,17 @@ def load_jsonl(report, name):
     return records
 
 
+def emitted_page_dirs() -> dict[str, str]:
+    """``corpus -> author-side page directory`` (repo-relative), read from the emitted
+    ``meta.source_corpora``: the trees the quote gate checks. The one reader of that
+    registry for the author-side scripts (recheck / demote / heading resolution), so a
+    corpus added to the generator reaches them all at once."""
+    corpora = json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8")).get(
+        "source_corpora", {})
+    return {name: entry["pages_dir"] for name, entry in corpora.items()
+            if entry.get("pages_dir")}
+
+
 def load_meta(report):
     path = DATA_DIR / "meta.json"
     if not path.exists():
