@@ -1,6 +1,26 @@
 {
   "versions": [
     {
+      "version": "3.106.1",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Etomidate's GABA-A binding now shows an orange \"contradicted\" badge: Wikipedia places it at the beta+/alpha- transmembrane site, while Stahl's Essential Psychopharmacology says it binds at the neuroactive-steroid sites. Both are quoted, neither is edited",
+          "commits": [
+            "27b3f1b"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "The H4 and MT2 receptors' \"modulatory\" sign is now flagged as contradicted by the Guide to Pharmacology, which lists Gi/Go coupling, a reading that points to inhibitory",
+          "commits": [
+            "0a64481"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.106.0",
       "date": "2026-10-12",
       "entries": [
