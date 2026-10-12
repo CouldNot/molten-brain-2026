@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.108.2",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "The guided tour's \"Fold the panel away\" step now highlights the neurarium title itself, so clicking the middle of the highlight folds the panel instead of landing on the author link",
+          "commits": [
+            "516e064"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.108.1",
       "date": "2026-10-13",
       "entries": [
