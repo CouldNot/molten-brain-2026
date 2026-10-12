@@ -1,6 +1,51 @@
 {
   "versions": [
     {
+      "version": "3.102.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A new grade, UNKNOWN (∅): a binding direction that was searched for in every source this app draws on (PDSP, the Guide to Pharmacology, English and French Wikipedia, and Europe PMC abstracts), on a recorded date, without any of them stating it. It is a finding about the literature, not a gap in our work, so it gets its own pill and no longer counts against the sourced percentage. Each search expires after a year.",
+          "commits": [
+            "0eef0f9",
+            "b0104b1",
+            "8bfb772"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "In a drug's \"Acts on\" list, the source pill after a binding's direction no longer overlaps the end of the text.",
+          "commits": [
+            "da03d1b"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "That search gave 52 measured-only bindings their direction (40 antagonists, 9 agonists among them); the other 656 now read UNKNOWN.",
+          "commits": [
+            "2f3880f"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Newly sourced: the GABA-A action of brotizolam, meprobamate, chloral hydrate and etomidate, brivaracetam at SV2A, the amphetamines' vesicular release through VMAT2, methamphetamine as a releaser at the three monoamine transporters, and the claustrum's glutamatergic projection to the frontal lobe (from primary-paper abstracts).",
+          "commits": [
+            "bdd0573",
+            "2f3880f"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Xanomeline, 2C-B, mescaline, ibogaine, phencyclidine and amoxapine gain the receptor affinities their Wikipedia tables list, and a re-run of the Guide to Pharmacology pass gives several of them, plus asenapine, iloperidone and hydromorphone sites, a direction.",
+          "commits": [
+            "f5c8941",
+            "479b3f8"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.101.2",
       "date": "2026-10-12",
       "entries": [
