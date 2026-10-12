@@ -290,6 +290,26 @@ def nm_from(row: dict) -> tuple[float, float, float] | None:
     return (statistics.median(nm), nm[0], nm[-1])
 
 
+def index_by_ligand(rows: list[dict]) -> dict[str, list[tuple]]:
+    """Rows keyed by STEM ligand name, each beside its optical-rotation tag.
+
+    "(-)-pentazocine" and "pentazocine" share a stem but are different molecules, and
+    the tag decides which drug claims a row (see tools/chirality.py). Folding the tag
+    away published one enantiomer's curated affinities as the racemate's.
+    """
+    by_ligand: dict[str, list[tuple]] = defaultdict(list)
+    for r in rows:
+        stem, tag = chirality.split_stereo(r.get("Ligand"))
+        by_ligand[norm(stem)].append((tag, r))
+    return by_ligand
+
+
+def ligand_rows(by_ligand: dict[str, list[tuple]], name: str, drug_id: str) -> list[dict]:
+    """The interaction rows that are this compound's own (alias + chirality aware)."""
+    key = LIGAND_ALIASES.get(norm(name), norm(name))
+    return [r for tag, r in by_ligand.get(key, []) if chirality.tag_allowed(tag, drug_id)]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -307,15 +327,7 @@ def main() -> int:
     log(f"gene map covers {len({o for os_ in gene_owner.values() for o in os_})} "
         f"of {len(valid_targets)} targets")
 
-    # Keyed by the STEM of the ligand name, with its optical-rotation tag kept
-    # beside each row: "(-)-pentazocine" and "pentazocine" share a stem but are
-    # different molecules, so the tag decides which drug may claim the row (see
-    # tools/chirality.py). Folding the tag away here published one enantiomer's
-    # curated affinities as the racemate's.
-    by_ligand: dict[str, list[tuple]] = defaultdict(list)
-    for r in rows:
-        stem, tag = chirality.split_stereo(r.get("Ligand"))
-        by_ligand[norm(stem)].append((tag, r))
+    by_ligand = index_by_ligand(rows)
 
     drugs = drugs_io.load_drugs()
     only = {x.strip() for x in args.only.split(",")} if args.only else None
@@ -328,9 +340,7 @@ def main() -> int:
     for drug in drugs:
         if only and drug["id"] not in only:
             continue
-        key = LIGAND_ALIASES.get(norm(drug["name"]), norm(drug["name"]))
-        cands = [r for tag, r in by_ligand.get(key, [])
-                 if chirality.tag_allowed(tag, drug["id"])]
+        cands = ligand_rows(by_ligand, drug["name"], drug["id"])
         if not cands:
             # A combination product has no single ligand record, which is expected.
             if " + " not in drug["name"] and "–" not in drug["name"]:

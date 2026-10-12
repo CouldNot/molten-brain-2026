@@ -396,5 +396,81 @@ class TableCellTest(unittest.TestCase):
             T.typed_action("partial agonist / functional antagonist", "receptor"))
 
 
+class SearchTest(unittest.TestCase):
+    """The UNKNOWN search's applier (``apply_search``) and its log (``unknown_log``)."""
+
+    LINE = "Nor-A is a potent antagonist of the histamine H1 receptor ."
+    SITE = "drug:a/metabolites[Nor-A]/bindings[h1]"
+
+    def drugs(self):
+        return [{"id": "a", "bindings": [{"target": "d2", "affinity_only": True}],
+                 "metabolites": [{"name": "Nor-A", "bindings": [
+                     {"target": "h1", "affinity_only": True}]}]},
+                {"id": "b", "bindings": [], "metabolites": [{"name": "nor a", "bindings": [
+                    {"target": "h1", "affinity_only": True}]}]}]
+
+    def worklist(self, corpus="europepmc", page="123"):
+        searched = [{"corpus": c, "lookup": "x", "hits": 0}
+                    for c in ("pdsp_ki", "gtopdb_ki", "wikipedia_pharm", "wikipedia_fr")]
+        searched.append({"corpus": "europepmc", "query": "q", "hits": 1,
+                         "searched": "2026-10-01"})
+        return [{"site": self.SITE, "drug": "a", "metabolite": "Nor-A", "target": "h1",
+                 "elsewhere": [], "searched": searched,
+                 "candidates": [{"corpus": corpus, "page": page, "line": self.LINE}]},
+                {"site": "drug:a/bindings[d2]", "drug": "a", "metabolite": None,
+                 "target": "d2", "elsewhere": [], "searched": searched, "candidates": []}]
+
+    def run_search(self, drugs, corpus="europepmc", page="123"):
+        seen = []
+
+        def other(c, pg):
+            seen.append((c, pg))
+            return A.normalize_for_match(self.LINE) if (c, pg) == (corpus, page) else None
+        stats, _ = A.apply_search(self.worklist(corpus, page),
+                                  {self.SITE: {"index": 0, "action": "antagonist"}},
+                                  drugs, lambda slug: None, other)
+        return stats, seen
+
+    def test_a_metabolite_pick_writes_every_parent_citing_its_own_corpus(self):
+        ds = self.drugs()
+        stats, seen = self.run_search(ds)
+        self.assertEqual(stats["node: antagonist"], 2)
+        self.assertEqual(seen, [("europepmc", "123")])  # one page read, cached
+        for d in ds:
+            b = d["metabolites"][0]["bindings"][0]
+            self.assertEqual(b["action"], "antagonist")
+            self.assertNotIn("affinity_only", b)
+            self.assertEqual(b["sources"][0]["corpus"], "europepmc")
+            self.assertEqual(b["sources"][0]["page"], "123")
+
+    def test_a_french_wikipedia_page_is_read_through_its_own_corpus(self):
+        stats, seen = self.run_search(self.drugs(), corpus="wikipedia_fr", page="nor-a")
+        self.assertEqual(seen, [("wikipedia_fr", "nor-a")])
+        self.assertEqual(stats["node: antagonist"], 2)
+
+    def test_an_out_of_range_pick_is_rejected(self):
+        stats, _ = A.apply_search(self.worklist(), {self.SITE: {"index": 3, "action": "antagonist"}},
+                                  self.drugs(), lambda s: None, lambda c, p: None)
+        self.assertEqual(stats["rejected: candidate index out of range"], 1)
+
+    def test_the_log_covers_only_what_the_search_left_directionless(self):
+        ds = self.drugs()
+        self.run_search(ds)
+        log = A.unknown_log(self.worklist(), ds, {"harness": "Claude Code", "model": "opus",
+                                                  "date": "2026-10-12"},
+                            prior={self.SITE: {"stale": True}})
+        self.assertEqual(sorted(log), ["drug:a/bindings[d2]"])
+        entry = log["drug:a/bindings[d2]"]
+        self.assertEqual(entry["searched"], "2026-10-01")  # the oldest leg dates it
+        self.assertEqual([s["corpus"] for s in entry["sources"]][-1], "europepmc")
+        self.assertNotIn("searched", entry["sources"][-1])
+
+    def test_a_direction_found_elsewhere_keeps_the_binding_out_of_the_log(self):
+        wl = self.worklist()
+        wl[1]["elsewhere"] = [{"corpus": "gtopdb_ki", "action": "antagonist"}]
+        log = A.unknown_log(wl, self.drugs(), {"harness": "h", "model": "m", "date": "d"})
+        self.assertNotIn("drug:a/bindings[d2]", log)
+
+
 if __name__ == "__main__":
     unittest.main()

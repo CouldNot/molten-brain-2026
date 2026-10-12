@@ -71,6 +71,39 @@ def fold(name: str) -> str:
     return re.sub(r"[^a-z0-9]", "", (name or "").lower())
 
 
+def binding_site(drug_id: str, target: str, metabolite: str | None = None) -> str:
+    """A binding's log key, in ``tools/sourcing/citation_site.py``'s grammar (the test
+    suite pins the two together). An affinity-only binding has no action to key on."""
+    inner = f"metabolites[{metabolite}]/bindings[{target}]" if metabolite else \
+        f"bindings[{target}]"
+    return f"drug:{drug_id}/{inner}"
+
+
+def affinity_only_bindings(drugs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Every binding with no direction, as ``{site, drug, ligand, metabolite, target,
+    binding}``: a drug's own, then each non-modeled metabolite's, deduplicated by
+    folded metabolite name (first parent wins, as in the tally). ``ligand`` is the name
+    a search looks up. Works on the authored and the emitted records alike."""
+    out, seen = [], set()
+    for d in drugs:
+        for b in d.get("bindings", []):
+            if b.get("affinity_only"):
+                out.append({"site": binding_site(d["id"], b["target"]), "drug": d["id"],
+                            "ligand": d.get("name") or d["id"], "metabolite": None,
+                            "target": b["target"], "binding": b})
+    for d in drugs:
+        for m in d.get("metabolites", []):
+            for b in m.get("bindings") or []:
+                key = (fold(m["name"]), b["target"])
+                if not b.get("affinity_only") or key in seen:
+                    continue
+                seen.add(key)
+                out.append({"site": binding_site(d["id"], b["target"], m["name"]),
+                            "drug": d["id"], "ligand": m["name"], "metabolite": m["name"],
+                            "target": b["target"], "binding": b})
+    return out
+
+
 def load_log(path: str = UNKNOWN_LOG_PATH) -> dict[str, Any]:
     """The committed search log, ``{}`` when there is none yet."""
     if not os.path.exists(path):

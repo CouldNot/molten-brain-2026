@@ -26,6 +26,7 @@ Usage:
 
 import argparse
 import csv
+import functools
 import json
 import os
 import re
@@ -298,8 +299,16 @@ def _ligand_is(raw, want, drug_id):
     the untagged name, and folding the tag away pooled an enantiomer's assays into
     the racemate's median (see tools/chirality.py for which drug denotes what).
     """
+    stem, tag = _stem_tag(raw)
+    return stem in want and chirality.tag_allowed(tag, drug_id)
+
+
+@functools.lru_cache(maxsize=None)
+def _stem_tag(raw):
+    """(normalized stem, stereo tag) of one CSV ligand name, memoized: a full scan
+    re-derives it for ~200k rows, and the export has a few thousand distinct names."""
     stem, tag = chirality.split_stereo(raw)
-    return norm(stem) in want and chirality.tag_allowed(tag, drug_id)
+    return norm(stem), tag
 
 
 def resolve_rows(name, drug_id):

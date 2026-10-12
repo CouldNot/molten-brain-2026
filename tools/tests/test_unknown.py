@@ -67,6 +67,20 @@ class ApplyTest(unittest.TestCase):
             unknown.apply_unknown(drugs(), {"drug:zz/bindings[d2]": entry()})
 
 
+class SiteTest(unittest.TestCase):
+    def test_site_matches_the_citation_site_grammar(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "sourcing"))
+        import citation_site as cs
+        self.assertEqual(unknown.binding_site("a", "d2"), cs.site("drug", "a", "bindings[d2]"))
+        self.assertEqual(unknown.binding_site("a", "h1", "Nor-A"),
+                         cs.site("drug", "a", "metabolites[Nor-A]/bindings[h1]"))
+
+    def test_enumeration_dedups_shared_metabolites(self):
+        sites = [r["site"] for r in unknown.affinity_only_bindings(drugs())]
+        self.assertEqual(sites, ["drug:a/bindings[d2]",
+                                 "drug:a/metabolites[Nor-A]/bindings[h1]"])
+
+
 class TallyTest(unittest.TestCase):
     def _action(self, ds):
         return _provenance_stats([], [], [], [], [], ds, {}, [])

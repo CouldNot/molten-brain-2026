@@ -32,6 +32,18 @@ Usage (from the repo root)::
 Network (``www.ebi.ac.uk``), polite and resumable: a paper whose page is on disk is
 skipped unless ``--refresh``. Stdlib only.
 
+**The one search mode, ``--binding-search``**, is the Europe PMC leg of the UNKNOWN search
+(``tools/data_generators/unknown.py``): for every binding with no known direction it runs
+one query (:func:`direction_query`: the ligand and the target, both required in the
+abstract, plus a direction word), stores the top :data:`SEARCH_TOP` abstracts as pages
+exactly like a hand-listed paper, and records the query, Europe PMC's hit count and the
+PMIDs read in ``tools/generated_cache/europepmc_binding_search.json``. That ledger is the
+reason each search-found page exists (the search key it answered), and it is what the
+search log cites. Resumable: a binding already in the ledger is skipped unless
+``--refresh``; ``--only <drug ids>`` scopes it::
+
+    python tools/fetch/fetch_europepmc.py --binding-search
+
 Built with the help of Claude Code.
 """
 import argparse
@@ -60,6 +72,13 @@ PAPERS: dict[str, str] = {
     "7827213": "lithium: brain half-life (7Li MRS) longer than serum half-life "
                "(addon lithium_brain_half_life)",
 }
+
+SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"
+# Abstracts read per binding: enough to catch the paper that characterises the pair,
+# few enough that a 700-binding search stays a few thousand short pages.
+SEARCH_TOP = 5
+DIRECTION_WORDS = ("agonist", "antagonist", '"inverse agonist"', "inhibitor", "blocker",
+                   "modulator", "releaser")
 
 _TAG = re.compile(r"<[^>]+>")
 # A sentence ends at . ! ? followed by a space and a capital or digit; abbreviations
@@ -98,12 +117,100 @@ def page_text(rec: dict) -> str:
     return "\n".join(head + _SENTENCE.split(abstract)) + "\n"
 
 
+def target_terms(target: str, aliases: dict, genes: dict) -> list[str]:
+    """The ASCII names a target goes by in an abstract: our aliases plus its genes."""
+    terms = [a for a in aliases.get(target, []) if a.isascii()] + sorted(genes.get(target, []))
+    out = []
+    for term in terms:
+        if term.lower() not in {o.lower() for o in out}:
+            out.append(term)
+    return out
+
+
+def direction_query(ligand: str, terms: list[str]) -> str:
+    """The Europe PMC query for one (ligand, target): both named in the abstract, plus
+    one direction word anywhere."""
+    names = " OR ".join(f'ABSTRACT:"{t}"' for t in terms)
+    return (f'ABSTRACT:"{ligand}" AND ({names}) AND ({" OR ".join(DIRECTION_WORDS)}) '
+            f"AND SRC:MED AND HAS_ABSTRACT:y")
+
+
+def search(query: str, size: int = SEARCH_TOP) -> tuple[int, list[dict]] | None:
+    """Europe PMC's hit count + its top ``size`` core records, or None on an HTTP error."""
+    params = urllib.parse.urlencode({"query": query, "format": "json",
+                                     "resultType": "core", "pageSize": size})
+    text = _get(f"{API}?{params}")
+    if not text:
+        return None
+    body = json.loads(text)
+    return body.get("hitCount", 0), body.get("resultList", {}).get("result") or []
+
+
+def store(rec: dict, refresh: bool = False) -> bool:
+    """Write one record's raw + page (skipped when on disk); False with no abstract."""
+    pmid = rec.get("pmid")
+    if not pmid or not rec.get("abstractText"):
+        return False
+    page = PAGES_DIR / f"{pmid}.md"
+    if page.exists() and not refresh:
+        return True
+    (RAW_DIR / f"{pmid}.json").write_text(
+        json.dumps(rec, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    page.write_text(page_text(rec), encoding="utf-8")
+    return True
+
+
+def binding_search(only: set | None, refresh: bool) -> int:
+    """The UNKNOWN search's Europe PMC leg (see the module docstring)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import drugs_io                                         # noqa: E402
+    import target_aliases as ta                             # noqa: E402
+    from data_generators import unknown                     # noqa: E402
+    from fetch_gtopdb_ki import owner_genes                 # noqa: E402 (gene map)
+    aliases = ta.aliases_by_target()
+    genes: dict[str, set] = {}
+    for gene, owners in owner_genes(set(aliases)).items():
+        for owner in owners:
+            genes.setdefault(owner, set()).add(gene)
+    ledger = json.loads(SEARCH_LEDGER.read_text("utf-8")) if SEARCH_LEDGER.exists() else {}
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    PAGES_DIR.mkdir(parents=True, exist_ok=True)
+    rows = [r for r in unknown.affinity_only_bindings(drugs_io.load_drugs())
+            if only is None or r["drug"] in only]
+    failed = 0
+    for i, row in enumerate(rows, 1):
+        if row["site"] in ledger and not refresh:
+            continue
+        query = direction_query(row["ligand"], target_terms(row["target"], aliases, genes))
+        got = search(query)
+        if got is None:
+            failed += 1
+            continue
+        hits, recs = got
+        pmids = [r["pmid"] for r in recs if store(r, refresh)]
+        ledger[row["site"]] = {"query": query, "hits": hits, "read": pmids,
+                               "searched": time.strftime("%Y-%m-%d")}
+        print(f"[{i}/{len(rows)}] {row['site']}: {hits} hit(s), read {len(pmids)}")
+        if i % 25 == 0:
+            SEARCH_LEDGER.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n",
+                                     "utf-8")
+    SEARCH_LEDGER.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n", "utf-8")
+    print(f"ledger: {len(ledger)} binding(s); {failed} failed request(s)")
+    return 1 if failed else 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--only", help="comma-separated PMIDs (default: all of PAPERS)")
+    ap.add_argument("--only", help="comma-separated PMIDs (default: all of PAPERS); "
+                                   "drug ids with --binding-search")
     ap.add_argument("--refresh", action="store_true", help="re-download stored records")
+    ap.add_argument("--binding-search", action="store_true",
+                    help="search every direction-less binding (the UNKNOWN search)")
     args = ap.parse_args()
+    if args.binding_search:
+        only = {d.strip() for d in args.only.split(",")} if args.only else None
+        return binding_search(only, args.refresh)
     pmids = [p.strip() for p in args.only.split(",")] if args.only else list(PAPERS)
     unknown = [p for p in pmids if p not in PAPERS]
     if unknown:

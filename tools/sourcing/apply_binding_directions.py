@@ -97,14 +97,14 @@ def page_text(slug: str) -> str | None:
         return normalize_for_match(f.read())
 
 
-def _already_applied(binding: dict, quote: str) -> bool:
-    """Whether this binding already cites that exact corpus #9 quote.
+def _already_applied(binding: dict, quote: str, corpus: str = CORPUS) -> bool:
+    """Whether this binding already cites that exact quote of that corpus.
 
     Checked before the affinity-only gate so a second run reads as a no-op rather than
     as a pile of rejections: after the first run the binding is, correctly, no longer
     affinity-only.
     """
-    return any(src.get("corpus") == CORPUS and src.get("quote") == quote
+    return any(src.get("corpus") == corpus and src.get("quote") == quote
                for src in binding.get("sources", []))
 
 
@@ -172,8 +172,11 @@ class _Gate:
     stamped (a chosen sentence carries no ``extraction``; a copied cell is ``code``).
     """
 
-    def __init__(self, read_page, extraction: str | None = None) -> None:
+    def __init__(self, read_page, extraction: str | None = None, read_other=None) -> None:
         self.read_page = read_page
+        # (corpus, page) -> normalized text, for a citation outside corpus #9 (the
+        # --search input cites French Wikipedia and Europe PMC abstracts too).
+        self.read_other = read_other
         self.extraction = extraction
         self.stats: collections.Counter = collections.Counter()
         self.rejected: list[str] = []
@@ -184,13 +187,14 @@ class _Gate:
         self.rejected.append(f"[{why}] {detail}")
 
     def write(self, drug: dict, target: str, action: str, quote: str, slug: str,
-              label: str, names_target) -> bool:
+              label: str, names_target, corpus: str = CORPUS) -> bool:
+        """``drug`` is any record holding ``bindings`` (a drug, or a metabolite)."""
         binding = next((b for b in drug.get("bindings", [])
                         if b.get("target") == target), None)
         if binding is None:
             self.reject("no binding on that target", label)
             return False
-        if _already_applied(binding, quote):
+        if _already_applied(binding, quote, corpus):
             self.stats["skipped: already applied"] += 1
             return False
         if not binding.get("affinity_only"):
@@ -203,9 +207,12 @@ class _Gate:
         if not names_target():
             self.reject("quote does not name the target", f"{label}: {quote[:80]}")
             return False
-        if slug not in self.pages:
-            self.pages[slug] = self.read_page(slug)
-        body = self.pages[slug]
+        key = (corpus, str(slug))
+        if key not in self.pages:
+            self.pages[key] = (self.read_page(slug) if corpus == CORPUS
+                               else self.read_other(corpus, slug) if self.read_other
+                               else None)
+        body = self.pages[key]
         if body is None:
             self.reject("no stored page for the citation", f"{label} ({slug})")
             return False
@@ -215,7 +222,7 @@ class _Gate:
 
         binding.pop("affinity_only", None)
         binding["action"] = action
-        source = {"corpus": CORPUS, "page": slug, "quote": quote, "provenance": "verified"}
+        source = {"corpus": corpus, "page": slug, "quote": quote, "provenance": "verified"}
         if self.extraction:
             source["extraction"] = self.extraction
         binding.setdefault("sources", []).append(source)
@@ -263,6 +270,93 @@ def apply_tables(proposals: dict, drugs: list[dict], read_page,
     return gate.stats, gate.rejected
 
 
+# ---------------------------------------------------------------------------
+# --search: the UNKNOWN search's picks (fetch_binding_directions.py --search), then
+# --unknown-log: the search log of every binding the search left without a direction.
+# ---------------------------------------------------------------------------
+SEARCH_WORKLIST = os.path.join(CACHE, "binding_directions_search_worklist.json")
+SEARCH_JUDGED = os.path.join(CACHE, "binding_directions_search_judged.json")
+
+
+def read_other(corpus: str, page) -> str | None:
+    """Any other corpus's stored page (French Wikipedia, a Europe PMC abstract),
+    normalized, or None when absent (the tree is author-side)."""
+    from data_generators.provenance import corpus_page_path
+    path = corpus_page_path(corpus, page)
+    if path is None or not path.exists():
+        return None
+    return normalize_for_match(path.read_text(encoding="utf-8"))
+
+
+def _owners(drugs: list[dict], rec: dict) -> list[dict]:
+    """The records holding a search record's binding: the drug, or every parent's copy
+    of the metabolite (one molecule, written identically under each parent)."""
+    from data_generators import unknown
+    if not rec.get("metabolite"):
+        return [d for d in drugs if d["id"] == rec["drug"]]
+    want = unknown.fold(rec["metabolite"])
+    return [m for d in drugs for m in d.get("metabolites", [])
+            if unknown.fold(m.get("name")) == want]
+
+
+def apply_search(worklist: list[dict], judged: dict, drugs: list[dict], read_page,
+                 read_other_page) -> tuple[collections.Counter, list[str]]:
+    """Gate the picks over the search worklist (``{site: {index, action}}``), same gates
+    as :func:`apply`, the citation carrying the candidate's own corpus and page."""
+    by_site = {rec["site"]: rec for rec in worklist}
+    aliases = ta.aliases_by_target()
+    gate = _Gate(read_page, read_other=read_other_page)
+    for site in sorted(judged):
+        rec, row = by_site.get(site), judged[site]
+        index, action = row.get("index"), row.get("action")
+        label = f"{site} {action} index={index}"
+        if rec is None:
+            gate.reject("site not in the search worklist", site)
+            continue
+        cands = rec["candidates"]
+        if isinstance(index, bool) or not isinstance(index, int) \
+                or not 0 <= index < len(cands):
+            gate.reject("candidate index out of range", label)
+            continue
+        cand, target = cands[index], rec["target"]
+        owners = _owners(drugs, rec)
+        if not owners:
+            gate.reject("no record holds that binding", label)
+            continue
+        for owner in owners:
+            gate.write(owner, target, action, cand["line"], cand["page"], label,
+                       names_target=lambda: ta.mentions(cand["line"], aliases.get(target, [])),
+                       corpus=cand["corpus"])
+    return gate.stats, gate.rejected
+
+
+def unknown_log(worklist: list[dict], drugs: list[dict], by: dict,
+                prior: dict | None = None) -> dict:
+    """The UNKNOWN search log: every worklist binding still without a direction, whose
+    search found no direction anywhere (``elsewhere`` empty), keyed by its site.
+
+    Entries the search did not revisit are kept from ``prior`` (a scoped rerun must not
+    erase them); ``apply_unknown`` drops any whose binding gained a source since.
+    """
+    from data_generators import unknown
+    still = {r["site"] for r in unknown.affinity_only_bindings(drugs)}
+    log = dict(prior or {})
+    for rec in worklist:
+        site = rec["site"]
+        if site not in still or rec["elsewhere"]:
+            log.pop(site, None)
+            continue
+        dates = [s["searched"] for s in rec["searched"] if s.get("searched")]
+        log[site] = {"kind": "drug_binding_action",
+                     # The oldest leg dates the search: it expires from there.
+                     "searched": min(dates) if dates else by["date"],
+                     "by": {"harness": by["harness"], "model": by["model"]},
+                     "candidates_offered": len(rec["candidates"]),
+                     "sources": [{k: v for k, v in s.items() if k != "searched"}
+                                 for s in rec["searched"]]}
+    return log
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -272,7 +366,15 @@ def main() -> int:
     ap.add_argument("--tables", nargs="?", const=TABLES, metavar="FILE",
                     help="apply the table-column proposals instead (default file: "
                          f"{os.path.relpath(TABLES, REPO)})")
+    ap.add_argument("--search", action="store_true",
+                    help="apply the UNKNOWN search's picks (binding_directions_search_*)")
+    ap.add_argument("--unknown-log", action="store_true",
+                    help="write the UNKNOWN log for every searched binding still "
+                         "without a direction (run after the recheck)")
+    ap.add_argument("--model", default="opus", help="the model that picked (for the log)")
     args = ap.parse_args()
+    if args.search or args.unknown_log:
+        return _main_search(args)
 
     if not os.path.isdir(PAGES):
         print(f"missing the author-side corpus tree ({PAGES}); see CLAUDE.local.md",
@@ -324,6 +426,39 @@ def main() -> int:
         return 0
     drugs_io.save_drugs(drugs)
     print(f"\nwrote {drugs_io.DRUGS_PATH.relative_to(REPO)}")
+    return 0
+
+
+
+def _main_search(args) -> int:
+    import datetime
+    from data_generators import unknown
+    with open(SEARCH_WORKLIST, encoding="utf-8") as f:
+        worklist = json.load(f)
+    drugs = drugs_io.load_drugs()
+    if args.search:
+        with open(SEARCH_JUDGED, encoding="utf-8") as f:
+            judged = json.load(f)
+        stats, rejected = apply_search(worklist, judged, drugs, page_text, read_other)
+        for key, n in sorted(stats.items()):
+            print(f"  {key:<48} {n}")
+        for line in rejected if args.verbose else []:
+            print(f"    {line}")
+    else:
+        log = unknown_log(worklist, drugs, {"harness": "Claude Code", "model": args.model,
+                                            "date": datetime.date.today().isoformat()},
+                          unknown.load_log())
+        print(f"  UNKNOWN log: {len(log)} binding(s)")
+        if not args.dry_run:
+            with open(unknown.UNKNOWN_LOG_PATH, "w", encoding="utf-8") as f:
+                json.dump(log, f, ensure_ascii=False, indent=1, sort_keys=True)
+                f.write("\n")
+        return 0
+    if args.dry_run:
+        print("\n--dry-run: nothing written")
+        return 0
+    drugs_io.save_drugs(drugs)
+    print(f"wrote {drugs_io.DRUGS_PATH.relative_to(REPO)}")
     return 0
 
 
