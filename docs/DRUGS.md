@@ -64,7 +64,13 @@ fixed Stahl list.
   antipsychotic reads dopaminergic-**up** (blocking the D2 *autoreceptor* disinhibits release); its
   postsynaptic blockade shows in the block-coloured dots. (This is why the dataset carries the ascending
   monoamine pathways.)
-- **Panel** (`showDrug`): the molecule image (when fetched), the class, the NbN, the description
+- **Panel** (`showDrug`): every `h3`-headed section (Brands, Pharmacokinetics, Acts on, Active metabolites,
+  Projections affected, ..., Drug interactions) is folded by `foldSections` into a collapsed
+  `details.disclosure.drug-sec`, its body indented; `flashRow` and the tour (`tourDrugSec`) open the section
+  they point into. A name shown beside the INN (`DRUG_NAME_QUALIFIERS`, display-only + searchable:
+  "Paliperidone (9-OH-risperidone)") becomes `drug.label`; a metabolite that is a modeled drug shows under that
+  label as a plain `drugNameLink` (the Drugs-list row look), and that drug's own panel opens with "Active
+  metabolite of <parent>" (`drug.metaboliteOf`, the parent's sourced entry). Then the molecule image (when fetched), the class, the NbN, the description
   (live-refreshed from Wikipedia, re-graded `sourced`), a Wikipedia link + the EMA / FDA / ClinPGx /
   Drugs.com (+ Vidal in French) `appendLookupLink` searches, then the **Acts on** binding
   list (each row: an effect glyph + target + action·note, "· speculative" when tentative, plus a
@@ -187,7 +193,8 @@ fixed Stahl list.
 - **Binding affinity (PDSP Ki).** A binding's `ki` (from `fetch_ki.py`) renders as a `kiChip`: the
   median + `[min-max]` + human/non-human counts + a **verified** badge (tooltip = the representative
   assay). Non-human-only is amber; an alias-borrowed value (`ki.mapped`) carries a "⚠ measured as
-  `<compound>`" warning. `affinity_only` bindings (a Ki, no known direction) list as "affinity only"
+  `<compound>`" warning, except an `identity` alias (the same molecule under another PDSP label, e.g.
+  paliperidone = 9-OH-risperidone), which keeps only `relation` + `pdsp_names`. `affinity_only` bindings (a Ki, no known direction) list as "affinity only"
   with a neutral glyph, no source pill, and never animate (excluded from `structureIds`/`flowKinds`);
   the missing direction is its own NOSOURCE node (`drug_binding_action`, red ✕ on the action line).
   A **combo** drug (name "A + B") leads with a warning box linking each constituent (`drug.combo`);

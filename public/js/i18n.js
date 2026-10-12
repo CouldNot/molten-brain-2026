@@ -260,7 +260,7 @@
         "Click <b>Olanzapine</b>. The brain dims and its effects animate on the regions it reaches.",
       "tour.drugActs.title": "What it acts on",
       "tour.drugActs.body":
-        "Its <b>bindings</b>, ordered strongest affinity first: each target it hits, the effect, and the affinity (Ki) that drives the animation. <b>Heads-up:</b> the drug animations are the least scientific part of neurarium, still a work in progress, so read them as illustration, not fact.",
+        "A drug panel's sections start folded: a heading opens its section. Here, its <b>bindings</b>, ordered strongest affinity first: each target it hits, the effect, and the affinity (Ki) that drives the animation. <b>Heads-up:</b> the drug animations are the least scientific part of neurarium, still a work in progress, so read them as illustration, not fact.",
       "tour.drugMetabolism.title": "How the body clears it",
       "tour.drugMetabolism.body":
         "Further down, its <b>metabolism</b>: the liver enzymes that break this drug down, or whose activity it changes. Each one is sourced, and clickable. This is pharmacokinetics, so nothing lights up in the 3D view.",
@@ -1008,7 +1008,7 @@
         "Cliquez sur <b>olanzapine</b>. Le cerveau s'assombrit et ses effets s'animent sur les régions qu'elle atteint.",
       "tour.drugActs.title": "Ce sur quoi elle agit",
       "tour.drugActs.body":
-        "Ses <b>liaisons</b>, classées de la plus forte affinité à la plus faible : chaque cible touchée, l'effet, et l'affinité (Ki) qui pilote l'animation. <b>À noter :</b> les animations de substances sont l'aspect le moins scientifique de neurarium, encore en chantier ; voyez-les comme une illustration, pas un fait.",
+        "Les sections d'une fiche de substance sont repliées : un titre ouvre sa section. Ici, ses <b>liaisons</b>, classées de la plus forte affinité à la plus faible : chaque cible touchée, l'effet, et l'affinité (Ki) qui pilote l'animation. <b>À noter :</b> les animations de substances sont l'aspect le moins scientifique de neurarium, encore en chantier ; voyez-les comme une illustration, pas un fait.",
       "tour.drugMetabolism.title": "Comment le corps l'élimine",
       "tour.drugMetabolism.body":
         "Plus bas, son <b>métabolisme</b> : les enzymes hépatiques qui dégradent cette substance, ou dont elle modifie l'activité. Chacune est sourcée, et cliquable. C'est de la pharmacocinétique : rien ne s'allume dans la vue 3D.",

@@ -1923,11 +1923,51 @@ function fixedContainingBlock(node) {
 function flashRow(elm) {
   if (!elm) return;
   requestAnimationFrame(() => {
+    // A row folded inside a collapsed section (see foldSections) is opened first, or
+    // the jump would land on nothing visible. Inside the rAF: the fold pass runs
+    // after a panel's rows are built, so the <details> only exists by now.
+    if (elm.tagName === "DETAILS") elm.open = true;
+    for (let d = elm.parentElement?.closest("details"); d;
+      d = d.parentElement?.closest("details")) d.open = true;
     elm.scrollIntoView({ block: "center", behavior: "smooth" });
     elm.classList.add("node-flash");
     elm.addEventListener("animationend",
       () => elm.classList.remove("node-flash"), { once: true });
   });
+}
+
+/**
+ * Fold every headed section directly under `host` into a collapsed `<details>`: a
+ * section whose first child is an `<h3>` becomes `details.disclosure.drug-sec` with
+ * that heading as its `<summary>` and the rest in an indented `.drug-sec-body`; one
+ * that already is a `<details>` (the drug panel's "Drug interactions") just gets the
+ * same classes and body. Classes and `data-tour-*` hooks carry over, so a tour step
+ * or flashRow still finds the section (and flashRow opens it). Unheaded blocks (the
+ * title, intro, facts) stay as they are.
+ * @param {HTMLElement} host
+ */
+function foldSections(host) {
+  for (const sec of [...host.children]) {
+    const isDetails = sec.tagName === "DETAILS";
+    const head = sec.firstElementChild;
+    if (!head || (!isDetails && head.tagName !== "H3")) continue;
+    let det = sec;
+    let summary = head;
+    if (!isDetails) {
+      det = document.createElement("details");
+      det.className = sec.className;
+      Object.assign(det.dataset, sec.dataset);
+      summary = document.createElement("summary");
+      summary.append(...head.childNodes);
+      head.remove();
+    }
+    det.classList.add("disclosure", "drug-sec");
+    const inner = document.createElement("div");
+    inner.className = "drug-sec-body";
+    inner.append(...[...sec.childNodes].filter((n) => n !== summary));
+    if (!isDetails) sec.replaceWith(det);
+    det.replaceChildren(summary, inner);
+  }
 }
 
 /**
@@ -4750,6 +4790,9 @@ function createInfoPanel(data, sourcingModal) {
           body.appendChild(pkWrap);
         }
       }
+      // Every headed section starts collapsed (a drug panel is long): the heading
+      // opens it, its content indented under it.
+      foldSections(body);
     },
 
     /**
@@ -8866,6 +8909,13 @@ async function main() {
   // drug walk-through (Acts on -> Metabolism -> Drug interactions -> the H1 row) is
   // four sub-steps reading ONE panel, so they share this before().
   const tourDrugPanel = tourEnsureTab("drug:olanzapine", tourOlanzapine, focusDrug);
+  // The drug panel's sections start folded (see foldSections): a step that points
+  // INTO one (its rows, or a row in it) opens the panel, then that section.
+  const tourDrugSec = (sec) => () => {
+    tourDrugPanel();
+    const d = document.querySelector(`#details-pane [data-tour-sec="${sec}"]`);
+    if (d) d.open = true;
+  };
   // The drug panel's collapsed "Drug interactions" <details> (see showDrug). Its step
   // is hands-on (the user opens it), so the step's before() re-collapses it: a Back
   // into the step must leave something to open.
@@ -9056,14 +9106,14 @@ async function main() {
     //    body flags the drug animations as the least-scientific, still-WIP part.
     { title: t("tour.drugActs.title"), body: t("tour.drugActs.body"),
       target: '[data-tour-sec="bindings"]', dim: false, scrollTo: true, scrollAlign: "top",
-      before: tourDrugPanel },
+      before: tourDrugSec("bindings") },
     // 16-17. Still the same panel, further down: the pharmacokinetic half. The enzymes
     //    that clear it (sourced nodes), then the drug -> drug interactions those roles
     //    imply, collapsed so the user opens it themselves (stayAfterTap keeps the step
     //    up so the list it reveals is readable).
     { title: t("tour.drugMetabolism.title"), body: t("tour.drugMetabolism.body"),
       target: '[data-tour-sec="metabolism"]', dim: false, scrollTo: true,
-      scrollAlign: "top", before: tourDrugPanel },
+      scrollAlign: "top", before: tourDrugSec("metabolism") },
     { title: t("tour.drugPk.title"), body: t("tour.drugPk.body"),
       target: () => {
         const d = tourPkDetails();
@@ -9075,7 +9125,7 @@ async function main() {
     // 18. Follow one binding, the H1 receptor row, to that receptor's own panel.
     { title: t("tour.drugToReceptor.title"), body: t("tour.drugToReceptor.body"),
       target: '[data-tour-id="ixtarget:h1"]', interactive: true, scrollTo: true,
-      before: tourDrugPanel },
+      before: tourDrugSec("bindings") },
     // 19-20. Walk the receptor (H1) panel: how it is classified, then where it is found.
     { title: t("tour.receptorFacts.title"), body: t("tour.receptorFacts.body"),
       target: '[data-tour-sec="facts"]', dim: false, scrollTo: true,
