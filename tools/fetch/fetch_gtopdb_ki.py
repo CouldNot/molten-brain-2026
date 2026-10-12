@@ -290,16 +290,28 @@ def nm_from(row: dict) -> tuple[float, float, float] | None:
     return (statistics.median(nm), nm[0], nm[-1])
 
 
+# GtoPdb ligand ids whose single-enantiomer tag the export's name no longer carries,
+# keyed by the stable `Ligand ID`. Release 2026.3.1 renamed ligand 63 from
+# "(-)-propranolol" to plain "propranolol", the racemate's own name (ligand 564), so a
+# name-only join pooled the S-enantiomer's rows into racemic propranolol.
+LIGAND_ID_STEREO: dict[str, str] = {
+    "63": "-",  # (-)-propranolol; the racemate is ligand 564
+}
+
+
 def index_by_ligand(rows: list[dict]) -> dict[str, list[tuple]]:
     """Rows keyed by STEM ligand name, each beside its optical-rotation tag.
 
     "(-)-pentazocine" and "pentazocine" share a stem but are different molecules, and
     the tag decides which drug claims a row (see tools/chirality.py). Folding the tag
-    away published one enantiomer's curated affinities as the racemate's.
+    away published one enantiomer's curated affinities as the racemate's. A ligand whose
+    name lost its tag upstream gets it back from :data:`LIGAND_ID_STEREO`.
     """
     by_ligand: dict[str, list[tuple]] = defaultdict(list)
     for r in rows:
         stem, tag = chirality.split_stereo(r.get("Ligand"))
+        if tag is None:
+            tag = LIGAND_ID_STEREO.get(str(r.get("Ligand ID") or ""))
         by_ligand[norm(stem)].append((tag, r))
     return by_ligand
 
@@ -314,8 +326,16 @@ def ligand_rows(by_ligand: dict[str, list[tuple]], name: str, drug_id: str) -> l
     key = LIGAND_ALIASES.get(norm(stem), norm(stem))
     rows = by_ligand.get(key, [])
     if own_tag:
-        return [r for tag, r in rows if tag == own_tag]
-    return [r for tag, r in rows if chirality.tag_allowed(tag, drug_id)]
+        picked = [r for tag, r in rows if tag == own_tag]
+    else:
+        picked = [r for tag, r in rows if chirality.tag_allowed(tag, drug_id)]
+    ids = sorted({str(r.get("Ligand ID")) for r in picked if r.get("Ligand ID")})
+    if len(ids) > 1:
+        # Two GtoPdb ligands answer to one name: usually a tag dropped upstream (see
+        # LIGAND_ID_STEREO). Loud, since the join cannot tell which one is ours.
+        log(f"WARNING: {name!r} joins {len(ids)} GtoPdb ligand ids {ids}: "
+            "pin the stray one in LIGAND_ID_STEREO")
+    return picked
 
 
 def compound_proposals(cands: list[dict], gene_owner: dict[str, set[str]],
