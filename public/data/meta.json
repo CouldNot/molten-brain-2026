@@ -3895,12 +3895,12 @@
       },
       "drug_binding_action": {
         "total": 1322,
-        "verified": 1085,
+        "verified": 1086,
         "uncertain": 103,
         "sourced": 0,
         "llm": 133,
-        "nosource": 1,
-        "missing": 134,
+        "nosource": 0,
+        "missing": 133,
         "unknown": 656
       },
       "drug_nbn": {
@@ -4216,14 +4216,14 @@
     },
     "nodes": {
       "total": 6904,
-      "verified": 6348,
+      "verified": 6349,
       "uncertain": 264,
       "sourced": 0,
       "llm": 255,
-      "nosource": 37,
-      "missing": 292,
+      "nosource": 36,
+      "missing": 291,
       "unknown": 656,
-      "backed": 6612,
+      "backed": 6613,
       "pct_backed": 96
     },
     "ki_coverage": {

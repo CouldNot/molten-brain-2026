@@ -182,7 +182,7 @@ Receptor expression regions           ██████████████
 Target classifications                ████████████████████████░░   92%      23/25
 Drug metabolism strength tier         ████████████████████████░░   92%    135/147
 Receptor sign (excit./inhib.)         ████████████████████████░░   91%      51/56
-Drug binding directions               ███████████████████████░░░   90%  1188/1322
+Drug binding directions               ███████████████████████░░░   90%  1189/1322
 Target expression regions             ███████████████████████░░░   89%    115/129
 Projection groups                     ██████████████████████░░░░   83%      10/12
 Pathway transmitter                   ████████████████████░░░░░░   78%     86/110

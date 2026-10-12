@@ -13126,6 +13126,138 @@
    }
   }
  },
+ "metabolites": {
+  "Norfluoxetine": {
+   "5ht2a": {
+    "action": "antagonist",
+    "ki": {
+     "max": 630.9573,
+     "median": 630.9573,
+     "min": 630.9573,
+     "n_human": 0,
+     "n_nonhuman": 1,
+     "param": "pKi"
+    },
+    "pmid": "11104741",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "norfluoxetine",
+     "provenance": "verified",
+     "quote": "norfluoxetine at 5-HT2A receptor (Htr2a, Rat): Antagonist / Antagonist, pKi 6.2 [PMID 11104741]",
+     "species": "Rat"
+    }
+   },
+   "5ht2b": {
+    "action": "antagonist",
+    "ki": {
+     "max": 5011.8723,
+     "median": 5011.8723,
+     "min": 5011.8723,
+     "n_human": 1,
+     "n_nonhuman": 0,
+     "param": "pKi"
+    },
+    "pmid": "11104741",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "norfluoxetine",
+     "provenance": "verified",
+     "quote": "norfluoxetine at 5-HT2B receptor (HTR2B, Human): Antagonist / Antagonist, pKi 5.3 [PMID 11104741]",
+     "species": "Human"
+    }
+   },
+   "5ht2c": {
+    "action": "antagonist",
+    "ki": {
+     "max": 316.2278,
+     "median": 316.2278,
+     "min": 316.2278,
+     "n_human": 0,
+     "n_nonhuman": 1,
+     "param": "pKi"
+    },
+    "pmid": "11104741",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "norfluoxetine",
+     "provenance": "verified",
+     "quote": "norfluoxetine at 5-HT2C receptor (Htr2c, Rat): Antagonist / Antagonist, pKi 6.5 [PMID 11104741]",
+     "species": "Rat"
+    }
+   }
+  },
+  "Norquetiapine": {
+   "net": {
+    "action": "reuptake_inhibitor",
+    "ki": {
+     "max": 12.0226,
+     "median": 12.0226,
+     "min": 12.0226,
+     "n_human": 1,
+     "n_nonhuman": 0,
+     "param": "pKi"
+    },
+    "pmid": "18059438",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "n-desalkylquetiapine",
+     "provenance": "verified",
+     "quote": "N-desalkylquetiapine at NET (SLC6A2, Human): Inhibitor / Inhibition, pKi 7.92 [PMID 18059438]",
+     "species": "Human"
+    }
+   }
+  },
+  "Norzotepine": {
+   "net": {
+    "action": "reuptake_inhibitor",
+    "pmid": "20223878",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "norzotepine",
+     "provenance": "verified",
+     "quote": "norzotepine at NET (SLC6A2, Human): Inhibitor / Inhibition, pIC50 7.96 [PMID 20223878]",
+     "species": "Human"
+    }
+   },
+   "sert": {
+    "action": "reuptake_inhibitor",
+    "pmid": "20223878",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "norzotepine",
+     "provenance": "verified",
+     "quote": "norzotepine at SERT (SLC6A4, Human): Inhibitor / Inhibition, pIC50 5.21 [PMID 20223878]",
+     "species": "Human"
+    }
+   }
+  },
+  "Psilocin": {
+   "5ht2a": {
+    "action": "agonist",
+    "pmid": "16061378",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "psilocin",
+     "provenance": "verified",
+     "quote": "psilocin at 5-HT2A receptor (HTR2A, Human): Agonist / Agonist, pEC50 7.62 [PMID 16061378]",
+     "species": "Human"
+    }
+   }
+  },
+  "Trichloroethanol": {
+   "5ht3": {
+    "action": "pam",
+    "pmid": "16257471",
+    "source": {
+     "corpus": "gtopdb_ki",
+     "page": "trichloroethanol",
+     "provenance": "verified",
+     "quote": "trichloroethanol at 5-HT3A (Htr3a, Mouse): Allosteric modulator / Positive, no affinity reported [PMID 16257471]",
+     "species": "Mouse"
+    }
+   }
+  }
+ },
  "url": "https://www.guidetopharmacology.org/DATA/interactions.csv",
  "version": "# GtoPdb Version: 2026.3 - published: 2026-09-16"
 }
