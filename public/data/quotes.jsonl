@@ -44,6 +44,7 @@
 {"id": "q_02d8ebe1de87", "corpus": "stahl", "page": 277, "quote": "Tricyclic antidepressant (TCA)", "llm": "sonnet", "heading": ["Dothiepin", "Therapeutics", "Class"]}
 {"id": "q_02ebe36e11a5", "corpus": "cpic", "page": "PA166251452", "quote": "Consider a 25-50% lower starting dose and slower titration schedule as compared to normal metabolizers or consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6.", "fetched": "2026-10-08"}
 {"id": "q_02fece9f4a20", "corpus": "bdpm", "page": "60975252", "quote": "INSTANYL", "fetched": "2026-10-10"}
+{"id": "q_02ffe48a1665", "corpus": "gtopdb_class", "page": 265, "quote": "H4 receptor (HRH4), GtoPdb target 265 | transduction: Gi/Go family | effectors: Phospholipase C stimulation", "fetched": "2026-10-12"}
 {"id": "q_03110b6650fd", "corpus": "stahl_essential", "page": 200, "quote": "All 5HT2A receptors are postsynaptic and excitatory.", "llm": "opus", "heading": ["5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"]}
 {"id": "q_0318d8b03105", "corpus": "wikipedia_pharm", "page": "amoxapine", "quote": "5-HT 7 | 41 | Monkey", "fetched": "2026-10-11"}
 {"id": "q_03209f24f231", "corpus": "wikipedia_pharm", "page": "ibogaine", "quote": "Drug class | Hallucinogen ; Oneirogen ; Stimulant", "llm": "sonnet", "fetched": "2026-10-11"}
@@ -3772,6 +3773,7 @@
 {"id": "q_c9113545b25f", "corpus": "gtopdb_ki", "page": "cocaine", "quote": "cocaine at DAT (Slc6a3, Rat): Inhibitor / Inhibition, pIC50 7.1 [PMID 15566309]", "species": "Rat", "fetched": "2026-10-12"}
 {"id": "q_c927cca8f7d4", "corpus": "wikipedia_pharm", "page": "apomorphine", "quote": "5-HT 1B | 2,951 | no action", "fetched": "2026-10-11"}
 {"id": "q_c9293fd4c75f", "corpus": "drugsfda", "page": "NDA018708", "quote": "NDA018708 | DORAL | QUAZEPAM | TABLET | ORIG approved 1985-12-27", "fetched": "2026-10-12"}
+{"id": "q_c9376856a745", "corpus": "gtopdb_class", "page": 288, "quote": "MT2 receptor (MTNR1B), GtoPdb target 288 | transduction: Gi/Go family | effectors: Adenylyl cyclase inhibition, Phospholipase C stimulation", "fetched": "2026-10-12"}
 {"id": "q_c94551d54b88", "corpus": "dailymed", "page": "540edd43-165d-4257-b989-3bccc8f54afb", "quote": "Following oral administration the bioavailability of methadone ranges between 36 to 100% and peak plasma concentrations are achieved between 1 to 7.5 hours.", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_c986aaf9365c", "corpus": "wikipedia_pharm", "page": "2c_b", "quote": "5-HT 1D | 26", "fetched": "2026-10-11"}
 {"id": "q_c98c15686975", "corpus": "stahl", "page": 371, "quote": "For hypertension, stimulates alpha 2A adrenergic receptors in the brain stem", "llm": "sonnet", "heading": ["Guanfacine", "Therapeutics", "How the Drug Works"]}

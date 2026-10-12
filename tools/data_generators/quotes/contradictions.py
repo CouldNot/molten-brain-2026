@@ -63,6 +63,13 @@ def _book(corpus: str, page: int, quote: str) -> dict[str, Any]:
             "provenance": "verified", "llm": "opus"}
 
 
+def _gtopdb_class(target_id: int, quote: str) -> dict[str, Any]:
+    """A transduction row read off the GtoPdb classification page (corpus #12): a table
+    row copied by code, so it needs no judge (the corpus is ``machine``)."""
+    return {"corpus": "gtopdb_class", "page": target_id, "quote": quote,
+            "provenance": "verified"}
+
+
 ENZYME_CONTRADICTIONS: dict[tuple[str, str, str], dict[str, Any]] = {
     # Stahl's fluoxetine monograph (p.331) prints a bare "Inhibits CYP3A4". Wikipedia
     # cites Sager et al. 2014 (Clin Pharmacol Ther 95:653), whose whole subject is the
@@ -125,6 +132,17 @@ RECEPTOR_CONTRADICTIONS: dict[tuple[str, str], dict[str, Any]] = {
     ("mt1", "sign"): _book(
         "stahl_essential", 455,
         "MT1-mediated inhibition of neurons in the suprachiasmatic nucleus (SCN)"),
+    # We say modulatory; GtoPdb lists one primary transducer, Gi/Go, which the corpus #12
+    # transduction-to-sign reading maps to inhibitory (the a2a reading, mirrored).
+    ("h4", "sign"): _gtopdb_class(
+        265, "H4 receptor (HRH4), GtoPdb target 265 | transduction: Gi/Go family | "
+             "effectors: Phospholipase C stimulation"),
+    ("mt2", "sign"): _gtopdb_class(
+        288, "MT2 receptor (MTNR1B), GtoPdb target 288 | transduction: Gi/Go family | "
+             "effectors: Adenylyl cyclase inhibition, Phospholipase C stimulation"),
+    # cb1 is read and left out: GtoPdb's Gi/Go row is a brake on transmitter release,
+    # and its own sources say it brakes excitatory and inhibitory release alike, which
+    # is what modulatory means here (docs/SOURCING_GAPS.md, receptor_sign).
 }
 
 
