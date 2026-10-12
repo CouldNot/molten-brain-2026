@@ -1,6 +1,6 @@
 """AGNP TDM guideline corpus #19: the Table 5 cell parsers (fetch_agnp_tdm.py) and the
 generator side (data_generators/tdm.py): one range per drug or nothing, and the
-Table 1 enzyme pass only ever confirms an existing substrate row."""
+Table 1 enzyme merge (confirm an existing substrate row, else add one)."""
 
 import sys
 import unittest
