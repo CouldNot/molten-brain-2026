@@ -197,11 +197,29 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
     return out
 
 
+def drop_if_linked(m: dict, by_norm: dict[str, str], drug_ids: set[str]) -> bool:
+    """Whether metabolite ``m`` IS a modeled drug, clearing its inline ``bindings`` if so.
+
+    Only non-modeled metabolites are sourced here: a modeled one reuses that drug's
+    bindings (js/data.js), so an inline copy written before the link existed (ODV's two
+    bindings once desvenlafaxine was linked) is a stale duplicate that must go.
+    """
+    linked = m.get("drug_id") or by_norm.get(norm_name(m["name"]))
+    if linked and linked in drug_ids:
+        m.pop("bindings", None)
+        return True
+    return False
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true",
                     help="report what would change, write nothing")
+    ap.add_argument("--only", help="comma-separated PARENT drug ids whose metabolites to "
+                    "rebuild (later passes, e.g. binding directions, write onto these "
+                    "lists, so a full re-run is not a no-op)")
     args = ap.parse_args()
+    only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
 
     worklist = {e["key"]: e for e in json.loads(WORKLIST.read_text(encoding="utf-8"))}
     judged = json.loads(JUDGED.read_text(encoding="utf-8")) if JUDGED.exists() else {}
@@ -214,11 +232,10 @@ def main() -> int:
     warn = warnings.append
     n_metab = n_bind = n_action = n_affinity = 0
     for d in drugs:
+        if only is not None and d["id"] not in only:
+            continue
         for m in d.get("metabolites", []):
-            # Only non-modeled metabolites are sourced here; a metabolite that IS a
-            # modeled drug reuses that drug's bindings (js/data.js), nothing to write.
-            linked = m.get("drug_id") or by_norm.get(norm_name(m["name"]))
-            if linked and linked in drug_ids:
+            if drop_if_linked(m, by_norm, drug_ids):
                 continue
             key = wp.slugify(m["name"]).lower()
             entry = worklist.get(key)

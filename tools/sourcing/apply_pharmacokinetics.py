@@ -17,10 +17,15 @@ for each judged drug:
   matches a modeled drug (so the viewer can link + reuse its bindings), and attaching
   the metabolite's own T½ when Stahl states it.
 
-Overwrite semantics (idempotent): this is the sole writer of these two fields, so a
-re-run replaces a drug's ``half_life`` / ``metabolites`` from the current judged file
-rather than accumulating; a judged drug with no surviving metabolite has any prior
-``metabolites`` cleared. A drug absent from the judged file is left untouched.
+Merge semantics (idempotent): a judged metabolite updates the same-named existing
+record, keeping the fields other passes own (``bindings`` from
+``apply_metabolite_bindings.py``, a prodrug's metabolite from ``apply_prodrug.py``), and a
+metabolite the judged file does not name is left alone. A judged quote may cite
+``"corpus": "wikipedia_pharm"`` (``page`` = article slug) where Stahl is silent, and an
+explicit ``"drug_id"`` links a metabolite known under a synonym (ODV = desvenlafaxine).
+``"half_life": null`` clears a T½ the source states for someone else (a prodrug's figure
+that is its metabolite's, an IV-only figure), so the by-index half-life pass can re-pick.
+Later passes re-picked some drugs' T½, so scope a run with ``--only <ids>``.
 
 Usage (from the repo root): python tools/sourcing/apply_pharmacokinetics.py [--dry-run]
 Stdlib only; author-side (needs the gitignored data_sources/books/stahl/pages tree; on
@@ -28,7 +33,6 @@ a clone that lacks it the quote gate cannot run, so the applier refuses rather t
 writing ungated quotes).
 """
 import argparse
-import importlib.util
 import json
 import re
 import sys
@@ -38,15 +42,15 @@ ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io                                                 # noqa: E402
 
-STAHL_PAGES = ROOT / "data_sources" / "books" / "stahl" / "pages"
+# The corpora a judged quote may cite (``corpus`` defaults to ``stahl``): Stahl's
+# monograph prose, then the drug's (or the metabolite's) own English Wikipedia article.
+PAGES = {"stahl": ROOT / "data_sources" / "books" / "stahl" / "pages",
+         "wikipedia_pharm": ROOT / "data_sources" / "wikipedia" / "pages"}
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "pk_judged.json"
 
-# Reuse check_data's canonical quote-gate normalization (single source of truth), so
-# a quote that passes here also passes check_data's later re-gate.
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
+from prose_gate import PageGate  # noqa: E402 (check_data's normalizer, cached pages)
+from apply_prodrug import names_of  # noqa: E402 (one metabolite-name fold)
 
 
 def norm_name(s: str) -> str:
@@ -76,10 +80,94 @@ def clean_half_life(hl: dict | None) -> dict | None:
     return rec
 
 
-def stahl_source(page: int, quote: str) -> dict:
-    """Build a ``verified`` Stahl quote source node for a page + verbatim quote."""
-    return {"corpus": "stahl", "page": int(page), "quote": quote,
+def source(q: dict) -> dict:
+    """A ``verified`` quote source node from a judged ``{corpus?, page, quote}``."""
+    corpus = q.get("corpus") or "stahl"
+    page = int(q["page"]) if corpus == "stahl" else q["page"]
+    return {"corpus": corpus, "page": page, "quote": q["quote"],
             "provenance": "verified"}
+
+
+def _names(name: str) -> set[str]:
+    """The folded names a metabolite goes by (:func:`apply_prodrug.names_of`), or the
+    whole folded name when parentheses ARE the name (``(+)-alpha-Dihydrotetrabenazine``)."""
+    return set(names_of(name)) | {norm_name(name)}
+
+
+def apply(judged: dict, drugs: list[dict], pages: PageGate,
+          only: set[str] | None = None) -> tuple[int, int, list[str]]:
+    """Merge the judged T½ + metabolites onto ``drugs``; return (n_hl, n_met, warnings).
+
+    Merge, not overwrite: a judged metabolite updates the existing record that shares a
+    name with it (:func:`apply_prodrug.names_of`, so ``"Desmethyldiazepam (nordazepam)"``
+    matches ``"Nordazepam"``), keeping the fields other passes own (``bindings``,
+    ``formed_by``); a metabolite the judged file does not name is left alone. Explicit
+    ``"half_life": null`` clears a T½ (the parent's, or a metabolite's) the source
+    states for someone else, e.g. a prodrug's figure that is its metabolite's.
+    """
+    by_id = {d["id"]: d for d in drugs}
+    drug_norm_to_id = {norm_name(d["name"]): d["id"] for d in drugs}
+    warnings: list[str] = []
+
+    def gated(q) -> bool:
+        """Whether ``q``'s quote is verbatim on its (allowed) corpus page."""
+        if not isinstance(q, dict) or not q.get("quote") or q.get("page") is None:
+            return False
+        corpus = q.get("corpus") or "stahl"
+        return corpus in PAGES and pages.on_page(corpus, q["page"], q["quote"])
+
+    def set_half_life(rec: dict, owner: dict, label: str) -> int:
+        """Apply ``rec["half_life"]`` (gated dict, or explicit None) onto ``owner``."""
+        if "half_life" not in rec:
+            return 0
+        hl = rec["half_life"]
+        if hl is None:
+            owner.pop("half_life", None)
+            owner.pop("half_life_sources", None)
+            return 0
+        value = clean_half_life(hl)
+        if value and gated(hl):
+            owner["half_life"] = value
+            owner["half_life_sources"] = [source(hl)]
+            return 1
+        warnings.append(f"{label}: half-life quote failed the gate, dropped")
+        return 0
+
+    n_hl = n_met = 0
+    for did, rec in judged.items():
+        if only is not None and did not in only:
+            continue
+        drug = by_id.get(did)
+        if not drug:
+            warnings.append(f"judged drug {did!r} not in dataset; skipped")
+            continue
+        n_hl += set_half_life(rec, drug, did)
+        mets = drug.setdefault("metabolites", [])
+        for m in rec.get("metabolites", []) or []:
+            name = (m.get("name") or "").strip()
+            if not name or not gated(m):
+                warnings.append(f"{did}: metabolite {name!r} quote failed the gate")
+                continue
+            want = _names(name)
+            mrec = next((x for x in mets if want & _names(x["name"])), None)
+            if mrec is None:
+                mrec = {"name": name}
+                mets.append(mrec)
+            # Link a metabolite that is itself a modeled drug (never the parent itself),
+            # so the viewer reuses its bindings + T½ and jumps to it. An explicit
+            # ``drug_id`` covers a synonym the name match cannot see (ODV = desvenlafaxine).
+            linked = m.get("drug_id") or drug_norm_to_id.get(norm_name(name))
+            if m.get("drug_id") and linked not in by_id:
+                warnings.append(f"{did}: metabolite {name!r} drug_id {linked!r} unknown")
+                linked = None
+            if linked and linked != did:
+                mrec["drug_id"] = linked
+            set_half_life(m, mrec, f"{did}/{name}")
+            mrec["sources"] = [source(m)]
+            n_met += 1
+        if not mets:
+            del drug["metabolites"]
+    return n_hl, n_met, warnings
 
 
 def main() -> int:
@@ -88,10 +176,15 @@ def main() -> int:
                     help="the LLM-judged pharmacokinetics file")
     ap.add_argument("--dry-run", action="store_true",
                     help="report what would change without writing drugs_data.jsonl")
+    ap.add_argument("--only", help="comma-separated drug ids to apply (the judged file "
+                    "predates later passes that re-picked some drugs' T½, so a full "
+                    "re-run is not a no-op)")
     args = ap.parse_args()
+    only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
 
-    if not STAHL_PAGES.exists():
-        print(f"[error] {STAHL_PAGES} absent (author-side Stahl tree missing); the "
+    missing = [str(p) for p in PAGES.values() if not p.exists()]
+    if missing:
+        print(f"[error] {', '.join(missing)} absent (author-side corpus tree missing); the "
               f"quote gate cannot run, refusing to write ungated quotes.",
               file=sys.stderr)
         return 1
@@ -102,91 +195,14 @@ def main() -> int:
 
     judged = json.loads(args.judged.read_text(encoding="utf-8"))
     drugs = drugs_io.load_drugs()
-    by_id = {d["id"]: d for d in drugs}
-    drug_norm_to_id = {norm_name(d["name"]): d["id"] for d in drugs}
-
-    page_cache: dict[int, str] = {}
-
-    def page_text(page) -> str:
-        """Normalized text of a Stahl page (cached); "" if the page file is absent."""
-        try:
-            page = int(page)
-        except (TypeError, ValueError):
-            return ""
-        if page not in page_cache:
-            p = STAHL_PAGES / f"{page}.md"
-            page_cache[page] = (normalize_for_match(p.read_text(encoding="utf-8"))
-                                if p.exists() else "")
-        return page_cache[page]
-
-    def gated(page, quote) -> bool:
-        """Whether ``quote`` appears verbatim (normalized) on Stahl ``page``."""
-        if not quote or page is None:
-            return False
-        return normalize_for_match(quote) in page_text(page)
-
-    n_hl = n_met = dropped = 0
-    warnings: list[str] = []
-    for did, rec in judged.items():
-        drug = by_id.get(did)
-        if not drug:
-            warnings.append(f"judged drug {did!r} not in dataset; skipped")
-            continue
-
-        # --- Parent elimination half-life ---------------------------------------
-        hl = rec.get("half_life")
-        if hl:
-            value = clean_half_life(hl)
-            if value and gated(hl.get("page"), hl.get("quote")):
-                drug["half_life"] = value
-                drug["half_life_sources"] = [stahl_source(hl["page"], hl["quote"])]
-                n_hl += 1
-            else:
-                dropped += 1
-                warnings.append(f"{did}: half-life quote failed the gate, dropped")
-
-        # --- Active metabolites --------------------------------------------------
-        mets: list[dict] = []
-        seen: set[str] = set()
-        for m in rec.get("metabolites", []) or []:
-            name = (m.get("name") or "").strip()
-            key = norm_name(name)
-            if not name or key in seen:
-                continue
-            if not gated(m.get("page"), m.get("quote")):
-                dropped += 1
-                warnings.append(f"{did}: metabolite {name!r} quote failed the gate")
-                continue
-            seen.add(key)
-            mrec: dict = {"name": name}
-            # Link a metabolite that is itself a modeled drug (never the parent
-            # itself), so the viewer reuses its bindings + T½ and jumps to it.
-            linked = drug_norm_to_id.get(key)
-            if linked and linked != did:
-                mrec["drug_id"] = linked
-            mhl = m.get("half_life")
-            if mhl:
-                mvalue = clean_half_life(mhl)
-                if mvalue and gated(mhl.get("page"), mhl.get("quote")):
-                    mrec["half_life"] = mvalue
-                    mrec["half_life_sources"] = [
-                        stahl_source(mhl["page"], mhl["quote"])]
-            mrec["sources"] = [stahl_source(m["page"], m["quote"])]
-            mets.append(mrec)
-            n_met += 1
-        if mets:
-            drug["metabolites"] = mets
-        elif "metabolites" in drug:
-            # Idempotent: judged says none survived -> clear a prior run's list.
-            del drug["metabolites"]
-
+    n_hl, n_met, warnings = apply(judged, drugs, PageGate(PAGES), only)
     if args.dry_run:
-        print(f"[dry-run] would set half_life on {n_hl} drugs, "
-              f"{n_met} metabolites; {dropped} quotes dropped.")
+        print(f"[dry-run] would set half_life on {n_hl} drugs, {n_met} metabolites; "
+              f"{len(warnings)} quotes dropped.")
     else:
         drugs_io.save_drugs(drugs)
         print(f"[ok] set half_life on {n_hl} drugs, {n_met} metabolites; "
-              f"{dropped} quotes dropped. Wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}.")
+              f"{len(warnings)} quotes dropped. Wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}.")
     for w in warnings[:40]:
         print(f"  [warn] {w}")
     if len(warnings) > 40:

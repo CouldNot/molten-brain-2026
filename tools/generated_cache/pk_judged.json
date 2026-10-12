@@ -273,7 +273,27 @@
    "quote": "Elimination half-life 24–48 hours",
    "hours_max": 48.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "chlordiazepoxide",
+    "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours;",
+    "name": "Desmethyldiazepam (nordazepam)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "nordazepam",
+     "quote": "Elimination half-life | 36–200 hours",
+     "hours": 36,
+     "hours_max": 200
+    }
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "chlordiazepoxide",
+    "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours;",
+    "name": "Oxazepam"
+   }
+  ]
  },
  "chlorpromazine": {
   "half_life": {
@@ -417,7 +437,33 @@
    "quote": "Elimination half-life 20–50 hours",
    "hours_max": 50.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "diazepam",
+    "quote": "The main active metabolite of diazepam is desmethyldiazepam (also known as nordazepam or nordiazepam).",
+    "name": "Desmethyldiazepam (nordazepam)",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "nordazepam",
+     "quote": "Elimination half-life | 36–200 hours",
+     "hours": 36,
+     "hours_max": 200
+    }
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "diazepam",
+    "quote": "Its other active metabolites include the minor active metabolites temazepam and oxazepam .",
+    "name": "Temazepam"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "diazepam",
+    "quote": "Its other active metabolites include the minor active metabolites temazepam and oxazepam .",
+    "name": "Oxazepam"
+   }
+  ]
  },
  "diphenhydramine": {
   "half_life": {
@@ -1083,7 +1129,27 @@
    "quote": "Half-life 25–41 hours",
    "hours_max": 41.0
   },
-  "metabolites": []
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "quazepam",
+    "quote": "The active metabolites of quazepam are 2-oxoquazepam and N -desalkyl-2-oxoquazepam.",
+    "name": "2-Oxoquazepam"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "quazepam",
+    "quote": "In addition, it has now been documented in the medical literature that one of the major metabolites of quazepam, N -desalkyl-2-oxoquazepam ( N -desalkylflurazepam ), which is long-acting and prone to accumulation, binds unselectively to benzodiazepine receptors, thus quazepam may not differ all that much pharmacologically from other benzodiazepines.",
+    "name": "N-desalkylflurazepam",
+    "half_life": {
+     "corpus": "wikipedia_pharm",
+     "page": "flurazepam",
+     "quote": "Elimination half-life | 2.3 hours N -desalkylflurazepam: 47–100 hours",
+     "hours": 47,
+     "hours_max": 100
+    }
+   }
+  ]
  },
  "quetiapine": {
   "half_life": {
@@ -1383,7 +1449,8 @@
      "page": 890,
      "quote": "Active metabolite has 9–13-hour half-life",
      "hours_max": 13.0
-    }
+    },
+    "drug_id": "desvenlafaxine"
    }
   ]
  },
@@ -1468,5 +1535,26 @@
    "quote": "For oral formulation, elimination half-life approximately 20 hours"
   },
   "metabolites": []
+ },
+ "thioridazine": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "thioridazine",
+    "quote": "Thioridazine is a racemic compound with two enantiomers , both of which are metabolized, according to Eap et al., by CYP2D6 into ( S )- and ( R )-thioridazine-2-sulfoxide, better known as mesoridazine , and into ( S )- and ( R )-thioridazine-5-sulfoxide.",
+    "name": "Mesoridazine"
+   }
+  ]
+ },
+ "methamphetamine": {
+  "metabolites": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "methamphetamine",
+    "quote": "At least seven metabolites have been identified in the urine, with the main metabolites being amphetamine (active) and 4-hydroxymethamphetamine.",
+    "name": "Amphetamine",
+    "drug_id": "amphetamine_d"
+   }
+  ]
  }
 }
