@@ -1,0 +1,22 @@
+{
+ "drugs": {
+  "viloxazine": [
+   {
+    "target": "5ht2b",
+    "candidate": 10,
+    "quote": "Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively",
+    "value_nm": 3900,
+    "param": "Ki",
+    "note": "The Table 3 title is taken: the paper's Results prose lists the two values in the other order (3900 nM at 5-HT2C, 6400 nM at 5-HT2B), but Table 3's own occupancies (5-HT2B always above 5-HT2C at the same concentration) need the lower Ki at 5-HT2B. The paper does not say how or in which species the Ki values were obtained."
+   },
+   {
+    "target": "5ht2c",
+    "candidate": 10,
+    "quote": "Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively",
+    "value_nm": 6400,
+    "param": "Ki",
+    "note": "The Table 3 title is taken: the paper's Results prose lists the two values in the other order (3900 nM at 5-HT2C, 6400 nM at 5-HT2B), but Table 3's own occupancies (5-HT2B always above 5-HT2C at the same concentration) need the lower Ki at 5-HT2B. The paper does not say how or in which species the Ki values were obtained."
+   }
+  ]
+ }
+}

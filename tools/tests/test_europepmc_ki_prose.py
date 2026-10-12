@@ -11,7 +11,9 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "fetch"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "sourcing"))
 import fetch_europepmc as E  # noqa: E402
+import apply_ki_prose as A  # noqa: E402
 
 # A trimmed MediaWiki render: the note ids come HTML-escaped on the <li> and plain on the
 # link, the shape that once made every citation miss.
@@ -37,6 +39,79 @@ class CitedAffinityTest(unittest.TestCase):
         self.assertFalse(E.states_affinity("an IC 50 of 40 nM"))
         self.assertTrue(E.states_affinity("trazodone (KD = 324 microM)"))
         self.assertTrue(E.states_affinity("5-HT1A (pKi = 7.72)"))
+
+
+# A trimmed JATS full text: a paragraph with inline math, a table nested in a section.
+JATS = """<?xml version="1.0"?>
+<article><front><abstract><p>Not repeated.</p></abstract></front><body>
+<sec><title>Results</title>
+<p>Viloxazine bound <italic>NET</italic> (<inline-formula><tex-math>\\alpha</tex-math></inline-formula>).</p>
+<table-wrap><label>Table 3</label><caption><p>Ki Values of 3900 and 6400 nM</p></caption>
+<table><thead><tr><th>Dose</th><th>5-HT2B</th></tr></thead>
+<tbody><tr><td>100</td><td>81.4</td></tr></tbody></table>
+<table-wrap-foot><p>Values in nM.</p></table-wrap-foot></table-wrap>
+</sec></body><back><ref-list><ref>Ref.</ref></ref-list></back></article>"""
+
+
+class FullTextTest(unittest.TestCase):
+    def test_flattens_body_and_tables_like_the_wikipedia_pages(self):
+        self.assertEqual(E.full_text_lines(JATS), [
+            "### Results", "Viloxazine bound NET ().", "",
+            "Table 3: Ki Values of 3900 and 6400 nM",
+            "Dose | 5-HT2B", "100 | 81.4", "Notes: Values in nM."])
+
+    def test_only_an_open_access_record_has_a_licence(self):
+        self.assertEqual(E.licence_of({"isOpenAccess": "Y", "pmcid": "PMC1",
+                                       "license": "cc by-nc"}), "CC BY-NC")
+        self.assertIsNone(E.licence_of({"isOpenAccess": "N", "license": "cc by"}))
+
+    def test_full_text_goes_after_the_abstract(self):
+        # An abstract quote gated before the full text existed must still gate after.
+        rec = {"title": "T", "pmid": "1", "pmcid": "PMC1", "isOpenAccess": "Y",
+               "license": "cc by", "abstractText": "First. Second."}
+        page = E.page_text(rec, ["Body."])
+        self.assertLess(page.index("Second."), page.index(E.FULL_TEXT_MARKER))
+        self.assertIn("licence: CC BY", page)
+
+    def test_table_rows_are_offered_with_their_caption(self):
+        page = "# T\n\nAbstract.\n\n" + E.FULL_TEXT_MARKER + "\n\n" + \
+            "\n".join(E.full_text_lines(JATS))
+        got = E.affinity_candidates(page)
+        self.assertIn({"line": "Table 3: Ki Values of 3900 and 6400 nM"}, got)
+        self.assertIn("100 | 81.4", [c["line"] for c in got])
+
+
+class KiProseGateTest(unittest.TestCase):
+    CAND = {"page": "1", "line": "Table 3: Ki Values of 630, 3900 and 6400 nM for NET"}
+    PAGE = "# T\n\n" + CAND["line"] + "\n"
+
+    def pick(self, **kw):
+        return {"target": "5ht2b", "candidate": 0, "param": "Ki", "value_nm": 3900,
+                "quote": "Ki Values of 630, 3900 and 6400 nM", **kw}
+
+    def test_a_correct_pick_passes(self):
+        self.assertIsNone(A.check_pick(self.pick(), self.CAND, self.PAGE, {"5ht2b"}))
+
+    def test_a_value_not_written_in_the_quote_fails(self):
+        self.assertIn("not written", A.check_pick(self.pick(value_nm=3800), self.CAND,
+                                                   self.PAGE, {"5ht2b"}))
+
+    def test_a_potency_is_not_an_affinity(self):
+        self.assertIn("not an affinity", A.check_pick(self.pick(param="IC50"), self.CAND,
+                                                       self.PAGE, {"5ht2b"}))
+
+    def test_a_binding_that_already_has_a_ki_is_never_overwritten(self):
+        self.assertIn("Ki-less", A.check_pick(self.pick(), self.CAND, self.PAGE, set()))
+
+    def test_a_quote_off_the_page_fails(self):
+        self.assertIn("not found", A.check_pick(self.pick(), self.CAND, "# T\n", {"5ht2b"}))
+
+    def test_a_full_text_quote_carries_the_licence(self):
+        page = "# T\nlicence: CC BY-NC\n\nAbstract.\n\n## Full text\n\n" + \
+            self.CAND["line"] + "\n"
+        ki = A.ki_object(self.pick(), self.CAND, page)
+        self.assertEqual(ki["source"]["licence"], "CC BY-NC")
+        self.assertEqual(ki["source"]["extraction"], "llm")
 
 
 if __name__ == "__main__":

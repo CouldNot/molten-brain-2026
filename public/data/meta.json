@@ -3721,8 +3721,8 @@
       "editable": true
     },
     "europepmc": {
-      "ref": "Europe PMC, journal article abstract",
-      "citation": "Europe PMC (EMBL-EBI). Abstract of the cited journal article, PubMed id pinned per citation. europepmc.org.",
+      "ref": "Europe PMC, journal article",
+      "citation": "Europe PMC (EMBL-EBI). Abstract, or open-access full text, of the cited journal article, PubMed id pinned per citation. europepmc.org.",
       "url": "https://europepmc.org/",
       "pages_dir": "data_sources/europepmc/pages",
       "editable": false
@@ -4254,7 +4254,7 @@
     },
     "ki_coverage": {
       "bindings_total": 1891,
-      "bindings_with_ki": 1657,
+      "bindings_with_ki": 1659,
       "pct_bindings_with_ki": 88,
       "drugs_total": 279,
       "drugs_without_ki": 90,

@@ -1347,6 +1347,7 @@
 {"id": "q_487deca3f9e8", "corpus": "stahl", "page": 253, "quote": "Nuedexta (in combination with quinidine)", "llm": "sonnet", "heading": ["Dextromethorphan–Quinidine"]}
 {"id": "q_488ce8e9f4fc", "corpus": "stahl", "page": 770, "quote": "Inhibits CYP2C19", "llm": "opus", "heading": ["Sertraline", "Dosing and use", "Pharmacokinetics"]}
 {"id": "q_488d9264046b", "corpus": "stahl", "page": 718, "quote": "Metabolized predominantly by CYP1A2", "llm": "opus", "heading": ["Ramelteon", "Dosing and use", "Pharmacokinetics"]}
+{"id": "q_48ce10aa3ea1", "corpus": "europepmc", "page": "32943948", "quote": "Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively", "llm": "opus"}
 {"id": "q_48f362cbc3da", "corpus": "wikipedia_fr", "page": "pipotiazine", "quote": "Sanofi a été l'un des premiers à commercialiser la pipotiazine, sous le nom de Piportil, le 31 décembre 1980 .", "llm": "opus", "fetched": "2026-10-11"}
 {"id": "q_490ce9de4ce9", "corpus": "wikipedia_pharm", "page": "mescaline", "quote": "Mescaline acts as an agonist of the serotonin 5-HT 2A receptor to produce its psychedelic effects.", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_490ebda9a3d0", "corpus": "wikipedia_pharm", "page": "morphine", "quote": "The drug was first marketed to the general public by Sertürner and Company in 1817 as a pain medication, and also as a treatment for opium and alcohol addiction.", "llm": "opus", "fetched": "2026-10-11"}

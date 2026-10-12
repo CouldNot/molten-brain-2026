@@ -853,19 +853,22 @@ SOURCE_CORPORA: dict[str, dict] = {
         "editable": True,
     },
     "europepmc": {
-        # Primary-literature corpus #17: a hand-listed handful of paper abstracts, for
-        # the claims only a study measures (lithium's brain half-life, from 7Li MRS,
-        # being longer than its serum one: no book, label or article on disk says so).
-        # tools/fetch/fetch_europepmc.py stores each paper's Europe PMC abstract as one
-        # page, one sentence per line; `page` is the PubMed id, so a citation resolves
-        # to europepmc.org/article/MED/<page>. Its PAPERS registry names the claim each
-        # paper was added for, so the corpus never grows into a crawl. Quotes are prose
-        # picked by a model and judged like any other (no `extraction: "code"`).
-        # Author-side pages like #14/#16 (abstracts are the publishers' copyright: a
-        # short verbatim sentence is a citation, the page itself is never shipped).
-        "ref": "Europe PMC, journal article abstract",
-        "citation": "Europe PMC (EMBL-EBI). Abstract of the cited journal article, "
-                    "PubMed id pinned per citation. europepmc.org.",
+        # Primary-literature corpus #17: paper abstracts for the claims only a study
+        # measures (lithium's brain half-life, from 7Li MRS, being longer than its serum
+        # one: no book, label or article on disk says so), plus Europe PMC's own
+        # open-access full text where the record has one (a Ki that lives only in a
+        # paper's table: viloxazine's 5-HT2B / 5-HT2C). tools/fetch/fetch_europepmc.py
+        # stores one page per paper (abstract one sentence per line, then the OA body and
+        # every table as `cell | cell` rows, licence in the header); `page` is the PubMed
+        # id, so a citation resolves to europepmc.org/article/MED/<page>. Papers are
+        # hand-listed (PAPERS, each with its claim) or a Wikipedia-cited paper the Ki
+        # pass followed, so the corpus never grows into a crawl. Quotes are picked by a
+        # model and judged like any other (no `extraction: "code"`). Author-side pages
+        # like #14/#16 (a short verbatim sentence is a citation, the page is never
+        # shipped); a full-text Ki source carries the paper's `licence` for credit.
+        "ref": "Europe PMC, journal article",
+        "citation": "Europe PMC (EMBL-EBI). Abstract, or open-access full text, of the "
+                    "cited journal article, PubMed id pinned per citation. europepmc.org.",
         "url": "https://europepmc.org/",
         "pages_dir": "data_sources/europepmc/pages",
         # Not editable: a published abstract does not change under a citation, so
@@ -1159,14 +1162,16 @@ def _ki_annotation(drug_id: str, binding: dict[str, Any]) -> dict[str, Any] | No
     out_src: dict[str, Any] = {"corpus": corpus, "provenance": prov}
     for f in ("ki_id", "value_nm", "species", "preparation", "radioligand",
               "reference", "note", "mapped", "measured_as", "relation", "pdsp_names",
-              "page", "quote"):
+              "page", "quote", "param", "licence"):
         if src.get(f) not in (None, ""):
             out_src[f] = src[f]
-    # A measured affinity is never read out of prose: both flavours are a parser copying
-    # one machine-readable row (a PDSP CSV line, a wiki affinity table cell), so a Ki
-    # quote's chain of custody carries no model even when its corpus otherwise does.
+    # A table-copied Ki (a PDSP CSV line, a wiki affinity table cell) is a parser copying
+    # one machine-readable row, so its quote's chain of custody carries no model even
+    # when its corpus otherwise does. The one exception states itself: a Ki a model
+    # picked out of a paper (tools/sourcing/apply_ki_prose.py, corpus #17) is stamped
+    # `extraction: "llm"` by its applier and so needs a judge like any picked quote.
     if out_src.get("quote"):
-        out_src["extraction"] = "code"
+        out_src["extraction"] = src.get("extraction") or "code"
     out = {
         "median": ki["median"], "min": ki["min"], "max": ki["max"],
         "n_human": int(ki.get("n_human", 0)),
