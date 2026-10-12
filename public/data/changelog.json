@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.105.2",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "Behind the scenes: the sourcing tools that re-check, demote and locate quotes now share one reader of where each source's pages are stored, instead of three copies that could fall out of step.",
+          "commits": [
+            "6f365ec"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.105.1",
       "date": "2026-10-12",
       "entries": [
