@@ -37,6 +37,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -88,17 +89,46 @@ RECEPTOR_GENES: dict[str, str] = {
 }
 
 
+# GtoPdb's web services need a per-user API key since 2026-09 (an anonymous call
+# answers 401 "API key is missing"). Their REST page recommends the request
+# header, which keeps the key out of every URL we could print or store.
+API_KEY_ENV = "GTOPDB_API_KEY"
+API_KEY_FILE = OUT / "api_key.txt"
+API_KEY_HEADER = "GTP-API-Key"
+
+
+def api_key() -> str:
+    """The GtoPdb API key: env ``GTOPDB_API_KEY``, else ``data_sources/gtopdb/api_key.txt``.
+
+    Never printed, logged or written anywhere: it only rides the request header."""
+    key = os.environ.get(API_KEY_ENV, "").strip()
+    if not key and API_KEY_FILE.exists():
+        key = API_KEY_FILE.read_text(encoding="utf-8").strip()
+    if not key:
+        raise SystemExit(
+            f"error: no GtoPdb API key: set env {API_KEY_ENV} or put the key in "
+            f"{API_KEY_FILE.relative_to(REPO)} (request one from your "
+            f"guidetopharmacology.org account)")
+    return key
+
+
 def http_json(url: str, tries: int = 3):
     """GET a JSON URL politely, with a couple of retries. Returns parsed JSON."""
+    headers = {"User-Agent": UA, "Accept": "application/json", API_KEY_HEADER: api_key()}
     last = None
     for attempt in range(tries):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA,
-                                                        "Accept": "application/json"})
+            req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=30) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
             time.sleep(DELAY_S)
             return data
+        except urllib.error.HTTPError as exc:  # noqa: PERF203
+            if exc.code in (401, 403):
+                raise SystemExit(f"error: GtoPdb refused the API key ({exc.code}) for {url}; "
+                                 f"check {API_KEY_ENV} / {API_KEY_FILE.relative_to(REPO)}") from None
+            last = exc
+            time.sleep(1.0 + attempt)
         except (urllib.error.URLError, TimeoutError, ValueError) as exc:  # noqa: PERF203
             last = exc
             time.sleep(1.0 + attempt)
