@@ -291,6 +291,12 @@
    "n": 3,
    "role": "substrate",
    "strength": "major"
+  },
+  {
+   "enzyme": "ugt1a1",
+   "n": 3,
+   "role": "substrate",
+   "strength": "major"
   }
  ],
  "bupropion": [
@@ -608,6 +614,11 @@
    "n": 3,
    "role": "substrate",
    "strength": "major"
+  },
+  {
+   "enzyme": "cyp1a1",
+   "n": 2,
+   "role": "substrate"
   }
  ],
  "cocaine": [
@@ -1370,6 +1381,12 @@
    "n": 0,
    "role": "substrate",
    "strength": "major"
+  },
+  {
+   "enzyme": "cyp1a1",
+   "n": 0,
+   "role": "substrate",
+   "strength": "major"
   }
  ],
  "ketamine": [
@@ -1549,6 +1566,11 @@
    "enzyme": "ugt",
    "n": 1,
    "role": "substrate"
+  },
+  {
+   "enzyme": "ugt1a1",
+   "n": 2,
+   "role": "substrate"
   }
  ],
  "lurasidone": [
@@ -1604,6 +1626,12 @@
   },
   {
    "enzyme": "cyp2c19",
+   "n": 0,
+   "role": "substrate",
+   "strength": "minor"
+  },
+  {
+   "enzyme": "cyp1a1",
    "n": 0,
    "role": "substrate",
    "strength": "minor"
@@ -3003,6 +3031,16 @@
   },
   {
    "enzyme": "ugt2b15",
+   "n": 4,
+   "role": "substrate"
+  },
+  {
+   "enzyme": "ugt1a3",
+   "n": 4,
+   "role": "substrate"
+  },
+  {
+   "enzyme": "ugt1a6",
    "n": 4,
    "role": "substrate"
   }

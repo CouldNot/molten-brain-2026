@@ -29,11 +29,11 @@ sys.path.insert(0, HERE)
 
 PAGES = os.path.join(REPO, "data_sources", "wikipedia", "pages")
 
-# The isoform ids the dataset models (mirrors ENZYMES in data_generators/drugs.py; not
-# imported because this module must load with only the repo's stdlib path set up).
-KNOWN_ENZYMES = {"cyp1a2", "cyp2a6", "cyp2b6", "cyp2c8", "cyp2c9", "cyp2c19",
-                 "cyp2d6", "cyp2e1", "cyp3a4", "cyp3a5", "adh", "ces1", "fmo3",
-                 "ugt", "ugt1a4", "ugt1a9", "ugt2b7", "ugt2b15"}
+from data_generators.drugs import ENZYMES  # noqa: E402  (stdlib-only module)
+
+# The isoform ids the dataset models: ENZYMES itself, so a newly modeled isoform is
+# offered to the judge with no second list to keep in step.
+KNOWN_ENZYMES = frozenset(ENZYMES)
 
 # The flattened drugbox row. `pageimages`-style tables come through as "cell | cell",
 # so the metabolism field is a line whose first cell is exactly "Metabolism".

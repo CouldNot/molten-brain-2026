@@ -246,3 +246,23 @@ class SharedGateTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class VocabularyTest(unittest.TestCase):
+    """The worklist's isoform vocabulary is ENZYMES itself. Regression: a hand-copied
+    mirror in fetch_cyp_wikipedia lagged six isoforms behind (CYP1A1, UGT1A1, UGT1A3,
+    UGT1A6, UGT2B4, UGT2B10), so no sentence naming them could ever become a row."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        sys.path.insert(0, str(ROOT / "tools" / "fetch"))
+
+    def test_known_enzymes_is_the_modeled_vocabulary(self):
+        import fetch_cyp_wikipedia
+        from data_generators.drugs import ENZYMES
+        self.assertEqual(set(fetch_cyp_wikipedia.KNOWN_ENZYMES), set(ENZYMES))
+
+    def test_every_modeled_ugt_isoform_is_read(self):
+        import fetch_cyp
+        self.assertEqual(fetch_cyp.isoforms("by UGT1A1, UGT1A3 and UGT2B10"),
+                         ["ugt1a1", "ugt1a3", "ugt2b10"])

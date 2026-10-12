@@ -1038,6 +1038,37 @@
    ],
    "name": "Caffeine"
   },
+  "cannabidiol": {
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Interactions",
+     "n": 0,
+     "page": "cannabidiol",
+     "quote": "Work with human liver microsomes shows that cannabidiol inhibits CYP3A5 and CYP3A4 to some degree."
+    }
+   ],
+   "name": "Cannabidiol"
+  },
+  "cannabinol": {
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Pharmacokinetics",
+     "n": 0,
+     "page": "cannabinol",
+     "quote": "The metabolism of CBN may be catalyzed by UGTs ( UDP-glucuronosyltransferases ), with a subset of UGT isoforms (1A7, 1A8, 1A9, 1A10, 2B7) identified as potential substrates associated with CBN glucuronidation ."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Pharmacokinetics",
+     "n": 1,
+     "page": "cannabinol",
+     "quote": "Similar to CBD, CBN is metabolized by the CYP2C9 and CYP3A4 liver enzymes and thus the half-life is sensitive to genetic factors that effect the levels of these enzymes."
+    }
+   ],
+   "name": "Cannabinol"
+  },
   "carbamazepine": {
    "candidates": [
     {
@@ -1671,7 +1702,7 @@
    "candidates": [
     {
      "corpus": "wikipedia_pharm",
-     "heading": "Pharmacokinetics",
+     "heading": "Metabolism",
      "n": 0,
      "page": "dexmedetomidine",
      "quote": "Dexmedetomidine is metabolized by the liver , largely by glucuronidation (34%) as well as by oxidation via CYP2A6 and other cytochrome P450 enzymes ."
@@ -2609,6 +2640,18 @@
    ],
    "name": "Fluvoxamine"
   },
+  "furosemide": {
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "(lead)",
+     "n": 0,
+     "page": "furosemide",
+     "quote": "Metabolism | Liver and kidney glucuronidation"
+    }
+   ],
+   "name": "Furosemide"
+  },
   "galantamine": {
    "candidates": [
     {
@@ -3020,7 +3063,7 @@
      "heading": "Interactions",
      "n": 3,
      "page": "lisdexamfetamine",
-     "quote": "Concomitant use of lisdexamfetamine with CYP2D6 inhibitors may increase the risk of serotonin syndrome due to greater drug exposure."
+     "quote": "Concomitant use of lisdexamphetamine with CYP2D6 inhibitors may increase the risk of serotonin syndrome due to greater drug exposure."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -3505,6 +3548,13 @@
      "n": 8,
      "page": "dexmethylphenidate",
      "quote": "A multi-enzyme model better accounts for observed clinical pharmacokinetics and drug–drug interactions, with CYP2B6 serving as a major clearance pathway, CYP2E1 generating ritalinic acid through α-hydroxylation, and CYP3A4 producing ethylphenidate in ethanol-containing conditions."
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Interactions",
+     "n": 9,
+     "page": "dexmethylphenidate",
+     "quote": "When methylphenidate is coingested with ethanol , a small amount of ethylphenidate is formed through CES1 -mediated transesterification."
     }
    ],
    "name": "Methylphenidate (D)"
@@ -3517,6 +3567,13 @@
      "n": 0,
      "page": "methylphenidate",
      "quote": "Metabolism | Liver (80%) mostly CES1 -mediated"
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "Interactions",
+     "n": 1,
+     "page": "methylphenidate",
+     "quote": "When methylphenidate is coingested with ethanol , a small amount of ethylphenidate is formed through CES1 -mediated transesterification."
     }
    ],
    "name": "Methylphenidate (D,L)"
@@ -3665,14 +3722,14 @@
      "heading": "Interactions",
      "n": 5,
      "page": "modafinil",
-     "quote": "However, other in-vitro studies find no significant inhibition of CYP2C9 ."
+     "quote": "However, other in-vitro work has shown no significant inhibition of CYP2C9 ."
     },
     {
      "corpus": "wikipedia_pharm",
      "heading": "Interactions",
      "n": 6,
      "page": "modafinil",
-     "quote": "Clinical studies show that modafinil affects the pharmacodynamics of drugs metabolized by CYP3A4 and other cytochrome P450 enzymes, with these interactions observed in patients."
+     "quote": "In clinical use, modafinil affects the pharmacodynamics of drugs metabolized by CYP3A4 and other cytochrome P450 enzymes, with these interactions observed in patients."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -4559,7 +4616,7 @@
      "heading": "Effects of drugs on propranolol",
      "n": 2,
      "page": "propranolol",
-     "quote": "Levels of propranolol may be increased by CYP2D6 inhibitors such as amiodarone , bupropion , cimetidine , duloxetine , fluoxetine , paroxetine , propafenone , quinidine , and ritonavir , by CYP1A2 inhibitors such as imipramine , cimetidine, ciprofloxacin , fluvoxamine , isoniazid , theophylline , zileuton , zolmitriptan , and rizatriptan , and by CYP2C19 inhibitors such as fluconazole , cimetidine, fluoxetine, fluvoxamine , teniposide , and tolbutamide ."
+     "quote": "Levels of propranolol may be increased by CYP2D6 inhibitors such as amiodarone , bupropion , cimetidine , duloxetine , fluoxetine , paroxetine , propafenone , quinidine , and ritonavir , by CYP1A2 inhibitors such as imipramine , cimetidine, ciprofloxacin , fluvoxamine , isoniazid , theophylline , zileuton , zolmitriptan , and rizatriptan , and by CYP2C19 inhibitors such as fluconazole , cimetidine, fluoxetine, fluvoxamine, teniposide , and tolbutamide ."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -4587,7 +4644,7 @@
      "heading": "Effects of drugs on propranolol",
      "n": 6,
      "page": "propranolol",
-     "quote": "Cigarette smoking, which induces CYP1A2, has been found to reduce the clearance of propranolol by 77%, in turn resulting in decreased propranolol concentrations."
+     "quote": "Cigarette smoking, which induces CYP1A2, has been found to increase the clearance of propranolol by 77%, resulting in decreased propranolol concentrations."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -4615,7 +4672,7 @@
      "heading": "Pharmacogenomics",
      "n": 10,
      "page": "propranolol",
-     "quote": "There were no significance differences in area-under-the-curve levels of propranolol in CYP2D6 poor metabolizers versus extensive metabolizers ."
+     "quote": "There were no significant differences in area-under-the-curve levels of propranolol in CYP2D6 poor metabolizers versus extensive metabolizers ."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -4914,6 +4971,18 @@
    ],
    "name": "Reboxetine"
   },
+  "rimonabant": {
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "heading": "(lead)",
+     "n": 0,
+     "page": "rimonabant",
+     "quote": "Metabolism | Hepatic , CYP3A4 involved"
+    }
+   ],
+   "name": "Rimonabant"
+  },
   "risperidone": {
    "candidates": [
     {
@@ -4961,7 +5030,7 @@
      "heading": "Pharmacokinetics",
      "n": 2,
      "page": "ropinirole",
-     "quote": "SK&F-104557 and SK&F-89124, both of which are renally excreted, and at doses higher than clinical, is also metabolized by CYP3A4 ."
+     "quote": "SK&F-104557 (N-Despropyl Ropinirole) and SK&F-89124 , both of which are renally excreted, and at doses higher than clinical, is also metabolized by CYP3A4 ."
     },
     {
      "corpus": "wikipedia_pharm",
@@ -5683,7 +5752,7 @@
    "candidates": [
     {
      "corpus": "wikipedia_pharm",
-     "heading": "(lead)",
+     "heading": "Pharmacokinetics",
      "n": 0,
      "page": "tofisopam",
      "quote": "Tofisopam has been shown to act as an inhibitor of the liver enzyme CYP3A4 , and some researches suspect that this could cause dangerous drug interactions with other medications metabolised by this enzyme, although the clinical significance of these findings remains unclear."
@@ -6578,6 +6647,7 @@
   "enzymes": [
    "adh",
    "ces1",
+   "cyp1a1",
    "cyp1a2",
    "cyp2a6",
    "cyp2b6",
@@ -6590,9 +6660,14 @@
    "cyp3a5",
    "fmo3",
    "ugt",
+   "ugt1a1",
+   "ugt1a3",
    "ugt1a4",
+   "ugt1a6",
    "ugt1a9",
+   "ugt2b10",
    "ugt2b15",
+   "ugt2b4",
    "ugt2b7"
   ],
   "roles": {

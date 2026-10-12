@@ -425,6 +425,20 @@
    ]
   },
   {
+   "enzyme": "ugt1a1",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "buprenorphine",
+     "provenance": "verified",
+     "quote": "The glucuronidation of buprenorphine is primarily carried out by UGT1A1 and UGT2B7 , and that of norbuprenorphine by UGT1A1 and UGT1A3 ."
+    }
+   ],
+   "strength": "major"
+  },
+  {
    "enzyme": "ugt2b7",
    "role": "substrate",
    "sources": [
@@ -888,6 +902,19 @@
   }
  ],
  "clozapine": [
+  {
+   "enzyme": "cyp1a1",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "clozapine",
+     "provenance": "verified",
+     "quote": "A genome wide association study from the MRC Centre for Neuropsychiatric Genetics and Genomics in Cardiff, UK has shown significant interethnic variation in clozapine metabolism due to variation in the frequency of CYP alleles involved in clozapine metabolism such as UGT1A and CYP1A1/1A2."
+    }
+   ]
+  },
   {
    "enzyme": "cyp1a2",
    "role": "substrate",
@@ -2145,6 +2172,20 @@
  ],
  "istradefylline": [
   {
+   "enzyme": "cyp1a1",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "istradefylline",
+     "provenance": "verified",
+     "quote": "Metabolism | Mainly CYP1A1 , CYP3A4 , and CYP3A5"
+    }
+   ],
+   "strength": "major"
+  },
+  {
    "enzyme": "cyp3a4",
    "role": "substrate",
    "sources": [
@@ -2421,6 +2462,19 @@
      "quote": "Metabolism | Multiple UGTs , CYP450s , and AKR enzymes"
     }
    ]
+  },
+  {
+   "enzyme": "ugt1a1",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "lumateperone",
+     "provenance": "verified",
+     "quote": "Lumateperone is a substrate for numerous metabolic enzymes, including various glucuronosyltransferase (UGT) isoforms (UGT1A1, 1A4, and 2B15), aldo-keto reductase (AKR) isoforms ( AKR1C1 , 1B10 , and 1C4 ), and cytochrome P450 (CYP) enzymes ( CYP3A4 , 2C8 , and 1A2 )."
+    }
+   ]
   }
  ],
  "lurasidone": [
@@ -2496,6 +2550,20 @@
   }
  ],
  "melatonin": [
+  {
+   "enzyme": "cyp1a1",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "melatonin",
+     "provenance": "verified",
+     "quote": "It is primarily metabolized by the liver enzyme CYP1A2 and to a lesser extent by CYP1A1 , CYP2C19 , and CYP1B1 ."
+    }
+   ],
+   "strength": "minor"
+  },
   {
    "enzyme": "cyp1a2",
    "role": "substrate",
@@ -4916,7 +4984,33 @@
    ]
   },
   {
+   "enzyme": "ugt1a3",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "valproate",
+     "provenance": "verified",
+     "quote": "It is also known to be metabolized by the UDP-glucuronosyltransferase enzymes UGT1A3 , UGT1A4 , UGT1A6 , UGT1A8 , UGT1A9 , UGT1A10 , UGT2B7 , and UGT2B15 ."
+    }
+   ]
+  },
+  {
    "enzyme": "ugt1a4",
+   "role": "substrate",
+   "sources": [
+    {
+     "corpus": "wikipedia_pharm",
+     "llm": "opus",
+     "page": "valproate",
+     "provenance": "verified",
+     "quote": "It is also known to be metabolized by the UDP-glucuronosyltransferase enzymes UGT1A3 , UGT1A4 , UGT1A6 , UGT1A8 , UGT1A9 , UGT1A10 , UGT2B7 , and UGT2B15 ."
+    }
+   ]
+  },
+  {
+   "enzyme": "ugt1a6",
    "role": "substrate",
    "sources": [
     {

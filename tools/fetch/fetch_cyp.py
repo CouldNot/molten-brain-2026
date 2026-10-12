@@ -40,6 +40,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
 import check_data  # noqa: E402  (reuse the quote gate's normalizer, one definition)
+from data_generators.drugs import ENZYMES  # noqa: E402  (the modeled isoform ids)
 
 STAHL = os.path.join(REPO, "data_sources", "books", "stahl")
 DUMP = os.path.join(STAHL, "stahl_dump.jsonl")
@@ -60,10 +61,10 @@ NON_CYP_ENZYMES = [
     (re.compile(r"\balcohol\s+dehydrogenase\b", re.I), "adh"),
     (re.compile(r"\bCES-?1\b|\bcarboxylesterase\s*1\b|\bhCE-?1\b", re.I), "ces1"),
     (re.compile(r"\bFMO-?3\b", re.I), "fmo3"),
-    (re.compile(r"\bUGT-?1A4\b", re.I), "ugt1a4"),
-    (re.compile(r"\bUGT-?1A9\b", re.I), "ugt1a9"),
-    (re.compile(r"\bUGT-?2B7\b", re.I), "ugt2b7"),
-    (re.compile(r"\bUGT-?2B15\b", re.I), "ugt2b15"),
+    # One pattern per modeled UGT isoform, derived from the ENZYMES vocabulary so a
+    # newly modeled one is read with no second list to update ("UGT1A1" -> ugt1a1).
+    *[(re.compile(rf"\bUGT-?{e[3:].upper()}\b", re.I), e)
+      for e in sorted(ENZYMES) if e.startswith("ugt") and len(e) > 3],
     # An isoform pattern cannot be swallowed by this generic one: \b does not fall
     # between "UGT" and "2B7".
     (re.compile(r"\bUGTs?\b|\bglucuronidation\b", re.I), "ugt"),
