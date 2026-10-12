@@ -285,5 +285,42 @@
    25,
    30
   ]
+ },
+ "raphe->globus_pallidus_R": {
+  "transmitter": [
+   14
+  ],
+  "route": [
+   14,
+   49
+  ]
+ },
+ "locus_coeruleus_R->caudate_R": {
+  "route": [
+   7
+  ]
+ },
+ "locus_coeruleus_R->putamen_R": {
+  "route": [
+   7
+  ]
+ },
+ "locus_coeruleus_R->globus_pallidus_R": {
+  "route": [
+   5
+  ]
+ },
+ "locus_coeruleus_R->substantia_nigra_R": {
+  "route": [
+   26
+  ]
+ },
+ "vta_R->parietal_R": {
+  "transmitter": [
+   0
+  ],
+  "route": [
+   0
+  ]
  }
 }

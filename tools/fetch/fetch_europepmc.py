@@ -85,6 +85,14 @@ PAGES_DIR = ROOT / "data_sources" / "europepmc" / "pages"
 PAPERS: dict[str, str] = {
     "7827213": "lithium: brain half-life (7Li MRS) longer than serum half-life "
                "(addon lithium_brain_half_life)",
+    # Primate tract-tracing for the monoamine pathways the books never name (check_data
+    # family 10, docs/SOURCING_GAPS.md "Innervation coverage"). Species in each line.
+    "27028222": "raphe -> globus pallidus, serotonergic (primate review)",
+    "6766111": "raphe + locus coeruleus -> internal pallidum (Macaca mulatta, HRP)",
+    "6664490": "locus coeruleus -> caudate + putamen (Saimiri sciureus, retrograde)",
+    "6315152": "locus coeruleus -> substantia nigra (Saimiri sciureus, retrograde)",
+    "2896323": "VTA -> parietal cortex, dopaminergic (Macaca fascicularis, retrograde)",
+    "2860583": "claustrum <-> insula connections (primate + human review)",
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"

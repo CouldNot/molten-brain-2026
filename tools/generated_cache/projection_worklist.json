@@ -11929,66 +11929,11 @@
    "sign": "excitatory",
    "need": [
     "transmitter",
-    "sign",
-    "route"
+    "sign"
    ],
    "flag": [],
    "label": "Claustro-insular projection",
    "candidates": [
-    {
-     "corpus": "europepmc",
-     "page": 40185102,
-     "line": "Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons.",
-     "attrs": [
-      "transmitter",
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 40185102,
-     "line": "Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons. Comparison of macaque, marmoset, and mouse transcriptomes revealed macaque-specific cell types.",
-     "attrs": [
-      "transmitter",
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 40185102,
-     "line": "Claustrum orchestrates brain functions via its connections with numerous brain regions, but its molecular and cellular organization remains unresolved. Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons.",
-     "attrs": [
-      "transmitter",
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "We found UCMA to be the most significantly enriched gene in the insular cortex and confirmed specific expression of NR4A2 , NTNG2 , and LXN in the claustrum. Furthermore, the insula was found to have enriched expression of genes associated with mood disorders, learning, cardiac muscle contraction, oxygen transport, glutamate and dopamine signaling.",
-     "attrs": [
-      "transmitter",
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 42361098,
-     "line": "Claustrum exhibited anatomical connectivity with regions representing all implicated networks, and claustrum effective connectivity suggested an excitatory influence on regions in multiple task-associated networks. Task response and connectivity measures differed between the claustrum and regions prominently implicated in directing network states-the anterior insula and pulvinar.",
-     "attrs": [
-      "sign",
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "Furthermore, the insula was found to have enriched expression of genes associated with mood disorders, learning, cardiac muscle contraction, oxygen transport, glutamate and dopamine signaling. Specific expression in the claustrum was enriched for genes pertaining to human immunodeficiency virus (HIV), severe intellectual disability, epileptic encephalopathy, intracellular transport, spine development, and macroautophagy.",
-     "attrs": [
-      "transmitter",
-      "route"
-     ]
-    },
     {
      "corpus": "europepmc",
      "page": 40920646,
@@ -12001,105 +11946,9 @@
     {
      "corpus": "europepmc",
      "page": 24904319,
-     "line": "Dendrites of claustral neurons did not invade the overlying insular territory.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 36516730,
-     "line": "The human claustrum is a gray matter structure in the white matter between insula and striatum.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 27580962,
-     "line": "The claustrum is a small, elongated nucleus close to the external capsule and deep in the insular cortex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 30534060,
-     "line": "The claustrum is a narrow subcortical brain structure that resides between the striatum and insular cortex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 19168664,
-     "line": "Moreover, the claustrum is surrounded on all sides by layer VI insular cortex cells in both the rat and primate.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 38635579,
-     "line": "This coactivation has been reported in the left claustrum/insular cortex or in the right claustrum/insular cortex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "Altogether, our results provide a novel molecular perspective on the unique properties of the insula and claustrum.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "Brain-wide, we find that markers of the adult claustrum are most specifically expressed in the fetal and adult insula.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 30534060,
-     "line": "In contrast, the insular cortex and endopiriform nucleus surrounding the claustrum had rich interconnectivity with aINS.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 24904319,
      "line": "The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections.",
      "attrs": [
       "transmitter"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "In addition, specific insular and claustral expression of genes pertaining to diseases, addiction, and depression was tested.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 27741357,
-     "line": "In the human brain, the claustrum is a small subcortical telencephalic nucleus, situated between the insular cortex and the putamen.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "Exceptions include high insular expression of genes linked to cocaine abuse and genes associated with ever smoking in the claustrum.",
-     "attrs": [
-      "route"
      ]
     },
     {
@@ -12112,138 +11961,10 @@
     },
     {
      "corpus": "europepmc",
-     "page": 40838426,
-     "line": "The claustrum is a band-like gray matter structure located between putamen and insula whose exact functions are still actively researched.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 41431109,
-     "line": "Nurr1-deficient claustral cells aberrantly migrate into insular cortex, shaping claustrum from a crescent-like into a wing-like structure.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "The claustrum can be divided into a compact dorsal or insular part and a more diffuse temporal or ventral part [24, 39, 101, 124, 169, 196].",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 38635579,
-     "line": "One of the most extended cognitive processes attributed to the claustrum is the salience process, which is also related to the insular cortex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "Most authors held, however, that the claustrum arises independently from both the insular cortex and the striatum [47, 57, 58, 77, 91, 167, 168].",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "We tested for enrichment of genes related to addiction and depression, but they were generally not highly specific to the insula-claustrum region.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 37095366,
-     "line": "The present study, employing a comparative proteomic approach, analyzes the protein profile of pig claustrum (CLA), putamen (PU), and insula (IN).",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 28077707,
-     "line": "The claustrum, a subcortical structure situated between the insular cortex and striatum, is reciprocally connected with almost all neocortical regions.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 16147522,
-     "line": "The claustrum is a thin, irregular, sheet-like neuronal structure hidden beneath the inner surface of the neocortex in the general region of the insula.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
      "page": 39289358,
      "line": "The Claustrum/dorsal endopiriform cortex complex (CLA) is an enigmatic brain region with extensive glutamatergic projections to multiple cortical areas.",
      "attrs": [
       "transmitter"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 38707622,
-     "line": "Background The claustrum (CLA), a subcortical area between the insular cortex and striatum, innervates almost all cortical regions of the mammalian brain.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 24904319,
-     "line": "NetrinG2 and nurr1 genes were co-expressed across entire cortex and claustrum, but cux2 and nurr1 were co-expressed only in the insular cortex and claustrum.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "We found UCMA to be the most significantly enriched gene in the insular cortex and confirmed specific expression of NR4A2 , NTNG2 , and LXN in the claustrum.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 40242731,
-     "line": "The IFOF was found to traverse through key areas, including the extreme capsule, insula, and claustrum, and was closely associated with the uncinate fasciculus.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "The insular cortex has been linked to a multitude of functions. In contrast, the nearby claustrum is a densely connected subcortical region with unclear function.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "To view the insula-claustrum region from the molecular perspective we analyzed the transcriptomic profile of these areas in six adult and four fetal human brains.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 32531275,
-     "line": "We show that CLA-ACC neurons receive monosynaptic input from the insular cortex, thereby revealing a potential claustrum substrate mediating the Salience Network.",
-     "attrs": [
-      "route"
      ]
     },
     {
@@ -12256,74 +11977,10 @@
     },
     {
      "corpus": "europepmc",
-     "page": 40920646,
-     "line": "The claustrum (CLA) is a thin and elongated brain structure that is located between the insula and lateral striatum and is implicated in a wide range of behaviors.",
+     "page": 40185102,
+     "line": "Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons.",
      "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 596,
-     "line": "The compact, intermediate parts of these bundles are situated directly underneath the claustrum and pass via the limen insulae from the frontal to the temporal lobe.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 25653596,
-     "line": "The claustrum is a telencephalic structure which consists of dorsal segment adjoining the insular cortex and a ventral segment termed also endopiriform nucleus (END).",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "The claustrum is a thin sheet of grey matter, embedded in the white matter of the cerebral hemispheres and largely situated between the putamen and the insular cortex.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 42361098,
-     "line": "Task response and connectivity measures differed between the claustrum and regions prominently implicated in directing network states-the anterior insula and pulvinar.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 24319409,
-     "line": "A role is proposed for the phasic activation of the basal forebrain cholinergic nucleus by cortical projections from the complex consisting of the insula and claustrum.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "5.4–5.8, 5.31–5.34, 6.35–6.41). The claustrum can be divided into a compact dorsal or insular part and a more diffuse temporal or ventral part [24, 39, 101, 124, 169, 196].",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 31827426,
-     "line": "At the anatomical level, we used brain-wide analyses to determine the specificity of our results and to determine the transcriptomic similarity of the insula-claustrum region.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 17275187,
-     "line": "The paralimbic cortices including the insular and transentorhinal cortices may connect visual areas with limbic areas by relay of the visuo-claustral or visuo-amygdaloid pathway.",
-     "attrs": [
-      "route"
+      "transmitter"
      ]
     },
     {
@@ -12336,90 +11993,186 @@
     },
     {
      "corpus": "europepmc",
-     "page": 38027491,
-     "line": "The neural circuits involved are PBN-amygdala, LC-RVM, amygdala-insula, ACC-amygdala, claustrum-ACC, bed nucleus of the stria terminalis-PVN and the PVN-ventral lateral septum circuit.",
+     "page": 40185102,
+     "line": "Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively.",
      "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "europepmc",
-     "page": 38635579,
-     "line": "In the same way, studies with human subjects and functional magnetic resonance imaging have reported the coactivation of the claustrum/insular cortex in the integration of sensory signals.",
-     "attrs": [
-      "route"
+      "transmitter"
      ]
     },
     {
      "corpus": "europepmc",
      "page": 24904319,
-     "line": "The identity of the claustrum as a part of cerebral cortex, and in particular of the adjacent insular cortex, has been investigated by connectivity features and patterns of gene expression.",
+     "line": "The nurr1 (+) claustral neurons expressed VGluT1, a marker for cortical glutamatergic cells and send cortical projections. Taken together, our data suggest a partial commonality between claustral neurons and a subtype of cortical neurons in the monkey brain.",
      "attrs": [
-      "route"
+      "transmitter"
      ]
     },
     {
      "corpus": "europepmc",
-     "page": 27580962,
-     "line": "The claustrum is a small, elongated nucleus close to the external capsule and deep in the insular cortex. In rodents, this nucleus is characterized by a dense cluster of parvalbumin labeling.",
+     "page": 39289358,
+     "line": "The Claustrum/dorsal endopiriform cortex complex (CLA) is an enigmatic brain region with extensive glutamatergic projections to multiple cortical areas. The transcription factor Nurr1 is highly expressed in the CLA, but its role in this region is not understood.",
      "attrs": [
-      "route"
+      "transmitter"
      ]
     },
     {
      "corpus": "europepmc",
-     "page": 27038224,
-     "line": "Here we employed neuroanatomical tracers to map projections from the claustrum-insular region to the medial prefrontal and anterior cingulate cortex of the common marmoset (Callithrx jacchus).",
+     "page": 40185102,
+     "line": "Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons. Comparison of macaque, marmoset, and mouse transcriptomes revealed macaque-specific cell types.",
      "attrs": [
-      "route"
+      "transmitter"
      ]
     },
     {
      "corpus": "europepmc",
-     "page": 27038224,
-     "line": "The resulting distribution of transported label showed rostral-caudal and dorsal-ventral topographic arrangement of claustrum connections and clear rostral-caudal topography of insular projections.",
+     "page": 41921604,
+     "line": "Altogether, we uncovered a hyper-excitatory drive of the claustrum by the anterior cingulate cortex following chronic alcohol exposure. The data provide a foundational resource for the complex effects of chronic alcohol exposure on the claustrum, a critical cognitive control nucleus.",
      "attrs": [
-      "route"
+      "sign"
      ]
     },
     {
      "corpus": "europepmc",
-     "page": 24904319,
-     "line": "Moreover, in the embryonic (E110) macaque brain, many nurr1 (+) neurons were scattered in the white matter between the claustrum and the insular cortex, possibly representing their migratory history.",
+     "page": 39814878,
+     "line": "The ventrolateral pallial (VLp) excitatory neurons in the claustro-amygdalar complex and piriform cortex (PIR; which forms part of the palaeocortex) form reciprocal connections with the prefrontal cortex (PFC), integrating cognitive and sensory information that results in adaptive behaviours 1-5 .",
      "attrs": [
-      "route"
+      "sign"
      ]
     },
     {
      "corpus": "europepmc",
-     "page": 30534060,
-     "line": "In contrast, the insular cortex and endopiriform nucleus surrounding the claustrum had rich interconnectivity with aINS. Additionally, we observed a modest interconnectivity between ACC and the aINS.",
+     "page": 25653596,
+     "line": "Among neurons expressing calcium binding proteins the calretinin (CR)-immunoreactive interneurons exert specific functions in neuronal circuits, including disinhibition of excitatory neurons. Previous anatomical data indicate extensive and reciprocally organized claustral projections with cerebral cortex.",
      "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "Brodmann thought that the claustrum is the product of a doubling of the deepest (i.e. the sixth) layer of the insular cortex, but according to Rose it develops directly from the insular cortical plate.",
-     "attrs": [
-      "route"
-     ]
-    },
-    {
-     "corpus": "nieuwenhuys",
-     "page": 421,
-     "line": "The ontogeny of the claustrum has been the subject of much debate in the literature [26, 47, 57, 58, 77, 167, 168, 178]. Brodmann [26] and Rose [178] considered it to be derived from the insular cortex.",
-     "attrs": [
-      "route"
+      "sign"
      ]
     },
     {
      "corpus": "europepmc",
-     "page": 36807960,
-     "line": "Meanwhile, neurobiological dysfunctions were also observed in a distributed network including the fusiform gyrus, inferior temporal gyrus, insula, prefrontal cortex, anterior cingulate cortex, and claustrum.",
+     "page": 36100399,
+     "line": "Using a well-established chronic visceral hypersensitivity model induced by neonatal maternal deprivation (NMD) in male mice, we identified a distinct pathway whereby the claustrum (CL) glutamatergic neuron projecting to the anterior cingulate cortex (ACC) is critical for visceral pain but not for CFA-evoked inflammatory pain.",
      "attrs": [
-      "route"
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41921604,
+     "line": "In contrast, Type 2 and VGLUT2-expressing projection neurons exhibited increased responsivity to anterior cingulate cortex input due to strengthened pre- and post-synaptic transmission mechanisms. Altogether, we uncovered a hyper-excitatory drive of the claustrum by the anterior cingulate cortex following chronic alcohol exposure.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Claustrum orchestrates brain functions via its connections with numerous brain regions, but its molecular and cellular organization remains unresolved. Single-nucleus RNA sequencing of 227,750 macaque claustral cells identified 48 transcriptome-defined cell types, with most glutamatergic neurons similar to deep-layer insular neurons.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively. These data provide the basis for elucidating the neuronal organization underlying diverse claustral functions.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "We found UCMA to be the most significantly enriched gene in the insular cortex and confirmed specific expression of NR4A2 , NTNG2 , and LXN in the claustrum. Furthermore, the insula was found to have enriched expression of genes associated with mood disorders, learning, cardiac muscle contraction, oxygen transport, glutamate and dopamine signaling.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 32975316,
+     "line": "Claustrum inhibitory cells containing parvalbumin, somatostatin, and neuropeptide Y also show unique topographical distributions, suggesting different output modules are controlled by distinct inhibitory circuit motifs. The topographic organization of excitatory and inhibitory cell types may enable parallel claustrum outputs to independently coordinate distinct cortical networks.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 42361098,
+     "line": "Claustrum exhibited anatomical connectivity with regions representing all implicated networks, and claustrum effective connectivity suggested an excitatory influence on regions in multiple task-associated networks. Task response and connectivity measures differed between the claustrum and regions prominently implicated in directing network states-the anterior insula and pulvinar.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 31827426,
+     "line": "Furthermore, the insula was found to have enriched expression of genes associated with mood disorders, learning, cardiac muscle contraction, oxygen transport, glutamate and dopamine signaling. Specific expression in the claustrum was enriched for genes pertaining to human immunodeficiency virus (HIV), severe intellectual disability, epileptic encephalopathy, intracellular transport, spine development, and macroautophagy.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41921604,
+     "line": "Yet the impact of chronic alcohol exposure on the ability for the anterior cingulate cortex to drive activity of claustrum projection neuron subtypes is unknown. In adult male and female mice, we found that the majority of non-burst firing Type 1 claustrum projection neurons did not express the vesicular glutamate transporter 2 (VGLUT2), while the majority of burst firing Type 2 projection neurons were VGLUT2-expressing.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Retrograde tracer injections at 67 cortical and 7 subcortical regions defined four distinct distribution zones of retrogradely labeled claustral neurons. Joint analysis of whole-brain connectivity and single-cell spatial transcriptome showed that these four zones containing distinct compositions of glutamatergic (but not GABAergic) cell types preferentially connected to specific brain regions with a strong ipsilateral bias.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40920646,
+     "line": "While CLA projection neurons are glutamatergic, several studies have shown an inhibitory impact of CLA on its cortical targets, suggesting the involvement of inhibitory cortical interneurons. We employed both in vivo and ex vivo electrophysiology and optogenetics in mice to dissect the synaptic organization of projections from the CLA to the anterior cingulate cortex (ACC), a robust claustro-cortical pathway implicated in cognitive functions.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 41921604,
+     "line": "In adult male and female mice, we found that the majority of non-burst firing Type 1 claustrum projection neurons did not express the vesicular glutamate transporter 2 (VGLUT2), while the majority of burst firing Type 2 projection neurons were VGLUT2-expressing. Following chronic intermittent vaporized ethanol exposure (CIE), we found that all claustrum neuron types exhibited increased responsivity to anterior cingulate cortex input activation.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 39814878,
+     "line": "The ventrolateral pallial (VLp) excitatory neurons in the claustro-amygdalar complex and piriform cortex (PIR; which forms part of the palaeocortex) form reciprocal connections with the prefrontal cortex (PFC), integrating cognitive and sensory information that results in adaptive behaviours 1-5 . Early-life disruptions in these circuits are linked to neuropsychiatric disorders 4-8 , highlighting the importance of understanding their development.",
+     "attrs": [
+      "sign"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 40185102,
+     "line": "Joint analysis of whole-brain connectivity and single-cell spatial transcriptome showed that these four zones containing distinct compositions of glutamatergic (but not GABAergic) cell types preferentially connected to specific brain regions with a strong ipsilateral bias. Several macaque-specific glutamatergic cell types in ventral vs. dorsal claustral zones selectively co-projected to two functionally related areas-entorhinal cortex and hippocampus vs. motor cortex and putamen, respectively.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36100399,
+     "line": "Although the central sensitization of the brain is thought to play an important role in the development of visceral pain, the detailed neural circuits remain largely unknown. Using a well-established chronic visceral hypersensitivity model induced by neonatal maternal deprivation (NMD) in male mice, we identified a distinct pathway whereby the claustrum (CL) glutamatergic neuron projecting to the anterior cingulate cortex (ACC) is critical for visceral pain but not for CFA-evoked inflammatory pain.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 36100399,
+     "line": "Using a well-established chronic visceral hypersensitivity model induced by neonatal maternal deprivation (NMD) in male mice, we identified a distinct pathway whereby the claustrum (CL) glutamatergic neuron projecting to the anterior cingulate cortex (ACC) is critical for visceral pain but not for CFA-evoked inflammatory pain. By a combination of in vivo circuit-dissecting extracellular electrophysiological approaches and visceral pain related electromyographic (EMG) recordings, we demonstrated that optogenetic inhibition of CL glutamatergic activity suppressed the ACC neural activity and visceral hypersensitivity of NMD mice whereas selective activation of CL glutamatergic activity enhanced the ACC neural activity and evoked visceral pain of control mice.",
+     "attrs": [
+      "transmitter"
      ]
     }
    ]
@@ -27633,6 +27386,1742 @@
      "line": "Let it suffice to mention here that, meanwhile, ultrastructural findings strongly suggesting the occurrence of non-synaptic inter-neuronal communication have been reported for numerous limbic structures, including the supraoptic nucleus [87, 101], suprachiasmatic nucleus [23], ventral tegmental area [30], periaqueductal grey [19, 136], locus coeruleus [130], ventrolateral medulla [1] and dorsal vagal complex [9].",
      "attrs": [
       "route"
+     ]
+    }
+   ]
+  },
+  "raphe->globus_pallidus_R": {
+   "from": "raphe",
+   "to": "globus_pallidus_R",
+   "transmitter": "Serotonin",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Ascending serotonergic (pallidal)",
+   "candidates": [
+    {
+     "corpus": "nieuwenhuys",
+     "page": 906,
+     "line": "The latter includes serotonergic neurons of the nucleus raphe pallidus [4, 79, 220].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "groups receive a serotonergic input from the nucleus raphe pallidus and obscurus and the neighbouring reticular formation.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "898 Section III Functional Systems groups receive a serotonergic input from the nucleus raphe pallidus and obscurus and the neighbouring reticular formation.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 906,
+     "line": "and from the ventromedial medial tegmental field, caudal to the facial nucleus. The latter includes serotonergic neurons of the nucleus raphe pallidus [4, 79, 220].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Serotonergic cells in the medulla are located in the small, ventrally located _nucleus_ _raphe_ _pallidus_ (B1) and the more dorsally located _nucleus_ _raphe_ _obscurus_ (B2).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "groups receive a serotonergic input from the nucleus raphe pallidus and obscurus and the neighbouring reticular formation. This system travels in the lateral and ventral funiculus [106, 107].",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 987,
+     "line": "globus pallidus and excitatory signals from the subthalamic nucleus. The midbrain raphe nuclei provide important modulatory serotonergic input, while both the pedunculopontine nucleus and lateral dorsal tegmental nucleus provide cholinergic and glutamatergic inputs.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Serotonergic cells in the medulla are located in the small, ventrally located _nucleus_ _raphe_ _pallidus_ (B1) and the more dorsally located _nucleus_ _raphe_ _obscurus_ (B2). In the nucleus raphe obscurus, serotonergic neurons are confined to two sheets on both sides of the midline.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "The nucleus raphe pallidus and obscurus participate in a system determining the excitability of cranial and spinal motoneurons (this Chap., “Connections of the Reticular Formation and Associated Cell Groups”). Mood disorders are managed with different drugs, modulating serotonin metabolism, serotonin transporters and reuptake systems.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "The rostral group gives rise to local, cerebellar and ascending projections; the caudal group is connected with the brain stem, the cerebellum and the spinal cord. Serotonergic cells in the medulla are located in the small, ventrally located _nucleus_ _raphe_ _pallidus_ (B1) and the more dorsally located _nucleus_ _raphe_ _obscurus_ (B2).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 906,
+     "line": "The latter includes serotonergic neurons of the nucleus raphe pallidus [4, 79, 220]. Projections of the locus coeruleus and the subcoerulean area were found to terminate with boutons containing spherical vesicles and asymmetrical synapses and with a population of boutons containing microvesicles and symmetrical synapses on spinal motoneurons.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27028222,
+     "line": "These include serotonin (5-HT) projections from the dorsal raphe nucleus, cholinergic (ACh) inputs from the pedunculopontine tegmental nucleus, and dopamine (DA) afferents from the substantia nigra pars compacta. This review summarizes our recent findings on the distribution, quantitative and ultrastructural aspects of pallidal 5-HT, ACh and DA innervations.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1046,
+     "line": "Serotonergic neurons (B groups) are found within the medulla, pons, and midbrain, mostly near the midline in the raphe nuclei. Those within the medulla (the B1–B4 groups corresponding to the raphe magnus, raphe obscurus, and raphe pallidus) project throughout the medulla and spinal cord and modulate afferent pain signals, thermoregulation, cardiovascular control, and breathing.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 27028222,
+     "line": "Neurons of the globus pallidus receive massive inputs from the striatum and the subthalamic nucleus, but their activity, as well as those of their striatal and subthalamic inputs, are modulated by brainstem afferents. These include serotonin (5-HT) projections from the dorsal raphe nucleus, cholinergic (ACh) inputs from the pedunculopontine tegmental nucleus, and dopamine (DA) afferents from the substantia nigra pars compacta.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris). Descending noradrenergic neurons inhibit neurotransmitter release from primary afferents directly via inhibitory α2 adrenoceptors (Figure 9-2), explaining why direct-acting α2 agonists such as clonidine can be useful in relieving pain in some patients.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "One is the descending spinal norepinephrine pathway (Figure 9-12A), which originates in the locus coeruleus, and especially from noradrenergic cell bodies in the lower (caudal) parts of the brainstem neurotransmitter center (lateral tegmental norepinephrine cell system). The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 458,
+     "line": "A second important input system to be mentioned here is the mesostriatal serotoninergic projection, which originates mainly from the dorsal raphe nucleus and terminates throughout the striatum, but more significantly in its ventral and medial regions [6, 30, 124, 297, 386, 404]. Because the main outflow from the striatum and the nuclei related to it converges via the globus pallidus and the thalamus upon the motor, premotor and supplementary motor cortical areas, the fibres originating from these cortical areas constitute the principal output channel of the basal ganglia (for output channels see Fig.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 960,
+     "line": "nucleus raphe pallidus (B1) 198;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 895,
+     "line": "Nucleus raphe magnus and pallidus",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 960,
+     "line": "nucleus raphe pallidus (B1) 198; dorsal raphe nucleus (B8) 235;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 895,
+     "line": "Nucleus raphe magnus and pallidus Superior colliculus, pretectum",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 960,
+     "line": "893 –– Syn: nucleus centralis superior nucleus raphe pallidus (B1) 198;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 895,
+     "line": "Locus coeruleus 93, 135 93, 135 135 135 Nucleus raphe magnus and pallidus",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "Fibres with coarse varicosities take their origin from the nucleus raphe medianus and pallidus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "The nucleus raphe magnus and pallidus also project to the intermediate grey and innervate the intermediolateral nucleus [97, 119].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Afferents to the nucleus raphe pallidus are restricted to the periaqueductal grey, reticular formation, hypothalamus and preoptic area and the prefrontal cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1077,
+     "line": "In addition, cold causes shivering when gamma motor neurons in the ventral horn of the spinal cord are activated by excitatory neurons in the raphe pallidus (Chapter 32).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "The lateral tegmental field and the sensory relay nuclei are innervated by the nucleus raphe magnus and pallidus, cranial motor nuclei by the nucleus raphe pallidus and obscurus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "These fibres descend in the dorsolateral funiculus. The nucleus raphe magnus and pallidus also project to the intermediate grey and innervate the intermediolateral nucleus [97, 119].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 895,
+     "line": "**Table** **22.2.** Efferent connections of the raphe nuclei **Destination** **N.r.** **dorsalis** **N.r.** **medianus** **N.r.** **pontis** **N.r.** **magnus** **N.r.** **pallidus,** **obsc.**",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "Fibres with coarse varicosities take their origin from the nucleus raphe medianus and pallidus. Different efferent ascending systems take their origin from the dorsal and the median raphe nucleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "The nucleus raphe pallidus and obscurus participate in a system determining the excitability of cranial and spinal motoneurons (this Chap., “Connections of the Reticular Formation and Associated Cell Groups”).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1064,
+     "line": "Important groups of supraspinal neurons that excite preganglionic sympathetic activity are located in the rostral ventrolateral medulla, the raphe pallidus in the brain stem, and the paraventricular nucleus in the hypothalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "The two types of axon take their origin from different raphe nuclei: fibres with small varicosities arise from the nucleus raphe dorsalis and magnus. Fibres with coarse varicosities take their origin from the nucleus raphe medianus and pallidus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1046,
+     "line": "Those within the medulla (the B1–B4 groups corresponding to the raphe magnus, raphe obscurus, and raphe pallidus) project throughout the medulla and spinal cord and modulate afferent pain signals, thermoregulation, cardiovascular control, and breathing.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "The nucleus raphe magnus shares many of these sources with the rostral group of raphe nuclei. Afferents to the nucleus raphe pallidus are restricted to the periaqueductal grey, reticular formation, hypothalamus and preoptic area and the prefrontal cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 21473027,
+     "line": "In the brain, 5-HT2B receptors are found in discrete nuclei of the cerebellum, lateral septum, dorsal hypothalamus, dorsal raphe, and amygdala. 5-HT2C receptors are found in the choroid plexus, substantia nigra, globus pallidus, and ventromedial thalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "16 “Control Mechanisms of Nociceptive Transmission”). The nucleus raphe pallidus and obscurus participate in a system determining the excitability of cranial and spinal motoneurons (this Chap., “Connections of the Reticular Formation and Associated Cell Groups”).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 894,
+     "line": "**Table 22.1.** Afferent connections of the raphe nuclei **<mark>Source</mark>** **<mark>N.r.</mark>** **<mark>dorsalis</mark>** **<mark>N.r.</mark>** **<mark>medianus</mark>** **<mark>N.r.</mark>** **<mark>magnus</mark>** **<mark>N.r.</mark>** **<mark>pallidus</mark>**",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 256,
+     "line": "In contrast, the lateral preopticohypothalamic area and the globus pallidus provide the LH with the majority of its afferents. The efferents of the LH bypass the interpeduncular nucleus, but the medial and lateral habenular paths converge upon the mesencephalic raphe nuclei.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "The lateral tegmental field and the sensory relay nuclei are innervated by the nucleus raphe magnus and pallidus, cranial motor nuclei by the nucleus raphe pallidus and obscurus. Projections of these nuclei to the rostral brain stem and forebrain are very limited (Table 22.2).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Afferents from the lateral tegmental field, the locus coeruleus, the tuber cinereum, the amygdala and the entopeduncular nucleus (medial segment of the globus pallidus) are restricted to the dorsal raphe nucleus; septal afferents terminate in the median raphe nucleus (Table 22.1).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 982,
+     "line": "They receive significant afferent connections from other basal ganglia nuclei (the striatum, globus pallidus, and subthalamus), but also from many structures in the brain stem (eg, superior colliculus, rostromedial tegmental region, raphe nuclei, pedunculopontine nucleus, and parabrachial area).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "The contribution of the rostral raphe nuclei to the innervation of the spinal cord is limited to cervical levels [23]. The lateral tegmental field and the sensory relay nuclei are innervated by the nucleus raphe magnus and pallidus, cranial motor nuclei by the nucleus raphe pallidus and obscurus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1077,
+     "line": "In addition, cold causes shivering when gamma motor neurons in the ventral horn of the spinal cord are activated by excitatory neurons in the raphe pallidus (Chapter 32). The resultant contraction of intrafusal muscle fibers within muscle spindles activates IA afferents from the spindles to alpha motor neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1077,
+     "line": "The neurons in the MnPO that indirectly respond to cold and warmth send efferent signals via relays through the medial preoptic area, dorsomedial hypothalamus, and raphe pallidus in the ventral medulla, and from there on to the sympathetic preganglionic neurons in the intermediolateral nucleus of the spinal cord.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 463,
+     "line": "In the rat, efferent fibres from the ventral pallidum have in addition been traced to numerous other areas, including the prefrontal cortex, the ventral striatum, the basolateral, lateral and central amygdaloid nuclei, the lateral septum, the area tegmentalis ventralis, the rostral raphe nuclei, the periaqueductal grey and the lo",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 982,
+     "line": "They receive significant afferent connections from other basal ganglia nuclei (the striatum, globus pallidus, and subthalamus), but also from many structures in the brain stem (eg, superior colliculus, rostromedial tegmental region, raphe nuclei, pedunculopontine nucleus, and parabrachial area). Other afferent connections are from the frontal cortex and the amygdala.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Afferents from the lateral tegmental field, the locus coeruleus, the tuber cinereum, the amygdala and the entopeduncular nucleus (medial segment of the globus pallidus) are restricted to the dorsal raphe nucleus; septal afferents terminate in the median raphe nucleus (Table 22.1). The nucleus raphe magnus shares many of these sources with the rostral group of raphe nuclei.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1064,
+     "line": "This regulation depends on synaptic input from the spinal cord and from supraspinal structures that control the activity of the preganglionic neurons. Important groups of supraspinal neurons that excite preganglionic sympathetic activity are located in the rostral ventrolateral medulla, the raphe pallidus in the brain stem, and the paraventricular nucleus in the hypothalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 256,
+     "line": "The _lateral_ _habenular_ _nucleus_ (LH) receives its afferents principally from the nuclei of the diagonal band, lateral preopticohypothalamic area, substantia innominata and the medial pallidal segment; whereas the ventral tegmental area, mesencephalic raphe nuclei and ventral part of the periaqueductal grey matter give rise to ascending input to this nucleus [7, 8, 17, 22–25, 28, 31].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The distribution of the dopaminergic fibres is less ubiquitous and is lacking in some regions (area postrema; lateral cuneate nucleus), which do receive a noradrenergic innervation. The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194]. The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1064,
+     "line": "Important groups of supraspinal neurons that excite preganglionic sympathetic activity are located in the rostral ventrolateral medulla, the raphe pallidus in the brain stem, and the paraventricular nucleus in the hypothalamus. Preganglionic neurons integrate these descending inputs along with local segmental sensory inputs and form synapses with neurons in paravertebral and prevertebral sympathetic ganglia (Figure 41–5).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6315152,
+     "line": "The SN injection produced retrograde cell labeling in numerous structures such as the striatum, the rostral intralaminar nuclei, the subthalamic nucleus, the TPP area (bilaterally), the dorsal raphe nucleus and the locus coeruleus. At pallidal levels, a moderate number of DP-labeled cells occurred within the dorsal half of the external segment of the globus pallidus (GPe), whereas the GPi was virtually devoid of labeled neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1046,
+     "line": "Those within the medulla (the B1–B4 groups corresponding to the raphe magnus, raphe obscurus, and raphe pallidus) project throughout the medulla and spinal cord and modulate afferent pain signals, thermoregulation, cardiovascular control, and breathing. Those within the pons and midbrain (the B5–B9 groups in the raphe pontis, median raphe, and dorsal raphe) project throughout the forebrain and contribute to arousal, mood, and cognition.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1077,
+     "line": "These latter neurons excite postganglionic sympathetic neurons that project to blood vessels, sweat glands, and arrector muscles of hair follicles to control cutaneous blood flow, sweating, and piloerection, respectively, as well as to brown adipose tissue to control thermogenesis. In addition, cold causes shivering when gamma motor neurons in the ventral horn of the spinal cord are activated by excitatory neurons in the raphe pallidus (Chapter 32).",
+     "attrs": [
+      "route"
+     ]
+    }
+   ]
+  },
+  "locus_coeruleus_R->caudate_R": {
+   "from": "locus_coeruleus_R",
+   "to": "caudate_R",
+   "transmitter": "Noradrenaline",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Noradrenergic (caudate)",
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus. However, ver few double-labeled cells are present in all these structures.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 475,
+     "line": "A significant loss of neurons has also been found in the dopaminergic area tegmentalis ventralis [31], the noradrenergic locus coeruleus, the serotoninergic raphe nuclei and the gigantocellular reticular nucleus Moreover, evidence has recently been presented suggesting that in PD the striatal medium spiny cells, i.e. the targets of the nigrostriatal dopaminergic fibres, are also affected.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 475,
+     "line": "The neuropathological hallmark of PD is the massive loss of the pigmented, dopaminergic neurons in the pars compacta of the substantia nigra, which leads to a reduction in the dopamine content in the striatum, most severely in the putamen [195]. A significant loss of neurons has also been found in the dopaminergic area tegmentalis ventralis [31], the noradrenergic locus coeruleus, the serotoninergic raphe nuclei and the gigantocellular reticular nucleus",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "The appropriate location was determined before HRP injection by mapping the characteristic high frequency discharge of single pallidal units in awake animals. In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus. An injection involving the external pallidal segment and the putamen as well resulted in additional labeling of cells in centromedian nucleus, pulvinar, and the ventromedial thalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "After the injections, cells containing the tracer delivered in caudate nucleus (caudate-labeled cells) and others labeled with the complementary tracer injected in putamen (putamen-labeled cells) occur in large number in intralaminar nuclei, substantia nigra pars compacta, midbrain raphe nuclei and central midbrain tegmentum. In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 274,
+     "line": "The _thalamic_ _midline_ _nuclei_ receive afferents from numerous subcortical centres, which include the reticular formation of the brain stem and noradrenergic locus coeruleus, the mainly serotoninergic dorsal raphe nucleus, cholinergic laterodorsal tegmental nucleus, parabrachial nuclei, mesencephalic periaqueductal grey matter, hypothalamus and bed nucleus of the stria terminalis [117, 234]. The midline nuclei project to both the striatum and cerebral cortex, but contrary to what is seen in intralaminar nuclei, the efferents of the midline nuclei are directed primarily to the cortex and to a much lesser degree the striatum.",
+     "attrs": [
+      "transmitter"
+     ]
+    }
+   ]
+  },
+  "locus_coeruleus_R->putamen_R": {
+   "from": "locus_coeruleus_R",
+   "to": "putamen_R",
+   "transmitter": "Noradrenaline",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Noradrenergic (putamen)",
+   "candidates": [
+    {
+     "corpus": "nieuwenhuys",
+     "page": 475,
+     "line": "The neuropathological hallmark of PD is the massive loss of the pigmented, dopaminergic neurons in the pars compacta of the substantia nigra, which leads to a reduction in the dopamine content in the striatum, most severely in the putamen [195]. A significant loss of neurons has also been found in the dopaminergic area tegmentalis ventralis [31], the noradrenergic locus coeruleus, the serotoninergic raphe nuclei and the gigantocellular reticular nucleus",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus. However, ver few double-labeled cells are present in all these structures.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 475,
+     "line": "A significant loss of neurons has also been found in the dopaminergic area tegmentalis ventralis [31], the noradrenergic locus coeruleus, the serotoninergic raphe nuclei and the gigantocellular reticular nucleus Moreover, evidence has recently been presented suggesting that in PD the striatal medium spiny cells, i.e. the targets of the nigrostriatal dopaminergic fibres, are also affected.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "The appropriate location was determined before HRP injection by mapping the characteristic high frequency discharge of single pallidal units in awake animals. In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus. An injection involving the external pallidal segment and the putamen as well resulted in additional labeling of cells in centromedian nucleus, pulvinar, and the ventromedial thalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "After the injections, cells containing the tracer delivered in caudate nucleus (caudate-labeled cells) and others labeled with the complementary tracer injected in putamen (putamen-labeled cells) occur in large number in intralaminar nuclei, substantia nigra pars compacta, midbrain raphe nuclei and central midbrain tegmentum. In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 274,
+     "line": "The _thalamic_ _midline_ _nuclei_ receive afferents from numerous subcortical centres, which include the reticular formation of the brain stem and noradrenergic locus coeruleus, the mainly serotoninergic dorsal raphe nucleus, cholinergic laterodorsal tegmental nucleus, parabrachial nuclei, mesencephalic periaqueductal grey matter, hypothalamus and bed nucleus of the stria terminalis [117, 234]. The midline nuclei project to both the striatum and cerebral cortex, but contrary to what is seen in intralaminar nuclei, the efferents of the midline nuclei are directed primarily to the cortex and to a much lesser degree the striatum.",
+     "attrs": [
+      "transmitter"
+     ]
+    }
+   ]
+  },
+  "locus_coeruleus_R->globus_pallidus_R": {
+   "from": "locus_coeruleus_R",
+   "to": "globus_pallidus_R",
+   "transmitter": "Noradrenaline",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Noradrenergic (pallidal)",
+   "candidates": [
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris). Descending noradrenergic neurons inhibit neurotransmitter release from primary afferents directly via inhibitory α2 adrenoceptors (Figure 9-2), explaining why direct-acting α2 agonists such as clonidine can be useful in relieving pain in some patients.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
+     "line": "One is the descending spinal norepinephrine pathway (Figure 9-12A), which originates in the locus coeruleus, and especially from noradrenergic cell bodies in the lower (caudal) parts of the brainstem neurotransmitter center (lateral tegmental norepinephrine cell system). The other important descending pathway is the descending spinal serotonergic pathway (Figure 9-13A), which originates in the nucleus raphe magnus of the rostroventromedial medulla and especially the lower (caudal) serotonin nuclei (raphe magnus, raphe pallidus, and raphe obscuris).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 895,
+     "line": "Locus coeruleus 93, 135 93, 135 135 135 Nucleus raphe magnus and pallidus",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Afferents from the lateral tegmental field, the locus coeruleus, the tuber cinereum, the amygdala and the entopeduncular nucleus (medial segment of the globus pallidus) are restricted to the dorsal raphe nucleus; septal afferents terminate in the median raphe nucleus (Table 22.1).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 906,
+     "line": "The latter includes serotonergic neurons of the nucleus raphe pallidus [4, 79, 220]. Projections of the locus coeruleus and the subcoerulean area were found to terminate with boutons containing spherical vesicles and asymmetrical synapses and with a population of boutons containing microvesicles and symmetrical synapses on spinal motoneurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus. However, ver few double-labeled cells are present in all these structures.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "Afferents from the lateral tegmental field, the locus coeruleus, the tuber cinereum, the amygdala and the entopeduncular nucleus (medial segment of the globus pallidus) are restricted to the dorsal raphe nucleus; septal afferents terminate in the median raphe nucleus (Table 22.1). The nucleus raphe magnus shares many of these sources with the rostral group of raphe nuclei.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 900,
+     "line": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194]. The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6315152,
+     "line": "The SN injection produced retrograde cell labeling in numerous structures such as the striatum, the rostral intralaminar nuclei, the subthalamic nucleus, the TPP area (bilaterally), the dorsal raphe nucleus and the locus coeruleus. At pallidal levels, a moderate number of DP-labeled cells occurred within the dorsal half of the external segment of the globus pallidus (GPe), whereas the GPi was virtually devoid of labeled neurons.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "The appropriate location was determined before HRP injection by mapping the characteristic high frequency discharge of single pallidal units in awake animals. In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus. An injection involving the external pallidal segment and the putamen as well resulted in additional labeling of cells in centromedian nucleus, pulvinar, and the ventromedial thalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "The dorsal and median raphe nuclei share afferents from the lateral habenular and the interpeduncular nuclei, hypothalamus and preoptic area, the nucleus of the solitary tract, the substantia nigra, the basal telencephalon and the prefrontal cortex. Afferents from the lateral tegmental field, the locus coeruleus, the tuber cinereum, the amygdala and the entopeduncular nucleus (medial segment of the globus pallidus) are restricted to the dorsal raphe nucleus; septal afferents terminate in the median raphe nucleus (Table 22.1).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "After the injections, cells containing the tracer delivered in caudate nucleus (caudate-labeled cells) and others labeled with the complementary tracer injected in putamen (putamen-labeled cells) occur in large number in intralaminar nuclei, substantia nigra pars compacta, midbrain raphe nuclei and central midbrain tegmentum. In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    }
+   ]
+  },
+  "locus_coeruleus_R->substantia_nigra_R": {
+   "from": "locus_coeruleus_R",
+   "to": "substantia_nigra_R",
+   "transmitter": "Noradrenaline",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Noradrenergic (nigral)",
+   "candidates": [
+    {
+     "corpus": "kandel",
+     "page": 1047,
+     "line": "The dopaminergic cell groups were originally included with the noradrenergic cell groups and are still labeled as The A8 group is in the midbrain dorsally adjacent to the substantia nigra.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1054,
+     "line": "Patients with Parkinson disease, who lose dopaminergic neurons in the substantia nigra, also lose noradrenergic neurons in the locus ceruleus and tend to be abnormally sleepy during the day.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 296,
+     "line": "These descending fibres terminate in a variety of brain stem centres, among which the substantia nigra (pars compacta), parabrachial nuclei, locus coeruleus, nucleus subcoeruleus, the noradrenergic A1, A2, and",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 296,
+     "line": "[160, 390], and several hypothalamic areas These descending fibres terminate in a variety of brain stem centres, among which the substantia nigra (pars compacta), parabrachial nuclei, locus coeruleus, nucleus subcoeruleus, the noradrenergic A1, A2, and",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 118,
+     "line": "important descending glutamatergic pathway projects from glutamatergic cortical pyramidal neurons to brainstem neurotransmitter centers, including the raphe for serotonin, the ventral tegmental area (VTA) and substantia nigra for dopamine, and the locus coeruleus for norepinephrine (pathway a in Figure 4-28).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1054,
+     "line": "In addition, arousal is induced by amphetamines, cocaine, and other drugs that block dopamine reuptake; mice lacking the dopamine transporter are insensitive to such drugs. Patients with Parkinson disease, who lose dopaminergic neurons in the substantia nigra, also lose noradrenergic neurons in the locus ceruleus and tend to be abnormally sleepy during the day.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 118,
+     "line": "(a) **Cortico-brainstem** **glutamate pathways.** A very important descending glutamatergic pathway projects from glutamatergic cortical pyramidal neurons to brainstem neurotransmitter centers, including the raphe for serotonin, the ventral tegmental area (VTA) and substantia nigra for dopamine, and the locus coeruleus for norepinephrine (pathway a in Figure 4-28).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1054,
+     "line": "Patients with Parkinson disease, who lose dopaminergic neurons in the substantia nigra, also lose noradrenergic neurons in the locus ceruleus and tend to be abnormally sleepy during the day. Some drugs used to treat Parkinson disease activate the D2 dopamine receptor on presynaptic terminals of the remaining dopaminergic arousal neurons, which results in presynaptic inhibition, thus reducing dopamine release.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 118,
+     "line": "important descending glutamatergic pathway projects from glutamatergic cortical pyramidal neurons to brainstem neurotransmitter centers, including the raphe for serotonin, the ventral tegmental area (VTA) and substantia nigra for dopamine, and the locus coeruleus for norepinephrine (pathway a in Figure 4-28). This pathway is the corticobrainstem glutamate pathway, and is a key regulator of neurotransmitter release.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 542,
+     "line": "10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 475,
+     "line": "The neuropathological hallmark of PD is the massive loss of the pigmented, dopaminergic neurons in the pars compacta of the substantia nigra, which leads to a reduction in the dopamine content in the striatum, most severely in the putamen [195]. A significant loss of neurons has also been found in the dopaminergic area tegmentalis ventralis [31], the noradrenergic locus coeruleus, the serotoninergic raphe nuclei and the gigantocellular reticular nucleus",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 542,
+     "line": "10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex. The claustral and amygdaloid efferents have been discussed in Chap.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 542,
+     "line": "14.15); (4) the hypothalamus, comprising orexinergic, histaminergic and melanin-concentrating hormone (MCH)-containing neocortically projecting neuron groups (Figs. 10.5, 10.7B, 14.15); (5) the mesencephalic dorsal raphe and central superior nuclei, which provide the entire neocortex with richly ramifying serotoninergic fibres; (6) the ventral tegmental area and the substantia nigra, sending dopaminergic axons mainly, but not exclusively, to the prefrontal cortex; and (7) the locus coeruleus in the rostral pontine tegmentum, which is the source of noradrenergic fibres spreading over the entire neocortex.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 10812041,
+     "line": "In vivo selectivity was defined by measurement of neuronal firing rates in the locus coeruleus, dorsal raphe, and substantia nigra.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 315,
+     "line": "The only major difference seems to be that the substantia innominata and locus coeruleus are less densely innervated by MCH fibres than by H/O fibres.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "Local targets include the periaqueductal grey, the lateral pontine tegmental field with the locus coeruleus, the pedunculopontine nucleus and the substan",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 10812041,
+     "line": "Specificity was determined in 39 different receptor and 6 enzyme assays. In vivo selectivity was defined by measurement of neuronal firing rates in the locus coeruleus, dorsal raphe, and substantia nigra.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 10812041,
+     "line": "In vivo selectivity was defined by measurement of neuronal firing rates in the locus coeruleus, dorsal raphe, and substantia nigra. Reserpine-induced blepharospasm and hypothermia, clonidine-induced hypothermia, defined reboxetine's in vivo pharmacology.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "Local targets include the periaqueductal grey, the lateral pontine tegmental field with the locus coeruleus, the pedunculopontine nucleus and the substan The median raphe nucleus connects with the interpeduncular nucleus, the substantia nigra and the mamillary body.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 932,
+     "line": "[40] has expressed the opinion that the caudolateral mesencephalic area, innervated by the ventral striopallidal system, forms part of a much larger complex, extending from the substantia nigra rostroventrally to the laterodorsal tegmental nucleus and locus coeruleus caudodorsally.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 97,
+     "line": "Steven McCarroll and his colleagues showed that the complement C4 locus represents a natural case of CNV, that healthy individuals vary substantially in the number of copies of the gene they have, and that the level of expression of the C4A allele correlates with increasing schizophrenia risk.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 315,
+     "line": "Projections of the MCH neurons, which so far have only been studied in rat [33], generally show a striking resemblance to those of H/O neurons. The only major difference seems to be that the substantia innominata and locus coeruleus are less densely innervated by MCH fibres than by H/O fibres.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 467,
+     "line": "The quantitatively most important brain stem afferents to the MBF arise from the dorsal raphe nucleus, the locus coeruleus and the ventral tegmental area. Less substantial projections originate from the medial parabrachial nucleus and from cells in the mesopontine reticular formation [375, 401].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 897,
+     "line": "Serotonergic terminals on somatic motoneurons co-localize substance P and thyreotropin-releasing hormone; terminals on preganglionic parasympathetic neurons do not contain substance P The dorsal raphe nucleus, the locus coeruleus, the cholinergic pedunculopontine and lateral dorsal tegmental nuclei are interconnected.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 412,
+     "line": "Brain stem neurons located in the periaqueductal grey matter (PAG), the substantia nigra pars compacta, the ventral tegmental area, the dorsal raphe nucleus, the locus coeruleus, the lateral parabrachial nucleus, the nucleus of the solitary tract and the ventrolateral medulla project to the central amygdaloid nucleus [7, 35, 135, 148, 149, 151, 184, 220].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6315152,
+     "line": "In a third series of experiments DP alone was injected into the entire substantia nigra (SN), involving both pars compacta and pars reticulata. The SN injection produced retrograde cell labeling in numerous structures such as the striatum, the rostral intralaminar nuclei, the subthalamic nucleus, the TPP area (bilaterally), the dorsal raphe nucleus and the locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6315152,
+     "line": "In addition, EB-labeled cells were disclosed in the lateral two-thirds of substantia nigra pars reticulata (SNr), whereas DP-positive neurons occurred in a wide variety of structures including the nucleus reticularis thalami, the SNr, the periaqueductal gray, the superior colliculus, the midbrain raphe nuclei, the pedunculopontine nucleus (TPP) area (bilaterally), and the locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 97,
+     "line": "Among these three loci, one gene, encoding the complement C4 factor, has a strong and definable effect on disease risk. Steven McCarroll and his colleagues showed that the complement C4 locus represents a natural case of CNV, that healthy individuals vary substantially in the number of copies of the gene they have, and that the level of expression of the C4A allele correlates with increasing schizophrenia risk.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 315,
+     "line": "The only major difference seems to be that the substantia innominata and locus coeruleus are less densely innervated by MCH fibres than by H/O fibres. It has been shown that the lateral hypothalamic H/O and MCH systems project back to the infundibular nucleus [33, 42, 97] and that the H/O fibres make direct synaptic contacts with NPY cells, i.e. one of the infundibular neuronal groups that express leptin receptors [164].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "These fibres have been observed to project substantially to the dopaminergic neurons in the substantia nigra, pars compacta and the ventral tegmental area [61], the periaqueductal grey and the adjoining cuneiform nucleus, the mesencephalic raphe nuclei, the parabrachial nuclei [141], the locus coeruleus, the lateral part of the rhombencephalic reticular formation, the nucleus of the solitary tract and the dorsal vagal nucleus [49, 192, 198, 216].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 412,
+     "line": "Brain stem neurons located in the periaqueductal grey matter (PAG), the substantia nigra pars compacta, the ventral tegmental area, the dorsal raphe nucleus, the locus coeruleus, the lateral parabrachial nucleus, the nucleus of the solitary tract and the ventrolateral medulla project to the central amygdaloid nucleus [7, 35, 135, 148, 149, 151, 184, 220]. Most of the brain stem centres mentioned project to the amygdala via the ventral amygdalofugal pathway.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 415,
+     "line": "In the brain stem, fibres are distributed to numerous centres, including the peripeduncular nucleus, the substantia nigra pars compacta, the ventral tegmental area, the cuneiform nucleus, the periaqueductal grey matter, the raphe nuclei, the parabrachial nuclei, the locus coeruleus and the area subcoerulea, the rhombencephalic reticular formation, the dorsal motor nucleus of the vagus and the nucleus of the solitary tract [60, 79, 80, 140, 163, 192, 208, 216].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6315152,
+     "line": "The majority of the neurons within these two clusters were double-labeled. In addition, EB-labeled cells were disclosed in the lateral two-thirds of substantia nigra pars reticulata (SNr), whereas DP-positive neurons occurred in a wide variety of structures including the nucleus reticularis thalami, the SNr, the periaqueductal gray, the superior colliculus, the midbrain raphe nuclei, the pedunculopontine nucleus (TPP) area (bilaterally), and the locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 932,
+     "line": "[40] has expressed the opinion that the caudolateral mesencephalic area, innervated by the ventral striopallidal system, forms part of a much larger complex, extending from the substantia nigra rostroventrally to the laterodorsal tegmental nucleus and locus coeruleus caudodorsally. According to Garcia-Rill, this complex may play a role in regulating and co-ordinating a number of functions that have rhythmicity in common, such as locomotion, respiration and sleep/wake mechanisms.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 315,
+     "line": "High densities of H/O-positive fibres have been observed in numerous areas, including the entire hypothalamus (HY), septum (S), nucleus of the diagonal band (NDB), substantia innominata (SI), paraventricular thalamic nucleus (PVT), zona incerta (ZI), periaqueductal grey (PAG), dorsal raphe (DR) and central superior (CS) nuclei, laterodorsal (LDT) and pedunculopontine tegmental (PPT) nuclei, locus coeruleus, gigantocellular reticular nucleus (GR), and nucleus of the solitary tract (NST).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 412,
+     "line": "The ventral thalamic peripeduncular nucleus projects to the medial cortical, central and lateral amygdaloid nuclei [7, 149, 151, 184]. Brain stem neurons located in the periaqueductal grey matter (PAG), the substantia nigra pars compacta, the ventral tegmental area, the dorsal raphe nucleus, the locus coeruleus, the lateral parabrachial nucleus, the nucleus of the solitary tract and the ventrolateral medulla project to the central amygdaloid nucleus [7, 35, 135, 148, 149, 151, 184, 220].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 896,
+     "line": "The main projections of the dorsal raphe nucleus are to the lateral geniculate body, the striatum, the entorhinal cortex, the olfactory bulb and the amygdala, and from the median raphe nucleus to the septum, basal forebrain and hippocampus [21]; however, many of these and other destinations are shared by these nuclei (Table 21.2, Chaps. Local targets include the periaqueductal grey, the lateral pontine tegmental field with the locus coeruleus, the pedunculopontine nucleus and the substan",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 932,
+     "line": "evidence indicating that, apart from locomotor activity, oral behaviours such as licking, chewing and swallowing can be elicited or influenced by manipulating the ventral striatum, including the accumbens nucleus. [40] has expressed the opinion that the caudolateral mesencephalic area, innervated by the ventral striopallidal system, forms part of a much larger complex, extending from the substantia nigra rostroventrally to the laterodorsal tegmental nucleus and locus coeruleus caudodorsally.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "These fibres have been observed to project substantially to the dopaminergic neurons in the substantia nigra, pars compacta and the ventral tegmental area [61], the periaqueductal grey and the adjoining cuneiform nucleus, the mesencephalic raphe nuclei, the parabrachial nuclei [141], the locus coeruleus, the lateral part of the rhombencephalic reticular formation, the nucleus of the solitary tract and the dorsal vagal nucleus [49, 192, 198, 216]. **Functional** **and** **Clinical** **Aspects**",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "The appropriate location was determined before HRP injection by mapping the characteristic high frequency discharge of single pallidal units in awake animals. In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6766111,
+     "line": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus. An injection involving the external pallidal segment and the putamen as well resulted in additional labeling of cells in centromedian nucleus, pulvinar, and the ventromedial thalamus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 892,
+     "line": "The dorsal and median raphe nuclei share afferents from the lateral habenular and the interpeduncular nuclei, hypothalamus and preoptic area, the nucleus of the solitary tract, the substantia nigra, the basal telencephalon and the prefrontal cortex. Afferents from the lateral tegmental field, the locus coeruleus, the tuber cinereum, the amygdala and the entopeduncular nucleus (medial segment of the globus pallidus) are restricted to the dorsal raphe nucleus; septal afferents terminate in the median raphe nucleus (Table 22.1).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6315152,
+     "line": "In addition, EB-labeled cells were disclosed in the lateral two-thirds of substantia nigra pars reticulata (SNr), whereas DP-positive neurons occurred in a wide variety of structures including the nucleus reticularis thalami, the SNr, the periaqueductal gray, the superior colliculus, the midbrain raphe nuclei, the pedunculopontine nucleus (TPP) area (bilaterally), and the locus coeruleus. In a second series of experiments, EB was injected into the CM/Pf complex whereas DP was delivered into the TPP area of the midbrain tegmentum.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 315,
+     "line": "shown that the H/O neurons project widely throughout the neuraxis (Fig. High densities of H/O-positive fibres have been observed in numerous areas, including the entire hypothalamus (HY), septum (S), nucleus of the diagonal band (NDB), substantia innominata (SI), paraventricular thalamic nucleus (PVT), zona incerta (ZI), periaqueductal grey (PAG), dorsal raphe (DR) and central superior (CS) nuclei, laterodorsal (LDT) and pedunculopontine tegmental (PPT) nuclei, locus coeruleus, gigantocellular reticular nucleus (GR), and nucleus of the solitary tract (NST).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 97,
+     "line": "Steven McCarroll and his colleagues showed that the complement C4 locus represents a natural case of CNV, that healthy individuals vary substantially in the number of copies of the gene they have, and that the level of expression of the C4A allele correlates with increasing schizophrenia risk. Subsequent follow-up studies showed that mice with knockouts of the C4 gene had a deficit in synaptic pruning during development, suggesting the hypothesis that excess C4A in humans might cause excessive synaptic pruning, a process that has long been of interest in the schizophrenia literature.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 6664490,
+     "line": "After the injections, cells containing the tracer delivered in caudate nucleus (caudate-labeled cells) and others labeled with the complementary tracer injected in putamen (putamen-labeled cells) occur in large number in intralaminar nuclei, substantia nigra pars compacta, midbrain raphe nuclei and central midbrain tegmentum. In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 419,
+     "line": "However, most of the fibres of the lateral pathway descend to the brain stem by way of the medial forebrain bundle; there they pass caudally through the mesencephalic central tegmental field and through the dorsolateral parts of the pons and the medulla oblongata [78]. These fibres have been observed to project substantially to the dopaminergic neurons in the substantia nigra, pars compacta and the ventral tegmental area [61], the periaqueductal grey and the adjoining cuneiform nucleus, the mesencephalic raphe nuclei, the parabrachial nuclei [141], the locus coeruleus, the lateral part of the rhombencephalic reticular formation, the nucleus of the solitary tract and the dorsal vagal nucleus [49, 192, 198, 216].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 315,
+     "line": "High densities of H/O-positive fibres have been observed in numerous areas, including the entire hypothalamus (HY), septum (S), nucleus of the diagonal band (NDB), substantia innominata (SI), paraventricular thalamic nucleus (PVT), zona incerta (ZI), periaqueductal grey (PAG), dorsal raphe (DR) and central superior (CS) nuclei, laterodorsal (LDT) and pedunculopontine tegmental (PPT) nuclei, locus coeruleus, gigantocellular reticular nucleus (GR), and nucleus of the solitary tract (NST). It is noteworthy that moderate numbers of H/O fibres appeared to be present throughout the cerebral cortex and that in the spinal cord these fibres are concentrated in the marginal zone, intermediolateral nucleus, and area surrounding the central canal.",
+     "attrs": [
+      "route"
+     ]
+    }
+   ]
+  },
+  "vta_R->parietal_R": {
+   "from": "vta_R",
+   "to": "parietal_R",
+   "transmitter": "Dopamine",
+   "sign": null,
+   "need": [
+    "transmitter",
+    "route"
+   ],
+   "flag": [],
+   "label": "Mesocortical (parietal)",
+   "candidates": [
+    {
+     "corpus": "europepmc",
+     "page": 2896323,
+     "line": "In this study, retrograde transport of Fast blue was combined with tyrosine hydroxylase immunohistochemistry to reveal the presence of projections from both dopaminergic and non-dopaminergic neurons of the substantia nigra-ventral tegmental area to the parietal cortex of cynomolgus monkeys (Macaca fascicularis).",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": 2896323,
+     "line": "In this study, retrograde transport of Fast blue was combined with tyrosine hydroxylase immunohistochemistry to reveal the presence of projections from both dopaminergic and non-dopaminergic neurons of the substantia nigra-ventral tegmental area to the parietal cortex of cynomolgus monkeys (Macaca fascicularis). These findings confirm the results of previous studies demonstrating the existence of a dopaminergic innervation of monkey parietal cortex.",
+     "attrs": [
+      "transmitter",
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 959,
+     "line": "743 plica encephali ventralis 9 polymodal parietal cortex",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 906,
+     "line": "represented in the ventral stream of the parieto-premotor network.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 610,
+     "line": "The parietal ventral area (PV) is located immediately adjacent to the S1 cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 962,
+     "line": "somatotopical localization 694 somatosensory cortical area, ventral parietal (VP) 694",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 447,
+     "line": "LIPv, lateral intraparietal area, ventral portion; POS2, parieto-occipital sulcus area 2;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 696,
+     "line": "S2 is located caudally, and the rostral ventral parietal area PV more rostrally [49, 100].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 643,
+     "line": "Ventral intra parietal area of the macaque: congruent visual and somatic response properties.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 906,
+     "line": "represented in the ventral stream of the parieto-premotor network. Nachev P, Kennard C, Husain M.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 869,
+     "line": "The inferior parietal-ventral premotor circuit is apparently involved in the control of swallowing.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 110,
+     "line": "The mesocortical dopamine pathway projects from the ventral tegmental area (VTA) to the prefrontal cortex.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 427,
+     "line": "Release of dopamine from the ventral tegmental area (VTA) into cortical areas is associated with wakefulness.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 429,
+     "line": "Orexin also causes the release of dopamine from the ventral tegmental area onto cortical areas (Figure 10-14)",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 692,
+     "line": "A cascade of association fibres interconnects the somatosensory areas and the ventral parietal somatosensory area.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 610,
+     "line": "The parietal operculum contains two somatosensory areas, the parietal ventral area and the second somatosensory area.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 965,
+     "line": "Syn: accessory paraflocculus 267 ventral parietal cortical area (PV) 694 ventral posterior thalamic nuclear complex 119;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 906,
+     "line": "Corticospinal neurons with a spe cial role in precision grip. represented in the ventral stream of the parieto-premotor network.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 643,
+     "line": "Duhamel J-R, Colby CL, Goldberg ME. Ventral intra parietal area of the macaque: congruent visual and somatic response properties.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 869,
+     "line": "21.11A), and in the ventral premotor area, the inferior parietal lobule and the anterior insula, the latter all on the right side.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 764,
+     "line": "Visual areas beyond V3 have been arranged in a dorsal stream, directed at the parietal lobe and a ventral stream directed temporally.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 131,
+     "line": "Somatosensory information from the ventral posterior lateral nucleus is conveyed mainly to the primary somatosensory cortex (Figure 4–1).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 962,
+     "line": "704 somatosensory cortical area, secondary (S2) 694 somatotopical localization 694 somatosensory cortical area, ventral parietal (VP) 694",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 289,
+     "line": "The ventral sector also contains a population of GABAergic cells, and these are reported to project to the somatosensory cortex [33, 34, 44].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 962,
+     "line": "somatotopical localization 694 somatosensory cortical area, ventral parietal (VP) 694 somatotopical localization 154 somatotopical localization",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 643,
+     "line": "Ventral intra parietal area of the macaque: congruent visual and somatic response properties. Duhamel J-R, Goldberg ME, FitzGibbon EJ, Sirigu A,",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 959,
+     "line": "743 plica encephali ventralis 9 polymodal parietal cortex Syn: pontes grisei pontine cistern 38 pontine micturition (M or Barrington) region 879",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 619,
+     "line": "Thus, the LIP area and the inferior parietal lobule belong to the dorsal stream, whereas the inferotemporal cortex belongs to the ventral stream.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 542,
+     "line": "Glutamate neurons in the prefrontal cortex project to the ventral tegmental area (VTA) where they connect with dopamine neurons (glutamate node).",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 450,
+     "line": "In the somatosensory system, information about an object’s size and shape is transmitted to ventral areas of parietal cortex for object recognition.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 509,
+     "line": "Bilateral activity occurs in S-II and the parietal ventral (PV) area during passive stroking and is stronger when the subject actively moves the hand.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 610,
+     "line": "The parietal ventral area (PV) is located immediately adjacent to the S1 cortex. It is posteriorly followed by the second somatosensory area (S2) (Fig.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 965,
+     "line": "438 ventral paraflocculus 794; Syn: accessory paraflocculus 267 ventral parietal cortical area (PV) 694 ventral posterior thalamic nuclear complex 119;",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 861,
+     "line": "Similar cells occur in rostral inferior parietal area PF, which projects to PMVr [65, 175]. _PMVc_ is connected with the ventral intraparietal area (VIP).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 959,
+     "line": "Syn: epiphysis cerebri pineal recess 69 pinealocytes 249 piriform cortex 48 planum temporale 737; 743 plica encephali ventralis 9 polymodal parietal cortex",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 696,
+     "line": "S2 is located caudally, and the rostral ventral parietal area PV more rostrally [49, 100]. These areas also have been delineated in the human brain [61, 65].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 427,
+     "line": "**Figure 10-14** Dopamine projections and wakefulness. Release of dopamine from the ventral tegmental area (VTA) into cortical areas is associated with wakefulness.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 692,
+     "line": "A cascade of association fibres interconnects the somatosensory areas and the ventral parietal somatosensory area. Area 3a is connected with the primary motor cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 641,
+     "line": "The dorsal visual pathway (blue) extends to the posterior parietal cortex and then to the frontal cortex. The ventral visual pathway (pink) is considered in Chapter 24.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 965,
+     "line": "Syn: accessory paraflocculus 267 ventral parietal cortical area (PV) 694 ventral posterior thalamic nuclear complex 119; inferior ventral posterior thalamic nucleus 693",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 796,
+     "line": "The frontal and parietal eye fields access the ventral lamina of the principal olive via the dorsomedial parvocellular red nucleus and the central tegmental tract [302].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 418,
+     "line": "An interesting example of co-release of two small-molecule transmitters is that of glutamate and dopamine by neurons projecting to the ventral striatum, cortex, and elsewhere.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 507,
+     "line": "The central zone—consisting of S-II proper and the adjacent parietal ventral area—receives its major input from areas 3b and 1, largely tactile information from the hand and face.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 696,
+     "line": "Two additional somatosensory areas are located adjacent to S1 in the parietal operculum. S2 is located caudally, and the rostral ventral parietal area PV more rostrally [49, 100].",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 472,
+     "line": "The flow of information from the cerebral cortex through the basal ganglia is at the level of the striatum modulated by dopaminergic fibres originating from the ventral mesencephalon.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 66,
+     "line": "For example, reading is now thought to recruit specialized regions in the ventral occipitotemporal cortex in addition to the angular gyrus in the parietal cortex (shown in Figure 1–6).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 610,
+     "line": "Each of the three primary sensory areas contain a complete body map The parietal operculum contains two somatosensory areas, the parietal ventral area and the second somatosensory area.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 717,
+     "line": "Caudal and parietal areas are more active when a stimulus must be localized or moves, and ventral areas are more active during identification of the same stimulus or analysis of its pitch.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 869,
+     "line": "Other foci were found in the simplex lobule of the cerebellum and in the striatum [228]. The inferior parietal-ventral premotor circuit is apparently involved in the control of swallowing.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1001,
+     "line": "hand region of the primary motor cortex, dorsal and ventral premotor cortex, and/or intraparietal cortex (particularly the parietal reach region and medial intraparietal area) (Figure 39–1).",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 110,
+     "line": "**Figure 4-17** Mesocortical pathway to the dorsolateral prefrontal cortex (DLPFC). The mesocortical dopamine pathway projects from the ventral tegmental area (VTA) to the prefrontal cortex.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 110,
+     "line": "**Figure 4-18** Mesocortical pathway to the ventromedial prefrontal cortex (VMPFC). The mesocortical dopamine pathway projects from the ventral tegmental area (VTA) to the prefrontal cortex.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 269,
+     "line": "ond somatosensory area in the parietal operculum [55, 99, 105, 129, 172, 247]. The ventral nuclear group also comprises cell assemblies forming relays in gustatory and vestibular projections.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 834,
+     "line": "Corticopontine fibres originate from dorsal prefrontal, premotor and primary motor areas from the parietal and occipital lobes. Projections from ventral prefrontal and temporal areas are scarce.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 324,
+     "line": "In addition, by blocking 5HT2C receptors in the ventral tegmental area (VTA) and locus coeruleus (LC), agomelatine promotes dopamine (DA) and norepinephrine (NE) release in the prefrontal cortex.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 1125,
+     "line": "the brain include dopaminergic neurons and brain areas targeted by dopaminergic neurons, such as the nucleus accumbens, ventral pallidum, amygdala, hippocampus, and parts of the prefrontal cortex.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "kandel",
+     "page": 565,
+     "line": "The dorsal pathway, located in parietal cortex, is involved in motion perception, attention, and visually guided action. The ventral pathway, located in temporal cortex, processes form and objects.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 610,
+     "line": "The parietal operculum contains two somatosensory areas, the parietal ventral area and the second somatosensory area. The parietal ventral area (PV) is located immediately adjacent to the S1 cortex.",
+     "attrs": [
+      "route"
+     ]
+    },
+    {
+     "corpus": "nieuwenhuys",
+     "page": 901,
+     "line": "Dopaminergic projections to the cerebellar nuclei and non-dopaminergic projections from this area to the cerebellar cortex were traced in the rat by Ikai et al. [92] from the ventral tegmental area.",
+     "attrs": [
+      "transmitter"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 542,
+     "line": "Glutamate neurons in the prefrontal cortex project to the ventral tegmental area (VTA) where they connect with dopamine neurons (glutamate node). Those dopamine neurons then project to the striatum.",
+     "attrs": [
+      "transmitter"
      ]
     }
    ]

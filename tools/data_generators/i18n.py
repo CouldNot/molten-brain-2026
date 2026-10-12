@@ -167,6 +167,27 @@ FR: dict[str, str] = {
         "Sérotoninergique ascendante (putamen)",
     "Ascending serotonergic (nigral)":
         "Sérotoninergique ascendante (nigrale)",
+    "Ascending serotonergic (pallidal)":
+        "Sérotoninergique ascendante (pallidale)",
+    "Dorsal raphe serotonin projects to the globus pallidus.":
+        "La sérotonine du raphé dorsal projette vers le globus pallidus.",
+    "Noradrenergic (caudate)": "Noradrénergique (noyau caudé)",
+    "Noradrenergic (putamen)": "Noradrénergique (putamen)",
+    "Noradrenergic (pallidal)": "Noradrénergique (pallidale)",
+    "Noradrenergic (nigral)": "Noradrénergique (nigrale)",
+    "Locus coeruleus neurons project to the caudate nucleus.":
+        "Les neurones du locus cœruleus projettent vers le noyau caudé.",
+    "Locus coeruleus neurons project to the putamen.":
+        "Les neurones du locus cœruleus projettent vers le putamen.",
+    "Locus coeruleus neurons project to the internal pallidum.":
+        "Les neurones du locus cœruleus projettent vers le pallidum interne.",
+    "Locus coeruleus neurons project to the substantia nigra.":
+        "Les neurones du locus cœruleus projettent vers la substance noire.",
+    "Mesocortical (parietal)": "Mésocorticale (pariétale)",
+    "Ventral tegmental dopamine neurons project to the parietal cortex (primate "
+    "tract-tracing).":
+        "Les neurones dopaminergiques de l'aire tegmentale ventrale projettent vers le "
+        "cortex pariétal (traçage chez le primate).",
     "Ascending noradrenergic (thalamic)":
         "Noradrénergique ascendante (thalamique)",
     "Ascending noradrenergic (parietal)":

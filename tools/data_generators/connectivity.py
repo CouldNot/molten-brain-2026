@@ -343,6 +343,12 @@ PROJECTIONS: list[dict[str, Any]] = [
          kind="serotonergic", neurotransmitter="Serotonin",
          label="Ascending serotonergic (olfactory bulb)",
          description="Dorsal raphe serotonin projects to the olfactory bulb."),
+    # --- Primate tract-tracing (Europe PMC, corpus #17) for targets no book
+    #     sentence names (family 10). ---
+    dict(**{"from": "raphe", "to": "globus_pallidus_R"},
+         kind="serotonergic", neurotransmitter="Serotonin",
+         label="Ascending serotonergic (pallidal)",
+         description="Dorsal raphe serotonin projects to the globus pallidus."),
     dict(**{"from": "locus_coeruleus_R", "to": "frontal_R"},
          kind="noradrenergic", neurotransmitter="Noradrenaline",
          label="Ascending noradrenergic (prefrontal)",
@@ -403,6 +409,24 @@ PROJECTIONS: list[dict[str, Any]] = [
          label="Noradrenergic (medullary)",
          description="Locus coeruleus noradrenaline reaches the inferior olive "
                      "in the medulla."),
+    # --- Primate tract-tracing (Europe PMC, corpus #17): the basal ganglia
+    #     targets no book sentence names (family 10). ---
+    dict(**{"from": "locus_coeruleus_R", "to": "caudate_R"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (caudate)",
+         description="Locus coeruleus neurons project to the caudate nucleus."),
+    dict(**{"from": "locus_coeruleus_R", "to": "putamen_R"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (putamen)",
+         description="Locus coeruleus neurons project to the putamen."),
+    dict(**{"from": "locus_coeruleus_R", "to": "globus_pallidus_R"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (pallidal)",
+         description="Locus coeruleus neurons project to the internal pallidum."),
+    dict(**{"from": "locus_coeruleus_R", "to": "substantia_nigra_R"},
+         kind="noradrenergic", neurotransmitter="Noradrenaline",
+         label="Noradrenergic (nigral)",
+         description="Locus coeruleus neurons project to the substantia nigra."),
     dict(**{"from": "vta_R", "to": "accumbens_R"},
          kind="dopaminergic", neurotransmitter="Dopamine",
          label="Mesolimbic (VTA)",
@@ -450,6 +474,11 @@ PROJECTIONS: list[dict[str, Any]] = [
          kind="dopaminergic", neurotransmitter="Dopamine",
          label="Dopaminergic (locus coeruleus)",
          description="VTA (A10) dopamine reaches the locus coeruleus."),
+    dict(**{"from": "vta_R", "to": "parietal_R"},
+         kind="dopaminergic", neurotransmitter="Dopamine",
+         label="Mesocortical (parietal)",
+         description="Ventral tegmental dopamine neurons project to the parietal "
+                     "cortex (primate tract-tracing)."),
     # --- Ascending histaminergic from the tuberomammillary nucleus (the sole
     #     histamine source, ventral posterior hypothalamus): a diffuse
     #     wakefulness-promoting fan. One Kandel sentence (p.1052, PROJECTION_QUOTES)

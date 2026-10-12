@@ -100,6 +100,22 @@
     "provenance": "verified"
    }
   ],
+  "locus_coeruleus_R->caudate_R": [
+   {
+    "corpus": "europepmc",
+    "page": 6664490,
+    "quote": "After the injections, cells containing the tracer delivered in caudate nucleus (caudate-labeled cells) and others labeled with the complementary tracer injected in putamen (putamen-labeled cells) occur in large number in intralaminar nuclei, substantia nigra pars compacta, midbrain raphe nuclei and central midbrain tegmentum. In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
+  "locus_coeruleus_R->globus_pallidus_R": [
+   {
+    "corpus": "europepmc",
+    "page": 6766111,
+    "quote": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
   "locus_coeruleus_R->medulla": [
    {
     "corpus": "nieuwenhuys",
@@ -121,6 +137,22 @@
     "corpus": "nieuwenhuys",
     "page": 898,
     "quote": "The tectum, the periaqueductal grey, the pontine nuclei, the interpeduncular nucleus, and the inferior olive also receive a sizeable projection from the locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
+  "locus_coeruleus_R->putamen_R": [
+   {
+    "corpus": "europepmc",
+    "page": 6664490,
+    "quote": "After the injections, cells containing the tracer delivered in caudate nucleus (caudate-labeled cells) and others labeled with the complementary tracer injected in putamen (putamen-labeled cells) occur in large number in intralaminar nuclei, substantia nigra pars compacta, midbrain raphe nuclei and central midbrain tegmentum. In addition, a small to moderate number of putamen-labeled cells is found in external pallidum, pulvinar and laterodorsal thalamic nuclei, and basolateral amygdaloid nucleus, whereas some caudate and putamen-labeled cells are scattered in ventral tegmental area and locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
+  "locus_coeruleus_R->substantia_nigra_R": [
+   {
+    "corpus": "europepmc",
+    "page": 6315152,
+    "quote": "In a third series of experiments DP alone was injected into the entire substantia nigra (SN), involving both pars compacta and pars reticulata. The SN injection produced retrograde cell labeling in numerous structures such as the striatum, the rostral intralaminar nuclei, the subthalamic nucleus, the TPP area (bilaterally), the dorsal raphe nucleus and the locus coeruleus.",
     "provenance": "verified"
    }
   ],
@@ -262,6 +294,20 @@
     "provenance": "verified"
    }
   ],
+  "raphe->globus_pallidus_R": [
+   {
+    "corpus": "europepmc",
+    "page": 27028222,
+    "quote": "Neurons of the globus pallidus receive massive inputs from the striatum and the subthalamic nucleus, but their activity, as well as those of their striatal and subthalamic inputs, are modulated by brainstem afferents. These include serotonin (5-HT) projections from the dorsal raphe nucleus, cholinergic (ACh) inputs from the pedunculopontine tegmental nucleus, and dopamine (DA) afferents from the substantia nigra pars compacta.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 6766111,
+    "quote": "In animals with injections confined to the internal pallidal segment, retrograde label was seen in neurons of the pedunculopontine nucleus, dorsal raphe nucleus, substantia nigra, caudate, putamen, subthalamic nucleus, parafascicular nucleus, zona incerta, medial and lateral subthalamic tegmentum, parabrachial nuclei, and locus coeruleus.",
+    "provenance": "verified"
+   }
+  ],
   "raphe->medulla": [
    {
     "corpus": "kandel",
@@ -397,6 +443,14 @@
     "corpus": "nieuwenhuys",
     "page": 900,
     "quote": "The strongest dopamine labelling is found of the nucleus of the solitary tract, the dorsal motor nucleus of the vagus, the nucleus of the solitary tract and the nucleus raphe pallidus and obscurus [100, 194]. The dorsal raphe nucleus, the ventral periaqueductal grey, the parabrachial nuclei, and the locus coeruleus receives projections both from the A10 group in the ventral tegmental area and from the A11 [14, 99, 145].",
+    "provenance": "verified"
+   }
+  ],
+  "vta_R->parietal_R": [
+   {
+    "corpus": "europepmc",
+    "page": 2896323,
+    "quote": "In this study, retrograde transport of Fast blue was combined with tyrosine hydroxylase immunohistochemistry to reveal the presence of projections from both dopaminergic and non-dopaminergic neurons of the substantia nigra-ventral tegmental area to the parietal cortex of cynomolgus monkeys (Macaca fascicularis).",
     "provenance": "verified"
    }
   ],
