@@ -119,7 +119,9 @@ def _drug_facet(rest: list) -> str | None:
     return {"category_sources": "categories", "nbn_sources": "nbn",
             "half_life_sources": "half_life", "tmax_sources": "tmax",
             "first_approval_sources": "first_approval",
-            "prodrug_sources": "prodrug"}.get(head)
+            "prodrug_sources": "prodrug",
+            "therapeutic_range_sources": "therapeutic_range",
+            "alert_level_sources": "alert_level"}.get(head)
 
 
 def _metabolite_facet(tail: list) -> str | None:

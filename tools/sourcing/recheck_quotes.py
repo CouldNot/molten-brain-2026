@@ -301,6 +301,18 @@ def reconstruct_claims(quotes):
             add(q, f"Drug {nm} is a prodrug: inactive itself, its effect comes from "
                    f"its active metabolite ({mets}).",
                 CS.site("drug", d["id"], "prodrug"))
+        kind["now"] = "drug_therapeutic_range"
+        trr = d.get("therapeutic_range") or {}
+        for q in _qids(d.get("therapeutic_range_sources", [])):
+            add(q, f"Drug {nm} therapeutic reference range in blood is "
+                   f"{trr.get('low')}-{trr.get('high')} {trr.get('unit')}.",
+                CS.site("drug", d["id"], "therapeutic_range"))
+        kind["now"] = "drug_alert_level"
+        al = d.get("alert_level") or {}
+        for q in _qids(d.get("alert_level_sources", [])):
+            add(q, f"Drug {nm} laboratory alert level in blood is "
+                   f"{al.get('value')} {al.get('unit')}.",
+                CS.site("drug", d["id"], "alert_level"))
         kind["now"] = "drug_enzymes"
         for e in d.get("enzymes", []):
             tier = f", {e['strength']}" if e.get("strength") else ""

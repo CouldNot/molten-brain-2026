@@ -3733,6 +3733,12 @@
       "url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
       "pages_dir": "data_sources/drugsfda/pages",
       "editable": true
+    },
+    "agnp_tdm": {
+      "ref": "AGNP Consensus Guidelines for TDM in Neuropsychopharmacology, 2026",
+      "citation": "Hart XM, Gründer G, Hiemke C, et al. Consensus Guidelines for Therapeutic Drug Monitoring in Neuropsychopharmacology: Update 2026. Pharmacopsychiatry. 2026;59:166-295. doi:10.1055/a-2860-7861.",
+      "url": "https://doi.org/10.1055/a-2860-7861",
+      "pages_dir": "data_sources/books/agnp_tdm_2026/pages"
     }
   },
   "addon_slots": {
@@ -3983,6 +3989,26 @@
         "missing": 0,
         "unknown": 0
       },
+      "drug_therapeutic_range": {
+        "total": 136,
+        "verified": 136,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
+      "drug_alert_level": {
+        "total": 130,
+        "verified": 130,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "drug_enzymes": {
         "total": 429,
         "verified": 426,
@@ -4215,15 +4241,15 @@
       }
     },
     "nodes": {
-      "total": 6916,
-      "verified": 6357,
+      "total": 7182,
+      "verified": 6623,
       "uncertain": 264,
       "sourced": 0,
       "llm": 259,
       "nosource": 36,
       "missing": 295,
       "unknown": 656,
-      "backed": 6621,
+      "backed": 6887,
       "pct_backed": 96
     },
     "ki_coverage": {

@@ -893,6 +893,22 @@ SOURCE_CORPORA: dict[str, dict] = {
         "pages_dir": "data_sources/drugsfda/pages",
         "editable": True,
     },
+    "agnp_tdm": {
+        # Consensus-guideline corpus #19: the AGNP TDM task force's 2026 update of its
+        # therapeutic drug monitoring guidelines (Pharmacopsychiatry, open access, a
+        # published article, so a book-like corpus: no `editable`, no freshness). Its
+        # Table 5 gives each drug's therapeutic reference range, laboratory alert level
+        # and level of recommendation to use TDM; Table 1 the CYP isoforms metabolising
+        # it. tools/fetch/fetch_agnp_tdm.py reads both tables by cell rectangle off the
+        # PDF and copies each row verbatim (`extraction: "code"`, no judge); `page` is
+        # the PDF page, matching pages/<page>.md split by tools/fetch/pdf_to_pages.py.
+        "ref": "AGNP Consensus Guidelines for TDM in Neuropsychopharmacology, 2026",
+        "citation": "Hart XM, Gründer G, Hiemke C, et al. Consensus Guidelines for "
+                    "Therapeutic Drug Monitoring in Neuropsychopharmacology: Update 2026. "
+                    "Pharmacopsychiatry. 2026;59:166-295. doi:10.1055/a-2860-7861.",
+        "url": "https://doi.org/10.1055/a-2860-7861",
+        "pages_dir": "data_sources/books/agnp_tdm_2026/pages",
+    },
 }
 
 
@@ -1352,6 +1368,12 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # carries no claim. See apply_prodrug.py.
     prodrug_grades = [_strongest_grade(d.get("prodrug_sources"))
                       for d in drugs if d.get("prodrug")]
+    # Therapeutic drug monitoring (AGNP, corpus #19): ONE therapeutic-range node and
+    # ONE alert-level node per drug carrying them (see data_generators/tdm.py).
+    trr_grades = [_strongest_grade(d.get("therapeutic_range_sources"))
+                  for d in drugs if d.get("therapeutic_range")]
+    alert_grades = [_strongest_grade(d.get("alert_level_sources"))
+                    for d in drugs if d.get("alert_level")]
     # Drug-metabolism nodes ("<drug> is a substrate of / inhibits / induces <enzyme>"),
     # one per (drug, enzyme, role) row. A pharmacokinetic claim, independent of the
     # drug's receptor bindings: it is what the derived drug -> drug interaction edges
@@ -1554,6 +1576,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_first_approval": tally(first_approval_grades),
         "drug_withdrawals": tally(withdrawal_grades),
         "drug_prodrug": tally(prodrug_grades),
+        "drug_therapeutic_range": tally(trr_grades),
+        "drug_alert_level": tally(alert_grades),
         "drug_enzymes": tally(enzyme_grades),
         "drug_enzyme_strength": tally(enzyme_strength_grades),
         "drug_pgx": tally(pgx_grades),

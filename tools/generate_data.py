@@ -198,6 +198,7 @@ from data_generators.changelog import load_changelog  # noqa: E402
 # The CPIC reader (corpus #15), shared with tools/check_data.py so both ends derive
 # the guidance blocks and the enzyme routes they state from the same committed export.
 from data_generators import cpic  # noqa: E402
+from data_generators import tdm  # noqa: E402 (AGNP TDM ranges, corpus #19)
 from data_generators.unknown import apply_unknown  # noqa: E402
 
 # The receptor classification records (pure data, one module per neurotransmitter
@@ -1193,6 +1194,9 @@ def _load_drug_enzymes() -> dict[str, list[dict[str, Any]]]:
                     if r["enzyme"].startswith("ugt") and r["enzyme"] != "ugt"}
         merged[drug_id] = [r for r in rows
                            if not (r["enzyme"] == "ugt" and r["role"] in specific)]
+    # The AGNP guideline's Table 1 (corpus #19) only ever adds a second quote to a
+    # substrate row the corpora above already state: confirm-only, never a new row.
+    tdm.confirm_enzymes(merged)
     return {k: sorted(v, key=lambda r: (r["enzyme"], r["role"]))
             for k, v in merged.items()}
 
@@ -1335,6 +1339,10 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # drug_first_approval / drug_withdrawals). See apply_drug_history.py.
     out.update(history.drug_history(drug))
     out.update(_drug_prodrug(drug))
+    # Therapeutic reference range + laboratory alert level (kinds
+    # drug_therapeutic_range / drug_alert_level), from the AGNP TDM guideline's
+    # Table 5 cache. See data_generators/tdm.py.
+    out.update(tdm.drug_tdm(drug["id"], _quote_sources))
     # Active metabolites named in the source (one graded node each, kind
     # `drug_metabolites`); a metabolite that is itself a modeled drug links via
     # drug_id and reuses its bindings/T½ (no duplication), see _drug_metabolites.

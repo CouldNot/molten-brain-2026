@@ -1,0 +1,7900 @@
+{
+ "ranges": {
+  "acamprosate": {
+   "low": 250,
+   "high": 700,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 20,
+     "quote": "Acamprosate 12 h 250–700 ng/mL Alcohol dependence (relapse prevention) 15–165 h 1,000 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "agomelatine": {
+   "low": 0.1,
+   "high": 10,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 600,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 20,
+     "quote": "Agomelatine 1 h 0.1–10 ng/mL Depression 5–10 h 600 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "alprazolam": {
+   "low": 5,
+   "high": 44,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 20,
+     "quote": "Alprazolam 10 h 5–44 ng/mL Anxiety and panic disorders 3 d 100 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "amantadine": {
+   "low": 600,
+   "high": 1700,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 3000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 20,
+     "quote": "Amantadine 2 h 600–1,700 ng/mL Parkinson’s disease 3 d 3,000 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "amisulpride": {
+   "low": 200,
+   "high": 550,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 20,
+     "quote": "Amisulpride 24 h 200–550 ng/ mL Schizophrenia 3 d 1,100 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "amitriptyline": {
+   "low": 80,
+   "high": 200,
+   "unit": "ng/mL",
+   "analyte": "amitriptyline + nortriptyline",
+   "alert": {
+    "value": 300,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 21,
+     "quote": "Amitriptyline 12 h 80–200 ng/mL (amitriptyline plus nortriptyline) Depression 4–9 d 300 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "aripiprazole": {
+   "low": 120,
+   "high": 270,
+   "unit": "ng/mL",
+   "analyte": "aripiprazole",
+   "alert": {
+    "value": 540,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 22,
+     "quote": "Aripiprazole 12–24 h 120–270 ng/mL (aripiprazole) Schizophrenia 13–17 d 540 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "asenapine": {
+   "low": 1,
+   "high": 7,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 14,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 22,
+     "quote": "Asenapine 24 h 1–7 ng/mL Schizophrenia 3–8 d 14 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "atomoxetine": {
+   "low": 40,
+   "high": 400,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 660,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 22,
+     "quote": "Atomoxetine 1 h 40–400 ng/mL Attention deficit hyperactivity syndrome 10–50 h 660 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "benperidol": {
+   "low": 0.3,
+   "high": 3.6,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 20,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 22,
+     "quote": "Benperidol 10 h 0.3–3.6 ng/ml Schizophrenia 20–40 h 20 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "brexanolone": {
+   "low": 10,
+   "high": 50,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 22,
+     "quote": "Brexanolone Immediately after 60-h infusion 10–50 ng/mL Postpartum depression 55 h 100 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "brexpiprazole": {
+   "low": 30,
+   "high": 300,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 600,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 22,
+     "quote": "Brexpiprazole 24 h 30–300 ng/mL Schizophrenia 10 d 600 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "brivaracetam": {
+   "low": 0.2,
+   "high": 2,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 4,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 23,
+     "quote": "Brivaracetam 12 h 0.2–2.0 µg/mL Epilepsy 2 d 4 µg/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "bromazepam": {
+   "low": 30,
+   "high": 230,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 460,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 23,
+     "quote": "Bromazepam 12 h 30–230 ng/mL Anxiety disorders 3–7 d 460 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "bromperidol": {
+   "low": 5,
+   "high": 12,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 30,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 23,
+     "quote": "Bromperidol 12 h 5–12 ng/mL Schizophrenia 4–8 d 30 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "brotizolam": {
+   "low": 1,
+   "high": 4,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 10,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 23,
+     "quote": "Brotizolam 0.8 h 1–4 ng/mL Sleep disorders N/A 10 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "buprenorphine": {
+   "low": 0.5,
+   "high": 2.5,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 4,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 23,
+     "quote": "Buprenorphine 24 h 0.5–2.5 ng/mL Opioid agonists therapy (substitution) of opioid dependence 10–20 h 4 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "bupropion": {
+   "low": 850,
+   "high": 1500,
+   "unit": "ng/mL",
+   "analyte": "hydroxybupropion",
+   "alert": {
+    "value": 1500,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 24,
+     "quote": "Bupropion 24 h 850–1,500 ng/mL (hydroxybupropion) Depression, ADHD/ADH, and smoking cessation 4–10 d 1,500 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "buspirone": {
+   "low": 1,
+   "high": 4,
+   "unit": "ng/mL",
+   "analyte": "buspirone",
+   "alert": {
+    "value": 8,
+    "unit": "ng/mL",
+    "analyte": "buspirone"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 24,
+     "quote": "Buspirone 1 h 1–4 ng/mL (buspirone) Anxiety disorders 20–35 h 8 ng/mL (buspirone) 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "cannabidiol": {
+   "low": 50,
+   "high": 150,
+   "unit": "ng/mL",
+   "analyte": "CBD",
+   "alert": {
+    "value": 300,
+    "unit": "ng/mL",
+    "analyte": "CBD"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 24,
+     "quote": "Cannabidiol 12 h 50–150 ng/mL (CBD) Epilepsy 12–13 d 300 ng/mL (CBD) 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "carbamazepine": {
+   "low": 4,
+   "high": 12,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 20,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 25,
+     "quote": "Carbamazepine 12 h 4–12 µg/mL Epilepsy Mania 2–4 d 20 µg/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "cariprazine": {
+   "low": 4,
+   "high": 14,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 28,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 25,
+     "quote": "Cariprazine 24 h 4–14 ng/mL Schizophrenia 10 d 28 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "chloral_hydrate": {
+   "low": 1.5,
+   "high": 15,
+   "unit": "µg/mL",
+   "analyte": "trichloroethanol",
+   "alert": {
+    "value": 30,
+    "unit": "µg/mL",
+    "analyte": "trichloroethanol"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 26,
+     "quote": "Chloral Hydrate N/A 1.5–15 µg/mL (trichloroethanol) Sleep disorders N/A 30 µg/mL (trichloroethanol) 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "chlordiazepoxide": {
+   "low": 300,
+   "high": 2000,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 3000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 26,
+     "quote": "Chlordiazepoxide 12 h 300–2,000 ng/mL Anxiety disorders 1–6 d 3,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "chlorpromazine": {
+   "low": 30,
+   "high": 300,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 600,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 26,
+     "quote": "Chlorpromazine 24 h 30–300 ng/mL Schizophrenia 3–6 d 600 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "chlorprothixene": {
+   "low": 15,
+   "high": 140,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 400,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 26,
+     "quote": "Chlorprothixene 12 h 15–140 ng/mL Schizophrenia 2–3 d 400 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "citalopram": {
+   "low": 50,
+   "high": 110,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 220,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 26,
+     "quote": "Citalopram 24 h 50–110 ng/mL Depression 8–10 d 220 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "clobazam": {
+   "low": 30,
+   "high": 300,
+   "unit": "ng/mL",
+   "analyte": "clobazam",
+   "alert": {
+    "value": 500,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 27,
+     "quote": "Clobazam 12 h 30–300 ng/mL (clobazam) Epilepsy 15–17 d (metabolite) 500 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "clomethiazole": {
+   "low": 100,
+   "high": 5000,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 8000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 27,
+     "quote": "Clomethiazole 4–8 h 100–5,000 ng/mL Alcohol dependence 10–20 h 8,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "clomipramine": {
+   "low": 230,
+   "high": 570,
+   "unit": "ng/mL",
+   "analyte": "clomipramine + N-desmethylclomipramine",
+   "alert": {
+    "value": 650,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 27,
+     "quote": "Clomipramine 12 h 230–570 ng/ mL (clomipramine plus N-desmethylclomipramine) depression, obsessive-compulsive disorder (OCD) 8–9 d 650 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "clonazepam": {
+   "low": 15,
+   "high": 80,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 27,
+     "quote": "Clonazepam 10 h 15–80 ng/mL epilepsy 3–6 days 100 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "clorazepate": {
+   "low": 100,
+   "high": 500,
+   "unit": "ng/mL",
+   "analyte": "clorazepate + N-desmethy ldiazepam",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 27,
+     "quote": "Clorazepate 12 h 100–500 ng/ mL (clorazepate plus N-desmethy ldiazepam) Anxiety disorders 11 d 1,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "clozapine": {
+   "low": 350,
+   "high": 600,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 28,
+     "quote": "Clozapine 12 h 350–600 ng/mL Schizophrenia 3–4 d 1,000 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "daridorexant": {
+   "low": 100,
+   "high": 800,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1600,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 28,
+     "quote": "Daridorexant 8 h 100–800 ng/ mL Sleep disorders 30–50 h 1,600 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "desvenlafaxine": {
+   "low": 85,
+   "high": 380,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 450,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 28,
+     "quote": "Desvenlafaxine 24 h 85–380 ng/mL Depression 2–4 d 450 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "diazepam": {
+   "low": 100,
+   "high": 1500,
+   "unit": "ng/mL",
+   "analyte": "diazep am + N-desmet hyldiazepam",
+   "alert": {
+    "value": 3000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 29,
+     "quote": "Diazepam 1 h 100–1,500 ng/mL (diazep am plus N-desmet hyldiazepam) Anxiety disorders 5–10 d/ 17–22 d 3,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "diphenhydramine": {
+   "low": 10,
+   "high": 60,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 29,
+     "quote": "Diphenhydramine 10 h 10–60 ng/mL Sleep disorders 35–60 h 200 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "donepezil": {
+   "low": 50,
+   "high": 160,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 29,
+     "quote": "Donepezil 12 h 50–160 ng/mL Dementia 15–17 d 200 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "dothiepin": {
+   "low": 20,
+   "high": 70,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 140,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 29,
+     "quote": "Dothiepin/ Dosulepin 24 h 20–70 ng/mL Depression 4 d 140 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "doxepin": {
+   "low": 50,
+   "high": 200,
+   "unit": "ng/mL",
+   "analyte": "doxepin + N-desmethlydoxepin",
+   "alert": {
+    "value": 300,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 29,
+     "quote": "Doxepin 12 h 50–200 ng/mL (doxepin plus N-desmethlydoxepin) Depression 3–4 d 300 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "duloxetine": {
+   "low": 20,
+   "high": 120,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 240,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 30,
+     "quote": "Duloxetine 24 h 20–120 ng/mL Depression 2–4 d 240 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "escitalopram": {
+   "low": 20,
+   "high": 40,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 160,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 30,
+     "quote": "Escitalopram 24 h 20–40 ng/mL Depression 6–7 d 160 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "esketamine": {
+   "low": 60,
+   "high": 410,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 820,
+    "unit": "ng/mL",
+    "analyte": "ketamine"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 33,
+     "quote": "Ketamine/ esketamine Immediately after infusion 60–410 ng/mL Depression N/A 820 ng/mL (ketamine) 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "estazolam": {
+   "low": 20,
+   "high": 150,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 300,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 30,
+     "quote": "Estazolam 1–2 h 20–150 ng/mL Anxiety disorders N/A 300 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "eszopiclone": {
+   "low": 20,
+   "high": 40,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 80,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 30,
+     "quote": "Eszopiclone 1 h 20–40 ng/mL Sleep disorders N/A 80 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "flunitrazepam": {
+   "low": 2,
+   "high": 5,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 30,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 30,
+     "quote": "Flunitrazepam 1–2 h 2–5 ng/mL Sleep disorders N/A 30 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "fluoxetine": {
+   "low": 150,
+   "high": 300,
+   "unit": "ng/mL",
+   "analyte": "fluoxetine + N-desmethylfluoxetine",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 31,
+     "quote": "Fluoxetine 24 h 150–300 ng/ mL (fluoxetine plus N-desmethylfluoxetine) Depression > 20 d 1,000 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "flupenthixol": {
+   "low": 0.5,
+   "high": 10,
+   "unit": "ng/mL",
+   "analyte": "cis-Isomer",
+   "alert": {
+    "value": 15,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 31,
+     "quote": "Flupentixol 12 h 0.5–10 ng/mL (cis-Isomer) Schizophrenia 4–8 d 15 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "fluphenazine": {
+   "low": 1,
+   "high": 5,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 15,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 31,
+     "quote": "Fluphenazine 12 h 1–5 ng/mL Schizophrenia 3 d 15 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "flurazepam": {
+   "low": 10,
+   "high": 22,
+   "unit": "ng/mL",
+   "analyte": "N-desalkylflurazepam",
+   "alert": {
+    "value": 330,
+    "unit": "ng/mL",
+    "analyte": "N-desalkylflurazepam"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 31,
+     "quote": "Flurazepam 6–24 h, day 1 10–22 ng/mL (NF) Sleep disorders N/A 330 ng/mL (NF) 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "fluvoxamine": {
+   "low": 60,
+   "high": 210,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 500,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 31,
+     "quote": "Fluvoxamine 24 h 60–210 ng/mL Depression 4 d 500 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "gabapentin": {
+   "low": 2,
+   "high": 20,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 25,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 32,
+     "quote": "Gabapentin 12 h 2–20 µg/mL Epilepsy, neuropathic pain 25–35 h 25 µg/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "galantamine": {
+   "low": 10,
+   "high": 25,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 50,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 32,
+     "quote": "Galantamine 24 h 10–25 ng/mL Dementia 1–2 d 50 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "haloperidol": {
+   "low": 1,
+   "high": 5,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 12,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 32,
+     "quote": "Haloperidol 12 h 1–5 ng/mL Schizophrenia 3–8 d 12 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "heroin": {
+   "low": 70,
+   "high": 350,
+   "unit": "ng/mL",
+   "analyte": "diacetylmorphine",
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 28,
+     "quote": "Diacetylmorphine (heroin) 1 h 70–350 ng/mL (diacetylmorphine) Substance-related disorders N/A None 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "hydroxyzine": {
+   "low": 35,
+   "high": 115,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 230,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 32,
+     "quote": "Hydroxyzine 10 h 35–115 ng/mL Anxiolytic 2–5 days 230 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "iloperidone": {
+   "low": 5,
+   "high": 10,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 30,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 33,
+     "quote": "Iloperidone 12 h 5–10 ng/mL Schizophrenia 4 d 30 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "ketamine": {
+   "low": 60,
+   "high": 410,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 820,
+    "unit": "ng/mL",
+    "analyte": "ketamine"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 33,
+     "quote": "Ketamine/ esketamine Immediately after infusion 60–410 ng/mL Depression N/A 820 ng/mL (ketamine) 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lacosamide": {
+   "low": 1,
+   "high": 12,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 24,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 33,
+     "quote": "Lacosamide 12 h 1–12 µg/mL Anti-seizure medication 2–3 d 24 µg/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lamotrigine": {
+   "low": 3,
+   "high": 15,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 20,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 33,
+     "quote": "Lamotrigine 12 h 3–15 µg/mL Epilepsy, bipolar disorder, treatment-resistant depressive disorder 3–22 d 20 µg/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lemborexant": {
+   "low": 2,
+   "high": 15,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 30,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 33,
+     "quote": "Lemborexant 10.5 h 2–15 ng/mL Sleep disorders 3–4 d 30 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "levetiracetam": {
+   "low": 6,
+   "high": 46,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 50,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 34,
+     "quote": "Levetiracetam 12 h 6–46 µg/mL Epilepsy 24–40 h 50 µg/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "levodopa": {
+   "low": 1,
+   "high": 3.5,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 5,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 34,
+     "quote": "Levodopa 0.5–1 h 1.0–3.5 µg/mL Parkinson’s disease N/A 5 µg/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "levomepromazine": {
+   "low": 10,
+   "high": 160,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 320,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 34,
+     "quote": "Levomepromazine 12 h 10–160 ng/mL Hyperactivity 3–16 d 320 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "levomilnacipran": {
+   "low": 30,
+   "high": 90,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 180,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 35,
+     "quote": "Levomilnacipran 24 h 30–90 ng/mL Depression 3 d 180 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lithium": {
+   "low": 0.4,
+   "high": 0.8,
+   "unit": "mmol/L",
+   "alert": {
+    "value": 1.2,
+    "unit": "mmol/L"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 35,
+     "quote": "Lithium 12 h 0.4–0.8 mmol/L Bipolar disorder 3–6 d 1.2 mmol/L 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lorazepam": {
+   "low": 5,
+   "high": 100,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 35,
+     "quote": "Lorazepam 12 h 5–100 ng/mL Anxiety disorders 3 d 200 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lormetazepam": {
+   "low": 2,
+   "high": 10,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 20,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 35,
+     "quote": "Lormetazepam 10 h 2–10 ng/mL Sleep disorders N/A 20 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "loxapine": {
+   "low": 11,
+   "high": 16,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 20,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 35,
+     "quote": "Loxapine 4 h after aerosol exposure 11–16 ng/mL Acute agitation 1–2 d 20 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lumateperone": {
+   "low": 10,
+   "high": 30,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 60,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 35,
+     "quote": "Lumateperone 3 h 10–30 ng/mL Schizophrenia 3–4 d 60 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "lurasidone": {
+   "low": 10,
+   "high": 25,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 50,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 36,
+     "quote": "Lurasidone 24 h 10–25 ng/mL Schizophrenia 4–8 d 50 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "maprotiline": {
+   "low": 75,
+   "high": 130,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 220,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 36,
+     "quote": "Maprotiline 12 h 75–130 ng/mL Depression 4–12 d 220 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "melatonin": {
+   "low": 1000,
+   "high": 2500,
+   "unit": "pg/mL",
+   "alert": {
+    "value": 3300,
+    "unit": "pg/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 37,
+     "quote": "Melatonin 3 h 1,000–2,500 pg/mL Sleep disorders N/A 3,300 pg/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "melperone": {
+   "low": 30,
+   "high": 100,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 37,
+     "quote": "Melperone 12 h 30–100 ng/mL Agitation N/A 200 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "memantine": {
+   "low": 70,
+   "high": 150,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 300,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 37,
+     "quote": "Memantine 3–10 h 70–150 ng/mL Dementia 10–20 d 300 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "methadone": {
+   "low": 90,
+   "high": 620,
+   "unit": "ng/mL",
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 38,
+     "quote": "Methadone 24 h 90–620 ng/mL Opioid agonists therapy (substitution) of opioid dependence 3–7 d N/A 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "mianserin": {
+   "low": 15,
+   "high": 70,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 140,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 38,
+     "quote": "Mianserin 12 h 15–70 ng/mL Depression 3–6 d 140 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "midazolam": {
+   "low": 50,
+   "high": 150,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 39,
+     "quote": "Midazolam 1–2 h 50–150 ng/mL sedation 5–15 h 1,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "milnacipran": {
+   "low": 50,
+   "high": 120,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 39,
+     "quote": "Milnacipran 12 h 50–120 ng/mL Depression 1–2 d 200 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "mirtazapine": {
+   "low": 30,
+   "high": 80,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 160,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 39,
+     "quote": "Mirtazapine 12 h 30–80 ng/mL Depression 4–8 d 160 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "moclobemide": {
+   "low": 300,
+   "high": 1000,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 2000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 39,
+     "quote": "Moclobemide 12 h 300–1,000 ng/mL Depression 15 h 2,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "morphine": {
+   "low": 5,
+   "high": 400,
+   "unit": "ng/mL",
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 40,
+     "quote": "Morphine sulfate 1 h 5–400 ng/mL Pain 2–4 d None 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "nabilone": {
+   "low": 1,
+   "high": 5,
+   "unit": "ng/mL",
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 40,
+     "quote": "Nabilone (fully synthetic derivative of Δ THC) 2 h 1–5 ng/mL See comment 10 h None 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "nalmefene": {
+   "low": 10,
+   "high": 20,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 40,
+     "quote": "Nalmefene 1.5 h (for oral application) 10–20 ng/mL Opioid overdose, alcohol use disorder 1–2 d 200 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "naltrexone": {
+   "low": 15,
+   "high": 30,
+   "unit": "ng/mL",
+   "analyte": "naltrexone + 6β-naltrexol",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 40,
+     "quote": "Naltrexone 24 h 15–30 ng/mL (naltrexone plus 6β-naltrexol) Relapse prevention of alcohol-and/or opioid dependence 4 d 100 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "nicotine": {
+   "low": 5,
+   "high": 20,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 400,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 40,
+     "quote": "Nicotine 4–5 h (after application of patch) 5–20 ng/mL Nicotine dependence 1–2 d 400 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "nitrazepam": {
+   "low": 20,
+   "high": 180,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 360,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 41,
+     "quote": "Nitrazepam 10 h 20–180 ng/mL Sleep disorders 4–6 d 360 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "nortriptyline": {
+   "low": 70,
+   "high": 170,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 300,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 41,
+     "quote": "Nortriptyline 12 h 70–170 ng/mL Depression 4–9 d 300 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "olanzapine": {
+   "low": 20,
+   "high": 40,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 80,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 41,
+     "quote": "Olanzapine 12–15 h 20–40 ng/mL Schizophrenia, schizophrenia spectrum disorders 7 d 80 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "opipramol": {
+   "low": 10,
+   "high": 75,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 500,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 41,
+     "quote": "Opipramol 12 h 10–75 ng/mL Anxiety disorders 2 d 500 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "oxazepam": {
+   "low": 200,
+   "high": 1200,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 2000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 41,
+     "quote": "Oxazepam 36 h 200–1,200 ng/mL Anxiety disorders 2 d 2,000 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "oxcarbazepine": {
+   "low": 3,
+   "high": 35,
+   "unit": "µg/mL",
+   "analyte": "10-hydroxycarbazepine",
+   "alert": {
+    "value": 40,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 41,
+     "quote": "Oxcarbazepine 12 h 3–35 μg/mL (MHD) epilepsy 2–4 d (MHD) 40 μg/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "oxycodone": {
+   "low": 5,
+   "high": 100,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 42,
+     "quote": "Oxycodone 12 h 5–100 ng/mL Pain N/A 200 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "paliperidone": {
+   "low": 20,
+   "high": 60,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 80,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 42,
+     "quote": "Paliperidone (hydroxyrisperidone) 24 h 20–60 ng/mL Schizophrenia 2–4 days 80 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "paroxetine": {
+   "low": 30,
+   "high": 80,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 120,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 42,
+     "quote": "Paroxetine 24 h 30–80 ng/mL Depression 3–9 d 120 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "perampanel": {
+   "low": 180,
+   "high": 980,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1960,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 43,
+     "quote": "Perampanel 12–24 h 180–980 ng/ mL Epilepsy 10–22 d 1960 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "perazine": {
+   "low": 100,
+   "high": 230,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 460,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 43,
+     "quote": "Perazine 12 h 100–230 ng/ mL Schizophrenia 2–4 d 460 ng/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "perphenazine": {
+   "low": 0.7,
+   "high": 3.6,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 7,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 43,
+     "quote": "Perphenazine 12 h 0.7–3.6 ng/mL Schizophrenia 2–3 d 7 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "phenytoin": {
+   "low": 10,
+   "high": 20,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 50,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 43,
+     "quote": "Phenytoin 8–12 h 10–20 µg/mL Epilepsy 4–13 d 50 µg/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "pimavanserin": {
+   "low": 40,
+   "high": 85,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 150,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 44,
+     "quote": "Pimavanserin 24 h 40–85 ng/mL Schizophrenia 12 d 150 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "pimozide": {
+   "low": 1,
+   "high": 10,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 20,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 44,
+     "quote": "Pimozide 12 h 1–10 ng/mL Schizophrenia 1–2 d 20 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "pitolisant": {
+   "low": 20,
+   "high": 40,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 80,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 44,
+     "quote": "Pitolisant 3 h 20–40 ng/mL Narcolepsy 2–3 d 80 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "prazepam": {
+   "low": 40,
+   "high": 400,
+   "unit": "ng/mL",
+   "analyte": "N-desmethyldiazepam",
+   "alert": {
+    "value": 800,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 44,
+     "quote": "Prazepam 12–24 h 40–400 ng/mL (N-desmethyldiazepam) Anxiety disorders 14 d (Ndesmethyldiazepam) 800 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "promethazine": {
+   "low": 2,
+   "high": 18,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 45,
+     "quote": "Promethazine 1.5–3 h 2–18 ng/mL Sleep disorders 2–3 d 100 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "quetiapine": {
+   "low": 100,
+   "high": 500,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 45,
+     "quote": "Quetiapine 24 h 100–500 ng/ mL Schizophrenia, bipolar disorder 3 d 1,000 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "reboxetine": {
+   "low": 130,
+   "high": 320,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 500,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 46,
+     "quote": "Reboxetine 12 h 130–320 ng/ mL Depression 2–3 d 500 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "risperidone": {
+   "low": 20,
+   "high": 60,
+   "unit": "ng/mL",
+   "analyte": "risperidone + 9-hydroxyrisperidone",
+   "alert": {
+    "value": 80,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 46,
+     "quote": "Risperidone 12 h 20–60 ng/mL (risperidone plus 9-hydroxyrisperidone) Schizophrenia 2–4 d 80 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "sertindole": {
+   "low": 20,
+   "high": 90,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 180,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 46,
+     "quote": "Sertindole 12–24 h 20–90 ng/mL Schizophrenia 12–19 d 180 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "sertraline": {
+   "low": 10,
+   "high": 50,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 150,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 47,
+     "quote": "Sertraline 24 h 10–50 ng/mL Depression 5–8 d 150 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "sulpiride": {
+   "low": 250,
+   "high": 500,
+   "unit": "ng/mL",
+   "analyte": "racemate",
+   "alert": {
+    "value": 1000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 47,
+     "quote": "Sulpiride 12 h 250–500 ng/ mL (racemate) Schizophrenia 2–3 d 1,000 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "suvorexant": {
+   "low": 90,
+   "high": 450,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 900,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 48,
+     "quote": "Suvorexant 8–12 h 90–450 ng/mL Sleep disorders 3–5 d 900 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "tasimelteon": {
+   "low": 100,
+   "high": 600,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1200,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 48,
+     "quote": "Tasimelteon 0.5–3 h 100–600 ng/ mL Sleep induction in non-24hsleep-wake disorder N/A 1,200 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "temazepam": {
+   "low": 200,
+   "high": 750,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 1500,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 48,
+     "quote": "Temazepam 1–2 h 200–750 ng/ mL Sleep disorders N/A 1,500 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "thc": {
+   "low": 15,
+   "high": 30,
+   "unit": "ng/mL",
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 48,
+     "quote": "Δ9-trans-tetrahydrocannabinol (THC) / Medical Cannabis See comments 15–30 ng/mL See comment T1/2: initial 102 min, terminal 20–30 h none 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "tiagabine": {
+   "low": 20,
+   "high": 200,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 400,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 49,
+     "quote": "Tiagabine 6 h 20–200 ng/mL Epilepsy 1–2 d 400 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "tianeptine": {
+   "low": 15,
+   "high": 50,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 160,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 49,
+     "quote": "Tianeptine 6–8 h 15–50 ng/mL Depression 15 h 160 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "topiramate": {
+   "low": 5,
+   "high": 20,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 30,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 49,
+     "quote": "Topiramate 12 h 5–20 μg/mL Epilepsy 4–5 d 30 μg/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "tranylcypromine": {
+   "low": 60,
+   "high": 400,
+   "unit": "ng/mL",
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 49,
+     "quote": "Tranylcypromine 2–3 h 60–400 ng/mL Depression 12.5 h (continuous treatment) 168 h (onset of treatment) > 800 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "trazodone": {
+   "low": 650,
+   "high": 1500,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 3000,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 49,
+     "quote": "Trazodone 12 h 650–1,500 ng/ml Depression 1–2 d 3,000 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "triazolam": {
+   "low": 1,
+   "high": 10,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 20,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 50,
+     "quote": "Triazolam 1.5 h 1–10 ng/mL Sleep disorders N/A 20 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "trimipramine": {
+   "low": 50,
+   "high": 500,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 600,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 50,
+     "quote": "Trimipramine 12 h 50–500 ng/mL Depression 5 d 600 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "valproate": {
+   "low": 50,
+   "high": 100,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 120,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 1,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 50,
+     "quote": "Valproic acid 12 h 50–100 μg/mL Epilepsy, manic-depressive disorders 2–4 d 120 μg/mL 1",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "varenicline": {
+   "low": 4,
+   "high": 5,
+   "unit": "ng/mL",
+   "analyte": "disulfiram",
+   "alert": {
+    "value": 10,
+    "unit": "ng/mL",
+    "analyte": "disulfiram"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 50,
+     "quote": "Varenicline 12 or 24 h 4–5 ng/mL (disulfiram) Substance-related disorders 5–8 d 10 ng/mL (disulfiram) 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "venlafaxine": {
+   "low": 140,
+   "high": 600,
+   "unit": "ng/mL",
+   "analyte": "venlafaxine + O-desmethyl-venlafaxine",
+   "alert": {
+    "value": 1200,
+    "unit": "ng/mL",
+    "analyte": "Venlafaxine + O-desmethyl-venlafaxine"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 50,
+     "quote": "Venlafaxine 24 h 140–600 ng/ mL (venlafaxine plus O-desmethyl-venlafaxine) Depression 2–4 d (metabolite) 1,200 ng/mL (Venlafaxine plus O-desmethyl-venlafaxine) 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "vigabatrin": {
+   "low": 2,
+   "high": 36,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 70,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 50,
+     "quote": "Vigabatrin 24 h 2–36 µg/mL Epilepsy 20–40 h 70 µg/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "vilazodone": {
+   "low": 15,
+   "high": 45,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 90,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 51,
+     "quote": "Vilazodone 24 h 15–45 ng/mL Depression 7 d 90 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "vortioxetine": {
+   "low": 10,
+   "high": 40,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 80,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 51,
+     "quote": "Vortioxetine 24 h 10–40 ng/mL Depression and anxiety disorder 2 wk 80 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "xanomeline": {
+   "low": 1.6,
+   "high": 5,
+   "unit": "ng/mL",
+   "analyte": "xanomeline",
+   "alert": {
+    "value": 8,
+    "unit": "ng/mL",
+    "analyte": "xanomeline"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 51,
+     "quote": "Xanomeline and trospium chloride 12 h 1.6–5.0 ng/mL (xanomeline) Schizophrenia 2 d 8.0 ng/mL (xanomeline) 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zaleplon": {
+   "low": 20,
+   "high": 40,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 51,
+     "quote": "Zaleplon 1–2 h 20–40 ng/mL Sleep disorders N/A 100 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "ziprasidone": {
+   "low": 50,
+   "high": 160,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 320,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 51,
+     "quote": "Ziprasidone 12 h 50–160 ng/mL Schizophrenia 1–2 d 320 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zolpidem": {
+   "low": 80,
+   "high": 200,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 400,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 51,
+     "quote": "Zolpidem 1–3 h 80–200 ng/mL Sleep disorders N/A 400 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zonisamide": {
+   "low": 10,
+   "high": 40,
+   "unit": "µg/mL",
+   "alert": {
+    "value": 80,
+    "unit": "µg/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 52,
+     "quote": "Zonisamide 24 h 10–40 µg/mL Epilepsy 10–16 d 80 µg/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zopiclone": {
+   "low": 55,
+   "high": 80,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 160,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 52,
+     "quote": "Zopiclone 1–2 h 55–80 ng/mL Sleep disorders N/A 160 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zotepine": {
+   "low": 10,
+   "high": 50,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 3,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 52,
+     "quote": "Zotepine 12 h 10–50 ng/mL Schizophrenia 3 d 100 ng/mL 3",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zuclopenthixol": {
+   "low": 3,
+   "high": 25,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 50,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 2,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 52,
+     "quote": "Zuclopenthixol 12 h 3–25 ng/mL Schizophrenia 3–5 d 50 ng/mL 2",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  },
+  "zuranolone": {
+   "low": 10,
+   "high": 50,
+   "unit": "ng/mL",
+   "alert": {
+    "value": 100,
+    "unit": "ng/mL"
+   },
+   "tdm_level": 4,
+   "sources": [
+    {
+     "corpus": "agnp_tdm",
+     "page": 52,
+     "quote": "Zuranolone 12 h 10–50 ng/mL Postpartum depression 3–5 d 100 ng/mL 4",
+     "provenance": "verified",
+     "extraction": "code"
+    }
+   ]
+  }
+ },
+ "enzymes": {
+  "agomelatine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Agomelatine CYP1A2, CYP2C19",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Agomelatine CYP1A2, CYP2C19",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "alprazolam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Alprazolam CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "amitriptyline": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a3",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amitriptyline CYP1A2, CYP2C9, CYP2C19, CYP2D6, CYP3A4, UGT1A3, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "amphetamine_dl": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Amfetamine (dexamfetamine and lisdexamfetamine) CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "aripiprazole": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Aripiprazole CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Aripiprazole CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "asenapine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Asenapine CYP1A2, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Asenapine CYP1A2, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "atomoxetine": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Atomoxetine CYP2C19, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Atomoxetine CYP2C19, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "brexanolone": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Brexanolone AKR, UGT, SULT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "brexpiprazole": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Brexpiprazole CYP3A4, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Brexpiprazole CYP3A4, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "bromazepam": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Bromazepam CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Bromazepam CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "bromocriptine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Bromocriptine CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "bromperidol": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Bromperidol CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "brotizolam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Brotizolam CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "buprenorphine": [
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Buprenorphine CYP2C8, CYP3A4, UGT1A3, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Buprenorphine CYP2C8, CYP3A4, UGT1A3, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a3",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Buprenorphine CYP2C8, CYP3A4, UGT1A3, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Buprenorphine CYP2C8, CYP3A4, UGT1A3, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "bupropion": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Bupropion CYP2C19, CYP2B6, CR",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Bupropion CYP2C19, CYP2B6, CR",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "buspirone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Buspirone CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "cabergoline": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cabergoline Unknown, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "caffeine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Caffeine CYP1A2, CYP2A6, xanthine oxidase, NAT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Caffeine CYP1A2, CYP2A6, xanthine oxidase, NAT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "cannabidiol": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cannabidiol CYP3A4, CYP2C19, CYP2C9",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cannabidiol CYP3A4, CYP2C19, CYP2C9",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cannabidiol CYP3A4, CYP2C19, CYP2C9",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "carbamazepine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Carbamazepine CYP1A2, CYP2C8, CYP3A4, UGT2B7, P-gp (ABCB1), BCRP, (ABCG2), epoxide hydrolase",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Carbamazepine CYP1A2, CYP2C8, CYP3A4, UGT2B7, P-gp (ABCB1), BCRP, (ABCG2), epoxide hydrolase",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Carbamazepine CYP1A2, CYP2C8, CYP3A4, UGT2B7, P-gp (ABCB1), BCRP, (ABCG2), epoxide hydrolase",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Carbamazepine CYP1A2, CYP2C8, CYP3A4, UGT2B7, P-gp (ABCB1), BCRP, (ABCG2), epoxide hydrolase",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "cariprazine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cariprazine CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cariprazine CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "chloral_hydrate": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Chloralhydrate UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "chlordiazepoxide": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Chlordiazepoxide CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Chlordiazepoxide CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "chlorpromazine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Chlorpromazine CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Chlorpromazine CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "citalopram": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Citalopram CYP2C19, CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Citalopram CYP2C19, CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Citalopram CYP2C19, CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "clobazam": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clobazam (norclobazam) CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clobazam (norclobazam) CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "clomethiazole": [
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomethiazole CYP2A6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomethiazole CYP2A6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "clomipramine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clomipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "clonazepam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clonazepam CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "clorazepate": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clorazepate Decarboxylase, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clorazepate Decarboxylase, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "clozapine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clozapine CYP1A2, CYP2C19, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clozapine CYP1A2, CYP2C19, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Clozapine CYP1A2, CYP2C19, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "cocaine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 7,
+      "quote": "Cocain Carboxylesterases 1 and 2, pseudocholinesterase, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "codeine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Codeine CYP2D6, CYP3A4, UGT2B4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Codeine CYP2D6, CYP3A4, UGT2B4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Codeine CYP2D6, CYP3A4, UGT2B4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Codeine CYP2D6, CYP3A4, UGT2B4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "cyamemazine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Cyamemazine CYP1A2, CYP2C8, CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Cyamemazine CYP1A2, CYP2C8, CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Cyamemazine CYP1A2, CYP2C8, CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Cyamemazine CYP1A2, CYP2C8, CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Cyamemazine CYP1A2, CYP2C8, CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "daridorexant": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Daridorexant CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "desipramine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Desipramine CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "desvenlafaxine": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Desvenlafaxine Renal clearance, UGT, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Desvenlafaxine Renal clearance, UGT, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "diazepam": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diazepam CYP2B6, CYP2C19, CYP3A4, UGT2B7, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diazepam CYP2B6, CYP2C19, CYP3A4, UGT2B7, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diazepam CYP2B6, CYP2C19, CYP3A4, UGT2B7, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diazepam CYP2B6, CYP2C19, CYP3A4, UGT2B7, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "diphenhydramine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diphenhydramine CYP2D6, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diphenhydramine CYP2D6, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diphenhydramine CYP2D6, UGT1A4, UGT2B10, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "disulfiram": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Disulfiram CYP1A2, CYP2A6, CYP2B6, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Disulfiram CYP1A2, CYP2A6, CYP2B6, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Disulfiram CYP1A2, CYP2A6, CYP2B6, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2e1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Disulfiram CYP1A2, CYP2A6, CYP2B6, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Disulfiram CYP1A2, CYP2A6, CYP2B6, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "donepezil": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Donepezil CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Donepezil CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "dothiepin": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Dothiepin (dosulepin) CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Dothiepin (dosulepin) CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "doxepin": [
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Doxepin CYP2C9, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Doxepin CYP2C9, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Doxepin CYP2C9, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "duloxetine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Duloxetine CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Duloxetine CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "entacapone": [
+   {
+    "enzyme": "ugt1a9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Entacapone UGT1A9",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "escitalopram": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Escitalopram CYP2C19, CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Escitalopram CYP2C19, CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Escitalopram CYP2C19, CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "esketamine": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Esketamine CYP2B6, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Esketamine CYP2B6, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Esketamine CYP2B6, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "estazolam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Estazolam CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "eszopiclone": [
+   {
+    "enzyme": "cyp2e1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Eszopiclon CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Eszopiclon CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "ethanol": [
+   {
+    "enzyme": "cyp2e1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Ethanol Alcohol dehydrogenase, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "ethosuximide": [
+   {
+    "enzyme": "cyp2e1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Ethosuximide CYP2B, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Ethosuximide CYP2B, CYP2E1, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "fenfluramine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fenfluramine CYP1A2, CYP2B6, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fenfluramine CYP1A2, CYP2B6, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fenfluramine CYP1A2, CYP2B6, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "flunarizine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Flunarizine CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "flunitrazepam": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Flunitrazepam CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Flunitrazepam CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "fluoxetine": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluoxetine CYP2B6, CYP2C9, CYP2C19, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluoxetine CYP2B6, CYP2C9, CYP2C19, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluoxetine CYP2B6, CYP2C9, CYP2C19, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluoxetine CYP2B6, CYP2C9, CYP2C19, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "flupenthixol": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Flupenthixol CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "fluphenazine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluphenazine CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "flurazepam": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Flurazepam CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Flurazepam CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "fluspirilene": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluspirilene Renal clearance, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "fluvoxamine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluvoxamine CYP2D6, CYP1A2, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Fluvoxamine CYP2D6, CYP1A2, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "galantamine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Galantamine CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Galantamine CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "guanfacine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Guanfacine CYP3A4, epoxide hydratase, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Guanfacine CYP3A4, epoxide hydratase, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "haloperidol": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Haloperidol CYP2D6, CYP3A4, AKR, UGT, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Haloperidol CYP2D6, CYP3A4, AKR, UGT, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Haloperidol CYP2D6, CYP3A4, AKR, UGT, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "heroin": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 8,
+      "quote": "Diacetylmorphine (heroin) Carboxylesterases 2 and 1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "hydroxyzine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Hydroxyzine CYP3A4, alcohol dehydrogenase",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "iloperidone": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Iloperidone CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Iloperidone CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "imipramine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Imipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT1A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Imipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT1A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Imipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT1A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Imipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT1A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Imipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT1A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Imipramine CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT1A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "ketamine": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Ketamine CYP2B6, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Ketamine CYP2B6, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Ketamine CYP2B6, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lacosamide": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lacosamide Renal clearance, CYP2C19",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lamotrigine": [
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lamotrigine UGT1A4, UGT3B7, P-gp (ABCB1), BCRP (ABCG2)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt3b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lamotrigine UGT1A4, UGT3B7, P-gp (ABCB1), BCRP (ABCG2)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lemborexant": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lemborexant CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "levomilnacipran": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Levomilnacipran CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lisdexamfetamine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lisdexamfetamine Erythrocyte peptidase, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lorazepam": [
+   {
+    "enzyme": "ugt2b15",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lorazepam UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "loxapine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Loxapine CYP3A4, CYP2D6, CYP1A2, CYP2C8, CYP2C19, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Loxapine CYP3A4, CYP2D6, CYP1A2, CYP2C8, CYP2C19, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Loxapine CYP3A4, CYP2D6, CYP1A2, CYP2C8, CYP2C19, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Loxapine CYP3A4, CYP2D6, CYP1A2, CYP2C8, CYP2C19, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Loxapine CYP3A4, CYP2D6, CYP1A2, CYP2C8, CYP2C19, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lumateperone": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lumateperone CYP1A2, CYP2C8, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lumateperone CYP1A2, CYP2C8, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lumateperone CYP1A2, CYP2C8, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lumateperone CYP1A2, CYP2C8, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "lurasidone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Lurasidone CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "maprotiline": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Maprotiline CYP2D6, CYP1A2",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Maprotiline CYP2D6, CYP1A2",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "mdma": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "MDMA (3,4-methylendioxy-N-methylamphetamin) COMT, CYP1A2, CYP3A4, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "MDMA (3,4-methylendioxy-N-methylamphetamin) COMT, CYP1A2, CYP3A4, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "MDMA (3,4-methylendioxy-N-methylamphetamin) COMT, CYP1A2, CYP3A4, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "MDMA (3,4-methylendioxy-N-methylamphetamin) COMT, CYP1A2, CYP3A4, CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "melatonin": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Melatonin CYP1A2",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "methadone": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Methadone CYP2B6, CYP3A4, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Methadone CYP2B6, CYP3A4, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Methadone CYP2B6, CYP3A4, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "mianserin": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Mianserin CYP2D6, CYP1A2, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Mianserin CYP2D6, CYP1A2, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Mianserin CYP2D6, CYP1A2, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "midazolam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Midazolam CYP3A4, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Midazolam CYP3A4, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "mirtazapine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Mirtazapine CYP3A4, CYP1A2, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Mirtazapine CYP3A4, CYP1A2, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Mirtazapine CYP3A4, CYP1A2, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "moclobemide": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Moclobemide CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Moclobemide CYP2C19, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "modafinil": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Modafinil Amide hydrolase, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "morphine": [
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Morphine CYP2C8, CYP3A4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Morphine CYP2C8, CYP3A4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Morphine CYP2C8, CYP3A4, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "nabilone": [
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Nabilone CYP2C9, unspecified metabolism",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "nalmefene": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Nalmefene UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "naloxone": [
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 9,
+      "quote": "Naloxone UGT2B7, AKR1C",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "nicotine": [
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Nicotine CYP2A6, UGT1A1, UGT1A2, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Nicotine CYP2A6, UGT1A1, UGT1A2, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Nicotine CYP2A6, UGT1A1, UGT1A2, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Nicotine CYP2A6, UGT1A1, UGT1A2, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "nitrazepam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Nitrazepam CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "nortriptyline": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Nortriptyline CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "olanzapine": [
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Olanzapine UGT1A4, UGT2B10, FMO, CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Olanzapine UGT1A4, UGT2B10, FMO, CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Olanzapine UGT1A4, UGT2B10, FMO, CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Olanzapine UGT1A4, UGT2B10, FMO, CYP1A2, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "opipramol": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Opipramol CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "oxazepam": [
+   {
+    "enzyme": "ugt1a9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Oxazepam UGT1A9, UGT2B7, UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Oxazepam UGT1A9, UGT2B7, UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b15",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Oxazepam UGT1A9, UGT2B7, UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "oxcarbazepine": [
+   {
+    "enzyme": "ugt2b15",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Oxcarbazepine AKR, UGT2B15, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "oxycodone": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Oxycodone CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Oxycodone CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "paroxetine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Paroxetine CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Paroxetine CYP2D6, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "perampanel": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perampanel CYP3A4, CYP2B6, UGT1A1, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perampanel CYP3A4, CYP2B6, UGT1A1, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perampanel CYP3A4, CYP2B6, UGT1A1, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perampanel CYP3A4, CYP2B6, UGT1A1, UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "perazine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perazine CYP1A2, CYP2C9, CYP2C19, CYP3A4, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perazine CYP1A2, CYP2C9, CYP2C19, CYP3A4, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perazine CYP1A2, CYP2C9, CYP2C19, CYP3A4, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perazine CYP1A2, CYP2C9, CYP2C19, CYP3A4, FMO",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "perphenazine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perphenazine CYP1A2, CYP2C19, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perphenazine CYP1A2, CYP2C19, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perphenazine CYP1A2, CYP2C19, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Perphenazine CYP1A2, CYP2C19, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "phenobarbital": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenobarbital CYP2C19, UGT1A4, CYP2C9, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenobarbital CYP2C19, UGT1A4, CYP2C9, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenobarbital CYP2C19, UGT1A4, CYP2C9, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2e1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenobarbital CYP2C19, UGT1A4, CYP2C9, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "phenytoin": [
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenytoin CYP2C9, CYP2C19, UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenytoin CYP2C9, CYP2C19, UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b15",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Phenytoin CYP2C9, CYP2C19, UGT2B15",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "pimavanserin": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Pimavanserin CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "pimozide": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Pimozide CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Pimozide CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Pimozide CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "pitolisant": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Pitolisant CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Pitolisant CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "prazepam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Prazepam CYP3A4, UGT, unknown",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Prazepam CYP3A4, UGT, unknown",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "primidone": [
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Primidone CYP2C9, CYP2C19, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Primidone CYP2C9, CYP2C19, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2e1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Primidone CYP2C9, CYP2C19, CYP2E1",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "promethazine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Promethazine CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "quetiapine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Quetiapine CYP3A4, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Quetiapine CYP3A4, CYP2D6, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "ramelteon": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Ramelteon CYP1A2, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Ramelteon CYP1A2, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Ramelteon CYP1A2, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "rasagiline": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rasagiline CYP1A2",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "reboxetine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Reboxetine CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "risperidone": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Risperidone CYP2D6, CYP3A4, P-gp (ABCB1), BCRP (ABCG2)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Risperidone CYP2D6, CYP3A4, P-gp (ABCB1), BCRP (ABCG2)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "ropinirole": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Ropinirole CYP1A2",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "rotigotine": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rotigotine CYP2C19, CYP1A1, CYP1A2, CYP2D6, CYP3A4, SULT1A1, SULT1A2, SULT1A3, SULT1B1, SULT1C4, SULT1E1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rotigotine CYP2C19, CYP1A1, CYP1A2, CYP2D6, CYP3A4, SULT1A1, SULT1A2, SULT1A3, SULT1B1, SULT1C4, SULT1E1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rotigotine CYP2C19, CYP1A1, CYP1A2, CYP2D6, CYP3A4, SULT1A1, SULT1A2, SULT1A3, SULT1B1, SULT1C4, SULT1E1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rotigotine CYP2C19, CYP1A1, CYP1A2, CYP2D6, CYP3A4, SULT1A1, SULT1A2, SULT1A3, SULT1B1, SULT1C4, SULT1E1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rotigotine CYP2C19, CYP1A1, CYP1A2, CYP2D6, CYP3A4, SULT1A1, SULT1A2, SULT1A3, SULT1B1, SULT1C4, SULT1E1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Rotigotine CYP2C19, CYP1A1, CYP1A2, CYP2D6, CYP3A4, SULT1A1, SULT1A2, SULT1A3, SULT1B1, SULT1C4, SULT1E1, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "safinamide": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Safinamid Renal clearance, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "selegiline": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Selegiline CYP2B6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "sertindole": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Sertindole CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 10,
+      "quote": "Sertindole CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "sertraline": [
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Sertraline CYP2B6, CYP2C19, CYP2C9, CYP2D6, CYP3A4, UGT1A1, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Sertraline CYP2B6, CYP2C19, CYP2C9, CYP2D6, CYP3A4, UGT1A1, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Sertraline CYP2B6, CYP2C19, CYP2C9, CYP2D6, CYP3A4, UGT1A1, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Sertraline CYP2B6, CYP2C19, CYP2C9, CYP2D6, CYP3A4, UGT1A1, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Sertraline CYP2B6, CYP2C19, CYP2C9, CYP2D6, CYP3A4, UGT1A1, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a1",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Sertraline CYP2B6, CYP2C19, CYP2C9, CYP2D6, CYP3A4, UGT1A1, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "solriamfetol": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Solriamfetol Renal clearance, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "suvorexant": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Suvorexant CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "tasimelteon": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tasimelteon CYP1A2, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tasimelteon CYP1A2, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "temazepam": [
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Temazepam CYP219, UGT2B7",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "thc": [
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tetrahydrocannabinol (THC) CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tetrahydrocannabinol (THC) CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tetrahydrocannabinol (THC) CYP2C9, CYP2C19, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "thioridazine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Thioridazine CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Thioridazine CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Thioridazine CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "tiagabine": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tiagabine CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "tolcapone": [
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tolcapone COMT, CYP2A6, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tolcapone COMT, CYP2A6, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Tolcapone COMT, CYP2A6, CYP3A4, UGT",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "topiramate": [
+   {
+    "enzyme": "ugt",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Topiramate UGT, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "trazodone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trazodone CYP3A4, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trazodone CYP3A4, CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "triazolam": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Triazolam CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "trifluoperazine": [
+   {
+    "enzyme": "ugt1a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trifluoperazine UGT1A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "trimipramine": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trimipramine CYP2C19, CYP2D6, CYP2C9, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trimipramine CYP2C19, CYP2D6, CYP2C9, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trimipramine CYP2C19, CYP2D6, CYP2C9, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trimipramine CYP2C19, CYP2D6, CYP2C9, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b10",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Trimipramine CYP2C19, CYP2D6, CYP2C9, CYP3A4, UGT2B10",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "valproate": [
+   {
+    "enzyme": "ugt1a3",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Valproic acid UGT1A3, UGT1A6, UGT2B7, CYP2A6, CYP2B6, CYP2C9, CYP219, beta-oxidation",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt1a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Valproic acid UGT1A3, UGT1A6, UGT2B7, CYP2A6, CYP2B6, CYP2C9, CYP219, beta-oxidation",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "ugt2b7",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Valproic acid UGT1A3, UGT1A6, UGT2B7, CYP2A6, CYP2B6, CYP2C9, CYP219, beta-oxidation",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Valproic acid UGT1A3, UGT1A6, UGT2B7, CYP2A6, CYP2B6, CYP2C9, CYP219, beta-oxidation",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2b6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Valproic acid UGT1A3, UGT1A6, UGT2B7, CYP2A6, CYP2B6, CYP2C9, CYP219, beta-oxidation",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Valproic acid UGT1A3, UGT1A6, UGT2B7, CYP2A6, CYP2B6, CYP2C9, CYP219, beta-oxidation",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "venlafaxine": [
+   {
+    "enzyme": "cyp2c19",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Venlafaxine CYP2C19, CYP2D6, CYP2C9, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Venlafaxine CYP2C19, CYP2D6, CYP2C9, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Venlafaxine CYP2C19, CYP2D6, CYP2C9, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Venlafaxine CYP2C19, CYP2D6, CYP2C9, CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "vilazodone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Vilazodone CYP3A4, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "vortioxetine": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Vortioxetine CYP2D6, CYP3A4, CYP2A6, CYP2C9, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Vortioxetine CYP2D6, CYP3A4, CYP2A6, CYP2C9, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2a6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Vortioxetine CYP2D6, CYP3A4, CYP2A6, CYP2C9, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Vortioxetine CYP2D6, CYP3A4, CYP2A6, CYP2C9, P-gp (ABCB1)",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "xanomeline": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Xanomeline and trospium chloride CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zaleplon": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zaleplone Aldehyde oxidase, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "ziprasidone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Ziprasidone CYP3A4, aldehyde oxidase",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zolpidem": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zolpidem CYP1A2, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2c9",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zolpidem CYP1A2, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zolpidem CYP1A2, CYP2C9, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zonisamide": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zonisamide CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zopiclone": [
+   {
+    "enzyme": "cyp2c8",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zopiclone CYP2C8, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zopiclone CYP2C8, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zotepine": [
+   {
+    "enzyme": "cyp1a2",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zotepine CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zotepine CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   },
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zotepine CYP1A2, CYP2D6, CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zuclopenthixol": [
+   {
+    "enzyme": "cyp2d6",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zuclopenthixol CYP2D6",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ],
+  "zuranolone": [
+   {
+    "enzyme": "cyp3a4",
+    "role": "substrate",
+    "sources": [
+     {
+      "corpus": "agnp_tdm",
+      "page": 11,
+      "quote": "Zuranolone CYP3A4",
+      "provenance": "verified",
+      "extraction": "code"
+     }
+    ]
+   }
+  ]
+ },
+ "table1_named": {
+  "acamprosate": [],
+  "agomelatine": [
+   "cyp1a2",
+   "cyp2c19"
+  ],
+  "alprazolam": [
+   "cyp3a4"
+  ],
+  "amantadine": [],
+  "amisulpride": [],
+  "amitriptyline": [
+   "cyp1a2",
+   "cyp2c9",
+   "cyp2c19",
+   "cyp2d6",
+   "cyp3a4",
+   "ugt1a3",
+   "ugt1a4",
+   "ugt2b10"
+  ],
+  "amphetamine_d": [],
+  "amphetamine_dl": [
+   "cyp2d6"
+  ],
+  "aripiprazole": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "asenapine": [
+   "cyp1a2",
+   "ugt1a4"
+  ],
+  "atomoxetine": [
+   "cyp2c19",
+   "cyp2d6"
+  ],
+  "benperidol": [],
+  "benserazide": [],
+  "biperiden": [],
+  "brexanolone": [
+   "ugt"
+  ],
+  "brexpiprazole": [
+   "cyp3a4",
+   "cyp2d6"
+  ],
+  "brivaracetam": [],
+  "bromazepam": [
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "bromocriptine": [
+   "cyp3a4"
+  ],
+  "bromperidol": [
+   "cyp3a4"
+  ],
+  "brotizolam": [
+   "cyp3a4"
+  ],
+  "buprenorphine": [
+   "cyp2c8",
+   "cyp3a4",
+   "ugt1a3",
+   "ugt2b7"
+  ],
+  "bupropion": [
+   "cyp2c19",
+   "cyp2b6"
+  ],
+  "buspirone": [
+   "cyp3a4"
+  ],
+  "cabergoline": [
+   "cyp3a4"
+  ],
+  "caffeine": [
+   "cyp1a2",
+   "cyp2a6"
+  ],
+  "cannabidiol": [
+   "cyp3a4",
+   "cyp2c19",
+   "cyp2c9"
+  ],
+  "carbamazepine": [
+   "cyp1a2",
+   "cyp2c8",
+   "cyp3a4",
+   "ugt2b7"
+  ],
+  "carbidopa": [],
+  "cariprazine": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "chloral_hydrate": [
+   "ugt"
+  ],
+  "chlordiazepoxide": [
+   "cyp3a4",
+   "ugt"
+  ],
+  "chlorpromazine": [
+   "cyp1a2",
+   "cyp2d6"
+  ],
+  "chlorprothixene": [],
+  "citalopram": [
+   "cyp2c19",
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "clobazam": [
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "clomethiazole": [
+   "cyp2a6",
+   "cyp3a4"
+  ],
+  "clomipramine": [
+   "cyp1a2",
+   "cyp2c19",
+   "cyp2d6",
+   "cyp3a4",
+   "ugt2b10"
+  ],
+  "clonazepam": [
+   "cyp3a4"
+  ],
+  "clorazepate": [
+   "cyp3a4",
+   "ugt"
+  ],
+  "clozapine": [
+   "cyp1a2",
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "cocaine": [
+   "cyp3a4"
+  ],
+  "codeine": [
+   "cyp2d6",
+   "cyp3a4",
+   "ugt2b4",
+   "ugt2b7"
+  ],
+  "cyamemazine": [
+   "cyp1a2",
+   "cyp2c8",
+   "cyp2c9",
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "daridorexant": [
+   "cyp3a4"
+  ],
+  "desipramine": [
+   "cyp2d6"
+  ],
+  "desvenlafaxine": [
+   "ugt",
+   "cyp3a4"
+  ],
+  "diazepam": [
+   "cyp2b6",
+   "cyp2c19",
+   "cyp3a4",
+   "ugt2b7"
+  ],
+  "diphenhydramine": [
+   "cyp2d6",
+   "ugt1a4",
+   "ugt2b10"
+  ],
+  "disulfiram": [
+   "cyp1a2",
+   "cyp2a6",
+   "cyp2b6",
+   "cyp2e1",
+   "cyp3a4"
+  ],
+  "donepezil": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "dothiepin": [
+   "cyp2c19",
+   "cyp2d6"
+  ],
+  "doxepin": [
+   "cyp2c9",
+   "cyp2c19",
+   "cyp2d6"
+  ],
+  "doxylamine": [],
+  "duloxetine": [
+   "cyp1a2",
+   "cyp2d6"
+  ],
+  "entacapone": [
+   "ugt1a9"
+  ],
+  "escitalopram": [
+   "cyp2c19",
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "esketamine": [
+   "cyp2b6",
+   "cyp2c9",
+   "cyp3a4"
+  ],
+  "estazolam": [
+   "cyp3a4"
+  ],
+  "eszopiclone": [
+   "cyp2e1",
+   "cyp3a4"
+  ],
+  "ethanol": [
+   "cyp2e1"
+  ],
+  "ethosuximide": [
+   "cyp2e1",
+   "cyp3a4"
+  ],
+  "fenfluramine": [
+   "cyp1a2",
+   "cyp2b6",
+   "cyp2d6"
+  ],
+  "flunarizine": [
+   "cyp2d6"
+  ],
+  "flunitrazepam": [
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "fluoxetine": [
+   "cyp2b6",
+   "cyp2c9",
+   "cyp2c19",
+   "cyp2d6"
+  ],
+  "flupenthixol": [
+   "cyp2d6"
+  ],
+  "fluphenazine": [
+   "cyp2d6"
+  ],
+  "flurazepam": [
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "fluspirilene": [
+   "cyp3a4"
+  ],
+  "fluvoxamine": [
+   "cyp2d6",
+   "cyp1a2"
+  ],
+  "gabapentin": [],
+  "galantamine": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "guanfacine": [
+   "cyp3a4",
+   "ugt"
+  ],
+  "haloperidol": [
+   "cyp2d6",
+   "cyp3a4",
+   "ugt"
+  ],
+  "heroin": [
+   "ugt"
+  ],
+  "hydroxyzine": [
+   "cyp3a4"
+  ],
+  "iloperidone": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "imipramine": [
+   "cyp1a2",
+   "cyp2c19",
+   "cyp2d6",
+   "cyp3a4",
+   "ugt1a4",
+   "ugt2b10"
+  ],
+  "ketamine": [
+   "cyp2b6",
+   "cyp2c9",
+   "cyp3a4"
+  ],
+  "lacosamide": [
+   "cyp2c19"
+  ],
+  "lamotrigine": [
+   "ugt1a4",
+   "ugt3b7"
+  ],
+  "lemborexant": [
+   "cyp3a4"
+  ],
+  "levetiracetam": [],
+  "levodopa": [],
+  "levomepromazine": [],
+  "levomilnacipran": [
+   "cyp3a4"
+  ],
+  "lisdexamfetamine": [
+   "cyp2d6"
+  ],
+  "lithium": [],
+  "lorazepam": [
+   "ugt2b15"
+  ],
+  "loxapine": [
+   "cyp3a4",
+   "cyp2d6",
+   "cyp1a2",
+   "cyp2c8",
+   "cyp2c19"
+  ],
+  "lumateperone": [
+   "cyp1a2",
+   "cyp2c8",
+   "cyp3a4",
+   "ugt"
+  ],
+  "lurasidone": [
+   "cyp3a4"
+  ],
+  "maprotiline": [
+   "cyp2d6",
+   "cyp1a2"
+  ],
+  "mdma": [
+   "cyp1a2",
+   "cyp3a4",
+   "cyp2c19",
+   "cyp2d6"
+  ],
+  "melatonin": [
+   "cyp1a2"
+  ],
+  "melperone": [],
+  "memantine": [],
+  "methadone": [
+   "cyp2b6",
+   "cyp3a4",
+   "cyp2d6"
+  ],
+  "methylphenidate_dl": [],
+  "mianserin": [
+   "cyp2d6",
+   "cyp1a2",
+   "cyp3a4"
+  ],
+  "midazolam": [
+   "cyp3a4",
+   "ugt1a4"
+  ],
+  "milnacipran": [],
+  "mirtazapine": [
+   "cyp3a4",
+   "cyp1a2",
+   "cyp2d6"
+  ],
+  "moclobemide": [
+   "cyp2c19",
+   "cyp2d6"
+  ],
+  "modafinil": [
+   "cyp3a4"
+  ],
+  "morphine": [
+   "cyp2c8",
+   "cyp3a4",
+   "ugt2b7"
+  ],
+  "nabilone": [
+   "cyp2c9"
+  ],
+  "nalmefene": [
+   "ugt"
+  ],
+  "naloxone": [
+   "ugt2b7"
+  ],
+  "naltrexone": [],
+  "nicotine": [
+   "cyp2a6",
+   "ugt1a1",
+   "ugt1a2",
+   "ugt2b10"
+  ],
+  "nitrazepam": [
+   "cyp3a4"
+  ],
+  "nortriptyline": [
+   "cyp2d6"
+  ],
+  "olanzapine": [
+   "ugt1a4",
+   "ugt2b10",
+   "cyp1a2",
+   "cyp2d6"
+  ],
+  "opipramol": [
+   "cyp2d6"
+  ],
+  "oxazepam": [
+   "ugt1a9",
+   "ugt2b7",
+   "ugt2b15"
+  ],
+  "oxcarbazepine": [
+   "ugt2b15"
+  ],
+  "oxycodone": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "paliperidone": [
+   "cyp3a4",
+   "ugt"
+  ],
+  "paroxetine": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "perampanel": [
+   "cyp3a4",
+   "cyp2b6",
+   "ugt1a1",
+   "ugt1a4"
+  ],
+  "perazine": [
+   "cyp1a2",
+   "cyp2c9",
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "perphenazine": [
+   "cyp1a2",
+   "cyp2c19",
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "phenobarbital": [
+   "cyp2c19",
+   "ugt1a4",
+   "cyp2c9",
+   "cyp2e1"
+  ],
+  "phenytoin": [
+   "cyp2c9",
+   "cyp2c19",
+   "ugt2b15"
+  ],
+  "pimavanserin": [
+   "cyp3a4"
+  ],
+  "pimozide": [
+   "cyp1a2",
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "pipamperone": [],
+  "pitolisant": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "pramipexole": [],
+  "prazepam": [
+   "cyp3a4",
+   "ugt"
+  ],
+  "pregabalin": [],
+  "primidone": [
+   "cyp2c9",
+   "cyp2c19",
+   "cyp2e1"
+  ],
+  "promethazine": [
+   "cyp2d6"
+  ],
+  "quazepam": [],
+  "quetiapine": [
+   "cyp3a4",
+   "cyp2d6"
+  ],
+  "ramelteon": [
+   "cyp1a2",
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "rasagiline": [
+   "cyp1a2"
+  ],
+  "reboxetine": [
+   "cyp3a4"
+  ],
+  "risperidone": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "rivastigmine": [],
+  "ropinirole": [
+   "cyp1a2"
+  ],
+  "rotigotine": [
+   "cyp2c19",
+   "cyp1a1",
+   "cyp1a2",
+   "cyp2d6",
+   "cyp3a4",
+   "ugt"
+  ],
+  "safinamide": [
+   "ugt"
+  ],
+  "selegiline": [
+   "cyp2b6"
+  ],
+  "sertindole": [
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "sertraline": [
+   "cyp2b6",
+   "cyp2c19",
+   "cyp2c9",
+   "cyp2d6",
+   "cyp3a4",
+   "ugt1a1"
+  ],
+  "sodium_oxybate": [],
+  "solriamfetol": [
+   "cyp3a4"
+  ],
+  "sulpiride": [],
+  "suvorexant": [
+   "cyp3a4"
+  ],
+  "tasimelteon": [
+   "cyp1a2",
+   "cyp3a4"
+  ],
+  "temazepam": [
+   "ugt2b7"
+  ],
+  "thc": [
+   "cyp2c9",
+   "cyp2c19",
+   "cyp3a4"
+  ],
+  "thioridazine": [
+   "cyp1a2",
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "tiagabine": [
+   "cyp3a4"
+  ],
+  "tianeptine": [],
+  "tiapride": [],
+  "tolcapone": [
+   "cyp2a6",
+   "cyp3a4",
+   "ugt"
+  ],
+  "topiramate": [
+   "ugt"
+  ],
+  "tranylcypromine": [],
+  "trazodone": [
+   "cyp3a4",
+   "cyp2d6"
+  ],
+  "triazolam": [
+   "cyp3a4"
+  ],
+  "trifluoperazine": [
+   "ugt1a4"
+  ],
+  "trimipramine": [
+   "cyp2c19",
+   "cyp2d6",
+   "cyp2c9",
+   "cyp3a4",
+   "ugt2b10"
+  ],
+  "valproate": [
+   "ugt1a3",
+   "ugt1a6",
+   "ugt2b7",
+   "cyp2a6",
+   "cyp2b6",
+   "cyp2c9"
+  ],
+  "venlafaxine": [
+   "cyp2c19",
+   "cyp2d6",
+   "cyp2c9",
+   "cyp3a4"
+  ],
+  "vigabatrin": [],
+  "vilazodone": [
+   "cyp3a4"
+  ],
+  "vortioxetine": [
+   "cyp2d6",
+   "cyp3a4",
+   "cyp2a6",
+   "cyp2c9"
+  ],
+  "xanomeline": [
+   "cyp2d6"
+  ],
+  "zaleplon": [
+   "cyp3a4"
+  ],
+  "ziprasidone": [
+   "cyp3a4"
+  ],
+  "zolpidem": [
+   "cyp1a2",
+   "cyp2c9",
+   "cyp3a4"
+  ],
+  "zonisamide": [
+   "cyp3a4"
+  ],
+  "zopiclone": [
+   "cyp2c8",
+   "cyp3a4"
+  ],
+  "zotepine": [
+   "cyp1a2",
+   "cyp2d6",
+   "cyp3a4"
+  ],
+  "zuclopenthixol": [
+   "cyp2d6"
+  ],
+  "zuranolone": [
+   "cyp3a4"
+  ]
+ },
+ "skipped": [
+  {
+   "drug": "lisdexamfetamine",
+   "page": 21,
+   "why": "range",
+   "cell": "30–59 ng/mL for d l-amphetamine"
+  },
+  {
+   "drug": "desipramine",
+   "page": 28,
+   "why": "range",
+   "cell": "60–350 ng/mL 10–60 ng/mL"
+  },
+  {
+   "drug": "disulfiram",
+   "page": 29,
+   "why": "range",
+   "cell": "50–400 ng/mL (disulfiram) 270–310 ng/ mL (DDTC-Me)"
+  },
+  {
+   "drug": "doxylamine",
+   "page": 29,
+   "why": "range",
+   "cell": "50–150 ng/mL 30–80 ng/mL"
+  },
+  {
+   "drug": "guanfacine",
+   "page": 32,
+   "why": "range",
+   "cell": "3–17 ng/mL for children 6–12 y"
+  },
+  {
+   "drug": "imipramine",
+   "page": 33,
+   "why": "range",
+   "cell": "175–300 ng/ mL 100–300 ng/ mL (imipramine plus desipr amine)"
+  },
+  {
+   "drug": "methylphenidate_dl",
+   "page": 38,
+   "why": "range",
+   "cell": "3.8–7.7 ng/mL 6.6–13 ng/mL after a daily dose of 1.0 mg/kg body weight"
+  },
+  {
+   "drug": "modafinil",
+   "page": 39,
+   "why": "range",
+   "cell": "1,000–1,700 ng/mL after 200 mg/d"
+  },
+  {
+   "drug": "phenelzine",
+   "page": 43,
+   "why": "range",
+   "cell": "Not established"
+  },
+  {
+   "drug": "pipamperone",
+   "page": 44,
+   "why": "range",
+   "cell": "≈ 50 ng/mL (acute dose of 40 mg)"
+  },
+  {
+   "drug": "pregabalin",
+   "page": 45,
+   "why": "range",
+   "cell": "1.5–8 µg/ml 1.4–2.1 µg/ml"
+  },
+  {
+   "drug": "prothipendyl",
+   "page": 45,
+   "why": "range",
+   "cell": "10–40 ng/mL (after 40–80 mg), 40–100 ng/mL (after 240–320 mg)"
+  },
+  {
+   "drug": "ramelteon",
+   "page": 46,
+   "why": "range",
+   "cell": "5–15 ng/mL (ramelteon) 100–150 ng/ mL (M-II-metabolite)"
+  },
+  {
+   "drug": "rivastigmine",
+   "page": 46,
+   "why": "range",
+   "cell": "2–21 ng/mL (oral) 1–12 ng/mL (transdermal)"
+  },
+  {
+   "drug": "solriamfetol",
+   "page": 47,
+   "why": "range",
+   "cell": "Not established"
+  },
+  {
+   "drug": "thioridazine",
+   "page": 48,
+   "why": "range",
+   "cell": "N/A"
+  }
+ ]
+}

@@ -88,6 +88,7 @@ CORPUS_DESC = {
     "cpic":            ("Pharmacogenomic prescribing guidelines", "What a clearance speed implies for a drug"),
     "europepmc":       ("Primary literature (Europe PMC abstracts)", "Claims only a study measures (e.g. brain half-life)"),
     "drugsfda":        ("US regulator register (Drugs@FDA)", "First US approval, where no other source dates one"),
+    "agnp_tdm":        ("Consensus guideline (AGNP TDM, 2026)", "Therapeutic range, alert level, CYP substrate cross-check"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
@@ -103,6 +104,8 @@ KIND_LABELS = {
     "drug_first_approval": "Drug first approval",
     "drug_withdrawals": "Drug market withdrawals",
     "drug_prodrug": "Drug prodrug flags",
+    "drug_therapeutic_range": "Drug therapeutic reference ranges",
+    "drug_alert_level": "Drug laboratory alert levels",
     "drug_enzymes": "Drug metabolising enzymes",
     "drug_enzyme_strength": "Drug metabolism strength tier",
     "drug_metabolites": "Drug active metabolites",
