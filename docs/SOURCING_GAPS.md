@@ -530,6 +530,126 @@ The regulatory-history pass (`fetch_drug_history.py` -> index picks -> `apply_dr
 
 Withdrawals skipped on purpose: a brand or formulation discontinued (thioridazine's branded product, Palladone, the pipotiazine depot), a scheduling ban (phenazepam, tianeptine in Italy), and a withdrawal sentence naming no country (bupropion 1986, indalpine 1985, tolcapone 1998).
 
+### 6d. `drug_enzymes` against the AGNP TDM guideline's Table 1 (cross-checked 2026-10-12)
+
+The AGNP consensus guideline (corpus #19, `tools/fetch/fetch_agnp_tdm.py`) lists per drug the CYP / UGT / FMO3 isoforms metabolising it in its Table 1 (PDF pages 7-11). It is read **confirm-only**: where it names a substrate isoform one of our corpora (Stahl, Wikipedia, CPIC) already states, its row is added as a second quote on that `drug_enzymes` node (184 rows); it never adds an isoform or changes a value. Restricted to the isoform families Table 1 can name (CYP, UGT, FMO3), over the 152 roster drugs where at least one side names one: **44 identical sets, 184 isoforms in agreement, 70 only in our data, 145 only in Table 1** (36 drugs have no substrate row of ours at all; 28 more are named in Table 1 with no isoform on either side).
+
+None of these is a `contradicted` flag: every difference is one side naming an isoform the other is silent on, and silence is not a denial (a table row lists the main routes, not every one). A generic `UGT` row of ours against Table 1's named UGT isoforms (or the reverse) is the same claim at two granularities, not a disagreement.
+
+**How to tackle.** The "only AGNP" column is the yield: each is a code-read, verbatim-quoted claim from a 2026 consensus guideline, so a later pass could let Table 1 *add* rows, ranked after Stahl like Wikipedia is. The "only ours" column is where Table 1 is silent, worth a look only where our row is a weak Wikipedia mention.
+
+| Drug | Agree | Only ours | Only AGNP Table 1 |
+|---|---|---|---|
+| agomelatine | CYP1A2, CYP2C19 | CYP2C9 | - |
+| amitriptyline | CYP1A2, CYP2C19, CYP2D6, CYP3A4 | - | CYP2C9, UGT1A3, UGT1A4, UGT2B10 |
+| amphetamine_d | - | CYP2D6, FMO3 | - |
+| amphetamine_dl | CYP2D6 | FMO3 | - |
+| atomoxetine | CYP2C19, CYP2D6 | UGT | - |
+| brivaracetam | - | CYP2C19 | - |
+| bromazepam | - | - | CYP2C19, CYP3A4 |
+| bromocriptine | - | - | CYP3A4 |
+| bromperidol | - | - | CYP3A4 |
+| brotizolam | - | - | CYP3A4 |
+| buprenorphine | CYP2C8, CYP3A4, UGT2B7 | - | UGT1A3 |
+| cabergoline | - | - | CYP3A4 |
+| caffeine | CYP1A2 | CYP2C8, CYP2C9, CYP2E1, CYP3A4 | CYP2A6 |
+| cannabidiol | - | - | CYP2C19, CYP2C9, CYP3A4 |
+| carbamazepine | CYP3A4 | - | CYP1A2, CYP2C8, UGT2B7 |
+| chloral_hydrate | - | - | UGT |
+| chlordiazepoxide | - | - | CYP3A4, UGT |
+| clobazam | CYP2C19, CYP3A4 | CYP2B6 | - |
+| clomethiazole | - | - | CYP2A6, CYP3A4 |
+| clomipramine | CYP1A2, CYP2C19, CYP2D6 | - | CYP3A4, UGT2B10 |
+| clorazepate | - | - | CYP3A4, UGT |
+| clozapine | CYP1A2, CYP3A4 | CYP2D6 | CYP2C19 |
+| codeine | CYP2D6, CYP3A4, UGT2B7 | - | UGT2B4 |
+| cyamemazine | - | - | CYP1A2, CYP2C19, CYP2C8, CYP2C9, CYP3A4 |
+| desipramine | CYP2D6 | CYP1A2 | - |
+| desvenlafaxine | CYP3A4 | CYP2C19 | UGT |
+| diazepam | CYP2B6, CYP2C19, CYP3A4 | CYP2C9 | UGT2B7 |
+| diphenhydramine | CYP2D6 | CYP1A2, CYP2C19, CYP2C9 | UGT1A4, UGT2B10 |
+| disulfiram | - | - | CYP1A2, CYP2A6, CYP2B6, CYP2E1, CYP3A4 |
+| donepezil | CYP2D6, CYP3A4 | UGT | - |
+| dothiepin | CYP2D6 | UGT | CYP2C19 |
+| doxepin | CYP2C19, CYP2C9, CYP2D6 | CYP1A2, CYP3A4 | - |
+| doxylamine | - | CYP1A2, CYP2C9, CYP2D6 | - |
+| entacapone | - | - | UGT1A9 |
+| esketamine | CYP2B6, CYP2C9, CYP3A4 | CYP2C19 | - |
+| estazolam | - | - | CYP3A4 |
+| fenfluramine | - | - | CYP1A2, CYP2B6, CYP2D6 |
+| flunitrazepam | CYP3A4 | - | CYP2C19 |
+| fluoxetine | CYP2D6 | - | CYP2B6, CYP2C19, CYP2C9 |
+| flupenthixol | - | - | CYP2D6 |
+| fluphenazine | - | - | CYP2D6 |
+| flurazepam | - | - | CYP2C19, CYP3A4 |
+| fluspirilene | - | - | CYP3A4 |
+| fluvoxamine | CYP1A2, CYP2D6 | CYP2C19, CYP3A4 | - |
+| guanfacine | CYP3A4 | CYP3A5 | UGT |
+| haloperidol | CYP3A4 | - | CYP2D6, UGT |
+| heroin | - | - | UGT |
+| hydroxyzine | CYP3A4 | CYP3A5 | - |
+| imipramine | CYP1A2, CYP2C19, CYP2D6 | - | CYP3A4, UGT1A4, UGT2B10 |
+| lacosamide | - | CYP2C9, CYP3A4 | CYP2C19 |
+| lamotrigine | UGT1A4 | - | UGT3B7 |
+| lemborexant | CYP3A4 | CYP3A5 | - |
+| lisdexamfetamine | - | - | CYP2D6 |
+| lorazepam | - | UGT | UGT2B15 |
+| loxapine | CYP1A2, CYP2D6, CYP3A4 | - | CYP2C19, CYP2C8 |
+| lumateperone | CYP1A2, CYP3A4, UGT | - | CYP2C8 |
+| maprotiline | CYP2D6 | - | CYP1A2 |
+| mdma | CYP2D6, CYP3A4 | - | CYP1A2, CYP2C19 |
+| melatonin | CYP1A2 | CYP2C19 | - |
+| mianserin | CYP2D6 | - | CYP1A2, CYP3A4 |
+| midazolam | CYP3A4 | CYP3A5 | UGT1A4 |
+| modafinil | CYP3A4 | CYP1A2, CYP2B6, CYP2C19, CYP2C9, CYP3A5 | - |
+| morphine | UGT2B7 | - | CYP2C8, CYP3A4 |
+| nabilone | - | - | CYP2C9 |
+| nalmefene | - | - | UGT |
+| naloxone | - | - | UGT2B7 |
+| nicotine | CYP2A6 | CYP2B6, FMO3 | UGT1A1, UGT1A2, UGT2B10 |
+| nortriptyline | CYP2D6 | CYP3A4 | - |
+| olanzapine | CYP1A2, CYP2D6 | UGT | UGT1A4, UGT2B10 |
+| oxazepam | - | UGT | UGT1A9, UGT2B15, UGT2B7 |
+| oxcarbazepine | - | - | UGT2B15 |
+| paliperidone | - | - | CYP3A4, UGT |
+| paroxetine | CYP2D6 | - | CYP3A4 |
+| perampanel | CYP3A4 | CYP3A5 | CYP2B6, UGT1A1, UGT1A4 |
+| perazine | - | - | CYP1A2, CYP2C19, CYP2C9, CYP3A4 |
+| perphenazine | - | - | CYP1A2, CYP2C19, CYP2D6, CYP3A4 |
+| phenobarbital | CYP2C19 | - | CYP2C9, CYP2E1, UGT1A4 |
+| phenytoin | CYP2C9 | - | CYP2C19, UGT2B15 |
+| pimavanserin | CYP3A4 | CYP3A5 | - |
+| prazepam | - | - | CYP3A4, UGT |
+| primidone | - | - | CYP2C19, CYP2C9, CYP2E1 |
+| promethazine | - | UGT | CYP2D6 |
+| quazepam | - | CYP3A4 | - |
+| quetiapine | CYP3A4 | - | CYP2D6 |
+| ramelteon | CYP1A2, CYP3A4 | - | CYP2C19 |
+| risperidone | CYP2D6 | - | CYP3A4 |
+| rotigotine | - | - | CYP1A1, CYP1A2, CYP2C19, CYP2D6, CYP3A4, UGT |
+| safinamide | UGT | CYP3A4 | - |
+| selegiline | CYP2B6 | CYP2A6, CYP2C19 | - |
+| sertraline | CYP2B6, CYP2C19, CYP2D6 | - | CYP2C9, CYP3A4, UGT1A1 |
+| solriamfetol | - | - | CYP3A4 |
+| suvorexant | CYP3A4 | CYP2C19 | - |
+| temazepam | - | - | UGT2B7 |
+| thioridazine | CYP2D6 | - | CYP1A2, CYP3A4 |
+| tiagabine | CYP3A4 | UGT | - |
+| topiramate | - | - | UGT |
+| trazodone | CYP2D6, CYP3A4 | CYP1A2 | - |
+| triazolam | - | - | CYP3A4 |
+| trifluoperazine | - | - | UGT1A4 |
+| trimipramine | CYP2C19, CYP2C9, CYP2D6 | - | CYP3A4, UGT2B10 |
+| valproate | CYP2A6, CYP2B6, CYP2C9, UGT2B7 | CYP2C19, CYP3A5, UGT1A4, UGT1A9, UGT2B15 | UGT1A3, UGT1A6 |
+| venlafaxine | CYP2D6 | - | CYP2C19, CYP2C9, CYP3A4 |
+| vortioxetine | CYP2A6, CYP2C9, CYP2D6, CYP3A4 | CYP2B6, CYP2C19, CYP2C8, CYP3A5 | - |
+| zolpidem | CYP1A2, CYP2C9, CYP3A4 | CYP2C19, CYP2D6 | - |
+| zonisamide | CYP3A4 | CYP3A5 | - |
+| zopiclone | CYP3A4 | CYP2E1 | CYP2C8 |
+| zotepine | CYP1A2, CYP3A4 | - | CYP2D6 |
+| zuclopenthixol | CYP2D6 | CYP3A4 | - |
+
+
 ### 7. Kinds now closed
 
 Kept as a record of which lever worked, so a later session does not re-derive it:

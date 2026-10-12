@@ -106,6 +106,14 @@ fixed Stahl list.
   its page) and is the sole writer, then `recheck_quotes.py` stamps the judge. The drugbox is
   deliberately not read: it has no Tmax row, and its `Onset of action` row is clinical onset on 60 of
   its 76 rows.
+- **Therapeutic drug monitoring (AGNP guideline, corpus #19).** A drug carries an optional `therapeutic_range`
+  (`{low, high, unit, analyte?, tdm_level?}`, kind `drug_therapeutic_range`) and `alert_level` (`{value, unit,
+  analyte?}`, kind `drug_alert_level`), each with its own `*_sources`, emitted by `tools/data_generators/tdm.py` from
+  the committed `tools/generated_cache/agnp_tdm.json` (`tools/fetch/fetch_agnp_tdm.py`, code-read Table 5 rows, no
+  judge). Shown as chips closing the Pharmacokinetics block (`js/tdm.js`, numbers in the reading language's
+  format); the TDM recommendation level rides in the range chip's tooltip. `analyte` names what is measured when it
+  is not the drug alone (amitriptyline + nortriptyline). The same cache's Table 1 rows add a confirming quote to
+  existing substrate `enzymes[]` rows (`tdm.confirm_enzymes`, called last in `_load_drug_enzymes`), never a new row.
 - **Regulatory history (first approval + withdrawals, Wikipedia EN then FR).** A drug carries an optional
   `first_approval` (`{year, country?, agency?, national?}`, kind `drug_first_approval`, source `first_approval_sources`)
   and an optional `withdrawals[]` (`{year, country, reason, sources}`, kind `drug_withdrawals`, one node

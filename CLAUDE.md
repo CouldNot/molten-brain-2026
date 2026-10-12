@@ -70,6 +70,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
 - drug `prodrug` -> `drug_prodrug` (inactive until metabolised: no own bindings, the viewer borrows its metabolite's tagged `viaMetabolite`)
 - drug `nbn` -> `drug_nbn`; `brands[]` -> `drug_brands`; `categories` -> `drug_categories`; `half_life` / `tmax` -> `drug_half_life` / `drug_tmax`; `first_approval` -> `drug_first_approval`; `withdrawals[]` -> `drug_withdrawals` (one node per withdrawal; none when never withdrawn)
+- TDM (AGNP #19): `therapeutic_range` (+ `tdm_level`) -> `drug_therapeutic_range`; `alert_level` -> `drug_alert_level`
 - metabolism: `enzymes[]` -> `drug_enzymes` (per (enzyme, role)); `claims.strength` -> `drug_enzyme_strength`; enzyme `variability` -> `enzyme_variability` (ONE node per isoform, not per population group)
 - pharmacogenomics: `pgx[].rows[]` -> `drug_pgx` (ONE node per (drug, gene, phenotype), carrying TWO citations: CPIC's implication then its recommendation)
 - metabolites: `metabolites[]` -> `drug_metabolites`; `formed_by[]` -> `drug_metabolite_enzyme`; `bindings[]` -> `drug_metabolite_bindings`
@@ -90,7 +91,7 @@ Full detail (principles, data flow, module graph, boot sequence, per-file map): 
 - Any UI change must be checked against `js/tour.js` by running the tour end to end (headless, step by step): its steps (in `js/main.js`) anchor on selectors and `data-tour-*` hooks and break silently.
 - Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.
 
-Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `drug-history.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
+Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `drug-history.js`, `tdm.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
 
 ## Running
 
@@ -235,6 +236,7 @@ Corpora (`SOURCE_CORPORA`):
 - #15 `cpic`: what a metabolizer phenotype implies for one prescription (implication + recommendation + strength), `page` = guideline ClinPGx id.
 - #16 `bdpm`: French RCP section 5.2 Tmax/half-life + fr brands (code read of the denomination), `page` = product CIS.
 - #17 `europepmc`: hand-listed paper abstracts (`fetch_europepmc.PAPERS`, each with the claim it was added for) for what only a study measures, `page` = PMID.
+- #19 `agnp_tdm`: AGNP TDM consensus guideline 2026 (Table 5 therapeutic range + alert level, Table 1 confirm-only CYP substrates), code-read table rows, `page` = PDF page.
 - #18 `drugsfda`: Drugs@FDA (openFDA export), the fallback first **US** approval (`national: true`, code-read, no judge) where no other source dates one, `page` = NDA number.
 
 Full detail (sourcing model, citation sites, book heading trails, the four uncertainty flags, per-corpus mechanics, the "% sourced" maths): [`docs/PROVENANCE.md`](docs/PROVENANCE.md).

@@ -478,6 +478,7 @@ Screenshots).
   stamp, so run `recheck_quotes.py build --kinds drug_first_approval,drug_withdrawals` after it.
 - `tools/fetch/fetch_drugsfda.py` — stdlib, network once (`download.open.fda.gov`; `--refresh` re-downloads). Corpus #18: reads openFDA's bulk Drugs@FDA export and picks, per drug, the earliest original approval among the NDAs whose single active ingredient is that drug (salt words dropped, `FDA_NAMES` for US names, stereo-aware), only when that NDA is classed a new molecular entity and no matching NDA is undated. Writes `data_sources/drugsfda/pages/<appl>.md` and `generated_cache/drugsfda_approvals.json`. No judge (code extraction).
 - `tools/sourcing/apply_drugsfda.py` — stdlib. Fallback writer of a first **US** approval (`national: true`) onto a drug with none (or its own earlier one), gated (year in the quote, quote verbatim on its page); replaces a Wikipedia approval only when the FDA date is strictly earlier (earliest dated approval wins, `history.earliest_wins`, which `apply_drug_history.py` honours too, so run order does not matter); no `recheck_quotes.py` needed.
+- `tools/fetch/fetch_agnp_tdm.py`: uv script (pymupdf), offline, author-side. Corpus #19: reads the AGNP TDM guideline's Table 5 (therapeutic range, alert level, TDM level) and Table 1 (substrate isoforms) by cell rectangle off `data_sources/books/agnp_tdm_2026/a-2860-7861.pdf`, gates each row quote on `pages/<n>.md`, writes `generated_cache/agnp_tdm.json` and the drug -> pages table of that book's `INDEX.md`. No judge (code extraction); `generate_data.py` reads the cache via `data_generators/tdm.py`.
 - `tools/fetch/fetch_prodrug_worklist.py` — stdlib, offline. Offers every prodrug / inactive sentence of
   each drug's stored EN Wikipedia article into `generated_cache/prodrug_worklist.json`, with no verdict
   (`--only` merges). See docs/DRUGS.md Drugs (Prodrugs).
@@ -664,6 +665,8 @@ there is no node-level catch-all `sources` block.
   optional `first_approval` (`{year, country?, agency?}`, kind `drug_first_approval`) +
   `first_approval_sources[]`, optional `withdrawals[]` (`{year, country, reason, sources[]}`, kind
   `drug_withdrawals`; ids from `data_generators/history.py`, written by `apply_drug_history.py`),
+  optional `therapeutic_range` + `alert_level` (+ their `*_sources[]`, kinds `drug_therapeutic_range` /
+  `drug_alert_level`, emitted from `generated_cache/agnp_tdm.json`, never authored),
   optional `prodrug: true` + `prodrug_sources[]` (kind `drug_prodrug`, written by `apply_prodrug.py`;
   a prodrug carries no `bindings`, its metabolite does),
   optional

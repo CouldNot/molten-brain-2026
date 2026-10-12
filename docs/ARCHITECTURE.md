@@ -74,6 +74,8 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug elimination half-life (T½) -> a drug's `half_life` (+ `half_life_sources`) -> `drug_half_life`
 - drug time-to-peak (Tmax) -> a drug's `tmax` (+ `tmax_sources`) -> `drug_tmax` (the other end of the same curve as the T½ above, separately sourced and separately missing, so a separate kind)
 - drug first approval -> a drug's `first_approval` (`{year, country?, agency?}`, + `first_approval_sources`) -> `drug_first_approval` (ONE node per drug: the earliest approval or introduction for medical use its source states)
+- drug therapeutic reference range -> a drug's `therapeutic_range` (`{low, high, unit, analyte?, tdm_level?}`, + `therapeutic_range_sources`) -> `drug_therapeutic_range` (ONE node per drug, AGNP Table 5)
+- drug laboratory alert level -> a drug's `alert_level` (`{value, unit, analyte?}`, + `alert_level_sources`) -> `drug_alert_level` (ONE node per drug, same table row as the range but a separate claim)
 - drug prodrug flag -> a drug's `prodrug: true` (+ `prodrug_sources`) -> `drug_prodrug` (ONE node per prodrug; the drug then carries no binding of its own, see Prodrugs in DRUGS.md)
 - drug market withdrawal -> a drug's `withdrawals[]` (`{year, country, reason, sources}`) -> `drug_withdrawals` (one node per withdrawal; a drug never withdrawn carries none, since absence is not a claim)
 - drug metabolism role -> a drug's `enzymes[]` (`{enzyme, role, strength?}`) -> `drug_enzymes` (one node per (enzyme, role) pair; pharmacokinetics, so it has no anatomy, see Drug metabolism in DRUGS.md)
