@@ -587,7 +587,8 @@ def _flag_contradicted(table: dict[tuple, dict[str, Any]],
                 f"it contradicts is gone (drop the entry) or a fetcher stopped emitting "
                 f"it (fix that first): a contradiction with nothing to contradict marks "
                 f"nothing.")
-        node["uncertainty"] = [_uncertainty_bullet(
+        # Appended, not assigned: a binding may already carry derived bullets.
+        node["uncertainty"] = [*(node.get("uncertainty") or []), _uncertainty_bullet(
             "contradicted", what=f"{label} {key}", node=node, source=source)]
 
 
@@ -619,6 +620,18 @@ def apply_enzyme_strength_uncertainty(drugs: list[dict[str, Any]]) -> None:
               for d in drugs for e in d.get("enzymes", []) or []}
     _flag_contradicted(ENZYME_STRENGTH_CONTRADICTIONS, claims,
                        "ENZYME_STRENGTH_CONTRADICTIONS")
+
+
+def apply_binding_contradictions(drugs: list[dict[str, Any]]) -> None:
+    """Flag every drug binding another corpus describes otherwise, in place.
+
+    Must run after :func:`apply_binding_uncertainty`, which assigns the derived bullets
+    this one is appended to.
+    """
+    from .contradictions import BINDING_CONTRADICTIONS
+
+    bindings = {(d["id"], b["target"]): b for d in drugs for b in d.get("bindings", []) or []}
+    _flag_contradicted(BINDING_CONTRADICTIONS, bindings, "BINDING_CONTRADICTIONS")
 
 
 def apply_receptor_uncertainty(receptors: list[dict[str, Any]]) -> None:

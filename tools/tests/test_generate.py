@@ -932,6 +932,41 @@ class SubClaimContradictionTest(unittest.TestCase):
                                                                  "enzymes": []}])
 
 
+class BindingContradictionTest(unittest.TestCase):
+    """The ``contradicted`` badge on a drug binding (``BINDING_CONTRADICTIONS``): it must
+    land on the named binding, be APPENDED to any derived bullet the binding already
+    carries (never replace it), and a stale key must raise."""
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        from data_generators.quotes import contradictions, uncertainty
+        cls.table = contradictions.BINDING_CONTRADICTIONS
+        cls.uncertainty = uncertainty
+        cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
+
+    def test_every_entry_lands_on_its_binding(self):
+        bindings = {(d["id"], b["target"]): b for d in self.drugs
+                    for b in d.get("bindings", []) or []}
+        self.assertIn(("etomidate", "gaba_a"), self.table)
+        for key in self.table:
+            kinds = [b["kind"] for b in bindings[key].get("uncertainty", [])]
+            self.assertIn("contradicted", kinds, f"{key} carries no badge")
+
+    def test_the_bullet_is_appended_not_assigned(self):
+        derived = {"kind": "family_claim"}
+        drug = {"id": "etomidate", "bindings": [{"target": "gaba_a", "sources": [],
+                                                 "uncertainty": [derived]}]}
+        self.uncertainty.apply_binding_contradictions([drug])
+        kinds = [b["kind"] for b in drug["bindings"][0]["uncertainty"]]
+        self.assertEqual(kinds, ["family_claim", "contradicted"])
+
+    def test_a_stale_binding_key_raises(self):
+        with self.assertRaises(KeyError):
+            self.uncertainty.apply_binding_contradictions([{"id": "etomidate",
+                                                            "bindings": []}])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
 

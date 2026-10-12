@@ -31,7 +31,7 @@ is worse than the silence it replaces. So each entry below was read in context a
 written by hand, and the ordinary quote gate (``check_data.py`` family 5) still confirms
 it verbatim on the cited page, exactly like the claim it doubts.
 
-Three tables, one per doubted node kind, each ``key -> denying source``:
+Four tables, one per doubted node kind, each ``key -> denying source``:
 
 * :data:`ENZYME_CONTRADICTIONS` ``(drug_id, enzyme, role)``: the metabolism row itself
   (the isoform touches the drug at all);
@@ -40,6 +40,8 @@ Three tables, one per doubted node kind, each ``key -> denying source``:
   how much of the clearing it does;
 * :data:`RECEPTOR_CONTRADICTIONS` ``(receptor_id, attribute)``: one of a receptor's
   four classification sub-claims (``classification[attr]``).
+* :data:`BINDING_CONTRADICTIONS` ``(drug_id, target)``: a drug binding, when another
+  corpus places the drug somewhere its sourced note does not (the binding site).
 
 ``generate_data.py`` raises if a key names no emitted node, so a re-run of a fetcher
 cannot silently strip the flag and leave the contradiction unmarked.
@@ -123,4 +125,17 @@ RECEPTOR_CONTRADICTIONS: dict[tuple[str, str], dict[str, Any]] = {
     ("mt1", "sign"): _book(
         "stahl_essential", 455,
         "MT1-mediated inhibition of neurons in the suprachiasmatic nucleus (SCN)"),
+}
+
+
+# A drug binding another corpus describes otherwise. The binding's own note and sources
+# stay as they are; the bullet quotes the other corpus underneath.
+BINDING_CONTRADICTIONS: dict[tuple[str, str], dict[str, Any]] = {
+    # The note (Wikipedia, verified) puts etomidate at the beta+/alpha- transmembrane
+    # site of beta2/beta3-containing GABA-A receptors; Stahl Essential p338 groups it with
+    # the general anesthetics binding at the neuroactive-steroid sites. Neither is edited.
+    ("etomidate", "gaba_a"): _book(
+        "stahl_essential", 338,
+        "Certain general anesthetics (e.g., propofol, etomidate, alphaxolone, alfadalone) "
+        "also bind at the same sites as neuroactive steroids"),
 }
