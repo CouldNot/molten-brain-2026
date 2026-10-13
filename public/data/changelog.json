@@ -1,6 +1,58 @@
 {
   "versions": [
     {
+      "version": "3.109.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Fifteen missing active metabolites now appear under their parent drug, each with its own sourced bindings where its article states them: desmetramadol (tramadol), norclozapine (clozapine), norfenfluramine (fenfluramine), mCPP (trazodone), dextrorphan (both dextromethorphan combinations), norbuprenorphine, oxymorphone (oxycodone), norketamine and hydroxynorketamine (ketamine), MDA (MDMA), cotinine (nicotine), nordoxepin (doxepin), the two sibutramine metabolites and demoxepam (chlordiazepoxide)",
+          "commits": [
+            "f40c36e",
+            "113d05f"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Codeine, heroin, levodopa, oxcarbazepine and ethyl loflazepate are now marked as prodrugs: their panel shows the receptors they act on through their active metabolite (morphine, dopamine, licarbazepine, ...), and levodopa keeps its own role as the substrate dopamine is made from",
+          "commits": [
+            "db998f6"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "A metabolite that is itself a drug of the atlas is now linked to it instead of duplicated: venlafaxine to desvenlafaxine, diazepam to temazepam and oxazepam, thioridazine to mesoridazine, methamphetamine to amphetamine, and more",
+          "commits": [
+            "a184448",
+            "113d05f"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Prodrug half-lives now describe the drug itself, not its metabolite (flurazepam, clorazepate, prazepam, lumateperone), with the long-lived metabolite's own half-life shown under it; oxycodone and fentanyl half-lives re-picked from oral figures",
+          "commits": [
+            "ace42bb"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Esketamine's measured affinities are its own again, and seven CYP / UGT metabolism routes whose isoform names were missed are now listed",
+          "commits": [
+            "a0617a7",
+            "a60f777",
+            "e7beefa"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "The drug docs list the prodrug roster and how the half-life / metabolite passes merge and are scoped",
+          "commits": [
+            "5a63504"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.108.2",
       "date": "2026-10-13",
       "entries": [
