@@ -90,6 +90,10 @@ no longer exactly the animating circuit (`circuitAnim.matches`), so a clear / di
 group focus / legend isolate all stop it; a mere structure highlight keeps it. Circuit-only (a group
 focus uses `setCircuit` but never `play`).
 
+## Folded panel sections
+
+Every `show*()` detail panel (drug, receptor, target, enzyme, structure, circuit, projection group) ends with `foldSections(body)` (`js/main.js`): each `h3`-headed section becomes a collapsed `details.disclosure.panel-sec`, body indented; the unheaded top (title, group line, addons, image, description, receptor facts) stays visible. A jump into a section opens it first: `flashRow` opens every ancestor `<details>`, and a tour step uses `tourOpenSec(ensure, sec)`. The projection panel has no headed section, so it is not folded.
+
 ## Circuit + projection-group panels
 
 A Circuits row and a Projections (per-pathway) row each open a **sourced detail tab**, like a

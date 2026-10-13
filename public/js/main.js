@@ -1941,8 +1941,8 @@ function flashRow(elm) {
 
 /**
  * Fold every headed section directly under `host` into a collapsed `<details>`: a
- * section whose first child is an `<h3>` becomes `details.disclosure.drug-sec` with
- * that heading as its `<summary>` and the rest in an indented `.drug-sec-body`; one
+ * section whose first child is an `<h3>` becomes `details.disclosure.panel-sec` with
+ * that heading as its `<summary>` and the rest in an indented `.panel-sec-body`; one
  * that already is a `<details>` (the drug panel's "Drug interactions") just gets the
  * same classes and body. Classes and `data-tour-*` hooks carry over, so a tour step
  * or flashRow still finds the section (and flashRow opens it). Unheaded blocks (the
@@ -1964,9 +1964,9 @@ function foldSections(host) {
       summary.append(...head.childNodes);
       head.remove();
     }
-    det.classList.add("disclosure", "drug-sec");
+    det.classList.add("disclosure", "panel-sec");
     const inner = document.createElement("div");
-    inner.className = "drug-sec-body";
+    inner.className = "panel-sec-body";
     inner.append(...[...sec.childNodes].filter((n) => n !== summary));
     if (!isDetails) sec.replaceWith(det);
     det.replaceChildren(summary, inner);
@@ -2296,14 +2296,6 @@ function createInfoPanel(data, sourcingModal) {
     sec.appendChild(ul);
     return { sec, ul };
   };
-  // A receptor / target panel's beta section folds on its own (the shared
-  // foldSections), so the beta content starts collapsed.
-  const appendFolded = (sec) => {
-    const host = el("div");
-    host.appendChild(sec);
-    foldSections(host);
-    body.appendChild(host.firstElementChild);
-  };
   // One derived "via" chip on a drug panel: the binding (jumps to its target) plus
   // the pill of the receptor-level node it was joined with.
   const viaChip = (binding, node) => {
@@ -2340,7 +2332,7 @@ function createInfoPanel(data, sourcingModal) {
       li.appendChild(sourceBackedPill(e.provenance, e));
       ul.appendChild(li);
     }
-    appendFolded(sec);
+    body.appendChild(sec);
   };
 
   // The drug panel's derived "Possible effects via its bindings" (BETA): the drug's
@@ -2380,7 +2372,7 @@ function createInfoPanel(data, sourcingModal) {
         { kind: n.kindLabel, cell: n.cellLabel, where: inStructure(n.structure) })));
       ul.appendChild(li);
     }
-    appendFolded(sec);
+    body.appendChild(sec);
   };
 
   // A receptor / target panel's "Across age and sex" section (BETA): one row per
@@ -2400,7 +2392,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       ul.appendChild(li);
     }
-    appendFolded(sec);
+    body.appendChild(sec);
   };
 
   // One receptor_variant row: the evidence-level chip (its meaning on hover), the
@@ -2451,7 +2443,7 @@ function createInfoPanel(data, sourcingModal) {
       sec.appendChild(ul);
     }
     sec.appendChild(el("p", "var-caveat", t("variant.caveat")));
-    appendFolded(sec);
+    body.appendChild(sec);
   };
 
   // The drug panel's "Gene variants annotated for this drug": every receptor_variant
@@ -4010,6 +4002,8 @@ function createInfoPanel(data, sourcingModal) {
       // list names this region. A structure with no pathway can still carry plenty of
       // them, so this section is outside the branch above.
       appendExpressedTargets(stripSide(structure.id));
+      // Headed sections start folded, like the drug panel (see foldSections).
+      foldSections(body);
     },
 
     /**
@@ -4092,6 +4086,8 @@ function createInfoPanel(data, sourcingModal) {
 
       // Drugs that act on this receptor, grouped by category.
       appendInteractingDrugs(receptor.id);
+      // Headed sections start folded, like the drug panel (see foldSections).
+      foldSections(body);
     },
 
     /**
@@ -4175,6 +4171,8 @@ function createInfoPanel(data, sourcingModal) {
       // For a receptor_group (α2 / glutamate): drugs binding each modeled subtype
       // (α2A/B/C/D, ...) in a collapsed per-subtype dropdown below the group's own.
       appendSubtypeInteractors(target.subtypes);
+      // Headed sections start folded, like the drug panel (see foldSections).
+      foldSections(body);
     },
 
     /**
@@ -4309,6 +4307,7 @@ function createInfoPanel(data, sourcingModal) {
       if (!rows.length) {
         wrap.appendChild(el("p", "info-desc", t("enzyme.noDrugs")));
         body.appendChild(wrap);
+        foldSections(body);
         return;
       }
       // Group by role in the vocabulary's own order (substrate, inhibitor, inducer)
@@ -4331,6 +4330,8 @@ function createInfoPanel(data, sourcingModal) {
         wrap.appendChild(ul);
       }
       body.appendChild(wrap);
+      // Headed sections start folded, like the drug panel (see foldSections).
+      foldSections(body);
     },
 
     /**
@@ -5159,6 +5160,8 @@ function createInfoPanel(data, sourcingModal) {
       const members = data.projections.filter(
         (p) => idSet.has(p.from) && idSet.has(p.to));
       appendPathwayList(t("circuit.pathways"), members, "pathways");
+      // Headed sections start folded, like the drug panel (see foldSections).
+      foldSections(body);
     },
 
     /**
@@ -5228,6 +5231,8 @@ function createInfoPanel(data, sourcingModal) {
           body.appendChild(wrap);
         }
       }
+      // Headed sections start folded, like the drug panel (see foldSections).
+      foldSections(body);
     },
 
     /** Register the handler run when a structure-panel connection row is clicked. */
@@ -9234,13 +9239,15 @@ async function main() {
   // drug walk-through (Acts on -> Metabolism -> Drug interactions -> the H1 row) is
   // four sub-steps reading ONE panel, so they share this before().
   const tourDrugPanel = tourEnsureTab("drug:olanzapine", tourOlanzapine, focusDrug);
-  // The drug panel's sections start folded (see foldSections): a step that points
-  // INTO one (its rows, or a row in it) opens the panel, then that section.
-  const tourDrugSec = (sec) => () => {
-    tourDrugPanel();
+  // Every detail panel's sections start folded (see foldSections): a step that points
+  // INTO one (its rows, or a row in it) runs `ensure` (opens the panel), then opens
+  // that section.
+  const tourOpenSec = (ensure, sec) => () => {
+    ensure();
     const d = document.querySelector(`#details-pane [data-tour-sec="${sec}"]`);
     if (d) d.open = true;
   };
+  const tourDrugSec = (sec) => tourOpenSec(tourDrugPanel, sec);
   // The drug panel's collapsed "Drug interactions" <details> (see showDrug). Its step
   // is hands-on (the user opens it), so the step's before() re-collapses it: a Back
   // into the step must leave something to open.
@@ -9460,7 +9467,7 @@ async function main() {
       before: tourEnsureTab("target:h1", tourH1, focusTarget) },
     { title: t("tour.receptorRegions.title"), body: t("tour.receptorRegions.body"),
       target: '[data-tour-sec="regions"]', dim: false, scrollTo: true,
-      before: tourEnsureTab("target:h1", tourH1, focusTarget) },
+      before: tourOpenSec(tourEnsureTab("target:h1", tourH1, focusTarget), "regions") },
     // 21. Back out of the receptor panel by hand (tap its close ×).
     { title: t("tour.closePanel.title"), body: t("tour.closePanel.body"),
       target: tourActiveTabClose, interactive: true,

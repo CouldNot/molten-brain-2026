@@ -65,9 +65,8 @@ fixed Stahl list.
   postsynaptic blockade shows in the block-coloured dots. (This is why the dataset carries the ascending
   monoamine pathways.)
 - **Panel** (`showDrug`): every `h3`-headed section (Brands, Pharmacokinetics, Acts on, Active metabolites,
-  Projections affected, ..., Drug interactions) is folded by `foldSections` into a collapsed
-  `details.disclosure.drug-sec`, its body indented; `flashRow` and the tour (`tourDrugSec`) open the section
-  they point into. A name shown beside the INN (`DRUG_NAME_QUALIFIERS`, display-only + searchable:
+  Projections affected, ..., Drug interactions) starts folded, like every detail panel (see
+  `docs/VIEWER.md` "Folded panel sections"). A name shown beside the INN (`DRUG_NAME_QUALIFIERS`, display-only + searchable:
   "Paliperidone (9-OH-risperidone)") becomes `drug.label`; a metabolite that is a modeled drug shows under that
   label as a plain `drugNameLink` (the Drugs-list row look), and that drug's own panel opens with "Active
   metabolite of <parent>" (`drug.metaboliteOf`, the parent's sourced entry). Then the molecule image (when fetched), the class, the NbN, the description
