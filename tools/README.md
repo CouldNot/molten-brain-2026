@@ -442,8 +442,9 @@ Screenshots).
   metabolites. See docs/DRUGS.md Drugs (Half-life + active metabolites).
 - `tools/sourcing/apply_pharmacokinetics.py` — merges the LLM-extracted T½ + metabolites
   (`pk_judged.json`) into `drugs_data.jsonl`, quote-gating each value verbatim on its Stahl page and
-  resolving a metabolite's `drug_id` by norm-name match (never self-link). Idempotent, sole writer of
-  `half_life`/`metabolites`. See docs/DRUGS.md Drugs (Half-life + active metabolites).
+  resolving a metabolite's `drug_id` by norm-name match (never self-link). Sole writer of
+  `half_life`/`metabolites`; merges by metabolite name, accepts `wikipedia_pharm` quotes, `--only <drug ids>` scopes
+  (use it: a full rerun is not a no-op). See docs/DRUGS.md Drugs (Half-life + active metabolites).
 - `tools/fetch/fetch_dailymed.py` — stdlib, network, resumable. Corpus #14 fetcher: searches DailyMed
   for each drug's US prescribing label, picks ONE (plain-oral forms preferred, since a modified-release
   product states a real Tmax for a different product; the first whose pharmacokinetics section actually
@@ -495,8 +496,9 @@ Screenshots).
 - `tools/sourcing/apply_metabolite_bindings.py` — `uv run` (deps: beautifulsoup4). Merges the
   LLM-extracted metabolite bindings (`metabolite_bindings_judged.json`) into `drugs_data.jsonl`:
   quote-gates each action sentence, resolves the target, attaches a Ki (PDSP measured preferred, else
-  the Wikipedia table value), and adds every remaining Ki-table target as `affinity_only`. Idempotent,
-  sole writer of a metabolite's `bindings`. See docs/DRUGS.md Drugs.
+  the Wikipedia table value), and adds every remaining Ki-table target as `affinity_only`. Sole writer of
+  a metabolite's `bindings`; `--only <parent drug ids>` scopes (use it: a full rerun clobbers later
+  direction / Ki writes). See docs/DRUGS.md Drugs.
 - `tools/fetch/fetch_binding_directions.py`: `uv run` (deps: beautifulsoup4, only because it imports
   `fetch_metabolite_bindings`; no HTML is parsed). Offline. The binding-direction worklist builder: for
   every drug with an `affinity_only` binding it reads the stored English Wikipedia article
