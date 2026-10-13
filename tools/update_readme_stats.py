@@ -101,6 +101,7 @@ KIND_LABELS = {
     "drug_categories": "Drug class",
     "drug_half_life": "Drug half-life (T½)",
     "drug_tmax": "Drug time-to-peak (Tmax)",
+    "drug_formulations": "Drug formulations (release type)",
     "drug_first_approval": "Drug first approval",
     "drug_withdrawals": "Drug market withdrawals",
     "drug_prodrug": "Drug prodrug flags",

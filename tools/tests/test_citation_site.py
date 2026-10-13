@@ -69,6 +69,16 @@ class GrammarTest(unittest.TestCase):
         self.assertEqual(CS.member_label({"name": "norfluoxetine"}, 3), "norfluoxetine")
         self.assertEqual(CS.member_label({"nothing": "usable"}, 3), "3")
 
+    def test_a_formulation_claim_is_addressed_under_its_release(self):
+        # A formulation is a two-level owner like a metabolite, keyed by its release.
+        self.assertEqual(CS.member_label({"release": "xr"}, 2), "xr")
+        r = lambda *p: CS.resolve("drugs_data.jsonl", ["quetiapine", "formulations", *p])
+        self.assertEqual(r("xr", "release_sources"),
+                         "drug:quetiapine/formulations[xr]/release")
+        self.assertEqual(r("xr", "tmax_sources"), "drug:quetiapine/formulations[xr]/tmax")
+        self.assertEqual(r("xr", "brands", "Seroquel XR", "sources"),
+                         "drug:quetiapine/formulations[xr]/brands[Seroquel XR]")
+
     def test_an_unknown_file_addresses_nothing(self):
         # None means "not addressable", and the caller must read it as no match rather
         # than as a wildcard.

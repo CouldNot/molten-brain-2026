@@ -1075,6 +1075,14 @@ def _drug_brands(drug_id: str, brands: Any) -> list[dict[str, Any]]:
     return out
 
 
+def product_holders(drug: dict[str, Any]) -> list[dict[str, Any]]:
+    """The drug itself, then each of its ``formulations``: everything that can hold a
+    ``brands`` / ``tmax`` / ``half_life`` claim, in the one shape both share. Every walk
+    over those three fields goes through here so a formulation's claims are never
+    skipped (see data_generators/formulations.py)."""
+    return [drug, *(drug.get("formulations") or [])]
+
+
 def _hours_value(hl: Any, *, what: str, field: str = "half_life") -> dict[str, Any]:
     """Validate + normalize a duration value into canonical hours.
 
@@ -1344,8 +1352,12 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # Commercial-brand nodes ("this drug is marketed as <brand>"), one per authored
     # brand across all drugs, graded by that brand's own sources (Stahl for na,
     # Wikipedia for eu/fr; see apply_brand_sources.py).
+    # A formulation (drug_formulations) holds the brands / Tmax / T½ a source tied
+    # to one release type, in the molecule's own shape: they are the same kinds,
+    # tallied wherever they sit (see data_generators/formulations.py).
+    holders = [h for d in drugs for h in product_holders(d)]
     brand_grades = [_strongest_grade(br.get("sources"))
-                    for d in drugs for br in d.get("brands", [])]
+                    for d in holders for br in d.get("brands", [])]
     # Drug class-classification nodes ("this drug is an SSRI/..."), one per drug that
     # has categories: the emitted category_provenance (llm unless overridden/sourced).
     category_grades = [d.get("category_provenance", DEFAULT_PROVENANCE)
@@ -1354,14 +1366,18 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # by that drug's own half_life_sources (Stahl states it verbatim; see
     # apply_pharmacokinetics.py). A drug with no half_life is simply not a node here.
     half_life_grades = [_strongest_grade(d.get("half_life_sources"))
-                        for d in drugs if d.get("half_life")]
+                        for d in holders if d.get("half_life")]
     # Time-to-peak (Tmax) nodes, one per drug that carries a tmax, graded by that
     # drug's own tmax_sources. Its own kind rather than a field of the T½ node: the
     # two are separately sourced (a Wikipedia prose sentence for the peak, a Stahl
     # bullet for the half-life) and separately missing, and the simulation reads them
     # at the two ends of the same curve. See apply_tmax.py.
     tmax_grades = [_strongest_grade(d.get("tmax_sources"))
-                   for d in drugs if d.get("tmax")]
+                   for d in holders if d.get("tmax")]
+    # Formulation nodes ("this drug is sold as an extended-release product"), ONE per
+    # formulation, graded by the source naming its release type.
+    formulation_grades = [_strongest_grade(f.get("release_sources"))
+                          for d in drugs for f in d.get("formulations", [])]
     # Regulatory history: ONE first-approval node per drug that carries one, and ONE
     # node per market withdrawal (a drug never withdrawn has none: absence is not a
     # claim). Both graded by their own quotes; see apply_drug_history.py.
@@ -1578,6 +1594,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_categories": tally(category_grades),
         "drug_half_life": tally(half_life_grades),
         "drug_tmax": tally(tmax_grades),
+        "drug_formulations": tally(formulation_grades),
         "drug_first_approval": tally(first_approval_grades),
         "drug_withdrawals": tally(withdrawal_grades),
         "drug_prodrug": tally(prodrug_grades),

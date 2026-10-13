@@ -99,6 +99,7 @@ from data_generators.presentation import (  # noqa: E402
 # TARGET_TYPE_*) live in data_generators.drugs.
 # ---------------------------------------------------------------------------
 from data_generators import history  # noqa: E402 (regulatory history vocabularies)
+from data_generators import formulations  # noqa: E402 (release-type sub-nodes)
 from data_generators.drugs import (  # noqa: E402
     DRUG_ACTIONS,
     PRODRUG_OWN_ACTIONS,
@@ -1342,6 +1343,10 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
                                       f"Drug {drug['id']!r} tmax")
         if tmax_sources:
             out["tmax_sources"] = tmax_sources
+    # Per-product sub-nodes (kind `drug_formulations`): the brands, Tmax and T½ a
+    # source measured for ONE release type (Seroquel XR vs the tablet). What no source
+    # ties to a product stays above, at molecule level. See data_generators/formulations.py.
+    out.update(formulations.drug_formulations(drug))
     # Regulatory history: first approval + market withdrawals (kinds
     # drug_first_approval / drug_withdrawals). See apply_drug_history.py.
     out.update(history.drug_history(drug))
@@ -1882,6 +1887,7 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # receptor id so a binding can target either.
         "drug_category_labels": DRUG_CATEGORY_LABELS,
         # Regulatory history vocabularies (first approval + withdrawals): id -> {en,fr}.
+        "drug_releases": formulations.labels(),
         "drug_history_countries": history.labels(history.COUNTRIES),
         "drug_history_scopes": list(history.SCOPES),
         "drug_history_agencies": history.labels(history.AGENCIES),

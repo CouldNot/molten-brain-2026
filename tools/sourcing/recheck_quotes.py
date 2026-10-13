@@ -78,6 +78,8 @@ CACHE = os.path.join(ROOT, "tools", "generated_cache")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from data_generators.provenance import SOURCING_LLMS  # noqa: E402
 from data_generators import history as HIST  # noqa: E402
+from data_generators import formulations as FORM  # noqa: E402
+from data_generators import provenance as PROV  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import citation_site as CS  # noqa: E402
 from check_data import emitted_page_dirs  # noqa: E402
@@ -274,21 +276,33 @@ def reconstruct_claims(quotes):
         for q in _qids(d.get("nbn_sources", [])):
             add(q, f"Drug {nm} Neuroscience-based Nomenclature = '{d.get('nbn')}'.",
                 CS.site("drug", d["id"], "nbn"))
-        kind["now"] = "drug_brands"
-        for br in d.get("brands", []):
-            for q in _qids(br.get("sources", [])):
-                add(q, f"Drug {nm} is sold under the brand name '{br['name']}'.",
-                    CS.site("drug", d["id"], f"brands[{br['name']}]"))
-        kind["now"] = "drug_half_life"
-        for q in _qids(d.get("half_life_sources", [])):
-            add(q, f"Drug {nm} has an elimination half-life of "
-                   f"{_hours(d.get('half_life'))}.",
-                CS.site("drug", d["id"], "half_life"))
-        kind["now"] = "drug_tmax"
-        for q in _qids(d.get("tmax_sources", [])):
-            add(q, f"Drug {nm} reaches its peak plasma concentration "
-                   f"{_hours(d.get('tmax'))} after a dose.",
-                CS.site("drug", d["id"], "tmax"))
+        # The molecule, then each formulation (same three facets, under its release).
+        rel_labels = FORM.labels()
+        for h in PROV.product_holders(d):
+            rel = h.get("release")
+            fac = f"formulations[{rel}]/" if rel else ""
+            of = f" ({rel_labels[rel]['en']} formulation)" if rel else ""
+            if rel:
+                kind["now"] = "drug_formulations"
+                for q in _qids(h.get("release_sources", [])):
+                    add(q, f"Drug {nm} is marketed as a {rel_labels[rel]['en'].lower()} "
+                           f"formulation (this source names that product).",
+                        CS.site("drug", d["id"], f"{fac}release"))
+            kind["now"] = "drug_brands"
+            for br in h.get("brands", []):
+                for q in _qids(br.get("sources", [])):
+                    add(q, f"Drug {nm} is sold under the brand name '{br['name']}'{of}.",
+                        CS.site("drug", d["id"], f"{fac}brands[{br['name']}]"))
+            kind["now"] = "drug_half_life"
+            for q in _qids(h.get("half_life_sources", [])):
+                add(q, f"Drug {nm}{of} has an elimination half-life of "
+                       f"{_hours(h.get('half_life'))}.",
+                    CS.site("drug", d["id"], f"{fac}half_life"))
+            kind["now"] = "drug_tmax"
+            for q in _qids(h.get("tmax_sources", [])):
+                add(q, f"Drug {nm}{of} reaches its peak plasma concentration "
+                       f"{_hours(h.get('tmax'))} after a dose.",
+                    CS.site("drug", d["id"], f"{fac}tmax"))
         kind["now"] = "drug_first_approval"
         fa = d.get("first_approval") or {}
         for q in _qids(d.get("first_approval_sources", [])):

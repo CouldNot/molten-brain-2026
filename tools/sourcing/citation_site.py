@@ -12,6 +12,7 @@ A **site** is that missing address: a short, stable, human-readable string namin
 place a quote is cited from.
 
     drug:brexpiprazole/half_life
+    drug:quetiapine/formulations[xr]/brands[Seroquel XR]
     drug:brexpiprazole/metabolites[DM-3411]/half_life
     drug:clozapine/bindings[5ht2a:antagonist]
     drug:fluoxetine/enzymes[cyp2d6:inhibitor]
@@ -91,8 +92,13 @@ def _drug_site(path: list) -> str | None:
     drug, rest = path[0], path[1:]
     if not rest:
         return None
-    # `metabolites[NAME]/...` is the only two-level owner here: everything else hangs
-    # directly off the drug.
+    # `metabolites[NAME]/...` and `formulations[RELEASE]/...` are the two-level owners
+    # here: everything else hangs directly off the drug. A formulation holds the same
+    # brands / tmax / half_life facets as the drug, plus its own `release` claim.
+    if rest[0] == "formulations" and len(rest) >= 3:
+        inner = ("release" if rest[2] == "release_sources" else _drug_facet(rest[2:]))
+        return (site("drug", drug, f"formulations[{rest[1]}]/{inner}")
+                if inner else None)
     if rest[0] == "metabolites" and len(rest) >= 2:
         metab = rest[1]
         tail = rest[2:]
@@ -204,7 +210,7 @@ def member_label(obj, index: int) -> str:
             return binding_key(obj)
         if "country" in obj and "year" in obj:
             return withdrawal_key(obj)
-        for k in ("target", "name", "id", "enzyme", "region", "brand"):
+        for k in ("target", "name", "id", "enzyme", "region", "brand", "release"):
             if isinstance(obj.get(k), str):
                 return obj[k]
     return str(index)

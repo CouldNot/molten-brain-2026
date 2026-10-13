@@ -131,7 +131,8 @@ _PROVENANCE_LEVELS = {"llm", "sourced", "verified"}
 # tally column, never a new quote to gate.
 NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "drug_brands",
               "drug_categories",
-              "drug_half_life", "drug_tmax", "drug_first_approval", "drug_withdrawals",
+              "drug_half_life", "drug_tmax", "drug_formulations",
+              "drug_first_approval", "drug_withdrawals",
               "drug_prodrug", "drug_therapeutic_range", "drug_alert_level",
               "drug_enzymes", "drug_enzyme_strength",
               "enzyme_variability", "drug_pgx",
@@ -932,10 +933,13 @@ def check_provenance(report, meta, structures, projections, circuits,
             grade(src.get("provenance"), f"drug {drug.get('id')} category_sources[{i}]")
         # Half-life (T½) node + each active-metabolite node (and a metabolite's own
         # T½ / inline bindings) carry their own quote-level grades, same shape.
-        for i, src in enumerate(drug.get("half_life_sources", []) or []):
-            grade(src.get("provenance"), f"drug {drug.get('id')} half_life_sources[{i}]")
-        for i, src in enumerate(drug.get("tmax_sources", []) or []):
-            grade(src.get("provenance"), f"drug {drug.get('id')} tmax_sources[{i}]")
+        for hctx, h in _holder_ctxs(f"drug {drug.get('id')}", drug):
+            for f in ("half_life_sources", "tmax_sources", "release_sources"):
+                for i, src in enumerate(h.get(f, []) or []):
+                    grade(src.get("provenance"), f"{hctx} {f}[{i}]")
+            for br in h.get("brands", []) or []:
+                for i, src in enumerate(br.get("sources", []) or []):
+                    grade(src.get("provenance"), f"{hctx} brand {br.get('name')} sources[{i}]")
         for i, src in enumerate(drug.get("first_approval_sources", []) or []):
             grade(src.get("provenance"), f"drug {drug.get('id')} first_approval_sources[{i}]")
         for i, src in enumerate(drug.get("prodrug_sources", []) or []):
@@ -1241,7 +1245,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             page_cache[key] = text
         return page_cache[key]
 
-    def check_one(ctx, src):
+    def check_one(ctx, src, short_ok=False):
         nonlocal n_checked
         if "corpus" not in src:
             return  # a bibliographic citation, not a quote-level source
@@ -1290,7 +1294,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                          f"p.{page}: {quote!r}")
             return
         n_checked += 1
-        if len(needle.replace(" ", "")) < _MIN_QUOTE_CHARS:
+        # A brand quote IS a short proper noun (the name, verbatim): short by design.
+        if not short_ok and len(needle.replace(" ", "")) < _MIN_QUOTE_CHARS:
             report.warn(f"{ctx}: quote is very short ({quote!r}); it matched "
                         f"but may be an incidental substring")
 
@@ -1392,10 +1397,15 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             check_one(f"drug {did} category_sources[{i}]", src)
         # Half-life quote + each metabolite's identity/T½/binding quotes are gated the
         # same way (verbatim substring on the cited corpus page).
-        for i, src in enumerate(drug.get("half_life_sources", []) or []):
-            check_one(f"drug {did} half_life_sources[{i}]", src)
-        for i, src in enumerate(drug.get("tmax_sources", []) or []):
-            check_one(f"drug {did} tmax_sources[{i}]", src)
+        # ... as are the brands, and each formulation's release type, brands, T½, Tmax.
+        for hctx, h in _holder_ctxs(f"drug {did}", drug):
+            for f in ("half_life_sources", "tmax_sources", "release_sources"):
+                for i, src in enumerate(h.get(f, []) or []):
+                    check_one(f"{hctx} {f}[{i}]", src)
+            for br in h.get("brands", []) or []:
+                for i, src in enumerate(br.get("sources", []) or []):
+                    check_one(f"{hctx} brand {br.get('name')} sources[{i}]", src,
+                              short_ok=True)
         for i, src in enumerate(drug.get("first_approval_sources", []) or []):
             check_one(f"drug {did} first_approval_sources[{i}]", src)
         for i, src in enumerate(drug.get("prodrug_sources", []) or []):
@@ -1975,6 +1985,9 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators import cpic, freshness, pharmfreq, unknown  # noqa: E402
+# The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the
+# grade and quote walks cannot skip a formulation's claims).
+from data_generators.provenance import product_holders  # noqa: E402
 
 # The pathway per-claim word tests, imported for the same reason: family 5 re-runs the
 # very test that graded a transmitter/sign sub-claim, so a hand-edited or stale ``claims``
@@ -1983,6 +1996,12 @@ from data_generators.quotes.attestation import (  # noqa: E402
     BASE_GRADE as CLAIM_BASE_GRADE,
     pattern_for as claim_pattern,
 )
+
+
+def _holder_ctxs(ctx, drug):
+    """``(context label, holder)`` for the drug and each of its formulations."""
+    return [(ctx if h is drug else f"{ctx} formulation {h.get('release')}", h)
+            for h in product_holders(drug)]
 
 
 def check_innervation(report, meta, structures, projections, receptors):
