@@ -112,53 +112,64 @@ def owners() -> dict[str, dict]:
 
 
 def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
-               aliases: dict[str, list[str]]) -> list[dict]:
-    """Indexed candidate sentences for one owner: Stahl Essential first, then its article."""
+               aliases: dict[str, list[str]], hits=None, key: str = "effects",
+               family: dict[str, list[str]] | None = None) -> list[dict]:
+    """Indexed candidate sentences for one owner: Stahl Essential first, then its article.
+    ``hits(line)`` returns the cue ids a sentence carries (stored under ``key``)."""
+    hits = hits or effect_hits
     out: list[dict] = []
     names = ((aliases.get(oid) or []) + cls.PROSE_ALIASES.get(oid, [])
-             + FAMILY_ALIASES.get(oid, []))
+             + (FAMILY_ALIASES if family is None else family).get(oid, []))
     rx = target_aliases.alias_regex(names) if names else None
     for page, line in stahl:
         if rx and rx.search(target_aliases.fold(line)):
-            hit = effect_hits(line)
+            hit = hits(line)
             if hit:
                 out.append({"corpus": "stahl_essential", "page": page, "line": line,
-                            "effects": hit})
+                            key: hit})
     slug = cypwiki.slug_of(owner["wikipedia"]) if owner["wikipedia"] else ""
     slug = cls.PAGE_ALIASES.get(slug, slug)
     path = cls.WIKI_PAGES / f"{slug}.md"
     if slug and path.exists():
         for line in cls.sentences(path.read_text("utf-8", errors="replace")):
-            hit = effect_hits(line)
+            hit = hits(line)
             if hit:
                 out.append({"corpus": "wikipedia_pharm", "page": slug, "line": line,
-                            "effects": hit})
+                            key: hit})
     seen: set[tuple] = set()
     return [c for c in out if not ((c["corpus"], c["line"]) in seen
                                    or seen.add((c["corpus"], c["line"])))]
 
 
-def build(only: set[str] | None = None) -> dict:
+def build(only: set[str] | None = None, hits=None, key: str = "effects",
+          owner_kinds: tuple[str, ...] = ("receptor", "target"),
+          family: dict[str, list[str]] | None = None) -> dict:
+    """``{"owners": {id: {kind, name, wikipedia, candidates}}}`` for every owner whose
+    kind is in ``owner_kinds`` and that has at least one candidate. ``hits`` / ``key``
+    pick the cue table (default: the clinical-effect keywords, stored under
+    ``effects``); ``fetch_release_modulation`` reuses this with its own cues."""
     stahl = cls.stahl_sentences()
     aliases = target_aliases.aliases_by_target()
     work = {}
     for oid, owner in owners().items():
-        if (only and oid not in only) or oid in SKIP_OWNERS:
+        if (only and oid not in only) or oid in SKIP_OWNERS or owner["kind"] not in owner_kinds:
             continue
-        cands = candidates(oid, owner, stahl, aliases)
+        cands = candidates(oid, owner, stahl, aliases, hits or effect_hits, key, family)
         if cands:
             work[oid] = {**owner, "candidates": cands}
     return {"owners": work}
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
+def run_cli(doc: str, out_path: Path, builder=build) -> int:
+    """The shared ``--only`` / ``--out`` command line: build, merge a scoped run into the
+    existing worklist, write it."""
+    ap = argparse.ArgumentParser(description=doc,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", help="comma-separated receptor/target ids to scope the scan to")
-    ap.add_argument("--out", type=Path, default=OUT_PATH, help="worklist output path")
+    ap.add_argument("--out", type=Path, default=out_path, help="worklist output path")
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
-    wl = build(only)
+    wl = builder(only)
     if only and args.out.exists():
         wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "owners")
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -166,6 +177,10 @@ def main() -> int:
     n = sum(len(v["candidates"]) for v in wl["owners"].values())
     print(f"[ok] wrote {args.out}: {len(wl['owners'])} owners, {n} candidates")
     return 0
+
+
+def main() -> int:
+    return run_cli(__doc__, OUT_PATH)
 
 
 if __name__ == "__main__":

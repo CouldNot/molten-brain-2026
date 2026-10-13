@@ -32,7 +32,6 @@ Built with the help of Claude Code.
 """
 from __future__ import annotations
 
-import argparse
 import json
 import sys
 from pathlib import Path
@@ -43,7 +42,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators.receptor_effects import (  # noqa: E402
     CACHE, RECEPTOR_EFFECT_MODES, RECEPTOR_EFFECTS)
-from prose_gate import PageGate, add_source  # noqa: E402
+from prose_gate import apply_picks, not_offered, run_applier  # noqa: E402
 from apply_classification_sources import PROSE_PAGES  # noqa: E402 (same two corpora)
 
 WORKLIST = TOOLS / "generated_cache" / "receptor_effects_worklist.json"
@@ -66,60 +65,23 @@ def current_kinds() -> dict[str, str]:
 def apply(worklist: dict, judged: dict, kinds: dict[str, str],
           pages: dict = PROSE_PAGES) -> tuple[dict, list[str]]:
     """``(cache, misses)``: the rebuilt ``{owner: {"mode:effect": [source]}}`` cache."""
-    owners = worklist.get("owners", {})
-    gate = PageGate(pages)
-    out: dict[str, dict[str, list]] = {}
-    misses: list[str] = []
-    for oid, nodes in sorted((judged.get("owners") or {}).items()):
-        own = owners.get(oid)
-        if own is None or oid not in kinds:
-            misses.append(f"{oid}: not in the worklist / not a current receptor or target")
-            continue
-        cands = own.get("candidates", [])
-        for node in nodes or []:
-            mode, effect, picks = node.get("mode"), node.get("effect"), node.get("picks")
-            what = f"{oid}/{mode}:{effect}"
-            if mode not in RECEPTOR_EFFECT_MODES or effect not in RECEPTOR_EFFECTS:
-                misses.append(f"{what}: mode or effect outside the closed vocabulary")
-                continue
-            if mode == "inhibition" and kinds[oid] == "receptor":
-                misses.append(f"{what}: 'inhibition' is a non-receptor target's mode")
-                continue
-            if not picks:
-                misses.append(f"{what}: no picks")
-                continue
-            off = [i for i in picks if isinstance(i, int) and 0 <= i < len(cands)
-                   and effect not in cands[i].get("effects", [])]
-            if off:
-                misses.append(f"{what}: candidate(s) {off} were not offered for {effect!r}")
-                continue
-            srcs = gate.sources(cands, picks, what, misses)
-            if not srcs:
-                continue
-            bucket = out.setdefault(oid, {}).setdefault(f"{mode}:{effect}", [])
-            for s in srcs:
-                add_source(bucket, s)
-    return out, misses
+    def check(oid, node, cands):
+        mode, effect = node.get("mode"), node.get("effect")
+        key = f"{mode}:{effect}"
+        if mode not in RECEPTOR_EFFECT_MODES or effect not in RECEPTOR_EFFECTS:
+            return key, "mode or effect outside the closed vocabulary"
+        if mode == "inhibition" and kinds[oid] == "receptor":
+            return key, "'inhibition' is a non-receptor target's mode"
+        off = not_offered(cands, node.get("picks"), "effects", effect)
+        if off:
+            return key, f"candidate(s) {off} were not offered for {effect!r}"
+        return key, None
+    return apply_picks(worklist, judged, kinds, check, pages)
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dry-run", action="store_true", help="report, write nothing")
-    args = ap.parse_args()
-    cache, misses = apply(json.loads(WORKLIST.read_text("utf-8")),
-                          json.loads(JUDGED.read_text("utf-8")), current_kinds())
-    for m in misses:
-        print(f"  [miss] {m}", file=sys.stderr)
-    n = sum(len(v) for v in cache.values())
-    print(f"{n} receptor_effect node(s) over {len(cache)} owner(s), {len(misses)} miss(es)")
-    if args.dry_run:
-        print("(dry run: not written)")
-        return 0
-    CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
-                     encoding="utf-8")
-    print(f"wrote {CACHE.relative_to(REPO)}")
-    return 0
+    return run_applier(__doc__, WORKLIST, JUDGED, CACHE,
+                       lambda w, j: apply(w, j, current_kinds()), "receptor_effect")
 
 
 if __name__ == "__main__":

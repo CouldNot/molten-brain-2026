@@ -78,3 +78,72 @@ def add_source(bucket: list, src: dict, key=None) -> bool:
         return False
     bucket.append(src)
     return True
+
+
+def apply_picks(worklist: dict, judged: dict, owners_ok, check, pages: dict,
+                ) -> tuple[dict[str, dict[str, list]], list[str]]:
+    """The shared loop of an owner-keyed by-index applier: ``(cache, misses)``.
+
+    ``judged["owners"][oid]`` is a list of node dicts, each with ``picks``. A node lands
+    under ``cache[oid][key]`` only when the owner is in the worklist AND ``owners_ok``,
+    ``check(oid, node, cands)`` returns ``(key, None)`` (else ``(None, reason)``: a
+    vocabulary or "cue not offered" refusal), it has picks, and every pick passes the
+    page gate. All or nothing per node; the cache is rebuilt from scratch on every run.
+    """
+    owners = worklist.get("owners", {})
+    gate = PageGate(pages)
+    out: dict[str, dict[str, list]] = {}
+    misses: list[str] = []
+    for oid, nodes in sorted((judged.get("owners") or {}).items()):
+        own = owners.get(oid)
+        if own is None or oid not in owners_ok:
+            misses.append(f"{oid}: not in the worklist / not a current owner")
+            continue
+        cands = own.get("candidates", [])
+        for node in nodes or []:
+            key, why = check(oid, node, cands)
+            what = f"{oid}/{key or node}"
+            if why:
+                misses.append(f"{what}: {why}")
+                continue
+            if not node.get("picks"):
+                misses.append(f"{what}: no picks")
+                continue
+            srcs = gate.sources(cands, node["picks"], what, misses)
+            if not srcs:
+                continue
+            bucket = out.setdefault(oid, {}).setdefault(key, [])
+            for s in srcs:
+                add_source(bucket, s)
+    return out, misses
+
+
+def not_offered(cands: list[dict], picks, field: str, value: str) -> list[int]:
+    """The in-range picks whose candidate was never offered ``value`` under ``field``."""
+    return [i for i in picks or [] if isinstance(i, int) and 0 <= i < len(cands)
+            and value not in cands[i].get(field, [])]
+
+
+def run_applier(doc: str, worklist_path: Path, judged_path: Path, cache_path: Path,
+                apply, label: str) -> int:
+    """The shared ``--dry-run`` command line of an owner-keyed applier: run ``apply(worklist,
+    judged)``, print the misses, write the cache sorted (unless dry run)."""
+    import argparse
+    import json
+    ap = argparse.ArgumentParser(description=doc,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--dry-run", action="store_true", help="report, write nothing")
+    args = ap.parse_args()
+    cache, misses = apply(json.loads(worklist_path.read_text("utf-8")),
+                          json.loads(judged_path.read_text("utf-8")))
+    for m in misses:
+        print(f"  [miss] {m}", file=sys.stderr)
+    n = sum(len(v) for v in cache.values())
+    print(f"{n} {label} node(s) over {len(cache)} owner(s), {len(misses)} miss(es)")
+    if args.dry_run:
+        print("(dry run: not written)")
+        return 0
+    cache_path.write_text(json.dumps(cache, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
+                          encoding="utf-8")
+    print(f"wrote {cache_path}")
+    return 0
