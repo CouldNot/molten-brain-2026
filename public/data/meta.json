@@ -671,7 +671,7 @@
       "sources": [
         {
           "quote_id": "q_ddb3d7178a93",
-          "pipeline": "page_llm",
+          "pipeline": "page_llm_judged",
           "provenance": "verified"
         }
       ]
@@ -1116,7 +1116,7 @@
       "sources": [
         {
           "quote_id": "q_3b235323abec",
-          "pipeline": "machine",
+          "pipeline": "machine_judged",
           "provenance": "verified"
         }
       ]
@@ -1134,7 +1134,7 @@
       "sources": [
         {
           "quote_id": "q_cd6a14235838",
-          "pipeline": "machine",
+          "pipeline": "machine_judged",
           "provenance": "verified"
         }
       ]
@@ -1427,7 +1427,7 @@
       "sources": [
         {
           "quote_id": "q_603766443e9f",
-          "pipeline": "machine",
+          "pipeline": "machine_judged",
           "provenance": "verified"
         }
       ]
@@ -2070,7 +2070,7 @@
       "sources": [
         {
           "quote_id": "q_2e92a06b27b1",
-          "pipeline": "machine",
+          "pipeline": "machine_judged",
           "provenance": "verified"
         }
       ]
@@ -2159,12 +2159,12 @@
       "sources": [
         {
           "quote_id": "q_b1311ee76f12",
-          "pipeline": "page_llm",
+          "pipeline": "page_llm_judged",
           "provenance": "verified"
         },
         {
           "quote_id": "q_ac5a46596b72",
-          "pipeline": "page_llm",
+          "pipeline": "page_llm_judged",
           "provenance": "verified"
         }
       ]
