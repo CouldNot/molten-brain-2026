@@ -31,7 +31,7 @@
  "cannabidiol": {
   "hours": 56.0,
   "hours_max": 61.0,
-  "index": 0
+  "index": 3
  },
  "chloral_hydrate": {
   "hours": 8.0,
@@ -82,7 +82,7 @@
  },
  "furosemide": {
   "hours": 2.0,
-  "index": 0
+  "index": 2
  },
  "guanfacine": {
   "hours": 17.0,
@@ -216,7 +216,7 @@
   "index": 1
  },
  "bumetanide": {
-  "index": 0,
+  "index": 1,
   "hours": 1.5
  },
  "tizanidine": {
