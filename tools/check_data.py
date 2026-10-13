@@ -1457,6 +1457,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for f in m.get("formed_by", []) or []:
                 for i, src in enumerate(f.get("sources", []) or []):
                     check_one(f"{mid} formed_by {f.get('enzyme')} sources[{i}]", src)
+            # A denial of the link (METABOLITE_CONTRADICTIONS), gated like the link.
+            check_uncertainty(mid, m)
 
     for m in metabolites:
         mid = f"metabolite {m.get('id')}"

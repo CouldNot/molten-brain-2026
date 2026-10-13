@@ -950,6 +950,44 @@ class BindingContradictionTest(unittest.TestCase):
                                                             "bindings": []}])
 
 
+
+class MetaboliteContradictionTest(unittest.TestCase):
+    """The ``contradicted`` badge on a drug's active-metabolite link
+    (``METABOLITE_CONTRADICTIONS``): it lands on the per-parent link, the cited label is
+    never a Tmax source, and a stale key raises."""
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        sys.path.insert(0, str(REPO_ROOT / "tools" / "fetch"))
+        from data_generators.quotes import contradictions, uncertainty
+        cls.table = contradictions.METABOLITE_CONTRADICTIONS
+        cls.uncertainty = uncertainty
+        cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
+
+    def test_every_entry_lands_on_its_link(self):
+        links = {(d["id"], m["id"]): m for d in self.drugs
+                 for m in d.get("metabolites", []) or []}
+        self.assertIn(("olanzapinesamidorphan", "samidorphan_n_oxide"), self.table)
+        for key in self.table:
+            kinds = [u["kind"] for u in links[key].get("uncertainty", [])]
+            self.assertEqual(kinds, ["contradicted"], f"{key} carries no badge")
+
+    def test_a_stale_link_key_raises(self):
+        with self.assertRaises(KeyError):
+            self.uncertainty.apply_metabolite_contradictions(
+                [{"id": "olanzapinesamidorphan", "metabolites": []}])
+
+    def test_a_quote_label_is_never_a_tmax_source(self):
+        # fetch_tmax reads only dailymed_labels.json: a combination label stored for one
+        # quote must stay out of it, or its kinetics would be published as one drug's.
+        import fetch_dailymed
+        chosen = json.loads(fetch_dailymed.CACHE_PATH.read_text(encoding="utf-8"))
+        cited = {src["page"] for src in self.table.values() if src["corpus"] == "dailymed"}
+        self.assertTrue(cited <= set(fetch_dailymed.QUOTE_LABELS))
+        self.assertFalse({m["setid"] for m in chosen.values()} & set(fetch_dailymed.QUOTE_LABELS))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
 

@@ -10914,8 +10914,8 @@
       },
       "drug_metabolites": {
         "total": 71,
-        "verified": 71,
-        "uncertain": 0,
+        "verified": 69,
+        "uncertain": 2,
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
@@ -11155,8 +11155,8 @@
     },
     "nodes": {
       "total": 8391,
-      "verified": 7659,
-      "uncertain": 426,
+      "verified": 7657,
+      "uncertain": 428,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,

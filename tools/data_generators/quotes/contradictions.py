@@ -31,7 +31,7 @@ is worse than the silence it replaces. So each entry below was read in context a
 written by hand, and the ordinary quote gate (``check_data.py`` family 5) still confirms
 it verbatim on the cited page, exactly like the claim it doubts.
 
-Four tables, one per doubted node kind, each ``key -> denying source``:
+Five tables, one per doubted node kind, each ``key -> denying source``:
 
 * :data:`ENZYME_CONTRADICTIONS` ``(drug_id, enzyme, role)``: the metabolism row itself
   (the isoform touches the drug at all);
@@ -42,6 +42,9 @@ Four tables, one per doubted node kind, each ``key -> denying source``:
   four classification sub-claims (``classification[attr]``).
 * :data:`BINDING_CONTRADICTIONS` ``(drug_id, target)``: a drug binding, when another
   corpus places the drug somewhere its sourced note does not (the binding site).
+* :data:`METABOLITE_CONTRADICTIONS` ``(drug_id, metabolite_id)``: a drug's per-parent
+  metabolite link (``drug.metabolites[]``), when another corpus denies the metabolite
+  is active.
 
 ``generate_data.py`` raises if a key names no emitted node, so a re-run of a fetcher
 cannot silently strip the flag and leave the contradiction unmarked.
@@ -60,6 +63,13 @@ def _wiki(slug: str, quote: str) -> dict[str, Any]:
 def _book(corpus: str, page: int, quote: str) -> dict[str, Any]:
     """A denial read off a book corpus page, judged like any LLM-picked quote."""
     return {"corpus": corpus, "page": page, "quote": quote,
+            "provenance": "verified", "llm": "opus"}
+
+
+def _dailymed(setid: str, quote: str) -> dict[str, Any]:
+    """A denial read off a stored US label (corpus #14, ``page`` = set id), judged like
+    any LLM-picked quote. The label is stored by ``fetch_dailymed.QUOTE_LABELS``."""
+    return {"corpus": "dailymed", "page": setid, "quote": quote,
             "provenance": "verified", "llm": "opus"}
 
 
@@ -156,4 +166,19 @@ BINDING_CONTRADICTIONS: dict[tuple[str, str], dict[str, Any]] = {
         "stahl_essential", 338,
         "Certain general anesthetics (e.g., propofol, etomidate, alphaxolone, alfadalone) "
         "also bind at the same sites as neuroactive steroids"),
+}
+
+
+# A drug's active-metabolite link another corpus denies. The link and its own sources
+# stay; the bullet quotes the denial underneath it.
+METABOLITE_CONTRADICTIONS: dict[tuple[str, str], dict[str, Any]] = {
+    # Stahl p.604 lists both samidorphan metabolites as active ("function as a mu opioid
+    # receptor" agonist / antagonist); the Lybalvi label grants the same binding but
+    # denies either one contributes at the bedside: the in vitro vs in vivo shape again.
+    ("olanzapinesamidorphan", "n_dealkylated_samidorphan"): _dailymed(
+        "32ffddd1-4e2b-45d9-9b36-bb730167ec80",
+        "Neither metabolite contributes to the pharmacological effects of samidorphan"),
+    ("olanzapinesamidorphan", "samidorphan_n_oxide"): _dailymed(
+        "32ffddd1-4e2b-45d9-9b36-bb730167ec80",
+        "Neither metabolite contributes to the pharmacological effects of samidorphan"),
 }

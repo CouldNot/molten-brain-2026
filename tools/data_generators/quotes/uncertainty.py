@@ -641,6 +641,19 @@ def apply_binding_contradictions(drugs: list[dict[str, Any]]) -> None:
     _flag_contradicted(BINDING_CONTRADICTIONS, bindings, "BINDING_CONTRADICTIONS")
 
 
+def apply_metabolite_contradictions(drugs: list[dict[str, Any]]) -> None:
+    """Flag every per-parent metabolite link another corpus denies is active, in place.
+
+    The bullet rides on the drug's ``metabolites[]`` entry (the "X is an active
+    metabolite of <drug>" claim), not on the shared metabolite record, so a metabolite
+    reached from two parents is doubted only where the denial applies.
+    """
+    from .contradictions import METABOLITE_CONTRADICTIONS
+
+    links = {(d["id"], m["id"]): m for d in drugs for m in d.get("metabolites", []) or []}
+    _flag_contradicted(METABOLITE_CONTRADICTIONS, links, "METABOLITE_CONTRADICTIONS")
+
+
 def apply_receptor_uncertainty(receptors: list[dict[str, Any]]) -> None:
     """Flag every receptor classification sub-claim another corpus denies, in place.
 

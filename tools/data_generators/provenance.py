@@ -1446,7 +1446,9 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # sources (the Stahl line naming it). The metabolite's optional T½ is an extra
     # sourced fact shown in the panel; its receptor BINDINGS are their own tally kind
     # below (each a graded graph edge appearing on the receptor's Interacting drugs).
-    metabolite_grades = [_strongest_grade(m.get("sources"))
+    # A (grade, is_uncertain) pair: a link another corpus denies is active buckets as
+    # ``uncertain`` however strong its own quote (METABOLITE_CONTRADICTIONS).
+    metabolite_grades = [(_strongest_grade(m.get("sources")), bool(m.get("uncertainty")))
                          for d in drugs for m in d.get("metabolites", [])]
     # Which enzyme FORMS each active metabolite, one node per (parent, metabolite,
     # enzyme). The mirror of the enzyme nodes above (there the drug is the substrate,

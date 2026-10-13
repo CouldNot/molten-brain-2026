@@ -212,7 +212,7 @@ Receptor pre/postsynaptic site                   ██████████�
 
 Separately, **measured binding affinity (PDSP Ki) covers 88% of the 1879 drug bindings**; 87 of 274 drugs carry no Ki on any binding (sourced by book quote only, or not yet sourced). A Ki is a measured value, not a grade: this tracks where one was never looked up, complementing the sourcing figure above.
 
-Of those, **426 carry an `uncertain` badge**: the quote is confirmed present in the source, but the sentence states something broader than the claim (a rule that never names the drug, a sweep that never names the region), so pinning it to that node is an inference. The badge's tooltip lists the reasons to doubt it, each with its own source.
+Of those, **428 carry an `uncertain` badge**: the quote is confirmed present in the source, but the sentence states something broader than the claim (a rule that never names the drug, a sweep that never names the region), so pinning it to that node is an inference. The badge's tooltip lists the reasons to doubt it, each with its own source.
 
 Besides those, **656 claims are `unknown` (∅)**: every source the dataset requires for that kind of claim was searched on a recorded date and none states it. That is a finding about the literature, not a gap, so they are left out of the % above; the search is redone within 12 months.
 

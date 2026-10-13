@@ -255,6 +255,7 @@ from data_generators.quotes import (  # noqa: E402
 )
 from data_generators.quotes.uncertainty import (  # noqa: E402
     apply_binding_contradictions,
+    apply_metabolite_contradictions,
     apply_binding_uncertainty,
     apply_enzyme_strength_uncertainty,
     apply_enzyme_uncertainty,
@@ -1828,6 +1829,8 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     apply_binding_uncertainty(drugs)
     # ... plus a binding another corpus describes otherwise (quotes/contradictions.py).
     apply_binding_contradictions(drugs)
+    # ... and an active-metabolite link another corpus denies is active.
+    apply_metabolite_contradictions(drugs)
     # UNKNOWN: a binding direction every reachable source was searched for, with no
     # hit (a recorded search log, see data_generators/unknown.py). After the
     # uncertainty pass so it only ever stamps a still-affinity-only binding.
