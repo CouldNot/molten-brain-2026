@@ -1,6 +1,43 @@
 {
   "versions": [
     {
+      "version": "3.110.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A drug's Pharmacokinetics section now lists its formulations (immediate, extended or delayed release, orally disintegrating, sublingual, nasal, patch, injection, depot), each with its own sourced brands, time to peak and half-life, so Seroquel XR or Invega Sustenna no longer read as the plain tablet",
+          "commits": [
+            "70d1558",
+            "7e32a5d",
+            "b6e354d"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "182 brands, 78 times to peak and 9 half-lives moved under the formulation their source names, across 142 drugs (38 with more than one formulation): paliperidone's 24 h peak is the extended-release tablet's, lithium and amphetamine get separate immediate and extended-release peaks, oxycodone and propranolol separate half-lives; a value whose source names no product stays on the molecule",
+          "commits": [
+            "af61929",
+            "3822c67"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Prazepam's metabolite quote no longer runs on into the next section of its article, and the data check now refuses any quote spanning a page heading",
+          "commits": [
+            "0d8c3a5"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "The formulation node kind, its pipeline and its viewer rules are documented",
+          "commits": [
+            "9177aed"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.109.0",
       "date": "2026-10-13",
       "entries": [
