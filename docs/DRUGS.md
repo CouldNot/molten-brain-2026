@@ -65,7 +65,7 @@ fixed Stahl list.
   postsynaptic blockade shows in the block-coloured dots. (This is why the dataset carries the ascending
   monoamine pathways.)
 - **Panel** (`showDrug`): every `h3`-headed section (Brands, Pharmacokinetics, Direct molecular targets, Active metabolites,
-  Projections affected, ..., Drug interactions) starts folded, like every detail panel (see
+  Neurotransmitter tone, ..., Drug interactions) starts folded, like every detail panel (see
   `docs/VIEWER.md` "Folded panel sections"). A name shown beside the INN (`DRUG_NAME_QUALIFIERS`, display-only + searchable:
   "Paliperidone (9-OH-risperidone)") becomes `drug.label`; a metabolite that is a modeled drug shows under that
   label as a plain `drugNameLink` (the Drugs-list row look), and that drug's own panel opens with "Active
@@ -75,10 +75,12 @@ fixed Stahl list.
   list (each row: an effect glyph + target + action·note, "· speculative" when tentative, plus a
   `bindingProvenancePill` = the binding's quote source, else its Ki (verified), else `NOSOURCE`, or the
   orange ⚠ when it carries `uncertainty[]`, see Source provenance),
-  sorted strongest-affinity first. Below it a **Projections affected** list (only when `flowKinds`
-  non-empty): one row per ascending system whose tone the drug sets (jumps to that kind-mode group,
-  pilled with the strongest binding on the system), an out-/in-arrow per `flowSystems[kind].direction`
-  (raises / lowers tone); a *derived* inference from the tone-setter bindings (caption says so). Class +
+  sorted strongest-affinity first. Below it a **Neurotransmitter tone (indicative)** section (only when `flowKinds`
+  non-empty), opening with a derived "indicative only" caution box and the formula caption: one row per
+  ascending system whose tone the drug sets (jumps to that kind-mode group), an out-/in-arrow and the
+  signed raw sum `flowSystems[kind].sum`, then one line per contributing binding (`toneBySystem` terms in
+  `js/data.js`: target, `tone.rule.<driver>` label from `meta.tone_rules`, `±1 × affinityWeightOf(ki)`,
+  its own pill). The overlay's capped `weight` only scales the animation. Class +
   Nomenclature are clickable (open search with a `class:`/`nbn:` filter) and each carries its grade
   pill: the NbN quote source, and the class classification's `category_provenance` (its own node, kind
   `drug_categories`, default `llm`, upgradeable via `DRUG_CATEGORY_PROVENANCE` / `category_sources`).

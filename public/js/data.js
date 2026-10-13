@@ -208,6 +208,47 @@ function localize(field) {
 // "desmethyldiazepamnordazepam").
 const normName = (s) => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
+const AFFINITY_DEFAULT = 0.55;
+/**
+ * Relative engagement of one binding from its measured Ki (NOT an effect size):
+ * 0.35 at Ki >= 1 uM, rising with pKi to 1 at Ki <= 0.1 nM; AFFINITY_DEFAULT without
+ * a Ki. Weighs the dot cloud and the binding's share of its system's tone.
+ * @param {{median:number}|null} ki
+ */
+export function affinityWeightOf(ki) {
+  if (!ki || !(ki.median > 0)) return AFFINITY_DEFAULT;
+  const pKi = 9 - Math.log10(ki.median); // median is in nM
+  const t = Math.max(0, Math.min(1, (pKi - 6) / 4)); // 1 uM..0.1 nM -> 0..1
+  return 0.35 + 0.65 * t;
+}
+
+/**
+ * A drug's indicative tone per transmitter system (the "Neurotransmitter tone"
+ * section and the flow overlay): every tone-setting binding adds
+ * `toneSign * affinityWeight` to its system's sum; postsynaptic receptors carry
+ * toneSign 0 and add nothing. A zero sum drops the system (opposing bindings cancel).
+ * @param {object[]} bindings resolved bindings ({flowKind, toneSign, affinityWeight})
+ * @returns {Object<string, {direction:number, weight:number, sum:number,
+ *   terms:object[]}>} per kind: sign of the sum, |sum| capped at 1, the raw sum, and
+ *   the bindings that make it up (in binding order)
+ */
+export function toneBySystem(bindings) {
+  const acc = new Map();
+  for (const b of bindings) {
+    if (!b.flowKind || !b.toneSign) continue;
+    const e = acc.get(b.flowKind) || { sum: 0, terms: [] };
+    e.sum += b.toneSign * b.affinityWeight;
+    e.terms.push(b);
+    acc.set(b.flowKind, e);
+  }
+  const out = {};
+  for (const [kind, { sum, terms }] of acc) {
+    if (!sum) continue;
+    out[kind] = { direction: sum > 0 ? 1 : -1, weight: Math.min(1, Math.abs(sum)), sum, terms };
+  }
+  return out;
+}
+
 /**
  * Build the target reverse indexes off resolved drugs (each with `bindings`,
  * `metabolites` carrying `linkFocusable` + `ownBindings`, `displayName`). Pure, so
@@ -742,17 +783,6 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // (an alpha2 / D2/D3 / 5-HT1A-B-D): agonising it lowers its system's tone,
   // blocking it raises it. Postsynaptic receptors are NOT tone-setters (dots only).
   const receptorMeta = new Map(receptors.map((r) => [r.id, { sign: r.sign, synaptic: r.synaptic }]));
-  // Affinity -> a 0.35..1 engagement weight from the measured Ki (a pKi ramp:
-  // sub-nanomolar ~1, micromolar ~0.35), NOT an effect-magnitude claim. Drives dot
-  // density/size (drug-anim) and per-system flow intensity. A binding with no Ki
-  // gets a neutral mid weight so it still animates.
-  const AFFINITY_DEFAULT = 0.55;
-  const affinityWeightOf = (ki) => {
-    if (!ki || !(ki.median > 0)) return AFFINITY_DEFAULT;
-    const pKi = 9 - Math.log10(ki.median); // median is in nM
-    const t = Math.max(0, Math.min(1, (pKi - 6) / 4)); // 1 uM..0.1 nM -> 0..1
-    return 0.35 + 0.65 * t;
-  };
   // The "tone-setters + autoreceptors" flow model. Direction comes from target type +
   // action (+ the autoreceptor sign for presynaptic receptors), NOT from receptor
   // class (a postsynaptic gain claim we deliberately do not make). The rule table is
@@ -782,11 +812,12 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // 0 = not a tone setter. The rule table itself is DATA (meta.tone_rules, authored in
   // tools/data_generators/drugs.py), so this and check_data.py's _tone_of read one
   // source of truth instead of each transcribing it.
-  const toneSignOf = (tgt, action) => {
+  const toneRuleEntry = (tgt, action) => {
     const bucket = toneBucketOf(tgt);
-    const rule = bucket && (toneRules[bucket] || {})[action];
-    return rule ? rule[0] : 0;
+    return (bucket && (toneRules[bucket] || {})[action]) || null;
   };
+  const toneSignOf = (tgt, action) => (toneRuleEntry(tgt, action) || [0])[0];
+  const toneRuleOf = (tgt, action) => (toneRuleEntry(tgt, action) || [0, null])[1];
   // Normalize a quote-level sources list (a binding's `sources` or a drug's
   // `nbn_sources`) into the shape the panel renders.
   const mapSources = (sources) =>
@@ -1162,7 +1193,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         system: disp.system,
         // The projection kind this binding's target system feeds (meta.system_flow_
         // kinds), null when the system has no modeled ascending pathway or the
-        // binding is affinity-only. Lets a panel list the "projections affected" per
+        // binding is affinity-only. Lets a panel list the "neurotransmitter tone" per
         // binding and lets d.flowKinds below dedupe from a single field.
         flowKind: inert ? null : systemFlowKinds[tgt.system] || null,
         receptor: disp.receptor,
@@ -1183,6 +1214,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         // Signed tone-setter contribution to its system's ascending flow (+1 raises
         // the transmitter's tone, -1 lowers, 0 = not a tone-setter -> dots only).
         toneSign: inert ? 0 : toneSignOf(tgt, b.action),
+        // Why it sets that tone (meta.tone_rules driver, e.g. "reuptake_block"), shown
+        // in the drug panel's tone breakdown; null when it sets none.
+        toneRule: inert ? null : toneRuleOf(tgt, b.action),
         // Per-claim sources ({corpus, page, quote, provenance}); `provenance` is the
         // strongest grade among the quote sources AND the measured Ki. See
         // bindingDisplayFields / _binding_grade in generate_data.py.
@@ -1208,16 +1242,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     // receptor (those stay dots). Per engaged kind we sum toneSign*affinityWeight so
     // combos and opposing autoreceptors resolve to a net signed tone; the sign is the
     // flow direction (boost vs damp) and the clamped magnitude its intensity.
-    const flowAcc = new Map();
-    for (const b of d.bindings) {
-      if (!b.flowKind || !b.toneSign) continue;
-      flowAcc.set(b.flowKind, (flowAcc.get(b.flowKind) || 0) + b.toneSign * b.affinityWeight);
-    }
-    d.flowSystems = {};
-    for (const [kind, sum] of flowAcc) {
-      if (!sum) continue;
-      d.flowSystems[kind] = { direction: sum > 0 ? 1 : -1, weight: Math.min(1, Math.abs(sum)) };
-    }
+    d.flowSystems = toneBySystem(d.bindings);
     // Normalize to a per-drug *relative* intensity (`rel`, 0..1): the drug's strongest
     // engaged system streams at 1, the rest in proportion. Dosage is highly variable,
     // so what the flow overlay should show is the relative "dirtiness" across systems,
@@ -1229,7 +1254,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     }
     // Drives the flowing-beads overlay (main.js filters arrows by these kinds, then
     // js/circuit-anim.js animates them with the per-kind direction/weight above) and
-    // the panel's "Projections affected" list. Empty for a drug that sets no tone (a
+    // the panel's "Neurotransmitter tone" list. Empty for a drug that sets no tone (a
     // purely postsynaptic agent gets just dots + wash).
     d.flowKinds = Object.keys(d.flowSystems);
     // Static "context" pathways (viewer-side, split from the flow): the ascending

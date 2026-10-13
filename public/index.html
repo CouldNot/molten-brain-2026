@@ -2494,8 +2494,23 @@
          right beside it, not stranded at the far panel edge (same treatment as the
          "Found in" .loc-name and the binding .bind-text). Applies to every pathway
          list: a structure's connections, a circuit/group's members, and the drug
-         panel's "Projections affected". */
+         panel's "Neurotransmitter tone". */
       .info-connections .conn-label { flex: 0 1 auto; min-width: 0; }
+      /* Neurotransmitter tone: a system row's signed value, then the per-binding
+         arithmetic behind it as indented, dimmer lines (never a pointer row itself). */
+      .tone-value { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .info-connections li.tone-terms {
+        display: block; cursor: default; padding: 0 0 var(--sp-s) var(--sp-indent);
+      }
+      .info-connections li.tone-terms:hover { color: var(--text); }
+      .tone-term {
+        display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--sp-m);
+        font-size: 11px; color: var(--muted); padding: 1px 0;
+      }
+      .tone-term.clickable { cursor: pointer; }
+      .tone-term.clickable:hover .tone-term-target { color: var(--accent-bright); }
+      .tone-term-target { color: var(--text); }
+      .tone-term-math { font-variant-numeric: tabular-nums; white-space: nowrap; }
       /* Bold colour direction arrow for a connection row (see directionArrow):
          large + filled in the pathway colour so it is easy to read at a glance. */
       .info-connections .conn-arrow {

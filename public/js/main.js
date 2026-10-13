@@ -13,7 +13,7 @@
 
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { loadBrainData, loadSearchNames, withFetched } from "./data.js";
+import { affinityWeightOf, loadBrainData, loadSearchNames, withFetched } from "./data.js";
 import { rankMatch } from "./search-rank.js";
 import { buildStructureMesh } from "./shapes.js";
 import { createSdfPool } from "./sdf-pool.js";
@@ -2179,7 +2179,7 @@ function createInfoPanel(data, sourcingModal) {
   let onDrugPick = () => {};
   let onEnzymePick = () => {};
   // Set by the caller (onProjectionGroup): what to do when a projection-group row in
-  // a drug panel's "Projections affected" list is clicked. The panel hands back the
+  // a drug panel's "Neurotransmitter tone" list is clicked. The panel hands back the
   // group record; the caller focuses it exactly like its Projections legend row.
   let onProjectionGroupPick = () => {};
   // Set by the caller (onSearch): run a search query. A drug panel's clickable
@@ -2925,12 +2925,7 @@ function createInfoPanel(data, sourcingModal) {
     const rows = drug.autoModulation || [];
     if (!rows.length) return null;
     const labels = (role) => rows.filter((r) => r.role === role).map((r) => r.label);
-    const box = el("div", "addon addon-info addon-derived");
-    const head = el("div", "addon-head");
-    const tones = data.meta.addonTones || {};
-    if (tones.info) head.appendChild(el("span", "addon-glyph", tones.info));
-    head.appendChild(el("strong", "addon-title", t("drug.autoPkTitle")));
-    box.appendChild(head);
+    const box = derivedBox("info", t("drug.autoPkTitle"));
     // One sentence per direction: a drug can inhibit one of its own isoforms and
     // induce another (modafinil), and the two read opposite ways over time.
     const parts = [];
@@ -2943,6 +2938,26 @@ function createInfoPanel(data, sourcingModal) {
     return box;
   };
 
+  // The skeleton of a derived (viewer-computed, unpilled) addon-styled box: its tone
+  // glyph + title; the caller appends the body. Shared so every derived box reads alike.
+  const derivedBox = (tone, title) => {
+    const box = el("div", `addon addon-${tone} addon-derived`);
+    const head = el("div", "addon-head");
+    const glyph = (data.meta.addonTones || {})[tone];
+    if (glyph) head.appendChild(el("span", "addon-glyph", glyph));
+    head.appendChild(el("strong", "addon-title", title));
+    box.appendChild(head);
+    return box;
+  };
+
+  // A signed tone value as the tone sections print it: "+0.97" / "−0.42", localized.
+  const fmtTone = (v) => `${v < 0 ? "−" : "+"}${Math.abs(v).toLocaleString(
+    window.__I18N__.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  // A drug's net indicative tone on one system, the raw uncapped sum (0 when it sets
+  // none): what the drug panel's tone section shows and the group panel ranks by. The
+  // overlay's capped `weight` only scales the animation.
+  const netTone = (drug, kind) => ((drug.flowSystems || {})[kind] || { sum: 0 }).sum;
+
   // Caution box leading "Direct molecular targets" for a drug with active
   // metabolites: the rows list only the parent's own bindings, while the metabolites
   // act too (their bindings live under Active metabolites or on their own drug panel).
@@ -2951,12 +2966,7 @@ function createInfoPanel(data, sourcingModal) {
   const derivedActiveMetabolites = (drug, body) => {
     const names = (drug.metabolites || []).map((m) => m.name);
     if (!names.length || drug.prodrug) return null;
-    const box = el("div", "addon addon-caution addon-derived");
-    const head = el("div", "addon-head");
-    const tones = data.meta.addonTones || {};
-    if (tones.caution) head.appendChild(el("span", "addon-glyph", tones.caution));
-    head.appendChild(el("strong", "addon-title", t("drug.metabolites")));
-    box.appendChild(head);
+    const box = derivedBox("caution", t("drug.metabolites"));
     const p = el("p", "addon-text", `${t(names.length > 1 ? "drug.activeMetabWarnMany" : "drug.activeMetabWarnOne",
       { names: names.join(", ") })} `);
     const go = el("button", "addon-jump", t("drug.activeMetabSee"));
@@ -3023,7 +3033,7 @@ function createInfoPanel(data, sourcingModal) {
 
   // The strongest-affinity binding a drug has feeding a transmitter system (the
   // binding whose flowKind == kind, min representative Ki), or undefined. The one
-  // node behind the drug<->system link, so the drug panel's "Projections affected"
+  // node behind the drug<->system link, so the drug panel's "Neurotransmitter tone"
   // row and the projection-group panel's "Drugs acting on this system" row rank +
   // source it identically. (bindingKi, the shared Ki key, is module-scope above.)
   const strongestBindingForKind = (bindings, kind) =>
@@ -4858,41 +4868,60 @@ function createInfoPanel(data, sourcingModal) {
       // the drug is shown per-binding (each binding's pill above), so a source
       // always refers to a specific binding node rather than "the whole drug".
 
-      // Projections affected: the ascending pathway systems this drug's flow overlay
-      // lights (drug.flowKinds, from meta.system_flow_kinds). A *derived* inference
-      // from the drug's *tone-setter* bindings only (a reuptake/enzyme/vesicle target
-      // or a presynaptic autoreceptor, see js/data.js flowSystems): the net signed
-      // tone gives each row a direction (an out-arrow = raises the system's tone, an
-      // in-arrow = lowers it) and the affinity its intensity. Each row jumps to that
-      // projection group and carries the source of the strongest-affinity binding on
-      // the system (the same source that says "X is an agonist"), so the inference
-      // stays traceable. Only shows for the four modeled ascending systems; a purely
-      // postsynaptic drug sets no tone -> empty flowKinds -> section omitted.
+      // Neurotransmitter tone (indicative): the ascending systems this drug's flow
+      // overlay lights (drug.flowKinds, from meta.system_flow_kinds). A *derived*
+      // inference from the drug's *tone-setter* bindings only (a reuptake/enzyme/
+      // vesicle target or a presynaptic autoreceptor, see js/data.js toneBySystem):
+      // each row shows the signed sum (out-arrow = raises the tone, in-arrow = lowers
+      // it), jumps to that projection group, and lists the per-binding arithmetic with
+      // each binding's own pill, so the value is traceable. A purely postsynaptic drug
+      // sets no tone -> empty flowKinds -> section omitted.
       const groupsByKey = data.projectionGroupsByKey;
       const projColors = data.meta.projectionColors || {};
       if ((drug.flowKinds || []).length && groupsByKey) {
-        const proj = el("div", "info-connections");
-        proj.appendChild(el("h3", null, t("drug.projectionsAffected")));
-        proj.appendChild(el("p", "legend-caption", t("drug.projectionsAffectedHint")));
+        const proj = el("div", "info-connections info-tone");
+        proj.appendChild(el("h3", null, t("drug.tone")));
+        const warn = derivedBox("caution", t("drug.toneWarnTitle"));
+        warn.appendChild(el("p", "addon-text", t("drug.toneWarn")));
+        proj.appendChild(warn);
+        proj.appendChild(el("p", "legend-caption", t("drug.toneHow", {
+          min: fmtTone(affinityWeightOf({ median: 1000 })).slice(1),
+          none: fmtTone(affinityWeightOf(null)).slice(1) })));
         const ul = el("ul");
         for (const kind of drug.flowKinds) {
           const group = groupsByKey.get(`kind:${kind}`);
           if (!group) continue;
-          // Representative = the strongest-affinity binding feeding this system, so
-          // the row's source is the most concrete claim behind the inference.
-          const rep = strongestBindingForKind(drug.bindings, kind);
-          // Net signed tone (js/data.js flowSystems): out-arrow raises the system's
-          // tone, in-arrow lowers it (an autoreceptor agonist, a VMAT2 blocker).
-          const flow = (drug.flowSystems || {})[kind];
+          const flow = drug.flowSystems[kind];
           const li = el("li", "clickable");
           li.title = group.name;
           li.appendChild(directionArrow(projColors[kind] || "#fff",
-            flow && flow.direction < 0 ? "in" : "out",
+            flow.direction < 0 ? "in" : "out",
             (data.meta.kindLabels && data.meta.kindLabels[kind]) || kind));
           li.appendChild(el("span", "conn-label", group.name));
-          if (rep) li.appendChild(bindingProvenancePill(rep));
+          li.appendChild(el("span", "tone-value", fmtTone(netTone(drug, kind))));
           li.addEventListener("click", () => onProjectionGroupPick(group));
           ul.appendChild(li);
+          // The arithmetic behind the value: one line per tone-setting binding, each
+          // with its own source pill, clickable to its target like a target row.
+          const terms = el("li", "tone-terms");
+          for (const b of flow.terms) {
+            const row = el("div", "tone-term");
+            row.appendChild(el("span", "tone-term-target", b.targetName));
+            row.appendChild(el("span", "tone-term-rule", t(`tone.rule.${b.toneRule}`)));
+            row.appendChild(el("span", "tone-term-math",
+              `${b.toneSign > 0 ? "+1" : "−1"} × ${fmtTone(b.affinityWeight).slice(1)} = ${fmtTone(b.toneSign * b.affinityWeight)}`));
+            row.appendChild(bindingProvenancePill(b));
+            const tgt = targetById.get(b.target);
+            if (tgt && tgt.focusable) {
+              row.classList.add("clickable");
+              row.addEventListener("click", (e) => {
+                if (e.target.closest(".help-icon")) return;
+                onTargetPick(tgt);
+              });
+            }
+            terms.appendChild(row);
+          }
+          ul.appendChild(terms);
         }
         proj.appendChild(ul);
         body.appendChild(proj);
@@ -4902,7 +4931,7 @@ function createInfoPanel(data, sourcingModal) {
       // POSTSYNAPTIC receptor (drug.contextKinds, e.g. an H1 / 5-HT2 blocker). Their
       // pathways light statically in the 3D view (dimmed, no beads); blocking a
       // postsynaptic receptor makes NO tone claim, so they are listed apart from
-      // "Projections affected" above, with a neutral swatch and no direction arrow.
+      // "Neurotransmitter tone" above, with a neutral swatch and no direction arrow.
       // Excludes any system already flowing (that one is a tone-setter row above).
       if ((drug.contextKinds || []).length && groupsByKey) {
         const ctx = el("div", "info-connections");
@@ -4926,7 +4955,7 @@ function createInfoPanel(data, sourcingModal) {
       }
 
       // Metabolism, last: pharmacokinetics has no anatomy, so it sits AFTER the
-      // sections that do (Direct molecular targets / Projections affected / Acts within). The enzymes
+      // sections that do (Direct molecular targets / Neurotransmitter tone / Acts within). The enzymes
       // that clear this drug or whose activity it changes, then the drug -> drug
       // interactions those roles imply.
       if (drug.enzymes && drug.enzymes.length) {
@@ -5285,11 +5314,14 @@ function createInfoPanel(data, sourcingModal) {
       if (group.mode === "kind") {
         const acting = (data.drugs || [])
           .filter((d) => d.focusable && (d.flowKinds || []).includes(group.key))
-          .sort((a, b) => a.name.localeCompare(b.name));
+          // Strongest raise first, strongest lowering last (see netTone).
+          .sort((a, b) => netTone(b, group.key) - netTone(a, group.key)
+            || a.name.localeCompare(b.name));
         if (acting.length) {
           const wrap = el("div", "info-bindings info-interactors");
           wrap.appendChild(el(
             "h3", null, `${t("group.actingDrugs")} (${acting.length})`));
+          wrap.appendChild(el("p", "legend-caption", t("group.actingDrugsHint")));
           const ul = el("ul");
           for (const d of acting) {
             const li = el("li", "clickable");
@@ -5297,11 +5329,14 @@ function createInfoPanel(data, sourcingModal) {
             li.appendChild(el("span", "bind-target", d.displayName));
             const cat = d.categoryLabels && d.categoryLabels[0];
             if (cat) li.appendChild(el("span", "legend-tag", cat));
-            // Symmetric sourcing with the drug panel's "Projections affected" row:
+            // Symmetric sourcing with the drug panel's "Neurotransmitter tone" row:
             // the drug<->system link is one node, so both ends carry the same source,
             // the strongest-affinity binding feeding this system.
             const rep = strongestBindingForKind(d.bindings, group.key);
             if (rep) li.appendChild(bindingProvenancePill(rep));
+            const tone = el("span", "tone-value", fmtTone(netTone(d, group.key)));
+            tone.title = t("group.toneTip");
+            li.appendChild(tone);
             li.addEventListener("click", () => onDrugPick(d));
             ul.appendChild(li);
           }
@@ -5352,7 +5387,7 @@ function createInfoPanel(data, sourcingModal) {
 
     /**
      * Register the handler run when a projection-group row in a drug panel's
-     * "Projections affected" list is clicked. Called with the group record; the
+     * "Neurotransmitter tone" list is clicked. Called with the group record; the
      * caller focuses it exactly like its Projections legend row / search pick.
      */
     onProjectionGroup(fn) {
@@ -8909,7 +8944,7 @@ async function main() {
   // / drug search pick, so you can go from a target to every drug acting on it.
   info.onDrug(selectDrug);
 
-  // Clicking a "Projections affected" row in a drug panel focuses that projection
+  // Clicking a "Neurotransmitter tone" row in a drug panel focuses that projection
   // group (isolates its arrows + opens its tab), exactly like its Projections legend
   // row, so you can go from a drug to the pathway system it engages.
   info.onProjectionGroup((group) => focusProjectionGroup(group, { frame: true }));

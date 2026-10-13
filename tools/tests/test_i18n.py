@@ -82,6 +82,16 @@ class SourcePageKindTest(unittest.TestCase):
                 self.assertIn("{page}", c["page_url"], cid)
                 self.assertIn("page_kind", c, f"{cid}: a page URL with no page_kind")
 
+    def test_every_tone_rule_driver_is_translated(self):
+        # The drug panel's tone breakdown labels each binding by its rule driver.
+        sys.path.insert(0, str(ROOT / "tools"))
+        from data_generators.drugs import TONE_RULES
+        en, fr = catalogues()
+        for bucket in TONE_RULES.values():
+            for _sign, driver in bucket.values():
+                self.assertIn(f"tone.rule.{driver}", en, driver)
+                self.assertIn(f"tone.rule.{driver}", fr, driver)
+
     def test_europepmc_page_is_a_pmid(self):
         sys.path.insert(0, str(ROOT / "tools"))
         from data_generators.provenance import SOURCE_CORPORA

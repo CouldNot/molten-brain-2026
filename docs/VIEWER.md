@@ -108,7 +108,7 @@ both and indexes groups by `${mode}:${key}` (`projectionGroupsByKey`).
 - `showProjectionGroup`: a by-transmitter / by-effect heading with the group's source pill
   (`group.provenance`), the description (live-refreshed, its own pill), the reference, the member
   pathways, then (kind-mode only) a **Drugs acting on this system** list = focusable drugs whose
-  `flowKinds` include this kind (mirror of the drug panel's Projections affected; jumps via `onDrug`).
+  `flowKinds` include this kind (mirror of the drug panel's Neurotransmitter tone; jumps via `onDrug`), each with its signed tone (`netTone`) and ranked by it, highest raise first.
 - Both reuse the shared `pathwayRow`/`appendPathwayList` helper (also used by `showStructure`), which
   runs rows through `pathwayList` to collapse left/right twin pathways to one row.
 - `focusCircuit` / `focusProjectionGroup` mirror `focusDrug`: isolate (a circuit also
