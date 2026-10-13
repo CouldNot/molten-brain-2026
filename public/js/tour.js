@@ -84,7 +84,8 @@ const REVEAL_MS = 1000; // hold the dim + highlight back this long, then fade it
 // so the scene the step just set up reads for a beat before the overlay lands on it
 const SCROLL_TOP_PAD = 12; // px above a scrollAlign:"top" target once scrolled to the top
 const SCROLL_RECHECK_MS = 200; // how often a scrollTo step re-checks its target is still in view
-const SCROLL_RECHECK_FOR_MS = 4000; // ... and for how long after the step opens (see scrollStepIntoView)
+const REVEAL_WAIT_MAX_MS = 4000; // longest a scrollTo step holds its reveal for the target to arrive
+const SMOOTH_SCROLL_MAX_MS = 1200; // a smooth scroll not landed by then is finished with a jump
 const ELASTIC_PX = 10; // px the ring rubber-bands when a panel step's scroll is clamped
 const ARROW_EDGE_PAD = 30; // px inside the scroll container's edge the scroll arrow rides
 const ARROW_TARGET_GAP = 16; // px off the target the arrow lands on before fading out
@@ -457,12 +458,9 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
 
     const cr = c.getBoundingClientRect();
     const er = unionRect(els);
-    const shown = Math.max(0, Math.min(er.bottom, cr.bottom) - Math.max(er.top, cr.top));
-    // The same "enough of it is on screen" test scrollStepIntoView settles on, so
-    // the arrow lands exactly when the scroll stops chasing.
-    const arrived = shown >= Math.min(er.height, c.clientHeight * 0.6) - 2;
-
-    if (!arrived) {
+    // The same test scrollStepIntoView settles on, so the arrow lands exactly when
+    // the scroll stops chasing.
+    if (!shownEnough(er, c)) {
       arrowDir = er.top < cr.top ? -1 : 1;
       placeArrow(
         clamp(er.left + er.width / 2, cr.left + ARROW_EDGE_PAD, cr.right - ARROW_EDGE_PAD),
@@ -737,14 +735,27 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
     scheduleLayout();
 
     // After the opening beat, drop pre-reveal so the (already positioned, still
-    // invisible) dim + highlight fade in over the settled scene. The index guard
-    // ignores a stale timer after a fast Back/Next moved on.
-    revealTimer = setTimeout(() => {
+    // invisible) dim + highlight fade in over the settled scene. A scrollTo step also
+    // holds it until its target has scrolled into view and stopped moving (bounded by
+    // REVEAL_WAIT_MAX_MS), so the ring never lands on a row that is still off-screen.
+    // The index guard ignores a stale timer after a fast Back/Next moved on.
+    const revealAt = performance.now() + REVEAL_MS + REVEAL_WAIT_MAX_MS;
+    let lastTop = null;
+    const reveal = () => {
       if (!active || index !== i) return;
+      const el = step.scrollTo ? primaryTarget(step) : null;
+      const top = el ? el.getBoundingClientRect().top : null;
+      const settled = !el || (targetArrived(step) && top === lastTop);
+      lastTop = top;
+      if (!settled && performance.now() < revealAt) {
+        revealTimer = setTimeout(reveal, SCROLL_RECHECK_MS);
+        return;
+      }
       revealTimer = null;
       layout();
       root.classList.remove("pre-reveal");
-    }, REVEAL_MS);
+    };
+    revealTimer = setTimeout(reveal, REVEAL_MS);
   }
 
   // Whether the ring + bubble ease between positions (smooth) or snap (tight
@@ -752,6 +763,24 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
   // ring rides the scrolling row 1:1 instead of lagging behind it.
   function setAnim(on) {
     root.classList.toggle("no-anim", !on);
+  }
+
+  // "Enough of it is on screen": the box `er` shows at least its own height, or 60%
+  // of container `c` for a block taller than that. The one arrival test shared by the
+  // scroll-into-view retry, the reveal hold and the scroll arrow.
+  function shownEnough(er, c) {
+    const cr = c.getBoundingClientRect();
+    const shown = Math.max(0, Math.min(er.bottom, cr.bottom) - Math.max(er.top, cr.top));
+    return shown >= Math.min(er.height, c.clientHeight * 0.6) - 2;
+  }
+
+  // Whether a scrollTo step's target has scrolled into view (true when the step
+  // does not scroll, or its target has no scroll container to leave).
+  function targetArrived(step) {
+    if (!step.scrollTo) return true;
+    const els = resolveTargets(step);
+    const c = els.length ? scrollParent(els[0]) : null;
+    return !c || shownEnough(unionRect(els), c);
   }
 
   // Nearest ancestor of `el` that actually scrolls vertically (else null).
@@ -778,6 +807,7 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
   function scrollStepIntoView(step) {
     if (!step.scrollTo) return;
     const startIndex = index;
+    let glide = null; // the smooth scroll in flight: { to, at }
     const attempt = (first) => {
       if (!active || index !== startIndex) return; // step already changed
       if (!first && userScrolled) return; // never fight a deliberate scroll
@@ -790,12 +820,9 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
       // browse sections) must land in view as one block, or the ring spans rows
       // that are off-screen.
       const er = unionRect(els);
-      if (!first) {
-        // A retry only acts on a target that is genuinely off-screen (see below):
-        // enough of it showing means the first scroll worked, leave it alone.
-        const visible = Math.max(0, Math.min(er.bottom, cr.bottom) - Math.max(er.top, cr.top));
-        if (visible >= Math.min(er.height, c.clientHeight * 0.6) - 2) return;
-      }
+      // A retry only acts on a target that is genuinely off-screen (see below):
+      // enough of it showing means the first scroll worked, leave it alone.
+      if (!first && shownEnough(er, c)) return;
       // Default: centre the target. "top" (or a block taller than the panel): land
       // its heading near the top instead, since centring a tall block scrolls past
       // its heading so you can't tell what you are looking at.
@@ -804,20 +831,29 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
         : c.scrollTop + (er.top - cr.top) - (c.clientHeight - er.height) / 2;
       const to = Math.max(0, Math.min(want, c.scrollHeight - c.clientHeight));
       if (Math.abs(to - c.scrollTop) < 2) return; // already centred enough
-      c.scrollTo({ top: to, behavior: "smooth" });
+      // Never re-issue a smooth scroll toward the destination one is already gliding
+      // to: each call restarts the animation, so on a busy main thread a retry every
+      // tick kept the panel frozen where it was (the ring then pointed off-screen).
+      // A glide still short of its mark after SMOOTH_SCROLL_MAX_MS is finished with a
+      // jump instead, so the target always arrives.
+      const now = performance.now();
+      const same = glide && Math.abs(glide.to - to) < 2;
+      if (same && now - glide.at < SMOOTH_SCROLL_MAX_MS) return;
+      c.scrollTo({ top: to, behavior: same ? "instant" : "smooth" });
+      glide = { to, at: now };
     };
-    // Then re-checked for a few seconds: a panel's content keeps arriving after the step
-    // opens (a live Wikipedia lead is a network fetch, an illustration loads lazily) and
-    // that reflow slides the target back out of view under the first scroll. Polling
-    // beats one fixed retry because there is no telling when the fetch lands; it costs a
-    // couple of rect reads per tick, only while a scrollTo step is showing, and it stops
-    // the moment the user scrolls by hand.
+    // Then re-checked for as long as the step shows: a panel's content keeps arriving
+    // after the step opens (a live Wikipedia lead is a network fetch, an illustration
+    // loads lazily, a section above collapses) and that reflow slides the target back
+    // out of view under the first scroll, at any time. A time-capped poll left the ring
+    // pointing off-screen when the reflow landed late. It costs a couple of rect reads
+    // per tick, only while a scrollTo step is showing, and it stops the moment the user
+    // scrolls by hand.
     setTimeout(() => attempt(true), 0);
     const poll = setInterval(() => {
       if (!active || index !== startIndex || userScrolled) clearInterval(poll);
       else attempt(false);
     }, SCROLL_RECHECK_MS);
-    setTimeout(() => clearInterval(poll), SCROLL_RECHECK_FOR_MS);
   }
 
   function scheduleLayout() {
