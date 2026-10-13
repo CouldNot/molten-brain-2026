@@ -1930,6 +1930,20 @@
     "quote": "Cav3.1 (CACNA1G), GtoPdb target 535 | type: vgic | family: Voltage-gated calcium channels (CaV)"
    }
   ],
+  "cgrp": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "calcrl",
+    "provenance": "verified",
+    "quote": "The association of CALCRL with different RAMP proteins produces different receptors: - with RAMP1 : produces a CGRP receptor - with RAMP2 : produces an adrenomedullin (AM) receptor, designated AM 1 - with RAMP3 : produces a dual CGRP/AM receptor designated AM 2 These receptors are linked to the G protein G s , which activates adenylate cyclase and activation results in the generation of intracellular cyclic adenosine monophosphate (cAMP)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 399,
+    "provenance": "verified",
+    "quote": "Several other neurotransmitters are also represented, including vasopressin inhibitory protein (VIP) and its receptor VIPR; somatostatin and its receptor SR; calcitonin G-related peptide (CGRP) and its receptors CGRP-R;"
+   }
+  ],
   "comt": [
    {
     "corpus": "stahl_essential",
@@ -1952,6 +1966,14 @@
     "page": 285,
     "provenance": "verified",
     "quote": "MC4 receptor (MC4R), GtoPdb target 285 | type: gpcr | family: Melanocortin receptors"
+   }
+  ],
+  "nkcc1": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "na_k_cl_cotransporter",
+    "provenance": "verified",
+    "quote": "The carboxy-terminal of the NKCC1 cotransporter contains multiple phosphorylation sites and is highly conserved across species, while in contrast, the amino-terminal contains at least one phosphorylation site and is poorly conserved across species .Focusing on the transmembrane regions, mutagenesis -driven affinity studies have revealed the second transmembrane region as the determinant of cation affinity, while chloride affinity was determined by transmembrane regions four through seven."
    }
   ],
   "pde5": [

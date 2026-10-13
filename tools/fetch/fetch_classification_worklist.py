@@ -57,6 +57,8 @@ MIN_LINE, MAX_LINE = 30, 600
 PAGE_ALIASES: dict[str, str] = {
     "cannabinoid_receptor_type_1": "cannabinoid_receptor_1",
     "4_aminobutyrate_aminotransferase": "4_aminobutyrate_transaminase",
+    # The CGRP receptor is CALCRL + RAMP1; the article title redirects to the gene.
+    "calcitonin_gene_related_peptide_receptor": "calcrl",
 }
 RECEPTOR_ATTRS = ("receptor_class", "sign", "synaptic")
 # Spellings Stahl Essential uses that ``target_aliases`` does not carry (its display names

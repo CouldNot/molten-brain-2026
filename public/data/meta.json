@@ -560,7 +560,7 @@
         "putamen",
         "amygdala"
       ],
-      "classification_provenance": "llm",
+      "classification_provenance": "verified",
       "location_sources": {
         "amygdala": [
           {
@@ -667,7 +667,14 @@
       },
       "wikipedia": "https://en.wikipedia.org/wiki/Na-K-Cl_cotransporter",
       "wikipedia_provenance": "sourced",
-      "gene": "SLC12A2"
+      "gene": "SLC12A2",
+      "sources": [
+        {
+          "quote_id": "q_ddb3d7178a93",
+          "pipeline": "page_llm",
+          "provenance": "verified"
+        }
+      ]
     },
     "vmat2": {
       "name": "Vesicular monoamine transporter (VMAT2)",
@@ -2081,7 +2088,7 @@
         "pons",
         "medulla"
       ],
-      "classification_provenance": "llm",
+      "classification_provenance": "verified",
       "location_sources": {
         "amygdala": [
           {
@@ -2148,7 +2155,19 @@
       },
       "wikipedia": "https://en.wikipedia.org/wiki/Calcitonin_gene-related_peptide_receptor",
       "wikipedia_provenance": "sourced",
-      "gene": "CALCRL"
+      "gene": "CALCRL",
+      "sources": [
+        {
+          "quote_id": "q_b1311ee76f12",
+          "pipeline": "page_llm",
+          "provenance": "verified"
+        },
+        {
+          "quote_id": "q_ac5a46596b72",
+          "pipeline": "page_llm",
+          "provenance": "verified"
+        }
+      ]
     },
     "alpha1a": {
       "name": "α1A",
@@ -4226,12 +4245,12 @@
       },
       "targets": {
         "total": 25,
-        "verified": 23,
+        "verified": 25,
         "uncertain": 0,
         "sourced": 0,
-        "llm": 2,
+        "llm": 0,
         "nosource": 0,
-        "missing": 2,
+        "missing": 0,
         "unknown": 0
       },
       "target_polarity": {
@@ -4287,14 +4306,14 @@
     },
     "nodes": {
       "total": 7688,
-      "verified": 7096,
+      "verified": 7098,
       "uncertain": 266,
       "sourced": 0,
-      "llm": 256,
+      "llm": 254,
       "nosource": 70,
-      "missing": 326,
+      "missing": 324,
       "unknown": 656,
-      "backed": 7362,
+      "backed": 7364,
       "pct_backed": 96
     },
     "ki_coverage": {

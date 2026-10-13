@@ -6855,6 +6855,94 @@
    ],
    "candidates": [
     {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "The calcitonin receptor-like (CALCRL) protein is a class B G protein-coupled receptor (GPCR) characterized by seven transmembrane helices and a relatively large N-terminal extracellular domain (ECD) comprising 100–160 residues and three conserved disulfide bonds .",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "CALCRL forms functional heterodimeric complexes with one of three single transmembrane receptor activity-modifying proteins (RAMPs), namely RAMP1, RAMP2, or RAMP3, which determine its ligand specificity.",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "The protein encoded by the CALCRL gene is a G protein-coupled receptor related to the calcitonin receptor .",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "CALCRL is linked to one of three single transmembrane domain receptor activity-modifying proteins (RAMPs) that are essential for functional activity.",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "The association of CALCRL with different RAMP proteins produces different receptors: - with RAMP1 : produces a CGRP receptor - with RAMP2 : produces an adrenomedullin (AM) receptor, designated AM 1 - with RAMP3 : produces a dual CGRP/AM receptor designated AM 2 These receptors are linked to the G protein G s , which activates adenylate cyclase and activation results in the generation of intracellular cyclic adenosine monophosphate (cAMP).",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "CALCRL binds Ramp2 to form the adrenomedullin receptor 1 (AM 1 ), while it binds Ramp3 to form adrenomedullin receptor 2 (AM 2 ).",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "Calcitonin gene-related peptide receptor antagonists are FDA approved for the treatment of migraine .",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "International Union of Basic and Clinical Pharmacology. - calcitonin+receptor-like+receptor at the U.S.",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "National Library of Medicine Medical Subject Headings (MeSH) - CALCRL human gene location in the UCSC Genome Browser . - CALCRL human gene details in the UCSC Genome Browser . v t e Cell surface receptor :",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "Metabotropic glutamate / pheromone - TAS1R 1 2 3 - 1 - 2 - 3 - Vomeronasal receptor , type 2 - Calcium-sensing receptor - GABA B 1 2 - 1 - 2 - Glutamate receptor Metabotropic glutamate 1 2 3 4 5 6 7 8 - Metabotropic glutamate 1 2 3 4 5 6 7 8 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - GPRC6A - GPR 156 158 179 - 156 - 158 - 179 - RAIG 1 2 3 4 - 1 - 2 - 3 - 4 Class F:",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "calcrl",
+     "line": "PRG4) - Oncomodulin - Pituitary adenylate cyclase-activating peptide (PACAP) - Pleiotrophin - Renalase - Thrombopoietin (see here instead) - Wnt signaling proteins - Additional growth factor receptor modulators:",
+     "attrs": [
+      "type"
+     ]
+    },
+    {
      "corpus": "stahl_essential",
      "page": 399,
      "line": "Several other neurotransmitters are also represented, including vasopressin inhibitory protein (VIP) and its receptor VIPR; somatostatin and its receptor SR; calcitonin G-related peptide (CGRP) and its receptors CGRP-R;",
