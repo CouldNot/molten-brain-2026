@@ -2467,7 +2467,7 @@
       }
       /* The "Click for details" cue inside a provenance tooltip: a link-styled
          button that opens the Sources & provenance popup (see makeDetailsCue). */
-      .src-details-cue {
+      .src-details-cue, .addon-jump {
         display: inline-block;
         margin: 0;
         padding: 0;
@@ -2478,7 +2478,7 @@
         text-decoration: underline;
         cursor: pointer;
       }
-      .src-details-cue:hover { color: var(--accent-bright); }
+      .src-details-cue:hover, .addon-jump:hover { color: var(--accent-bright); }
       .info-connections li {
         display: flex;
         align-items: center;
@@ -2580,7 +2580,7 @@
         .structure-image.loading .img-spinner { animation: none; }
       }
 
-      /* Drug panel: the "Acts on" molecular-target list. Each row is the
+      /* Drug panel: the "Direct action on receptors" molecular-target list. Each row is the
          effect swatch + the target name + (action · note); a speculative
          binding is dimmed + italic. */
       .info-bindings { margin: 0 0 var(--sp-xl); }
@@ -2760,7 +2760,7 @@
       }
       /* A metabolite's own receptor bindings, nested under its row: indented and
          separated by a faint left rule so they read as sub-facts of the metabolite,
-         reusing the same bindingRow markup as the drug's "Acts on" list. */
+         reusing the same bindingRow markup as the drug's "Direct action on receptors" list. */
       .info-metabolites .metab-bindings {
         margin: 4px 0 2px 12px;
         padding-left: 8px;

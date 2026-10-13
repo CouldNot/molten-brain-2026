@@ -937,7 +937,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // first), yet focusing it should light what its active metabolite hits. So before
   // the loop resolves bindings, it borrows each metabolite's raw bindings (its own
   // `bindings[]`, else its linked modeled drug's), tagged `via_metabolite`: the scene,
-  // flow and "Acts on" treat them like the drug's, while every list that counts a
+  // flow and "Direct action on receptors" treat them like the drug's, while every list that counts a
   // binding node once (receptor panels, node browser, simulation) skips the tag,
   // since the metabolite already owns that node. Runs on raw records, before any
   // drug's bindings are mapped.

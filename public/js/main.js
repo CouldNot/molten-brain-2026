@@ -1868,7 +1868,7 @@ function createPanelTabs() {
 
 // A drug binding's representative Ki (its median), or Infinity when unmeasured. The
 // single "how hard does this drug grip this target" ranking key, shared by the info
-// panel (the drug's "Acts on" order, each system's strongest binding) and the target
+// panel (the drug's "Direct action on receptors" order, each system's strongest binding) and the target
 // legend's affinity sort, so every affinity ordering agrees.
 const bindingKi = (b) =>
   b.ki && typeof b.ki.median === "number" ? b.ki.median : Infinity;
@@ -2817,7 +2817,7 @@ function createInfoPanel(data, sourcingModal) {
   };
 
   // --- Addon nodes: the panel-slot annotation kind ------------------------------
-  // Every other node kind has an implied home (a binding belongs in "Acts on", an
+  // Every other node kind has an implied home (a binding belongs in "Direct action on receptors", an
   // enzyme row in "Metabolism"), so its collection decides where it draws. An addon
   // is the kind for a claim with no such home: it carries its OWN insertion point
   // (see tools/data_generators/addons.py), and these two pieces are the whole hook
@@ -2916,6 +2916,31 @@ function createInfoPanel(data, sourcingModal) {
     if (induces.length) parts.push(t("drug.autoPkInduces", { enzymes: induces.join(", ") }));
     box.appendChild(el("p", "addon-text", parts.join(" ")));
     box.appendChild(el("p", "addon-derived-note", t("drug.autoPkDerived")));
+    return box;
+  };
+
+  // Caution box leading "Direct action on receptors" for a drug with active
+  // metabolites: the rows list only the parent's own bindings, while the metabolites
+  // act too (their bindings live under Active metabolites or on their own drug panel).
+  // Derived from the drug's sourced metabolite nodes, so no pill of its own; the
+  // button jumps to that section, looked up at click time since it renders later.
+  const derivedActiveMetabolites = (drug, body) => {
+    const names = (drug.metabolites || []).map((m) => m.name);
+    if (!names.length || drug.prodrug) return null;
+    const box = el("div", "addon addon-caution addon-derived");
+    const head = el("div", "addon-head");
+    const tones = data.meta.addonTones || {};
+    if (tones.caution) head.appendChild(el("span", "addon-glyph", tones.caution));
+    head.appendChild(el("strong", "addon-title", t("drug.metabolites")));
+    box.appendChild(head);
+    const p = el("p", "addon-text", `${t(names.length > 1 ? "drug.activeMetabWarnMany" : "drug.activeMetabWarnOne",
+      { names: names.join(", ") })} `);
+    const go = el("button", "addon-jump", t("drug.activeMetabSee"));
+    go.type = "button";
+    go.addEventListener("click", () =>
+      flashRow(body.querySelector('[data-tour-sec="metabolites"]')));
+    p.appendChild(go);
+    box.appendChild(p);
     return box;
   };
 
@@ -3122,7 +3147,7 @@ function createInfoPanel(data, sourcingModal) {
     return a;
   };
 
-  // One binding row, shared by the drug panel's "Acts on" list and a
+  // One binding row, shared by the drug panel's "Direct action on receptors" list and a
   // receptor/target panel's "Interacting drugs" list: the two render the *same*
   // resolved binding from opposite ends (a drug's target vs a target's drug), so
   // the markup lives once. Layout: the effect glyph, then a text column holding
@@ -3434,7 +3459,7 @@ function createInfoPanel(data, sourcingModal) {
   // affinity drug first (by this target's binding Ki, Infinity when unmeasured; equal
   // Ki tie-broken by name); classes ordered by the class's hardest binding (its min
   // Ki), classes with no measured Ki keeping the meta / Drugs-legend order among
-  // themselves. Matches the drug panel's "Acts on" order and the target legend.
+  // themselves. Matches the drug panel's "Direct action on receptors" order and the target legend.
   /**
    * One row of a metabolism list, shared by the drug panel's Metabolism section and
    * the enzyme panel's drug list so both render the same claim identically (the
@@ -3624,7 +3649,7 @@ function createInfoPanel(data, sourcingModal) {
     for (const cat of order) {
       container.appendChild(el("h4", "drug-cat", cats[cat] || cat));
       const ul = el("ul");
-      // Same shared row builder as the drug panel's "Acts on" list (same resolved
+      // Same shared row builder as the drug panel's "Direct action on receptors" list (same resolved
       // binding, seen from the target's side), so the effect glyph, action, the
       // measured Ki chip and the shared source pill all render identically here;
       // clicking a row opens that drug.
@@ -4356,7 +4381,7 @@ function createInfoPanel(data, sourcingModal) {
     /**
      * Populate the panel for a *drug* (clicking a drug legend/list row or a drug
      * search result): its name, primary category, a Wikipedia link, a one-line
-     * description, its class(es) + nomenclature, then the "Acts on" list of
+     * description, its class(es) + nomenclature, then the "Direct action on receptors" list of
      * molecular targets (each binding's effect swatch + target name + action,
      * with a note / "speculative" marker when present, and a source pill: its own
      * quote-level source or the drug-level Stahl citation as a fallback).
@@ -4681,6 +4706,8 @@ function createInfoPanel(data, sourcingModal) {
       const acts = el("div", "info-bindings");
       acts.dataset.tourSec = "bindings"; // guided-tour section anchor
       acts.appendChild(el("h3", null, t("drug.actsOn")));
+      const metabWarn = derivedActiveMetabolites(drug, body);
+      if (metabWarn) acts.appendChild(metabWarn);
       // A prodrug's own graded claim (kind drug_prodrug): it binds nothing itself, so
       // every row below is borrowed from its active metabolite ("via ...").
       if (drug.prodrug) {
@@ -4720,7 +4747,7 @@ function createInfoPanel(data, sourcingModal) {
       // A metabolite that is itself a modeled drug links to it (jump via onDrugPick);
       // each shows its own T½ underneath, a bit like a binding's Ki. A non-modeled
       // metabolite's OWN receptor bindings (Wikipedia/PDSP-sourced) are listed under it
-      // via the same bindingRow the drug's "Acts on" uses, so a reader can see what the
+      // via the same bindingRow the drug's "Direct action on receptors" uses, so a reader can see what the
       // metabolite hits without hunting each receptor panel. (A linked metabolite shows
       // none here: its bindings live on its own drug row, reachable via the link.)
       if (drug.metabolites && drug.metabolites.length) {
@@ -4778,7 +4805,7 @@ function createInfoPanel(data, sourcingModal) {
           }
           // A non-modeled metabolite's OWN sourced receptor bindings (m.ownBindings,
           // resolved in js/data.js from its Wikipedia/PDSP pharmacology). Rendered with
-          // the same bindingRow the drug's "Acts on" uses, strongest-affinity first, each
+          // the same bindingRow the drug's "Direct action on receptors" uses, strongest-affinity first, each
           // row jumping to its target when browsable.
           if (m.ownBindings && m.ownBindings.length) {
             const bul = el("ul", "metab-bindings");
@@ -9459,7 +9486,7 @@ async function main() {
     { title: t("tour.drugTap.title"), body: t("tour.drugTap.body"),
       target: '[data-tour-id="drug:olanzapine"]', interactive: true, scrollTo: true,
       before: () => tourOpenSection("drugs") },
-    // 15. The drug's "Acts on" list (dim:false so the live animation stays visible). The
+    // 15. The drug's "Direct action on receptors" list (dim:false so the live animation stays visible). The
     //    body flags the drug animations as the least-scientific, still-WIP part.
     { title: t("tour.drugActs.title"), body: t("tour.drugActs.body"),
       target: '[data-tour-sec="bindings"]', dim: false, scrollTo: true, scrollAlign: "top",
