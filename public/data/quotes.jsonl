@@ -4413,7 +4413,6 @@
 {"id": "q_e5b49bd5117c", "corpus": "agnp_tdm", "page": 35, "quote": "Lumateperone 3 h 10–30 ng/mL Schizophrenia 3–4 d 60 ng/mL 4"}
 {"id": "q_e5d95cf4d52d", "corpus": "stahl", "page": 827, "quote": "Qsymia", "llm": "sonnet", "heading": ["Topiramate", "Therapeutics", "Brands"]}
 {"id": "q_e60875f71f8c", "corpus": "wikipedia_pharm", "page": "sumatriptan", "quote": "5-HT 1E | 646–2,520 (K i ) 1,020–10,000 ( EC 50 ) 56% ( E max )", "fetched": "2026-10-11"}
-{"id": "q_e60e7a6186b0", "corpus": "wikipedia_pharm", "page": "prazepam", "quote": "Prazepam is a prodrug for descyclopropylmethylprazepam/desmethyldiazepam (also known as norprazepam or nordazepam ) which is responsible for most of the therapeutic activity of prazepam rather than prazepam itself.\n\n## Interactions\nPrazepam may interact with cimetidine .", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_e6120123f19c", "corpus": "wikipedia_pharm", "page": "ketanserin", "quote": "5-HT 7 | 320–1,334 nM | Antagonist", "fetched": "2026-10-11"}
 {"id": "q_e61cce115405", "corpus": "allen_ahba", "page": "ADRA2C", "quote": "ADRA2C detected in substantia_nigra: probe 1027284 PACall present in 44/44 samples (donors 9861,10021,12876,14380,15697)", "species": "Human", "fetched": "2026-07-04"}
 {"id": "q_e632197ed71f", "corpus": "wikipedia_fr", "page": "halop_ridol", "quote": "Sous le nom de marque Haldol , le médicament a été autorisé et commercialisé en Belgique en octobre 1959 .", "llm": "opus", "fetched": "2026-10-11"}

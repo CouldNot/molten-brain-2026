@@ -37,6 +37,19 @@ def _run_check(meta, drugs, projections, receptors):
     return report, warns
 
 
+class SpansHeadingTest(unittest.TestCase):
+    """A quote glued across a page's section heading is refused (prazepam's metabolite
+    quote ran on into "## Interactions" and still matched once whitespace folded)."""
+
+    def test_heading_line_inside_a_quote(self):
+        glued = ("Prazepam is a prodrug for desmethyldiazepam.\n\n## Interactions\n"
+                 "Prazepam may interact with cimetidine .")
+        self.assertTrue(check_data.spans_heading(glued))
+        self.assertFalse(check_data.spans_heading(
+            "Prazepam is a prodrug for desmethyldiazepam."))
+        self.assertFalse(check_data.spans_heading("Ki | 5-HT2A | #3 site"))
+
+
 class NormalizeForMatchTest(unittest.TestCase):
     """The quote gate's canonical form folds typesetting away, never text."""
 

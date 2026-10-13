@@ -1094,6 +1094,16 @@ def check_provenance(report, meta, structures, projections, circuits,
 # about even when it "matches".
 _MIN_QUOTE_CHARS = 16
 
+# A page's Markdown heading line ("## Interactions") opens another section: a quote
+# running across one glues two sections' sentences into one claim, and still matches
+# verbatim once whitespace is normalized, so it is refused on its own.
+_HEADING_IN_QUOTE = re.compile(r"(?m)^[ \t]*#{1,6}[ \t]")
+
+
+def spans_heading(quote):
+    """Whether ``quote`` runs across a Markdown heading line of its page."""
+    return bool(_HEADING_IN_QUOTE.search(quote or ""))
+
 # A quote can be verbatim on the cited page and still not support the claim. The
 # recurring way that happened here: Stahl's "How Drug Causes Side Effects" block
 # lists the mechanisms of the drug's CLASS as subject-less rules ("Blocking
@@ -1275,6 +1285,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                 unjudged.append(ctx)
         if not quote or page is None:
             return  # weaker grade with no quote to check
+        if spans_heading(quote):
+            report.error(f"{ctx}: quote runs across a page heading (two sections "
+                         f"glued into one claim): {quote!r}")
         entry = corpora.get(corpus) or {}
         # A corpus shipping its raw tables (`tsv_dir`) has no prose page to look in:
         # its quote is COMPOSED out of those tables, so family 13 re-derives it from
