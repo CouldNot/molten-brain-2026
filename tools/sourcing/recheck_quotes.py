@@ -6,10 +6,12 @@ LLM (historically often Haiku). This harness re-verifies each quote with a chose
 (Sonnet by default) and records *which* model confirmed it, so a reader can weigh a quote
 by the capability of the model that vouched for it (see CLAUDE.md "The sourcing model").
 
-The output is a central ``tools/generated_cache/quote_llm.json`` map ``{quote_id: llm}``
-applied uniformly at generation time by ``data_generators.quote_table`` (an override wins
-over any source-level ``llm``), so ONE recheck pass stamps every kind of quote without
-editing each authoring site. Quotes the recheck could not fully confirm are written to
+The output is a central ``tools/generated_cache/quote_llm.json`` map
+``{quote_id: {citation site: llm}}``, applied at generation time by
+``data_generators.quote_table.finalize_citations``, so ONE recheck pass stamps every kind of
+quote without editing each authoring site. A stamp is keyed to the sites the judge was shown
+(the ``site | claim`` lines of its batch): a site added later reusing the same sentence is
+NOT covered, reads unjudged, and fails ``check_data.py`` until a pass judges it. Quotes the recheck could not fully confirm are written to
 ``quote_recheck_flagged.json`` for human review (they are NOT stamped).
 
 Token cost is minimized by batching: quotes are grouped by source page so each page's
@@ -143,11 +145,18 @@ def _unjudged_quotes():
     return found
 
 
+def _strongest(models):
+    """The strongest of ``models`` by :data:`LLM_RANK`, or ``None``."""
+    known = [m for m in models if m in LLM_RANK]
+    return max(known, key=LLM_RANK.get) if known else None
+
+
 def _quote_llms():
-    """``{quote id: model}`` as it stands today: the central override wins over the
-    source-level stamp, exactly as ``quote_table`` applies it at emit time."""
+    """``{quote id: model}``: the strongest model that judged each quote at any site
+    (the central per-site stamps, else the quote node's source-level stamp)."""
     stamps = {q["id"]: q["llm"] for q in _jsonl("quotes.jsonl") if q.get("llm")}
-    stamps.update(_load(os.path.join(CACHE, "quote_llm.json"), {}))
+    for qid, sites in _load(os.path.join(CACHE, "quote_llm.json"), {}).items():
+        stamps[qid] = _strongest(sites.values())
     return stamps
 
 
@@ -176,8 +185,11 @@ def _select(claims, kinds, args):
         picked = _unjudged_quotes()
         keep = {q: c for q, c in keep.items() if q in picked}
     if args.unstamped:
+        # A quote is stamped only when EVERY site it backs today has a verdict: a site
+        # added since the last pass is exactly what a stamp must not silently cover.
         stamped = _load(os.path.join(CACHE, "quote_llm.json"), {})
-        keep = {q: c for q, c in keep.items() if q not in stamped}
+        keep = {q: c for q, c in keep.items()
+                if not {site_of(t) for t in c} <= set(stamped.get(q, {}))}
     # The RESTRICTIVE forms: judge that list and nothing else. A re-extraction or a
     # dispute-settling pass has one question about a handful of quotes ("is there a
     # better sentence on this page", "the stamping model is asked again"), so every
@@ -326,14 +338,20 @@ def cmd_apply(args):
     rank = LLM_RANK.get(args.llm, -1)
     for q in sorted(judged):
         v = verdicts[q]
-        # The stamp as it stands: the central override, else the source-level one.
-        prior = stamped.get(q) or quotes[q].get("llm")
+        # The stamp keyed to each site this judge was shown (the claim lines it read):
+        # a verdict covers those claims and no other (see claim_walk.py).
+        sites = {site_of(t) for t in claims.get(q, [])} or {UNPLACED}
+        held = stamped.get(q, {})
+        # The stamp as it stands: the strongest per-site one, else the source-level one.
+        prior = _strongest(held.values()) or quotes[q].get("llm")
         if v.get("present") and v.get("supports"):
             # Two models confirming a quote beats one, and the stamp names the capability
             # a reader should weigh the quote against, so it keeps the strongest reader it
             # has had. A weaker second pass corroborates; it never demotes.
-            if rank >= LLM_RANK.get(prior, -1):
-                stamped[q] = args.llm
+            held = dict(held)
+            for site in sites:
+                held[site] = _strongest([held.get(site), args.llm])
+            stamped[q] = held
             disputed.pop(q, None)
             continue
         if rank < LLM_RANK.get(prior, -1):
@@ -365,13 +383,14 @@ def cmd_apply(args):
 
     os.makedirs(CACHE, exist_ok=True)
     json.dump(stamped, open(os.path.join(CACHE, "quote_llm.json"), "w"),
-              indent=0, sort_keys=True)
+              indent=0, sort_keys=True, ensure_ascii=False)
     json.dump(flagged, open(os.path.join(CACHE, "quote_recheck_flagged.json"), "w"),
               indent=1, ensure_ascii=False)
     json.dump(sorted(disputed.values(), key=lambda d: d["qid"]),
               open(os.path.join(CACHE, "quote_recheck_disputed.json"), "w"),
               indent=1, ensure_ascii=False)
-    print(f"stamped {len(stamped)} quotes (this pass: '{args.llm}'); "
+    print(f"stamped {sum(map(len, stamped.values()))} sites over {len(stamped)} quotes "
+          f"(this pass: '{args.llm}'); "
           f"flagged {len(flagged)}, disputed {len(disputed)}")
 
 

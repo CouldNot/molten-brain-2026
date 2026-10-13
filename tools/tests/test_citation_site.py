@@ -34,7 +34,9 @@ UNJUDGED_CORPORA = {"allen_ahba"}
 # file, so the applier reaches them by *reporting* them for a hand edit, never by
 # rewriting them. A judge may still name one: the demotion then says out loud that the
 # site matched nothing, which is the outcome we want, not a silent no-op.
-HAND_AUTHORED = ("/formed_by[",)
+# An enzyme row's `/strength` sub-claim is the same: its sources are derived by code from
+# the row's own (quotes/attestation.py), so demoting the row's quote is what removes it.
+HAND_AUTHORED = ("/formed_by[", "]/strength")
 
 
 class GrammarTest(unittest.TestCase):

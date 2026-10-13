@@ -174,7 +174,7 @@ class ApplyMergeTest(unittest.TestCase):
             cache, batches = Path(tmp) / "cache", Path(tmp) / "batches"
             cache.mkdir(), batches.mkdir()
             (cache / "quote_llm.json").write_text(
-                json.dumps({keep: "sonnet", demote: "sonnet"}), encoding="utf-8")
+                json.dumps({keep: {"*": "sonnet"}, demote: {"*": "sonnet"}}), encoding="utf-8")
             (cache / "quote_recheck_flagged.json").write_text(
                 json.dumps([{"qid": keep, "note": "an older flag"},
                             {"qid": promote, "note": "this pass re-judged it"}]),
@@ -199,9 +199,9 @@ class ApplyMergeTest(unittest.TestCase):
             stamped = json.loads((cache / "quote_llm.json").read_text(encoding="utf-8"))
             flagged = json.loads(
                 (cache / "quote_recheck_flagged.json").read_text(encoding="utf-8"))
-        self.assertEqual(stamped.get(keep), "sonnet", "an untouched stamp was dropped")
+        self.assertEqual(stamped.get(keep), {"*": "sonnet"}, "an untouched stamp was dropped")
         self.assertNotIn(demote, stamped, "a failed recheck kept its stamp")
-        self.assertEqual(stamped.get(promote), "sonnet")
+        self.assertEqual(stamped.get(promote), {"*": "sonnet"})
         self.assertIn(keep, [f["qid"] for f in flagged], "an untouched flag was dropped")
         self.assertIn(demote, [f["qid"] for f in flagged])
         self.assertNotIn(promote, [f["qid"] for f in flagged],
@@ -239,6 +239,70 @@ class ApplyMergeTest(unittest.TestCase):
             self.assertEqual(flagged, {live})
 
 
+class SiteKeyedJudgeTest(unittest.TestCase):
+    """A judge verdict covers the claim(s) it was shown, never a claim added later.
+
+    The bug this guards: stamps were keyed by quote id, so when sibutramine's "has these
+    metabolites" sentence was later reused to back new metabolite *binding* claims, those
+    citations silently read as judged although no judge had ever weighed the sentence
+    against them. A stamp is now ``{quote id: {citation site: model}}``.
+    """
+
+    def _cite(self, quote, site):
+        from data_generators import quote_table as QT
+        ref = QT.externalize_quotes({"corpus": "stahl", "page": 1, "quote": quote,
+                                     "provenance": "verified"})
+        return ref, site
+
+    def test_a_site_the_judge_never_saw_reads_unjudged(self):
+        from data_generators import quote_table as QT
+        judged_site = "drug:sibutramine/metabolites[desmethylsibutramine]"
+        new_site = "metabolite:desmethylsibutramine/bindings[sert:reuptake_inhibitor]"
+        a, _ = self._cite("Sibutramine has active metabolites.", judged_site)
+        b, _ = self._cite("Sibutramine has active metabolites.", new_site)
+        saved = dict(QT._LLM_OVERRIDES)
+        QT._LLM_OVERRIDES.clear()
+        QT._LLM_OVERRIDES[a["quote_id"]] = {judged_site: "opus"}
+        try:
+            QT.finalize_citations([a, b], {id(a): judged_site, id(b): new_site})
+        finally:
+            QT._LLM_OVERRIDES.clear()
+            QT._LLM_OVERRIDES.update(saved)
+        self.assertEqual(a["pipeline"], "page_llm_judged")
+        self.assertEqual(b["pipeline"], "page_llm",
+                         "a new claim inherited a verdict given on another claim")
+        self.assertFalse([k for k in a if k.startswith("_")], "transient keys leaked")
+
+    def test_apply_keys_the_stamp_to_the_sites_shown(self):
+        qid = next(q["id"] for q in R._jsonl("quotes.jsonl"))
+        with tempfile.TemporaryDirectory() as tmp:
+            cache, batches = Path(tmp) / "cache", Path(tmp) / "batches"
+            cache.mkdir(), batches.mkdir()
+            (cache / "quote_llm.json").write_text(
+                json.dumps({qid: {"drug:a/half_life": "sonnet"}}), encoding="utf-8")
+            (batches / "batch_0.json").write_text(json.dumps({"pages": {}, "items": [
+                {"qid": qid, "page_ref": "x:1", "quote": "q",
+                 "claims": ["drug:a/tmax | Drug A peaks at 2 h."]}]}), encoding="utf-8")
+            verdicts = Path(tmp) / "v.json"
+            verdicts.write_text(json.dumps({"verdicts": {
+                qid: {"present": True, "supports": True}}}), encoding="utf-8")
+            old = R.CACHE
+            try:
+                R.CACHE = str(cache)
+                R.cmd_apply(argparse.Namespace(batches=str(batches),
+                                               verdicts=str(verdicts), llm="opus"))
+            finally:
+                R.CACHE = old
+            stamped = json.loads((cache / "quote_llm.json").read_text(encoding="utf-8"))
+        self.assertEqual(stamped[qid], {"drug:a/half_life": "sonnet", "drug:a/tmax": "opus"})
+
+    def test_the_emitted_data_carries_no_quote_level_stamp_leak(self):
+        # Every emitted citation is finalized: no transient key survives the write.
+        for name in ("drugs.jsonl", "projections.jsonl", "receptors.jsonl"):
+            text = (Path(R.DATA) / name).read_text(encoding="utf-8")
+            self.assertNotIn('"_extraction"', text, name)
+
+
 class SecondReadTest(unittest.TestCase):
     """A second, weaker model reading a quote can corroborate it or dispute it, never
     silently demote it.
@@ -255,7 +319,8 @@ class SecondReadTest(unittest.TestCase):
         qid = next(q["id"] for q in R._jsonl("quotes.jsonl"))
         cache, batches = Path(tmp) / "cache", Path(tmp) / "batches"
         cache.mkdir(), batches.mkdir()
-        (cache / "quote_llm.json").write_text(json.dumps({qid: prior}), encoding="utf-8")
+        (cache / "quote_llm.json").write_text(json.dumps({qid: {"*": prior}}),
+                                              encoding="utf-8")
         (batches / "batch_0.json").write_text(
             json.dumps({"pages": {}, "items": [{"qid": qid, "page_ref": "x:1",
                                                "quote": "q", "claims": ["c"]}]}),
@@ -270,7 +335,9 @@ class SecondReadTest(unittest.TestCase):
         finally:
             R.CACHE = old_cache
         read = lambda name: json.loads((cache / name).read_text(encoding="utf-8"))
-        return qid, read("quote_llm.json"), read("quote_recheck_flagged.json"), \
+        # Flattened to the one site these claims carry (no `site | ` prefix -> "*").
+        stamps = {q: v.get("*") for q, v in read("quote_llm.json").items()}
+        return qid, stamps, read("quote_recheck_flagged.json"), \
             read("quote_recheck_disputed.json")
 
     def test_a_weaker_confirming_read_keeps_the_stronger_stamp(self):

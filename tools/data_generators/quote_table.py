@@ -25,18 +25,20 @@ import os
 from typing import Any
 
 from . import freshness
-from .provenance import quote_extraction, quote_pipeline
+from .provenance import SOURCING_LLMS, quote_extraction, quote_pipeline
 
 # Accumulated quote nodes: quote_id -> {"id", "corpus", "page", "quote", "species"?, "llm"?}.
 QUOTES: dict[str, dict[str, Any]] = {}
 
-# Central quote_id -> sourcing-llm overrides, written by tools/sourcing/recheck_quotes.py
-# (a Sonnet recheck that confirmed the quote is present + supports its claim). Applied
-# uniformly by id in externalize_quotes, so one recheck pass stamps every kind of quote
-# without editing each authoring site. An override WINS over a source-level ``llm`` (it is
-# the most recent verification); a quote absent from the map keeps its source llm, else
-# reads as unknown. Loaded once from the committed generated_cache (best-effort: absent = {}).
-_LLM_OVERRIDES: dict[str, str] = {}
+# Central judge stamps ``{quote_id: {citation site: llm}}``, written by
+# tools/sourcing/recheck_quotes.py (a model confirmed the quote is present AND supports the
+# claim made at that site). Keyed by SITE, not by quote: one sentence can back several
+# claims, and a verdict on one says nothing about a claim added later that reuses the
+# sentence (sibutramine's "has these metabolites" line once silently vouched for new
+# binding claims). :func:`finalize_citations` reads the stamp for each citation's own site
+# (see tools/sourcing/claim_walk.py); a site never judged stays unjudged, and
+# check_data.py family 5 fails on it. Loaded once (best-effort: absent = {}).
+_LLM_OVERRIDES: dict[str, dict[str, str]] = {}
 
 
 def _cache(name: str) -> Any:
@@ -49,12 +51,23 @@ def _cache(name: str) -> Any:
         return None
 
 
-def _load_llm_overrides() -> dict[str, str]:
+def _load_llm_overrides() -> dict[str, dict[str, str]]:
     data = _cache("quote_llm.json") or {}
-    return {qid: v for qid, v in data.items() if isinstance(v, str)}
+    flat = [qid for qid, v in data.items() if not isinstance(v, dict)]
+    if flat:
+        # A bare quote-level stamp is exactly the inheritance bug: refuse it loudly.
+        raise ValueError(f"quote_llm.json: {len(flat)} stamp(s) not keyed by citation "
+                         f"site, e.g. {flat[:3]}")
+    return data
 
 
 _LLM_OVERRIDES = _load_llm_overrides()
+
+
+def strongest_llm(*llms: str | None) -> str | None:
+    """The strongest model among ``llms`` (``SOURCING_LLMS`` order), or ``None``."""
+    known = [m for m in llms if m in SOURCING_LLMS]
+    return max(known, key=SOURCING_LLMS.index) if known else None
 
 # Central quote_id -> heading trail (a list of headings, outermost first): where in
 # its book a quote sits, derived by tools/fetch/fetch_quote_headers.py from the
@@ -134,9 +147,11 @@ def externalize_quotes(obj):
         for k in _IDENTITY_FIELDS + _METADATA_FIELDS:
             if k in obj:
                 entry[k] = obj[k]
-        # A recheck override wins over any source-level llm (uniform by id -> no collision).
+        # The quote node names the strongest model that judged it at ANY site (a
+        # reader's hint, uniform by id -> no collision); each citation's own pipeline
+        # reads its own site's stamp (finalize_citations).
         if qid in _LLM_OVERRIDES:
-            entry["llm"] = _LLM_OVERRIDES[qid]
+            entry["llm"] = strongest_llm(*_LLM_OVERRIDES[qid].values())
         if qid in _HEADERS:
             entry["heading"] = _HEADERS[qid]
         # The page's download date (editable corpora only): a property of the page, so
@@ -162,7 +177,12 @@ def externalize_quotes(obj):
             "pipeline": quote_pipeline(
                 obj.get("corpus"),
                 quote_extraction(obj.get("corpus"), obj.get("extraction")),
-                entry.get("llm")),
+                obj.get("llm")),
+            # Transient: finalize_citations re-derives the pipeline once it knows the
+            # citation's site, then drops these. Never emitted.
+            "_extraction": quote_extraction(obj.get("corpus"), obj.get("extraction")),
+            "_corpus": obj.get("corpus"),
+            "_llm": obj.get("llm"),
         }
         for k, v in obj.items():
             if k == "extraction":
@@ -181,6 +201,30 @@ def externalize_quotes(obj):
     if isinstance(obj, list):
         return [externalize_quotes(v) for v in obj]
     return obj
+
+
+def finalize_citations(obj, sites: dict[int, str]):
+    """Re-derive every citation's ``pipeline`` from the judge stamp at its own site.
+
+    ``sites`` maps ``id(ref)`` -> citation site, as the claim walk placed each ref
+    (tools/sourcing/claim_walk.py); a ref the walk did not place reads the site
+    ``"*"``, the generic claim a judge is shown for it. The judge is the stronger of
+    the source's own ``llm`` (stamped by the pass that wrote THAT source) and the
+    central stamp for this (quote, site); a site no judge ever saw reads unjudged.
+    Mutates in place and strips the transient keys :func:`externalize_quotes` left.
+    """
+    if isinstance(obj, dict):
+        if "_extraction" in obj:
+            site = sites.get(id(obj), "*")
+            judge = strongest_llm(obj.pop("_llm"),
+                                  _LLM_OVERRIDES.get(obj["quote_id"], {}).get(site))
+            obj["pipeline"] = quote_pipeline(obj.pop("_corpus"), obj.pop("_extraction"),
+                                             judge)
+        for v in obj.values():
+            finalize_citations(v, sites)
+    elif isinstance(obj, list):
+        for v in obj:
+            finalize_citations(v, sites)
 
 
 def quote_lines() -> list[str]:

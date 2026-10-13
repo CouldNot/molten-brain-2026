@@ -135,6 +135,14 @@ def _uncertainty_reasons():
 UNCERTAINTY_REASONS = _uncertainty_reasons()
 
 
+def _reason(bullet):
+    """The English sentence a reader is shown for one uncertainty bullet, args filled."""
+    text = UNCERTAINTY_REASONS.get(bullet.get("kind"), "")
+    for k, v in (bullet.get("args") or {}).items():
+        text = text.replace("{" + k + "}", str(v))
+    return text
+
+
 def _doubts(node):
     """The already-recorded doubts about a node, as a suffix to its claim line.
 
@@ -151,13 +159,8 @@ def _doubts(node):
     bullets = (node or {}).get("uncertainty") or []
     if not bullets:
         return ""
-    parts = []
-    for b in bullets:
-        kind = b.get("kind")
-        text = UNCERTAINTY_REASONS.get(kind, "")
-        for k, v in (b.get("args") or {}).items():
-            text = text.replace("{" + k + "}", str(v))
-        parts.append(f"{kind}: {text}" if text else kind)
+    parts = [f"{b.get('kind')}: {_reason(b)}" if _reason(b) else b.get("kind")
+             for b in bullets]
     return (" [ALREADY FLAGGED UNCERTAIN by the dataset, and shown to readers as such: "
             + " ".join(parts)
             + " Do not reject the citation for the reason the flag already states; "
@@ -225,12 +228,35 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
         qid = ref if isinstance(ref, str) else ref["quote_id"]
         if on_cite is not None and site and not isinstance(ref, str):
             on_cite(site, ref)
+        if node is not None and site and id(node) not in bulleted:
+            bulleted.add(id(node))
+            _place_bullets(site, node)
         if qid in quotes and quotes[qid]["corpus"] not in EXCLUDE_CORPUS:
             kinds.setdefault(qid, kind["now"])
             # `site | text`, not `[site] text`: a site carries brackets of its own
             # (`bindings[5ht2a]`), so a bracketed prefix cannot be split back off it.
             claim += _doubts(node)
             claims[qid].append(f"{site} | {claim}" if site else claim)
+
+    bulleted: set[int] = set()
+
+    def _place_bullets(site, node):
+        """Place the citations of a node's uncertainty bullets.
+
+        A bullet citing the node's own sentence is that same citation read for a doubt
+        (the judge sees it appended to the claim, :func:`_doubts`), so it shares the
+        site. A bullet citing another sentence (a contradicting source, a measured Ki)
+        is a claim of its own, judged at ``<site>/uncertainty[<kind>]``.
+        """
+        own = {r["quote_id"] for r in _qids(node.get("sources") or [])}
+        for b in node.get("uncertainty") or []:
+            for r in _qids(b.get("sources") or []):
+                if r["quote_id"] in own:
+                    if on_cite is not None:
+                        on_cite(site, r)
+                else:
+                    add(r, f"A reason to doubt the claim at {site}: {_reason(b) or b.get('kind')}",
+                        f"{site}/uncertainty[{b.get('kind')}]")
 
     metab_by_id = {m["id"]: m for m in data["metabolites"]}
     parents_of: dict[str, list[str]] = {}
@@ -332,6 +358,14 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
                 add(q, f"Drug {nm} is a {e['role']} of the enzyme "
                        f"{e['enzyme'].upper()}{tier}.",
                     CS.site("drug", d["id"], f"enzymes[{CS.enzyme_key(e)}]"), e)
+            kind["now"] = "drug_enzyme_strength"
+            strength = (e.get("claims") or {}).get("strength") or {}
+            for q in _qids(strength.get("sources", [])):
+                add(q, f"Drug {nm} is a {e.get('strength')} {e['role']} of the enzyme "
+                       f"{e['enzyme'].upper()} (the strength of that role is the claim).",
+                    CS.site("drug", d["id"], f"enzymes[{CS.enzyme_key(e)}]/strength"),
+                    strength)
+            kind["now"] = "drug_enzymes"
         for m in d.get("metabolites", []):
             mn = metab_by_id[m["id"]]["name"]
             parents_of.setdefault(m["id"], []).append(nm)
@@ -385,6 +419,19 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
             add(q, f"Projection '{p['from']}'->'{p['to']}' ({p.get('kind')}, "
                    f"{p.get('neurotransmitter')}): {p.get('label', '')}. {p.get('description', '')}",
                 CS.site("projection", f"{p['from']}->{p['to']}"), p)
+        # The transmitter and the sign are nodes of their own (projection_transmitter /
+        # projection_sign), so each is its own claim, judged on its own.
+        route = f"Projection '{p['from']}'->'{p['to']}'"
+        for facet, text in (("transmitter", f"{route} releases {p.get('neurotransmitter')} "
+                                            f"as its neurotransmitter."),
+                            ("sign", f"{route} is {p.get('kind')} on its target "
+                                     f"(its transmitter {p.get('neurotransmitter')} "
+                                     f"has that effect)."),):
+            claim = (p.get("claims") or {}).get(facet) or {}
+            kind["now"] = f"projection_{facet}"
+            for q in _qids(claim.get("sources", [])):
+                add(q, text, CS.site("projection", f"{p['from']}->{p['to']}", facet), claim)
+        kind["now"] = "projections"
 
     kind["now"] = "circuits"
     for c in data["circuits"]:

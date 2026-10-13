@@ -189,9 +189,16 @@ from data_generators.i18n import (  # noqa: E402
 from data_generators.quote_table import (  # noqa: E402
     QUOTES,
     externalize_quotes,
+    finalize_citations,
     quote_lines,
     reset_quotes,
 )
+
+# The claim walk (tools/sourcing/claim_walk.py) places every citation at its site, which
+# is what a judge stamp is keyed by; the recheck harness reads the same walk.
+import sys  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent / "sourcing"))
+import claim_walk as CW  # noqa: E402
 
 # The per-version "what's new" bullets, authored under docs/changelog/ and emitted
 # to public/data/changelog.json (docs/ is not web-exposed, so the emit is what makes
@@ -2043,18 +2050,27 @@ def write_artifacts(root: Path) -> None:
 
     # meta is a single object -> pretty-printed meta.json; the collections are one
     # JSON object per line -> one *.jsonl each.
+    emitted = {"meta": _emit(data["meta"])}
+    for name in CW.COLLECTIONS:
+        emitted[name] = [_emit(record) for record in data[name]]
+    # Each citation's judge stamp is keyed by its citation site, so the pipelines can
+    # only be settled once the claim walk has placed every ref (see quote_table).
+    sites: dict[int, str] = {}
+    CW.reconstruct_claims(QUOTES, emitted,
+                          on_cite=lambda site, ref: sites.setdefault(id(ref), site))
+    finalize_citations(emitted, sites)
+
     meta_path = data_dir / "meta.json"
     meta_path.write_text(
-        json.dumps(_emit(data["meta"]), ensure_ascii=False, indent=2) + "\n",
+        json.dumps(emitted["meta"], ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8")
     log.info("wrote %s", meta_path)
 
-    for name in ("structures", "projections", "circuits", "projection_groups",
-                 "receptors", "drugs", "metabolites", "addons"):
+    for name in CW.COLLECTIONS:
         path = data_dir / f"{name}.jsonl"
         with path.open("w", encoding="utf-8") as fh:
-            for record in data[name]:
-                fh.write(json.dumps(_emit(record), ensure_ascii=False) + "\n")
+            for record in emitted[name]:
+                fh.write(json.dumps(record, ensure_ascii=False) + "\n")
         log.info("wrote %s (%d lines)", path, len(data[name]))
 
     # The per-version "what's new" bullets, newest version first. Authored under
