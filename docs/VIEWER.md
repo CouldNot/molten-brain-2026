@@ -202,6 +202,10 @@ regions the owner already claims, never adding one.
 - Each `receptor_effect` node is one row of a receptor / target panel's **Effects** section (`appendEffects` in `js/main.js`, folded, after "Found in", with the `.beta-tag`): `<effect> · <mode>` + the node's own grade pill.
 - A drug panel adds a derived **Possible effects via its bindings** section (`appendPossibleEffects`, after "Acts on"): `derivePossibleEffects` (`js/receptor-effects.js`) joins the drug's bindings with its targets' effect nodes, **direction-aware** (a binding inherits a node only when its `action` is in that mode's `actions`, emitted in `meta.receptor_effect_modes`, so an antagonist never inherits agonism effects) and an `affinity_only` binding (no action) contributes nothing. Worded "could cause", never "causes": it is a statement about the receptors, not about the drug. Each chip jumps to the target; nothing lights the 3D scene.
 
+### Across age and sex (BETA)
+
+- Each `receptor_demographic` node is one row of a receptor / target panel's **Across age and sex** section (`appendDemographics`, folded, last of the beta sections): a direction chip (`meta.demographics.glyphs`, "↓ Age", "♀ > Sex"), the conditional sentence ("reported to decline with age in Caudate nucleus", i18n `demog.<factor>.<direction>`) + grade pill, then the paper's own magnitude wording in quotes when it states one. The caption says these are human group averages, not a prediction for one person, and not medical advice. Nothing lights the 3D scene.
+
 ### Downstream (BETA)
 
 - Each `receptor_release_modulation` node is one row of a receptor panel's **Downstream** section (`appendDownstream`, folded, after Effects): "activating it decreases histamine release" + grade pill, then the site ("Autoreceptor on presynaptic terminals in VTA").

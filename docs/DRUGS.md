@@ -244,6 +244,19 @@ python tools/sourcing/recheck_quotes.py build --out <dir> --unstamped   # indepe
 Gates: closed vocabularies (`RELEASE_KINDS` / `RELEASE_CELLS` / `RELEASE_TRANSMITTERS` / `RELEASE_EFFECTS`), `structure` a modeled structure or null, the sentence names the modulated transmitter (a receptor name like "5HT2C" does not name serotonin), an autoreceptor modulates its own system's transmitter and sits on the releasing neuron (never an interneuron). Use `--unstamped` rather than `--kinds receptor_release_modulation`: a quote shared with another kind is skipped by the `--kinds` filter and leaves the site unjudged.
 
 
+`receptor_demographic` nodes (receptor / transporter availability across age or sex, e.g. D2 declines ~7% per decade, MAO-B rises with age, 5-HT1A is higher in women) come from human PET / SPECT abstracts hand-listed in Europe PMC (#17) `PAPERS` and routed per owner by `fetch_demographics.PAPERS_BY_OWNER`. Same four steps on `prose_gate`:
+
+```
+python tools/fetch/fetch_europepmc.py                       # store any new paper (network)
+python tools/fetch/fetch_demographics.py                    # -> demographics_worklist.json (age / sex cues, no verdict)
+<one LLM pass>                                              # -> demographics_judged.json ({owner: [{factor, direction, structure, magnitude?, picks}]})
+python tools/sourcing/apply_demographics.py --dry-run       # then without; sole writer of receptor_demographics.json
+python tools/sourcing/recheck_quotes.py build --out <dir> --unstamped   # independent Opus judge, then `apply --llm opus`
+```
+
+Gates: closed factor / direction vocabulary, `structure` a modeled structure or null, the factor's cue offered, every picked paper `human` in the MeSH species ledger (animal studies out), `magnitude` verbatim in a picked sentence (`check_data.py` re-checks it against the emitted quotes). A judge reject is dropped from the judged file (a subgroup-only finding, e.g. CB1 rising with age only in women, is not an unqualified age node).
+
+
 ## Drug metabolism
 
 Which enzymes clear a drug, or have their activity changed by it. **Pharmacokinetics, so it

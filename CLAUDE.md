@@ -67,6 +67,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - receptor `receptors.jsonl` classification, four graded sub-claims: `family` -> `receptors`, `receptor_class`, `sign` -> `receptor_sign`, `synaptic` -> `receptor_synaptic`
 - receptor/target `effects[]` -> `receptor_effect` (BETA; one node per (mode, effect) from closed vocabularies, in the headline; a drug's possible effects are derived in `js/receptor-effects.js`, never stored)
 - receptor `release_modulation[]` -> `receptor_release_modulation` (BETA; one node per (kind, site, transmitter, direction): auto/heteroreceptor control of release; a drug's release changes are derived in `js/release-modulation.js`, never stored)
+- receptor/target `demographics[]` -> `receptor_demographic` (BETA; one node per (factor age|sex, direction, structure) from human PET/SPECT Europe PMC abstracts, optional verbatim `magnitude`; panel section "Across age and sex")
 - target `meta.drug_targets` -> `targets`; `polarity_provenance` -> `target_polarity`
 - expression: `location_sources` -> `receptor_locations` / `target_locations`; `density` -> `receptor_density` / `target_density` (ONE node per profile, not per region)
 - drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
