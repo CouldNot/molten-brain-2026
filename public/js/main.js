@@ -4289,17 +4289,23 @@ function createInfoPanel(data, sourcingModal) {
       // same one shown after the drug name everywhere); the region tag is never shown.
       // Each brand carries its own provenance pill, so no node is left unbadged and a
       // mixed-grade list (once eu/fr are added) reads honestly.
-      if (drug.brandsOrdered && drug.brandsOrdered.length) {
+      // A brand sold as one formulation (Seroquel XR) is listed under it in the
+      // Pharmacokinetics table instead (see below), so this row keeps the molecule's.
+      const appendBrand = (host, b) => {
+        host.appendChild(el("span", "bind-target", b.name));
+        host.appendChild(b.sources && b.sources.length
+          ? makeProvenancePill(b.sources[0].provenance, sourcesTip(b.sources))
+          : makeProvenancePill(null));
+      };
+      const moleculeBrands = (drug.brandsOrdered || []).filter((b) => !b.release);
+      if (moleculeBrands.length) {
         const brandsEl = el("div", "info-bindings info-brands");
         brandsEl.dataset.tourSec = "brands"; // guided-tour section anchor
         brandsEl.appendChild(el("h3", null, t("drug.brands")));
         const ul = el("ul");
-        for (const b of drug.brandsOrdered) {
+        for (const b of moleculeBrands) {
           const li = el("li");
-          li.appendChild(el("span", "bind-target", b.name));
-          li.appendChild(b.sources && b.sources.length
-            ? makeProvenancePill(b.sources[0].provenance, sourcesTip(b.sources))
-            : makeProvenancePill(null));
+          appendBrand(li, b);
           ul.appendChild(li);
         }
         brandsEl.appendChild(ul);
@@ -4327,7 +4333,9 @@ function createInfoPanel(data, sourcingModal) {
       // js/sim-model.js reads them; either may be missing on its own. The blood
       // levels the AGNP guideline monitors (therapeutic range, alert level) close
       // the block: they are where on that curve the concentration should sit.
-      if (drug.halfLife || drug.tmax || drug.therapeuticRange || drug.alertLevel) {
+      const forms = drug.formulations || [];
+      if (drug.halfLife || drug.tmax || drug.therapeuticRange || drug.alertLevel
+          || forms.length) {
         const hlEl = el("div", "info-bindings info-halflife");
         hlEl.appendChild(el("h3", null, t("drug.pkTiming")));
         const chipHelpers = { el, makeProvenancePill, sourcesTip, t,
@@ -4362,6 +4370,45 @@ function createInfoPanel(data, sourcingModal) {
         // half-life the brain does not follow), right under the chips it qualifies.
         appendTdmChips(hlEl, drug, chipHelpers);
         appendAddons(hlEl, "drug", drug.id, "drug.timing");
+        // Per-formulation list: what a source ties to ONE product (its release
+        // type, a pill on the claim that it exists), under the molecule-level values
+        // above, which no source tied to a product.
+        if (forms.length) {
+          const wrap = el("div", "formulations");
+          wrap.appendChild(el("h4", null, t("drug.formulations")));
+          for (const f of forms) {
+            // One block per formulation: its release type (pill: the claim that
+            // the product exists) and its Tmax / T½ on one line, its brands below.
+            const row = el("div", "form-row");
+            const head = el("div", "form-head");
+            head.appendChild(el("span", "form-release", f.label));
+            head.appendChild(makeProvenancePill(f.releaseProvenance,
+              sourcesTip(f.releaseSources)));
+            if (f.tmax) {
+              head.appendChild(valueChip(chipHelpers, {
+                label: t("drug.tmax"), tip: t("drug.tmaxTip"),
+                value: formatHalfLife(f.tmax),
+                provenance: f.tmaxProvenance, sources: f.tmaxSources }));
+            }
+            if (f.halfLife) {
+              head.appendChild(valueChip(chipHelpers, {
+                label: t("drug.halfLife"), value: formatHalfLife(f.halfLife),
+                provenance: f.halfLifeProvenance, sources: f.halfLifeSources }));
+            }
+            row.appendChild(head);
+            if (f.brands.length) {
+              const brands = el("div", "form-brands");
+              for (const br of f.brands) {
+                const item = el("span", "form-brand");
+                appendBrand(item, br);
+                brands.appendChild(item);
+              }
+              row.appendChild(brands);
+            }
+            wrap.appendChild(row);
+          }
+          hlEl.appendChild(wrap);
+        }
         body.appendChild(hlEl);
       }
 
@@ -5877,6 +5924,7 @@ const KIND_LABELS = {
   drug_categories: "about.kindDrugCategories",
   drug_half_life: "about.kindDrugHalfLife",
   drug_tmax: "about.kindDrugTmax",
+  drug_formulations: "about.kindDrugFormulations",
   drug_first_approval: "about.kindDrugFirstApproval",
   drug_withdrawals: "about.kindDrugWithdrawals",
   drug_prodrug: "about.kindDrugProdrug",
@@ -6253,6 +6301,13 @@ function buildKindExample(kind, data, nav) {
         || focusableDrugs.find((x) => x.tmax);
       const s = d && d.tmax && formatHalfLife(d.tmax);
       return s ? line(d.name, `${t("drug.tmax")} ${s}`, () => nav.drug(d)) : null;
+    }
+    case "drug_formulations": {
+      const has = (x) => (x.formulations || []).length > 1;
+      const d = pick(focusableDrugs, (x) => x.id === "quetiapine" && x.formulations.length)
+        || focusableDrugs.find(has);
+      return d ? line(d.name, d.formulations.map((f) => f.label).join(", "),
+        () => nav.drug(d)) : null;
     }
     case "drug_first_approval": {
       const d = pick(focusableDrugs, (x) => x.id === "sertraline" && x.firstApproval)

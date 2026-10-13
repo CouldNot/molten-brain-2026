@@ -2659,6 +2659,23 @@
       .info-halflife > h3, .info-halflife > .addon { flex-basis: 100%; }
       .info-halflife > h3 { margin-bottom: 0; }
       .info-halflife > .addon { margin: var(--sp-s) 0 0; }
+      /* Per-formulation list: one hairline-separated block each, release type + pill
+         + its Tmax / T½ chips on one wrapping line, its brands wrapping below. */
+      .info-halflife .formulations { flex-basis: 100%; }
+      .formulations > h4 {
+        margin: var(--sp-s) 0 var(--sp-xs); font-size: 11px; font-weight: 600;
+        color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em;
+      }
+      .form-row { padding: var(--sp-xs) 0; border-top: 1px solid rgba(var(--ink), 0.08); }
+      .form-head {
+        display: flex; flex-wrap: wrap; align-items: baseline;
+        gap: var(--sp-xs) var(--sp-m); font-size: 12px;
+      }
+      .form-release { color: var(--text); }
+      .form-head > .help-icon { margin-left: 0; }
+      .form-brands { margin-top: var(--sp-xs); font-size: 12px; }
+      .form-brand { display: inline-block; white-space: nowrap; margin-right: var(--sp-m); }
+      .form-brand > .bind-target { margin-right: var(--sp-xs); }
       .hl-chip > .help-icon { margin-left: 0; }
       .hl-chip .hl-val { font-weight: 600; color: var(--text); white-space: nowrap; }
       .hl-chip .hl-label { color: var(--muted); font-size: 11px; }

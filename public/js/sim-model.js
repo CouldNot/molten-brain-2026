@@ -23,8 +23,10 @@
 //      a one-compartment oral single-dose curve (Bateman), normalized to a peak of 1
 //      and scaled by the ratio the visitor set: an elimination half-life sets how it
 //      falls, and the drug's own sourced time-to-peak (`drug.tmax`, kind `drug_tmax`)
-//      sets how it rises. A drug for which no corpus states a peak keeps the single
-//      assumed one (`TMAX_HOURS`), so the two populations are mixed on one plot and
+//      sets how it rises (a duration a source tied to one product counts only when that
+//      product is the immediate-release one, see `oralDuration`). A drug for which no
+//      corpus states a peak keeps the single assumed one (`TMAX_HOURS`), so the two
+//      populations are mixed on one plot and
 //      only the T½ tells them apart. Either duration's range (`hours` + `hours_max`)
 //      is collapsed to its midpoint. An active metabolite is formed by the parent's
 //      elimination (its absorption rate = the parent's ke) and cleared by its own T½,
@@ -127,7 +129,20 @@ export function halfLifeHours(hl) {
  * an edge case and the warnings box keeps saying so.
  */
 export function tmaxHours(drug) {
-  return halfLifeHours(drug && drug.tmax) || TMAX_HOURS;
+  return halfLifeHours(oralDuration(drug, "tmax")) || TMAX_HOURS;
+}
+
+/**
+ * A drug's `tmax` / `halfLife` for the oral single dose the curve models: the
+ * molecule-level value (no source tied it to one product), else its immediate-release
+ * formulation's. Never an extended-release, depot or patch value, whose kinetics are
+ * the product's, not the molecule's (Seroquel XR peaks hours after quetiapine).
+ */
+export function oralDuration(drug, field) {
+  if (!drug) return null;
+  if (drug[field]) return drug[field];
+  const ir = (drug.formulations || []).find((f) => f.release === "ir");
+  return (ir && ir[field]) || null;
 }
 
 /**
@@ -175,7 +190,7 @@ export function pkCurve(halfLifeH, { ka = null, tmax = TMAX_HOURS } = {}) {
  */
 export function ligandsOf(drug, { metabolites = true } = {}) {
   const tmax = tmaxHours(drug);
-  const own = pkCurve(halfLifeHours(drug.halfLife), { tmax });
+  const own = pkCurve(halfLifeHours(oralDuration(drug, "halfLife")), { tmax });
   const out = [{ key: drug.id, name: drug.name, drug, metabolite: null,
     // A prodrug's borrowed bindings (viaMetabolite) are its metabolite ligand's below.
     bindings: (drug.bindings || []).filter((b) => !b.viaMetabolite), curve: own }];

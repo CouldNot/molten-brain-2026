@@ -408,6 +408,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   const historyScopes = new Set(metaRecord.drug_history_scopes || []);
   const historyAgencies = localizeMap(metaRecord.drug_history_agencies);
   const withdrawalReasons = localizeMap(metaRecord.drug_withdrawal_reasons);
+  // Formulation release types (closed vocabulary, display order): id -> label.
+  const releaseLabels = localizeMap(metaRecord.drug_releases);
   const drugTargets = metaRecord.drug_targets || {};
   const drugActions = metaRecord.drug_actions || {};
   const drugEffectColors = metaRecord.drug_effect_colors || {};
@@ -965,6 +967,23 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     d.tmax = d.tmax || null;
     d.tmaxSources = mapSources(d.tmax_sources);
     d.tmaxProvenance = strongestGrade(d.tmax_sources);
+    // Formulations: one per release type a source names, each its own graded node
+    // (the release) holding the brands / Tmax / T½ measured or sold for THAT product.
+    // Molecule-level `brands` / `tmax` / `halfLife` above are what no source ties to
+    // one product. See docs/DRUGS.md "Formulations".
+    d.formulations = (d.formulations || []).map((f) => ({
+      release: f.release,
+      label: releaseLabels[f.release] || f.release,
+      releaseSources: mapSources(f.release_sources),
+      releaseProvenance: strongestGrade(f.release_sources),
+      brands: (f.brands || []).map((b) => ({ ...b, release: f.release })),
+      tmax: f.tmax || null,
+      tmaxSources: mapSources(f.tmax_sources),
+      tmaxProvenance: strongestGrade(f.tmax_sources),
+      halfLife: f.half_life || null,
+      halfLifeSources: mapSources(f.half_life_sources),
+      halfLifeProvenance: strongestGrade(f.half_life_sources),
+    }));
     // Regulatory history: the earliest approval the source states (one node) and
     // each market withdrawal (one node each; none at all when never withdrawn).
     // Labels resolved here so the panel and the node browser share one wording.
@@ -1221,7 +1240,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       ? { fr: 0, eu: 1, na: 2 }
       : { na: 0, eu: 1, fr: 2 };
     const brandSeen = new Set();
-    d.brandsOrdered = (d.brands || [])
+    // Formulation brands join after the molecule's own (tagged with their `release`),
+    // so search and the primary brand see every name while the panel's Brands row can
+    // keep to the molecule's.
+    d.brandsOrdered = [...(d.brands || []), ...d.formulations.flatMap((f) => f.brands)]
       // `region` is one tag, or a list when one name is sold in several regions.
       .map((b, i) => ({ b, r: Math.min(...[].concat(b.region).map((g) => brandRank[g] ?? 9)), i }))
       .sort((x, y) => x.r - y.r || x.i - y.i)

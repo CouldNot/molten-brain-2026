@@ -52,6 +52,7 @@ const KIND_ORDER = [
   "drug_categories",
   "drug_half_life",
   "drug_tmax",
+  "drug_formulations",
   "drug_first_approval",
   "drug_withdrawals",
   "drug_prodrug",
@@ -319,6 +320,23 @@ export function collectNodes(data, deps, opts = {}) {
     if (d.tmax) {
       push("drug_tmax", d.name, `${t("drug.tmax")} ${formatHalfLife(d.tmax)}`,
         d.tmaxProvenance, go, { sources: d.tmaxSources });
+    }
+    // Each formulation is its own node (the release type), and its T½ / Tmax are
+    // counted under the same kinds as the molecule's (its brands already ride
+    // brandsOrdered above), exactly as the tally does.
+    for (const f of d.formulations || []) {
+      push("drug_formulations", d.name, f.label, f.releaseProvenance, go,
+        { sources: f.releaseSources });
+      if (f.halfLife) {
+        push("drug_half_life", `${d.name} (${f.label})`,
+          `T½ ${formatHalfLife(f.halfLife)}`, f.halfLifeProvenance, go,
+          { sources: f.halfLifeSources });
+      }
+      if (f.tmax) {
+        push("drug_tmax", `${d.name} (${f.label})`,
+          `${t("drug.tmax")} ${formatHalfLife(f.tmax)}`, f.tmaxProvenance, go,
+          { sources: f.tmaxSources });
+      }
     }
     if (d.firstApproval) {
       push("drug_first_approval", d.name,

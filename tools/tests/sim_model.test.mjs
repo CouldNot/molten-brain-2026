@@ -4,7 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  TMAX_HOURS, P_FLOOR, bindingSign, toAxis, fromAxis, halfLifeHours, tmaxHours, pkCurve,
+  TMAX_HOURS, P_FLOOR, bindingSign, toAxis, fromAxis, halfLifeHours, tmaxHours, oralDuration, pkCurve,
   ligandsOf, receptorProfile, pkFlags, buildMatrix, nnls, solveCombination,
 } from "../../public/js/sim-model.js";
 
@@ -32,6 +32,15 @@ test("halfLifeHours: midpoint of a range, null when absent", () => {
   assert.equal(halfLifeHours({ hours: 21, hours_max: 54 }), 37.5);
   assert.equal(halfLifeHours({ hours: 6 }), 6);
   assert.equal(halfLifeHours(null), null);
+});
+
+test("oralDuration: the molecule's value, else the IR formulation's, never XR", () => {
+  const forms = [{ release: "ir", tmax: { hours: 1 } }, { release: "xr", tmax: { hours: 6 } }];
+  assert.deepEqual(oralDuration({ tmax: { hours: 2 }, formulations: forms }, "tmax"), { hours: 2 });
+  assert.deepEqual(oralDuration({ tmax: null, formulations: forms }, "tmax"), { hours: 1 });
+  assert.equal(oralDuration({ formulations: [forms[1]] }, "tmax"), null);
+  assert.equal(tmaxHours({ formulations: [forms[1]] }), TMAX_HOURS);
+  assert.equal(oralDuration(null, "halfLife"), null);
 });
 
 test("tmaxHours: the drug's own sourced peak, else the assumed one", () => {
