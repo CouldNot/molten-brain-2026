@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.119.1",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A drug's neurotransmitter tone no longer gives every weak binding a minimum weight: an affinity of 1 µM now adds nothing, so a few weak hits can add up but no longer outweigh one strong block, and an autoreceptor counts half as much as a reuptake block since it only partly brakes release",
+          "commits": [
+            "0d866ab"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.119.0",
       "date": "2026-10-13",
       "entries": [
