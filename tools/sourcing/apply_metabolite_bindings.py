@@ -64,6 +64,7 @@ import drugs_io                                                 # noqa: E402
 import fetch_ki                                                 # noqa: E402  (PDSP Ki lookup)
 import fetch_wikipedia_pharmacology as wp                       # noqa: E402  (Ki obj + page store)
 from data_generators.drugs import DRUG_ACTIONS                  # noqa: E402  (valid action keys)
+from data_generators.provenance import corpus_page_path         # noqa: E402  (cited page file)
 
 WORKLIST = ROOT / "tools" / "generated_cache" / "metabolite_bindings_worklist.json"
 JUDGED = ROOT / "tools" / "generated_cache" / "metabolite_bindings_judged.json"
@@ -112,7 +113,8 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
     """Build one metabolite's ``bindings`` list from its worklist entry + judge picks.
 
     ``entry`` is the fetcher worklist record (slug, ki_bindings, ...); ``judged`` is the
-    LLM's ``{"bindings": [{target, action, quote}, ...]}`` for this metabolite. Returns
+    LLM's ``{"bindings": [{target, action, quote}, ...]}`` for this metabolite; a pick
+    carrying ``corpus`` + ``page`` is gated on that cited page instead of the articles. Returns
     the emitted binding dicts (action bindings first, then affinity-only Ki rows)."""
     slug = entry["slug"]
     # A judged action quote may come from the metabolite's OWN article OR its parent's
@@ -145,6 +147,13 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
                 return s
         return None
 
+    def gate_cited(corpus: str, page) -> bool:
+        """Whether ``quote`` sits verbatim on the page an explicitly cited corpus names
+        (a paper stating what no Wikipedia article does, e.g. a Europe PMC abstract)."""
+        path = corpus_page_path(corpus, page)
+        return bool(path and path.exists() and normalize_for_match(quote)
+                    in normalize_for_match(path.read_text(encoding="utf-8")))
+
     out, emitted = [], set()
     for jb in (judged or {}).get("bindings", []):
         target, action, quote = jb.get("target"), jb.get("action"), jb.get("quote")
@@ -154,16 +163,24 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
         if action not in DRUG_ACTIONS:
             warn(f"{metab_name}: unknown action {action!r} for {target} - dropped")
             continue
-        src_slug = gate(quote)
-        if not src_slug:
-            warn(f"{metab_name}: quote for {target} not verbatim on any of {pages} - dropped")
-            continue
+        if jb.get("corpus"):
+            # A judged pick may cite another corpus outright ({corpus, page, quote}).
+            if not quote or not gate_cited(jb["corpus"], jb.get("page")):
+                warn(f"{metab_name}: quote for {target} not verbatim on "
+                     f"{jb['corpus']} page {jb.get('page')} - dropped")
+                continue
+            src = {"corpus": jb["corpus"], "page": jb["page"]}
+        else:
+            src_slug = gate(quote)
+            if not src_slug:
+                warn(f"{metab_name}: quote for {target} not verbatim on any of {pages} - dropped")
+                continue
+            src = {"corpus": "wikipedia_pharm", "page": src_slug}
         if target in emitted:
             continue
         emitted.add(target)
         b = {"target": target, "action": action,
-             "sources": [{"corpus": "wikipedia_pharm", "page": src_slug,
-                          "quote": quote, "provenance": "verified"}]}
+             "sources": [{**src, "quote": quote, "provenance": "verified"}]}
         ki = ki_for(target)
         if ki:
             b["ki"] = ki
