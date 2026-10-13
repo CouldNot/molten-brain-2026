@@ -10467,7 +10467,9 @@
       "url": "https://www.guidetopharmacology.org/",
       "pages_dir": "data_sources/gtopdb/pages",
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "target",
+      "page_url": "https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId={page}"
     },
     "pdsp_ki": {
       "ref": "PDSP Ki Database (NIMH PDSP)",
@@ -10475,7 +10477,8 @@
       "url": "https://pdspdb.unc.edu/databases/kidb.php",
       "csv": "data_sources/books/pdsp_ki/KiDatabase.csv",
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "row"
     },
     "allen_ahba": {
       "ref": "Allen Human Brain Atlas, microarray (Hawrylycz et al. 2012)",
@@ -10483,21 +10486,24 @@
       "url": "https://human.brain-map.org/",
       "pages_dir": "data_sources/allen/pages",
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "gene"
     },
     "wikipedia_pharm": {
       "ref": "Wikipedia (English), drug article (pharmacology sections)",
       "citation": "Wikipedia contributors. Pharmacology sections of the cited drug article. Wikipedia, The Free Encyclopedia. en.wikipedia.org (revision pinned per citation).",
       "url": "https://en.wikipedia.org/",
       "pages_dir": "data_sources/wikipedia/pages",
-      "editable": true
+      "editable": true,
+      "page_kind": "article"
     },
     "wikipedia_fr": {
       "ref": "Wikipedia (French), drug article (commercial names)",
       "citation": "Wikipedia contributors. Commercial names of the cited drug article. Wikipedia, l'encyclopedie libre. fr.wikipedia.org (revision pinned per citation).",
       "url": "https://fr.wikipedia.org/",
       "pages_dir": "data_sources/wikipedia/pages_fr",
-      "editable": true
+      "editable": true,
+      "page_kind": "article"
     },
     "gtopdb_ki": {
       "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), ligand interactions",
@@ -10509,7 +10515,8 @@
       "url": "https://www.guidetopharmacology.org/",
       "pages_dir": "data_sources/gtopdb/pages_ki",
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "ligand"
     },
     "gtopdb_class": {
       "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), target classification",
@@ -10522,7 +10529,9 @@
       "url": "https://www.guidetopharmacology.org/",
       "pages_dir": "data_sources/gtopdb/pages_class",
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "target",
+      "page_url": "https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId={page}"
     },
     "pharmfreq": {
       "ref": "PharmFreq, metabolizer status by population",
@@ -10538,21 +10547,26 @@
         "metabolizer_data_UGT1A1_2026-09-09.txt": "2bcd553404cb06a5e944e7f031785bd3ae06ab32c6f21dc95de221c5ce839049"
       },
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "gene"
     },
     "dailymed": {
       "ref": "DailyMed (U.S. NLM), prescribing label, clinical pharmacology",
       "citation": "U.S. National Library of Medicine. DailyMed Structured Product Label, Pharmacokinetics section of the cited label. dailymed.nlm.nih.gov (label set id pinned per citation).",
       "url": "https://dailymed.nlm.nih.gov/",
       "pages_dir": "data_sources/dailymed/pages",
-      "editable": true
+      "editable": true,
+      "page_kind": "setid",
+      "page_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={page}"
     },
     "bdpm": {
       "ref": "Base de données publique des médicaments (ANSM), RCP",
       "citation": "ANSM / Ministère de la Santé. Base de données publique des médicaments, résumé des caractéristiques du produit (RCP) of the cited product, section 5.2. base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS code pinned per citation).",
       "url": "https://base-donnees-publique.medicaments.gouv.fr/",
       "pages_dir": "data_sources/bdpm/pages",
-      "editable": true
+      "editable": true,
+      "page_kind": "cis",
+      "page_url": "https://base-donnees-publique.medicaments.gouv.fr/extrait.php?specid={page}"
     },
     "cpic": {
       "ref": "CPIC, clinical pharmacogenetics dosing guideline",
@@ -10563,13 +10577,17 @@
         "cpic_recommendations.json": "961aaf617aadc612869f3976b661d4e1002e19faa1ab630e8d0140c11b149f7b"
       },
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "guideline",
+      "page_url": "https://www.clinpgx.org/guidelineAnnotation/{page}"
     },
     "europepmc": {
       "ref": "Europe PMC, journal article",
       "citation": "Europe PMC (EMBL-EBI). Abstract, or open-access full text, of the cited journal article, PubMed id pinned per citation. europepmc.org.",
       "url": "https://europepmc.org/",
       "pages_dir": "data_sources/europepmc/pages",
+      "page_kind": "pmid",
+      "page_url": "https://europepmc.org/article/MED/{page}",
       "editable": false
     },
     "drugsfda": {
@@ -10577,7 +10595,8 @@
       "citation": "U.S. Food and Drug Administration. Drugs@FDA: FDA-approved drugs, cited application's original approval (openFDA drug/drugsfda export, public domain; application number pinned per citation).",
       "url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
       "pages_dir": "data_sources/drugsfda/pages",
-      "editable": true
+      "editable": true,
+      "page_kind": "application"
     },
     "clinpgx": {
       "ref": "ClinPGx (PharmGKB), clinical annotation",
@@ -10588,7 +10607,9 @@
         "clinical_annotations.json": "80ac4c7f9a3afc2de5a60533aeac0d389eb96da0c7818a05ce7f7a0f6836ae40"
       },
       "machine": true,
-      "editable": true
+      "editable": true,
+      "page_kind": "annotation",
+      "page_url": "https://www.clinpgx.org/clinicalAnnotation/{page}"
     },
     "agnp_tdm": {
       "ref": "AGNP Consensus Guidelines for TDM in Neuropsychopharmacology, 2026",

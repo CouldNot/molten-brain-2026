@@ -612,6 +612,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "pages_dir": "data_sources/gtopdb/pages",
         "machine": True,
         "editable": True,
+        "page_kind": "target",
+        "page_url": "https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId={page}",
     },
     "pdsp_ki": {
         # Binding-affinity corpus: measured Ki (nM) values backing a drug binding's
@@ -628,6 +630,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "csv": "data_sources/books/pdsp_ki/KiDatabase.csv",
         "machine": True,
         "editable": True,
+        "page_kind": "row",
     },
     "allen_ahba": {
         # Expression corpus: the Allen Human Brain Atlas microarray, backing a
@@ -649,6 +652,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "pages_dir": "data_sources/allen/pages",
         "machine": True,
         "editable": True,
+        "page_kind": "gene",
     },
     "wikipedia_pharm": {
         # Corpus #9: a drug's English Wikipedia article, stored whole (article text +
@@ -671,6 +675,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "url": "https://en.wikipedia.org/",
         "pages_dir": "data_sources/wikipedia/pages",
         "editable": True,
+        "page_kind": "article",
     },
     "wikipedia_fr": {
         # Brand-name corpus #10: the French Wikipedia article, the source for a drug's
@@ -690,6 +695,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "url": "https://fr.wikipedia.org/",
         "pages_dir": "data_sources/wikipedia/pages_fr",
         "editable": True,
+        "page_kind": "article",
     },
     "gtopdb_ki": {
         # Binding corpus #11: GtoPdb's *other* half. Where corpus #7 uses its tissue
@@ -712,6 +718,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "pages_dir": "data_sources/gtopdb/pages_ki",
         "machine": True,
         "editable": True,
+        "page_kind": "ligand",
     },
     "gtopdb_class": {
         # Classification corpus #12: GtoPdb's third slice (after #7 tissue distribution
@@ -736,6 +743,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "pages_dir": "data_sources/gtopdb/pages_class",
         "machine": True,
         "editable": True,
+        "page_kind": "target",
+        "page_url": "https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId={page}",
     },
     "pharmfreq": {
         # Enzyme variability corpus #13: how fast people clear a drug through one
@@ -767,6 +776,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "export_sha256": dict(ENZYME_VARIABILITY_PINS),
         "machine": True,
         "editable": True,
+        "page_kind": "gene",
     },
     "dailymed": {
         # Pharmacokinetics corpus #14: the US prescribing label (DailyMed / NLM
@@ -793,6 +803,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "url": "https://dailymed.nlm.nih.gov/",
         "pages_dir": "data_sources/dailymed/pages",
         "editable": True,
+        "page_kind": "setid",
+        "page_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={page}",
     },
     "bdpm": {
         # Pharmacokinetics + brand corpus #16: the French public drug database (ANSM
@@ -821,6 +833,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "url": "https://base-donnees-publique.medicaments.gouv.fr/",
         "pages_dir": "data_sources/bdpm/pages",
         "editable": True,
+        "page_kind": "cis",
+        "page_url": "https://base-donnees-publique.medicaments.gouv.fr/extrait.php?specid={page}",
     },
     "cpic": {
         # Pharmacogenomic guidance corpus #15: what a metabolizer phenotype *means* for
@@ -851,6 +865,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "export_sha256": dict(CPIC_GUIDANCE_PINS),
         "machine": True,
         "editable": True,
+        "page_kind": "guideline",
+        "page_url": "https://www.clinpgx.org/guidelineAnnotation/{page}",
     },
     "europepmc": {
         # Primary-literature corpus #17: paper abstracts for the claims only a study
@@ -871,6 +887,8 @@ SOURCE_CORPORA: dict[str, dict] = {
                     "cited journal article, PubMed id pinned per citation. europepmc.org.",
         "url": "https://europepmc.org/",
         "pages_dir": "data_sources/europepmc/pages",
+        "page_kind": "pmid",
+        "page_url": "https://europepmc.org/article/MED/{page}",
         # Not editable: a published abstract does not change under a citation, so
         # its pages carry no freshness deadline (see data_generators/freshness.py).
         "editable": False,
@@ -895,6 +913,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
         "pages_dir": "data_sources/drugsfda/pages",
         "editable": True,
+        "page_kind": "application",
     },
     "clinpgx": {
         # Pharmacogenomic-association corpus #20: ClinPGx's (formerly PharmGKB) clinical
@@ -915,6 +934,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "export_sha256": clinpgx.load_pins(),
         "machine": True,
         "editable": True,
+        "page_kind": "annotation",
+        "page_url": "https://www.clinpgx.org/clinicalAnnotation/{page}",
     },
     "agnp_tdm": {
         # Consensus-guideline corpus #19: the AGNP TDM task force's 2026 update of its

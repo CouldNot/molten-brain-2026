@@ -62,5 +62,31 @@ class CatalogueParityTest(unittest.TestCase):
                                   "added one never gets filled")
 
 
+
+class SourcePageKindTest(unittest.TestCase):
+    """A corpus whose `page` is not a book page (a PMID, a setid, a gene) names what
+    it holds via `page_kind`, rendered by `info.sourcePage.<kind>`. A kind with no
+    catalogue entry would print the raw key, and a missing `page_kind` prints a
+    PubMed id as "p. 7827213"."""
+
+    def test_every_page_kind_is_translated_and_every_url_takes_the_page(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        from data_generators.provenance import SOURCE_CORPORA
+        en, fr = catalogues()
+        for cid, c in SOURCE_CORPORA.items():
+            if "page_kind" in c:
+                key = f"info.sourcePage.{c['page_kind']}"
+                self.assertIn(key, en, cid)
+                self.assertIn(key, fr, cid)
+            if "page_url" in c:
+                self.assertIn("{page}", c["page_url"], cid)
+                self.assertIn("page_kind", c, f"{cid}: a page URL with no page_kind")
+
+    def test_europepmc_page_is_a_pmid(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        from data_generators.provenance import SOURCE_CORPORA
+        self.assertEqual(SOURCE_CORPORA["europepmc"].get("page_kind"), "pmid")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

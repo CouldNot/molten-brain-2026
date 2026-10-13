@@ -1973,6 +1973,20 @@ function foldSections(host) {
   }
 }
 
+/** Tooltip text as a fragment, every bare http(s) URL in it a live link (a source
+ * line's resolved page, e.g. a paper's Europe PMC record), the rest plain text. */
+function linkifiedText(text) {
+  const frag = document.createDocumentFragment();
+  String(text ?? "").split(/(https?:\/\/\S+)/).forEach((part, i) => {
+    if (i % 2 === 0) { if (part) frag.append(part); return; }
+    const a = document.createElement("a");
+    a.href = part; a.textContent = part;
+    a.target = "_blank"; a.rel = "noopener noreferrer";
+    frag.append(a);
+  });
+  return frag;
+}
+
 /**
  * Attach a hover/tap tooltip to `trigger`. The bubble is position:fixed just above
  * the trigger, clamped to the viewport, and lives on <body> while shown (so a dimmed
@@ -1999,7 +2013,7 @@ function attachTip(trigger, tipText, { wrap = false, zIndex = null } = {}) {
   // stays interactive. The node is consumed once here; it then lives in this bubble
   // permanently, moving in/out of <body> with it on open/close.
   if (tipText instanceof Node) tip.appendChild(tipText);
-  else tip.textContent = tipText;
+  else tip.appendChild(linkifiedText(tipText));
   if (zIndex != null) tip.style.zIndex = String(zIndex);
   if (!wrap) trigger.style.cursor = "help";
   let pinned = false, hideTimer = 0;
@@ -2591,7 +2605,7 @@ function createInfoPanel(data, sourcingModal) {
     if (extra instanceof Node) {
       tip.append(extra, document.createTextNode("\n\n"));
     } else if (extra) {
-      tip.append(document.createTextNode(`${extra}\n\n`));
+      tip.append(linkifiedText(`${extra}\n\n`));
     }
     tip.append(makeDetailsCue());
     const cls = spec ? `src-pill src-prov-${level}` : "src-pill src-todo";
@@ -2623,9 +2637,14 @@ function createInfoPanel(data, sourcingModal) {
     const corpora = (data.meta && data.meta.sourceCorpora) || {};
     const c = corpora[s.corpus] || {};
     const label = c.ref || c.short || s.corpus;
+    // `page` is a book page unless the corpus names what it holds instead (a PMID, a
+    // DailyMed setid, a gene), and resolves to a public URL when the corpus gives one.
+    const pageRef = c.page_kind ? `info.sourcePage.${c.page_kind}` : "info.sourceRef";
+    const pageUrl = s.page != null && c.page_url
+      ? `\n${c.page_url.replace("{page}", encodeURIComponent(s.page))}` : "";
     const ref = withFetched(s.page != null
-      ? t("info.sourceRef", { corpus: label, page: s.page })
-      : label, s.fetched, t);
+      ? t(pageRef, { corpus: label, page: s.page })
+      : label, s.fetched, t) + pageUrl;
     // Where in the book the passage sits, above the passage itself. The same
     // sentence reads very differently under "How the Drug Works" (a mechanism the
     // book attributes to this drug) than under "How Drug Causes Side Effects" (a
