@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import json
 import os
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -81,7 +82,7 @@ VARIANT_CATEGORIES: dict[str, dict[str, Any]] = {
     "Metabolism/PK": {"slug": "pk", "label": {"en": "pharmacokinetics",
                                               "fr": "pharmacocinétique"}},
     "PD": {"slug": "pd", "label": {"en": "pharmacodynamics", "fr": "pharmacodynamie"}},
-    "Other": {"slug": "other", "label": {"en": "other", "fr": "autre"}},
+    "Other": {"slug": "other", "label": {"en": "another outcome", "fr": "un autre effet"}},
 }
 
 # ClinPGx's "Specialty Population" values a node may carry (empty = general).
@@ -193,7 +194,9 @@ def node_for(row: dict) -> dict[str, Any]:
 
 
 def variant_nodes(data: dict) -> dict[tuple[str, str], list[dict[str, Any]]]:
-    """``(owner_kind, owner_id) -> [node]``, strongest level first, then variant, id."""
+    """``(owner_kind, owner_id) -> [node]``: strongest level first, then the owner's
+    most-annotated variant first (DRD2's Taq1A before a one-study SNP), then variant
+    name, then annotation id."""
     order = list(VARIANT_LEVELS)
     out: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for row in data["rows"]:
@@ -201,7 +204,9 @@ def variant_nodes(data: dict) -> dict[tuple[str, str], list[dict[str, Any]]]:
         for owner in owners_of(row["genes"]):
             out.setdefault(owner, []).append(node)
     for nodes in out.values():
-        nodes.sort(key=lambda n: (order.index(n["level"]), n["variant"], n["annotation"]))
+        count = Counter(n["variant"] for n in nodes)
+        nodes.sort(key=lambda n: (order.index(n["level"]), -count[n["variant"]],
+                                  n["variant"], n["annotation"]))
     return out
 
 
