@@ -1123,7 +1123,7 @@ _STAHL_INDEX_ROW = re.compile(r"\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 def _fold_name(name):
     """A drug name reduced to its letters+digits, so ``Amphetamine (d,l)`` and the
     index's ``Amphetamine (D,L)`` compare equal."""
-    return "".join(c for c in name.lower() if c.isalnum())
+    return alnum_key(name)
 
 
 def stahl_index_rows():
@@ -2044,6 +2044,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators import cpic, freshness, pharmfreq, unknown  # noqa: E402
+from text_fold import alnum_key  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the
 # grade and quote walks cannot skip a formulation's claims).

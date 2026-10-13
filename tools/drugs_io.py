@@ -22,6 +22,8 @@ import json
 import re
 from pathlib import Path
 
+from text_fold import ascii_key
+
 DRUGS_PATH = Path(__file__).resolve().parent / "data" / "drugs_data.jsonl"
 METABOLITES_PATH = Path(__file__).resolve().parent / "data" / "metabolites_data.jsonl"
 
@@ -55,8 +57,7 @@ def save_metabolites(records, path=None) -> None:
                path if path is not None else METABOLITES_PATH)
 
 
-def _fold(s: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
+_fold = ascii_key
 
 
 def names_of(metabolite: str) -> list[str]:

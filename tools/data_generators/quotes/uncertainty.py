@@ -67,6 +67,8 @@ import collections
 import re
 from typing import Any
 
+from text_fold import ascii_key
+
 from .. import quote_table
 
 # The Stahl subsections the derivation reads. The book's subsection vocabulary is closed
@@ -194,7 +196,7 @@ def _designations(target: str) -> set[str]:
     # Both spellings: spaced ("gaba a") and glued ("gabaa"), because prose writes an id's
     # separator either way and a missed spelling would publish a false family claim.
     return ({_tokens(d).strip() for d in out}
-            | {re.sub(r"[^a-z0-9]", "", d.lower()) for d in out})
+            | {ascii_key(d) for d in out})
 
 
 def _family_groups(drug: dict[str, Any]) -> dict[int, tuple[int, dict[str, Any]]]:

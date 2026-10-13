@@ -31,7 +31,6 @@ import argparse
 import importlib.util
 import json
 import os
-import re
 import sys
 from pathlib import Path
 
@@ -39,7 +38,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io  # noqa: E402
 from data_generators.provenance import brand_regions  # noqa: E402
-from text_fold import strip_accents  # noqa: E402
+from text_fold import ascii_key, strip_accents  # noqa: E402
 
 PAGES_FR = ROOT / "data_sources" / "wikipedia" / "pages_fr"
 WORKLIST = ROOT / "tools" / "generated_cache" / "brand_worklist.json"
@@ -69,8 +68,7 @@ def brand_key(name: str) -> str:
     read as a second brand. Spaces go too: French Wikipedia writes Stahl's
     "Risperdal Consta" as "Risperdalconsta", and Stahl's "Tranxene" as "Tranxène".
     """
-    t = strip_accents(name)
-    return re.sub(r"[^a-z0-9]+", "", t.lower())
+    return ascii_key(strip_accents(name))
 
 
 def add_brand(existing: list, seen: set, name: str, region: str, source: dict) -> bool:

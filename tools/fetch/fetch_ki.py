@@ -194,8 +194,7 @@ def download(dest=CSV_PATH):
           % (os.path.relpath(dest, REPO), len(by_id), min(by_id), max(by_id)))
 
 
-def norm(s):
-    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+norm = drugs_io.ascii_key
 
 
 def resolve_target(row):

@@ -344,9 +344,7 @@ def build_search(drugs: list[dict], metabolites: list[dict] = ()) -> list[dict]:
     return records
 
 
-def fold_slug(slug: str) -> str:
-    """A page slug folded like a metabolite name (own-article test)."""
-    return re.sub(r"[^a-z0-9]", "", slug.lower())
+fold_slug = drugs_io.ascii_key  # a page slug folded like a metabolite name
 
 
 def main() -> int:

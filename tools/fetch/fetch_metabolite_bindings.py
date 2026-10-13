@@ -131,10 +131,7 @@ TARGET_HINT_RE = re.compile(
 MAX_ACTION_LINES = 14   # cap candidate lines per metabolite (keeps the worklist compact)
 
 
-def _norm(s: str) -> str:
-    """Lowercase + drop every non-alphanumeric, so a metabolite name matches its
-    mention regardless of hyphens/spaces/commas (Carbamazepine-10,11-epoxide)."""
-    return re.sub(r"[^a-z0-9]", "", s.lower())
+_norm = drugs_io.ascii_key  # a metabolite name matches its mention whatever the hyphens
 
 
 def action_lines(page_text: str, must_mention: str | None = None,

@@ -50,6 +50,8 @@ import os
 import re
 from typing import Any
 
+from text_fold import ascii_key
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 UNKNOWN_LOG_PATH = os.path.join(ROOT, "tools", "generated_cache", "unknown_searches.json")
 
@@ -66,9 +68,7 @@ _BINDING_SITE = re.compile(
     r"^(?P<kind>drug|metabolite):(?P<owner>[^/]+)/bindings\[(?P<target>[^\]:]+)\]$")
 
 
-def fold(name: str) -> str:
-    """A metabolite name folded for matching (case + punctuation)."""
-    return re.sub(r"[^a-z0-9]", "", (name or "").lower())
+fold = ascii_key  # a metabolite name folded for matching (case + punctuation)
 
 
 def binding_site(owner_id: str, target: str, kind: str = "drug") -> str:

@@ -8,7 +8,7 @@ TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
 
 from data_generators.provenance import brand_regions  # noqa: E402
-from text_fold import alnum_key, strip_accents  # noqa: E402
+from text_fold import alnum_key, ascii_key, strip_accents  # noqa: E402
 
 
 class TextFoldTest(unittest.TestCase):
@@ -19,6 +19,12 @@ class TextFoldTest(unittest.TestCase):
     def test_alnum_key_reconciles_index_headings(self):
         self.assertEqual(alnum_key("Amphetamine (D)"), alnum_key("Amphetamine D"))
         self.assertEqual(alnum_key("Naltrexone-Bupropion"), "naltrexonebupropion")
+
+    def test_ascii_key_is_the_shared_name_join_key(self):
+        self.assertEqual(ascii_key("Carbamazepine-10,11-epoxide"), "carbamazepine1011epoxide")
+        self.assertEqual(ascii_key(None), "")
+        # ASCII only: an accented letter is dropped (alnum_key keeps it).
+        self.assertEqual(ascii_key("Tranxène"), "tranxne")
 
     def test_brand_regions(self):
         self.assertEqual(brand_regions("fr"), ["fr"])

@@ -73,9 +73,7 @@ _UNIT_HOURS = {
 }
 
 
-def _norm_name(s: str) -> str:
-    """Fold a drug name for matching (lowercase, alphanumerics only)."""
-    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+_norm_name = drugs_io.ascii_key  # a drug name folded for matching
 
 
 def parse_duration(line: str) -> dict | None:
