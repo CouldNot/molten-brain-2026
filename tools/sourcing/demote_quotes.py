@@ -190,7 +190,8 @@ def _targets(args) -> dict[str, dict]:
         path = os.path.join(CACHE, "quote_recheck_flagged.json")
         with open(path, encoding="utf-8") as fh:
             for row in json.load(fh):
-                out[row["qid"]] = {}
+                # A split verdict flags only the sites it rejected (recheck_quotes.py).
+                out[row["qid"]] = {"sites": list(row["sites"])} if row.get("sites") else {}
     sites = [x.strip() for x in (args.sites or "").split(",") if x.strip()]
     for qid in (args.ids or "").split(","):
         if qid.strip():

@@ -40,7 +40,9 @@ Three steps (the middle one is the only LLM spend):
    per batch reads its file and returns, per item, ``{qid, present, supports, note?}``
    against the embedded page text (present allowing OCR noise; supports = the quote
    substantiates the claim). Aggregate every agent's ``verdicts`` into one JSON object
-   ``{"verdicts": {qid: {present, supports, note?}}}``.
+   ``{"verdicts": {qid: {present, supports, note?, rejected_sites?}}}``. A verdict may
+   name ``rejected_sites`` (the ``site`` prefixes of the claims the quote does NOT back):
+   the other sites shown are then stamped, and only those are flagged.
 
    **Tell the judge what ``heading`` means**, because it decides the harder half of the
    verdict: it is where in the book the passage sits (a breadcrumb of headings,
@@ -344,16 +346,21 @@ def cmd_apply(args):
         held = stamped.get(q, {})
         # The stamp as it stands: the strongest per-site one, else the source-level one.
         prior = _strongest(held.values()) or quotes[q].get("llm")
-        if v.get("present") and v.get("supports"):
+        # A split verdict names the sites it rejects (``rejected_sites``): the others
+        # it was shown are confirmed, and only those are flagged for demotion.
+        rejected = set(v.get("rejected_sites") or []) & sites
+        split = bool(v.get("present") and rejected and rejected != sites)
+        if v.get("present") and (v.get("supports") or split):
             # Two models confirming a quote beats one, and the stamp names the capability
             # a reader should weigh the quote against, so it keeps the strongest reader it
             # has had. A weaker second pass corroborates; it never demotes.
             held = dict(held)
-            for site in sites:
+            for site in sites - rejected:
                 held[site] = _strongest([held.get(site), args.llm])
             stamped[q] = held
             disputed.pop(q, None)
-            continue
+            if not split:
+                continue
         if rank < LLM_RANK.get(prior, -1):
             # A weaker model contradicting a stronger one is a disagreement, not a
             # verdict. The stamp stands until the stronger model is asked again
@@ -365,13 +372,20 @@ def cmd_apply(args):
                            "quote": quotes[q]["quote"], "claims": claims.get(q, []),
                            "note": v.get("note", "")}
             continue
-        stamped.pop(q, None)
-        disputed.pop(q, None)
-        flagged.append({"qid": q, "corpus": quotes[q]["corpus"], "page": quotes[q]["page"],
-                        "heading": quotes[q].get("heading"),
-                        "present": v.get("present"), "supports": v.get("supports"),
-                        "quote": quotes[q]["quote"], "claims": claims.get(q, []),
-                        "note": v.get("note", "")})
+        row = {"qid": q, "corpus": quotes[q]["corpus"], "page": quotes[q]["page"],
+               "heading": quotes[q].get("heading"),
+               "present": v.get("present"), "supports": v.get("supports"),
+               "quote": quotes[q]["quote"], "claims": claims.get(q, []),
+               "note": v.get("note", "")}
+        if split:
+            # Only the rejected sites lose their stamp; ``demote_quotes.py --flagged``
+            # removes the source at exactly these sites.
+            stamped[q] = {k: m for k, m in stamped[q].items() if k not in rejected}
+            row["sites"] = sorted(rejected)
+        else:
+            stamped.pop(q, None)
+            disputed.pop(q, None)
+        flagged.append(row)
     # A row about a quote the dataset no longer cites is dead weight: the sentence was
     # dropped, or repaired into a different one (the id is a content hash, so a repair
     # makes a NEW quote). Left in, it is re-proposed by every pass for ever and reads as

@@ -236,7 +236,11 @@ PROJECTION_QUOTES: dict[tuple[str, str], dict[str, Any]] = {
     ("locus_coeruleus_R", "cerebellum"): _nieuwenhuys(900,
         "The cerebellar noradrenergic innervation of the cerebellum and the "
         "inferior olive stems from the locus coeruleus and the groups A5 and A7"),
-    ("raphe", "frontal_R"): _KQ_MONOAMINE_INNERV,
+    # Not _KQ_MONOAMINE_INNERV: an Opus judge rejected that sentence for this one arrow
+    # (it names "the cerebral cortex", and raphe -> frontal was its only cortical use, so
+    # no blanket_claim flag conceded it). This sentence sweeps every raphe -> lobe arrow,
+    # so the derived blanket_claim flag says out loud that the lobe split is ours.
+    ("raphe", "frontal_R"): _KQ_RAPHE_FOREBRAIN,
     ("raphe", "hypothalamus_R"): _KQ_MONOAMINE_INNERV,
     ("raphe", "amygdala_R"): _KQ_MONOAMINE_LIMBIC,
     ("raphe", "hippocampus_R"): _KQ_MONOAMINE_LIMBIC,

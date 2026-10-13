@@ -3828,6 +3828,56 @@
     "psychosis": "Psychosis",
     "cardiovascular": "Raised heart rate / blood pressure"
   },
+  "release_modulation": {
+    "kinds": {
+      "autoreceptor": "Autoreceptor",
+      "heteroreceptor": "Heteroreceptor"
+    },
+    "cells": {
+      "presynaptic_terminal": "presynaptic terminals",
+      "cell_body": "cell bodies (somatodendritic)",
+      "gaba_interneuron": "GABA interneurons",
+      "glutamatergic_neuron": "glutamatergic (pyramidal) neurons"
+    },
+    "transmitters": {
+      "dopamine": {
+        "label": "dopamine",
+        "system": "Dopamine"
+      },
+      "serotonin": {
+        "label": "serotonin",
+        "system": "Serotonin"
+      },
+      "norepinephrine": {
+        "label": "norepinephrine",
+        "system": "Noradrenaline"
+      },
+      "acetylcholine": {
+        "label": "acetylcholine",
+        "system": "Acetylcholine"
+      },
+      "histamine": {
+        "label": "histamine",
+        "system": "Histamine"
+      },
+      "glutamate": {
+        "label": "glutamate",
+        "system": "Glutamate"
+      },
+      "gaba": {
+        "label": "GABA",
+        "system": "GABA"
+      }
+    },
+    "effects": [
+      "increase",
+      "decrease"
+    ],
+    "autoreceptor_cells": [
+      "presynaptic_terminal",
+      "cell_body"
+    ]
+  },
   "source_corpora": {
     "stahl": {
       "ref": "Prescriber's Guide: Stahl's Essential Psychopharmacology, 8th ed.",
@@ -4144,12 +4194,12 @@
       },
       "drug_binding_action": {
         "total": 1387,
-        "verified": 1114,
+        "verified": 1106,
         "uncertain": 104,
         "sourced": 0,
-        "llm": 132,
+        "llm": 140,
         "nosource": 37,
-        "missing": 169,
+        "missing": 177,
         "unknown": 656
       },
       "drug_nbn": {
@@ -4164,12 +4214,12 @@
       },
       "drug_brands": {
         "total": 583,
-        "verified": 575,
+        "verified": 574,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
-        "nosource": 8,
-        "missing": 8,
+        "nosource": 9,
+        "missing": 9,
         "unknown": 0
       },
       "drug_categories": {
@@ -4194,12 +4244,12 @@
       },
       "drug_tmax": {
         "total": 170,
-        "verified": 170,
+        "verified": 168,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
-        "nosource": 0,
-        "missing": 0,
+        "nosource": 2,
+        "missing": 2,
         "unknown": 0
       },
       "drug_formulations": {
@@ -4324,8 +4374,8 @@
       },
       "projections": {
         "total": 116,
-        "verified": 75,
-        "uncertain": 40,
+        "verified": 74,
+        "uncertain": 41,
         "sourced": 0,
         "llm": 0,
         "nosource": 1,
@@ -4482,6 +4532,16 @@
         "missing": 0,
         "unknown": 0
       },
+      "receptor_release_modulation": {
+        "total": 0,
+        "verified": 0,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "structures": {
         "total": 57,
         "verified": 57,
@@ -4505,14 +4565,14 @@
     },
     "nodes": {
       "total": 7760,
-      "verified": 7186,
-      "uncertain": 268,
+      "verified": 7174,
+      "uncertain": 269,
       "sourced": 0,
-      "llm": 237,
-      "nosource": 69,
-      "missing": 306,
+      "llm": 245,
+      "nosource": 72,
+      "missing": 317,
       "unknown": 656,
-      "backed": 7454,
+      "backed": 7443,
       "pct_backed": 96
     },
     "ki_coverage": {

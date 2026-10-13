@@ -296,6 +296,36 @@ class SiteKeyedJudgeTest(unittest.TestCase):
             stamped = json.loads((cache / "quote_llm.json").read_text(encoding="utf-8"))
         self.assertEqual(stamped[qid], {"drug:a/half_life": "sonnet", "drug:a/tmax": "opus"})
 
+    def test_a_split_verdict_stamps_the_rest_and_flags_only_the_rejected_site(self):
+        qid = next(q["id"] for q in R._jsonl("quotes.jsonl"))
+        with tempfile.TemporaryDirectory() as tmp:
+            cache, batches = Path(tmp) / "cache", Path(tmp) / "batches"
+            cache.mkdir(), batches.mkdir()
+            (cache / "quote_llm.json").write_text(
+                json.dumps({qid: {"drug:a/bindings[d2:antagonist]": "sonnet"}}),
+                encoding="utf-8")
+            (batches / "batch_0.json").write_text(json.dumps({"pages": {}, "items": [
+                {"qid": qid, "page_ref": "x:1", "quote": "q", "claims": [
+                    "drug:a/bindings[d2:antagonist] | Drug A blocks D2.",
+                    "drug:a/bindings[d2:partial_agonist] | Drug A is a D2 partial agonist."]}]}),
+                encoding="utf-8")
+            verdicts = Path(tmp) / "v.json"
+            verdicts.write_text(json.dumps({"verdicts": {qid: {
+                "present": True, "supports": False, "note": "partial agonism only",
+                "rejected_sites": ["drug:a/bindings[d2:antagonist]"]}}}), encoding="utf-8")
+            old = R.CACHE
+            try:
+                R.CACHE = str(cache)
+                R.cmd_apply(argparse.Namespace(batches=str(batches),
+                                               verdicts=str(verdicts), llm="opus"))
+            finally:
+                R.CACHE = old
+            read = lambda n: json.loads((cache / n).read_text(encoding="utf-8"))
+            stamped, flagged = read("quote_llm.json"), read("quote_recheck_flagged.json")
+        self.assertEqual(stamped[qid], {"drug:a/bindings[d2:partial_agonist]": "opus"})
+        self.assertEqual([f.get("sites") for f in flagged],
+                         [["drug:a/bindings[d2:antagonist]"]])
+
     def test_the_emitted_data_carries_no_quote_level_stamp_leak(self):
         # Every emitted citation is finalized: no transient key survives the write.
         for name in ("drugs.jsonl", "projections.jsonl", "receptors.jsonl"):
