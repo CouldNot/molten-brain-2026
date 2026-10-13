@@ -529,7 +529,7 @@ Screenshots).
   **`--search`** applies the UNKNOWN search's picks (`binding_directions_search_judged.json`, index
   per site into `binding_directions_search_worklist.json`) through the same `_Gate`, the citation
   carrying the candidate's own corpus (EN/FR Wikipedia or a Europe PMC abstract) and page; a metabolite
-  pick is written under every parent. **`--unknown-log`** (run after the recheck) writes
+  pick is written once, on its `metabolites_data.jsonl` record. **`--unknown-log`** (run after the recheck) writes
   `tools/generated_cache/unknown_searches.json`: every searched binding still `affinity_only` whose
   search found no direction anywhere, with its per-corpus search record (see docs/PROVENANCE.md, UNKNOWN).
   See docs/DRUGS.md Drugs (Binding directions).
@@ -678,14 +678,18 @@ there is no node-level catch-all `sources` block.
   `enzymes[]` (each: `enzyme` (a `meta.enzymes` key), `role`, optional `strength`, `sources[]`;
   one node per (enzyme, role) pair, kind `drug_enzymes`, merged in from the committed
   `generated_cache/drug_enzymes.json` + `drug_enzymes_wikipedia.json`, never authored),
-  `metabolites[]` (each: `name`, optional `half_life`(+`half_life_sources`), `sources[]`, optional
-  `drug_id` linking a modeled drug, optional `bindings[]` for a non-modeled metabolite: same shape as a
-  drug binding, kind `drug_metabolite_bindings`; optional `formed_by[]` (each: `enzyme`, optional
+  `metabolites[]` (each a reference `{id, sources[]}` into `metabolites.jsonl`, the sources being
+  "<id> is an active metabolite of this drug"; optional `formed_by[]` (each: `enzyme`, optional
   `reaction` (a `meta.enzyme_reactions` key), `sources[]`), one node per (parent, metabolite, enzyme),
   kind `drug_metabolite_enzyme`, hand-curated in `data_generators/quotes/metabolism.py`),
   optional `wikipedia`(+prov), optional `structure_image` (vendored `data/molecules/<id>.svg`,
   only when the file exists), `focusable`. No drug-level source: provenance is per-claim (see
   docs/PROVENANCE.md).
+- `metabolites.jsonl`: one record per active-metabolite **molecule** (authored in
+  `tools/data/metabolites_data.jsonl`, written by the PK / prodrug / metabolite-bindings appliers via
+  `drugs_io.attach_metabolite`): `id`, `name`, optional `drug_id` linking a modeled drug, optional
+  `half_life`(+`half_life_sources`), optional `bindings[]` for a non-modeled metabolite (same shape as a
+  drug binding, kind `drug_metabolite_bindings`, counted once however many drugs reference the record).
 - `addons.jsonl` — **addon nodes**: a sourced annotation that carries its own insertion point.
   `id`, `owner_kind` (`drug`/`receptor`/`target`/`structure`/`section`), `owner` (that node's
   id; a structure anchors its hemisphere-less *base*, a `section` anchors a `meta.addon_sections`

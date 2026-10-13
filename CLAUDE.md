@@ -74,7 +74,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - TDM (AGNP #19): `therapeutic_range` (+ `tdm_level`) -> `drug_therapeutic_range`; `alert_level` -> `drug_alert_level`
 - metabolism: `enzymes[]` -> `drug_enzymes` (per (enzyme, role)); `claims.strength` -> `drug_enzyme_strength`; enzyme `variability` -> `enzyme_variability` (ONE node per isoform, not per population group)
 - pharmacogenomics: `pgx[].rows[]` -> `drug_pgx` (ONE node per (drug, gene, phenotype), carrying TWO citations: CPIC's implication then its recommendation)
-- metabolites: `metabolites[]` -> `drug_metabolites`; `formed_by[]` -> `drug_metabolite_enzyme`; `bindings[]` -> `drug_metabolite_bindings`
+- metabolites: ONE record per molecule in `tools/data/metabolites_data.jsonl` (-> `metabolites.jsonl`: name, `drug_id`, T½, `bindings[]` -> `drug_metabolite_bindings`, counted once however many parents); a drug's `metabolites[]` holds `{id, sources}` refs -> `drug_metabolites` + per-parent `formed_by[]` -> `drug_metabolite_enzyme`
 - `addons.jsonl` -> `addons` (see Addon nodes); `wikipedia` -> `references` (tallied but excluded from the headline: a pointer at a node, not knowledge)
 
 ## Architecture

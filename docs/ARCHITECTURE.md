@@ -82,9 +82,9 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug metabolism role -> a drug's `enzymes[]` (`{enzyme, role, strength?}`) -> `drug_enzymes` (one node per (enzyme, role) pair; pharmacokinetics, so it has no anatomy, see Drug metabolism in DRUGS.md)
 - drug metabolism **strength tier** -> that row's `claims.strength` -> `drug_enzyme_strength` (only on a row that states a tier; the CYP quote gate checks the isoform is named, never the tier, so it is graded by the same word test the pathway claims use, `quotes/attestation.py`)
 - enzyme population variability -> an enzyme's `variability` -> `enzyme_variability` (ONE node per isoform for the whole profile, not one per population group, for the same reason a density profile is one node: a single published aggregation ranking the groups against each other)
-- drug active metabolite -> a drug's `metabolites[]` (each `{name, drug_id?, half_life?, bindings?, formed_by?, sources}`) -> `drug_metabolites` (a metabolite that is itself a modeled drug links via `drug_id` + reuses its bindings/T½)
+- drug active metabolite -> a drug's `metabolites[]` reference (`{id, sources, formed_by?}`, the per-parent "is a metabolite of" claim) -> `drug_metabolites`; the molecule itself (`{id, name, drug_id?, half_life?, bindings?}`) is ONE record in `metabolites.jsonl` (authored `tools/data/metabolites_data.jsonl`) however many drugs make it, joined by id in `js/data.js` (a metabolite that is itself a modeled drug links via `drug_id` + reuses its bindings/T½)
 - metabolite-forming enzyme -> a metabolite's `formed_by[]` (`{enzyme, reaction?, sources}`) -> `drug_metabolite_enzyme` (one node per (parent, metabolite, enzyme); the mirror of `drug_enzymes`, counted per PARENT since two parents make it by two reactions)
-- non-modeled-metabolite receptor binding -> a metabolite's `bindings[]` -> `drug_metabolite_bindings` (sourced from the metabolite's own Wikipedia pharmacology, corpus #9; graded like a drug binding, a separate kind so the drug Ki coverage is unperturbed; surfaces on the receptor's Interacting drugs)
+- non-modeled-metabolite receptor binding -> a `metabolites.jsonl` record's `bindings[]` -> `drug_metabolite_bindings` (one node per record, not per parent; sourced from the metabolite's own Wikipedia pharmacology, corpus #9; graded like a drug binding, a separate kind so the drug Ki coverage is unperturbed; surfaces on the receptor's Interacting drugs)
 - panel annotation -> `addons.jsonl` -> `addons` (an **addon node**: the kind whose record carries its own insertion point, for a claim no other kind has a home for. `owner_kind` + `owner` name the node it annotates, `slot` a `meta.addon_slots` hook, `display`/`tone` how it draws; authored in `tools/data_generators/addons.py`, see Addon nodes in VIEWER.md)
 - Wikipedia reference -> any node's `wikipedia` -> `references` (a pointer *at* a node, tallied but excluded from the headline; a reference is not itself a knowledge node)
 
@@ -359,7 +359,7 @@ Viewer (`public/`):
   All English (a crawler reads the raw HTML before i18n; no prerender step) and the
   canonical / `og:url` / `og:image` / JSON-LD URLs are **hardcoded to the public domain**
   (update all four spots + `sitemap.xml`/`robots.txt` if it ever changes).
-- `js/data.js`: fetches `meta.json` + the `.jsonl` (incl. `quotes.jsonl`) + shape files, rehydrates
+- `js/data.js`: fetches `meta.json` + the `.jsonl` (incl. `quotes.jsonl`, and `metabolites.jsonl` whose records it joins onto each drug's `{id}` refs) + shape files, rehydrates
   each `{quote_id, provenance}` source from the deduplicated `quotes.jsonl` excerpt table
   (`rehydrateQuotes`, mirror of the generator's externalize; see Source provenance); returns a normalized
   `{structures, projections, circuits, projectionGroups, projectionGroupsByKey, receptors,

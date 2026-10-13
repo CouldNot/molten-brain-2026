@@ -85,9 +85,10 @@ fixed Stahl list.
   `drug_categories`, default `llm`, upgradeable via `DRUG_CATEGORY_PROVENANCE` / `category_sources`).
 - **Half-life + active metabolites (Stahl PK).** A drug carries an elimination `half_life`
   (`{hours, hours_max?}`, its own graded node kind `drug_half_life`, source `half_life_sources`) and a
-  `metabolites[]` list, each an **active metabolite** (a `name`, its own `half_life`/`half_life_sources`,
-  and `sources`; graded node kind `drug_metabolites`; a `drug_id` when the metabolite is itself a modeled
-  drug so the panel links to it). `showDrug` renders T½ as an `hl-chip` (auto-scaled to min/h/days via
+  `metabolites[]` list of **active metabolite** references `{id, sources}` (graded node kind
+  `drug_metabolites`, the sources saying "X is a metabolite of this drug"); the molecule itself (its `name`,
+  own `half_life`/`half_life_sources`, a `drug_id` when it is itself a modeled drug so the panel links to it,
+  own `bindings`) is ONE record in `tools/data/metabolites_data.jsonl`, whatever drugs make it. `showDrug` renders T½ as an `hl-chip` (auto-scaled to min/h/days via
   `formatHalfLife`, in a **Pharmacokinetics** section between the brands and the **Acts on** list, beside the Tmax
   chip below) and an **Active metabolites** section
   (each row its name + its own T½ chip, "a bit like the Ki"). In `buildDrugLegend` a default-on
@@ -96,8 +97,8 @@ fixed Stahl list.
   when the drugs filter or the global search matches the metabolite name). Pipeline mirrors the brand one:
   `tools/fetch/fetch_pharmacokinetics.py` scans the Stahl page spans into `pk_worklist.json`, one LLM pass
   writes `pk_judged.json`, and `tools/sourcing/apply_pharmacokinetics.py` quote-gates + merges T½/metabolites
-  into `drugs_data.jsonl` (sole writer). It **merges** each judged metabolite into the stored one matched by name
-  (keeping its `bindings` / `formed_by`; the judged name wins), accepts a `wikipedia_pharm` quote (`page` = slug) as well
+  into `drugs_data.jsonl` + `metabolites_data.jsonl` (sole writer). It **merges** each judged metabolite into the store record matched by name
+  (`drugs_io.find_metabolite`; the record keeps its name and `bindings`, the quote lands on the drug's reference), accepts a `wikipedia_pharm` quote (`page` = slug) as well
   as a Stahl one, takes an explicit `drug_id` link, and `half_life: null` clears a wrong drug T½. Always scope a
   rerun with `--only <drug ids>`: a full rerun re-applies every old pick, including ones a later pass removed.
 - **Time-to-peak (Tmax, Wikipedia + Stahl + DailyMed).** A drug carries a `tmax` in the same `{hours, hours_max?}`
@@ -171,12 +172,10 @@ fixed Stahl list.
   a thin own article, e.g. Seproxetine for norfluoxetine, often omits the binding profile the parent states),
   a quote gating against whichever read page holds it, into `metabolite_bindings_worklist.json`; one LLM pass writes
   `metabolite_bindings_judged.json`; `tools/sourcing/apply_metabolite_bindings.py` quote-gates + merges
-  into `drugs_data.jsonl` (sole writer of a metabolite's bindings; a metabolite linked to a roster drug by `drug_id` keeps none, the drug owns them). Scope a rerun with `--only <parent drug ids>`: a full rerun rewrites every metabolite and clobbers later direction / Ki writes. **Shared metabolite:** one
-  metabolite can be produced by several modeled drugs (desipramine by imipramine + lofepramine, mCPP by
-  nefazodone + trazodone), so it appears once under each parent; its bindings are a property of the
-  molecule, so the applier keys by metabolite name and writes an **identical** list to each parent, the
-  tally + viewer dedup it by folded name (counted / listed once, "metab. of A, B"), and `check_data` fails
-  loud if two parents' inline copies ever diverge (a hand-edit backstop).
+  into `metabolites_data.jsonl` (sole writer of a metabolite's bindings; a metabolite linked to a roster drug by `drug_id` keeps none, the drug owns them). Scope a rerun with `--only <parent drug ids>`: a full rerun rewrites every metabolite and clobbers later direction / Ki writes. **Shared metabolite:** one
+  molecule can be produced by several modeled drugs (desipramine by imipramine + lofepramine, mCPP by
+  nefazodone + trazodone, nordazepam by four benzodiazepines); it is one store record referenced by each
+  parent, so its bindings and T½ exist once, are tallied once and the viewer lists it once ("metab. of A, B").
 - **Binding directions (Wikipedia).** An `affinity_only` binding has a measured Ki and no `action`,
   so what the drug *does* at that target is a NOSOURCE `drug_binding_action` node; a drug's own
   English Wikipedia article (corpus #9) often states that direction in prose where no assay can.
