@@ -18,6 +18,7 @@ Built with the help of Claude Code.
 """
 from __future__ import annotations
 
+import functools
 import json
 from pathlib import Path
 from typing import Any
@@ -84,6 +85,7 @@ def _key(mode: str, effect: str) -> str:
     return f"{mode}:{effect}"
 
 
+@functools.lru_cache(maxsize=None)
 def load_cache(path: Path = CACHE) -> dict[str, dict[str, list]]:
     """``{owner id: {"<mode>:<effect>": [source, ...]}}`` (empty when not built yet)."""
     return json.loads(path.read_text("utf-8")) if path.exists() else {}

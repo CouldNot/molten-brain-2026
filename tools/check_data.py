@@ -142,7 +142,8 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "circuits", "projection_groups", "receptors",
               "receptor_class", "receptor_sign", "receptor_synaptic",
               "receptor_locations", "receptor_density", "targets", "target_polarity",
-              "target_locations", "target_density", "structures")
+              "target_locations", "target_density", "receptor_effect",
+              "structures")
 
 
 def _backed(counts):
@@ -1477,6 +1478,23 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         # a binding does, and its bullets are gated the same way.
         check_uncertainty(f"projection {pid}", proj)
 
+    effect_modes = meta.get("receptor_effect_modes") or {}
+    effect_labels = meta.get("receptor_effect_labels") or {}
+
+    def check_effects(ctx, owner, is_receptor):
+        """receptor_effect nodes (BETA): closed vocabularies, one quote at least, each
+        quote gated like any other. ``inhibition`` is a non-receptor target's mode."""
+        for e in owner.get("effects") or []:
+            where = f"{ctx} effects[{e.get('mode')}:{e.get('effect')}]"
+            if e.get("mode") not in effect_modes or e.get("effect") not in effect_labels:
+                report.error(f"{where}: mode/effect not in meta.receptor_effect_*")
+            if is_receptor and e.get("mode") == "inhibition":
+                report.error(f"{where}: 'inhibition' on a receptor")
+            if not e.get("sources"):
+                report.error(f"{where}: an effect node with no source")
+            for i, src in enumerate(e.get("sources") or []):
+                check_one(f"{where} sources[{i}]", src)
+
     for s in structures:
         for i, src in enumerate(s.get("sources", []) or []):
             check_one(f"structure {s.get('id')} sources[{i}]", src)
@@ -1495,6 +1513,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         # agreement, so gating it verbatim is what keeps those numbers honest.
         for i, src in enumerate((r.get("density") or {}).get("sources") or []):
             check_one(f"receptor {r.get('id')} density sources[{i}]", src)
+        check_effects(f"receptor {r.get('id')}", r, is_receptor=True)
 
     for tid, tinfo in (meta.get("drug_targets", {}) or {}).items():
         if isinstance(tinfo, dict):
@@ -1507,6 +1526,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                     check_one(f"target {tid} location_sources[{base}][{i}]", src)
             for i, src in enumerate((tinfo.get("density") or {}).get("sources") or []):
                 check_one(f"target {tid} density sources[{i}]", src)
+            check_effects(f"target {tid}", tinfo, is_receptor=False)
 
     # Metabolizer-status profiles hang off `meta.enzymes`, not off any node file, so
     # they are reached from here rather than by the walks above. The page lookup stands

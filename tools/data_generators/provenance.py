@@ -1537,6 +1537,12 @@ def _provenance_stats(structures: list[dict[str, Any]],
                               for t in drug_targets.values()
                               if t.get("type") != "receptor"
                               and "polarity_provenance" in t]
+    # Clinical-effect nodes (kind receptor_effect, BETA): one per (owner, mode, effect),
+    # on receptors and non-receptor targets alike. Like a density profile, a node exists
+    # only once sourced, and it is a stored quoted claim, so it sits in the headline.
+    receptor_effect_grades = [e["grade"] for o in (*receptors, *(
+        t for t in drug_targets.values() if t.get("type") != "receptor"))
+        for e in o.get("effects", [])]
     # Brain-region anatomy (existence / group / position), graded per emitted
     # structure record (both hemispheres of a pair count, one line each).
     structure_grades = [s.get("classification_provenance", DEFAULT_PROVENANCE)
@@ -1607,6 +1613,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "target_polarity": tally(target_polarity_grades),
         "target_locations": tally(target_location_grades),
         "target_density": tally(target_density_grades),
+        "receptor_effect": tally(receptor_effect_grades),
         "structures": tally(structure_grades),
         "references": tally(ref_grades),
     }

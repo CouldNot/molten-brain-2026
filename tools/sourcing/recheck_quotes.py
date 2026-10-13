@@ -218,6 +218,17 @@ def _doubts(node):
               "at all.]")
 
 
+def _effect_claims(add, kind, label, owner_kind, oid, nm, owner):
+    """One claim per receptor_effect node's quote (receptors and targets alike)."""
+    kind["now"] = "receptor_effect"
+    for e in owner.get("effects") or []:
+        mode = {"both": "agonism or antagonism"}.get(e["mode"], e["mode"])
+        for q in _qids(e.get("sources", [])):
+            add(q, f"{label} {nm}: {mode} of it can cause (or contribute to) the "
+                   f"clinical effect '{e['effect'].replace('_', ' ')}' in humans.",
+                CS.site(owner_kind, oid, "effects", f"{e['mode']}:{e['effect']}"))
+
+
 def reconstruct_claims(quotes):
     """``(claims, kinds)``: per quote id, the claim(s) it backs and its node kind."""
     claims = collections.defaultdict(list)
@@ -391,6 +402,7 @@ def reconstruct_claims(quotes):
             for q in _qids(srcs):
                 add(q, f"Receptor {nm} is expressed in brain region '{region}'.",
                     CS.site("receptor", r["id"], "locations", region))
+        _effect_claims(add, kind, "Receptor", "receptor", r["id"], nm, r)
 
     kind["now"] = "projections"
     for p in _jsonl("projections.jsonl"):
@@ -426,9 +438,10 @@ def reconstruct_claims(quotes):
             for q in _qids(srcs):
                 add(q, f"Molecular target {nm} is expressed in brain region '{region}'.",
                     CS.site("target", tid, "locations", region))
+        _effect_claims(add, kind, "Molecular target", "target", tid, nm, t)
         kind["now"] = "target_other"
         for k, v in t.items():
-            if k == "location_sources":
+            if k in ("location_sources", "effects"):
                 continue
             if isinstance(v, dict) and "sources" in v:
                 for q in _qids(v["sources"]):

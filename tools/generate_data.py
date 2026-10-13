@@ -207,6 +207,7 @@ from data_generators.unknown import apply_unknown  # noqa: E402
 # The receptor classification records (pure data, one module per neurotransmitter
 # family) live in the data_generators.receptors package. See the schema comment at
 # the RECEPTORS use-site below.
+from data_generators import receptor_effects as REFFECTS  # noqa: E402 (receptor_effect, BETA)
 from data_generators.receptors import RECEPTORS  # noqa: E402
 
 # HGNC gene symbol per receptor / target, re-exported from the fetchers that own the
@@ -667,6 +668,11 @@ def _receptor_record(rec: dict[str, Any],
             RECEPTOR_DENSITY, rec["id"], out["locations"], "Receptor")
         if density:
             out["density"] = density
+    # Clinical effects of acting on it (kind receptor_effect, BETA): one node per
+    # (mode, effect), each with its own quote. Omitted when none is sourced.
+    effects = REFFECTS.effect_nodes(rec["id"], REFFECTS.load_cache(), "Receptor")
+    if effects:
+        out["effects"] = effects
     if "description" in rec:
         out["description"] = {"en": rec["description"], "fr": rec["description_fr"]}
     if "wikipedia" in rec:
@@ -838,6 +844,10 @@ def _build_drug_targets(receptors: list[dict[str, Any]]) -> dict[str, dict[str, 
         tden = _density_node(TARGET_DENSITY, tid, spec["regions"], "Target")
         if tden:
             targets[tid]["density"] = tden
+        # ... and the clinical effects of acting on it (kind receptor_effect, BETA).
+        teff = REFFECTS.effect_nodes(tid, REFFECTS.load_cache(), "Target")
+        if teff:
+            targets[tid]["effects"] = teff
         if spec.get("wikipedia"):
             targets[tid]["wikipedia"] = spec["wikipedia"]
             targets[tid]["wikipedia_provenance"] = _wiki_provenance(tid)
@@ -1929,6 +1939,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         "enzyme_roles": ENZYME_ROLES,
         "enzyme_strengths": ENZYME_STRENGTHS,
         "enzyme_reactions": ENZYME_REACTIONS,
+        # receptor_effect vocabularies (BETA): mode -> {label, actions the drug-panel
+        # join lets inherit it}, effect -> label. See data_generators/receptor_effects.py.
+        **REFFECTS.meta_vocab(),
         # Source corpora the per-binding (and later per-field) drug sources cite,
         # keyed by id (see SOURCE_CORPORA). The viewer reads citation/url to render
         # each binding's source; check_data.py reads pages_dir to confirm quotes.
