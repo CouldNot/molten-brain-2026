@@ -664,6 +664,9 @@ there is no node-level catch-all `sources` block.
   takes the pill over, see docs/PROVENANCE.md)),
   optional `half_life` (`{hours, hours_max?}`, elimination T½) + `half_life_sources[]`,
   optional `tmax` (same shape, time to peak plasma concentration, kind `drug_tmax`) + `tmax_sources[]`,
+  optional `formulations[]` (`{release, release_sources, brands?, tmax?, half_life?}`, kind `drug_formulations`, written only by
+  `tools/sourcing/apply_formulations.py` after `tools/fetch/fetch_formulation_worklist.py` + one index-pick pass; re-run it after any
+  brand / Tmax / T½ applier, see docs/DRUGS.md "Formulations"),
   optional `first_approval` (`{year, country?, agency?}`, kind `drug_first_approval`) +
   `first_approval_sources[]`, optional `withdrawals[]` (`{year, country, reason, sources[]}`, kind
   `drug_withdrawals`; ids from `data_generators/history.py`, written by `apply_drug_history.py`),

@@ -73,6 +73,7 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug class classification -> a drug's `categories` (+ `category_provenance`) -> `drug_categories`
 - drug elimination half-life (T½) -> a drug's `half_life` (+ `half_life_sources`) -> `drug_half_life`
 - drug time-to-peak (Tmax) -> a drug's `tmax` (+ `tmax_sources`) -> `drug_tmax` (the other end of the same curve as the T½ above, separately sourced and separately missing, so a separate kind)
+- drug formulation -> a drug's `formulations[]` entry (`{release, release_sources, brands?, tmax?, half_life?}`) -> `drug_formulations` (ONE node per release type; the brands / Tmax / T½ under it are the same kinds as the molecule's, re-homed to the product a source measured or sold them for, see docs/DRUGS.md "Formulations")
 - drug first approval -> a drug's `first_approval` (`{year, country?, agency?}`, + `first_approval_sources`) -> `drug_first_approval` (ONE node per drug: the earliest approval or introduction for medical use its source states)
 - drug therapeutic reference range -> a drug's `therapeutic_range` (`{low, high, unit, analyte?, tdm_level?}`, + `therapeutic_range_sources`) -> `drug_therapeutic_range` (ONE node per drug, AGNP Table 5)
 - drug laboratory alert level -> a drug's `alert_level` (`{value, unit, analyte?}`, + `alert_level_sources`) -> `drug_alert_level` (ONE node per drug, same table row as the range but a separate claim)

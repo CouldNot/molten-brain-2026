@@ -68,6 +68,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - target `meta.drug_targets` -> `targets`; `polarity_provenance` -> `target_polarity`
 - expression: `location_sources` -> `receptor_locations` / `target_locations`; `density` -> `receptor_density` / `target_density` (ONE node per profile, not per region)
 - drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
+- drug `formulations[]` -> `drug_formulations` (ONE node per release type, `release` from the closed `RELEASES` vocab, graded by `release_sources`; its `brands` / `tmax` / `half_life` tally under the molecule's kinds; a claim no source ties to one product stays on the molecule)
 - drug `prodrug` -> `drug_prodrug` (inactive until metabolised: no own bindings, the viewer borrows its metabolite's tagged `viaMetabolite`)
 - drug `nbn` -> `drug_nbn`; `brands[]` -> `drug_brands`; `categories` -> `drug_categories`; `half_life` / `tmax` -> `drug_half_life` / `drug_tmax`; `first_approval` -> `drug_first_approval`; `withdrawals[]` -> `drug_withdrawals` (one node per withdrawal; none when never withdrawn)
 - TDM (AGNP #19): `therapeutic_range` (+ `tdm_level`) -> `drug_therapeutic_range`; `alert_level` -> `drug_alert_level`
