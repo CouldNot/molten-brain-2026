@@ -1,0 +1,513 @@
+{
+ "acamprosate": {
+  "brand:Campral": {
+   "index": 0,
+   "release": "dr"
+  }
+ },
+ "amisulpride": {
+  "brand:Barhemsys": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "amphetamine_d": {
+  "brand:Dexedrine Spansule": {
+   "index": 0,
+   "release": "xr"
+  },
+  "brand:Zenzedi": {
+   "index": 0,
+   "release": "ir"
+  },
+  "brand:Xelstrym": {
+   "index": 1,
+   "release": "transdermal"
+  }
+ },
+ "amphetamine_dl": {
+  "brand:Mydayis": {
+   "index": 1,
+   "release": "xr"
+  },
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 3.0
+    },
+    {
+     "release": "xr",
+     "hours": 7.0
+    }
+   ]
+  }
+ },
+ "aripiprazole": {
+  "brand:Abilify Maintena": {
+   "index": 0,
+   "release": "depot"
+  }
+ },
+ "asenapine": {
+  "half_life": {
+   "picks": [
+    {
+     "release": "sublingual",
+     "hours": 13.0,
+     "hours_max": 39.0
+    }
+   ]
+  }
+ },
+ "biperiden": {
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 1.5
+    }
+   ]
+  }
+ },
+ "bremelanotide": {
+  "brand:Vyleesi": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "brexanolone": {
+  "brand:Zulresso": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "buprenorphine": {
+  "brand:Temgésic": {
+   "index": 0,
+   "release": "sublingual"
+  },
+  "brand:Subutex": {
+   "index": 0,
+   "release": "sublingual"
+  },
+  "tmax": {
+   "picks": [
+    {
+     "release": "sublingual",
+     "hours": 1.5
+    }
+   ]
+  },
+  "half_life": {
+   "picks": [
+    {
+     "release": "sublingual",
+     "hours": 24.0,
+     "hours_max": 42.0
+    }
+   ]
+  }
+ },
+ "bupropion": {
+  "brand:Wellbutrin": {
+   "index": 0,
+   "release": "ir"
+  },
+  "brand:Zyban": {
+   "index": 1,
+   "release": "xr"
+  },
+  "brand:Aplenzin": {
+   "index": 0,
+   "release": "xr"
+  },
+  "brand:Contrave": {
+   "index": 2,
+   "release": "xr"
+  }
+ },
+ "carbamazepine": {
+  "half_life": {
+   "molecule": true
+  }
+ },
+ "clonidine": {
+  "brand:Kapvay": {
+   "index": 0,
+   "release": "xr"
+  },
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 1.0,
+     "hours_max": 1.5
+    }
+   ]
+  }
+ },
+ "desvenlafaxine": {
+  "brand:Pristiq": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "dexmedetomidine": {
+  "brand:Dexdor": {
+   "index": 0,
+   "release": "injection"
+  },
+  "half_life": {
+   "picks": [
+    {
+     "release": "sublingual",
+     "hours": 2.8
+    }
+   ]
+  }
+ },
+ "dextromethorphanbupropion": {
+  "brand:Auvelity": {
+   "index": 1,
+   "release": "xr"
+  }
+ },
+ "donepezil": {
+  "brand:Adlarity": {
+   "index": 0,
+   "release": "transdermal"
+  },
+  "half_life": {
+   "molecule": true
+  }
+ },
+ "duloxetine": {
+  "brand:Cymbalta": {
+   "index": 0,
+   "release": "dr"
+  }
+ },
+ "esketamine": {
+  "brand:Spravato": {
+   "index": 0,
+   "release": "nasal"
+  },
+  "tmax": {
+   "picks": [
+    {
+     "release": "nasal",
+     "hours": 0.333,
+     "hours_max": 0.667
+    }
+   ]
+  }
+ },
+ "flupenthixol": {
+  "brand:Depixol": {
+   "index": 0,
+   "release": "depot"
+  }
+ },
+ "guanfacine": {
+  "brand:Intuniv": {
+   "index": 0,
+   "release": "xr"
+  },
+  "brand:Tenex": {
+   "index": 0,
+   "release": "ir"
+  }
+ },
+ "ketamine": {
+  "brand:Spravato": {
+   "index": 0,
+   "release": "nasal"
+  },
+  "half_life": {
+   "molecule": true
+  }
+ },
+ "levomilnacipran": {
+  "brand:Fetzima": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "lithium": {
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 0.25,
+     "hours_max": 3.0
+    },
+    {
+     "release": "xr",
+     "hours": 2.0,
+     "hours_max": 6.0
+    }
+   ]
+  }
+ },
+ "melatonin": {
+  "brand:Circadin": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "melperone": {
+  "half_life": {
+   "molecule": true
+  }
+ },
+ "methylphenidate_dl": {
+  "brand:Ritalin": {
+   "index": 1,
+   "release": "ir"
+  },
+  "brand:Concerta": {
+   "index": 5,
+   "release": "xr"
+  },
+  "brand:Daytrana": {
+   "index": 0,
+   "release": "transdermal"
+  },
+  "brand:Jornay PM": {
+   "index": 1,
+   "release": "dr"
+  }
+ },
+ "midazolam": {
+  "brand:Hypnovel": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "nalmefene": {
+  "brand:Revex": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "naltrexone": {
+  "brand:Vivitrol": {
+   "index": 1,
+   "release": "depot"
+  }
+ },
+ "naltrexonebupropion": {
+  "brand:Contrave": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "paliperidone": {
+  "brand:Invega": {
+   "index": 7,
+   "release": "xr"
+  },
+  "brand:Invega Sustenna": {
+   "index": 1,
+   "release": "depot"
+  },
+  "brand:Invega Trinza": {
+   "index": 1,
+   "release": "depot"
+  },
+  "brand:Invega Hafyera": {
+   "index": 1,
+   "release": "depot"
+  },
+  "brand:Xeplion": {
+   "index": 0,
+   "release": "depot"
+  },
+  "brand:Trevicta": {
+   "index": 0,
+   "release": "depot"
+  }
+ },
+ "phenterminetopiramate": {
+  "brand:Qsymia": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "pipothiazine": {
+  "half_life": {
+   "picks": [
+    {
+     "release": "depot",
+     "hours": 360.0
+    }
+   ]
+  }
+ },
+ "pramipexole": {
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 2.0
+    }
+   ]
+  }
+ },
+ "propranolol": {
+  "half_life": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 3.0,
+     "hours_max": 5.0
+    },
+    {
+     "release": "xr",
+     "hours": 8.0,
+     "hours_max": 11.0
+    }
+   ]
+  }
+ },
+ "risperidone": {
+  "brand:Risperdal Consta": {
+   "index": 2,
+   "release": "depot"
+  }
+ },
+ "selegiline": {
+  "brand:Emsam": {
+   "index": 0,
+   "release": "transdermal"
+  },
+  "brand:Eldepryl": {
+   "index": 1,
+   "release": "ir"
+  }
+ },
+ "thc": {
+  "brand:Sativex": {
+   "index": 0,
+   "release": "sublingual"
+  }
+ },
+ "thiopental": {
+  "brand:Nesdonal": {
+   "index": 1,
+   "release": "injection"
+  },
+  "brand:Pentothal": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "topiramate": {
+  "brand:Qsymia": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "trazodone": {
+  "brand:Oleptro": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "valproate": {
+  "brand:Depacon": {
+   "index": 0,
+   "release": "injection"
+  },
+  "tmax": {
+   "molecule": true
+  }
+ },
+ "venlafaxine": {
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 2.0
+    }
+   ]
+  }
+ },
+ "viloxazine": {
+  "brand:Qelbree": {
+   "index": 0,
+   "release": "xr"
+  }
+ },
+ "zolpidem": {
+  "brand:Ambien": {
+   "index": 0,
+   "release": "ir"
+  },
+  "brand:Intermezzo": {
+   "index": 0,
+   "release": "sublingual"
+  }
+ },
+ "zuclopenthixol": {
+  "brand:Clopixol-Acuphase": {
+   "index": 0,
+   "release": "injection"
+  }
+ },
+ "apomorphine": {
+  "half_life": {
+   "molecule": true
+  }
+ },
+ "oxycodone": {
+  "brand:Oxynorm": {
+   "index": 0,
+   "release": "ir"
+  },
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 0.5,
+     "hours_max": 1.0
+    }
+   ]
+  },
+  "half_life": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 2.0,
+     "hours_max": 3.0
+    },
+    {
+     "release": "xr",
+     "hours": 4.5
+    }
+   ]
+  }
+ },
+ "dimenhydrinate": {
+  "half_life": {
+   "molecule": true
+  }
+ },
+ "pseudoephedrine": {
+  "tmax": {
+   "picks": [
+    {
+     "release": "ir",
+     "hours": 1.0,
+     "hours_max": 4.0
+    },
+    {
+     "release": "xr",
+     "hours": 2.0,
+     "hours_max": 6.0
+    }
+   ]
+  }
+ }
+}

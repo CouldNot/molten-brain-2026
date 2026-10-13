@@ -3975,8 +3975,8 @@
         "unknown": 0
       },
       "drug_half_life": {
-        "total": 273,
-        "verified": 268,
+        "total": 275,
+        "verified": 270,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -3985,8 +3985,8 @@
         "unknown": 0
       },
       "drug_tmax": {
-        "total": 167,
-        "verified": 167,
+        "total": 170,
+        "verified": 170,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -3995,8 +3995,8 @@
         "unknown": 0
       },
       "drug_formulations": {
-        "total": 0,
-        "verified": 0,
+        "total": 195,
+        "verified": 195,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4286,15 +4286,15 @@
       }
     },
     "nodes": {
-      "total": 7490,
-      "verified": 6896,
+      "total": 7690,
+      "verified": 7096,
       "uncertain": 266,
       "sourced": 0,
       "llm": 256,
       "nosource": 72,
       "missing": 328,
       "unknown": 656,
-      "backed": 7162,
+      "backed": 7362,
       "pct_backed": 96
     },
     "ki_coverage": {
