@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from data_generators.provenance import _kandel, _stahl_ess
+from data_generators.provenance import _kandel, _nieuwenhuys, _stahl_ess
 
 
 _KQ_NIGROSTRIATAL = _kandel(982,
@@ -832,6 +832,25 @@ _SG_MODULATORY = _kandel(368,
     "Neuromodulators are substances that bind to receptors, most of which are "
     "metabotropic, to alter the excitability of neurons, the likelihood of transmitter "
     "release, or the functional state of receptors on postsynaptic neurons.")
+_SG_ACH_CORTEX = _nieuwenhuys(545, "The cholinergic projection to the neocortex is "
+                              "implicated in arousal, sleep-wake cycles, visual information "
+                              "processing learning, memory and selective attentional "
+                              "functions [239, 650, 835].")
+_SG_ACH_TARGETS = _kandel(1048, "Rather, scientists refer to the cholinergic neurons by their "
+                          "location, eg, the pedunculopontine (Ch6) and laterodorsal "
+                          "tegmental (Ch5) neurons in the pons, which project widely from "
+                          "the cerebral cortex to the medulla, and the basal forebrain "
+                          "(Ch1–Ch4) groups, which project to the cerebral cortex, "
+                          "hippocampus, and amygdala.")
+_SG_NA_ASCENDING = _stahl_ess(295, "Ascending noradrenergic projections originate mainly in "
+                              "the locus coeruleus of the brainstem; they extend to multiple "
+                              "brain regions, as shown here, and regulate mood, arousal, "
+                              "cognition, and other functions.")
+_SG_NA_VIGILANCE = _nieuwenhuys(545, "The noradrenergic projection to the neocortex arises, as "
+                                "mentioned, from the locus coeruleus in the rostrodorsal pons. "
+                                "Traditionally, this nucleus has been thought to play a role "
+                                "in vigilance and in responsiveness to novel stimuli")
+
 PROJECTION_GROUPS: list[dict[str, Any]] = [
     # --- per-neurotransmitter (mode="kind"); name = the transmitter molecule -----
     dict(mode="kind", key="excitatory", name="Glutamate",
@@ -861,6 +880,7 @@ PROJECTION_GROUPS: list[dict[str, Any]] = [
                         "récompense.",
          wikipedia="https://en.wikipedia.org/wiki/Dopaminergic_pathways"),
     dict(mode="kind", key="cholinergic", name="Acetylcholine",
+         sources=[_SG_ACH_CORTEX, _SG_ACH_TARGETS],
          description="Cholinergic projections modulate arousal, attention and "
                      "memory across the cortex and hippocampus.",
          description_fr="Les projections cholinergiques modulent l'éveil, "
@@ -883,6 +903,7 @@ PROJECTION_GROUPS: list[dict[str, Any]] = [
                         "dans tout le cerveau.",
          wikipedia="https://en.wikipedia.org/wiki/Serotonergic"),
     dict(mode="kind", key="noradrenergic", name="Noradrenaline",
+         sources=[_SG_NA_ASCENDING, _SG_NA_VIGILANCE],
          description="Noradrenergic projections from the locus coeruleus modulate "
                      "arousal, vigilance and the stress response.",
          description_fr="Les projections noradrénergiques du locus coeruleus "

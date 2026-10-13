@@ -4156,12 +4156,12 @@
       },
       "projection_groups": {
         "total": 12,
-        "verified": 10,
+        "verified": 12,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
-        "nosource": 2,
-        "missing": 2,
+        "nosource": 0,
+        "missing": 0,
         "unknown": 0
       },
       "receptors": {
@@ -4287,14 +4287,14 @@
     },
     "nodes": {
       "total": 7688,
-      "verified": 7094,
+      "verified": 7096,
       "uncertain": 266,
       "sourced": 0,
       "llm": 256,
-      "nosource": 72,
-      "missing": 328,
+      "nosource": 70,
+      "missing": 326,
       "unknown": 656,
-      "backed": 7360,
+      "backed": 7362,
       "pct_backed": 96
     },
     "ki_coverage": {

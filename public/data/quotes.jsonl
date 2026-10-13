@@ -241,6 +241,7 @@
 {"id": "q_0c265070ae51", "corpus": "stahl", "page": 431, "quote": "Fetzima", "llm": "sonnet", "heading": ["Levomilnacipran", "Therapeutics"]}
 {"id": "q_0c26b068bf68", "corpus": "gtopdb_ki", "page": "daridorexant", "quote": "daridorexant at OX1 receptor (HCRTR1, Human): Antagonist / Antagonist, pKi 8.8 [PMID 31860301]", "species": "Human", "fetched": "2026-10-12"}
 {"id": "q_0c33bcd4bdbf", "corpus": "wikipedia_pharm", "page": "amisulpride", "quote": "5-HT 1D | 1341 | Human", "fetched": "2026-10-11"}
+{"id": "q_0c358ff12c7e", "corpus": "kandel", "page": 1048, "quote": "Rather, scientists refer to the cholinergic neurons by their location, eg, the pedunculopontine (Ch6) and laterodorsal tegmental (Ch5) neurons in the pons, which project widely from the cerebral cortex to the medulla, and the basal forebrain (Ch1–Ch4) groups, which project to the cerebral cortex, hippocampus, and amygdala."}
 {"id": "q_0c3a3e397630", "corpus": "wikipedia_pharm", "page": "alpidem", "quote": "Alpidem , sold under the brand name Ananxyl , is a nonbenzodiazepine anxiolytic medication which was briefly used to treat anxiety disorders but is no longer marketed.", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_0c48d86717cc", "corpus": "wikipedia_pharm", "page": "tizanidine", "quote": "Metabolism | Extensive (>95%), primarily via CYP1A2", "llm": "opus", "fetched": "2026-10-11"}
 {"id": "q_0c4c48d89171", "corpus": "stahl", "page": 931, "quote": "Neuroscience-based Nomenclature: GABA positive allosteric modulator (GABA-PAM)", "llm": "sonnet", "heading": ["Zopiclone", "Therapeutics", "Class"]}
@@ -1953,6 +1954,7 @@
 {"id": "q_6277ac960af6", "corpus": "nieuwenhuys", "page": 939, "quote": "Comparable functional specializations have been observed in the organization of the projections from the lateral septal complex to the medial preoptico-hypothalamic zone.", "llm": "sonnet", "heading": ["23. Greater Limbic System"]}
 {"id": "q_627e4b3e5c4f", "corpus": "wikipedia_pharm", "page": "oxycodone", "quote": "After a dose of conventional (immediate-release) oral oxycodone, the onset of action is 10 to 30 minutes, and peak plasma levels of the drug are attained within roughly 30 to 60 minutes;", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_6285b3e6ca12", "corpus": "wikipedia_pharm", "page": "brexpiprazole", "quote": "NET | 0% at 10 μM | Blocker", "fetched": "2026-10-11"}
+{"id": "q_62866cfed28c", "corpus": "nieuwenhuys", "page": 545, "quote": "The noradrenergic projection to the neocortex arises, as mentioned, from the locus coeruleus in the rostrodorsal pons. Traditionally, this nucleus has been thought to play a role in vigilance and in responsiveness to novel stimuli"}
 {"id": "q_62a37da6ed64", "corpus": "agnp_tdm", "page": 51, "quote": "Zaleplon 1–2 h 20–40 ng/mL Sleep disorders N/A 100 ng/mL 4"}
 {"id": "q_62b62e4c658a", "corpus": "wikipedia_pharm", "page": "rotigotine", "quote": "α 1B | 273", "fetched": "2026-10-11"}
 {"id": "q_62b90e33cbff", "corpus": "bdpm", "page": "68106394", "quote": "BIODALGIC 50 mg, comprimé effervescent", "fetched": "2026-10-10"}
@@ -2310,6 +2312,7 @@
 {"id": "q_7376a8240365", "corpus": "allen_ahba", "page": "OPRM1", "quote": "OPRM1 detected in accumbens: probe 1017111 PACall present in 14/15 samples (donors 9861,10021,12876,14380,15697)", "species": "Human", "fetched": "2026-07-04"}
 {"id": "q_7379d9ddaa38", "corpus": "bdpm", "page": "66006655", "quote": "ZAMUDOL LP 150 mg, gélule à libération prolongée", "fetched": "2026-10-10"}
 {"id": "q_7391ffde1e80", "corpus": "stahl", "page": 415, "quote": "Acts as a use-dependent blocker of voltagesensitive sodium channels", "llm": "sonnet", "heading": ["Lamotrigine", "Therapeutics", "How the Drug Works"]}
+{"id": "q_7392bcea81e8", "corpus": "stahl_essential", "page": 295, "quote": "Ascending noradrenergic projections originate mainly in the locus coeruleus of the brainstem; they extend to multiple brain regions, as shown here, and regulate mood, arousal, cognition, and other functions."}
 {"id": "q_7393668ed116", "corpus": "stahl", "page": 161, "quote": "Benzodiazepine (anxiolytic)", "llm": "sonnet", "heading": ["Chlordiazepoxide", "Therapeutics", "Class"]}
 {"id": "q_73a890cbe2a0", "corpus": "allen_ahba", "page": "CHRNA4", "quote": "CHRNA4 detected in frontal: probe 1059691 PACall present in 473/473 samples (donors 9861,10021,12876,14380,15697)", "species": "Human", "fetched": "2026-07-04"}
 {"id": "q_73aa07f3b179", "corpus": "stahl", "page": 545, "quote": "Arima", "llm": "sonnet", "heading": ["Moclobemide", "Therapeutics", "Brands"]}
@@ -3220,6 +3223,7 @@
 {"id": "q_a234ceb85df5", "corpus": "wikipedia_fr", "page": "qu_tiapine", "quote": "Ketipinor", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_a239a827f244", "corpus": "allen_ahba", "page": "SLC12A2", "quote": "SLC12A2 detected in hippocampus: probe 1051414 PACall present in 188/188 samples (donors 9861,10021,12876,14380,15496,15697)", "species": "Human", "fetched": "2026-07-04"}
 {"id": "q_a2482c8ec8c7", "corpus": "wikipedia_pharm", "page": "meclizine", "quote": "Meclizine is a first-generation antihistamine (nonselective H 1 antagonist ) of the piperazine class.", "llm": "sonnet", "fetched": "2026-10-11"}
+{"id": "q_a251168adbac", "corpus": "nieuwenhuys", "page": 545, "quote": "The cholinergic projection to the neocortex is implicated in arousal, sleep-wake cycles, visual information processing learning, memory and selective attentional functions [239, 650, 835]."}
 {"id": "q_a262e158f226", "corpus": "wikipedia_pharm", "page": "2c_b", "quote": "The time to peak levels is 2.0 to 2.4 hours.", "llm": "sonnet", "fetched": "2026-10-11"}
 {"id": "q_a27e425a153a", "corpus": "stahl", "page": 875, "quote": "Stavzor", "llm": "sonnet", "heading": ["Valproate", "Therapeutics", "Brands"]}
 {"id": "q_a280b43a7f6b", "corpus": "wikipedia_pharm", "page": "milnacipran", "quote": "Milnacipran was first approved for the treatment of major depressive episodes in France in December 1996.", "llm": "opus", "fetched": "2026-10-11"}
