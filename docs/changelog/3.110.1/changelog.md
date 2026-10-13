@@ -1,0 +1,7 @@
+# 3.110.1 (2026-10-13)
+
+## Data
+- Ten more pathway transmitters and seven more pathway signs are now sourced, from research abstracts rather than textbooks (mostly rat, cat or mouse studies; the species is named on each). Among them: glutamate on the corticopontine, pontocerebellar, cerebellothalamic, perforant-path and mammillothalamic routes, accumbens-to-pallidum inhibition, and serotonin from the raphe to the olfactory bulb (ffc6427, 8d74d84, 1dcb818)
+  fr: Dix neurotransmetteurs et sept signes de voies supplémentaires sont désormais sourcés, à partir de résumés d'articles de recherche plutôt que de manuels (surtout chez le rat, le chat ou la souris, l'espèce étant indiquée pour chacun). Parmi eux : le glutamate des voies cortico-pontine, ponto-cérébelleuse, cérébello-thalamique, perforante et mamillo-thalamique, l'inhibition du pallidum par le noyau accumbens, et la sérotonine du raphé vers le bulbe olfactif (ffc6427, 8d74d84, 1dcb818)
+- Every projection group and every drug target is now sourced: the acetylcholine and noradrenaline groups from Nieuwenhuys, Kandel and Stahl, the NKCC1 cotransporter and the CGRP receptor from their Wikipedia articles (54fbcad, dd32652, 1dcb818)
+  fr: Tous les groupes de projections et toutes les cibles médicamenteuses sont désormais sourcés : les groupes acétylcholine et noradrénaline d'après Nieuwenhuys, Kandel et Stahl, le cotransporteur NKCC1 et le récepteur du CGRP d'après leurs articles Wikipédia (54fbcad, dd32652, 1dcb818)

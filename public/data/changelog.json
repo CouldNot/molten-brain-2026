@@ -1,6 +1,30 @@
 {
   "versions": [
     {
+      "version": "3.110.1",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Ten more pathway transmitters and seven more pathway signs are now sourced, from research abstracts rather than textbooks (mostly rat, cat or mouse studies; the species is named on each). Among them: glutamate on the corticopontine, pontocerebellar, cerebellothalamic, perforant-path and mammillothalamic routes, accumbens-to-pallidum inhibition, and serotonin from the raphe to the olfactory bulb",
+          "commits": [
+            "ffc6427",
+            "8d74d84",
+            "1dcb818"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Every projection group and every drug target is now sourced: the acetylcholine and noradrenaline groups from Nieuwenhuys, Kandel and Stahl, the NKCC1 cotransporter and the CGRP receptor from their Wikipedia articles",
+          "commits": [
+            "54fbcad",
+            "dd32652",
+            "1dcb818"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.110.0",
       "date": "2026-10-13",
       "entries": [
