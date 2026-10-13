@@ -106,6 +106,28 @@ PAPERS: dict[str, str] = {
     "6315152": "locus coeruleus -> substantia nigra (Saimiri sciureus, retrograde)",
     "2896323": "VTA -> parietal cortex, dopaminergic (Macaca fascicularis, retrograde)",
     "2860583": "claustrum <-> insula connections (primate + human review)",
+    # Transmitter / sign of the pathways no book sentence types (docs/SOURCING_GAPS.md
+    # section 6). Species in each line; primate/human where one exists.
+    "1374872": "frontal cortex -> pons: glutamatergic corticopontine fibres (review)",
+    "173563": "frontal cortex -> pons: corticopontine excitation (cat)",
+    "9133571": "pons -> cerebellum: excitatory mossy-fibre projection (rat)",
+    "2422596": "pons -> cerebellum: glutamate in pontocerebellar fibres (rat)",
+    "6147261": "cerebellum -> thalamus: glutamate in cerebellothalamic fibres (cat)",
+    "15558250": "cerebellum -> thalamus: excitatory cerebellothalamic path (human)",
+    "20421986": "entorhinal (temporal) -> hippocampus: glutamatergic perforant path (rat)",
+    "1981215": "hippocampus -> fornix: excitatory hippocamposeptal fibres (rat)",
+    "32019": "fornix -> mammillary body: glutamate/aspartate after fornix transection (rat)",
+    "34015441": "subiculum (fornix) -> mammillary body: excitatory (mouse)",
+    "19535593": "mammillary body -> anterior thalamus: glutamatergic (mouse)",
+    "12576145": "mammillothalamic terminals: excitatory inputs (rat)",
+    "2808769": "hippocampus -> lateral septum: excitatory fibres (rat)",
+    "15740723": "accumbens -> ventral pallidum: GABAergic inhibitory input (rat)",
+    "36642737": "lateral septum -> lateral hypothalamus: GABAergic (mouse)",
+    "39150998": "lateral septum -> lateral hypothalamus: GABAergic inhibition (mouse)",
+    "36653189": "amygdala -> accumbens: excitatory afferents (mouse)",
+    "22357796": "frontal commissure: interhemispheric glutamatergic projections (human TMS)",
+    "32769158": "sensory cortices: glutamatergic callosal projections (mouse)",
+    "27335411": "raphe -> olfactory bulb: serotonergic innervation (mouse)",
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"

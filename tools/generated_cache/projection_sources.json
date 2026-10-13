@@ -1,5 +1,27 @@
 {
  "projections": {
+  "accumbens_R->globus_pallidus_R": [
+   {
+    "corpus": "europepmc",
+    "page": 15740723,
+    "quote": "Essentially similar effects were obtained when muscimol and bicuculline were given into the ventral pallidum, a region that is also known to receive GABAergic inhibitory inputs from the nucleus accumbens.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 128,
+    "quote": "This will lead to excessive stimulation of GABAergic neurons projecting to the globus pallidus, which in turn will inhibit release of GABA from the globus pallidus into the VTA. This will lead to disinhibition of the mesolimbic dopamine pathway and thus excessive dopamine release in the nucleus accumbens.",
+    "provenance": "verified"
+   }
+  ],
+  "amygdala_R->accumbens_R": [
+   {
+    "corpus": "europepmc",
+    "page": 36653189,
+    "quote": "The nucleus accumbens (NAc) activity is important in driving sensation, motivation, and emotion. Excitatory afferents from the medial prefrontal cortex (mPFC), amygdala, and hippocampus are crucial in tuning the activity of dopamine receptor D1-expressing and D2-expressing medium spiny neurons (Drd1-MSN and Drd2-MSN) in the NAc.",
+    "provenance": "verified"
+   }
+  ],
   "amygdala_R->hypothalamus_R": [
    {
     "corpus": "kandel",
@@ -11,6 +33,26 @@
     "corpus": "stahl_essential",
     "page": 286,
     "quote": "Neurons from the hippocampal area and amygdala normally suppress the HPA axis (Figure 6-32A), so if stress causes hippocampal and amygdala neurons to atrophy, with loss of their inhibitory input to the hypothalamus, this could lead to overactivity of the HPA axis (Figure 6-32B).",
+    "provenance": "verified"
+   }
+  ],
+  "cerebellum->thalamus_R": [
+   {
+    "corpus": "europepmc",
+    "page": 15558250,
+    "quote": "However, projections from the cerebellar nuclei to the primary motor cortex are disynaptic excitatory pathways through the ventral thalamus.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 6147261,
+    "quote": "The increase in HAGU in response to the cerebellar lesion could constitute an adaptive mechanism by which the CNS may compensate for the loss of the excitatory cerebellar input to the RN and thalamic neurons by increasing the corticofugal transmission.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 6147261,
+    "quote": "In the caudal parts of the RN and the ventrolateral thalamic nucleus (VL), a strong HAGU decrease was demonstrated suggesting some cerebellorubral and cerebellothalamic fibres use glutamate (Glu) as their neurotransmitter.",
     "provenance": "verified"
    }
   ],
@@ -40,11 +82,25 @@
     "provenance": "verified"
    }
   ],
+  "fornix_R->mammillary_R": [
+   {
+    "corpus": "europepmc",
+    "page": 32019,
+    "quote": "Hippocampal efferents also take up aspartate and glutamate, since these activities are heavily reduced in the lateral septum and mamillary bodies after transection of fimbria and the dorsal fornix.",
+    "provenance": "verified"
+   }
+  ],
   "frontal_L->frontal_R": [
    {
     "corpus": "nieuwenhuys",
     "page": 573,
     "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 22357796,
+    "quote": "Our results indicate that GABAergic intracortical circuits, interhemispheric glutamatergic projections between motor cortices, and excitability of index finger motoneurons are neural mechanisms underlying, at least in part, the lack of crossed corticospinal facilitation observed after SCI.",
     "provenance": "verified"
    }
   ],
@@ -59,6 +115,14 @@
     "corpus": "nieuwenhuys",
     "page": 435,
     "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
+  "frontal_R->pons": [
+   {
+    "corpus": "europepmc",
+    "page": 1374872,
+    "quote": "Even though the vast majority of pontine neurons send their axons to the cerebellar cortex, and are contacted monosynaptically by (glutamatergic) corticopontine fibers, the information-processing taking place is not well understood.",
     "provenance": "verified"
    }
   ],
@@ -90,6 +154,12 @@
     "page": 391,
     "quote": "The lateral septal nucleus receives a topographically organized glutamatergic input from Ammon’s horn and the subiculum via the _pre-_ _commissural_ _fornix_ (Fig.",
     "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 1981215,
+    "quote": "The third experiment aimed at simultaneously visualizing the relationships between catecholaminergic boutons, hippocamposeptal excitatory amino acid containing axon terminals and GABAergic profiles by double immunostaining for TH (the PAP technique) and GAD (the immunogold method) combined with fimbria-fornix transection.",
+    "provenance": "verified"
    }
   ],
   "hippocampus_R->septal_nuclei_R": [
@@ -97,6 +167,12 @@
     "corpus": "nieuwenhuys",
     "page": 391,
     "quote": "The lateral septal nucleus receives a topographically organized glutamatergic input from Ammon’s horn and the subiculum via the _pre-_ _commissural_ _fornix_ (Fig.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 2808769,
+    "quote": "From these results and from data in the literature we conclude that excitatory hippocampo-septal fibers activate GABAergic cells, and as yet unidentified spiny neurons in the LS, which may control the discharge of medial septal cholinergic neurons known to project back to the hippocampal formation.",
     "provenance": "verified"
    }
   ],
@@ -156,6 +232,20 @@
     "provenance": "verified"
    }
   ],
+  "mammillary_R->thalamus_R": [
+   {
+    "corpus": "europepmc",
+    "page": 12576145,
+    "quote": "These findings suggest that the ascending cholinergic afferents in the anteroventral thalamic nucleus can effectively modulate excitatory inputs from both the mammillothalamic and corticothalamic terminals, in close vicinity to a synaptic site.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 19535593,
+    "quote": "Using flavoprotein autofluorescence imaging, we developed two slice preparations that contain the afferents to the anterodorsal thalamic nucleus (AD) from the lateral mammillary body and the cortical afferents arriving through the internal capsule, respectively. We examined the synaptic properties of these inputs and found that the mammillothalamic pathway exhibits paired-pulse depression, lack of a metabotropic glutamate component, and an all-or-none response pattern, which are all signatures of a driver pathway.",
+    "provenance": "verified"
+   }
+  ],
   "nucleus_basalis_R->amygdala_R": [
    {
     "corpus": "nieuwenhuys",
@@ -210,6 +300,12 @@
     "page": 573,
     "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
     "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 32769158,
+    "quote": "Sensory cortical areas receive glutamatergic callosal projections that link information processing between brain hemispheres.",
+    "provenance": "verified"
    }
   ],
   "occipital_R->thalamus_R": [
@@ -246,6 +342,12 @@
     "page": 573,
     "quote": "A continuous network of excitatory elements potentially involving the entire neocortex and even extending into the hippocampal region is constituted by the ipsilaterally and contralaterally projecting cortico-cortical pyramidal neurons.",
     "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 32769158,
+    "quote": "Sensory cortical areas receive glutamatergic callosal projections that link information processing between brain hemispheres.",
+    "provenance": "verified"
    }
   ],
   "parietal_R->caudate_R": [
@@ -259,6 +361,20 @@
     "corpus": "nieuwenhuys",
     "page": 435,
     "quote": "The principal afferent systems to the striatum are glutamatergic fibres from the cerebral cortex [98, 221, 391] and from the intralaminar thalamic nucleus [351], dopaminergic fibres from the substantia nigra [233] and serotoninergic fibres from the dorsal raphe nucleus [243, 319].",
+    "provenance": "verified"
+   }
+  ],
+  "pons->cerebellum": [
+   {
+    "corpus": "europepmc",
+    "page": 9133571,
+    "quote": "The pontine nuclei (PN) and the nucleus reticularis tegmenti pontis (NRTP) are sources of an excitatory projection to the cerebellar cortex via mossy fibers and a direct excitatory projection to the cerebellar nuclei.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 2422596,
+    "quote": "Double-labeled neurons were observed in all subdivisions of the pontine nuclei, indicating that pontine neurons which contain glutamate-like immunoreactivity project to the cerebellum. Based on the hypothesis that increased levels of glutamate, glutaminase and aspartate aminotransferase reflect a transmitter role for glutamate, the present data raise the possibility that glutamate may be a major neurotransmitter of pontocerebellar fibers.",
     "provenance": "verified"
    }
   ],
@@ -321,6 +437,18 @@
     "corpus": "nieuwenhuys",
     "page": 896,
     "quote": "The main projections of the dorsal raphe nucleus are to the lateral geniculate body, the striatum, the entorhinal cortex, the olfactory bulb and the amygdala, and from the median raphe nucleus to the septum, basal forebrain and hippocampus [21]; however, many of these and other destinations are shared by these nuclei (Table 21.2, Chaps.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "nieuwenhuys",
+    "page": 351,
+    "quote": "The sources of the general modulatory inputs include cholinergic neurons in the basal forebrain (particularly the nucleus of the horizontal limb of the diagonal band), serotoninergic neurons in the dorsal raphe nucleus and noradrenergic elements in the locus coeruleus. The anterior olfactory nucleus projects massively and bilaterally to the olfactory bulb.",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 27335411,
+    "quote": "Unlabelled Serotonergic neurons in the brainstem raphe nuclei densely innervate the olfactory bulb (OB), where they can modulate the initial representation and processing of olfactory information.",
     "provenance": "verified"
    }
   ],
@@ -391,6 +519,12 @@
     "corpus": "kandel",
     "page": 1387,
     "quote": "Information from the entorhinal cortex reaches CA1 neurons along two excitatory pathways, one direct and one indirect. In the indirect pathway, the axons of neurons in layer II of the entorhinal cortex project through the _perforant pathway_ to excite the granule cells of the dentate gyrus (an area considered part of the hippocampus).",
+    "provenance": "verified"
+   },
+   {
+    "corpus": "europepmc",
+    "page": 20421986,
+    "quote": "Background Hippocampal CA1 pyramidal neurons receive two excitatory glutamatergic synaptic inputs: their most distal dendritic regions in the stratum lacunosum-moleculare (SLM) are innervated by the perforant path (PP), originating from layer III of the entorhinal cortex, while their more proximal regions of the apical dendrites in the stratum radiatum (SR) are innervated by the Schaffer-collaterals (SC), originating from hippocampal CA3 neurons.",
     "provenance": "verified"
    }
   ],

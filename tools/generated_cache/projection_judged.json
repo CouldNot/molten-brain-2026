@@ -36,17 +36,17 @@
   ]
  },
  "temporal_R->hippocampus_R": {
-  "sign": [
-   20
+  "transmitter": [
+   23
   ]
  },
  "hippocampus_R->fornix_R": {
-  "transmitter": [
+  "sign": [
    0
   ]
  },
  "hippocampus_R->septal_nuclei_R": {
-  "transmitter": [
+  "sign": [
    0
   ]
  },
@@ -115,23 +115,18 @@
   ]
  },
  "frontal_L->frontal_R": {
-  "sign": [
-   2
+  "transmitter": [
+   26
   ]
  },
  "parietal_L->parietal_R": {
-  "sign": [
+  "transmitter": [
    2
   ]
  },
  "occipital_L->occipital_R": {
-  "sign": [
-   2
-  ]
- },
- "temporal_L->temporal_R": {
-  "sign": [
-   2
+  "transmitter": [
+   0
   ]
  },
  "raphe->cerebellum": {
@@ -156,8 +151,9 @@
   ]
  },
  "raphe->olfactory_bulb_R": {
-  "route": [
-   3
+  "transmitter": [
+   3,
+   0
   ]
  },
  "locus_coeruleus_R->pons": {
@@ -320,6 +316,52 @@
    0
   ],
   "route": [
+   0
+  ]
+ },
+ "frontal_R->pons": {
+  "transmitter": [
+   2
+  ]
+ },
+ "pons->cerebellum": {
+  "transmitter": [
+   10
+  ],
+  "sign": [
+   1
+  ]
+ },
+ "cerebellum->thalamus_R": {
+  "transmitter": [
+   1
+  ],
+  "sign": [
+   0,
+   2
+  ]
+ },
+ "fornix_R->mammillary_R": {
+  "transmitter": [
+   0
+  ]
+ },
+ "mammillary_R->thalamus_R": {
+  "transmitter": [
+   2
+  ],
+  "sign": [
+   0
+  ]
+ },
+ "accumbens_R->globus_pallidus_R": {
+  "sign": [
+   0,
+   1
+  ]
+ },
+ "amygdala_R->accumbens_R": {
+  "sign": [
    0
   ]
  }
