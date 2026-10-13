@@ -190,6 +190,17 @@ def _drug_enzymes_site(path: list) -> str | None:
     return site("drug", path[0], f"enzymes[{path[1]}]")
 
 
+def _effects_site(path: list) -> str | None:
+    """``receptor_effects.json``: ``<owner>/<mode:effect>``. One cache holds receptors and
+    non-receptor targets alike, so the owner kind is read off the receptor roster (lazily:
+    this module otherwise imports nothing)."""
+    if len(path) < 2:
+        return None
+    from data_generators.receptors import RECEPTORS
+    kind = "receptor" if any(r["id"] == path[0] for r in RECEPTORS) else "target"
+    return site(kind, path[0], "effects", path[1])
+
+
 RESOLVERS = {
     "drugs_data.jsonl": _drug_site,
     "metabolites_data.jsonl": _metabolite_site,
@@ -198,6 +209,10 @@ RESOLVERS = {
     "expression_density.json": _density_site,
     "drug_enzymes.json": _drug_enzymes_site,
     "drug_enzymes_wikipedia.json": _drug_enzymes_site,
+    "receptor_effects.json": _effects_site,
+    # ``release_modulation.json``: ``<receptor>/<node key>`` (one node per key).
+    "release_modulation.json": lambda path: (
+        site("receptor", path[0], "release_modulation", path[1]) if len(path) >= 2 else None),
     "enzyme_variability.json": lambda path: (
         site("enzyme", path[1], "variability") if len(path) >= 2 else None),
 }

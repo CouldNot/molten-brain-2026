@@ -72,7 +72,8 @@ import citation_site as CS  # noqa: E402
 # registries are deliberately absent: see the module docstring.
 CACHE_FILES = ("location_sources.json", "classification_sources.json",
                "drug_enzymes.json", "drug_enzymes_wikipedia.json",
-               "expression_density.json", "enzyme_variability.json")
+               "expression_density.json", "enzyme_variability.json",
+               "receptor_effects.json", "release_modulation.json")
 
 
 def _is_source(obj) -> bool:
