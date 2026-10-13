@@ -1373,6 +1373,14 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                     continue
                 check_one(f"{uctx} sources[{k}]", src)
 
+    def check_location_uncertainty(what, owner):
+        """A "Found in" region's bullets, keyed like its location_sources."""
+        for base, bullets in (owner.get("location_uncertainty") or {}).items():
+            if base not in (owner.get("location_sources") or {}):
+                report.error(f"{what} location_uncertainty[{base}]: no location_sources "
+                             f"for that region, so the doubt has no claim to doubt")
+            check_uncertainty(f"{what} location[{base}]", {"uncertainty": bullets})
+
     for drug in drugs:
         did = drug.get("id")
         for binding in drug.get("bindings", []):
@@ -1461,6 +1469,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             ki_src = (binding.get("ki") or {}).get("source")
             if ki_src and ki_src.get("quote"):
                 check_one(f"{mid} binding {binding.get('target')} ki.source", ki_src)
+            check_uncertainty(f"{mid} binding {binding.get('target')}", binding)
 
     for addon in addons:
         for i, src in enumerate(addon.get("sources", []) or []):
@@ -1533,6 +1542,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for base, srcs in (r.get("location_sources") or {}).items():
             for i, src in enumerate(srcs or []):
                 check_one(f"receptor {r.get('id')} location_sources[{base}][{i}]", src)
+        check_location_uncertainty(f"receptor {r.get('id')}", r)
         # The density profile's quote carries the z per region and the cross-donor
         # agreement, so gating it verbatim is what keeps those numbers honest.
         for i, src in enumerate((r.get("density") or {}).get("sources") or []):
@@ -1549,6 +1559,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for base, srcs in (tinfo.get("location_sources") or {}).items():
                 for i, src in enumerate(srcs or []):
                     check_one(f"target {tid} location_sources[{base}][{i}]", src)
+            check_location_uncertainty(f"target {tid}", tinfo)
             for i, src in enumerate((tinfo.get("density") or {}).get("sources") or []):
                 check_one(f"target {tid} density sources[{i}]", src)
             check_effects(f"target {tid}", tinfo, is_receptor=False)

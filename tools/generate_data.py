@@ -260,6 +260,7 @@ from data_generators.quotes.uncertainty import (  # noqa: E402
     apply_set_claim_uncertainty,
     apply_projection_uncertainty,
 )
+from data_generators.quotes.animal_evidence import apply_animal_evidence  # noqa: E402
 from data_generators.quotes.attestation import (  # noqa: E402
     apply_enzyme_strength_claims,
     apply_projection_claims,
@@ -1821,6 +1822,12 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     apply_enzyme_strength_claims(drugs)
     # ... and a tier another corpus states otherwise is flagged on that sub-claim only.
     apply_enzyme_strength_uncertainty(drugs)
+    # Last of the uncertainty passes (the others assign, this one appends): a claim whose
+    # every species-recording source is a non-primate animal says so (rat, cat ...).
+    flagged = apply_animal_evidence(drugs=drugs, metabolites=metabolites,
+                                    projections=projections, receptors=receptors,
+                                    targets=drug_targets)
+    print(f"animal_evidence flags: {flagged}")
     # A hand-curated formed_by row whose (drug, metabolite) key matched nothing: the
     # metabolite was renamed or dropped by an applier re-run, so the node silently
     # vanished. Raise rather than publish a quieter dataset than the author wrote.

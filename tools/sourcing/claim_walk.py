@@ -139,7 +139,8 @@ def _reason(bullet):
     """The English sentence a reader is shown for one uncertainty bullet, args filled."""
     text = UNCERTAINTY_REASONS.get(bullet.get("kind"), "")
     for k, v in (bullet.get("args") or {}).items():
-        text = text.replace("{" + k + "}", str(v))
+        text = text.replace("{" + k + "}", ", ".join(map(str, v)) if isinstance(v, list)
+                            else str(v))
     return text
 
 

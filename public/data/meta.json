@@ -4116,6 +4116,13 @@
       "source": "given",
       "absence": false,
       "args": []
+    },
+    "animal_evidence": {
+      "source": "own_quote",
+      "absence": false,
+      "args": [
+        "species"
+      ]
     }
   },
   "quote_pipelines": {
@@ -4184,8 +4191,8 @@
       },
       "drug_bindings": {
         "total": 1898,
-        "verified": 1776,
-        "uncertain": 104,
+        "verified": 1666,
+        "uncertain": 214,
         "sourced": 0,
         "llm": 0,
         "nosource": 18,
@@ -4194,8 +4201,8 @@
       },
       "drug_binding_action": {
         "total": 1387,
-        "verified": 1106,
-        "uncertain": 104,
+        "verified": 1097,
+        "uncertain": 113,
         "sourced": 0,
         "llm": 140,
         "nosource": 37,
@@ -4364,8 +4371,8 @@
       },
       "drug_metabolite_bindings": {
         "total": 145,
-        "verified": 145,
-        "uncertain": 0,
+        "verified": 135,
+        "uncertain": 10,
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
@@ -4384,8 +4391,8 @@
       },
       "projection_transmitter": {
         "total": 116,
-        "verified": 92,
-        "uncertain": 6,
+        "verified": 87,
+        "uncertain": 11,
         "sourced": 0,
         "llm": 18,
         "nosource": 0,
@@ -4394,8 +4401,8 @@
       },
       "projection_sign": {
         "total": 38,
-        "verified": 22,
-        "uncertain": 8,
+        "verified": 17,
+        "uncertain": 13,
         "sourced": 0,
         "llm": 8,
         "nosource": 0,
@@ -4464,8 +4471,8 @@
       },
       "receptor_locations": {
         "total": 383,
-        "verified": 360,
-        "uncertain": 0,
+        "verified": 342,
+        "uncertain": 18,
         "sourced": 0,
         "llm": 23,
         "nosource": 0,
@@ -4565,8 +4572,8 @@
     },
     "nodes": {
       "total": 7824,
-      "verified": 7238,
-      "uncertain": 269,
+      "verified": 7081,
+      "uncertain": 426,
       "sourced": 0,
       "llm": 245,
       "nosource": 72,

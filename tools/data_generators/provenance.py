@@ -1445,8 +1445,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # bindings are a property of the molecule, so nefazodone AND trazodone listing it
     # count them once. (The identity node above legitimately stays per-parent: "X is a
     # metabolite of A" and "X is a metabolite of B" are two separately sourced claims.)
-    metabolite_binding_grades = [_binding_grade(b) for m in metabolites
-                                 for b in m.get("bindings", [])]
+    metabolite_binding_grades = [(_binding_grade(b), bool(b.get("uncertainty")))
+                                 for m in metabolites for b in m.get("bindings", [])]
     # A metabolite's binding direction is the same claim as a drug's, so it is counted
     # in the SAME drug_binding_action kind (a ligand's binding direction either way).
     binding_action_grades.extend(_binding_action_grade(b) for m in metabolites
@@ -1504,12 +1504,14 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # "ALL"-keyed sources). Shared by receptors and their non-receptor-target mirror.
     _llm_rank = _GRADE_RANK[DEFAULT_PROVENANCE]
 
-    def location_grades(owner: dict[str, Any], regions_key: str) -> list[int]:
+    # A (grade, is_uncertain) pair, a region its animal-only evidence flags
+    # (quotes/animal_evidence.py, ``location_uncertainty``) bucketing ``uncertain``.
+    def location_grades(owner: dict[str, Any], regions_key: str) -> list[tuple[int, bool]]:
         loc_sources = owner.get("location_sources", {})
-        if owner.get("ubiquitous"):
-            return [max(_strongest_grade(loc_sources.get("ALL")), _llm_rank)]
-        return [max(_strongest_grade(loc_sources.get(base)), _llm_rank)
-                for base in owner.get(regions_key, [])]
+        doubted = owner.get("location_uncertainty") or {}
+        bases = ["ALL"] if owner.get("ubiquitous") else owner.get(regions_key, [])
+        return [(max(_strongest_grade(loc_sources.get(base)), _llm_rank), base in doubted)
+                for base in bases]
 
     receptor_location_grades = [g for r in receptors
                                 for g in location_grades(r, "locations")]

@@ -38,6 +38,14 @@ Usage (from the repo root)::
     python tools/fetch/fetch_europepmc.py                 # every paper in PAPERS
     python tools/fetch/fetch_europepmc.py --only 7827213
     python tools/fetch/fetch_europepmc.py --refresh       # re-download stored records
+    python tools/fetch/fetch_europepmc.py --species       # offline: MeSH species ledger
+
+**Species** (``--species``, also run after every fetch): offline, it reads each stored
+``raw/<pmid>.json`` record's MeSH species descriptors (``"Rats, Wistar"``, ``"Macaca
+mulatta"``, folded by ``tools/species.py``) into the committed
+``tools/generated_cache/europepmc_species.json`` (PMID -> sorted species keys, empty when
+the record names none), which the generator reads for the ``animal_evidence`` flag since
+``raw/`` is author-side.
 
 Network (``www.ebi.ac.uk``), polite and resumable: a paper whose page is on disk is
 skipped unless ``--refresh``. Stdlib only.
@@ -85,6 +93,9 @@ sys.path.insert(0, str(HERE))
 
 from fetch_dailymed import _get                                # noqa: E402 (polite GET)
 
+sys.path.insert(0, str(HERE.parent))
+from species import species_key                                # noqa: E402
+
 API = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 FULL_TEXT_API = "https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
 # The line that separates the abstract from the appended open-access full text.
@@ -131,6 +142,7 @@ PAPERS: dict[str, str] = {
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"
+SPECIES_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_species.json"
 # Abstracts read per binding: enough to catch the paper that characterises the pair,
 # few enough that a 700-binding search stays a few thousand short pages.
 SEARCH_TOP = 5
@@ -547,6 +559,35 @@ def binding_search(only: set | None, refresh: bool) -> int:
     return 1 if failed else 0
 
 
+# A cited paper whose record carries no MeSH species (not yet indexed, or tagged only
+# "Animals"), read off its abstract by hand. Only for a PMID a shipped quote cites.
+SPECIES_OVERRIDES: dict[str, list[str]] = {
+    "6664490": ["monkey"],      # "in squirrel monkeys (Saimiri sciureus)"
+    "32019": ["rat"],           # fornix transection in the rat
+    "26170874": ["mouse"],      # "writhing assay in mice"
+}
+
+
+def species_of(rec: dict) -> list[str]:
+    """Sorted species keys a record names: its MeSH headings, else the hand override."""
+    heads = (rec.get("meshHeadingList") or {}).get("meshHeading") or []
+    keys = {k for h in heads if (k := species_key(h.get("descriptorName"))) is not None}
+    return sorted(keys) or SPECIES_OVERRIDES.get(str(rec.get("pmid")), [])
+
+
+def write_species_ledger() -> int:
+    """Rewrite :data:`SPECIES_LEDGER` from every stored ``raw/<pmid>.json``."""
+    ledger = {}
+    for raw in sorted(RAW_DIR.glob("*.json")):
+        ledger[raw.stem] = species_of(json.loads(raw.read_text("utf-8")))
+    SPECIES_LEDGER.write_text(
+        "{\n" + ",\n".join(f"{json.dumps(k)}: {json.dumps(v)}"
+                             for k, v in sorted(ledger.items())) + "\n}\n", "utf-8")
+    print(f"species: {len(ledger)} record(s), "
+          f"{sum(1 for v in ledger.values() if v)} naming a species")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -558,10 +599,16 @@ def main() -> int:
     ap.add_argument("--ki-prose", action="store_true",
                     help="store the papers Wikipedia cites for a Ki its prose states, "
                          "and write the ki_prose worklist")
+    ap.add_argument("--species", action="store_true",
+                    help="offline: rewrite the MeSH species ledger from raw/ and exit")
     args = ap.parse_args()
+    if args.species:
+        return write_species_ledger()
     if args.binding_search or args.ki_prose:
         only = {d.strip() for d in args.only.split(",")} if args.only else None
-        return (binding_search if args.binding_search else ki_prose)(only, args.refresh)
+        code = (binding_search if args.binding_search else ki_prose)(only, args.refresh)
+        write_species_ledger()
+        return code
     pmids = [p.strip() for p in args.only.split(",")] if args.only else list(PAPERS)
     unknown = [p for p in pmids if p not in PAPERS]
     if unknown:
@@ -582,6 +629,7 @@ def main() -> int:
             failed += 1
             continue
         print(f"[ok] {pmid}: {page.relative_to(ROOT)}")
+    write_species_ledger()
     return 1 if failed else 0
 
 

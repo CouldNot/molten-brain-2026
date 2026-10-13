@@ -138,6 +138,11 @@ UNCERTAINTY_REASONS: dict[str, dict[str, Any]] = {
     # caller (source mode "given"), so the reader gets both sides in one tooltip. Hand
     # -curated in quotes/contradictions.py, unlike the derived kinds above.
     "contradicted": {"source": "given", "absence": False, "args": ()},
+    # "Every source that says which species it measured names a non-primate one (rat,
+    # cat), and none is human." Cites one of that animal evidence (a quote or the Ki
+    # row); ``species`` is a list of tools/species.py keys the viewer localizes.
+    # Derived in quotes/animal_evidence.py.
+    "animal_evidence": {"source": "own_quote", "absence": False, "args": ("species",)},
 }
 
 
