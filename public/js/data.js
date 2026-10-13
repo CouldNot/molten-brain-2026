@@ -12,6 +12,7 @@
 //
 import { resolveEffects } from "./receptor-effects.js";
 import { resolveModulation } from "./release-modulation.js";
+import { resolveDemographics } from "./receptor-demographics.js";
 
 // Repeat-visit speed/offline resilience for these files is handled by the service
 // worker (stale-while-revalidate for /data/*, see public/sw.js), not here.
@@ -1626,6 +1627,21 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     tgt.receptor.modulationInfo = rows;
     tgt.modulationInfo = rows;
     if (rows.length) modulationByTarget.set(tgt.id, rows);
+  }
+
+  // receptor_demographic nodes (BETA): each target's "Across age and sex" rows
+  // (js/receptor-demographics.js). A receptor-linked target reads its receptor's record.
+  const dm = metaRecord.demographics || {};
+  const demographicVocab = {
+    factors: Object.fromEntries(Object.entries(dm.factors || {})
+      .map(([k, v]) => [k, { label: localize(v.label) }])),
+    glyphs: dm.glyphs || {},
+  };
+  for (const tgt of targets) {
+    const raw = tgt.receptor ? tgt.receptor.demographics : (drugTargets[tgt.id] || {}).demographics;
+    tgt.demographicInfo = resolveDemographics(raw, demographicVocab)
+      .map((n) => ({ ...n, sources: mapSources(n.sources) }));
+    if (tgt.receptor) tgt.receptor.demographicInfo = tgt.demographicInfo;
   }
 
   // The reverse of a receptor's "Found in": region base -> the targets expressed

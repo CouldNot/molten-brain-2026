@@ -2382,6 +2382,26 @@ function createInfoPanel(data, sourcingModal) {
     appendFolded(sec);
   };
 
+  // A receptor / target panel's "Across age and sex" section (BETA): one row per
+  // receptor_demographic node, a direction chip ("↓ Age") then the conditional
+  // sentence ("reported to decline with age in Caudate nucleus") with that node's own
+  // pill, and the paper's own magnitude wording under it when it states one.
+  const appendDemographics = (rows) => {
+    if (!rows || !rows.length) return;
+    const { sec, ul } = betaSection("demographics", "demog.heading", "demog.hint");
+    for (const n of rows) {
+      const li = el("li", "eff-row");
+      li.appendChild(el("span", "demog-chip", `${n.glyph} ${n.factorLabel}`));
+      li.appendChild(el("span", "loc-name", t(n.textKey, { where: inStructure(n.structure) })));
+      li.appendChild(sourceBackedPill(n.provenance, n));
+      if (n.magnitude) {
+        li.appendChild(el("span", "eff-mode eff-site", t("demog.magnitude", { magnitude: n.magnitude })));
+      }
+      ul.appendChild(li);
+    }
+    appendFolded(sec);
+  };
+
   // The drug panel's derived "Possible release changes" (BETA): its directional
   // bindings joined with the release-modulation nodes of their receptors
   // (js/release-modulation.js), an antagonist flipping the effect of activation and
@@ -3984,6 +4004,7 @@ function createInfoPanel(data, sourcingModal) {
       body.appendChild(where);
       appendEffects(receptor.effectInfo);
       appendDownstream(receptor.modulationInfo);
+      appendDemographics(receptor.demographicInfo);
 
       // Drugs that act on this receptor, grouped by category.
       appendInteractingDrugs(receptor.id);
@@ -4062,6 +4083,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       body.appendChild(where);
       appendEffects(target.effectInfo);
+      appendDemographics(target.demographicInfo);
 
       // Drugs that act on this target, grouped by category.
       appendInteractingDrugs(target.id);
@@ -6088,6 +6110,7 @@ const KIND_LABELS = {
   target_density: "about.kindTargetDensity",
   receptor_effect: "about.kindReceptorEffect",
   receptor_release_modulation: "about.kindReleaseModulation",
+  receptor_demographic: "about.kindDemographic",
   structures: "about.kindStructures",
 };
 
@@ -6576,6 +6599,12 @@ function buildKindExample(kind, data, nav) {
       const n = rm && (rm.modulationInfo || [])[0];
       return n ? line(rm.name, t(`relmod.activation.${n.effect}`,
         transmitterVars(n.transmitterLabel, ofNoun)), () => nav.target(rm)) : null;
+    }
+    case "receptor_demographic": {
+      const dt = pick(data.targets || [], (t2) => (t2.demographicInfo || []).length);
+      const n = dt && dt.demographicInfo[0];
+      return n ? line(dt.name, `${n.glyph} ${t(n.textKey, { where: "" })}`,
+        () => nav.target(dt)) : null;
     }
     case "target_polarity": {
       const pol = pick(otherTargets, (t2) =>

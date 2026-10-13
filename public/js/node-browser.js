@@ -48,6 +48,7 @@ const KIND_ORDER = [
   "target_density",
   "receptor_effect",
   "receptor_release_modulation",
+  "receptor_demographic",
   "drug_bindings",
   "drug_binding_action",
   "drug_nbn",
@@ -309,6 +310,17 @@ export function collectNodes(data, deps, opts = {}) {
         `${t(`relmod.activation.${n.effect}`,
           transmitterVars(n.transmitterLabel, window.__I18N__.ofNoun))} `
           + `(${n.kindLabel}, ${n.cellLabel})`, n.provenance, go, n);
+    }
+  }
+
+  // receptor_demographic (BETA): one row per (owner, factor, direction, structure) node,
+  // receptors and non-receptor targets alike (data.js resolves both onto the target list).
+  for (const tg of data.targets || []) {
+    const go = tg.focusable ? () => nav.target(tg) : null;
+    for (const n of tg.demographicInfo || []) {
+      push("receptor_demographic", tg.name,
+        `${n.glyph} ${t(n.textKey, { where: n.structure ? ` (${n.structure})` : "" })}`,
+        n.provenance, go, n);
     }
   }
 

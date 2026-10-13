@@ -2248,6 +2248,11 @@
       /* receptor_release_modulation rows (BETA): the site line ("heteroreceptor on
          GABA interneurons in VTA") wraps under the claim, like the drug-panel via chips. */
       .info-effects .eff-site { white-space: normal; flex: 1 1 100%; padding-left: 10px; }
+      /* receptor_demographic rows (BETA): the direction chip ("↓ Age") before the sentence. */
+      .info-effects .demog-chip {
+        flex: none; font-size: 10px; padding: 0 5px; border-radius: 8px; white-space: nowrap;
+        border: 1px solid rgba(var(--ink), 0.2); color: var(--accent-light);
+      }
       /* Anatomical-group sub-headings inside the "Found in" list (one per group, in
          the Structures-legend order): a level below the section's h3, with top space
          so each group reads as its own block (which also spreads the pills apart). */
