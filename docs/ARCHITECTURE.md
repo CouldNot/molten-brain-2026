@@ -63,6 +63,7 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - receptor *expression region* -> a receptor's `location_sources` -> `receptor_locations`
 - receptor *expression density profile* -> a receptor's `density` -> `receptor_density` (ONE node for the whole profile, not one per region: it is a single measurement ranking the receptor's regions against each other, see Expression density in VIEWER.md)
 - receptor / target *clinical effect* (BETA) -> an owner's `effects[]` -> `receptor_effect` (ONE node per (mode, effect): "acting on this receptor in this mode can cause this effect", e.g. H1 antagonism -> sedation; modes + effects are closed vocabularies in `tools/data_generators/receptor_effects.py`; counted in the headline as a stored quoted claim, while a drug's derived "possible effects" are never stored nor tallied)
+- receptor *release modulation* (BETA, a 2nd-order effect) -> a receptor's `release_modulation[]` -> `receptor_release_modulation` (ONE node per (kind, site, transmitter, direction): "activating this auto/heteroreceptor, on this cell type (optionally in this structure), increases/decreases this transmitter's release", e.g. H3 autoreceptor on presynaptic terminals -> less histamine; closed vocabularies in `tools/data_generators/release_modulation.py`; a drug's derived release changes are never stored nor tallied)
 - non-receptor drug target -> `meta.drug_targets` -> `targets`
 - target *tone polarity* (a direction-flipping `vesicular`/`sign`/`synaptic` flag) -> a target's `polarity_provenance` -> `target_polarity`
 - target *expression region* -> a target's `location_sources` -> `target_locations`
@@ -401,6 +402,9 @@ Viewer (`public/`):
 - `js/receptor-effects.js`: `resolveEffects` (an owner's `effects[]` -> display rows) +
   `derivePossibleEffects` (the drug panel's direction-aware join). Pure, no DOM. See
   Receptors & targets (Effects).
+- `js/release-modulation.js`: `resolveModulation` (a receptor's `release_modulation[]` ->
+  display rows) + `deriveReleaseChanges` (the drug panel's direction-aware join) +
+  `transmitterVars`. Pure, no DOM. See Receptors & targets (Downstream).
 - `js/drug-anim.js`: `createDrugAnimation`: per-drug effect-coloured gem dots +
   surface wash; `matches`. Flow overlay reuses `circuit-anim.js`. See Drugs.
 - `js/surface-wash.js`: shared `buildWashShell` + `washStrength` "wash of light"

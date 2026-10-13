@@ -230,6 +230,19 @@ python tools/sourcing/recheck_quotes.py build --out <dir> --kinds receptor_effec
 
 The applier rebuilds the cache from the judged file every run, so dropping a pick there (after a judge reject) drops its node. Gates: closed vocabularies, `inhibition` on non-receptor targets only, the picked sentence was offered for that effect, verbatim on its page.
 
+### Release modulation (BETA)
+
+`receptor_release_modulation` nodes (a 2nd-order effect: H3 autoreceptors on presynaptic terminals decrease histamine release; 5-HT2C heteroreceptors on GABA interneurons decrease dopamine release) come from the same two corpora, human / clinical statements only. Same four steps, sharing the receptor-effect fetcher + `prose_gate.run_applier`:
+
+```
+python tools/fetch/fetch_release_modulation.py               # -> release_modulation_worklist.json (mechanism + transmitter cues, no verdict)
+<one LLM pass>                                                # -> release_modulation_judged.json ({owner: [{kind, structure, cell, modulates, effect, picks}]})
+python tools/sourcing/apply_release_modulation.py --dry-run   # then without; sole writer of release_modulation.json
+python tools/sourcing/recheck_quotes.py build --out <dir> --unstamped   # independent Opus judge, then `apply --llm opus`
+```
+
+Gates: closed vocabularies (`RELEASE_KINDS` / `RELEASE_CELLS` / `RELEASE_TRANSMITTERS` / `RELEASE_EFFECTS`), `structure` a modeled structure or null, the sentence names the modulated transmitter (a receptor name like "5HT2C" does not name serotonin), an autoreceptor modulates its own system's transmitter and sits on the releasing neuron (never an interneuron). Use `--unstamped` rather than `--kinds receptor_release_modulation`: a quote shared with another kind is skipped by the `--kinds` filter and leaves the site unjudged.
+
 
 ## Drug metabolism
 
