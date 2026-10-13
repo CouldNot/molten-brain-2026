@@ -4145,22 +4145,22 @@
       },
       "projection_transmitter": {
         "total": 116,
-        "verified": 84,
-        "uncertain": 4,
+        "verified": 92,
+        "uncertain": 6,
         "sourced": 0,
-        "llm": 28,
+        "llm": 18,
         "nosource": 0,
-        "missing": 28,
+        "missing": 18,
         "unknown": 0
       },
       "projection_sign": {
         "total": 38,
-        "verified": 15,
+        "verified": 22,
         "uncertain": 8,
         "sourced": 0,
-        "llm": 15,
+        "llm": 8,
         "nosource": 0,
-        "missing": 15,
+        "missing": 8,
         "unknown": 0
       },
       "circuits": {
@@ -4306,14 +4306,14 @@
     },
     "nodes": {
       "total": 7687,
-      "verified": 7098,
-      "uncertain": 266,
+      "verified": 7113,
+      "uncertain": 268,
       "sourced": 0,
-      "llm": 254,
+      "llm": 237,
       "nosource": 69,
-      "missing": 323,
+      "missing": 306,
       "unknown": 656,
-      "backed": 7364,
+      "backed": 7381,
       "pct_backed": 96
     },
     "ki_coverage": {
