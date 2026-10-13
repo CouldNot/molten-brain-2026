@@ -1,6 +1,40 @@
 {
   "versions": [
     {
+      "version": "3.119.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A drug's \"Projections affected\" section is now \"Neurotransmitter tone (indicative)\": each system shows its signed value and, below it, the sum it comes from, one line per binding (target, why it changes the tone, +1 or −1 times its affinity weight, its own source badge), under a warning that this is a rough indicative value and not a clinical measure. A system's list of drugs now shows each drug's tone and is ranked by it",
+          "commits": [
+            "c811518"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The drug's target list is now called \"Direct molecular targets\", since it holds transporters and enzymes as well as receptors",
+          "commits": [
+            "907cf19"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "Sections you unfold in a panel stay unfolded on the next panel of the same kind, so switching from one drug to another keeps the same sections open for comparison",
+          "commits": [
+            "7c9e683"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "An uncertain badge's tooltip no longer prints the same database reference twice (once without its link)",
+          "commits": [
+            "f999e77"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.118.0",
       "date": "2026-10-13",
       "entries": [
