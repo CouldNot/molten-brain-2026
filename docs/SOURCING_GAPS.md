@@ -163,8 +163,8 @@ grade counts as **missing** ("an LLM asserted it from memory" = no document), so
 | `receptor_sign` (excit./inhib.) | 13 | 56 | 8.7% | Hard | GtoPdb's transduction is mixed/absent for these |
 | `drug_bindings` | 12 | 1688 | 8.1% | Hard | no database assays the GABA-A site; primary lit |
 | `projections` | 2 | 110 | (2026-10-10, after the snapshot) | Hard | claustrum primary lit |
-| `projection_transmitter` | 29 | 110 | (2026-10-10, after the snapshot) | Hard | coarse "cortex to striatum" rule + systems text (section 6) |
-| `projection_sign` | 19 | 38 | (2026-10-10, after the snapshot) | Hard | same (section 6) |
+| `projection_transmitter` | 18 | 116 | (2026-10-13, after the snapshot) | Hard | Europe PMC abstracts, mostly rodent; locus coeruleus/raphe still unnamed (section 6) |
+| `projection_sign` | 8 | 38 | (2026-10-13, after the snapshot) | Hard | same (section 6) |
 | `drug_enzyme_strength` (major/minor, strong/moderate/weak) | 13 | 147 | (2026-10-10, after the snapshot) | limit | tier only implied by a percentage or by contrast (section 6b) |
 | `receptor_class` (GPCR/ionotropic) | 1 | 56 | 0.7% | limit | sigma-1 is a GtoPdb `other_protein` |
 | `references` | 0 | 371 | not in headline | done | closed |
@@ -338,7 +338,7 @@ counts, mirroring `fetch_ki.py`'s representative-row choice.
 
 a2a and mt1 now carry the `contradicted` badge on their sign (2026-10-10, Opus-judged denials: the a2a Gs sentence above, Stahl Essential p455 for mt1); the value stays ours and the sign stays `llm`. h4 and mt2 carry it too (2026-10-12), each on its GtoPdb corpus #12 transduction row ("transduction: Gi/Go family", the only primary transducer, code-copied, so no judge). cb1 stays unflagged: its GtoPdb row also lists Gs as a secondary mechanism, and its sources describe an inhibitory brake on excitatory and inhibitory release alike, whose circuit effect is genuinely modulatory. Resolve against a textbook as a data decision, then re-run the worklist + applier and the sign closes with it. sigma-1's sign stays `llm`: nothing states one (it is a chaperone, not a channel or GPCR).
 
-**Targets (`targets`, 2 / 25 missing).** The same pass closed COMT (Stahl Essential p96), GABA-T (p274) and AADC (its Wikipedia article: "AADC catalyzes ... L-DOPA to dopamine"). NKCC1's only candidate called it a "transporter", which the judge rejected as not establishing "cotransporter"; CGRP-R's only Stahl hit was a table fragment and its Wikipedia article could not be fetched (rate-limited), so both stay `llm`.
+**Targets (`targets`, 25 / 25, closed 2026-10-13).** The same pass closed COMT (Stahl Essential p96), GABA-T (p274) and AADC (its Wikipedia article: "AADC catalyzes ... L-DOPA to dopamine"). The last two closed on 2026-10-13. NKCC1 closed on its own article's "The carboxy-terminal of the NKCC1 cotransporter contains ...": the type is named only in passing, which the Opus judge accepted as weak. The earlier "transporter" sentence stays rejected. The CGRP receptor closed on the CALCRL article (the receptor title redirects to the gene, `PAGE_ALIASES` in `fetch_classification_worklist.py`): "with RAMP1 : produces a CGRP receptor ... linked to the G protein G s". Stahl Essential p399 ("calcitonin G-related peptide (CGRP) and its receptors CGRP-R") was kept as a second, weak quote.
 
 ### 2. `drug_categories`, 13 / 301 missing (288 verified: Stahl, then Wikipedia leads)
 
@@ -469,7 +469,7 @@ This is a property of the assay, not a hole in our sourcing.
 atlas) would confirm terminals. Not worth a corpus for 14 nodes; the caveat is already shipped
 in the density caption.
 
-### 6. `projections`: route 2 / 110, `projection_transmitter` 25 / 110, `projection_sign` 15 / 38 missing
+### 6. `projections`: `projection_transmitter` 18 / 116, `projection_sign` 8 / 38 missing
 
 **What.** A pathway is three graded claims: the route, its transmitter, and (glutamate/GABA only) its sign. A transmitter or sign claim is graded off any of the pathway's sources whose quote carries the stored value's word (`attestation.pattern_for`). The by-index pass (2026-10-10) works like the classification one. `tools/fetch/fetch_projection_worklist.py` offers sentences from Kandel, Nieuwenhuys and Stahl Essential that name both endpoints, and an LLM answers by index in `projection_judged.json`. `tools/sourcing/apply_projection_sources.py` then gates the picks, confirm-only, and writes `projection_sources.json`, which the generator appends to each pathway. An Opus `recheck_quotes.py` judge runs last. The pass moved transmitter from 56 to **71**, sign from 9 to **19**, and route from 56 to **60** verified. Two of those four route nodes were NOSOURCE: septum to hippocampus (Nieuwenhuys p469, "a substantial cholinergic projection to the hippocampus") and amygdala to hypothalamus (Kandel p1100, Stahl Essential p286). `blanket_claim` fell from 35 to **33**, because the nigrostriatal pair gained a sentence naming the caudate and the putamen (Nieuwenhuys p218). The judge rejected one pick: the "thalamocortical projections ... are glutamatergic" sentence (Nieuwenhuys p446) for thalamus to cingulate, because it describes VA/VL and MD only. Its thalamus to frontal use was then re-judged on its own by an independent Opus judge (its first verdict had been copied from the cingulate note): supported, the antecedent being VA/VL to motor/premotor/supplementary motor areas and MD to prefrontal cortex, all frontal.
 
@@ -491,12 +491,30 @@ Family 10 went from cholinergic 10 / dopaminergic 15 / serotonergic 11 / noradre
 
 **Primate literature pass (2026-10-12, Europe PMC corpus #17, primate tract-tracing only).** Six new arrows, each route quote Opus-judged: raphe to globus pallidus (PMID 27028222 primate review, also states serotonin; PMID 6766111 macaque HRP in the internal pallidum), locus coeruleus to caudate and putamen (PMID 6664490, squirrel monkey retrograde), to the globus pallidus (PMID 6766111) and to the substantia nigra (PMID 6315152, squirrel monkey), VTA to the parietal lobe (PMID 2896323, Macaca fascicularis, dopaminergic neurons labeled; the paper pools substantia nigra and VTA). The four locus coeruleus arrows keep an `llm` transmitter (the abstracts name the nucleus, not noradrenaline). Family 10 went to cholinergic 8 / dopaminergic 8 / serotonergic 6 / noradrenergic 2. Still nothing citable: dopamine to the occipital lobe (PMID 33558867 says occipito-parietal cortex gets weak innervation from a VTA injection that spread into the substantia nigra, read but not used), serotonin to the subthalamic nucleus (PMIDs 1707079 and 7284825 found no dorsal raphe label after monkey subthalamic injections; others show 5-HT fibres without naming the raphe), serotonin to the claustrum (PMID 11489351 names no raphe), and every cholinergic gap (no primate abstract names both ends).
 
+**Europe PMC transmitter/sign pass (2026-10-13, corpus #17).** Twenty abstracts were added to `PAPERS`, each with its claim and species. The books had already been exhausted for these sub-claims, and nothing primate states them in an abstract, so most of the evidence is from rodents or cats. The independent Opus judge confirmed all 20 picks, plus 4 projection-group and 3 target quotes, with 0 rejections. The pass took `projection_transmitter` from 28 to **18** `llm` and `projection_sign` from 15 to **8**:
+
+- frontal to pons, glutamate: PMID 1374872 (review, "(glutamatergic) corticopontine fibers").
+- pons to cerebellum, glutamate: PMID 2422596 (rat). Excitatory: PMID 9133571 (rat, mossy fibres).
+- cerebellum to thalamus, glutamate: PMID 6147261 (cat). Excitatory: PMID 15558250 (human, "disynaptic excitatory pathways through the ventral thalamus") and 6147261.
+- temporal to hippocampus, glutamate: PMID 20421986 (rat, perforant path from entorhinal layer III).
+- hippocampus to fornix, excitatory: PMID 1981215 (rat, hippocamposeptal excitatory amino acid terminals, fimbria-fornix transection).
+- fornix to mammillary, glutamate: PMID 32019 (rat, uptake lost after fornix transection).
+- mammillary to thalamus, glutamate: PMID 19535593 (mouse). Excitatory: PMID 12576145 (rat).
+- hippocampus to septum, excitatory: PMID 2808769 (rat).
+- accumbens to globus pallidus, inhibitory: PMID 15740723 (rat, ventral pallidum) and Stahl Essential p128.
+- amygdala to accumbens, excitatory: PMID 36653189 (mouse).
+- frontal commissure, glutamate: PMID 22357796 (human TMS, "interhemispheric glutamatergic projections between motor cortices").
+- parietal and occipital commissures, glutamate: PMID 32769158 (mouse, "glutamatergic callosal projections"). All three commissures keep the `set_claim` flag.
+- raphe to olfactory bulb, serotonin: Nieuwenhuys p351 (dorsal raphe serotoninergic input) and PMID 27335411 (mouse).
+
+Read but not used: the anterior commissure (temporal) has only the callosal sentence, which names the wrong tract. Septum to hypothalamus has two mouse papers (PMIDs 36642737 and 39150998, "LS GABAergic projection to the lateral hypothalamus"), but they write the septum only as "LS", so the endpoint filter never offers them. A `septal_nuclei` alias for "LS" would be too loose to add.
+
 **Why the rest stays.** The candidates were read, not missed:
 
 - **Claustrum to frontal / insula (route NOSOURCE):** the books give only topography and development ("situated between the putamen and the insular cortex"). No sentence states a claustral projection. Retried for the insula on 2026-10-12 against Europe PMC: the one primate sentence (PMID 2860583, "the insular lobe has connections with ... claustrum") was rejected by the Opus judge (no direction), and the directional ones are mouse (PMID 30534060), so the route stays NOSOURCE.
 - **Cortex to striatum, closed as set-level (2026-10-10):** Nieuwenhuys p435 ("glutamatergic fibres from the cerebral cortex") and Kandel p986 ("Signals received by the striatum from the cerebral cortex and thalamus are conveyed by excitatory glutamatergic neurotransmission") now back the transmitter (both) and sign (Kandel) of frontal to caudate/putamen and parietal/temporal to caudate, via a documented allowance in `fetch_projection_worklist.py` (`SET_LEVEL_PAIRS`: lobes -> caudate/putamen, transmitter/sign only, never route). Opus-judged, no rejection. Each of those 8 sub-claims carries the derived `set_claim` badge (one sentence naming neither end, shared by pathways from 2+ origins), so they bucket **uncertain**, not verified. The same derivation also flags the sign of the 4 interhemispheric cortical commissures (frontal/parietal/temporal/occipital L->R), whose only sign sentence is the set-level "continuous network of excitatory elements potentially involving the entire neocortex": verified -> uncertain.
 - **33 `blanket_claim` arrows (raphe, locus coeruleus, tuberomammillary, nucleus basalis to the lobes):** the books describe these systems by their sweep ("the entire neocortex", "the cerebral cortex"). No sentence names a single lobe as the target. The nucleus-basalis lobes got their transmitter from such a sentence, but the flag stays.
-- **No transmitter/sign sentence for this pathway:** corticopontine, pontocerebellar, cerebellothalamic, the Papez chain (fornix to mammillary to thalamus, cingulate to hippocampus), the olfactory bulb to amygdala, insula to cingulate, septum to hypothalamus, GABA for amygdala to hypothalamus, the sign of accumbens to pallidum and amygdala to accumbens, and serotonin for raphe to accumbens and raphe to substantia nigra. The callosal arrows have a sign (Nieuwenhuys p573, contralaterally projecting excitatory pyramidal neurons) but no glutamate word.
+- **No transmitter/sign sentence for this pathway, in the books or an abstract (after 2026-10-13):** the sign of corticopontine and of fornix to mammillary, glutamate for thalamus to cingulate, both for cingulate to hippocampus, olfactory bulb to amygdala, insula to cingulate and septum to hypothalamus, GABA for amygdala to hypothalamus, glutamate for the anterior commissure (temporal), serotonin for raphe to accumbens, substantia nigra and septum, noradrenaline for the six locus coeruleus arrows, and dopamine for VTA to temporal. None of the six kinds here supports the UNKNOWN grade (`UNKNOWN_REQUIRED_SOURCES` lists only `drug_binding_action`), so these stay `llm` rather than becoming ∅.
 
 **Contradictions:** none. Nieuwenhuys p391 and p387 call the septohippocampal projection cholinergic **and GABAergic**. That is consistent with our Acetylcholine value, but it is incomplete, and it is not reflected in the data.
 
@@ -658,9 +676,12 @@ Kept as a record of which lever worked, so a later session does not re-derive it
   **Nieuwenhuys** (corpus #6), which Kandel does not describe in prose.
 - **`circuits` 6/6.** The two basal-ganglia loops from Kandel p983 (Albin scheme); the other
   four reuse quotes already verified for their member projections, so no quote is duplicated.
-- **`projection_groups` 11/11.** Glutamate and GABA from Stahl Essential; the monoamine,
-  cholinergic, neuroendocrine and modulatory systems from Kandel. The sign groups reuse their
-  dominant transmitter's quote.
+- **`projection_groups` 12/12.** Glutamate and GABA from Stahl Essential; the monoamine,
+  neuroendocrine and modulatory systems from Kandel. The sign groups reuse their
+  dominant transmitter's quote. Acetylcholine (Nieuwenhuys p545 + Kandel p1048) and
+  noradrenaline (Stahl Essential p295 + Nieuwenhuys p545) closed on 2026-10-13, after their
+  earlier Kandel quotes had been judge-rejected. Each quote covers only part of the
+  description, e.g. the stress response is not stated.
 - **`drug_nbn` 116/116.** `apply_nbn_sources.py` greps Stahl's verbatim
   "Neuroscience-based Nomenclature:" line and confirms our value is a substring, which is
   stronger than a judge for a fixed field.
@@ -691,7 +712,7 @@ Kept as a record of which lever worked, so a later session does not re-derive it
 - **`receptors` (family) 56/56.** Stahl Essential for 54; the last two (5-HT1E and 5-HT1F,
   which the Essential corpus never names outside affinity-table cells) against GtoPdb's own
   family label (corpus #12), a direct read: "5-Hydroxytryptamine receptors" *is* serotonergic.
-- **`targets` (classification) 20/20.** Stahl Essential for 16; carbonic anhydrase, PDE5, the
+- **`targets` (classification) 25/25.** NKCC1 and the CGRP receptor closed last (see #1b). Stahl Essential for 16; carbonic anhydrase, PDE5, the
   T-type Ca channel and the melanocortin group against GtoPdb's `type` field (corpus #12).
   All four were confirmed absent from Stahl Essential first ("anhydrase" and "T-type" never
   appear; "melanocortin" only inside "pro-opiomelanocortin"; the only phosphodiesterase
@@ -743,9 +764,10 @@ the roster expansion enlarged the denominator, then back to **96%** (see the sna
 - **A neuropharmacology textbook** (Rang and Dale, Katzung) for the 14 `receptor_synaptic`
   nodes in step 4. This is the only gap left that a whole new corpus would address, and even
   it will not close completely.
-- **NCBI/PubMed primary literature** as the genuine last resort for the handful of claims no
-  reference book states: claustrum-to-frontal and claustrum-to-insula connectivity, a few
-  subtype affinities.
+- **NCBI/PubMed primary literature** (wired as Europe PMC, corpus #17) as the genuine last
+  resort for the handful of claims no reference book states. It closed 17 projection
+  sub-claims on 2026-10-13 (see #6). It still lacks claustrum connectivity with a direction, the
+  locus coeruleus arrows' noradrenaline, and a few subtype affinities.
 - Nothing else. Every other gap in this document is a documented limit of a source we already
   hold, and adding a corpus to chase it would cost more than the honesty of the `llm` pill.
 
