@@ -217,6 +217,19 @@ fixed Stahl list.
 triiodothyronine, caprylidene). A book corpus carries no `url` key at all (there is no free landing
 page to link, and the grade, not the link, conveys provenance); a *present* corpus url must be a
 real link, which `check_data.py` enforces.
+### Receptor effects (BETA)
+
+`receptor_effect` nodes (H1 antagonism -> sedation) come from Stahl Essential (#3) prose, with the receptor's own Wikipedia article (#9) as fallback, human / clinical statements only (no knockout phenotype). Four-step pipeline, offline:
+
+```
+python tools/fetch/fetch_receptor_effects.py              # -> receptor_effects_worklist.json (keyword-offered candidates, no verdict)
+<one LLM pass>                                             # -> receptor_effects_judged.json ({owner: [{effect, mode, picks}]})
+python tools/sourcing/apply_receptor_effects.py --dry-run  # then without; sole writer of receptor_effects.json
+python tools/sourcing/recheck_quotes.py build --out <dir> --kinds receptor_effect   # independent Opus judge, then `apply --llm opus`
+```
+
+The applier rebuilds the cache from the judged file every run, so dropping a pick there (after a judge reject) drops its node. Gates: closed vocabularies, `inhibition` on non-receptor targets only, the picked sentence was offered for that effect, verbatim on its page.
+
 
 ## Drug metabolism
 

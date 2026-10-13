@@ -62,6 +62,7 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - receptor classification -> `receptors.jsonl`, split into four independent graded sub-claims: neurotransmitter `family` -> `receptors`; mechanism `receptor_class` (GPCR/ionotropic) -> `receptor_class`; `sign` (excit./inhib.) -> `receptor_sign`; `synaptic` site (pre/post) -> `receptor_synaptic` (a receptor's `classification[attr]` each carry their own grade)
 - receptor *expression region* -> a receptor's `location_sources` -> `receptor_locations`
 - receptor *expression density profile* -> a receptor's `density` -> `receptor_density` (ONE node for the whole profile, not one per region: it is a single measurement ranking the receptor's regions against each other, see Expression density in VIEWER.md)
+- receptor / target *clinical effect* (BETA) -> an owner's `effects[]` -> `receptor_effect` (ONE node per (mode, effect): "acting on this receptor in this mode can cause this effect", e.g. H1 antagonism -> sedation; modes + effects are closed vocabularies in `tools/data_generators/receptor_effects.py`; counted in the headline as a stored quoted claim, while a drug's derived "possible effects" are never stored nor tallied)
 - non-receptor drug target -> `meta.drug_targets` -> `targets`
 - target *tone polarity* (a direction-flipping `vesicular`/`sign`/`synaptic` flag) -> a target's `polarity_provenance` -> `target_polarity`
 - target *expression region* -> a target's `location_sources` -> `target_locations`
@@ -397,6 +398,9 @@ Viewer (`public/`):
 - `js/receptor-markers.js`: `createReceptorMarkers`: gem-dot expression clouds for
   a focused receptor/target. Exports `buildGemCloud` + `GEM_DOT_SIZE` (reused by
   the drug animation). See Receptors & targets.
+- `js/receptor-effects.js`: `resolveEffects` (an owner's `effects[]` -> display rows) +
+  `derivePossibleEffects` (the drug panel's direction-aware join). Pure, no DOM. See
+  Receptors & targets (Effects).
 - `js/drug-anim.js`: `createDrugAnimation`: per-drug effect-coloured gem dots +
   surface wash; `matches`. Flow overlay reuses `circuit-anim.js`. See Drugs.
 - `js/surface-wash.js`: shared `buildWashShell` + `washStrength` "wash of light"
