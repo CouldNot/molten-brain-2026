@@ -4635,9 +4635,8 @@ function createInfoPanel(data, sourcingModal) {
           } else {
             head.appendChild(el("span", "bind-target", m.name));
           }
-          head.appendChild(m.sources && m.sources.length
-            ? makeProvenancePill(m.provenance, sourcesTip(m.sources))
-            : makeProvenancePill(m.provenance || null));
+          // The shared node pill, so a link another corpus denies reads orange.
+          head.appendChild(sourceBackedPill(m.provenance || null, m));
           li.appendChild(head);
           // Which enzyme makes it, each its own sourced node and clickable to that
           // enzyme's panel: the prodrug story (why a CYP2D6 poor metabolizer gets a

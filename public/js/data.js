@@ -1395,6 +1395,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         halfLifeProvenance: strongestGrade(m.half_life_sources),
         sources: mapSources(m.sources),
         provenance: strongestGrade(m.sources),
+        // Another corpus denies the metabolite is active (quotes/contradictions.py).
+        uncertainty: mapUncertainty(m.uncertainty),
       };
     });
   }
