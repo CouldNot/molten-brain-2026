@@ -13,6 +13,7 @@
 import { resolveEffects } from "./receptor-effects.js";
 import { resolveModulation } from "./release-modulation.js";
 import { resolveDemographics } from "./receptor-demographics.js";
+import { resolveVariants } from "./receptor-variants.js";
 
 // Repeat-visit speed/offline resilience for these files is handled by the service
 // worker (stale-while-revalidate for /data/*, see public/sw.js), not here.
@@ -1644,6 +1645,23 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     tgt.demographicInfo = resolveDemographics(raw, demographicVocab)
       .map((n) => ({ ...n, sources: mapSources(n.sources) }));
     if (tgt.receptor) tgt.receptor.demographicInfo = tgt.demographicInfo;
+  }
+
+  // receptor_variant nodes (ClinPGx #20): each target's "Genetic variants" rows
+  // (js/receptor-variants.js). A receptor-linked target reads its receptor's record.
+  const vv = metaRecord.variants || {};
+  const variantVocab = {
+    levels: Object.fromEntries(Object.entries(vv.levels || {})
+      .map(([k, v]) => [k, { strength: localize(v.strength), label: localize(v.label) }])),
+    categories: localizeMap(vv.categories),
+    populations: localizeMap(vv.populations),
+  };
+  const drugNameOf = (id) => (drugById.get(id) || {}).name || null;
+  for (const tgt of targets) {
+    const raw = tgt.receptor ? tgt.receptor.variants : (drugTargets[tgt.id] || {}).variants;
+    tgt.variantInfo = resolveVariants(raw, variantVocab, drugNameOf)
+      .map((n) => ({ ...n, sources: mapSources(n.sources) }));
+    if (tgt.receptor) tgt.receptor.variantInfo = tgt.variantInfo;
   }
 
   // The reverse of a receptor's "Found in": region base -> the targets expressed

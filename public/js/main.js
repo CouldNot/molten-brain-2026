@@ -37,6 +37,7 @@ import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
 import { derivePossibleEffects } from "./receptor-effects.js";
+import { groupByVariant, variantsForDrug } from "./receptor-variants.js";
 import { deriveReleaseChanges, transmitterVars } from "./release-modulation.js";
 import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
@@ -2402,6 +2403,88 @@ function createInfoPanel(data, sourcingModal) {
     appendFolded(sec);
   };
 
+  // One receptor_variant row: the evidence-level chip (its meaning on hover), the
+  // conditional sentence, the node's pill (ClinPGx's per-genotype sentences on hover),
+  // then a muted line with the phenotypes, the population and the ClinPGx link.
+  // `prefix` names the variant when the row is not already under its heading.
+  const variantRow = (row, prefix) => {
+    const li = el("li", "var-row");
+    li.appendChild(attachTip(el("span", "var-level",
+      t("variant.level", { level: row.level, strength: row.strength })), row.levelLabel));
+    const drugs = [...row.drugs.map((d) => d.name), ...row.drugNames].join(", ");
+    const category = row.categories.join(", ");
+    const text = drugs ? t("variant.assoc", { category, drugs })
+      : t("variant.assocNoDrug", { category });
+    li.appendChild(el("span", "loc-name",
+      prefix ? t("variant.withVariant", { variant: prefix, text }) : text));
+    li.appendChild(sourceBackedPill(row.provenance, row));
+    const meta = el("span", "var-meta",
+      [row.phenotypes.join(", "),
+       row.population ? t("variant.population", { population: row.population }) : ""]
+        .filter(Boolean).join(" · "));
+    if (row.url) {
+      const a = el("a", null, t("variant.link"));
+      a.href = row.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.title = t("variant.linkTitle");
+      if (meta.textContent) meta.appendChild(document.createTextNode(" · "));
+      meta.appendChild(a);
+    }
+    li.appendChild(meta);
+    return li;
+  };
+
+  // A receptor / target panel's "Genetic variants" section (ClinPGx #20): the gene's
+  // annotated variants, one sub-heading per variant, strongest level first, folded,
+  // with the not-medical-advice caveat once at the end.
+  const appendVariants = (rows) => {
+    if (!rows || !rows.length) return;
+    const sec = el("div", "info-locations info-variants");
+    sec.dataset.tourSec = "variants";
+    sec.appendChild(el("h3", null, t("variant.heading")));
+    sec.appendChild(el("p", "legend-caption", t("variant.hint")));
+    for (const group of groupByVariant(rows)) {
+      sec.appendChild(el("h4", "var-name", group.variant));
+      const ul = el("ul");
+      for (const row of group.rows) ul.appendChild(variantRow(row));
+      sec.appendChild(ul);
+    }
+    sec.appendChild(el("p", "var-caveat", t("variant.caveat")));
+    appendFolded(sec);
+  };
+
+  // The drug panel's "Gene variants annotated for this drug": every receptor_variant
+  // node naming this drug, grouped under the target whose gene carries it (the
+  // heading jumps to that target). Folded with the rest of the drug panel.
+  const appendDrugVariants = (drug) => {
+    const hits = variantsForDrug(drug.id, data.targets);
+    if (!hits.length) return;
+    const sec = el("div", "info-locations info-variants");
+    sec.dataset.tourSec = "variants";
+    sec.appendChild(el("h3", null, t("variant.drugHeading")));
+    sec.appendChild(el("p", "legend-caption", t("variant.drugHint")));
+    const byTarget = new Map();
+    for (const { target, row } of hits) {
+      if (!byTarget.has(target)) byTarget.set(target, []);
+      byTarget.get(target).push(row);
+    }
+    for (const [target, rows] of byTarget) {
+      const head = el("h4", "var-name");
+      const chip = el("button", "var-target", target.name);
+      chip.type = "button";
+      if (target.focusable) chip.addEventListener("click", () => onTargetPick(target));
+      else chip.disabled = true;
+      head.appendChild(chip);
+      sec.appendChild(head);
+      const ul = el("ul");
+      for (const row of rows) ul.appendChild(variantRow(row, row.variant));
+      sec.appendChild(ul);
+    }
+    sec.appendChild(el("p", "var-caveat", t("variant.caveat")));
+    body.appendChild(sec);
+  };
+
   // The drug panel's derived "Possible release changes" (BETA): its directional
   // bindings joined with the release-modulation nodes of their receptors
   // (js/release-modulation.js), an antagonist flipping the effect of activation and
@@ -4005,6 +4088,7 @@ function createInfoPanel(data, sourcingModal) {
       appendEffects(receptor.effectInfo);
       appendDownstream(receptor.modulationInfo);
       appendDemographics(receptor.demographicInfo);
+      appendVariants(receptor.variantInfo);
 
       // Drugs that act on this receptor, grouped by category.
       appendInteractingDrugs(receptor.id);
@@ -4084,6 +4168,7 @@ function createInfoPanel(data, sourcingModal) {
       body.appendChild(where);
       appendEffects(target.effectInfo);
       appendDemographics(target.demographicInfo);
+      appendVariants(target.variantInfo);
 
       // Drugs that act on this target, grouped by category.
       appendInteractingDrugs(target.id);
@@ -4606,6 +4691,7 @@ function createInfoPanel(data, sourcingModal) {
       body.appendChild(acts);
       appendPossibleEffects(drug);
       appendReleaseChanges(drug);
+      appendDrugVariants(drug);
 
       // Active metabolites: one row per metabolite (its own sourced identity node).
       // A metabolite that is itself a modeled drug links to it (jump via onDrugPick);
