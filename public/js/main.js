@@ -2128,9 +2128,33 @@ function createInfoPanel(data, sourcingModal) {
   // deep in a long panel would open the next one already scrolled into its middle,
   // with no visible reason. One helper instead of a line per show*(), so a new view
   // cannot forget it.
-  const clearBody = () => {
+  const clearBody = (view = "") => {
     body.innerHTML = "";
+    body.dataset.view = view;
     if (pane) pane.scrollTop = 0;
+  };
+  // The sections a reader unfolded, remembered per kind of view (drug, receptor, ...)
+  // and re-opened on every later panel of that kind, so switching drug -> drug keeps
+  // Pharmacokinetics open for a side-by-side read instead of folding it back up.
+  // Kept current by the toggle listener below, which also sees a flashRow jump.
+  const openByView = new Map(); // view -> Set of section keys
+  const sectionKey = (det) => det.dataset.tourSec
+    || (det.querySelector(":scope > summary")?.textContent || "").replace(/[\d()]/g, "").trim();
+  body.addEventListener("toggle", (e) => {
+    const det = e.target;
+    if (det.parentElement !== body || !det.classList.contains("panel-sec")) return;
+    const view = body.dataset.view;
+    if (!openByView.has(view)) openByView.set(view, new Set());
+    const open = openByView.get(view);
+    if (det.open) open.add(sectionKey(det)); else open.delete(sectionKey(det));
+  }, true); // capture: toggle does not bubble
+  // foldSections, then unfold what the reader had open on this kind of view.
+  const foldBody = () => {
+    foldSections(body);
+    const open = openByView.get(body.dataset.view);
+    if (!open) return;
+    for (const det of body.querySelectorAll(":scope > details.panel-sec"))
+      if (open.has(sectionKey(det))) det.open = true;
   };
   const nameOf = (id) => data.byId.get(id)?.name || id;
   // Hemisphere-stripped name ("Frontal lobe", not "Right frontal lobe"): used by
@@ -3922,7 +3946,7 @@ function createInfoPanel(data, sourcingModal) {
 
   return {
     show(proj) {
-      clearBody();
+      clearBody("connection");
       body.appendChild(el("h2", "info-title", proj.label || t("info.connection")));
       // Type line: the connection's analogue of a structure's group line ("Lobe"
       // etc.), stating plainly what this node is (a projection / neuron pathway).
@@ -3997,7 +4021,7 @@ function createInfoPanel(data, sourcingModal) {
      * onConnectionPick so the caller can frame it + open the connection panel.
      */
     showStructure(structure) {
-      clearBody();
+      clearBody("structure");
       body.appendChild(el("h2", "info-title", structure.name));
       // The anatomy classification grade (existence / group / position) rides the
       // group line it actually grades, not a broad "Source" row at the bottom (a
@@ -4052,7 +4076,7 @@ function createInfoPanel(data, sourcingModal) {
       // them, so this section is outside the branch above.
       appendExpressedTargets(stripSide(structure.id));
       // Headed sections start folded, like the drug panel (see foldSections).
-      foldSections(body);
+      foldBody();
     },
 
     /**
@@ -4064,7 +4088,7 @@ function createInfoPanel(data, sourcingModal) {
      * or a no-CNS-role note for a stub). Built fresh each call like the others.
      */
     showReceptor(receptor) {
-      clearBody();
+      clearBody("receptor");
       body.appendChild(el("h2", "info-title", receptor.name));
       body.appendChild(el("div", "info-group", receptor.familyLabel));
       appendAddons(body, "receptor", receptor.id, "receptor.top");
@@ -4136,7 +4160,7 @@ function createInfoPanel(data, sourcingModal) {
       // Drugs that act on this receptor, grouped by category.
       appendInteractingDrugs(receptor.id);
       // Headed sections start folded, like the drug panel (see foldSections).
-      foldSections(body);
+      foldBody();
     },
 
     /**
@@ -4148,7 +4172,7 @@ function createInfoPanel(data, sourcingModal) {
      * showReceptor view; this is the lighter sibling for the non-receptor targets.
      */
     showTarget(target) {
-      clearBody();
+      clearBody("target");
       body.appendChild(el("h2", "info-title", target.name));
       body.appendChild(el(
         "div", "info-group", target.systemLabel || t("targets.otherSystem")));
@@ -4221,7 +4245,7 @@ function createInfoPanel(data, sourcingModal) {
       // (α2A/B/C/D, ...) in a collapsed per-subtype dropdown below the group's own.
       appendSubtypeInteractors(target.subtypes);
       // Headed sections start folded, like the drug panel (see foldSections).
-      foldSections(body);
+      foldBody();
     },
 
     /**
@@ -4236,7 +4260,7 @@ function createInfoPanel(data, sourcingModal) {
      * here (the Stahl pharmacokinetics line), so the claim is auditable in place.
      */
     showEnzyme(enzyme) {
-      clearBody();
+      clearBody("enzyme");
       body.appendChild(el("h2", "info-title", enzyme.label));
       body.appendChild(el("div", "info-group", t("enzyme.heading")));
       const { wiki: enzWiki } = appendReference({ url: enzyme.wikipedia });
@@ -4356,7 +4380,7 @@ function createInfoPanel(data, sourcingModal) {
       if (!rows.length) {
         wrap.appendChild(el("p", "info-desc", t("enzyme.noDrugs")));
         body.appendChild(wrap);
-        foldSections(body);
+        foldBody();
         return;
       }
       // Group by role in the vocabulary's own order (substrate, inhibitor, inducer)
@@ -4380,7 +4404,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       body.appendChild(wrap);
       // Headed sections start folded, like the drug panel (see foldSections).
-      foldSections(body);
+      foldBody();
     },
 
     /**
@@ -4400,7 +4424,7 @@ function createInfoPanel(data, sourcingModal) {
     // opts.highlightEnzymes: enzyme ids, in the "Metabolism" section. Used when arriving
     //   from another drug's Interactions row, which names the isoform they share.
     showDrug(drug, opts = {}) {
-      clearBody();
+      clearBody("drug");
       body.appendChild(el("h2", "info-title", drug.label || drug.name));
       if (drug.category) body.appendChild(el("div", "info-group", drug.category));
       // This drug IS another drug's active metabolite (paliperidone = risperidone's
@@ -5144,7 +5168,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       // Every headed section starts collapsed (a drug panel is long): the heading
       // opens it, its content indented under it.
-      foldSections(body);
+      foldBody();
     },
 
     /**
@@ -5157,7 +5181,7 @@ function createInfoPanel(data, sourcingModal) {
      * locationList so nothing is duplicated.
      */
     showCircuit(circuit) {
-      clearBody();
+      clearBody("circuit");
       body.appendChild(el("h2", "info-title", circuit.name));
       // The circuit's source grade sits on its identity line (always shown, NOSOURCE
       // when llm-only), not a "Sources" block below the member lists (which would read
@@ -5215,7 +5239,7 @@ function createInfoPanel(data, sourcingModal) {
         (p) => idSet.has(p.from) && idSet.has(p.to));
       appendPathwayList(t("circuit.pathways"), members, "pathways");
       // Headed sections start folded, like the drug panel (see foldSections).
-      foldSections(body);
+      foldBody();
     },
 
     /**
@@ -5227,7 +5251,7 @@ function createInfoPanel(data, sourcingModal) {
      * derived not stored).
      */
     showProjectionGroup(group) {
-      clearBody();
+      clearBody("group");
       body.appendChild(el("h2", "info-title", group.name));
       // The group's source grade rides its identity line (always shown, NOSOURCE when
       // llm-only), not a "Sources" block at the bottom. The description keeps its own
@@ -5286,7 +5310,7 @@ function createInfoPanel(data, sourcingModal) {
         }
       }
       // Headed sections start folded, like the drug panel (see foldSections).
-      foldSections(body);
+      foldBody();
     },
 
     /** Register the handler run when a structure-panel connection row is clicked. */
@@ -5367,7 +5391,7 @@ function createInfoPanel(data, sourcingModal) {
      * @param {HTMLElement} elm the container built by js/node-browser.js
      */
     showNodeBrowser(elm) {
-      clearBody();
+      clearBody("browser");
       body.appendChild(el("h2", "info-title", t("panel.nodes")));
       body.appendChild(elm);
     },
@@ -5379,7 +5403,7 @@ function createInfoPanel(data, sourcingModal) {
      * @param {HTMLElement} elm the container built by js/simulation.js
      */
     showSimulation(elm) {
-      clearBody();
+      clearBody("simulation");
       body.appendChild(el("h2", "info-title", t("panel.simulation")));
       body.appendChild(elm);
     },

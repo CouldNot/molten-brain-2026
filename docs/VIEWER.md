@@ -92,7 +92,7 @@ focus uses `setCircuit` but never `play`).
 
 ## Folded panel sections
 
-Every `show*()` detail panel (drug, receptor, target, enzyme, structure, circuit, projection group) ends with `foldSections(body)` (`js/main.js`): each `h3`-headed section becomes a collapsed `details.disclosure.panel-sec`, body indented; the unheaded top (title, group line, addons, image, description, receptor facts) stays visible. A jump into a section opens it first: `flashRow` opens every ancestor `<details>`, and a tour step uses `tourOpenSec(ensure, sec)`. The projection panel has no headed section, so it is not folded.
+Every `show*()` detail panel (drug, receptor, target, enzyme, structure, circuit, projection group) ends with `foldBody()` (`js/main.js`, `foldSections` then reopen): each `h3`-headed section becomes a collapsed `details.disclosure.panel-sec`, body indented; the unheaded top (title, group line, addons, image, description, receptor facts) stays visible. Sections the reader unfolded are remembered per kind of view (`openByView`, keyed by `clearBody(view)`) and reopened on every later panel of that kind, so drug -> drug keeps the same sections open; each tab's scroll is restored by the tab strip (`scrollByKey`). A jump into a section opens it first: `flashRow` opens every ancestor `<details>`, and a tour step uses `tourOpenSec(ensure, sec)`. The projection panel has no headed section, so it is not folded.
 
 ## Circuit + projection-group panels
 
