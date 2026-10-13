@@ -1,6 +1,37 @@
 {
   "versions": [
     {
+      "version": "3.114.1",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "A DailyMed label is now read with its route of administration, so a generic asenapine \"tablet\" counts as sublingual and \"Extended Phenytoin Sodium Capsules\" as extended release: their peak times now sit on the right formulation",
+          "commits": [
+            "e407303",
+            "ba311f6"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Revex is listed as nalmefene's US injectable brand, not a French one",
+          "commits": [
+            "23c9cc6"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "The citations downgraded in 3.114.0 are sourced again: amisulpride and lumateperone D2 antagonism (Stahl), asenapine and phenytoin peak times (US labels), Revex (Carlat), sibutramine's two metabolites on the serotonin, noradrenaline and dopamine transporters, and disulfiram's active metabolite (Europe PMC abstracts)",
+          "commits": [
+            "23c9cc6",
+            "ba311f6",
+            "5c432cc",
+            "3a6218d"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.114.0",
       "date": "2026-10-13",
       "entries": [
