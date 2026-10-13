@@ -1,6 +1,35 @@
 {
   "versions": [
     {
+      "version": "3.116.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Receptor and target panels gain a \"Genetic variants\" section: the variants of the receptor's gene that ClinPGx (formerly PharmGKB) associates with how people respond to a drug, grouped by variant (DRD2 Taq1A, OPRM1 A118G, the serotonin transporter's long and short forms, ...), each with its evidence level, a conditional \"may be associated with\" sentence, the phenotypes, a link to ClinPGx and a source pill carrying ClinPGx's own per-genotype sentences, under one not-medical-advice caveat",
+          "commits": [
+            "db5451b",
+            "6c68c3a"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "A drug panel lists the gene variants ClinPGx annotates for that drug by name, grouped under the receptor or target whose gene carries them",
+          "commits": [
+            "6c68c3a"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "New source: ClinPGx clinical annotations (CC BY-SA 4.0), 546 annotations over 46 receptor and target genes at evidence levels 1A to 3 (level 4 left out; all but two are level 3, a single study or several that do not clearly agree), each quote copied verbatim from a committed, pinned export and re-checked against it on every build",
+          "commits": [
+            "db5451b",
+            "97cb8fc"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.115.1",
       "date": "2026-10-13",
       "entries": [
