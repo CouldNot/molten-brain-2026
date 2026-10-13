@@ -126,6 +126,9 @@
       ]
     }
   },
+  "tone_factors": {
+    "autoreceptor": 0.5
+  },
   "receptor_family_labels": {
     "adrenergic": "Adrenergic",
     "cholinergic": "Cholinergic",

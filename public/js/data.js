@@ -216,18 +216,36 @@ const AFFINITY_DEFAULT = 0.55;
  * @param {{median:number}|null} ki
  */
 export function affinityWeightOf(ki) {
-  if (!ki || !(ki.median > 0)) return AFFINITY_DEFAULT;
+  const t = kiRamp(ki);
+  return t === null ? AFFINITY_DEFAULT : 0.35 + 0.65 * t;
+}
+
+// pKi ramp shared by both weights: 0 at Ki >= 1 uM, 1 at Ki <= 0.1 nM, null without a Ki.
+function kiRamp(ki) {
+  if (!ki || !(ki.median > 0)) return null;
   const pKi = 9 - Math.log10(ki.median); // median is in nM
-  const t = Math.max(0, Math.min(1, (pKi - 6) / 4)); // 1 uM..0.1 nM -> 0..1
-  return 0.35 + 0.65 * t;
+  return Math.max(0, Math.min(1, (pKi - 6) / 4));
+}
+
+const TONE_WEIGHT_NO_KI = 0.5;
+/**
+ * A binding's weight in its system's indicative tone: the bare pKi ramp, 0 at
+ * Ki >= 1 uM up to 1 at Ki <= 0.1 nM, TONE_WEIGHT_NO_KI (a 10 nM binding) without a
+ * Ki. No floor, unlike affinityWeightOf (whose floor keeps a weak binding's dots
+ * visible): with one, several micromolar hits summed past a sub-nanomolar one.
+ * @param {{median:number}|null} ki
+ */
+export function toneWeightOf(ki) {
+  const t = kiRamp(ki);
+  return t === null ? TONE_WEIGHT_NO_KI : t;
 }
 
 /**
  * A drug's indicative tone per transmitter system (the "Neurotransmitter tone"
  * section and the flow overlay): every tone-setting binding adds
- * `toneSign * affinityWeight` to its system's sum; postsynaptic receptors carry
+ * `toneSign * toneFactor * toneWeight` to its system's sum; postsynaptic receptors carry
  * toneSign 0 and add nothing. A zero sum drops the system (opposing bindings cancel).
- * @param {object[]} bindings resolved bindings ({flowKind, toneSign, affinityWeight})
+ * @param {object[]} bindings resolved bindings ({flowKind, toneSign, toneFactor, toneWeight})
  * @returns {Object<string, {direction:number, weight:number, sum:number,
  *   terms:object[]}>} per kind: sign of the sum, |sum| capped at 1, the raw sum, and
  *   the bindings that make it up (in binding order)
@@ -237,7 +255,7 @@ export function toneBySystem(bindings) {
   for (const b of bindings) {
     if (!b.flowKind || !b.toneSign) continue;
     const e = acc.get(b.flowKind) || { sum: 0, terms: [] };
-    e.sum += b.toneSign * b.affinityWeight;
+    e.sum += b.toneSign * (b.toneFactor ?? 1) * b.toneWeight;
     e.terms.push(b);
     acc.set(b.flowKind, e);
   }
@@ -818,6 +836,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   };
   const toneSignOf = (tgt, action) => (toneRuleEntry(tgt, action) || [0])[0];
   const toneRuleOf = (tgt, action) => (toneRuleEntry(tgt, action) || [0, null])[1];
+  // The bucket's share relative to a reuptake block (meta.tone_factors, default 1).
+  const toneFactors = metaRecord.tone_factors || {};
+  const toneFactorOf = (tgt) => toneFactors[toneBucketOf(tgt)] ?? 1;
   // Normalize a quote-level sources list (a binding's `sources` or a drug's
   // `nbn_sources`) into the shape the panel renders.
   const mapSources = (sources) =>
@@ -1217,6 +1238,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         // Why it sets that tone (meta.tone_rules driver, e.g. "reuptake_block"), shown
         // in the drug panel's tone breakdown; null when it sets none.
         toneRule: inert ? null : toneRuleOf(tgt, b.action),
+        // Its share of that tone: the bucket factor (an autoreceptor counts half a
+        // reuptake block) times the floor-free Ki weight (see toneBySystem).
+        toneFactor: inert ? 1 : toneFactorOf(tgt),
+        toneWeight: inert ? 0 : toneWeightOf(b.ki),
         // Per-claim sources ({corpus, page, quote, provenance}); `provenance` is the
         // strongest grade among the quote sources AND the measured Ki. See
         // bindingDisplayFields / _binding_grade in generate_data.py.
@@ -1239,7 +1264,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     // By-mechanism flow, split from the dots (approach 3): a projection kind gets a
     // flow overlay ONLY from *tone-setter* bindings (transporters, enzymes, vesicle
     // proteins, presynaptic inhibitory autoreceptors), never from a postsynaptic
-    // receptor (those stay dots). Per engaged kind we sum toneSign*affinityWeight so
+    // receptor (those stay dots). Per engaged kind we sum toneSign*toneFactor*toneWeight so
     // combos and opposing autoreceptors resolve to a net signed tone; the sign is the
     // flow direction (boost vs damp) and the clamped magnitude its intensity.
     d.flowSystems = toneBySystem(d.bindings);
@@ -1818,6 +1843,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       provenanceStats,
       addonSlots,
       addonTones,
+      // Per-bucket share of a tone (see toneBySystem); the drug panel's caption names it.
+      toneFactors,
       quotePipelines,
       effectModes,
     },

@@ -79,8 +79,11 @@ fixed Stahl list.
   non-empty), opening with a derived "indicative only" caution box and the formula caption: one row per
   ascending system whose tone the drug sets (jumps to that kind-mode group), an out-/in-arrow and the
   signed raw sum `flowSystems[kind].sum`, then one line per contributing binding (`toneBySystem` terms in
-  `js/data.js`: target, `tone.rule.<driver>` label from `meta.tone_rules`, `±1 × affinityWeightOf(ki)`,
-  its own pill). The overlay's capped `weight` only scales the animation. Class +
+  `js/data.js`: target, `tone.rule.<driver>` label from `meta.tone_rules`, `±1 × factor × toneWeightOf(ki)`,
+  its own pill). `toneWeightOf` is the floor-free Ki ramp (0 at 1 µM, 1 at 0.1 nM, 0.5 without a Ki) so weak hits
+  add up without each counting as a strong one; `factor` comes from `meta.tone_factors` (`TONE_FACTORS` in
+  `tools/data_generators/drugs.py`: an autoreceptor counts 0.5x, its brake on release being partial). The
+  gem dots and the overlay's `weight` keep the floored `affinityWeightOf`. Class +
   Nomenclature are clickable (open search with a `class:`/`nbn:` filter) and each carries its grade
   pill: the NbN quote source, and the class classification's `category_provenance` (its own node, kind
   `drug_categories`, default `llm`, upgradeable via `DRUG_CATEGORY_PROVENANCE` / `category_sources`).

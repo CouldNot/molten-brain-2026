@@ -233,6 +233,15 @@ TONE_RULES: dict[str, dict[str, list]] = {
     },
 }
 
+# How much one binding of a bucket counts toward its system's indicative tone,
+# relative to a reuptake block (1). An autoreceptor only trims feedback on release,
+# so blocking or engaging it moves the tone less than stopping reuptake does; at full
+# weight a few weak 5-HT1 autoreceptor hits outranked every SSRI. Emitted as
+# ``meta.tone_factors``; a bucket not listed counts 1.
+TONE_FACTORS: dict[str, float] = {
+    "autoreceptor": 0.5,
+}
+
 # --- Drug metabolism (the enzymes a drug is handled by, or acts on) -------------
 # A separate axis from the binding targets above: this is pharmacokinetics, so it has
 # no anatomy and never lights the 3D scene (these are liver enzymes). It answers

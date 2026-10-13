@@ -13,7 +13,7 @@
 
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { affinityWeightOf, loadBrainData, loadSearchNames, withFetched } from "./data.js";
+import { toneWeightOf, loadBrainData, loadSearchNames, withFetched } from "./data.js";
 import { rankMatch } from "./search-rank.js";
 import { buildStructureMesh } from "./shapes.js";
 import { createSdfPool } from "./sdf-pool.js";
@@ -4885,8 +4885,8 @@ function createInfoPanel(data, sourcingModal) {
         warn.appendChild(el("p", "addon-text", t("drug.toneWarn")));
         proj.appendChild(warn);
         proj.appendChild(el("p", "legend-caption", t("drug.toneHow", {
-          min: fmtTone(affinityWeightOf({ median: 1000 })).slice(1),
-          none: fmtTone(affinityWeightOf(null)).slice(1) })));
+          none: fmtTone(toneWeightOf(null)).slice(1),
+          auto: fmtTone((data.meta.toneFactors || {}).autoreceptor ?? 1).slice(1) })));
         const ul = el("ul");
         for (const kind of drug.flowKinds) {
           const group = groupsByKey.get(`kind:${kind}`);
@@ -4908,8 +4908,13 @@ function createInfoPanel(data, sourcingModal) {
             const row = el("div", "tone-term");
             row.appendChild(el("span", "tone-term-target", b.targetName));
             row.appendChild(el("span", "tone-term-rule", t(`tone.rule.${b.toneRule}`)));
+            // "+1 × 0.50 × 0.43 = +0.21": sign, bucket factor (shown only when not 1),
+            // Ki weight; the same product toneBySystem sums.
+            const factor = b.toneFactor ?? 1;
+            const mag = (v) => fmtTone(v).slice(1);
             row.appendChild(el("span", "tone-term-math",
-              `${b.toneSign > 0 ? "+1" : "−1"} × ${fmtTone(b.affinityWeight).slice(1)} = ${fmtTone(b.toneSign * b.affinityWeight)}`));
+              `${b.toneSign > 0 ? "+1" : "−1"}${factor !== 1 ? ` × ${mag(factor)}` : ""} × ${mag(b.toneWeight)}`
+              + ` = ${fmtTone(b.toneSign * factor * b.toneWeight)}`));
             row.appendChild(bindingProvenancePill(b));
             const tgt = targetById.get(b.target);
             if (tgt && tgt.focusable) {

@@ -117,6 +117,7 @@ from data_generators.drugs import (  # noqa: E402
     METABOLIZER_PHENOTYPES,
     TARGET_TYPE_COLORS,
     TARGET_TYPE_LABELS,
+    TONE_FACTORS,
     TONE_RULES,
 )
 
@@ -785,6 +786,9 @@ def _check_tone_rules() -> None:
                 raise SystemExit(
                     f"TONE_RULES[{bucket!r}][{action!r}] must be [+1|-1, mechanism]"
                 )
+    for bucket, factor in TONE_FACTORS.items():
+        if bucket not in TONE_RULES or not 0 < factor <= 1:
+            raise SystemExit(f"TONE_FACTORS[{bucket!r}] must name a TONE_RULES bucket, 0 < factor <= 1")
 
 
 def _build_drug_targets(receptors: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
@@ -1935,6 +1939,7 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # Emitted rather than transcribed because two consumers need the same rule:
         # the viewer animates it and check_data cross-checks it.
         "tone_rules": TONE_RULES,
+        "tone_factors": TONE_FACTORS,
         # Receptor legend maps: family -> heading, mechanism class -> label, and
         # pre/post-synaptic -> label (all bilingual). The per-receptor sign reuses
         # sign_colors / sign_labels above, so the receptor legend needs no extra
