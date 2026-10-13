@@ -11,6 +11,7 @@
 // CLAUDE.md ("Running"). Opening index.html via file:// will fail CORS.
 //
 import { resolveEffects } from "./receptor-effects.js";
+import { resolveModulation } from "./release-modulation.js";
 
 // Repeat-visit speed/offline resilience for these files is handled by the service
 // worker (stale-while-revalidate for /data/*, see public/sw.js), not here.
@@ -489,7 +490,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // claim amber, like the Ki chip, and shows the species in the pill tooltip.
   // Shared by receptor + non-receptor-target location lists so the species logic
   // lives once (both kinds carry the same location_sources node shape).
-  const locationEntry = (base, name, sources) => {
+  // `uncertainty` is the region's own bullets (an animal-only claim, see
+  // quotes/animal_evidence.py), kept raw like `sources`: they turn its pill orange.
+  const locationEntry = (base, name, sources, uncertainty) => {
     const srcs = sources || [];
     const speciesList = srcs.map((s) => s.species).filter(Boolean);
     // Prefer a Human assay when any source carries one: a region we have confirmed
@@ -501,6 +504,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     return {
       base, name, sources: srcs,
       provenance: strongestGrade(srcs) || "llm",
+      uncertainty: uncertainty || [],
       species,
       nonHuman: !!species && species !== "Human",
     };
@@ -706,8 +710,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     // expressed in region B" is graded per region (default llm when unsourced), so
     // the panel shows a pill per row. Parallel to locations/locationNames.
     const locSrc = r.location_sources || {};
+    const locDoubt = r.location_uncertainty || {};
     r.locationInfo = r.locations.map((b, i) =>
-      locationEntry(b, r.locationNames[i], locSrc[b]));
+      locationEntry(b, r.locationNames[i], locSrc[b], locDoubt[b]));
     // How much of it sits in each region (one measured profile over those regions,
     // its own graded node). Null when unmeasured -> the panel just omits the bars.
     r.densityInfo = densityEntry(r.density);
@@ -1579,7 +1584,8 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       // unsourced), so the panel shows a per-row pill, exactly like a receptor's
       // locationInfo. From the emitted target.location_sources ({base: [source]}).
       locationInfo: (tgt.regions || []).map((b) =>
-        locationEntry(b, baseName.get(b) || b, (tgt.location_sources || {})[b])),
+        locationEntry(b, baseName.get(b) || b, (tgt.location_sources || {})[b],
+          (tgt.location_uncertainty || {})[b])),
       // Relative amount per region, the mirror of a receptor's densityInfo.
       densityInfo: densityEntry(tgt.density),
       keywords: [typeLabel, systemLabel].filter(Boolean).join(" "),
@@ -1600,6 +1606,26 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     tgt.effectInfo = rows;
     if (tgt.receptor) tgt.receptor.effectInfo = rows;
     if (rows.length) effectsByTarget.set(tgt.id, rows);
+  }
+
+  // receptor_release_modulation nodes (BETA): target id -> resolved rows, for the
+  // receptor panel's Downstream section and the drug panel's derived release changes
+  // (js/release-modulation.js). Receptors only: a release-modulation node sits on one.
+  const rm = metaRecord.release_modulation || {};
+  const modulationVocab = {
+    kinds: localizeMap(rm.kinds),
+    cells: localizeMap(rm.cells),
+    transmitters: Object.fromEntries(Object.entries(rm.transmitters || {})
+      .map(([k, v]) => [k, { label: localize(v.label), system: v.system }])),
+  };
+  const modulationByTarget = new Map();
+  for (const tgt of targets) {
+    if (!tgt.receptor) continue;
+    const rows = resolveModulation(tgt.receptor.release_modulation, modulationVocab)
+      .map((n) => ({ ...n, sources: mapSources(n.sources) }));
+    tgt.receptor.modulationInfo = rows;
+    tgt.modulationInfo = rows;
+    if (rows.length) modulationByTarget.set(tgt.id, rows);
   }
 
   // The reverse of a receptor's "Found in": region base -> the targets expressed
@@ -1708,6 +1734,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     addons,
     addonsBySlot,
     effectsByTarget,
+    modulationByTarget,
     byId,
     meta: {
       projectionColors,

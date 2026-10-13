@@ -37,13 +37,14 @@ import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
 import { derivePossibleEffects } from "./receptor-effects.js";
+import { deriveReleaseChanges, transmitterVars } from "./release-modulation.js";
 import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
 // already resolved to the chosen language by js/data.js.
-const { t } = window.__I18N__;
+const { t, deNoun } = window.__I18N__;
 
 // Explode slider is 0..1; this is how much extra radial distance the most
 // outward regions travel at slider = 1 (as a multiple of their base distance
@@ -2201,11 +2202,7 @@ function createInfoPanel(data, sourcingModal) {
       li.classList.add("clickable");
       li.addEventListener("click", () => onStructurePick(base));
     }
-    if (meta) {
-      const tip = meta.sources && meta.sources.length
-        ? sourcesTip(meta.sources) : t("receptor.locUnsourced");
-      li.appendChild(makeProvenancePill(meta.provenance, tip));
-    }
+    if (meta) li.appendChild(locationPill(meta));
     // How much sits here, when the owner carries a measured profile: a bar scaled
     // against its own strongest region (see densityEntry) plus the signed z, since a
     // bar alone would read as an absolute quantity it is not. Last in the row so the
@@ -2287,17 +2284,54 @@ function createInfoPanel(data, sourcingModal) {
     return h;
   };
 
+  // The shell every beta panel section shares (receptor_effect, release modulation):
+  // the .info-effects block with its beta heading, its caption and an empty list.
+  const betaSection = (tourSec, headingKey, hintKey) => {
+    const sec = el("div", "info-locations info-effects");
+    sec.dataset.tourSec = tourSec;
+    sec.appendChild(betaHeading(headingKey));
+    sec.appendChild(el("p", "legend-caption", t(hintKey)));
+    const ul = el("ul");
+    sec.appendChild(ul);
+    return { sec, ul };
+  };
+  // A receptor / target panel's beta section folds on its own (the shared
+  // foldSections), so the beta content starts collapsed.
+  const appendFolded = (sec) => {
+    const host = el("div");
+    host.appendChild(sec);
+    foldSections(host);
+    body.appendChild(host.firstElementChild);
+  };
+  // One derived "via" chip on a drug panel: the binding (jumps to its target) plus
+  // the pill of the receptor-level node it was joined with.
+  const viaChip = (binding, node) => {
+    const tgt = targetById.get(binding.target);
+    const chip = el("button", "eff-chip",
+      `${binding.targetName} (${binding.actionLabel || binding.action})`);
+    chip.type = "button";
+    if (tgt && tgt.focusable) chip.addEventListener("click", () => onTargetPick(tgt));
+    else chip.disabled = true;
+    const wrap = el("span", "eff-via-item");
+    wrap.append(chip, sourceBackedPill(node.provenance, node));
+    return wrap;
+  };
+  // One derived drug-panel row: its conditional sentence, then one via chip each.
+  const derivedRow = (text, via) => {
+    const li = el("li", "eff-row");
+    li.appendChild(el("span", "loc-name", text));
+    const box = el("span", "eff-via");
+    for (const { binding, node } of via) box.appendChild(viaChip(binding, node));
+    li.appendChild(box);
+    return li;
+  };
+
   // A receptor / target panel's "Effects" section (BETA): one row per receptor_effect
-  // node, "<effect> · <mode>" with that node's own pill. Folded on its own (the
-  // shared foldSections), so the beta content starts collapsed. Nothing when the
-  // owner carries no sourced effect.
+  // node, "<effect> · <mode>" with that node's own pill. Nothing when the owner
+  // carries no sourced effect.
   const appendEffects = (rows) => {
     if (!rows || !rows.length) return;
-    const sec = el("div", "info-locations info-effects");
-    sec.dataset.tourSec = "effects";
-    sec.appendChild(betaHeading("effects.heading"));
-    sec.appendChild(el("p", "legend-caption", t("effects.hint")));
-    const ul = el("ul");
+    const { sec, ul } = betaSection("effects", "effects.heading", "effects.hint");
     for (const e of rows) {
       const li = el("li");
       li.appendChild(el("span", "loc-name", e.label));
@@ -2305,47 +2339,62 @@ function createInfoPanel(data, sourcingModal) {
       li.appendChild(sourceBackedPill(e.provenance, e));
       ul.appendChild(li);
     }
-    sec.appendChild(ul);
-    const host = el("div");
-    host.appendChild(sec);
-    foldSections(host);
-    body.appendChild(host.firstElementChild);
+    appendFolded(sec);
   };
 
   // The drug panel's derived "Possible effects via its bindings" (BETA): the drug's
   // directional bindings joined with the receptor_effect nodes of their targets
   // (js/receptor-effects.js). Computed, never stored, and worded conditionally: it
-  // says what acting on these receptors can cause, never that this drug does. Each
-  // "via" chip names the binding, jumps to its target and carries the effect node's
-  // own pill. Folded with the rest of the drug panel by its final foldSections.
+  // says what acting on these receptors can cause, never that this drug does.
+  // Folded with the rest of the drug panel by its final foldSections.
   const appendPossibleEffects = (drug) => {
     const effects = derivePossibleEffects(
       drug.bindings, (tid) => data.effectsByTarget.get(tid) || [], data.meta.effectModes);
     if (!effects.length) return;
-    const sec = el("div", "info-locations info-effects");
-    sec.dataset.tourSec = "effects";
-    sec.appendChild(betaHeading("effects.drugHeading"));
-    sec.appendChild(el("p", "legend-caption", t("effects.drugHint")));
-    const ul = el("ul");
+    const { sec, ul } = betaSection("effects", "effects.drugHeading", "effects.drugHint");
     for (const e of effects) {
+      ul.appendChild(derivedRow(t("effects.couldCause", { effect: e.label }), e.via));
+    }
+    body.appendChild(sec);
+  };
+
+  // " in <structure>" for a release-modulation line, or "" when the node names none.
+  const inStructure = (base) => (base
+    ? t("relmod.inStructure", { structure: resolveBase(base)?.base_name
+        || resolveBase(base)?.name || base })
+    : "");
+
+  // A receptor panel's "Downstream" section (BETA): one row per
+  // receptor_release_modulation node, "activating it decreases dopamine release"
+  // + "heteroreceptor on GABA interneurons in VTA" with that node's own pill.
+  const appendDownstream = (rows) => {
+    if (!rows || !rows.length) return;
+    const { sec, ul } = betaSection("downstream", "relmod.heading", "relmod.hint");
+    for (const n of rows) {
       const li = el("li", "eff-row");
-      li.appendChild(el("span", "loc-name", t("effects.couldCause", { effect: e.label })));
-      const via = el("span", "eff-via");
-      for (const { binding, node } of e.via) {
-        const tgt = targetById.get(binding.target);
-        const chip = el("button", "eff-chip",
-          `${binding.targetName} (${binding.actionLabel || binding.action})`);
-        chip.type = "button";
-        if (tgt && tgt.focusable) chip.addEventListener("click", () => onTargetPick(tgt));
-        else chip.disabled = true;
-        const wrap = el("span", "eff-via-item");
-        wrap.append(chip, sourceBackedPill(node.provenance, node));
-        via.appendChild(wrap);
-      }
-      li.appendChild(via);
+      li.appendChild(el("span", "loc-name", t(`relmod.activation.${n.effect}`,
+        transmitterVars(n.transmitterLabel, deNoun))));
+      li.appendChild(sourceBackedPill(n.provenance, n));
+      li.appendChild(el("span", "eff-mode eff-site", t("relmod.site",
+        { kind: n.kindLabel, cell: n.cellLabel, where: inStructure(n.structure) })));
       ul.appendChild(li);
     }
-    sec.appendChild(ul);
+    appendFolded(sec);
+  };
+
+  // The drug panel's derived "Possible release changes" (BETA): its directional
+  // bindings joined with the release-modulation nodes of their receptors
+  // (js/release-modulation.js), an antagonist flipping the effect of activation and
+  // affinity_only contributing nothing. Computed, never stored, worded conditionally.
+  const appendReleaseChanges = (drug) => {
+    const changes = deriveReleaseChanges(
+      drug.bindings, (tid) => data.modulationByTarget.get(tid) || [], data.meta.effectModes);
+    if (!changes.length) return;
+    const { sec, ul } = betaSection("downstream", "relmod.drugHeading", "relmod.drugHint");
+    for (const c of changes) {
+      ul.appendChild(derivedRow(t(`relmod.could.${c.direction}`,
+        { ...transmitterVars(c.transmitterLabel, deNoun), where: inStructure(c.structure) }), c.via));
+    }
     body.appendChild(sec);
   };
 
@@ -2530,11 +2579,16 @@ function createInfoPanel(data, sourcingModal) {
 
   // Localized species name for an assay/expression source (Human/Rat/Mouse/Monkey,
   // as stored in the data); an unknown value passes through unchanged.
+  // A species label: a corpus's own spelling ("Rat") or a tools/species.py key
+  // ("guinea_pig", what an animal_evidence bullet carries), via `species.<key>`.
   const speciesLabel = (s) => {
-    const key = { Human: "species.human", Rat: "species.rat",
-      Mouse: "species.mouse", Monkey: "species.monkey" }[s];
-    return key ? t(key) : (s || "");
+    const key = `species.${String(s || "").toLowerCase().replace(/ /g, "_")}`;
+    const label = t(key);
+    return label === key ? (s || "") : label;
   };
+  // A bullet's slot args as the sentence shows them: a species list is localized.
+  const uncertaintyArgs = (args) => (args && Array.isArray(args.species)
+    ? { ...args, species: args.species.map(speciesLabel).join(", ") } : args || {});
 
   // The tooltip tail under a per-claim provenance pill: every source (all
   // quote-level now) rendered as a line. Shared by the binding + NbN rows and the
@@ -2769,7 +2823,7 @@ function createInfoPanel(data, sourcingModal) {
         u.absence ? NOSOURCE_GLYPH : "✓");
       badge.setAttribute("aria-hidden", "true");
       li.append(badge, el("span", "src-uncertain-text",
-        t(`uncertain.${u.kind}`, u.args || {})));
+        t(`uncertain.${u.kind}`, uncertaintyArgs(u.args))));
       const src = (u.sources || []).map(sourceTipLine).filter(Boolean).join("\n\n");
       if (src) li.appendChild(el("div", "src-uncertain-src", src));
       ul.appendChild(li);
@@ -2781,6 +2835,15 @@ function createInfoPanel(data, sourcingModal) {
   // Prepend uncertaintyTip to whatever tooltip content a pill would otherwise get
   // (a string of source lines, a node, or nothing). Returns `extra` untouched when
   // the node is not flagged, so every non-flagged pill is byte-identical.
+  // One "Found in" region's pill (a locationEntry): orange with its reasons first when
+  // the region carries bullets (animal-only evidence), else its own grade.
+  const locationPill = (meta) => {
+    const doubt = meta.uncertainty && meta.uncertainty.length ? meta.uncertainty : null;
+    const tip = meta.sources && meta.sources.length
+      ? sourcesTip(meta.sources) : t("receptor.locUnsourced");
+    return makeProvenancePill(shownGrade(meta.provenance, doubt), withUncertainty(doubt, tip));
+  };
+
   const withUncertainty = (list, extra) => {
     if (!list) return extra;
     const frag = document.createDocumentFragment();
@@ -3691,11 +3754,7 @@ function createInfoPanel(data, sourcingModal) {
           tag.title = t("receptor.speciesTip", { species: speciesLabel(meta.species) });
           li.appendChild(tag);
         }
-        if (meta) {
-          li.appendChild(makeProvenancePill(meta.provenance,
-            meta.sources && meta.sources.length
-              ? sourcesTip(meta.sources) : t("receptor.locUnsourced")));
-        }
+        if (meta) li.appendChild(locationPill(meta));
         if (tgt.focusable) {
           li.classList.add("clickable");
           li.addEventListener("click", () => onTargetPick(tgt));
@@ -3924,6 +3983,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       body.appendChild(where);
       appendEffects(receptor.effectInfo);
+      appendDownstream(receptor.modulationInfo);
 
       // Drugs that act on this receptor, grouped by category.
       appendInteractingDrugs(receptor.id);
@@ -4523,6 +4583,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       body.appendChild(acts);
       appendPossibleEffects(drug);
+      appendReleaseChanges(drug);
 
       // Active metabolites: one row per metabolite (its own sourced identity node).
       // A metabolite that is itself a modeled drug links to it (jump via onDrugPick);
@@ -6026,6 +6087,7 @@ const KIND_LABELS = {
   target_locations: "about.kindTargetLocations",
   target_density: "about.kindTargetDensity",
   receptor_effect: "about.kindReceptorEffect",
+  receptor_release_modulation: "about.kindReleaseModulation",
   structures: "about.kindStructures",
 };
 
@@ -6508,6 +6570,12 @@ function buildKindExample(kind, data, nav) {
       const eff = pick(recTargets, (t2) => (t2.effectInfo || []).length);
       const e = eff && (eff.effectInfo || [])[0];
       return e ? line(eff.name, `${e.label} (${e.modeLabel})`, () => nav.target(eff)) : null;
+    }
+    case "receptor_release_modulation": {
+      const rm = pick(recTargets, (t2) => (t2.modulationInfo || []).length);
+      const n = rm && (rm.modulationInfo || [])[0];
+      return n ? line(rm.name, t(`relmod.activation.${n.effect}`,
+        transmitterVars(n.transmitterLabel, deNoun)), () => nav.target(rm)) : null;
     }
     case "target_polarity": {
       const pol = pick(otherTargets, (t2) =>

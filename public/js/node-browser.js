@@ -17,6 +17,7 @@
 import { loadFlag, saveFlag } from "./prefs.js";
 import { approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
 import { formatAlert, formatRange } from "./tdm.js";
+import { transmitterVars } from "./release-modulation.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
 // sourced and verified for the same reason the Sources popup's bar does: the quote
@@ -46,6 +47,7 @@ const KIND_ORDER = [
   "target_locations",
   "target_density",
   "receptor_effect",
+  "receptor_release_modulation",
   "drug_bindings",
   "drug_binding_action",
   "drug_nbn",
@@ -295,6 +297,18 @@ export function collectNodes(data, deps, opts = {}) {
     const go = tg.focusable ? () => nav.target(tg) : null;
     for (const e of tg.effectInfo || []) {
       push("receptor_effect", tg.name, `${e.label} (${e.modeLabel})`, e.provenance, go, e);
+    }
+  }
+
+  // receptor_release_modulation (BETA): one row per (receptor, kind, site, transmitter,
+  // direction) node (data.js resolves them onto the receptor's target entry).
+  for (const tg of data.targets || []) {
+    const go = tg.focusable ? () => nav.target(tg) : null;
+    for (const n of tg.modulationInfo || []) {
+      push("receptor_release_modulation", tg.name,
+        `${t(`relmod.activation.${n.effect}`,
+          transmitterVars(n.transmitterLabel, window.__I18N__.deNoun))} `
+          + `(${n.kindLabel}, ${n.cellLabel})`, n.provenance, go, n);
     }
   }
 
