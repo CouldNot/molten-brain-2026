@@ -1,0 +1,741 @@
+{
+ "owners": {
+  "alpha1a": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "glutamatergic_neuron",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     3
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "raphe",
+    "cell": "cell_body",
+    "modulates": "serotonin",
+    "effect": "increase",
+    "picks": [
+     9
+    ]
+   }
+  ],
+  "alpha1b": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "glutamatergic_neuron",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     3
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "raphe",
+    "cell": "cell_body",
+    "modulates": "serotonin",
+    "effect": "increase",
+    "picks": [
+     9
+    ]
+   }
+  ],
+  "alpha1d": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "glutamatergic_neuron",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     3
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "raphe",
+    "cell": "cell_body",
+    "modulates": "serotonin",
+    "effect": "increase",
+    "picks": [
+     9
+    ]
+   }
+  ],
+  "alpha2a": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     13,
+     20
+    ]
+   },
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "cell_body",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "serotonin",
+    "effect": "decrease",
+    "picks": [
+     12,
+     19,
+     18
+    ]
+   }
+  ],
+  "alpha2b": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     13,
+     20
+    ]
+   },
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "cell_body",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "serotonin",
+    "effect": "decrease",
+    "picks": [
+     12,
+     19,
+     18
+    ]
+   }
+  ],
+  "alpha2c": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     13,
+     20
+    ]
+   },
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "cell_body",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "serotonin",
+    "effect": "decrease",
+    "picks": [
+     12,
+     19,
+     18
+    ]
+   }
+  ],
+  "m2": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "acetylcholine",
+    "effect": "decrease",
+    "picks": [
+     0,
+     1
+    ]
+   }
+  ],
+  "m4": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "acetylcholine",
+    "effect": "decrease",
+    "picks": [
+     0,
+     1
+    ]
+   }
+  ],
+  "nachr_a4b2": [
+   {
+    "kind": "heteroreceptor",
+    "structure": "vta",
+    "cell": "cell_body",
+    "modulates": "dopamine",
+    "effect": "increase",
+    "picks": [
+     4
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "vta",
+    "cell": "gaba_interneuron",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     5,
+     2
+    ]
+   }
+  ],
+  "nachr_a7": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "acetylcholine",
+    "effect": "increase",
+    "picks": [
+     3,
+     1
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "dopamine",
+    "effect": "increase",
+    "picks": [
+     2
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "glutamate",
+    "effect": "increase",
+    "picks": [
+     2
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "vta",
+    "cell": "presynaptic_terminal",
+    "modulates": "glutamate",
+    "effect": "increase",
+    "picks": [
+     5
+    ]
+   }
+  ],
+  "gaba_b": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "gaba",
+    "effect": "decrease",
+    "picks": [
+     0
+    ]
+   }
+  ],
+  "d2": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     2,
+     40,
+     7
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "cell_body",
+    "modulates": "acetylcholine",
+    "effect": "decrease",
+    "picks": [
+     23,
+     20
+    ]
+   }
+  ],
+  "d3": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     1,
+     2
+    ]
+   },
+   {
+    "kind": "autoreceptor",
+    "structure": "vta",
+    "cell": "cell_body",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     16
+    ]
+   }
+  ],
+  "nmda": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     11,
+     8,
+     4
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "gaba",
+    "effect": "increase",
+    "picks": [
+     4,
+     11
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "hippocampus",
+    "cell": "gaba_interneuron",
+    "modulates": "gaba",
+    "effect": "increase",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "hippocampus",
+    "cell": "gaba_interneuron",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     10
+    ]
+   }
+  ],
+  "h3": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "histamine",
+    "effect": "decrease",
+    "picks": [
+     6,
+     4
+    ]
+   }
+  ],
+  "mu": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "gaba",
+    "effect": "decrease",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "kappa": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     6
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "presynaptic_terminal",
+    "modulates": "gaba",
+    "effect": "decrease",
+    "picks": [
+     14
+    ]
+   }
+  ],
+  "5ht1a": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "cell_body",
+    "modulates": "serotonin",
+    "effect": "decrease",
+    "picks": [
+     2,
+     4
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "dopamine",
+    "effect": "increase",
+    "picks": [
+     10
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "norepinephrine",
+    "effect": "increase",
+    "picks": [
+     10
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "acetylcholine",
+    "effect": "increase",
+    "picks": [
+     10
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "gaba",
+    "effect": "decrease",
+    "picks": [
+     10
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "glutamatergic_neuron",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     22
+    ]
+   }
+  ],
+  "5ht1b": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "serotonin",
+    "effect": "decrease",
+    "picks": [
+     3,
+     5,
+     21
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     9,
+     8,
+     26
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     9,
+     8,
+     26
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "acetylcholine",
+    "effect": "decrease",
+    "picks": [
+     9,
+     8,
+     26
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "histamine",
+    "effect": "decrease",
+    "picks": [
+     9,
+     8,
+     26
+    ]
+   }
+  ],
+  "5ht2a": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "glutamatergic_neuron",
+    "modulates": "glutamate",
+    "effect": "increase",
+    "picks": [
+     5,
+     6
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "glutamatergic_neuron",
+    "modulates": "glutamate",
+    "effect": "increase",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     5
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "glutamatergic_neuron",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     27,
+     28
+    ]
+   }
+  ],
+  "5ht2b": [
+   {
+    "kind": "autoreceptor",
+    "structure": null,
+    "cell": "cell_body",
+    "modulates": "serotonin",
+    "effect": "increase",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "5ht2c": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "dopamine",
+    "effect": "decrease",
+    "picks": [
+     6,
+     13,
+     3
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     6,
+     13,
+     3
+    ]
+   }
+  ],
+  "5ht3": [
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "norepinephrine",
+    "effect": "decrease",
+    "picks": [
+     10
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "acetylcholine",
+    "effect": "decrease",
+    "picks": [
+     10
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "gaba",
+    "effect": "increase",
+    "picks": [
+     18
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     8
+    ]
+   }
+  ],
+  "5ht7": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "gaba_interneuron",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     11,
+     5
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "raphe",
+    "cell": "gaba_interneuron",
+    "modulates": "serotonin",
+    "effect": "decrease",
+    "picks": [
+     18,
+     22
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "raphe",
+    "cell": "gaba_interneuron",
+    "modulates": "gaba",
+    "effect": "increase",
+    "picks": [
+     29,
+     31
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": "frontal",
+    "cell": "gaba_interneuron",
+    "modulates": "gaba",
+    "effect": "increase",
+    "picks": [
+     36
+    ]
+   }
+  ],
+  "cb1": [
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "glutamate",
+    "effect": "decrease",
+    "picks": [
+     3
+    ]
+   },
+   {
+    "kind": "heteroreceptor",
+    "structure": null,
+    "cell": "presynaptic_terminal",
+    "modulates": "gaba",
+    "effect": "decrease",
+    "picks": [
+     3
+    ]
+   }
+  ]
+ }
+}

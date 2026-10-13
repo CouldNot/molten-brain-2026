@@ -4533,8 +4533,8 @@
         "unknown": 0
       },
       "receptor_release_modulation": {
-        "total": 0,
-        "verified": 0,
+        "total": 64,
+        "verified": 64,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4564,15 +4564,15 @@
       }
     },
     "nodes": {
-      "total": 7760,
-      "verified": 7174,
+      "total": 7824,
+      "verified": 7238,
       "uncertain": 269,
       "sourced": 0,
       "llm": 245,
       "nosource": 72,
       "missing": 317,
       "unknown": 656,
-      "backed": 7443,
+      "backed": 7507,
       "pct_backed": 96
     },
     "ki_coverage": {

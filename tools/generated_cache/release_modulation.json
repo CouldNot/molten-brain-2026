@@ -1,0 +1,846 @@
+{
+ "5ht1a": {
+  "autoreceptor:-:cell_body:serotonin:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 132,
+    "provenance": "verified",
+    "quote": "**Figure 4-39** Serotonin (5HT) 1A autoreceptors. (A) Presynaptic 5HT1A receptors are autoreceptors located on the cell body and dendrites, and are therefore called somatodendritic autoreceptors. (B) When serotonin is released somatodendritically, it binds to these 5HT1A receptors and causes a shutdown of 5HT neuronal impulse flow, depicted here as decreased electrical activity and a reduction in the release of 5HT from the synapse on the right."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 134,
+    "provenance": "verified",
+    "quote": "When 5HT is released somatodendritically, it activates these 5HT1A autoreceptors and this causes a slowing of neuronal impulse flow through the serotonin neuron and a reduction of serotonin release from its axon terminal"
+   }
+  ],
+  "heteroreceptor:-:glutamatergic_neuron:glutamate:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 210,
+    "provenance": "verified",
+    "quote": "5HT1A partial agonism reduces glutamatergic output in the VTA, leading to reduced activity of the GABA interneuron and therefore disinhibition of the mesocortical dopamine pathway."
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:acetylcholine:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 138,
+    "provenance": "verified",
+    "quote": "**Figure 4-44** Serotonin (5HT) 1A stimulation indirectly increases release of other neurotransmitters. (A) 5HT1A heteroreceptors on GABA interneurons in the prefrontal cortex can indirectly regulate the release of norepinephrine (NE), dopamine (DA), and acetylcholine (ACh). (B) Stimulation of 5HT1A receptors is inhibitory; thus, serotonin binding at these receptors could reduce GABA output and in turn disinhibit norepinephrine, dopamine, and acetylcholine release."
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:dopamine:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 138,
+    "provenance": "verified",
+    "quote": "**Figure 4-44** Serotonin (5HT) 1A stimulation indirectly increases release of other neurotransmitters. (A) 5HT1A heteroreceptors on GABA interneurons in the prefrontal cortex can indirectly regulate the release of norepinephrine (NE), dopamine (DA), and acetylcholine (ACh). (B) Stimulation of 5HT1A receptors is inhibitory; thus, serotonin binding at these receptors could reduce GABA output and in turn disinhibit norepinephrine, dopamine, and acetylcholine release."
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:gaba:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 138,
+    "provenance": "verified",
+    "quote": "**Figure 4-44** Serotonin (5HT) 1A stimulation indirectly increases release of other neurotransmitters. (A) 5HT1A heteroreceptors on GABA interneurons in the prefrontal cortex can indirectly regulate the release of norepinephrine (NE), dopamine (DA), and acetylcholine (ACh). (B) Stimulation of 5HT1A receptors is inhibitory; thus, serotonin binding at these receptors could reduce GABA output and in turn disinhibit norepinephrine, dopamine, and acetylcholine release."
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:norepinephrine:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 138,
+    "provenance": "verified",
+    "quote": "**Figure 4-44** Serotonin (5HT) 1A stimulation indirectly increases release of other neurotransmitters. (A) 5HT1A heteroreceptors on GABA interneurons in the prefrontal cortex can indirectly regulate the release of norepinephrine (NE), dopamine (DA), and acetylcholine (ACh). (B) Stimulation of 5HT1A receptors is inhibitory; thus, serotonin binding at these receptors could reduce GABA output and in turn disinhibit norepinephrine, dopamine, and acetylcholine release."
+   }
+  ]
+ },
+ "5ht1b": {
+  "autoreceptor:-:presynaptic_terminal:serotonin:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 135,
+    "provenance": "verified",
+    "quote": "Presynaptic 5HT1B/D Receptors Presynaptic 5HT receptors on the axon terminal have the 5HT1B/D subtype and act as negative-feedback autoreceptors to detect the presence of 5HT, causing a shutdown of further 5HT release and 5HT neuronal impulse flow (Figure 4-41)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 135,
+    "provenance": "verified",
+    "quote": "In the case of the 5HT1B/D terminal autoreceptor, 5HT occupancy of this receptor causes a blockade of 5HT release (Figure 4-41B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 334,
+    "provenance": "verified",
+    "quote": "That is, when SERT is inhibited, the amount of synaptic serotonin that accumulates is blunted because the build-up of serotonin stimulates presynaptic 5HT1B/D autoreceptors, and this turns off further serotonin release (compare Figure 7-51A and B)."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:acetylcholine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "5HT1B Receptors 5HT1B receptors are inhibitory and can specifically inhibit neurotransmitter release from norepinephrine, dopamine, histamine, and acetylcholine neurons when these receptors are localized upon presynaptic nerve terminals of these neurons (Figure 4-45)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 139,
+    "provenance": "verified",
+    "quote": "**Figure 4-45** Serotonin (5HT) 1B stimulation decreases release of other neurotransmitters. (A) 5HT1B receptors on the presynaptic nerve terminals of norepinephrine (NE), dopamine (DA), acetylcholine (ACh), and histamine (HA) neurons can theoretically regulate the release of these neurotransmitters. (B) Stimulation of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons is inhibitory; thus, serotonin binding at these receptors could potentially decrease the release of these neurotransmitters."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 335,
+    "provenance": "verified",
+    "quote": "Serotonin (5HT) acting at these receptors would be inhibitory. (B) Antagonism or partial agonism of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons would prevent serotonin from exerting its inhibitory effects, thus potentially increasing the release of these neurotransmitters."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "5HT1B Receptors 5HT1B receptors are inhibitory and can specifically inhibit neurotransmitter release from norepinephrine, dopamine, histamine, and acetylcholine neurons when these receptors are localized upon presynaptic nerve terminals of these neurons (Figure 4-45)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 139,
+    "provenance": "verified",
+    "quote": "**Figure 4-45** Serotonin (5HT) 1B stimulation decreases release of other neurotransmitters. (A) 5HT1B receptors on the presynaptic nerve terminals of norepinephrine (NE), dopamine (DA), acetylcholine (ACh), and histamine (HA) neurons can theoretically regulate the release of these neurotransmitters. (B) Stimulation of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons is inhibitory; thus, serotonin binding at these receptors could potentially decrease the release of these neurotransmitters."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 335,
+    "provenance": "verified",
+    "quote": "Serotonin (5HT) acting at these receptors would be inhibitory. (B) Antagonism or partial agonism of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons would prevent serotonin from exerting its inhibitory effects, thus potentially increasing the release of these neurotransmitters."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:histamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "5HT1B Receptors 5HT1B receptors are inhibitory and can specifically inhibit neurotransmitter release from norepinephrine, dopamine, histamine, and acetylcholine neurons when these receptors are localized upon presynaptic nerve terminals of these neurons (Figure 4-45)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 139,
+    "provenance": "verified",
+    "quote": "**Figure 4-45** Serotonin (5HT) 1B stimulation decreases release of other neurotransmitters. (A) 5HT1B receptors on the presynaptic nerve terminals of norepinephrine (NE), dopamine (DA), acetylcholine (ACh), and histamine (HA) neurons can theoretically regulate the release of these neurotransmitters. (B) Stimulation of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons is inhibitory; thus, serotonin binding at these receptors could potentially decrease the release of these neurotransmitters."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 335,
+    "provenance": "verified",
+    "quote": "Serotonin (5HT) acting at these receptors would be inhibitory. (B) Antagonism or partial agonism of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons would prevent serotonin from exerting its inhibitory effects, thus potentially increasing the release of these neurotransmitters."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "5HT1B Receptors 5HT1B receptors are inhibitory and can specifically inhibit neurotransmitter release from norepinephrine, dopamine, histamine, and acetylcholine neurons when these receptors are localized upon presynaptic nerve terminals of these neurons (Figure 4-45)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 139,
+    "provenance": "verified",
+    "quote": "**Figure 4-45** Serotonin (5HT) 1B stimulation decreases release of other neurotransmitters. (A) 5HT1B receptors on the presynaptic nerve terminals of norepinephrine (NE), dopamine (DA), acetylcholine (ACh), and histamine (HA) neurons can theoretically regulate the release of these neurotransmitters. (B) Stimulation of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons is inhibitory; thus, serotonin binding at these receptors could potentially decrease the release of these neurotransmitters."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 335,
+    "provenance": "verified",
+    "quote": "Serotonin (5HT) acting at these receptors would be inhibitory. (B) Antagonism or partial agonism of 5HT1B heteroreceptors on ACh, HA, DA, and NE neurons would prevent serotonin from exerting its inhibitory effects, thus potentially increasing the release of these neurotransmitters."
+   }
+  ]
+ },
+ "5ht2a": {
+  "heteroreceptor:-:gaba_interneuron:glutamate:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 140,
+    "provenance": "verified",
+    "quote": "5HT2A receptors are always excitatory, but depending on their localization can either stimulate or inhibit glutamate release. (A) 5HT2A receptors are located on glutamate pyramidal neurons, and through the stimulation of these receptors can increase glutamate release. (B) However, 5HT2A receptors are also present on GABA interneurons and when stimulated cause GABAergic inhibition of glutamate."
+   }
+  ],
+  "heteroreceptor:-:glutamatergic_neuron:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 203,
+    "provenance": "verified",
+    "quote": "Therefore, blocking 5HT2A receptors on the specific glutamate neurons shown in Figure 5-16B (upper left) leads to disinhibiting (i.e., increasing) dopamine release downstream in the motor striatum"
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 203,
+    "provenance": "verified",
+    "quote": "Thus, blocking 5HT2A receptors on these specific glutamate neurons (Figure 5-17C, top left) will lead to disinhibiting (i.e., increasing) dopamine release in the prefrontal cortex (Figure 5-17C, top right)."
+   }
+  ],
+  "heteroreceptor:-:glutamatergic_neuron:glutamate:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 140,
+    "provenance": "verified",
+    "quote": "5HT2A receptors are always excitatory, but depending on their localization can either stimulate or inhibit glutamate release. (A) 5HT2A receptors are located on glutamate pyramidal neurons, and through the stimulation of these receptors can increase glutamate release. (B) However, 5HT2A receptors are also present on GABA interneurons and when stimulated cause GABAergic inhibition of glutamate."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "For example, when 5HT2A receptors are localized on glutamate neurons, generally upon the apical dendrites of glutamate neurons, they are excitatory, leading to excitatory glutamate release on downstream targets (Figure 4-46A)."
+   }
+  ],
+  "heteroreceptor:frontal:glutamatergic_neuron:glutamate:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 151,
+    "provenance": "verified",
+    "quote": "Hallucinogens such as LSD, psilocybin, and mescaline are 5HT2A agonists. (1) When these agents stimulate 5HT2A receptors on glutamatergic pyramidal neurons in the prefrontal cortex (PFC), this causes overactivation of the glutamate neuron. (2) The resultant release of glutamate into the ventral tegmental area (VTA) causes hyperactivity of the mesolimbic dopamine (DA) pathway, resulting in delusions and auditory hallucinations."
+   }
+  ]
+ },
+ "5ht2b": {
+  "autoreceptor:-:cell_body:serotonin:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 133,
+    "provenance": "verified",
+    "quote": "**Figure 4-40** Serotonin (5HT) 2B autoreceptors. (A) Presynaptic 5HT2B receptors are autoreceptors located on the cell body and dendrites, and are therefore called somatodendritic autoreceptors. (B) When 5HT is released somatodendritically, it binds to these 5HT2B receptors and causes increased 5HT neuronal impulse flow, depicted here as increased electrical activity and increased release of 5HT from the synapse on the right."
+   }
+  ]
+ },
+ "5ht2c": {
+  "heteroreceptor:-:gaba_interneuron:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 143,
+    "provenance": "verified",
+    "quote": "Serotonin binding at 5HT2C receptors on GABA interneurons inhibits norepinephrine (NE) and dopamine (DA) release in the prefrontal cortex."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 323,
+    "provenance": "verified",
+    "quote": "Normally, serotonin binding at 5HT2C receptors on γ-aminobutyric acid (GABA) interneurons in the brainstem inhibits norepinephrine (NE) and dopamine (DA) release in the prefrontal cortex."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "For example, when those GABA interneurons with 5HT2C receptors on them innervate downstream norepinephrine or dopamine neurons, the net effect of 5HT is to inhibit norepinephrine and dopamine release (compare baseline levels of norepinephrine and dopamine in the prefrontal cortex in Figure 4-47A with the levels of norepinephrine and dopamine after serotonin release at 5HT2C receptors in Figure 4-47B)."
+   }
+  ],
+  "heteroreceptor:-:gaba_interneuron:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 143,
+    "provenance": "verified",
+    "quote": "Serotonin binding at 5HT2C receptors on GABA interneurons inhibits norepinephrine (NE) and dopamine (DA) release in the prefrontal cortex."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 323,
+    "provenance": "verified",
+    "quote": "Normally, serotonin binding at 5HT2C receptors on γ-aminobutyric acid (GABA) interneurons in the brainstem inhibits norepinephrine (NE) and dopamine (DA) release in the prefrontal cortex."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 141,
+    "provenance": "verified",
+    "quote": "For example, when those GABA interneurons with 5HT2C receptors on them innervate downstream norepinephrine or dopamine neurons, the net effect of 5HT is to inhibit norepinephrine and dopamine release (compare baseline levels of norepinephrine and dopamine in the prefrontal cortex in Figure 4-47A with the levels of norepinephrine and dopamine after serotonin release at 5HT2C receptors in Figure 4-47B)."
+   }
+  ]
+ },
+ "5ht3": {
+  "heteroreceptor:-:gaba_interneuron:gaba:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 328,
+    "provenance": "verified",
+    "quote": "Serotonin (5HT) binding at 5HT3 receptors on GABA interneurons is stimulatory; thus, it increases GABA release."
+   }
+  ],
+  "heteroreceptor:-:gaba_interneuron:glutamate:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 143,
+    "provenance": "verified",
+    "quote": "So, not only does this circuit show serotonin regulating glutamate (i.e., reducing glutamate release by 5HT3 receptor actions at GABA interneurons), it demonstrates one way in which"
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:acetylcholine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 144,
+    "provenance": "verified",
+    "quote": "Excitatory 5HT3 receptors located on the terminals of GABA interneurons in the prefrontal cortex can regulate the release of norepinephrine (NE) and acetylcholine (ACh). (A) At baseline, tonic GABA release allows for a low level of NE and ACh release. (B) When 5HT is released, it binds to 5HT3 receptors on GABAergic neurons, causing phasic release of GABA onto noradrenergic and cholinergic neurons, thus reducing the release of NE and ACh, respectively."
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 144,
+    "provenance": "verified",
+    "quote": "Excitatory 5HT3 receptors located on the terminals of GABA interneurons in the prefrontal cortex can regulate the release of norepinephrine (NE) and acetylcholine (ACh). (A) At baseline, tonic GABA release allows for a low level of NE and ACh release. (B) When 5HT is released, it binds to 5HT3 receptors on GABAergic neurons, causing phasic release of GABA onto noradrenergic and cholinergic neurons, thus reducing the release of NE and ACh, respectively."
+   }
+  ]
+ },
+ "5ht7": {
+  "heteroreceptor:-:gaba_interneuron:glutamate:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 147,
+    "provenance": "verified",
+    "quote": "When serotonin binds to 5HT7 receptors on GABA interneurons, the phasic GABA release leads to inhibition of glutamate release."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 146,
+    "provenance": "verified",
+    "quote": "When serotonin binds to 5HT7 receptors on these cortical GABA interneurons, this inhibits glutamate output (Figure 4-50B)."
+   }
+  ],
+  "heteroreceptor:frontal:gaba_interneuron:gaba:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 340,
+    "provenance": "verified",
+    "quote": "Antagonism at 5HT7 receptors on GABA interneurons in the prefrontal cortex turns off GABA release."
+   }
+  ],
+  "heteroreceptor:raphe:gaba_interneuron:gaba:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 337,
+    "provenance": "verified",
+    "quote": "When serotonin binds to 5HT7 receptors on GABA interneurons in the raphe nucleus, this stimulates GABA release."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 338,
+    "provenance": "verified",
+    "quote": "Antagonism at 5HT7 receptors on GABA interneurons in the raphe nucleus turns off GABA release."
+   }
+  ],
+  "heteroreceptor:raphe:gaba_interneuron:serotonin:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 149,
+    "provenance": "verified",
+    "quote": "When serotonin binds to 5HT7 receptors that innervate GABA neurons in the raphe nucleus, this causes the release of inhibitory GABA, which then turns off further serotonin release."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 334,
+    "provenance": "verified",
+    "quote": "Blocking 5HT7 receptors on GABA neurons in the brainstem raphe prevents the downstream inhibition of serotonin release by GABA, especially in the presence of SERT inhibition, and leads instead to increased downstream release of serotonin (Figure 7-53C)."
+   }
+  ]
+ },
+ "alpha1a": {
+  "heteroreceptor:-:glutamatergic_neuron:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 344,
+    "provenance": "verified",
+    "quote": "When this glutamatergic neuron is inhibited by an α1 antagonist, its innervation of the substantia nigra reduces GABA tone there, allowing disinhibition of dopamine release into the motor striatum and reduction of drug-induced parkinsonism (Figure 7-58A; just as shown in Chapter 5 and Figure 5-17B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 343,
+    "provenance": "verified",
+    "quote": "Alpha-1 antagonism can modulate downstream dopamine release via two key pathways. (A) Alpha-1 antagonism decreases glutamatergic output in the substantia nigra (SN), leading to reduced activity of the GABA interneuron and therefore disinhibition of the nigrostriatal dopamine pathway."
+   }
+  ],
+  "heteroreceptor:raphe:cell_body:serotonin:increase": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_1_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Norepinephrine also stimulates serotonin release by binding α 1 -adrenergic receptors located on serotonergic neurons in the raphe. α 1 -adrenergic receptor subtypes increase inhibition in the olfactory system, suggesting a synaptic mechanism for noradrenergic modulation of olfactory driven behaviors."
+   }
+  ]
+ },
+ "alpha1b": {
+  "heteroreceptor:-:glutamatergic_neuron:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 344,
+    "provenance": "verified",
+    "quote": "When this glutamatergic neuron is inhibited by an α1 antagonist, its innervation of the substantia nigra reduces GABA tone there, allowing disinhibition of dopamine release into the motor striatum and reduction of drug-induced parkinsonism (Figure 7-58A; just as shown in Chapter 5 and Figure 5-17B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 343,
+    "provenance": "verified",
+    "quote": "Alpha-1 antagonism can modulate downstream dopamine release via two key pathways. (A) Alpha-1 antagonism decreases glutamatergic output in the substantia nigra (SN), leading to reduced activity of the GABA interneuron and therefore disinhibition of the nigrostriatal dopamine pathway."
+   }
+  ],
+  "heteroreceptor:raphe:cell_body:serotonin:increase": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_1_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Norepinephrine also stimulates serotonin release by binding α 1 -adrenergic receptors located on serotonergic neurons in the raphe. α 1 -adrenergic receptor subtypes increase inhibition in the olfactory system, suggesting a synaptic mechanism for noradrenergic modulation of olfactory driven behaviors."
+   }
+  ]
+ },
+ "alpha1d": {
+  "heteroreceptor:-:glutamatergic_neuron:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 344,
+    "provenance": "verified",
+    "quote": "When this glutamatergic neuron is inhibited by an α1 antagonist, its innervation of the substantia nigra reduces GABA tone there, allowing disinhibition of dopamine release into the motor striatum and reduction of drug-induced parkinsonism (Figure 7-58A; just as shown in Chapter 5 and Figure 5-17B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 343,
+    "provenance": "verified",
+    "quote": "Alpha-1 antagonism can modulate downstream dopamine release via two key pathways. (A) Alpha-1 antagonism decreases glutamatergic output in the substantia nigra (SN), leading to reduced activity of the GABA interneuron and therefore disinhibition of the nigrostriatal dopamine pathway."
+   }
+  ],
+  "heteroreceptor:raphe:cell_body:serotonin:increase": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_1_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Norepinephrine also stimulates serotonin release by binding α 1 -adrenergic receptors located on serotonergic neurons in the raphe. α 1 -adrenergic receptor subtypes increase inhibition in the olfactory system, suggesting a synaptic mechanism for noradrenergic modulation of olfactory driven behaviors."
+   }
+  ]
+ },
+ "alpha2a": {
+  "autoreceptor:-:cell_body:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 273,
+    "provenance": "verified",
+    "quote": "Shown here are presynaptic α2-adrenergic autoreceptors located in the somatodendritic area of the norepinephrine neuron. (A) When they are not bound by norepinephrine, there is normal neuronal impulse flow, with resultant release of norepinephrine. (B) When norepinephrine binds to these α2 receptors, it shuts off neuronal impulse flow (see loss of lightning bolts in the neuron), and this stops further norepinephrine release."
+   }
+  ],
+  "autoreceptor:-:presynaptic_terminal:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 271,
+    "provenance": "verified",
+    "quote": "That is, when presynaptic α2 receptors recognize NE, they turn off further release of NE (Figures 6-14 and 6-15)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "Norepinephrine is also turning off its own release via an α2 presynaptic receptor (Figure 7-41B on the right at the norepinephrine neuron)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "Alpha-2 antagonists also “cut the norepinephrine brake cable” by blocking presynaptic α2 autoreceptors, leading to enhanced norepinephrine release (right)."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:serotonin:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "The same phenomenon is shown in Figure 7-41B where not only is serotonin turning off serotonin release at its own 5HT1B presynaptic autoreceptor on the left hand part of the serotonin neuron, but also norepinephrine migrating from a norepinephrine terminal is turning off serotonin release via an α2 presynaptic heteroreceptor on the right hand part of the serotonin neuron."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "Likewise, when norepinephrine binds to α2 autoreceptors on the norepinephrine neuron, this shuts off further norepinephrine release (right). (C) Alpha-2 antagonists “cut the serotonin brake cable” when they block α2 presynaptic heteroreceptors, thus leading to enhanced serotonin release (left)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "On the right, a noradrenergic neuron is shown with presynaptic α2 autoreceptors. (B) 5HT1B/D autoreceptors and α2-adrenergic heteroreceptors on serotonergic neurons both function as “brakes” to shut off serotonin release when bound by their respective neurotransmitters (left)."
+   }
+  ]
+ },
+ "alpha2b": {
+  "autoreceptor:-:cell_body:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 273,
+    "provenance": "verified",
+    "quote": "Shown here are presynaptic α2-adrenergic autoreceptors located in the somatodendritic area of the norepinephrine neuron. (A) When they are not bound by norepinephrine, there is normal neuronal impulse flow, with resultant release of norepinephrine. (B) When norepinephrine binds to these α2 receptors, it shuts off neuronal impulse flow (see loss of lightning bolts in the neuron), and this stops further norepinephrine release."
+   }
+  ],
+  "autoreceptor:-:presynaptic_terminal:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 271,
+    "provenance": "verified",
+    "quote": "That is, when presynaptic α2 receptors recognize NE, they turn off further release of NE (Figures 6-14 and 6-15)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "Norepinephrine is also turning off its own release via an α2 presynaptic receptor (Figure 7-41B on the right at the norepinephrine neuron)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "Alpha-2 antagonists also “cut the norepinephrine brake cable” by blocking presynaptic α2 autoreceptors, leading to enhanced norepinephrine release (right)."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:serotonin:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "The same phenomenon is shown in Figure 7-41B where not only is serotonin turning off serotonin release at its own 5HT1B presynaptic autoreceptor on the left hand part of the serotonin neuron, but also norepinephrine migrating from a norepinephrine terminal is turning off serotonin release via an α2 presynaptic heteroreceptor on the right hand part of the serotonin neuron."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "Likewise, when norepinephrine binds to α2 autoreceptors on the norepinephrine neuron, this shuts off further norepinephrine release (right). (C) Alpha-2 antagonists “cut the serotonin brake cable” when they block α2 presynaptic heteroreceptors, thus leading to enhanced serotonin release (left)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "On the right, a noradrenergic neuron is shown with presynaptic α2 autoreceptors. (B) 5HT1B/D autoreceptors and α2-adrenergic heteroreceptors on serotonergic neurons both function as “brakes” to shut off serotonin release when bound by their respective neurotransmitters (left)."
+   }
+  ]
+ },
+ "alpha2c": {
+  "autoreceptor:-:cell_body:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 273,
+    "provenance": "verified",
+    "quote": "Shown here are presynaptic α2-adrenergic autoreceptors located in the somatodendritic area of the norepinephrine neuron. (A) When they are not bound by norepinephrine, there is normal neuronal impulse flow, with resultant release of norepinephrine. (B) When norepinephrine binds to these α2 receptors, it shuts off neuronal impulse flow (see loss of lightning bolts in the neuron), and this stops further norepinephrine release."
+   }
+  ],
+  "autoreceptor:-:presynaptic_terminal:norepinephrine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 271,
+    "provenance": "verified",
+    "quote": "That is, when presynaptic α2 receptors recognize NE, they turn off further release of NE (Figures 6-14 and 6-15)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "Norepinephrine is also turning off its own release via an α2 presynaptic receptor (Figure 7-41B on the right at the norepinephrine neuron)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "Alpha-2 antagonists also “cut the norepinephrine brake cable” by blocking presynaptic α2 autoreceptors, leading to enhanced norepinephrine release (right)."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:serotonin:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "The same phenomenon is shown in Figure 7-41B where not only is serotonin turning off serotonin release at its own 5HT1B presynaptic autoreceptor on the left hand part of the serotonin neuron, but also norepinephrine migrating from a norepinephrine terminal is turning off serotonin release via an α2 presynaptic heteroreceptor on the right hand part of the serotonin neuron."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "Likewise, when norepinephrine binds to α2 autoreceptors on the norepinephrine neuron, this shuts off further norepinephrine release (right). (C) Alpha-2 antagonists “cut the serotonin brake cable” when they block α2 presynaptic heteroreceptors, thus leading to enhanced serotonin release (left)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 326,
+    "provenance": "verified",
+    "quote": "On the right, a noradrenergic neuron is shown with presynaptic α2 autoreceptors. (B) 5HT1B/D autoreceptors and α2-adrenergic heteroreceptors on serotonergic neurons both function as “brakes” to shut off serotonin release when bound by their respective neurotransmitters (left)."
+   }
+  ]
+ },
+ "cb1": {
+  "heteroreceptor:-:presynaptic_terminal:gaba:decrease": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cannabinoid_receptor_1",
+    "provenance": "verified",
+    "quote": "Endocannabinoids released by a depolarizing neuron bind to CB 1 receptors on pre-synaptic glutamatergic and GABAergic neurons, resulting in a respective decrease in either glutamate or GABA release."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:glutamate:decrease": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "cannabinoid_receptor_1",
+    "provenance": "verified",
+    "quote": "Endocannabinoids released by a depolarizing neuron bind to CB 1 receptors on pre-synaptic glutamatergic and GABAergic neurons, resulting in a respective decrease in either glutamate or GABA release."
+   }
+  ]
+ },
+ "d2": {
+  "autoreceptor:-:presynaptic_terminal:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 98,
+    "provenance": "verified",
+    "quote": "All five DA receptors can be located postsynaptically (Figure 4-4), but D2 and D3 receptors can also both be located presynaptically, where, due to their inhibitory actions, they act as autoreceptors to inhibit further DA release (Figure 4-5)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 244,
+    "provenance": "verified",
+    "quote": "Blockade of presynaptic D2 receptors disinhibits presynaptic dopamine release, thus further enhancing dopamine release."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 99,
+    "provenance": "verified",
+    "quote": "In both cases, they are considered presynaptic and occupancy of these D2 or D3 autoreceptors provides negative feedback input, or a braking action upon the release of DA from the DA neuron (Figures 4-7B and 4-8B)."
+   }
+  ],
+  "heteroreceptor:-:cell_body:acetylcholine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 184,
+    "provenance": "verified",
+    "quote": "As shown here, if D2 receptors are blocked on the cholinergic dendrite on the left, then acetylcholine release from the cholinergic axon on the right is enhanced."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 183,
+    "provenance": "verified",
+    "quote": "Dopamine acting at D2 receptors normally _inhibits_ acetylcholine release from postsynaptic nigrostriatal cholinergic neurons (Figure 5-7A)."
+   }
+  ]
+ },
+ "d3": {
+  "autoreceptor:-:presynaptic_terminal:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 98,
+    "provenance": "verified",
+    "quote": "All five DA receptors can be located postsynaptically (Figure 4-4), but D2 and D3 receptors can also both be located presynaptically, where, due to their inhibitory actions, they act as autoreceptors to inhibit further DA release (Figure 4-5)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 98,
+    "provenance": "verified",
+    "quote": "This is because the D3 receptor is more sensitive to DA and thus it takes a lesser concentration of synaptic DA to activate the D3 receptor and turn off further DA release compared to neurons having the D2 presynaptic receptor."
+   }
+  ],
+  "autoreceptor:vta:cell_body:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 256,
+    "provenance": "verified",
+    "quote": "In brief, D3 antagonist/ partial agonist action may block key postsynaptic D3 receptors in limbic areas to reduce dopamine overactivity in emotional striatum and key somatodendritic presynaptic D3 receptors in the ventral tegmental area/ mesostriatal/integrative hub to increase dopamine release in the prefrontal cortex and improve negative, affective, and cognitive symptoms."
+   }
+  ]
+ },
+ "gaba_b": {
+  "autoreceptor:-:presynaptic_terminal:gaba:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 570,
+    "provenance": "verified",
+    "quote": "Alcohol actions at GABA synapses hypothetically enhance GABA release via blocking presynaptic GABAB receptors and also by positively allosterically modulating postsynaptic GABAA receptors, especially those containing δ subunits that are responsive to neuroactive steroids but not to benzodiazepines (Figures 13-14 and"
+   }
+  ]
+ },
+ "h3": {
+  "autoreceptor:-:presynaptic_terminal:histamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 462,
+    "provenance": "verified",
+    "quote": "Histamine 3 (H3) receptors are presynaptic autoreceptors and function as gatekeepers for histamine (HA). (A) When H3 receptors are not bound by histamine, the molecular gate is open and allows histamine release. (B) When histamine binds to the H3 receptor, the molecular gate closes and prevents histamine from being released. (C) When pitolisant blocks the H3 receptor, this disinhibits, or turns on, the release of histamine."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 460,
+    "provenance": "verified",
+    "quote": "Inhibiting the presynaptic H3 receptor causes the disinhibition (that is, the release) of presynaptic histamine (Figure 10-66C), and this is wake-promoting."
+   }
+  ]
+ },
+ "kappa": {
+  "heteroreceptor:-:presynaptic_terminal:dopamine:decrease": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "KOR activation on dopamine terminals inhibits dopamine release through multiple mechanisms: increased potassium conductance via G protein -coupled inward-rectifier potassium (GIRK) channels, suppression of calcium entry, activation of protein kinase C-β (PKCβ), c-Jun N-terminal kinase (JNK), and ERK, as well as facilitation of dopamine transporter (DAT) function through ERK1/2-dependent pathways that accelerate dopamine reuptake."
+   }
+  ],
+  "heteroreceptor:frontal:presynaptic_terminal:gaba:decrease": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Apart from striatal mechanisms, KOR signaling modulates cortical glutamate and GABA homeostasis through KOR activation on GABAergic terminals of dynorphin -expressing neurons in prefrontal cortex which suppresses GABA release and disrupting the balance of cortical inhibition-excitation that might drive cognitive dysfunction and negative symptoms."
+   }
+  ]
+ },
+ "m2": {
+  "autoreceptor:-:presynaptic_terminal:acetylcholine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 522,
+    "provenance": "verified",
+    "quote": "M2 and M4 receptors are inhibitory presynaptic autoreceptors, preventing further release of acetylcholine."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 523,
+    "provenance": "verified",
+    "quote": "M2 and M4 receptors are inhibitory to downstream second messengering and are presynaptic, serving as autoreceptors, inhibiting the further release of acetylcholine once it builds up in the synapse (Figure 12-26)."
+   }
+  ]
+ },
+ "m4": {
+  "autoreceptor:-:presynaptic_terminal:acetylcholine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 522,
+    "provenance": "verified",
+    "quote": "M2 and M4 receptors are inhibitory presynaptic autoreceptors, preventing further release of acetylcholine."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 523,
+    "provenance": "verified",
+    "quote": "M2 and M4 receptors are inhibitory to downstream second messengering and are presynaptic, serving as autoreceptors, inhibiting the further release of acetylcholine once it builds up in the synapse (Figure 12-26)."
+   }
+  ]
+ },
+ "mu": {
+  "heteroreceptor:-:presynaptic_terminal:gaba:decrease": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "MOR can mediate acute changes in neuronal excitability via suppression of presynaptic release of GABA ."
+   }
+  ]
+ },
+ "nachr_a4b2": {
+  "heteroreceptor:vta:cell_body:dopamine:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 565,
+    "provenance": "verified",
+    "quote": "Nicotine directly causes dopamine (DA) release in the nucleus accumbens by binding to α4β2 nicotinic postsynaptic receptors on dopamine neurons in the ventral tegmental area (VTA)."
+   }
+  ],
+  "heteroreceptor:vta:gaba_interneuron:dopamine:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 565,
+    "provenance": "verified",
+    "quote": "Nicotine also seems to desensitize α4β2 postsynaptic receptors on GABA interneurons in the VTA; the reduction of GABA neurotransmission disinhibits mesolimbic dopamine neurons and thus is a third mechanism for enhancing dopamine release in the nucleus accumbens."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 564,
+    "provenance": "verified",
+    "quote": "Nicotine also appears to desensitize α4β2 postsynaptic receptors on inhibitory GABAergic interneurons in the VTA, indirectly leading to dopamine release in the nucleus accumbens by disinhibiting dopaminergic mesolimbic neurons (Figure 13-9)."
+   }
+  ]
+ },
+ "nachr_a7": {
+  "autoreceptor:-:presynaptic_terminal:acetylcholine:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 525,
+    "provenance": "verified",
+    "quote": "When they are presynaptic and on cholinergic neurons, they appear to mediate a “feed-forward” release process where ACh can facilitate its own release by occupying presynaptic α7 nicotinic receptors (Figure 12-28)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 524,
+    "provenance": "verified",
+    "quote": "Alpha-7 receptors can exist presynaptically, where they facilitate acetylcholine release, or postsynaptically, where they are important for regulating cognitive function in the prefrontal cortex."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:dopamine:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 524,
+    "provenance": "verified",
+    "quote": "Acetylcholine (ACh) that diffuses away from the synapse can bind to presynaptic α7 nicotinic receptors on dopamine (DA) and glutamate (Glu) neurons, where it stimulates release of these neurotransmitters."
+   }
+  ],
+  "heteroreceptor:-:presynaptic_terminal:glutamate:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 524,
+    "provenance": "verified",
+    "quote": "Acetylcholine (ACh) that diffuses away from the synapse can bind to presynaptic α7 nicotinic receptors on dopamine (DA) and glutamate (Glu) neurons, where it stimulates release of these neurotransmitters."
+   }
+  ],
+  "heteroreceptor:vta:presynaptic_terminal:glutamate:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 565,
+    "provenance": "verified",
+    "quote": "In addition, nicotine binds to α7 nicotinic presynaptic receptors on glutamate (Glu) neurons in the VTA, stimulating glutamate release that in turn leads to dopamine release in the nucleus accumbens."
+   }
+  ]
+ },
+ "nmda": {
+  "heteroreceptor:-:gaba_interneuron:gaba:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 123,
+    "provenance": "verified",
+    "quote": "Shown here is a close-up of intracortical pyramidal neurons communicating via GABAergic interneurons. (1) Glutamate is released from an intracortical pyramidal neuron and binds to an NMDA receptor on a GABAergic interneuron. (2) GABA is then released from the interneuron and binds to GABA receptors of the α2 subtype that are located on the axon of another glutamate pyramidal neuron. (3) This inhibits the pyramidal neuron, thus reducing the release of cortical glutamate."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 129,
+    "provenance": "verified",
+    "quote": "**Figure 4-33** NMDA receptor blockade and psychosis in ketamine abuse. (A) The cortical brainstem glutamate projection communicates with the mesolimbic dopamine pathway in the ventral tegmental area (VTA) to regulate dopamine release in the nucleus accumbens. (B) If ketamine blocks NMDA receptors on cortical GABA interneurons, then GABA release is inhibited and the cortical brainstem pathway to the VTA will be overactivated, leading to excessive release of glutamate in the VTA."
+   }
+  ],
+  "heteroreceptor:-:gaba_interneuron:glutamate:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 129,
+    "provenance": "verified",
+    "quote": "**Figure 4-33** NMDA receptor blockade and psychosis in ketamine abuse. (A) The cortical brainstem glutamate projection communicates with the mesolimbic dopamine pathway in the ventral tegmental area (VTA) to regulate dopamine release in the nucleus accumbens. (B) If ketamine blocks NMDA receptors on cortical GABA interneurons, then GABA release is inhibited and the cortical brainstem pathway to the VTA will be overactivated, leading to excessive release of glutamate in the VTA."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 127,
+    "provenance": "verified",
+    "quote": "**Figure 4-31** NMDA receptor hypofunction and psychosis in schizophrenia, part 1. (A) The cortical brainstem glutamate projection communicates with the mesolimbic dopamine pathway in the ventral tegmental area (VTA) to regulate dopamine release in the nucleus accumbens. (B) If NMDA receptors on cortical GABA interneurons are hypoactive, then GABA release is inhibited and the cortical brainstem pathway to the VTA will be overactivated, leading to excessive release of glutamate in the VTA."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 123,
+    "provenance": "verified",
+    "quote": "Shown here is a close-up of intracortical pyramidal neurons communicating via GABAergic interneurons. (1) Glutamate is released from an intracortical pyramidal neuron and binds to an NMDA receptor on a GABAergic interneuron. (2) GABA is then released from the interneuron and binds to GABA receptors of the α2 subtype that are located on the axon of another glutamate pyramidal neuron. (3) This inhibits the pyramidal neuron, thus reducing the release of cortical glutamate."
+   }
+  ],
+  "heteroreceptor:hippocampus:gaba_interneuron:gaba:increase": [
+   {
+    "corpus": "stahl_essential",
+    "page": 128,
+    "provenance": "verified",
+    "quote": "Hypofunctional NMDA receptors at glutamatergic synapses in the ventral hippocampus can also contribute to mesolimbic dopamine hyperactivity. (A) Glutamate released in the ventral hippocampus binds to NMDA receptors on a GABAergic interneuron, stimulating the release of GABA."
+   }
+  ],
+  "heteroreceptor:hippocampus:gaba_interneuron:glutamate:decrease": [
+   {
+    "corpus": "stahl_essential",
+    "page": 128,
+    "provenance": "verified",
+    "quote": "This leads to normal activation of the mesolimbic dopamine pathway from the VTA to the nucleus accumbens. (B) If NMDA receptors on ventral hippocampal GABA interneurons are hypoactive, then the glutamatergic pathway to the nucleus accumbens will be overactivated, leading to excessive release of glutamate in the nucleus accumbens."
+   }
+  ]
+ }
+}
