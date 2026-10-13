@@ -1,6 +1,50 @@
 {
   "versions": [
     {
+      "version": "3.113.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Receptor panels gain a beta Downstream section: how activating the receptor changes the release of a transmitter, as a source describes the circuit. For example, H3 is an autoreceptor on presynaptic terminals whose activation decreases histamine release, and 5-HT2C sits on GABA interneurons and decreases dopamine release. Each line is its own sourced node",
+          "commits": [
+            "cdfe96d",
+            "522bff0",
+            "4a9b67d"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "Drug panels gain a beta \"Possible release changes via its bindings\" section, derived from the drug's directional bindings: an antagonist reverses the effect of activation (pitolisant, an H3 antagonist, could increase histamine release), a binding with no known direction contributes nothing. It is computed, never stored, and worded conditionally",
+          "commits": [
+            "522bff0"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "64 receptor release-modulation nodes over 25 receptors (17 autoreceptor, 47 heteroreceptor), from Stahl's Essential Psychopharmacology and the receptors' Wikipedia articles, each quote checked on its page and confirmed by an independent Opus judge, which rejected two",
+          "commits": [
+            "e8de583",
+            "cc7ef74"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The receptor-effect and release-modulation sourcing passes share one applier loop instead of two copies",
+          "commits": [
+            "5c5d66a"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "The new node kind, its pipeline and its panels are documented",
+          "commits": [
+            "8857d0a"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.112.0",
       "date": "2026-10-13",
       "entries": [
