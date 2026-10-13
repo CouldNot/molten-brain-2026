@@ -204,7 +204,7 @@ regions the owner already claims, never adding one.
 ### Effects (BETA)
 
 - Each `receptor_effect` node is one row of a receptor / target panel's **Effects** section (`appendEffects` in `js/main.js`, folded, after "Found in", with the `.beta-tag`): `<effect> · <mode>` + the node's own grade pill.
-- A drug panel adds a derived **Possible effects via its bindings** section (`appendPossibleEffects`, after "Direct action on receptors"): `derivePossibleEffects` (`js/receptor-effects.js`) joins the drug's bindings with its targets' effect nodes, **direction-aware** (a binding inherits a node only when its `action` is in that mode's `actions`, emitted in `meta.receptor_effect_modes`, so an antagonist never inherits agonism effects) and an `affinity_only` binding (no action) contributes nothing. Worded "could cause", never "causes": it is a statement about the receptors, not about the drug. Each chip jumps to the target; nothing lights the 3D scene.
+- A drug panel adds a derived **Possible effects via its bindings** section (`appendPossibleEffects`, after "Direct molecular targets"): `derivePossibleEffects` (`js/receptor-effects.js`) joins the drug's bindings with its targets' effect nodes, **direction-aware** (a binding inherits a node only when its `action` is in that mode's `actions`, emitted in `meta.receptor_effect_modes`, so an antagonist never inherits agonism effects) and an `affinity_only` binding (no action) contributes nothing. Worded "could cause", never "causes": it is a statement about the receptors, not about the drug. Each chip jumps to the target; nothing lights the 3D scene.
 
 ### Across age and sex (BETA)
 
@@ -217,7 +217,7 @@ regions the owner already claims, never adding one.
 
 ## Addon nodes (panel annotations)
 
-Every other node kind has an implied home: a binding belongs in **Direct action on receptors**, an enzyme row in
+Every other node kind has an implied home: a binding belongs in **Direct molecular targets**, an enzyme row in
 **Metabolism**, so the collection decides where it draws. An **addon** is the kind for a claim
 with no such home (a caveat over a whole section, a flag on one drug), and it earns its keep by
 **carrying its own insertion point**: adding one is a data edit, never a viewer edit. It is a
