@@ -211,13 +211,7 @@
     ]
   },
   "n_desalkylflurazepam_descarboxyloflazepate": {
-    "bindings": [
-      {
-        "target": "gaba_a",
-        "action": "pam",
-        "quote": "It is long-acting, prone to accumulation, and binds unselectively to the various benzodiazepine receptor subtypes."
-      }
-    ]
+    "bindings": []
   },
   "norbuprenorphine": {
     "bindings": [
@@ -285,13 +279,7 @@
     ]
   },
   "cotinine": {
-    "bindings": [
-      {
-        "target": "nachr_a4b2",
-        "action": "agonist",
-        "quote": "cotinine binds to, activates, and desensitizes neuronal nicotinic acetylcholine receptors"
-      }
-    ]
+    "bindings": []
   },
   "oxymorphone": {
     "bindings": [

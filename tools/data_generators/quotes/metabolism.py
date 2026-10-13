@@ -150,6 +150,12 @@ METABOLITE_ENZYME_QUOTES: dict[tuple[str, str], list[dict[str, Any]]] = {
     ],
     # Added with the metabolites they form (each sentence names the isoform making it;
     # buprenorphine's CYP2C8 is hedged "seems to be involved", kept as the source says).
+    ('buprenorphine', 'Norbuprenorphine'): [
+        _wiki('buprenorphine', "Buprenorphine is metabolized by the liver , via CYP3A4 (also CYP2C8 seems to be involved) isozymes of the cytochrome P450 enzyme system, into norbuprenorphine (by N -dealkylation).",
+              'cyp3a4'),
+        _wiki('buprenorphine', "Buprenorphine is metabolized by the liver , via CYP3A4 (also CYP2C8 seems to be involved) isozymes of the cytochrome P450 enzyme system, into norbuprenorphine (by N -dealkylation).",
+              'cyp2c8'),
+    ],
     ('doxepin', 'Nordoxepin'): [
         _wiki('doxepin', "The major active metabolite of doxepin, nordoxepin , is formed mainly by CYP2C19 (>50% contribution), while CYP1A2 and CYP2C9 are involved to a lesser extent, and CYP2D6 and CYP3A4 are not involved.",
               'cyp2c19'),
@@ -157,6 +163,10 @@ METABOLITE_ENZYME_QUOTES: dict[tuple[str, str], list[dict[str, Any]]] = {
               'cyp1a2'),
         _wiki('doxepin', "The major active metabolite of doxepin, nordoxepin , is formed mainly by CYP2C19 (>50% contribution), while CYP1A2 and CYP2C9 are involved to a lesser extent, and CYP2D6 and CYP3A4 are not involved.",
               'cyp2c9'),
+    ],
+    ('oxycodone', 'Oxymorphone'): [
+        _wiki('oxycodone', "In humans, N-demethylation of oxycodone to noroxycodone by CYP3A4 is the major metabolic pathway, accounting for 45% ± 21% of a dose of oxycodone, while O-demethylation of oxycodone into oxymorphone by CYP2D6 and 6-ketoreduction of oxycodone into 6-oxycodols represent relatively minor metabolic pathways, accounting for 11% ± 6% and 8% ± 6% of a dose of oxycodone, respectively.",
+              'cyp2d6', 'demethylation'),
     ],
     ('trazodone', 'Meta-chlorophenylpiperazine'): [
         _wiki('trazodone', "Its active metabolite meta -chlorophenylpiperazine (mCPP) is known to be formed by CYP3A4 and metabolized by CYP2D6.",

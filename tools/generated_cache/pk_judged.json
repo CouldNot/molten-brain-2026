@@ -284,7 +284,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "chlordiazepoxide",
-    "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours;",
+    "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours; other active metabolites include oxazepam )",
     "name": "Desmethyldiazepam (nordazepam)",
     "half_life": {
      "corpus": "wikipedia_pharm",
@@ -297,7 +297,7 @@
    {
     "corpus": "wikipedia_pharm",
     "page": "chlordiazepoxide",
-    "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours;",
+    "quote": "Elimination half-life | 5–30 hours (Active metabolite desmethyldiazepam 36–200 hours; other active metabolites include oxazepam )",
     "name": "Oxazepam"
    },
    {
@@ -1627,8 +1627,8 @@
   "metabolites": [
    {
     "corpus": "wikipedia_pharm",
-    "page": "thioridazine",
-    "quote": "Thioridazine is a racemic compound with two enantiomers , both of which are metabolized, according to Eap et al., by CYP2D6 into ( S )- and ( R )-thioridazine-2-sulfoxide, better known as mesoridazine , and into ( S )- and ( R )-thioridazine-5-sulfoxide.",
+    "page": "mesoridazine",
+    "quote": "It is one of the active metabolites of thioridazine .",
     "name": "Mesoridazine"
    }
   ]
