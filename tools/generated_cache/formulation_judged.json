@@ -50,6 +50,15 @@
   }
  },
  "asenapine": {
+  "tmax": {
+   "picks": [
+    {
+     "release": "sublingual",
+     "hours": 0.5,
+     "hours_max": 1.5
+    }
+   ]
+  },
   "half_life": {
    "picks": [
     {

@@ -46,8 +46,9 @@
   "hours_max": 2.0
  },
  "asenapine": {
-  "index": 0,
-  "hours": 1.0
+  "index": 1,
+  "hours": 0.5,
+  "hours_max": 1.5
  },
  "atomoxetine": {
   "index": 2,
