@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.117.2",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "A source that is not a book now says what its reference is (PubMed id, DailyMed set id, gene, GtoPdb target...) instead of a page number such as \"p. 7827213\", and links to the record when it has a public page, for example a study's Europe PMC entry",
+          "commits": [
+            "a267780"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.117.1",
       "date": "2026-10-13",
       "entries": [
