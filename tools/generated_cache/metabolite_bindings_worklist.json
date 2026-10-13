@@ -1708,7 +1708,44 @@
     "own_article": false,
     "found": true,
     "from_parent": true,
-    "ki_bindings": [],
+    "ki_bindings": [
+      {
+        "target": "sert",
+        "wiki_name": "SERT",
+        "ki": {
+          "median": 15.0,
+          "min": 15.0,
+          "max": 15.0,
+          "raw": "15"
+        },
+        "quote": "Compound | SERT | NET | DAT / Sibutramine | 298–2,800 | 350–5,451 | 943–1,200 / Desmethylsibutramine | 15 | 20 | 49",
+        "page": "sibutramine"
+      },
+      {
+        "target": "net",
+        "wiki_name": "NET",
+        "ki": {
+          "median": 20.0,
+          "min": 20.0,
+          "max": 20.0,
+          "raw": "20"
+        },
+        "quote": "Compound | SERT | NET | DAT / Sibutramine | 298–2,800 | 350–5,451 | 943–1,200 / Desmethylsibutramine | 15 | 20 | 49",
+        "page": "sibutramine"
+      },
+      {
+        "target": "dat",
+        "wiki_name": "DAT",
+        "ki": {
+          "median": 49.0,
+          "min": 49.0,
+          "max": 49.0,
+          "raw": "49"
+        },
+        "quote": "Compound | SERT | NET | DAT / Sibutramine | 298–2,800 | 350–5,451 | 943–1,200 / Desmethylsibutramine | 15 | 20 | 49",
+        "page": "sibutramine"
+      }
+    ],
     "unresolved_ki": [],
     "action_candidates": [
       "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors. Further studies have indicated that the ( R )-enantiomers of each metabolite exert significantly stronger anorectic effects than the ( S )-enantiomers."
@@ -1729,7 +1766,44 @@
     "own_article": false,
     "found": true,
     "from_parent": true,
-    "ki_bindings": [],
+    "ki_bindings": [
+      {
+        "target": "sert",
+        "wiki_name": "SERT",
+        "ki": {
+          "median": 20.0,
+          "min": 20.0,
+          "max": 20.0,
+          "raw": "20"
+        },
+        "quote": "Compound | SERT | NET | DAT / Sibutramine | 298–2,800 | 350–5,451 | 943–1,200 / Desmethylsibutramine | 15 | 20 | 49 / ( R )-Desmethylsibutramine | 44 | 4 | 12 / ( S )-Desmethylsibutramine | 9,200 | 870 | 180 / Didesmethylsibutramine | 20 | 15 | 45",
+        "page": "sibutramine"
+      },
+      {
+        "target": "net",
+        "wiki_name": "NET",
+        "ki": {
+          "median": 15.0,
+          "min": 15.0,
+          "max": 15.0,
+          "raw": "15"
+        },
+        "quote": "Compound | SERT | NET | DAT / Sibutramine | 298–2,800 | 350–5,451 | 943–1,200 / Desmethylsibutramine | 15 | 20 | 49 / ( R )-Desmethylsibutramine | 44 | 4 | 12 / ( S )-Desmethylsibutramine | 9,200 | 870 | 180 / Didesmethylsibutramine | 20 | 15 | 45",
+        "page": "sibutramine"
+      },
+      {
+        "target": "dat",
+        "wiki_name": "DAT",
+        "ki": {
+          "median": 45.0,
+          "min": 45.0,
+          "max": 45.0,
+          "raw": "45"
+        },
+        "quote": "Compound | SERT | NET | DAT / Sibutramine | 298–2,800 | 350–5,451 | 943–1,200 / Desmethylsibutramine | 15 | 20 | 49 / ( R )-Desmethylsibutramine | 44 | 4 | 12 / ( S )-Desmethylsibutramine | 9,200 | 870 | 180 / Didesmethylsibutramine | 20 | 15 | 45",
+        "page": "sibutramine"
+      }
+    ],
     "unresolved_ki": [],
     "action_candidates": [
       "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors. Further studies have indicated that the ( R )-enantiomers of each metabolite exert significantly stronger anorectic effects than the ( S )-enantiomers."

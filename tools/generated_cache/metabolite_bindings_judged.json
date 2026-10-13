@@ -405,5 +405,43 @@
         "quote": "Desmetramadol is also an antagonist of the serotonin 5-HT 2C receptor"
       }
     ]
+  },
+  "desmethylsibutramine": {
+    "bindings": [
+      {
+        "target": "sert",
+        "action": "reuptake_inhibitor",
+        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+      },
+      {
+        "target": "net",
+        "action": "reuptake_inhibitor",
+        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+      },
+      {
+        "target": "dat",
+        "action": "reuptake_inhibitor",
+        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+      }
+    ]
+  },
+  "didesmethylsibutramine": {
+    "bindings": [
+      {
+        "target": "sert",
+        "action": "reuptake_inhibitor",
+        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+      },
+      {
+        "target": "net",
+        "action": "reuptake_inhibitor",
+        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+      },
+      {
+        "target": "dat",
+        "action": "reuptake_inhibitor",
+        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+      }
+    ]
   }
 }

@@ -3639,6 +3639,74 @@
     "demethylation": "demethylation",
     "hydroxylation": "hydroxylation"
   },
+  "receptor_effect_modes": {
+    "agonism": {
+      "label": "Agonism",
+      "actions": [
+        "agonist",
+        "partial_agonist",
+        "pam"
+      ]
+    },
+    "antagonism": {
+      "label": "Antagonism",
+      "actions": [
+        "antagonist",
+        "inverse_agonist",
+        "nam",
+        "blocker"
+      ]
+    },
+    "both": {
+      "label": "Agonism or antagonism",
+      "actions": [
+        "agonist",
+        "partial_agonist",
+        "pam",
+        "antagonist",
+        "inverse_agonist",
+        "nam",
+        "blocker"
+      ]
+    },
+    "inhibition": {
+      "label": "Inhibition",
+      "actions": [
+        "reuptake_inhibitor",
+        "enzyme_inhibitor",
+        "vesicular_inhibitor",
+        "synthesis_inhibitor",
+        "blocker"
+      ]
+    }
+  },
+  "receptor_effect_labels": {
+    "sedation": "Sedation",
+    "weight_gain": "Weight gain",
+    "appetite_increase": "Increased appetite",
+    "orthostatic_hypotension": "Orthostatic hypotension",
+    "dizziness": "Dizziness",
+    "hallucinations": "Hallucinations",
+    "prolactin_elevation": "Prolactin elevation",
+    "extrapyramidal_symptoms": "Extrapyramidal symptoms (parkinsonism)",
+    "tardive_dyskinesia": "Tardive dyskinesia",
+    "akathisia": "Akathisia",
+    "anticholinergic_cognitive": "Memory / cognitive impairment",
+    "dry_mouth": "Dry mouth",
+    "constipation": "Constipation",
+    "blurred_vision": "Blurred vision",
+    "urinary_retention": "Urinary retention",
+    "nausea": "Nausea / vomiting",
+    "sexual_dysfunction": "Sexual dysfunction",
+    "insomnia": "Insomnia / activation",
+    "anxiety": "Anxiety / agitation",
+    "euphoria": "Euphoria / reward",
+    "dysphoria": "Dysphoria",
+    "respiratory_depression": "Respiratory depression",
+    "seizures": "Seizures",
+    "psychosis": "Psychosis",
+    "cardiovascular": "Raised heart rate / blood pressure"
+  },
   "source_corpora": {
     "stahl": {
       "ref": "Prescriber's Guide: Stahl's Essential Psychopharmacology, 8th ed.",
@@ -3944,8 +4012,8 @@
         "unknown": 0
       },
       "drug_bindings": {
-        "total": 1901,
-        "verified": 1779,
+        "total": 1898,
+        "verified": 1776,
         "uncertain": 104,
         "sourced": 0,
         "llm": 0,
@@ -3954,8 +4022,8 @@
         "unknown": 0
       },
       "drug_binding_action": {
-        "total": 1384,
-        "verified": 1111,
+        "total": 1387,
+        "verified": 1114,
         "uncertain": 104,
         "sourced": 0,
         "llm": 132,
@@ -4044,8 +4112,8 @@
         "unknown": 0
       },
       "drug_prodrug": {
-        "total": 10,
-        "verified": 10,
+        "total": 11,
+        "verified": 11,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4124,8 +4192,8 @@
         "unknown": 0
       },
       "drug_metabolite_bindings": {
-        "total": 139,
-        "verified": 139,
+        "total": 145,
+        "verified": 145,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4283,6 +4351,16 @@
         "missing": 0,
         "unknown": 0
       },
+      "receptor_effect": {
+        "total": 0,
+        "verified": 0,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "structures": {
         "total": 57,
         "verified": 57,
@@ -4305,22 +4383,22 @@
       }
     },
     "nodes": {
-      "total": 7687,
-      "verified": 7113,
+      "total": 7694,
+      "verified": 7120,
       "uncertain": 268,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 7381,
+      "backed": 7388,
       "pct_backed": 96
     },
     "ki_coverage": {
-      "bindings_total": 1882,
-      "bindings_with_ki": 1658,
+      "bindings_total": 1879,
+      "bindings_with_ki": 1655,
       "pct_bindings_with_ki": 88,
-      "drugs_total": 275,
+      "drugs_total": 274,
       "drugs_without_ki": 87,
       "drugs_without_ki_ids": [
         "acamprosate",

@@ -8,5 +8,6 @@
  "heroin": {"index": 0, "metabolite": "Morphine", "drug_id": "morphine"},
  "levodopa": {"index": 2, "metabolite": "Dopamine", "drug_id": null},
  "oxcarbazepine": {"index": 0, "metabolite": "Licarbazepine", "drug_id": null},
- "loflazepate": {"index": 0, "metabolite": "N-desalkylflurazepam (descarboxyloflazepate)", "drug_id": null}
+ "loflazepate": {"index": 0, "metabolite": "N-desalkylflurazepam (descarboxyloflazepate)", "drug_id": null},
+ "sibutramine": {"index": 0, "metabolite": "Desmethylsibutramine", "drug_id": null}
 }

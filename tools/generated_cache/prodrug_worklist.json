@@ -1079,7 +1079,16 @@
   "sibutramine": {
    "name": "Sibutramine",
    "bindings": 3,
-   "metabolites": [],
+   "metabolites": [
+    {
+     "name": "Desmethylsibutramine",
+     "drug_id": null
+    },
+    {
+     "name": "Didesmethylsibutramine",
+     "drug_id": null
+    }
+   ],
    "candidates": [
     {
      "corpus": "wikipedia_pharm",
