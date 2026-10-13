@@ -408,6 +408,8 @@ Viewer (`public/`):
   `transmitterVars`. Pure, no DOM. See Receptors & targets (Downstream).
 - `js/receptor-demographics.js`: `resolveDemographics` (an owner's `demographics[]` ->
   display rows, age first). Pure, no DOM. See Receptors & targets (Across age and sex).
+- `js/receptor-variants.js`: `resolveVariants` (an owner's `variants[]` -> display rows),
+  `groupByVariant`, `variantsForDrug` (the drug panel's join). Pure, no DOM.
 - `js/drug-anim.js`: `createDrugAnimation`: per-drug effect-coloured gem dots +
   surface wash; `matches`. Flow overlay reuses `circuit-anim.js`. See Drugs.
 - `js/surface-wash.js`: shared `buildWashShell` + `washStrength` "wash of light"

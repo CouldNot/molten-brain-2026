@@ -68,6 +68,7 @@ right(+), `y` down(-)/up(+), `z` posterior(-)/anterior(+).
 - receptor/target `effects[]` -> `receptor_effect` (BETA; one node per (mode, effect) from closed vocabularies, in the headline; a drug's possible effects are derived in `js/receptor-effects.js`, never stored)
 - receptor `release_modulation[]` -> `receptor_release_modulation` (BETA; one node per (kind, site, transmitter, direction): auto/heteroreceptor control of release; a drug's release changes are derived in `js/release-modulation.js`, never stored)
 - receptor/target `demographics[]` -> `receptor_demographic` (BETA; one node per (factor age|sex, direction, structure) from human PET/SPECT Europe PMC abstracts, optional verbatim `magnitude`; panel section "Across age and sex")
+- receptor/target `variants[]` -> `receptor_variant` (one node per ClinPGx clinical annotation on the owner's gene, levels 1A-3 only, via `genes.GENE_OWNERS`; panel section "Genetic variants", a drug panel lists those naming it, `js/receptor-variants.js`)
 - target `meta.drug_targets` -> `targets`; `polarity_provenance` -> `target_polarity`
 - expression: `location_sources` -> `receptor_locations` / `target_locations`; `density` -> `receptor_density` / `target_density` (ONE node per profile, not per region)
 - drug `bindings[]` -> `drug_bindings`; binding `action` -> `drug_binding_action` (graded by quote sources only: a Ki attests binding, never direction; `affinity_only` = NOSOURCE)
@@ -95,7 +96,7 @@ Full detail (principles, data flow, module graph, boot sequence, per-file map): 
 - Any UI change must be checked against `js/tour.js` by running the tour end to end (headless, step by step): its steps (in `js/main.js`) anchor on selectors and `data-tour-*` hooks and break silently.
 - Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.
 
-Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `receptor-effects.js`, `release-modulation.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `drug-history.js`, `tdm.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
+Files (`public/`): data `js/data.js`, `js/wiki.js`, `app-config.js`, `version.js`; scene `js/main.js`, `shapes.js`, `mesh-codec.js`, `baked-meshes.js`, `arrows.js`, `labels.js`, `render-order.js`; animation `circuit-schedule.js`, `circuit-anim.js`, `receptor-markers.js`, `receptor-effects.js`, `release-modulation.js`, `receptor-variants.js`, `drug-anim.js`, `surface-wash.js`, `anim-settings.js`; tabs `node-browser.js`, `simulation.js`, `sim-model.js`, `sim-plots.js`; chrome `index.html`, `tour.js`, `changelog.js`, `drug-history.js`, `tdm.js`, `i18n.js`, `theme.js`, `loading.js`, `app-init.js` (analytics), `dev-banner.js`, `error-banner.js`; state `url-state.js`, `prefs.js`; search `search-rank.js`; PWA `sw.js`, `manifest.webmanifest`. Deploy (`docker/`): `docker-compose.yml`, `Dockerfile`, `Caddyfile`, `entrypoint.sh`, `env.example`.
 
 ## Running
 
@@ -241,6 +242,7 @@ Corpora (`SOURCE_CORPORA`):
 - #16 `bdpm`: French RCP section 5.2 Tmax/half-life + fr brands (code read of the denomination), `page` = product CIS.
 - #17 `europepmc`: paper abstracts, plus Europe PMC's open-access full text (tables as `cell | cell` rows, licence recorded) where one exists, for what only a study measures (hand-listed `fetch_europepmc.PAPERS`, or a Wikipedia-cited paper for a missing Ki), `page` = PMID.
 - #19 `agnp_tdm`: AGNP TDM consensus guideline 2026 (Table 5 therapeutic range + alert level, Table 1 CYP/UGT substrates, ranked after the other metabolism corpora), code-read table rows, `page` = PDF page.
+- #20 `clinpgx`: ClinPGx (PharmGKB) clinical annotations, CC BY-SA 4.0, committed export `tools/data/clinpgx/` pinned + re-derived like #15, one quote per genotype sentence (code copy, no judge), `page` = annotation id.
 - #18 `drugsfda`: Drugs@FDA (openFDA export), the fallback first **US** approval (`national: true`, code-read, no judge) where no other source dates one, `page` = NDA number.
 
 Full detail (sourcing model, citation sites, book heading trails, the four uncertainty flags, per-corpus mechanics, the "% sourced" maths): [`docs/PROVENANCE.md`](docs/PROVENANCE.md).
