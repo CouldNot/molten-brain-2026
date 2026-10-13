@@ -2951,7 +2951,10 @@ function createInfoPanel(data, sourcingModal) {
   // are inert spans, not real pills: nesting a .help-tip button inside a tooltip would
   // put a tooltip inside a tooltip. The sentences are i18n strings keyed by the reason
   // `kind`, so nothing here is stored prose (see quotes/uncertainty.py).
-  const uncertaintyTip = (list) => {
+  // `shown` is the text of the pill's own source block printed under the reasons: a
+  // reason resting on that very source (an animal-only Ki) would repeat it verbatim,
+  // and only the copy below carries the live link, so the reason omits it.
+  const uncertaintyTip = (list, shown = "") => {
     const box = el("div", "src-uncertain");
     box.appendChild(el("div", "src-uncertain-lead", t("info.uncertainLead")));
     const ul = el("ul", "src-uncertain-list");
@@ -2963,7 +2966,8 @@ function createInfoPanel(data, sourcingModal) {
       badge.setAttribute("aria-hidden", "true");
       li.append(badge, el("span", "src-uncertain-text",
         t(`uncertain.${u.kind}`, uncertaintyArgs(u.args))));
-      const src = (u.sources || []).map(sourceTipLine).filter(Boolean).join("\n\n");
+      const src = (u.sources || []).map(sourceTipLine)
+        .filter((line) => line && !shown.includes(line)).join("\n\n");
       if (src) li.appendChild(el("div", "src-uncertain-src", src));
       ul.appendChild(li);
     }
@@ -2986,7 +2990,8 @@ function createInfoPanel(data, sourcingModal) {
   const withUncertainty = (list, extra) => {
     if (!list) return extra;
     const frag = document.createDocumentFragment();
-    frag.appendChild(uncertaintyTip(list));
+    frag.appendChild(uncertaintyTip(list,
+      extra instanceof Node ? extra.textContent : extra || ""));
     if (extra instanceof Node) frag.append(extra);
     else if (extra) frag.append(document.createTextNode(extra));
     return frag;
