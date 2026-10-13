@@ -1414,7 +1414,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for hctx, h in _holder_ctxs(f"drug {did}", drug):
             for f in ("half_life_sources", "tmax_sources", "release_sources"):
                 for i, src in enumerate(h.get(f, []) or []):
-                    check_one(f"{hctx} {f}[{i}]", src)
+                    # A release read off a brand's own suffix cites that brand name
+                    # ("Seroquel XR"): short by design, like a brand quote.
+                    check_one(f"{hctx} {f}[{i}]", src,
+                              short_ok=f == "release_sources")
             for br in h.get("brands", []) or []:
                 for i, src in enumerate(br.get("sources", []) or []):
                     check_one(f"{hctx} brand {br.get('name')} sources[{i}]", src,

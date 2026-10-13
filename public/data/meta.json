@@ -3995,8 +3995,8 @@
         "unknown": 0
       },
       "drug_formulations": {
-        "total": 195,
-        "verified": 195,
+        "total": 193,
+        "verified": 193,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4286,15 +4286,15 @@
       }
     },
     "nodes": {
-      "total": 7690,
-      "verified": 7096,
+      "total": 7688,
+      "verified": 7094,
       "uncertain": 266,
       "sourced": 0,
       "llm": 256,
       "nosource": 72,
       "missing": 328,
       "unknown": 656,
-      "backed": 7362,
+      "backed": 7360,
       "pct_backed": 96
     },
     "ki_coverage": {

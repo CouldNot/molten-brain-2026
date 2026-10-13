@@ -121,10 +121,6 @@
   "brand:Aplenzin": {
    "index": 0,
    "release": "xr"
-  },
-  "brand:Contrave": {
-   "index": 2,
-   "release": "xr"
   }
  },
  "carbamazepine": {
@@ -220,10 +216,6 @@
   }
  },
  "ketamine": {
-  "brand:Spravato": {
-   "index": 0,
-   "release": "nasal"
-  },
   "half_life": {
    "molecule": true
   }
@@ -387,12 +379,6 @@
    "release": "ir"
   }
  },
- "thc": {
-  "brand:Sativex": {
-   "index": 0,
-   "release": "sublingual"
-  }
- },
  "thiopental": {
   "brand:Nesdonal": {
    "index": 1,
@@ -401,12 +387,6 @@
   "brand:Pentothal": {
    "index": 0,
    "release": "injection"
-  }
- },
- "topiramate": {
-  "brand:Qsymia": {
-   "index": 0,
-   "release": "xr"
   }
  },
  "trazodone": {
