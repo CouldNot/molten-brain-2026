@@ -1,6 +1,49 @@
 {
   "versions": [
     {
+      "version": "3.112.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "An active metabolite shared by several drugs is now defined once: nordazepam, for instance, is one record whichever of diazepam, clorazepate, prazepam or chlordiazepoxide makes it, so its bindings and half-life can never disagree between parents. The tally already counted each metabolite once by name, so the drug metabolite bindings figure is unchanged by this",
+          "commits": [
+            "444f603",
+            "bcbd265"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "The About panel lists metabolites.jsonl among the downloadable data files",
+          "commits": [
+            "a888bbf"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Sibutramine is now marked as a prodrug: its two active metabolites, desmethylsibutramine and didesmethylsibutramine, each inhibit serotonin, noradrenaline and dopamine reuptake, with their Ki read from the comparison table in sibutramine's Wikipedia article (15 to 49 nM). Six metabolite bindings are added and sibutramine's own three are removed",
+          "commits": [
+            "463d2bf",
+            "38618e2"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Brexpiprazole no longer lists DM-3411 as an active metabolite: its sources describe it as a major metabolite, not an active one",
+          "commits": [
+            "853a0e0"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Three half-life quotes (cannabidiol, furosemide, bumetanide) point again at the sentence that states them, after their article text had shifted",
+          "commits": [
+            "3854313"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.111.0",
       "date": "2026-10-13",
       "entries": [
