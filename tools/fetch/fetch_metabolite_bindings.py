@@ -329,14 +329,30 @@ def main() -> int:
                     seen_lines.add(line)
                     entry["action_candidates"].append(line)
             # The Ki table is harvested ONLY from a confirmed own article (a parent's table
-            # is the parent's affinities, never the metabolite's).
-            if is_own and soup is not None:
-                res = wp.extract_bindings(soup, valid_ids)
+            # is the parent's affinities, never the metabolite's) ...
+            res = wp.extract_bindings(soup, valid_ids) if soup is not None else None
+            if is_own and res:
                 for tid, b in res["bindings"].items():
                     entry["ki_bindings"].append({
                         "target": tid, "wiki_name": b["wiki_name"],
-                        "ki": b["ki"], "quote": b["quote"]})
+                        "ki": b["ki"], "quote": b["quote"], "page": slug})
                 entry["unresolved_ki"] = res["unresolved"]
+            # ... except a compound table's row, which names its compound itself
+            # (sibutramine's "Desmethylsibutramine | 15 | 20 | 49"), so it may come from
+            # any read page. The name must match exactly (``drugs_io.names_of``): an
+            # "(R)-Desmethylsibutramine" row is one enantiomer's assay, never the racemate's.
+            if res:
+                want = set(drugs_io.names_of(m["name"]))
+                have = {b["target"] for b in entry["ki_bindings"]}
+                for name, rows in res["compounds"].items():
+                    if not want & set(drugs_io.names_of(name)):
+                        continue
+                    for b in rows:
+                        if b["target"] not in have:
+                            have.add(b["target"])
+                            entry["ki_bindings"].append({
+                                "target": b["target"], "wiki_name": b["wiki_name"],
+                                "ki": b["ki"], "quote": b["quote"], "page": slug})
 
         entry["action_candidates"] = entry["action_candidates"][:MAX_ACTION_LINES]
         if not entry["found"]:

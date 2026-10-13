@@ -128,7 +128,10 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
         if pdsp:
             return pdsp
         w = wiki_ki.get(target)
-        return wp._wiki_ki_obj(w, slug, _permalink(slug)) if w else None
+        if not w:
+            return None
+        page = w.get("page", slug)          # a compound-table row may sit on the parent's page
+        return wp._wiki_ki_obj(w, page, _permalink(page))
 
     def gate(quote: str | None) -> str | None:
         """The slug whose stored page contains ``quote`` verbatim, or None. Tried in page

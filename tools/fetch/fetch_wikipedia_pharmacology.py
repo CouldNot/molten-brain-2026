@@ -469,12 +469,71 @@ def extract_from_table(table: Tag, valid_ids: set[str]) -> tuple[list[dict], lis
     return bindings, unresolved
 
 
+# A *compound* table is the usual Ki table transposed: one ROW per compound (a drug and its
+# metabolites), one COLUMN per target, and the unit stated once in a full-width note row::
+#
+#     Compound             | SERT      | NET       | DAT
+#     Sibutramine          | 298–2,800 | 350–5,451 | 943–1,200
+#     Desmethylsibutramine | 15        | 20        | 49
+#     Values are K i (nM).
+#
+# No cell names its target, so a quote of the row alone ("Desmethylsibutramine | 15 | 20 |
+# 49") would not say which number is which. The quote is instead the contiguous run of
+# stored page lines from the header row down to the compound's row, joined by " / ": still
+# verbatim on ``pages/<slug>.md`` under the quote gate (whose normalizer folds the line breaks
+# and the separator alike), and it carries the column header that makes the value readable.
+COMPOUND_HEAD_RE = re.compile(r"^(?:compound|ligand|drug)$")
+COMPOUND_QUOTE_SEP = " / "
+
+
+def extract_compound_table(table: Tag, valid_ids: set[str]) -> dict[str, list[dict]]:
+    """``{compound row name: [binding, ...]}`` from a compound table, ``{}`` for any other.
+
+    Recognized only when the first header says compound/ligand/drug, at least one other
+    header resolves to a target, and a full-width note row states the values are Ki (so a
+    transposed IC50 or EC50 table never reads as affinity). A column whose header does not
+    resolve is skipped, never guessed."""
+    grid = grid_expand(table)
+    if len(grid) < 3:
+        return {}
+    n_head, labels = _header_split(grid)
+    if not labels or not COMPOUND_HEAD_RE.match(labels[0]):
+        return {}
+    cols = {c: tid for c in range(1, len(labels))
+            if (tid := resolve_wiki_target(grid[0][c]["text"], valid_ids))}
+    notes = {r for r in range(n_head, len(grid))
+             if len({c["text"] for c in grid[r]}) == 1}
+    units = [grid[r][0]["text"].lower() for r in notes]
+    if not cols or not any(KI_HEAD_RE.search(u) and not NOT_KI_RE.search(u) for u in units):
+        return {}
+    trs = table.find_all("tr")
+    head = [row_text(trs[r]) for r in range(n_head)]
+    out: dict[str, list[dict]] = {}
+    for r in range(n_head, min(len(grid), len(trs))):
+        name = grid[r][0]["text"]
+        if not name or r in notes:
+            continue
+        quote = COMPOUND_QUOTE_SEP.join(head + [row_text(trs[i]) for i in range(n_head, r + 1)])
+        for c, tid in cols.items():
+            ki = parse_ki_cell(grid[r][c]["text"])
+            if ki is not None:
+                out.setdefault(name, []).append({"target": tid, "wiki_name": grid[0][c]["text"],
+                                                 "ki": ki, "quote": quote})
+    return out
+
+
 def extract_bindings(soup: BeautifulSoup, valid_ids: set[str]) -> dict:
-    """Scan every table; return the merged best Ki per target + diagnostics."""
+    """Scan every table; return the merged best Ki per target + diagnostics, plus
+    ``compounds``: every compound table's rows by compound name (see
+    :func:`extract_compound_table`; read by the metabolite pass, never merged into the
+    article's own drug)."""
     best: dict[str, dict] = {}
     unresolved_all: list[str] = []
+    compounds: dict[str, list[dict]] = {}
     n_tables = 0
     for table in soup.find_all("table"):
+        for name, rows in extract_compound_table(table, valid_ids).items():
+            compounds.setdefault(name, []).extend(rows)
         bindings, unresolved = extract_from_table(table, valid_ids)
         if bindings:
             n_tables += 1
@@ -484,7 +543,8 @@ def extract_bindings(soup: BeautifulSoup, valid_ids: set[str]) -> dict:
             cur = best.get(b["target"])
             if cur is None or b["ki"]["median"] < cur["ki"]["median"]:
                 best[b["target"]] = b
-    return {"bindings": best, "unresolved": unresolved_all, "n_ki_tables": n_tables}
+    return {"bindings": best, "unresolved": unresolved_all, "n_ki_tables": n_tables,
+            "compounds": compounds}
 
 
 # --------------------------------------------------------------------------- #
