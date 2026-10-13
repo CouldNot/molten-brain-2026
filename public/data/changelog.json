@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "3.115.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Receptor and target panels gain an \"Across age and sex\" section (beta): what human PET and SPECT studies report about how much of a receptor or transporter the brain carries as people age or between women and men (D2, D1, dopamine and serotonin transporters, 5-HT1A, 5-HT2A, the noradrenaline transporter, MAO-B, mu-opioid, CB1), with a direction chip, the study's own magnitude (\"6.6% per decade in caudate\") and a source pill on every row",
+          "commits": [
+            "b370086",
+            "c9556f6"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "18 human imaging papers were added to the Europe PMC corpus; their 21 findings were each checked by an independent Opus judge, which rejected two (a CB1 rise with age seen only in women, and a cortical decline the tracer cannot attribute to D3)",
+          "commits": [
+            "b370086"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.114.2",
       "date": "2026-10-13",
       "entries": [
