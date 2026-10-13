@@ -91,7 +91,7 @@ fixed Stahl list.
   own `bindings`) is ONE record in `tools/data/metabolites_data.jsonl`, whatever drugs make it. `showDrug` renders T½ as an `hl-chip` (auto-scaled to min/h/days via
   `formatHalfLife`, in a **Pharmacokinetics** section between the brands and the **Acts on** list, beside the Tmax
   chip below) and an **Active metabolites** section
-  (each row its name + its own T½ chip, "a bit like the Ki"). In `buildDrugLegend` a default-on
+  (each row its name + its own T½ chip, "a bit like the Ki"; a link another corpus denies is active wears the orange `contradicted` pill, `METABOLITE_CONTRADICTIONS` in docs/PROVENANCE.md). In `buildDrugLegend` a default-on
   **Show active metabolites** toggle (`#drugs-show-metabolites`, persisted `neurarium.metabolites`) adds
   discreet indented `.metab-item` bullets under each parent (a bullet + its parent both stay visible
   when the drugs filter or the global search matches the metabolite name). Pipeline mirrors the brand one:
