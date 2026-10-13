@@ -1,0 +1,4597 @@
+{
+ "instructions": "Place each claim under the formulation (release type) its candidate sentence ties it to, or leave it at molecule level. Release ids: ir = Immediate release, xr = Extended release, dr = Delayed release (gastro-resistant), odt = Orally disintegrating, sublingual = Sublingual / buccal, nasal = Nasal, transdermal = Transdermal patch, injection = Injection, depot = Long-acting injection (depot). A 'brand:<name>' item: answer {index, release} only when that sentence says THIS brand is that kind of product (e.g. 'Concerta, an extended-release tablet'); a sentence listing the brand beside a release word that describes another product does not count. A 'tmax' / 'half_life' item: answer {picks: [{release, hours, hours_max?}]}, one per formulation the sentence gives a value for (a sentence stating IR 2-3 h and CR 4.5 h gives two picks), each value one the sentence states for that formulation; answer {molecule: true} when the value is not tied to one formulation (a sentence naming a formulation only for another fact, or a product whose release type it does not name). Omit what you cannot decide.",
+ "drugs": {
+  "acamprosate": {
+   "name": "Acamprosate",
+   "items": {
+    "brand:Campral": {
+     "brand": "Campral",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "acamprosate",
+       "line": "^ a b c d e f g h i j k l \"Campral (acamprosate calcium) Delayed-Release Tablets Initial U.S.",
+       "releases": [
+        "dr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "alprazolam": {
+   "name": "Alprazolam",
+   "items": {
+    "brand:Xanax": {
+     "brand": "Xanax",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "alprazolam",
+       "line": "^ a b c \"Xanax XR- alprazolam tablet, extended-release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "alprazolam",
+       "line": "^ \"Xanax XR- alprazolam tablet, extended-release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "amisulpride": {
+   "name": "Amisulpride",
+   "items": {
+    "brand:Barhemsys": {
+     "brand": "Barhemsys",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amisulpride",
+       "line": "^ a b c d e \"Barhemsys (amisulpride) injection, for intravenous use\" (PDF) .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "amphetamine_d": {
+   "name": "Amphetamine (D)",
+   "items": {
+    "brand:Dexedrine": {
+     "brand": "Dexedrine",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Previous IR tablets sold under the brand names Dexedrine and Dextrostat have been discontinued but in 2015, IR tablets became available by the brand name Zenzedi, offered as 2.5 mg, 5 mg, 7.5 mg, 10 mg, 15 mg, 20 mg and 30 mg tablets.",
+       "releases": [
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Dextroamphetamine sulfate is also available as a controlled-release (CR) capsule preparation in strengths of 5 mg, 10 mg, and 15 mg under the brand name Dexedrine Spansule, with generic versions marketed by Barr and Mallinckrodt.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Dexedrine listed here represents the extended release \"Spansule\" capsule which was approved in 1976.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "^ a b c d \"Dexedrine spansule- dextroamphetamine sulfate capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      }
+     ]
+    },
+    "brand:Dexedrine Spansule": {
+     "brand": "Dexedrine Spansule",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Dextroamphetamine sulfate is also available as a controlled-release (CR) capsule preparation in strengths of 5 mg, 10 mg, and 15 mg under the brand name Dexedrine Spansule, with generic versions marketed by Barr and Mallinckrodt.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "^ a b c d \"Dexedrine spansule- dextroamphetamine sulfate capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Zenzedi": {
+     "brand": "Zenzedi",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Previous IR tablets sold under the brand names Dexedrine and Dextrostat have been discontinued but in 2015, IR tablets became available by the brand name Zenzedi, offered as 2.5 mg, 5 mg, 7.5 mg, 10 mg, 15 mg, 20 mg and 30 mg tablets.",
+       "releases": [
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      }
+     ]
+    },
+    "brand:ProCentra": {
+     "brand": "ProCentra",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      }
+     ]
+    },
+    "brand:Xelstrym": {
+     "brand": "Xelstrym",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Xelstrym | dextroamphetamine | 1:0 (base) | patch | 2022",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "Dextroamphetamine is available as a transdermal patch containing dextroamphetamine base under the brand name Xelstrym.",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextroamphetamine",
+       "line": "^ a b c \"Xelstrym- dextroamphetamine patch, extended release\" .",
+       "releases": [
+        "transdermal",
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "amphetamine_dl": {
+   "name": "Amphetamine (D,L)",
+   "items": {
+    "brand:Adderall": {
+     "brand": "Adderall",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Several currently marketed amphetamine formulations contain both enantiomers, including those marketed under the brand names Adderall, Adderall XR, Mydayis, Adzenys ER, Adzenys XR-ODT , Dyanavel XR, Evekeo, and Evekeo ODT.",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Adderall XR | – | 3:1 (salts) | capsule | 2001",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "^ a b c d e f g h i j k l m n o p q r s \"Adderall XR Prescribing Information\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Adderall XR Vyvanse",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "^ a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al \"Adderall XR- dextroamphetamine sulfate, dextroamphetamine saccharate, amphetamine sulfate and amphetamine aspartate capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Mixed amphetamine salts Adderall Adderall XR Mydayis",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Adderall XR",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Evekeo": {
+     "brand": "Evekeo",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Several currently marketed amphetamine formulations contain both enantiomers, including those marketed under the brand names Adderall, Adderall XR, Mydayis, Adzenys ER, Adzenys XR-ODT , Dyanavel XR, Evekeo, and Evekeo ODT.",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Of those, Evekeo (including Evekeo ODT) is the only product containing only racemic amphetamine (as amphetamine sulfate), and is therefore the only one whose active moiety can be accurately referred to simply as \"amphetamine\".",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Evekeo ODT | amphetamine sulfate | 1:1 (salts) | ODT | 2019",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "^ \"Evekeo ODT- amphetamine sulfate tablet, orally disintegrating\" .",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Evekeo ODT",
+       "releases": [
+        "odt"
+       ]
+      }
+     ]
+    },
+    "brand:Mydayis": {
+     "brand": "Mydayis",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Several currently marketed amphetamine formulations contain both enantiomers, including those marketed under the brand names Adderall, Adderall XR, Mydayis, Adzenys ER, Adzenys XR-ODT , Dyanavel XR, Evekeo, and Evekeo ODT.",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "^ \"Mydayis- dextroamphetamine sulfate, dextroamphetamine saccharate, amphetamine aspartate monohydrate, and amphetamine sulfate capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Mixed amphetamine salts Adderall Adderall XR Mydayis",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Dexedrine": {
+     "brand": "Dexedrine",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 3.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "amphetamine",
+       "line": "The immediate-release and extended release variants of salts of both isomers reach peak plasma concentrations at 3 hours and 7 hours post-dose respectively.",
+       "releases": [
+        "xr",
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 3.0
+        },
+        {
+         "hours": 7.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "aripiprazole": {
+   "name": "Aripiprazole",
+   "items": {
+    "brand:Abilify": {
+     "brand": "Abilify",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "It is also available as a long-acting injectable , aripiprazole lauroxil , a lipophilic ester prodrug of aripiprazole designed to be given once per month, and as a once-every-two-months long-acting injectable, under the brand name Abilify Asimtufii.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "In 2024, Capital Daily and the Investigative Journalism Foundation published an investigation into Kirsten \"Kir\" Anvik, a 54-year-old single mother in Victoria, British Columbia , who had been involuntarily detained under British Columbia's Mental Health Act since 2016 and forced to receive monthly depot injections of aripiprazole (as Abilify Maintena).",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ a b c d e f g h i j k l m n \"Abilify- aripiprazole tablet Abilify- aripiprazole solution Abilify- aripiprazole tablet, orally disintegrating Abilify- aripiprazole injection, solution\" .",
+       "releases": [
+        "injection",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ a b \"Abilify Asimtufii- aripiprazole injection, suspension, extended release\" .",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ a b c d e f \"Abilify Tablets, Orodispersible Tablets, Oral Solution – Summary of Product Characteristics (SPC)\" .",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ a b c d e \"Product Information for Abilify Aripiprazole Tablets & Orally Disintegrating Tablets\" .",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ \"Abilify Maintena 300mg & 400mg powder and solvent for prolonged-release suspension for injection and suspension for injection in pre filled syringe – Summary of Product Characteristics (SPC)\" .",
+       "releases": [
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ \"Barr Confirms Filing an Application with a Paragraph IV Certification for Abilify Tablets\" (Press release).",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Abilify Maintena": {
+     "brand": "Abilify Maintena",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "In 2024, Capital Daily and the Investigative Journalism Foundation published an investigation into Kirsten \"Kir\" Anvik, a 54-year-old single mother in Victoria, British Columbia , who had been involuntarily detained under British Columbia's Mental Health Act since 2016 and forced to receive monthly depot injections of aripiprazole (as Abilify Maintena).",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "aripiprazole",
+       "line": "^ \"Abilify Maintena 300mg & 400mg powder and solvent for prolonged-release suspension for injection and suspension for injection in pre filled syringe – Summary of Product Characteristics (SPC)\" .",
+       "releases": [
+        "injection",
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "armodafinil": {
+   "name": "Armodafinil",
+   "items": {
+    "brand:Nuvigil": {
+     "brand": "Nuvigil",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "armodafinil",
+       "line": "NUVIGIL® (armodafinil) tablets, for oral use, C-IV Initial U.S.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "asenapine": {
+   "name": "Asenapine",
+   "items": {
+    "half_life": {
+     "value": {
+      "hours": 13.0,
+      "hours_max": 39.0
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 91,
+       "line": "Sublingual: half-life 13–39 hours; optimal bioavailability is with sublingual administration (~35%); if food or liquid is consumed within 10 minutes of administration bioavailability decreases to 28%; bioavailability decreases to 2% if swallowed",
+       "releases": [
+        "sublingual"
+       ],
+       "durations": [
+        {
+         "hours": 13.0,
+         "hours_max": 39.0
+        },
+        {
+         "hours": 0.167
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "biperiden": {
+   "name": "Biperiden",
+   "items": {
+    "tmax": {
+     "value": {
+      "hours": 1.5
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "biperiden",
+       "line": "In young, healthy volunteers, peak plasma concentrations following a single oral 4 mg immediate-release dose are reached after 1.5 hours.",
+       "releases": [
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "bremelanotide": {
+   "name": "Bremelanotide",
+   "items": {
+    "brand:Vyleesi": {
+     "brand": "Vyleesi",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bremelanotide",
+       "line": "^ a b c d e f g h i j k l m n o p q r s t u \"Vyleesi- bremelanotide injection\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "brexanolone": {
+   "name": "Brexanolone",
+   "items": {
+    "brand:Zulresso": {
+     "brand": "Zulresso",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "allopregnanolone",
+       "line": "^ a b c d e f g h i j k l m n o p q r s t u v w x y z aa \"Zulresso- brexanolone injection, solution\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "buprenorphine": {
+   "name": "Buprenorphine",
+   "items": {
+    "brand:Suboxone (with naloxone)": {
+     "brand": "Suboxone (with naloxone)",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "buprenorphine",
+       "line": "Buprenorphine is available under the brand names Cizdol, Brixadi (approved in the US by FDA for addiction treatment in 2023), Suboxone (with naloxone), Subutex (typically used for opioid use disorder), Zubsolv, Bunavail, Buvidal (approved in the UK, Europe and Australia for addiction treatment in 2018), Sublocade (approved in the US in 2018), Probuphine, Temgesic ( sublingual tablets for moderate to severe pain), Buprenex (solutions for injection often used for acute pain in primary-care settings), Norspan, and Butrans ( transdermal preparations used for chronic pain).",
+       "releases": [
+        "transdermal",
+        "sublingual",
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Temgésic": {
+     "brand": "Temgésic",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupr_norphine",
+       "line": "Temgésic - uniquement dans le traitement des douleurs sévères, pas d' AMM comme TSO (comprimé sublingual, à faire fondre sous la langue) 0,2 mg",
+       "releases": [
+        "sublingual"
+       ]
+      }
+     ]
+    },
+    "brand:Subutex": {
+     "brand": "Subutex",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "buprenorphine",
+       "line": "In the European Union, Subutex and Suboxone, buprenorphine's high-dose sublingual tablet preparations, were approved for opioid use disorder treatment in September 2006.",
+       "releases": [
+        "sublingual"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "buprenorphine",
+       "line": "Buprenorphine is available under the brand names Cizdol, Brixadi (approved in the US by FDA for addiction treatment in 2023), Suboxone (with naloxone), Subutex (typically used for opioid use disorder), Zubsolv, Bunavail, Buvidal (approved in the UK, Europe and Australia for addiction treatment in 2018), Sublocade (approved in the US in 2018), Probuphine, Temgesic ( sublingual tablets for moderate to severe pain), Buprenex (solutions for injection often used for acute pain in primary-care settings), Norspan, and Butrans ( transdermal preparations used for chronic pain).",
+       "releases": [
+        "transdermal",
+        "sublingual",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "buprenorphine",
+       "line": "^ \"Subutex (buprenorphine sublingual tablets), CIII Initial U.S.",
+       "releases": [
+        "sublingual"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupr_norphine",
+       "line": "Subutex (comprimé sublingual, à faire fondre sous la langue) 0,4 mg , 2 mg , 8 mg ( princeps ) 1 mg , 4 mg , 6 mg (dosages ajoutés par les génériques du Subutex)",
+       "releases": [
+        "sublingual"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupr_norphine",
+       "line": "Subutex et Orobupré ne sont pas équivalents car le comprimé sublingual et le lyophilisat oral n'ont pas la même biodisponibilité , et la molécule n'est pas absorbée de la même façon par l'organisme.",
+       "releases": [
+        "sublingual",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupr_norphine",
+       "line": "Malgré la question de l'injection du Subutex, qui serait fréquente pour beaucoup d'anciens toxicomanes substitués à ce traitement ainsi qu'à ceux qui en détournent l'usage, les associations de réduction des risques arguent le fait que l'usage de la Suboxone pourrait aggraver ce problème en poussant les utilisateurs à multiplier les injections, aux effets destructeurs, à la recherche d'effets qui n'apparaîtraient pas .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupr_norphine",
+       "line": "↑ a b et c « Base de Données Publique des Médicaments - SUBUTEX, comprimé sublingual », sur https://base-donnees-publique.medicaments.gouv.fr/ (consulté le 7 mars 2026 )",
+       "releases": [
+        "sublingual"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 1.5
+     },
+     "candidates": [
+      {
+       "corpus": "bdpm",
+       "page": "60549391",
+       "line": "Le pic de concentration plasmatique est obtenu 90 minutes après administration sublinguale.",
+       "releases": [
+        "sublingual"
+       ],
+       "durations": [
+        {
+         "hours": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 24.0,
+      "hours_max": 42.0
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 130,
+       "line": "Elimination half-life of sublingual buprenorphine is 24–42 hours",
+       "releases": [
+        "sublingual"
+       ],
+       "durations": [
+        {
+         "hours": 24.0,
+         "hours_max": 42.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "bupropion": {
+   "name": "Bupropion",
+   "items": {
+    "brand:Wellbutrin": {
+     "brand": "Wellbutrin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "In 1996, the US Food and Drug Administration (FDA) approved a sustained-release formulation of alcohol-resistant bupropion called Wellbutrin SR, a tablet intended to be taken twice a day (as compared with three times a day for immediate-release Wellbutrin).",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "In 2003, the FDA approved another sustained-release formulation called Wellbutrin XL, a hard-shelled tablet intended for once-daily dosing.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "Wellbutrin SR and XL are available in generic form in the United States and Canada.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "In 2006, Wellbutrin XL was similarly approved as a treatment for seasonal affective disorder.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "The tests showed that \"one of a few generic versions of Wellbutrin XL 300 mg, sold as Budeprion XL 300 mg, didn't perform the same as the brand-name pill in the lab.\" The FDA investigated these complaints and concluded that Budeprion XL is equivalent to Wellbutrin XL regarding bioavailability of bupropion and its main active metabolite hydroxybupropion.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "The FDA also said that coincidental natural mood variation is the most likely explanation for the apparent worsening of depression after the switch from Wellbutrin XL to Budeprion XL.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "On 3 October 2012, however, the FDA reversed this opinion, announcing that \"Budeprion XL 300 mg fails to demonstrate therapeutic equivalence to Wellbutrin XL 300 mg.\" The FDA did not test the bioequivalence of any of the other generic versions of Wellbutrin XL 300 mg, but requested that the four manufacturers submit data on this question to the FDA by March 2013.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "It was approved on the basis of bioequivalence with Wellbutrin XL.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c d e f g h i j k l m n o p q r \"Wellbutrin SR – bupropion hydrochloride tablet, film coated\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c d e f g h i j \"Wellbutrin XL – bupropion hydrochloride tablet, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Drug Approval Package: Wellbutrin XL (Bupropion HCI) NDA #021515\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Seasonal affective disorder drug Wellbutrin XL wins approval\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Review of therapeutic equivalence: generic bupropion XL 300 mg and Wellbutrin XL 300 mg\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c \"Budeprion XL 300 mg not therapeutically equivalent to Wellbutrin XL 300 mg\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupropion",
+       "line": "↑ (en) « The bupropion prescriptions were calculated as a total of prescriptions for Wellbutrin XL, Budeprion XL, Budeprion SR, Bupropion SR and Bupropion ER using data from the charts for generic and brand-name drugs, see: » (en) « Top 200 Generic Drugs by Units in 2007 » , Drug Topics, 18 février 2008 (consulté le 30 mars 2008 ) and (en) Verispan, « Top 200 Brand Drugs by Units in 2007 » , Drug Topics, 18 février 2008 (consulté le 30 mars 2008 )",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Zyban": {
+     "brand": "Zyban",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Australian product information: Zyban SR (bupropion hydrochloride) sustained release tablets\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Zyban 150 mg prolonged release tablets – Summary of Product Characteristics (SmPC)\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c \"Zyban 150 mg prolonged release film-coated tablets – Summary of Product Characteristics (SPC)\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Aplenzin": {
+     "brand": "Aplenzin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c d \"Aplenzin – bupropion hydrobromide tablet, extended-release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Budeprion": {
+     "brand": "Budeprion",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "The tests showed that \"one of a few generic versions of Wellbutrin XL 300 mg, sold as Budeprion XL 300 mg, didn't perform the same as the brand-name pill in the lab.\" The FDA investigated these complaints and concluded that Budeprion XL is equivalent to Wellbutrin XL regarding bioavailability of bupropion and its main active metabolite hydroxybupropion.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "The FDA also said that coincidental natural mood variation is the most likely explanation for the apparent worsening of depression after the switch from Wellbutrin XL to Budeprion XL.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "On 3 October 2012, however, the FDA reversed this opinion, announcing that \"Budeprion XL 300 mg fails to demonstrate therapeutic equivalence to Wellbutrin XL 300 mg.\" The FDA did not test the bioequivalence of any of the other generic versions of Wellbutrin XL 300 mg, but requested that the four manufacturers submit data on this question to the FDA by March 2013.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c \"Budeprion XL 300 mg not therapeutically equivalent to Wellbutrin XL 300 mg\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "bupropion",
+       "line": "↑ (en) « The bupropion prescriptions were calculated as a total of prescriptions for Wellbutrin XL, Budeprion XL, Budeprion SR, Bupropion SR and Bupropion ER using data from the charts for generic and brand-name drugs, see: » (en) « Top 200 Generic Drugs by Units in 2007 » , Drug Topics, 18 février 2008 (consulté le 30 mars 2008 ) and (en) Verispan, « Top 200 Brand Drugs by Units in 2007 » , Drug Topics, 18 février 2008 (consulté le 30 mars 2008 )",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Contrave": {
+     "brand": "Contrave",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Drug Approval Package: Contrave (naltrexone hydrochloride/bupropion hydrochloride) Extended-Release Tablets NDA #200063\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ \"Contrave Extended-Release – naltrexone hydrochloride and bupropion hydrochloride tablet, extended-release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "bupropion",
+       "line": "^ a b c \"Highlight os Prescribing Information: CONTRAVE (naltrexone hydrochloride and bupropion hydrochloride) extended-release tablets, for oral use\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "carbamazepine": {
+   "name": "Carbamazepine",
+   "items": {
+    "brand:Tegretol": {
+     "brand": "Tegretol",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "carbamazepine",
+       "line": "^ a b c d \"Tegretol- carbamazepine suspension Tegretol- carbamazepine tablet Tegretol XR- carbamazepine tablet, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 26.0,
+      "hours_max": 65.0
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 149,
+       "line": "Initial half-life 26–65 hours (35–40 hours for extended-release formulation); half-life 12–17 hours with repeated doses",
+       "releases": [
+        "xr"
+       ],
+       "durations": [
+        {
+         "hours": 26.0,
+         "hours_max": 65.0
+        },
+        {
+         "hours": 35.0,
+         "hours_max": 40.0
+        },
+        {
+         "hours": 12.0,
+         "hours_max": 17.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "clomipramine": {
+   "name": "Clomipramine",
+   "items": {
+    "brand:Anafranil": {
+     "brand": "Anafranil",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clomipramine",
+       "line": "^ a b c d e \"Anafranil 75mg SR Tablets - Summary of Product Characteristics (SPC) - (eMC)\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clomipramine",
+       "line": "^ \"Anafranil SR 75 mg Prolonged-release Tablets;",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "clonazepam": {
+   "name": "Clonazepam",
+   "items": {
+    "brand:Rivotril": {
+     "brand": "Rivotril",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "clonaz_pam",
+       "line": "5121-12-1 du code de la santé publique , la spécialité pharmaceutique Rivotril sous forme injectable peut faire l'objet d'une dispensation, par les pharmacies d'officine en vue de la prise en charge des patients atteints ou susceptibles d'être atteints par le virus SARS-CoV-2 dont l'état clinique le justifie sur présentation d'une ordonnance médicale portant la mention « Prescription Hors AMM dans le cadre du covid-19 » .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "clonidine": {
+   "name": "Clonidine",
+   "items": {
+    "brand:Catapres": {
+     "brand": "Catapres",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clonidine",
+       "line": "^ \"CATAPRES clonidine hydrochloride 150 microgram/1mL injection ampoule (17919)\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clonidine",
+       "line": "^ a b c d e \"Catapres-TTS-1- clonidine transdermal system patch;",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clonidine",
+       "line": "Catapres-TTS-2- clonidine transdermal system patch;",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clonidine",
+       "line": "Catapres-TTS-3- clonidine transdermal system patch\" .",
+       "releases": [
+        "transdermal"
+       ]
+      }
+     ]
+    },
+    "brand:Kapvay": {
+     "brand": "Kapvay",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clonidine",
+       "line": "^ a b c \"Kapvay (clonidine hydrochloride) extended-release tablets, for oral use Initial U.S.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 1.0,
+      "hours_max": 1.5
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clonidine",
+       "line": "Peak concentrations in human plasma occur within 60–90 minutes for the \"immediate release\" (IR) version of the drug, which is shorter than the \"extended release\" (ER/XR) version.",
+       "releases": [
+        "xr",
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 1.0,
+         "hours_max": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "clozapine": {
+   "name": "Clozapine",
+   "items": {
+    "brand:Clozaril": {
+     "brand": "Clozaril",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "clozapine",
+       "line": "^ \"Clozaril, Fazaclo ODT, Versacloz (clozapine): Drug Safety Communication - FDA Strengthens Warning That Untreated Constipation Can Lead to Serious Bowel Problems\" .",
+       "releases": [
+        "odt"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "desvenlafaxine": {
+   "name": "Desvenlafaxine",
+   "items": {
+    "brand:Pristiq": {
+     "brand": "Pristiq",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "desvenlafaxine",
+       "line": "^ \"Desvenlafaxine succinate, tablet, (extended release), 50 mg and 100 mg (base), Pristiq®, November 2008\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "deutetrabenazine": {
+   "name": "Deutetrabenazine",
+   "items": {
+    "brand:Austedo": {
+     "brand": "Austedo",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "deutetrabenazine",
+       "line": "Deutetrabenazine , sold under the brand names Austedo and Austedo XR , is a vesicular monoamine transporter 2 inhibitor which is used for the treatment of chorea associated with Huntington's disease and tardive dyskinesia .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "deutetrabenazine",
+       "line": "Austedo XR- deutetrabenazine tablet, film coated, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "dexmedetomidine": {
+   "name": "Dexmedetomidine",
+   "items": {
+    "brand:Dexdor": {
+     "brand": "Dexdor",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "dexm_d_tomidine",
+       "line": "La dexmédétomidine est commercialisée en France sous le nom de spécialité de Dexdor 100 microgrammes/ml, solution à diluer pour perfusion depuis le 20 février 2013 par le laboratoire Baxter .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 2.8
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 244,
+       "line": "Mean terminal half-life approximately 2.8 hours following sublingual or buccal administration",
+       "releases": [
+        "sublingual"
+       ],
+       "durations": [
+        {
+         "hours": 2.8
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "dextromethorphanbupropion": {
+   "name": "Dextromethorphan + Bupropion",
+   "items": {
+    "brand:Auvelity": {
+     "brand": "Auvelity",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextromethorphan_bupropion",
+       "line": "Therefore, although Auvelity substantially shortens the onset of action compared with conventional oral antidepressants, its mechanism underlying the accelerated antidepressant response appears to have only a limited relationship to the rapid antidepressant mechanism of ketamine.",
+       "releases": [
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextromethorphan_bupropion",
+       "line": "^ a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae \"Auvelity- dextromethorphan hydrobromide, bupropion hydrochloride tablet, multilayer, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dextromethorphan_bupropion",
+       "line": "^ \"AUVELITY (dextromethorphan hydrobromide and bupropion hydrochloride) extended-release tablets, for oral use\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "donepezil": {
+   "name": "Donepezil",
+   "items": {
+    "brand:Aricept": {
+     "brand": "Aricept",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "donepezil",
+       "line": "^ a b c d e f g h \"Aricept- donepezil hydrochloride tablet, film coated Aricept ODT- donepezil hydrochloride tablet, orally disintegrating\" .",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "donepezil",
+       "line": "\"Eisai Aricept Patch for Alzheimer's Isn't Ready for Approval\" .",
+       "releases": [
+        "transdermal"
+       ]
+      }
+     ]
+    },
+    "brand:Adlarity": {
+     "brand": "Adlarity",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "donepezil",
+       "line": "^ a b c \"Adlarity- donepezil hydrochloride patch\" .",
+       "releases": [
+        "transdermal"
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 70.0
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 273,
+       "line": "Elimination half-life is approximately 70 hours for oral formulation and 91 hours for transdermal system",
+       "releases": [
+        "transdermal"
+       ],
+       "durations": [
+        {
+         "hours": 70.0
+        },
+        {
+         "hours": 91.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "duloxetine": {
+   "name": "Duloxetine",
+   "items": {
+    "brand:Cymbalta": {
+     "brand": "Cymbalta",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "duloxetine",
+       "line": "^ a b c d e f g h i j k \"Cymbalta- duloxetine hydrochloride capsule, delayed release\" .",
+       "releases": [
+        "dr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "esketamine": {
+   "name": "Esketamine",
+   "items": {
+    "brand:Spravato": {
+     "brand": "Spravato",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "esketamine",
+       "line": "In the US, esketamine (brand name Spravato) is a nasal spray indicated , as monotherapy, or in conjunction with an oral antidepressant as a therapy for treatment-resistant depression (TRD) as well as major depressive disorder (MDD) associated with suicidal ideation or behavior in adults.",
+       "releases": [
+        "nasal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "esk_tamine",
+       "line": "↑ a b et c (en) « SPRAVATO™ (esketamine) nasal spray FDA label » , Food and Drug Administration , 5 mars 2019 (consulté le 6 mars 2019 )",
+       "releases": [
+        "nasal"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 0.333,
+      "hours_max": 0.667
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 305,
+       "line": "Time to maximum plasma concentration is approximately 20–40 minutes after the last administered nasal spray",
+       "releases": [
+        "nasal"
+       ],
+       "durations": [
+        {
+         "hours": 0.333,
+         "hours_max": 0.667
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "fluoxetine": {
+   "name": "Fluoxetine",
+   "items": {
+    "brand:Sarafem": {
+     "brand": "Sarafem",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "fluoxetine",
+       "line": "Lilly tried several product line extension strategies, including extended-release formulations and paying for clinical trials to test the efficacy and safety of fluoxetine in premenstrual dysphoric disorder and rebranding fluoxetine for that indication as \"Sarafem\" after it was approved by the FDA in 2000, following the recommendation of an advisory committee in 1999.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "flupenthixol": {
+   "name": "Flupenthixol",
+   "items": {
+    "brand:Depixol": {
+     "brand": "Depixol",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "flupentixol",
+       "line": "Flupentixol decanoate | Depixol | Typical | Viscoleo b | 10–200 mg/2–4 weeks | 4–10 days | 8 days | 17 days | 7.2–9.2",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    },
+    "brand:Fluanxol": {
+     "brand": "Fluanxol",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "flupentixol",
+       "line": "^ a b c d e f \"FLUANXOL® DEPOT FLUANXOL® CONCENTRATED DEPOT\" .",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "fluphenazine": {
+   "name": "Fluphenazine",
+   "items": {
+    "brand:Prolixin": {
+     "brand": "Prolixin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "fluphenazine",
+       "line": "Fluphenazine decanoate | Prolixin Decanoate | Typical | Sesame oil | 12.5–100 mg/2–5 weeks | 1–2 days | 1–10 days | 14–100 days | 7.2–9.0",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "fluphenazine",
+       "line": "Fluphenazine enanthate | Prolixin Enanthate | Typical | Sesame oil | 12.5–100 mg/1–4 weeks | 2–3 days | 4 days | ? | 6.4–7.4",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "fluvoxamine": {
+   "name": "Fluvoxamine",
+   "items": {
+    "brand:Luvox": {
+     "brand": "Luvox",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "fluvoxamine",
+       "line": "^ \"Luvox CR approved for OCD and SAD\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "gabapentin": {
+   "name": "Gabapentin",
+   "items": {
+    "brand:Neurontin": {
+     "brand": "Neurontin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "gabapentin",
+       "line": "^ a b \"FDA warns about serious breathing problems with seizure and nerve pain medicines gabapentin (Neurontin, Gralise, Horizant) and pregabalin (Lyrica, Lyrica CR)\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Horizant": {
+     "brand": "Horizant",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "gabapentin",
+       "line": "^ a b \"FDA warns about serious breathing problems with seizure and nerve pain medicines gabapentin (Neurontin, Gralise, Horizant) and pregabalin (Lyrica, Lyrica CR)\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "galantamine": {
+   "name": "Galantamine",
+   "items": {
+    "brand:Razadyne": {
+     "brand": "Razadyne",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "galantamine",
+       "line": "^ \"Ortho-McNeil Neurologics, \"Razadyne ER US Product Insert\", May 2006\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Réminyl": {
+     "brand": "Réminyl",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "galantamine",
+       "line": "Réminyl LP® 8 mg en gélule à libération prolongée ;",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "galantamine",
+       "line": "Réminyl LP® 16 mg en gélule à libération prolongée ;",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "galantamine",
+       "line": "Réminyl LP® 24 mg en gélule à libération prolongée.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "guanfacine": {
+   "name": "Guanfacine",
+   "items": {
+    "brand:Intuniv": {
+     "brand": "Intuniv",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "Guanfacine , sold under the brand name Tenex ( immediate-release ) and Intuniv ( extended-release ) among others, is an oral alpha-2a agonist medication used to treat attention deficit hyperactivity disorder (ADHD) and high blood pressure .",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "Guanfacine XR (as brand name Intuniv) is indicated for the treatment of attention deficit hyperactivity disorder (ADHD), primarily for hyperactive symptoms.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "and Intuniv and Paxneury (as extended release formulations).",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "^ a b c d e \"Intuniv- guanfacine tablet, extended release Intuniv- guanfacine kit\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "\"Guanfacine Extended-Release Tablets (Intuniv), a Nonstimulant Selective Alpha(2A)-Adrenergic Receptor Agonist For Attention-Deficit/Hyperactivity Disorder\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "^ a b c \"Intuniv 1 mg, 2 mg, 3 mg, 4 mg prolonged-release tablets - Summary of Product Characteristics\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Tenex": {
+     "brand": "Tenex",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "Guanfacine , sold under the brand name Tenex ( immediate-release ) and Intuniv ( extended-release ) among others, is an oral alpha-2a agonist medication used to treat attention deficit hyperactivity disorder (ADHD) and high blood pressure .",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "guanfacine",
+       "line": "Guanfacine IR (as the brand name Tenex) is FDA-approved for the management of hypertension.",
+       "releases": [
+        "ir"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "haloperidol": {
+   "name": "Haloperidol",
+   "items": {
+    "brand:Haldol": {
+     "brand": "Haldol",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "haloperidol",
+       "line": "The decanoate ester of haloperidol ( haloperidol decanoate , trade names Haldol decanoate, Halomonth, Neoperidole) has a much longer duration of action , so is often used in people known to be noncompliant with oral medication.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "haloperidol",
+       "line": "^ HALDOL® Injection For Intramuscular Injection Only Product Information .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "haloperidol",
+       "line": "^ \"Haldol Decanoate - Summary of Product Characteristics (SmPC) - (emc)\" .",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "imipramine": {
+   "name": "Imipramine",
+   "items": {
+    "brand:Tofranil": {
+     "brand": "Tofranil",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "imipramine",
+       "line": "Imipramine pamoate is marketed under the brand name Tofranil-PM for intramuscular injection .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "ketamine": {
+   "name": "Ketamine",
+   "items": {
+    "brand:Spravato": {
+     "brand": "Spravato",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "k_tamine",
+       "line": "Aux États-Unis , elle est commercialisée depuis mars 2019 comme antidépresseur sous le nom de « Spravato » (laboratoires Janssen ), en spray nasal .",
+       "releases": [
+        "nasal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "k_tamine",
+       "line": "Toutefois, la revue médicale française Prescrire rapporte en mars 2022 que l'évaluation clinique de l' eskétamine par voie nasale (Spravato), centrée sur deux essais chez des patients adultes hospitalisés en urgence, montre un effet incertain sur les symptômes dépressifs, un surcroît de comportements auto-agressifs, et une augmentation des tentatives de suicide dans les semaines qui suivent.",
+       "releases": [
+        "nasal"
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 2.5
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 413,
+       "line": "Plasma half-life: alpha: 10–15 minutes; beta: 2.5 hours; 1–3 hours intramuscular; 2.5–3 hours orally; 12 hours norketamine",
+       "releases": [
+        "injection"
+       ],
+       "durations": [
+        {
+         "hours": 0.167,
+         "hours_max": 0.25
+        },
+        {
+         "hours": 2.5
+        },
+        {
+         "hours": 1.0,
+         "hours_max": 3.0
+        },
+        {
+         "hours": 2.5,
+         "hours_max": 3.0
+        },
+        {
+         "hours": 12.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "lamotrigine": {
+   "name": "Lamotrigine",
+   "items": {
+    "brand:Lamictal": {
+     "brand": "Lamictal",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lamotrigine",
+       "line": "^ a b c d e f g h i j k l m n o p q \"Lamictal- lamotrigine tablet Lamictal- lamotrigine tablet, for suspension Lamictal ODT- lamotrigine tablet, orally disintegrating Lamictal- lamotrigine kit\" .",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lamotrigine",
+       "line": "^ \"Lamictal XR- lamotrigine tablet, film coated, extended release Lamictal XR- lamotrigine kit\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lamotrigine",
+       "line": "^ \"Lamictal, Lamictal XR (lamotrigine) dosing, indications, interactions, adverse effects, and more\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "levetiracetam": {
+   "name": "Levetiracetam",
+   "items": {
+    "brand:Keppra": {
+     "brand": "Keppra",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "levetiracetam",
+       "line": "^ a b \"Keppra 100 mg/ml concentrate for solution for infusion - Summary of Product Characteristics (SmPC)\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "levetiracetam",
+       "line": "^ a b \"Keppra XR- levetiracetam tablet, film coated, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "levetiracetam",
+       "line": "^ a b \"Keppra- levetiracetam injection, solution, concentrate\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "levetiracetam",
+       "line": "Keppra injection and Keppra XR (Levetiracetam) Labeling Supplements to fulfill PREA PMR",
+       "releases": [
+        "injection",
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "levomilnacipran": {
+   "name": "Levomilnacipran",
+   "items": {
+    "brand:Fetzima": {
+     "brand": "Fetzima",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "levomilnacipran",
+       "line": "^ a b c d e \"Fetzima- levomilnacipran hydrochloride capsule, extended release;",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "levomilnacipran",
+       "line": "^ a b \"Drug Approval Package: Fetzima (levomilnacipran) Extended-Release Capsules NDA #204168\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "lisdexamfetamine": {
+   "name": "Lisdexamfetamine",
+   "items": {
+    "brand:Vyvanse": {
+     "brand": "Vyvanse",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lisdexamfetamine",
+       "line": "Adderall XR Vyvanse",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lisdexamfetamine",
+       "line": "Main articles and pharmaceuticals | Amphetamine Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis Levoamphetamine N/A Dextroamphetamine Dexedrine ProCentra Zenzedi Lisdexamfetamine Vyvanse | Amphetamine | Adzenys ER Adzenys XR-ODT Dyanavel XR Evekeo Evekeo ODT Mixed amphetamine salts Adderall Adderall XR Mydayis | Levoamphetamine | N/A | Dextroamphetamine | Dexedrine ProCentra Zenzedi | Lisdexamfetamine | Vyvanse",
+       "releases": [
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "lisdexamf_tamine",
+       "line": "↑ « Shire secures successor to Adderall XR as US FDA approves Vyvanse: ano », sur www.thepharmaletter.com (consulté le 15 octobre 2022 )",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Elvanse": {
+     "brand": "Elvanse",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "lisdexamf_tamine",
+       "line": "Guanfacine à libération prolongée : dans une étude d'interactions médicamenteuses, l'utilisation de guanfacine à libération prolongée combinée avec Elvanse a augmenté de 19 % la concentration plasmatique maximale de guanfacine, tandis que l'exposition (l'aire sous la courbe concentration-temps: ASC ou AUC) augmente de 7 %.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "lisdexamf_tamine",
+       "line": "Dans cette étude, aucune conséquence n'a été observée après l'administration simultanée de guanfacine à libération prolongée et d'Elvanse sur l'exposition à la dexamphétamine.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "lisdexamf_tamine",
+       "line": "Venlafaxine à libération prolongée : dans une étude d'interactions médicamenteuses, l'utilisation de 225 mg de venlafaxine à libération prolongée, un substrat du CYP2D6, en combinaison avec 70 mg d'Elvanse, a entraîné une diminution de 9 % de la valeur de la Cmax et une diminution de 17 % de l'AUC pour le métabolite actif primaire, l'O-desméthylvenlafaxine, ainsi qu'une augmentation de 10 % de la Cmax et une augmentation de 13 % de l'AUC pour la venlafaxine.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "lisdexamf_tamine",
+       "line": "Dans cette étude, on n'a pas observé de conséquence sur l'exposition à la dexamphétamine après l'utilisation simultanée de venlafaxine à libération prolongée et d'Elvanse.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "lithium": {
+   "name": "Lithium",
+   "items": {
+    "brand:Téralithe": {
+     "brand": "Téralithe",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "sel_de_lithium",
+       "line": "En France , il est commercialisé sous la forme de carbonate de lithium , comprimés dosés à 250 mg à libération immédiate ou à 400 mg à libération prolongée, sous le nom « Téralithe », que les Laboratoires Delbert ont acquis de Sanofi en 2022 .",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 0.25,
+      "hours_max": 3.0
+     },
+     "candidates": [
+      {
+       "corpus": "dailymed",
+       "page": "b839ff4b-f62d-41ab-a823-550a756d58ec",
+       "line": "Peak serum concentrations (T max ) occur 0.25 to 3 hours after oral administration of immediate release preparations and 2 to 6 hours after sustained-release preparations.",
+       "releases": [
+        "xr",
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 0.25,
+         "hours_max": 3.0
+        },
+        {
+         "hours": 2.0,
+         "hours_max": 6.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "lorazepam": {
+   "name": "Lorazepam",
+   "items": {
+    "brand:Ativan": {
+     "brand": "Ativan",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lorazepam",
+       "line": "^ \"Ativan- lorazepam injection\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lorazepam",
+       "line": "\"The effect of intravenous premedication with lorazepam (Ativan), pentobarbital or diazepam on recall\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "loraz_pam",
+       "line": "Princeps | Témésta (france) Ativan (Etats-Unis) Loreev XR (Etats-unis) Tavor (Chypre, Grèce, Italie, Colombie, Équateur)",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Other": {
+     "brand": "Other",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lorazepam",
+       "line": "its high lipid solubility means it gets absorbed with equal speed whether given orally, or rectally (nonintravenous routes are convenient outside of hospital settings), but diazepam's high lipid solubility also means it does not remain in the vascular space, but soon redistributes into other body tissues.",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lorazepam",
+       "line": "its low lipid solubility makes it relatively slowly absorbed by any route other than intravenously, but once injected, it will not get significantly redistributed beyond the vascular space.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "loxapine": {
+   "name": "Loxapine",
+   "items": {
+    "brand:Loxapac": {
+     "brand": "Loxapac",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "loxapine",
+       "line": "↑ « LOXAPAC 50 mg/2 ml, solution injectable en ampoule (IM) - Résumé des caractéristiques du produit - Base de données publique des médicaments », sur https://base-donnees-publique.medicaments.gouv.fr/ (consulté le 22 juillet 2024 )",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "loxapine",
+       "line": "↑ « Résumé des caractéristiques du produit - LOXAPAC 50 mg/2 ml, solution injectable en ampoule (IM) - Base de données publique des médicaments », sur base-donnees-publique.medicaments.gouv.fr (consulté le 25 février 2025 )",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Adasuve": {
+     "brand": "Adasuve",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "loxapine",
+       "line": "Given its strong safety profile and speed/efficacy when given intramuscularly for acute agitation, an inhaled version of the drug (Adasuve) has been developed to be applied nasally for agitated patients needing to be rapidly de-escalated.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "melatonin": {
+   "name": "Melatonin",
+   "items": {
+    "brand:Circadin": {
+     "brand": "Circadin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "melatonin",
+       "line": "Melatonin is used medically primarily for sleep-related problems: for example, prolonged-release melatonin (Circadin) is approved in several countries for short-term treatment of insomnia in people aged 55 years of age or older.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "melatonin",
+       "line": "An extended-release pharmaceutical formulation of melatonin is approved under the brand name Circadin for the treatment of insomnia in certain settings, such as in people aged 55 years of age or older.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "melatonin",
+       "line": "A prolonged-release 2 mg oral formulation of melatonin sold under the brand name Circadin is approved for use in the European Union in the short-term treatment of insomnia in people aged 55 years of age or older.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_latonine",
+       "line": "Elle dispose, en France, d'une AMM depuis 2008 et est commercialisée sous le nom de Circadin , mélatonine à libération prolongée , , .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "melperone": {
+   "name": "Melperone",
+   "items": {
+    "half_life": {
+     "value": {
+      "hours": 3.0,
+      "hours_max": 4.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "melperone",
+       "line": "Elimination half-life | 3–4 hours (oral) 6 hours ( IM )",
+       "releases": [
+        "injection"
+       ],
+       "durations": [
+        {
+         "hours": 3.0,
+         "hours_max": 4.0
+        },
+        {
+         "hours": 6.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "memantine": {
+   "name": "Memantine",
+   "items": {
+    "brand:Namenda": {
+     "brand": "Namenda",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "memantine",
+       "line": "^ \"Namenda XR- memantine hydrochloride capsule, extended release;",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "memantine",
+       "line": "Namenda XR- memantine hydrochloride kit\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "memantine",
+       "line": "^ \"Actavis Confirms Appeals Court Ruling Requiring Continued Distribution of Namenda IR\" .",
+       "releases": [
+        "ir"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "methylphenidate_d": {
+   "name": "Methylphenidate (D)",
+   "items": {
+    "brand:Focalin": {
+     "brand": "Focalin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dexmethylphenidate",
+       "line": "Trade names | Focalin, Focalin XR, others",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dexmethylphenidate",
+       "line": "Brand name Focalin XR has been discontinued in 2026, although generic formulations remain available.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dexmethylphenidate",
+       "line": "A long-acting formulation, Focalin XR, which spans 12 hours is also available and has been shown to be as effective as DL (dextro-, levo-) -TMP (threo-methylphenidate) XR (extended release) (Concerta, Ritalin LA), with flexible dosing and good tolerability.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dexmethylphenidate",
+       "line": "^ a b \"Focalin XR- dexmethylphenidate hydrochloride capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "methylphenidate_dl": {
+   "name": "Methylphenidate (D,L)",
+   "items": {
+    "brand:Ritalin": {
+     "brand": "Ritalin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "In the Ritalin tablets series (Ritalin, Ritalin LA, Ritalin SR), the volume of distribution was 2.65±1.11 L/kg for d-methylphenidate and 1.80±0.91 L/kg for l-methylphenidate after swallowing.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Methylphenidate was originally available as an immediate-release racemic mixture formulation under the Novartis brand name Ritalin, although a variety of generics are available, some under other brand names.",
+       "releases": [
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "These products include a range of brand names such as Concerta XL, Medikinet XL, Equasym XL, and Ritalin LA, each with different ratios of immediate-release to modified-release components and varying duration of action from 8 to 12 hours.",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Methylphenidate taken by mouth has a bioavailability of 11–52% with a duration of action around 2–4 hours for immediate-release (IR) (i.e., Ritalin), 3–8 hours for sustained-release (i.e., Ritalin LA), and 8–12 hours for extended-release (ER) (i.e., Concerta).",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Clockwise from top: Concerta 18 mg, Medikinet 5 mg, Methylphenidate TAD 10 mg, Ritalin 10 mg, Medikinet XL 40 mg",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Ritalin LA (US/AU);",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Ritalin SR (US/CA/UK);",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Ritalin LA capsules are marked with the letters \"NVR\" (abbrev.: Novartis) and followed by \"R20\", \"R30\", or \"R40\", depending on the (mg) dosage strength.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Ritalin LA provides two standard doses – half the total dose being released immediately and the other half released four hours later.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ \"Ritalin® (IR and LA)\" (PDF) .",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ a b \"Ritalin LA (methylphenidate hydrochloride) extended-release capsules\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ a b \"Ritalin LA- methylphenidate hydrochloride capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Ritalin‑SR, methylphenidate SR, Methylin ER, and Metadate ER are the same formulation and have the same drug delivery system",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "An alternative to Ritalin‑SR from Novartis",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "Ritalin (Canada, Suisse alémanique), Ritalin SR **, Ritalin LA *** (Suisse alémanique)",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Methylin": {
+     "brand": "Methylin",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Methylin ER (US);",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Ritalin‑SR, methylphenidate SR, Methylin ER, and Metadate ER are the same formulation and have the same drug delivery system",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Concerta": {
+     "brand": "Concerta",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "These products include a range of brand names such as Concerta XL, Medikinet XL, Equasym XL, and Ritalin LA, each with different ratios of immediate-release to modified-release components and varying duration of action from 8 to 12 hours.",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Methylphenidate taken by mouth has a bioavailability of 11–52% with a duration of action around 2–4 hours for immediate-release (IR) (i.e., Ritalin), 3–8 hours for sustained-release (i.e., Ritalin LA), and 8–12 hours for extended-release (ER) (i.e., Concerta).",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "In 2000, Alza Corporation received FDA approval to market Concerta, a modified-release form of methylphenidate that uses the osmotic-controlled release oral delivery system .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Clockwise from top: Concerta 18 mg, Medikinet 5 mg, Methylphenidate TAD 10 mg, Ritalin 10 mg, Medikinet XL 40 mg",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Concerta XL (UK) | methylphenidate ER (US/CA);",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ Concerta is an extended-release formulation.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ a b c d e \"Concerta- methylphenidate hydrochloride tablet, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ \"Concerta XL 18 mg – 54 mg prolonged release tablets\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ \"Concerta (methylphenidate extended-release tablets)\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "Concerta LP * (France),",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "↑ a et b « Meddispar - Médicaments à base de méthylphénidate (Concerta LP, Ritaline, Ritaline LP, Medikinet, Quasym LP et génériques) : modification des conditions de pre… », sur meddispar.fr (consulté le 26 juin 2022 ) .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Daytrana": {
+     "brand": "Daytrana",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "A methylphenidate skin patch is sold under the brand name Daytrana in the United States.",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "The Daytrana patch has a much higher rate of skin reactions than oral methylphenidate.",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Daytrana (US) | methylphenidate film, extended release;transdermal (US) | 11 hours | transdermal patch",
+       "releases": [
+        "transdermal",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ a b c d e f \"Daytrana- methylphenidate patch\" .",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "^ \"Daytrana transdermal\" .",
+       "releases": [
+        "transdermal"
+       ]
+      }
+     ]
+    },
+    "brand:Jornay PM": {
+     "brand": "Jornay PM",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Jornay PM (US) | Currently unavailable | 6 hours (following 10 hour delay) | DR/ER capsule",
+       "releases": [
+        "xr",
+        "dr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "methylphenidate",
+       "line": "Jornay PM is a delayed-release formulation that is taken at bedtime.",
+       "releases": [
+        "dr"
+       ]
+      }
+     ]
+    },
+    "brand:Ritaline": {
+     "brand": "Ritaline",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "Ritaline, Ritaline SR **, Ritaline LA *** (Suisse romande)",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "Ritaline, Ritaline LP * (France),",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "↑ a et b « Meddispar - Médicaments à base de méthylphénidate (Concerta LP, Ritaline, Ritaline LP, Medikinet, Quasym LP et génériques) : modification des conditions de pre… », sur meddispar.fr (consulté le 26 juin 2022 ) .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "m_thylph_nidate",
+       "line": "↑ Christine Gétin et directrice , « Ritaline LP chez l'adulte, un traitement enfin remboursé ! », sur HyperSupers - TDAH France , 11 juin 2022 (consulté le 28 avril 2025 )",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "midazolam": {
+   "name": "Midazolam",
+   "items": {
+    "brand:Hypnovel": {
+     "brand": "Hypnovel",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "midazolam",
+       "line": "↑ « Groupe générique - MIDAZOLAM (CHLORHYDRATE DE) équivalant à MIDAZOLAM 1 mg/ml - HYPNOVEL 1 mg/ml, solution injectable.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Dormicum": {
+     "brand": "Dormicum",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "midazolam",
+       "line": "Il est disponible en France sous forme injectable mais aussi rectale (surtout en prémédication avant une anesthésie), tandis qu'on le trouve également sous forme orale aux États-Unis ou dans un certain nombre de pays européens avec pour indication l'insomnie, sous le nom commercial Dormicum .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "nalmefene": {
+   "name": "Nalmefene",
+   "items": {
+    "brand:Revex": {
+     "brand": "Revex",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "nalmefene",
+       "line": "^ a b c d \"Revex- nalmefene hydrochloride injection, solution\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "nalmefene",
+       "line": "^ \"Baxter discontinues Revex injection\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "nalmefene",
+       "line": "^ \"Determination That Revex (Nalmefene Hydrochloride Injection), 0.1 Milligram Base/Milliliter and 1.0 Milligram Base/Milliliter, Was Not Withdrawn From Sale for Reasons of Safety or Effectiveness\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "naltrexone": {
+   "name": "Naltrexone",
+   "items": {
+    "brand:Revia": {
+     "brand": "Revia",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "Elimination half-life | Oral (Revia): • Naltrexone: 4 hours • 6β-Naltrexol : 13 hours Oral (Contrave): • Naltrexone: 5 hours IM",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Vivitrol": {
+     "brand": "Vivitrol",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "Long-acting injectable naltrexone, sold under the brand name Vivitrol , is an opioid antagonist , blocking the effects of heroin and other opioids , and decreases heroin use compared to placebo in the context of opioid use disorder (OUD).",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "Vivitrol, a naltrexone formulation for depot injection containing 380 mg of the medication per vial, is also available.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "Conversely, 6β-naltrexol exposure is only about 2-fold higher than that of naltrexone with intramuscular injection of naltrexone in microspheres (brand name Vivitrol).",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "As microspheres of naltrexone by intramuscular injection (Vivitrol), the elimination half-lives of naltrexone and 6β-naltrexol are both 5 to 10 days.",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "A depot formulation for intramuscular injection was approved by the FDA under the brand name Vivitrol for alcohol dependence in 2006 and opioid dependence in 2010.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "The FDA authorized use of injectable naltrexone (Vivitrol) for opioid addiction using a single study that was led by Evgeny Krupitsky at Bekhterev Research Psychoneurological Institute, St Petersburg State Pavlov Medical University, St Petersburg, Russia, a country where opioid agonists such as methadone and buprenorphine are not available.",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "^ a b \" \"Alcoholism Once A Month Injectable Drug, Vivitrol, Approved By FDA\" .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone",
+       "line": "^ \"Vivitrol (naltrexone for extended-release injectable suspension)\" .",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "naltrexone",
+       "line": "Dans quelques pays dont les États-Unis, une formule à libération prolongée est commercialisée sous le nom commercial Vivitrol.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "naltrexonebupropion": {
+   "name": "Naltrexone + Bupropion",
+   "items": {
+    "brand:Contrave": {
+     "brand": "Contrave",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone_bupropion",
+       "line": "In September 2014, a sustained release formulation of the drug was approved for marketing in the United States under the brand name Contrave.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone_bupropion",
+       "line": "The sustained-release formulation, Contrave, is marketed by Takeda under license from the combination medication's developer, Orexigen Therapeutics.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone_bupropion",
+       "line": "^ a b c d e f g h i j \"Contrave Extended-Release- naltrexone hydrochloride and bupropion hydrochloride tablet, extended-release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone_bupropion",
+       "line": "^ \"Drug Approval Package: Contrave (naltrexone hydrochloride/bupropion hydrochloride) Extended-Release Tablets NDA #200063\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "naltrexone_bupropion",
+       "line": "Expands Agreement with iNova Pharmaceuticals for Exclusive Commercialization Rights for Contrave (naltrexone HCl / bupropion HCl extended-release) to include Select Markets in Southeast Asia, Africa and the Pacific\" (Press release).",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "olanzapine": {
+   "name": "Olanzapine",
+   "items": {
+    "brand:Zyprexa": {
+     "brand": "Zyprexa",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "olanzapine",
+       "line": "Zyprexa (and generic olanzapine) is available as an orally disintegrating \"wafer\", which rapidly dissolves in saliva.",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "olanzapine",
+       "line": "Zyprexa Zydis- olanzapine tablet, orally disintegrating;",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "olanzapine",
+       "line": "Zyprexa intramuscular- olanzapine injection, powder, for solution\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "oxcarbazepine": {
+   "name": "Oxcarbazepine",
+   "items": {
+    "brand:Trileptal": {
+     "brand": "Trileptal",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "oxcarbazepine",
+       "line": "Trade names | Trileptal, Oxtellar XR, others",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "paliperidone": {
+   "name": "Paliperidone",
+   "items": {
+    "brand:Invega": {
+     "brand": "Invega",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "Food is known to increase the absorption of Invega type ER OROS prolonged-release tablets.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "Paliperidone palmitate | Invega Sustenna | Atypical | Water a | 39–819 mg/4–12 weeks | 13–33 days | 25–139 days | ? | 8.1–10.1",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "The long-acting injectable form of paliperidone, marketed as Invega Sustenna in the US, and Xeplion in the EU, was approved by the FDA in July 2009.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "On December 28, 2021, 19-year-old Peyton Moyer fatally shot his mother and her boyfriend in Watkinsville, Georgia , while under the influence of the long-acting injectable paliperidone palmitate (Invega Sustenna).",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "She alleged that taking Invega Sustenna (paliperidone palmitate) caused her memory loss, hypothyroidism, Horner's syndrome , nerve damage, motor tremors, vocal tics, confusion, loss of taste and sensation, post-traumatic stress disorder, and metabolic syndrome (including hypertension, diabetes, and stroke), which ended her career as a primary care physician.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "In May 2015, a formulation of paliperidone palmitate was approved by the US Food and Drug Administration under the brand name Invega Trinza.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "In September 2021, a newer formulation of paliperidone palmitate, Invega Hafyera, was approved by the US FDA.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b c d \"Invega- paliperidone tablet, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b \"Invega Hafyera- paliperidone palmitate injection, suspension, extended release\" .",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b \"Invega Sustenna- paliperidone palmitate injection\" .",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b \"Invega Trinza- paliperidone palmitate injection, suspension, extended release\" .",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ \"Invega Trinza (paliperidone palmitate) NDA approval letter\" (PDF) .",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    },
+    "brand:Invega Sustenna": {
+     "brand": "Invega Sustenna",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "Paliperidone palmitate | Invega Sustenna | Atypical | Water a | 39–819 mg/4–12 weeks | 13–33 days | 25–139 days | ? | 8.1–10.1",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "The long-acting injectable form of paliperidone, marketed as Invega Sustenna in the US, and Xeplion in the EU, was approved by the FDA in July 2009.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "On December 28, 2021, 19-year-old Peyton Moyer fatally shot his mother and her boyfriend in Watkinsville, Georgia , while under the influence of the long-acting injectable paliperidone palmitate (Invega Sustenna).",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "She alleged that taking Invega Sustenna (paliperidone palmitate) caused her memory loss, hypothyroidism, Horner's syndrome , nerve damage, motor tremors, vocal tics, confusion, loss of taste and sensation, post-traumatic stress disorder, and metabolic syndrome (including hypertension, diabetes, and stroke), which ended her career as a primary care physician.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b \"Invega Sustenna- paliperidone palmitate injection\" .",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Invega Trinza": {
+     "brand": "Invega Trinza",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "In May 2015, a formulation of paliperidone palmitate was approved by the US Food and Drug Administration under the brand name Invega Trinza.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b \"Invega Trinza- paliperidone palmitate injection, suspension, extended release\" .",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ \"Invega Trinza (paliperidone palmitate) NDA approval letter\" (PDF) .",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    },
+    "brand:Invega Hafyera": {
+     "brand": "Invega Hafyera",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "In September 2021, a newer formulation of paliperidone palmitate, Invega Hafyera, was approved by the US FDA.",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "^ a b \"Invega Hafyera- paliperidone palmitate injection, suspension, extended release\" .",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Xeplion": {
+     "brand": "Xeplion",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "The long-acting injectable form of paliperidone, marketed as Invega Sustenna in the US, and Xeplion in the EU, was approved by the FDA in July 2009.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Trevicta": {
+     "brand": "Trevicta",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "In 2019, it was reported that a 33-year-old man died after a single injection of 819 mg of Trevicta (paliperidone palmitate three-monthly injection), with paliperidone poisoning appearing to be the highly likely cause of death.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paliperidone",
+       "line": "A similar prolonged release suspension was approved in 2016 by the European Medicines Agency originally under the brand name Paliperidone Janssen, later renamed to Trevicta.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "paroxetine": {
+   "name": "Paroxetine",
+   "items": {
+    "brand:Paxil": {
+     "brand": "Paxil",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paroxetine",
+       "line": "^ \"Paxil, Paxil CR (paroxetine) dosing, indications, interactions, adverse effects, and more\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paroxetine",
+       "line": "^ \"Paxil CR -- Nametag -- (2003) :30 (USA) | Adland\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "paroxetine",
+       "line": "^ The paroxetine prescriptions were calculated as a total of prescriptions for Paxil CR and generic paroxetine using data from the charts for generic and brand-name drugs.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "parox_tine",
+       "line": "Le 6 octobre 2006 , une cour de justice des États-Unis a approuvé la qualification en class action des poursuites de toute personne des États-Unis ayant acheté du Paxil ou du Paxil CR prescrit pour la consommation d'un mineur.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "parox_tine",
+       "line": "GlaxoSmithKline est poursuivi pour avoir recommandé Paxil ou Paxil CR à la prescription pour les enfants et adolescents tout en occultant des informations liées à la sécurité d'emploi et l'efficacité du médicament sur les mineurs, ce que GSK réfute.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "parox_tine",
+       "line": "La décision de justice actuelle permet à toute personne des États-Unis, ayant acheté du Paxil ou Paxil CR pour des enfants ou adolescents, d'être remboursé de 100 % de ses dépenses sur justificatif, ou jusqu'à 100 $ si aucun justificatif n'a été conservé , .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "parox_tine",
+       "line": "Ces saisies seraient liées à des défauts de l'Avandamet et du Paxil CR.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "perphenazine": {
+   "name": "Perphenazine",
+   "items": {
+    "brand:Trilafon": {
+     "brand": "Trilafon",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "perphenazine",
+       "line": "Perphenazine decanoate | Trilafon Dekanoat | Typical | Sesame oil | 50–200 mg/2–4 weeks | ? | ? | 27 days | 8.9",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "perphenazine",
+       "line": "Perphenazine enanthate | Trilafon Enanthate | Typical | Sesame oil | 25–200 mg/2 weeks | 2–3 days | ? | 4–7 days | 6.4–7.2",
+       "releases": [
+        "depot"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "phenterminetopiramate": {
+   "name": "Phentermine–Topiramate",
+   "items": {
+    "brand:Qsymia": {
+     "brand": "Qsymia",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "phentermine_topiramate",
+       "line": "^ a b c d e f g h i j k l m n o p \"DailyMed - Qsymia - phentermine and topiramate capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "phentermine_topiramate",
+       "line": "- Vivus Announces FDA Approval of Once Daily Qsymia (Phentermine and Topiramate Extended-release) Capsules CIV\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "phentermine_topiramate",
+       "line": "- Vivus Announces Availability Of Once Daily Qsymia (Phentermine And Topiramate Extended-Release) Capsules CIV\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "pipothiazine": {
+   "name": "Pipothiazine",
+   "items": {
+    "brand:Piportil": {
+     "brand": "Piportil",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pipotiazine",
+       "line": "Pipotiazine palmitate | Piportil Longum | Typical | Viscoleo b | 25–400 mg/4 weeks | 9–10 days | ? | 14–21 days | 8.5–11.6",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pipotiazine",
+       "line": "^ a b \"Piportil® L4 (pipotiazine palmitate)\" (PDF) .",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pipotiazine",
+       "line": "\"Guidance on switching away from Piportil Depot® (pipotiazine palmitate) injection\" .",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 360.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pipotiazine",
+       "line": "After deep intramuscular injection, pipotiazine palmitate reaches maximum plasma concentration in 7-14 days, has an elimination half-life of 15 days, and reaches steady-state levels after 2 months of usual dosing (given every 4 weeks).",
+       "releases": [
+        "depot",
+        "injection"
+       ],
+       "durations": [
+        {
+         "hours": 168.0,
+         "hours_max": 336.0
+        },
+        {
+         "hours": 360.0
+        },
+        {
+         "hours": 672.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "pramipexole": {
+   "name": "Pramipexole",
+   "items": {
+    "tmax": {
+     "value": {
+      "hours": 2.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pramipexole",
+       "line": "Immediate-release pramipexole displays a T max of approximately 2 hours and 3 hours if taken with a high-fat meal.",
+       "releases": [
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 2.0
+        },
+        {
+         "hours": 3.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "pregabalin": {
+   "name": "Pregabalin",
+   "items": {
+    "brand:Lyrica": {
+     "brand": "Lyrica",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "In 2017, the FDA approved pregabalin extended-release Lyrica CR for the management of neuropathic pain associated with diabetic peripheral neuropathy, and postherpetic neuralgia.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "However, unlike the immediate release formulation, Lyrica CR was not approved for the management of fibromyalgia or as add-on therapy for adults with partial onset seizures .",
+       "releases": [
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "^ a b c d e f g h i \"FDA warns about serious breathing problems with seizure and nerve pain medicines gabapentin (Neurontin, Gralise, Horizant) and pregabalin (Lyrica, Lyrica CR) When used with CNS depressants or in patients with lung problems\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "^ \"FDA warns about serious breathing problems with seizure and nerve pain medicines gabapentin (Neurontin, Gralise, Horizant) and pregabalin (Lyrica, Lyrica CR) When used with CNS depressants or in patients with lung problems\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "\"Neurontin, Gralise, Horizant (gabapentin) and Lyrica, Lyrica CR (pregabalin): Drug Safety Communication - Serious Breathing Problems\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "^ \"FDA approves LYRICA CR extended-release tablets CV\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pregabalin",
+       "line": "^ \"BRIEF-FDA approves Pfizer's Lyrica CR extended-release tablets CV\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "promethazine": {
+   "name": "Promethazine",
+   "items": {
+    "brand:Phenergan": {
+     "brand": "Phenergan",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "promethazine",
+       "line": "Diana Levine, a woman with a migraine, was administered Wyeth 's Phenergan via IV push .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "promethazine",
+       "line": "\"Preventing serious tissue injury with intravenous promethazine (phenergan)\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "propranolol": {
+   "name": "Propranolol",
+   "items": {
+    "brand:Inderal": {
+     "brand": "Inderal",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "propranolol",
+       "line": "^ a b c d e f \"Inderal LA- propranolol hydrochloride capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "propranolol",
+       "line": "^ a b \"Inderal XL- propranolol hydrochloride capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 3.0,
+      "hours_max": 5.0
+     },
+     "candidates": [
+      {
+       "corpus": "stahl",
+       "page": 697,
+       "line": "Half-life 3–5 hours (immediate-release) or 8–11 hours (extended-release)",
+       "releases": [
+        "xr",
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 3.0,
+         "hours_max": 5.0
+        },
+        {
+         "hours": 8.0,
+         "hours_max": 11.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "quetiapine": {
+   "name": "Quetiapine",
+   "items": {
+    "brand:Seroquel": {
+     "brand": "Seroquel",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "In May 2007, the United States FDA approved Seroquel XR for acute treatment of schizophrenia.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "During its 2007 Q2 earnings conference, AstraZeneca announced plans to launch Seroquel XR in the United States in August 2007.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "However, Seroquel XR has become available in American pharmacies only after the FDA approved Seroquel XR for use as maintenance treatment for schizophrenia, in addition to acute treatment of the illness, on 16 November 2007.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "The company has not provided a reason for the delay of Seroquel XR's launch.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "Health Canada approved sale of Seroquel XR on 27 September 2007.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "In October 2008, the FDA approved Seroquel XR for the treatment of bipolar disorder, including its associated depression and manic episodes.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "Biovail's sustained-release tablets will compete with AstraZeneca's Seroquel XR.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "In August 2011, the United Kingdom 's Medicines and Healthcare products Regulatory Agency (MHRA) issued a class-4 drug alert following reports that some batches of Nurofen Plus contained Seroquel XL tablets instead.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "One of the new batches contained Seroquel XL 50 mg tablets and one contained the Pfizer product Neurontin 100 mg capsules.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"Seroquel Xr- quetiapine tablet, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ a b c \"quetiapine (Rx) - Seroquel, Seroquel XR\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"Drug Use Evaluation: Low Dose Quetiapine (Seroquel/Seroquel XR)\" (PDF) .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"AstraZeneca Submits an NDA For Sustained Release Formulation Seroquel XR.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"AstraZeneca Submits EU and Canadian Regulatory Filings for Sustained Release Formulation Seroquel XR for the Treatment of Schizophrenia\" (Press release).",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"FDA Approves AstraZeneca's Once-Daily Seroquel Xr Extended-Release Tablets For The Treatment Of Schizophrenia\" (Press release).",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"Seroquel XR Receives Approval from FDA for Maintenance Treatment of Schizophrenia\" (Press release).",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ Notice of Compliance Information - Seroquel XR 27 September 2007, retrieved 3 December 2007",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "quetiapine",
+       "line": "^ \"AstraZeneca Receives FDA Complete Response Letter on Seroquel XR for Major Depressive Disorder\" (Press release).",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "risperidone": {
+   "name": "Risperidone",
+   "items": {
+    "brand:Risperdal": {
+     "brand": "Risperdal",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "risperidone",
+       "line": "^ \"Risperdal Consta 25 mg powder and solvent for prolonged-release suspension for injection - Summary of Product Characteristics (SmPC)\" .",
+       "releases": [
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "risperidone",
+       "line": "^ a b c d e f g h i j \"Risperdal- risperidone tablet Risperdal M-Tab- risperidone tablet, orally disintegrating Risperdal- risperidone solution\" .",
+       "releases": [
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "risp_ridone",
+       "line": "Princeps | Risperdal (Belgique, France, Suisse, Canada)( comprimés pelliculés sécables et solution buvable ), Risperdalconsta LP (France)( injectable à libération prolongée ), Risperdal Consta (Belgique, Suisse)( injectable à libération prolongée ), Risperdal Instasolv (Belgique)( comprimé orodispersible ), RisperdalORO (France)( comprimé orodispersible )",
+       "releases": [
+        "depot",
+        "injection",
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "risp_ridone",
+       "line": "Risperdal Consta (Belgique, Suisse)( injectable à libération prolongée ),",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "risp_ridone",
+       "line": "Risperdal Instasolv (Belgique)( comprimé orodispersible ),",
+       "releases": [
+        "odt"
+       ]
+      }
+     ]
+    },
+    "brand:Risperdal Consta": {
+     "brand": "Risperdal Consta",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "risperidone",
+       "line": "^ \"Risperdal Consta 25 mg powder and solvent for prolonged-release suspension for injection - Summary of Product Characteristics (SmPC)\" .",
+       "releases": [
+        "injection",
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "risp_ridone",
+       "line": "Princeps | Risperdal (Belgique, France, Suisse, Canada)( comprimés pelliculés sécables et solution buvable ), Risperdalconsta LP (France)( injectable à libération prolongée ), Risperdal Consta (Belgique, Suisse)( injectable à libération prolongée ), Risperdal Instasolv (Belgique)( comprimé orodispersible ), RisperdalORO (France)( comprimé orodispersible )",
+       "releases": [
+        "depot",
+        "injection",
+        "xr",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "risp_ridone",
+       "line": "Risperdal Consta (Belgique, Suisse)( injectable à libération prolongée ),",
+       "releases": [
+        "depot",
+        "injection",
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "rivastigmine": {
+   "name": "Rivastigmine",
+   "items": {
+    "brand:Exelon": {
+     "brand": "Exelon",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "rivastigmine",
+       "line": "^ a b c \"Exelon- rivastigmine patch, extended release\" .",
+       "releases": [
+        "transdermal",
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "ropinirole": {
+   "name": "Ropinirole",
+   "items": {
+    "brand:Requip": {
+     "brand": "Requip",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "ropinirole",
+       "line": "^ Clinical trial number NCT00334048 at ClinicalTrials.gov - \"Treating Sexual Dysfunction From SSRI Medication: a Study Comparing Requip CR to Placebo\"",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "selegiline": {
+   "name": "Selegiline",
+   "items": {
+    "brand:Emsam": {
+     "brand": "Emsam",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Transdermal patches 6, 9, and 12 mg/24 hours (brand name Emsam) – indicated for major depressive disorder",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Major brand names of selegiline include Eldepryl, Jumex, and Movergan (oral tablet and/or capsule), Zelapar (orally disintegrating tablet or ODT), and Emsam (transdermal patch).",
+       "releases": [
+        "transdermal",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Conversely, the selegiline transdermal patch (brand name Emsam) is only marketed in the United States , while the selegiline orally disintegrating tablet (brand name Zelapar) is marketed in the United States, the United Kingdom , and the European Union .",
+       "releases": [
+        "transdermal",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Sam Bankman-Fried , the founder and former CEO of the FTX cryptocurrency exchange , is known to have used selegiline for depression in the form of the Emsam patch for at least 5 to 10 years.",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Selegiline in its transdermal patch form (brand name Emsam) has also been assessed in the treatment of ADHD in children and adolescents in a small open-label pilot study sponsored by the manufacturer in 2003.",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "^ a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am \"EMSAM® (Selegiline Transdermal System) Label\" (PDF) .",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "\"EMSAM (deprenyl patch): how a promising antidepressant was underutilized\" .",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "\"The selegiline transdermal system (emsam): a therapeutic option for the treatment of major depressive disorder\" .",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "\"Sam Bankman-Fried Confirmed He Wears an Emsam Patch.",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "What's an Emsam Patch?\" .",
+       "releases": [
+        "transdermal"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "^ a b \"Selegiline transdermal (Emsam) - Somerset Pharmaceuticals\" .",
+       "releases": [
+        "transdermal"
+       ]
+      }
+     ]
+    },
+    "brand:Eldepryl": {
+     "brand": "Eldepryl",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Major brand names of selegiline include Eldepryl, Jumex, and Movergan (oral tablet and/or capsule), Zelapar (orally disintegrating tablet or ODT), and Emsam (transdermal patch).",
+       "releases": [
+        "transdermal",
+        "odt"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "selegiline",
+       "line": "Conventional oral selegiline (brand names Eldepryl, Jumex) is widely marketed throughout the world, including in over 70 countries.",
+       "releases": [
+        "ir"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "sildenafil": {
+   "name": "Sildenafil",
+   "items": {
+    "brand:Viagra": {
+     "brand": "Viagra",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "sildenafil",
+       "line": "^ \"Counterfeit Viagra Pills, Footwear, Belts, Car Emblems and Headphones Worth over $32 Million Seized at the LA/Long Beach Seaport | U.S.",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "suvorexant": {
+   "name": "Suvorexant",
+   "items": {
+    "brand:Belsomra": {
+     "brand": "Belsomra",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "suvorexant",
+       "line": "^ a b \"Merck's Insomnia Medicine Belsomra C-IV Now Available in US\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "temazepam": {
+   "name": "Temazepam",
+   "items": {
+    "brand:Normison": {
+     "brand": "Normison",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "temazepam",
+       "line": "The temazepam product Normison was pulled out of shelves and banned because the liquid inside gelatin capsules had caused a large increase in intravenous temazepam use.",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "temazepam",
+       "line": "Temazepam intravenous use has not decreased to the level before Normison came to the market.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "thc": {
+   "name": "Tetrahydrocannabinol",
+   "items": {
+    "brand:Sativex": {
+     "brand": "Sativex",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "t_trahydrocannabinol",
+       "line": "En Suisse, c'est le plus souvent le Sativex (pulvérisateur buccal) qui est prescrit malgré son coût élevé : 646,60 CHF le 9 août 2014 à Genève pour une boîte de 3 pulvérisateurs buccaux de 10 ml chacun, permettant environ 72 pulvérisations buccales avec un maximum de 12 par jour.",
+       "releases": [
+        "sublingual"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "thiopental": {
+   "name": "Thiopental",
+   "items": {
+    "brand:Nesdonal": {
+     "brand": "Nesdonal",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "sodium_thiopental",
+       "line": "A coma is first induced by intravenous administration of thiopental sodium (Nesdonal) in a small volume (10 mL physiological saline).",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "thiopental",
+       "line": "Sa forme soluble injectable est le thiopental sodique , qui est commercialisé sous les noms de Nesdonal ou Pentothal , .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Pentothal": {
+     "brand": "Pentothal",
+     "candidates": [
+      {
+       "corpus": "wikipedia_fr",
+       "page": "thiopental",
+       "line": "Sa forme soluble injectable est le thiopental sodique , qui est commercialisé sous les noms de Nesdonal ou Pentothal , .",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_fr",
+       "page": "thiopental",
+       "line": "Dans La Vérité sur Bébé Donge (film) , film de Henri Decoin en 1952, François Donge (joué par Jean Gabin ) subit une injection de Pentothal.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "tianeptine": {
+   "name": "Tianeptine",
+   "items": {
+    "brand:Coaxil": {
+     "brand": "Coaxil",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "tianeptine",
+       "line": "Coaxil ( BG , CR , CZ , EE , HU , LT , LV , PL , RO , RU , SK UA )",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "topiramate": {
+   "name": "Topiramate",
+   "items": {
+    "brand:Topamax": {
+     "brand": "Topamax",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "topiramate",
+       "line": "Trade names | Topamax, Trokendi XR, Qudexy XR, others",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "topiramate",
+       "line": "^ \"topiramate (Rx) - Topamax, Trokendi XR\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Qsymia": {
+     "brand": "Qsymia",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "topiramate",
+       "line": "^ \"Qsymia- phentermine and topiramate capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "topiramate",
+       "line": "\"Phentermine and topiramate extended release (Qsymia™): first global approval\".",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "trazodone": {
+   "name": "Trazodone",
+   "items": {
+    "brand:Oleptro": {
+     "brand": "Oleptro",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "trazodone",
+       "line": "^ \"Oleptro (trazodone hydrochloride) extended-release tablets\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "valproate": {
+   "name": "Valproate",
+   "items": {
+    "brand:Depakene": {
+     "brand": "Depakene",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "valproate",
+       "line": "Extended release tablets – Depakene-R by Kyowa Hakko Kogyo and Selenica-R by Kowa",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Depacon": {
+     "brand": "Depacon",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "valproate",
+       "line": "Intravenous injection – Depacon by Abbott Laboratories.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 4.0
+     },
+     "candidates": [
+      {
+       "corpus": "dailymed",
+       "page": "8d5fc1c1-d3c0-497e-971b-6c4dba9a3fad",
+       "line": "The T max after IV Valproate Sodium Injection occurs at the end of the one hour infusion, while the T max after oral dosing with divalproex sodium occurs at approximately 4 hours.",
+       "releases": [
+        "injection"
+       ],
+       "durations": [
+        {
+         "hours": 4.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "venlafaxine": {
+   "name": "Venlafaxine",
+   "items": {
+    "brand:Effexor": {
+     "brand": "Effexor",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "venlafaxine",
+       "line": "Healthcare professionals are advised to prescribe Effexor and Effexor XR in the smallest quantity of capsules consistent with good patient management to reduce the risk of overdose.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "venlafaxine",
+       "line": "^ a b c d e f g h i \"Effexor XR- venlafaxine hydrochloride capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 2.0
+     },
+     "candidates": [
+      {
+       "corpus": "bdpm",
+       "page": "68880233",
+       "line": "Après administration de venlafaxine à libération immédiate, les concentrations plasmatiques maximales de venlafaxine et d’ODV sont atteintes respectivement en 2 et 3 heures.",
+       "releases": [
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 2.0
+        },
+        {
+         "hours": 3.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "viloxazine": {
+   "name": "Viloxazine",
+   "items": {
+    "brand:Qelbree": {
+     "brand": "Qelbree",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "viloxazine",
+       "line": "^ a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai \"Qelbree- viloxazine hydrochloride capsule, extended release\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "ziprasidone": {
+   "name": "Ziprasidone",
+   "items": {
+    "brand:Geodon": {
+     "brand": "Geodon",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "ziprasidone",
+       "line": "Geodon- ziprasidone mesylate injection, powder, lyophilized, for solution;",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "zolpidem": {
+   "name": "Zolpidem",
+   "items": {
+    "brand:Ambien": {
+     "brand": "Ambien",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zolpidem",
+       "line": "As of September 2018, zolpidem is marketed under many brands, examples include: Ambien 5 mg & 10 mg (IR oral tablets), Ambien CR 6.25 mg & 12.5 mg ( controlled release tablets), Edluar 5 mg & 10 mg ( sublingual tablets), Intermezzo 1.75 mg & 3.5 mg ( sublingual tablets), and ZolpiMist 5 mg (oral spray).",
+       "releases": [
+        "sublingual",
+        "xr",
+        "ir"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zolpidem",
+       "line": "FDA requires lower recommended doses for certain drugs containing zolpidem (Ambien, Ambien CR, Edluar, and Zolpimist)\" .",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zolpidem",
+       "line": "^ a b c \"FDA Drug Safety Communication: FDA approves new label changes and dosing for zolpidem products and a recommendation to avoid driving the day after using Ambien CR\" .",
+       "releases": [
+        "xr"
+       ]
+      }
+     ]
+    },
+    "brand:Intermezzo": {
+     "brand": "Intermezzo",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zolpidem",
+       "line": "As of September 2018, zolpidem is marketed under many brands, examples include: Ambien 5 mg & 10 mg (IR oral tablets), Ambien CR 6.25 mg & 12.5 mg ( controlled release tablets), Edluar 5 mg & 10 mg ( sublingual tablets), Intermezzo 1.75 mg & 3.5 mg ( sublingual tablets), and ZolpiMist 5 mg (oral spray).",
+       "releases": [
+        "sublingual",
+        "xr",
+        "ir"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "zuclopenthixol": {
+   "name": "Zuclopenthixol",
+   "items": {
+    "brand:Clopixol": {
+     "brand": "Clopixol",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zuclopenthixol",
+       "line": "As zuclopenthixol decanoate ( Clopixol Depot , Cisordinol Depot ), it is a long-acting intramuscular injection.",
+       "releases": [
+        "depot",
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zuclopenthixol",
+       "line": "As zuclopenthixol acetate ( Clopixol-Acuphase , Cisordinol-Acutard ), it is a shorter-acting intramuscular injection used in the acute sedation of psychotic inpatients.",
+       "releases": [
+        "injection"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zuclopenthixol",
+       "line": "Zuclopentixol decanoate | Clopixol Depot | Typical | Viscoleo b | 50–800 mg/2–4 weeks | 4–9 days | ? | 11–21 days | 7.5–9.0",
+       "releases": [
+        "depot"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zuclopenthixol",
+       "line": "\"Clopixol Acuphase 50 mg/mL Injection Clopixol Acuphase 100 mg / 2 mL Injection\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    },
+    "brand:Clopixol-Acuphase": {
+     "brand": "Clopixol-Acuphase",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "zuclopenthixol",
+       "line": "As zuclopenthixol acetate ( Clopixol-Acuphase , Cisordinol-Acutard ), it is a shorter-acting intramuscular injection used in the acute sedation of psychotic inpatients.",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "apomorphine": {
+   "name": "Apomorphine",
+   "items": {
+    "half_life": {
+     "value": {
+      "hours": 0.5,
+      "hours_max": 1.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "apomorphine",
+       "line": "The half-life is 30–60 minutes, and the effects of the injection last for up to 90 minutes.",
+       "releases": [
+        "injection"
+       ],
+       "durations": [
+        {
+         "hours": 0.5,
+         "hours_max": 1.0
+        },
+        {
+         "hours": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "oxycodone": {
+   "name": "Oxycodone",
+   "items": {
+    "brand:Oxynorm": {
+     "brand": "Oxynorm",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "oxycodone",
+       "line": "Immediate-release oxycodone (OxyFast, OxyIR, OxyNorm, Roxicodone, Shortec)",
+       "releases": [
+        "ir"
+       ]
+      }
+     ]
+    },
+    "tmax": {
+     "value": {
+      "hours": 0.5,
+      "hours_max": 1.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "oxycodone",
+       "line": "After a dose of conventional (immediate-release) oral oxycodone, the onset of action is 10 to 30 minutes, and peak plasma levels of the drug are attained within roughly 30 to 60 minutes;",
+       "releases": [
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 0.167,
+         "hours_max": 0.5
+        },
+        {
+         "hours": 0.5,
+         "hours_max": 1.0
+        }
+       ]
+      }
+     ]
+    },
+    "half_life": {
+     "value": {
+      "hours": 2.0,
+      "hours_max": 3.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "oxycodone",
+       "line": "Elimination half-life | IR : 2–3 hours CR : 4.5 hours",
+       "releases": [
+        "xr",
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 2.0,
+         "hours_max": 3.0
+        },
+        {
+         "hours": 4.5
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "dimenhydrinate": {
+   "name": "Dimenhydrinate",
+   "items": {
+    "half_life": {
+     "value": {
+      "hours": 5.0,
+      "hours_max": 6.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "dimenhydrinate",
+       "line": "The diphenhydramine component requires about 2 hours to reach peak concentration after either oral or sublingual administration of dimen­hydrinate, and has a half-life of 5 – 6 hours in healthy adults.",
+       "releases": [
+        "sublingual"
+       ],
+       "durations": [
+        {
+         "hours": 2.0
+        },
+        {
+         "hours": 5.0,
+         "hours_max": 6.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "lacosamide": {
+   "name": "Lacosamide",
+   "items": {
+    "brand:Vimpat": {
+     "brand": "Vimpat",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lacosamide",
+       "line": "Lacosamide is sold under the brand name Vimpat by UCB , and under the brand name Motpoly XR by Acute Pharmaceuticals.",
+       "releases": [
+        "xr"
+       ]
+      },
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "lacosamide",
+       "line": "^ a b c d e \"Vimpat- lacosamide tablet, film coated VIMPAT- lacosamide kit VIMPAT- lacosamide injection VIMPAT- lacosamide solution\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "brivaracetam": {
+   "name": "Brivaracetam",
+   "items": {
+    "brand:Briviact": {
+     "brand": "Briviact",
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "brivaracetam",
+       "line": "^ a b c \"Briviact- brivaracetam tablet, film coated Briviact- brivaracetam solution Briviact- brivaracetam injection, suspension\" .",
+       "releases": [
+        "injection"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "pseudoephedrine": {
+   "name": "Pseudoephedrine",
+   "items": {
+    "tmax": {
+     "value": {
+      "hours": 1.0,
+      "hours_max": 4.0
+     },
+     "candidates": [
+      {
+       "corpus": "wikipedia_pharm",
+       "page": "pseudoephedrine",
+       "line": "The drug reaches peak concentrations after 1 to 4 hours (mean 1.9 hours) in the case of the immediate-release formulation and after 2 to 6 hours in the case of the extended-release formulation.",
+       "releases": [
+        "xr",
+        "ir"
+       ],
+       "durations": [
+        {
+         "hours": 1.0,
+         "hours_max": 4.0
+        },
+        {
+         "hours": 1.9
+        },
+        {
+         "hours": 2.0,
+         "hours_max": 6.0
+        }
+       ]
+      }
+     ]
+    }
+   }
+  }
+ }
+}
