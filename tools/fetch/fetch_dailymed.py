@@ -27,6 +27,12 @@ What it stores, per drug:
   (``setid``, title, version, publication date), so the choice is reviewable and the
   ``page`` field on a quote resolves back to a real public URL.
 
+Plus the few labels listed in :data:`QUOTE_LABELS`, stored by set id for one quote a
+hand-curated table cites (``data_generators/quotes/contradictions.py``). They land in
+``raw/`` + ``pages/`` like any other label but never in ``dailymed_labels.json``, which
+is the only list ``fetch_tmax.py`` reads, so none of them can become a Tmax source (a
+combination product's label states the combination's kinetics, not the drug's).
+
 **Which label**, out of the dozens a common drug has (quetiapine has 207, mostly
 repackagers reprinting one text): the search is by drug name, then titles naming a
 modified-release or non-oral form are set aside, since those peak at a different time
@@ -46,6 +52,9 @@ Usage (from the repo root)::
     python tools/fetch/fetch_dailymed.py --only zolpidem,codeine
     python tools/fetch/fetch_dailymed.py --refresh        # re-search + re-pick every label
     python tools/fetch/fetch_dailymed.py --redownload     # re-download the chosen labels only
+
+Every run not scoped by ``--only`` also stores the :data:`QUOTE_LABELS` (cached unless
+``--refresh`` / ``--redownload``).
 
 Network, polite (one request at a time, ``SLEEP`` seconds apart) and resumable: a drug
 whose page is already on disk is skipped unless ``--refresh``. Stdlib only; author-side
@@ -95,6 +104,16 @@ NON_PLAIN_ORAL = re.compile(
     r"\bER\b|\bXR\b|\bSR\b|\bLA\b|\bCD\b|\bODT\b|"
     r"INJECT|INTRAVENOUS|INTRAMUSCULAR|SUBCUTANEOUS|TRANSDERMAL|PATCH|IMPLANT|"
     r"SPRAY|INHAL|SUPPOSITORY|RECTAL|TOPICAL|CREAM|OINTMENT|GEL\b|PATCH", re.IGNORECASE)
+
+# Labels stored only so a hand-curated quote can cite them: set id -> why. Fetched on
+# every run not scoped by --only (cached unless --refresh / --redownload).
+QUOTE_LABELS: dict[str, str] = {
+    # Lybalvi (olanzapine + samidorphan): its metabolism table states that neither
+    # samidorphan metabolite contributes to the drug's effects, the denial
+    # METABOLITE_CONTRADICTIONS quotes against Stahl p.604's "active metabolites".
+    "32ffddd1-4e2b-45d9-9b36-bb730167ec80":
+        "Lybalvi: samidorphan's metabolites are inactive (METABOLITE_CONTRADICTIONS)",
+}
 
 _TAG = re.compile(r"<[^>]+>")
 _WS = re.compile(r"[ \t ]+")
@@ -225,6 +244,30 @@ def has_peak(lines: list[str]) -> bool:
                for l in lines)
 
 
+def _store(meta: dict, xml: str, lines: list[str]) -> None:
+    """Write one label's raw SPL and its quote-gate page."""
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    (RAW_DIR / f"{meta['setid']}.xml").write_text(xml, encoding="utf-8")
+    PAGES_DIR.mkdir(parents=True, exist_ok=True)
+    (PAGES_DIR / f"{meta['setid']}.md").write_text(page_text(meta, lines), encoding="utf-8")
+
+
+def fetch_quote_label(setid: str, *, refresh: bool) -> str:
+    """Store one :data:`QUOTE_LABELS` label by set id. Returns a one-word outcome."""
+    if not refresh and (PAGES_DIR / f"{setid}.md").exists():
+        return "cached"
+    body = _get(f"{API}/spls.json?{urllib.parse.urlencode({'setid': setid})}")
+    found = (json.loads(body).get("data") or []) if body else []
+    xml = _get(f"{API}/spls/{setid}.xml") if found else None
+    if not xml:
+        return "gone"
+    lines = section_texts(xml)
+    if not lines:
+        return "no-pk-section"
+    _store(found[0], xml, lines)
+    return "stored"
+
+
 def fetch_drug(drug: dict, *, refresh: bool, cache: dict) -> str:
     """Store one drug's label. Returns a one-word outcome for the run summary."""
     did = drug["id"]
@@ -251,15 +294,12 @@ def fetch_drug(drug: dict, *, refresh: bool, cache: dict) -> str:
             tried += 1
             if not xml:
                 continue
-            raw_path.parent.mkdir(parents=True, exist_ok=True)
-            raw_path.write_text(xml, encoding="utf-8")
         else:
             xml = raw_path.read_text(encoding="utf-8", errors="replace")
         lines = section_texts(xml)
         if not lines or not has_peak(lines):
             continue
-        PAGES_DIR.mkdir(parents=True, exist_ok=True)
-        (PAGES_DIR / f"{setid}.md").write_text(page_text(cand, lines), encoding="utf-8")
+        _store(cand, xml, lines)
         cache[did] = {"setid": setid, "title": cand.get("title"),
                       "spl_version": cand.get("spl_version"),
                       "published_date": cand.get("published_date")}
@@ -276,13 +316,13 @@ def redownload(did: str, cache: dict) -> str:
     xml = _get(f"{API}/spls/{meta['setid']}.xml")
     if not xml:
         return "gone"
-    (RAW_DIR / f"{meta['setid']}.xml").write_text(xml, encoding="utf-8")
     lines = section_texts(xml)
     if not lines:
+        (RAW_DIR / f"{meta['setid']}.xml").write_text(xml, encoding="utf-8")
         return "no-pk-section"
     page = PAGES_DIR / f"{meta['setid']}.md"
     old = page.read_text(encoding="utf-8").split("\n\n", 1)[-1] if page.exists() else ""
-    page.write_text(page_text(meta, lines), encoding="utf-8")
+    _store(meta, xml, lines)
     return "same" if old == "\n".join(lines) + "\n" else "changed"
 
 
@@ -303,6 +343,10 @@ def main() -> int:
 
     cache = (json.loads(CACHE_PATH.read_text(encoding="utf-8"))
              if CACHE_PATH.exists() else {})
+    if not only:
+        for setid in QUOTE_LABELS:
+            outcome = fetch_quote_label(setid, refresh=args.refresh or args.redownload)
+            print(f"[quote label] {setid}: {outcome}", flush=True)
     if args.redownload:
         counts = {}
         for i, did in enumerate(sorted(cache), 1):
