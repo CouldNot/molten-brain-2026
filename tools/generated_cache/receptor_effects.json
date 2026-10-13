@@ -1,0 +1,904 @@
+{
+ "5ht2a": {
+  "agonism:anxiety": [
+   {
+    "corpus": "stahl_essential",
+    "page": 332,
+    "provenance": "verified",
+    "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 330,
+    "provenance": "verified",
+    "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
+   }
+  ],
+  "agonism:hallucinations": [
+   {
+    "corpus": "stahl_essential",
+    "page": 148,
+    "provenance": "verified",
+    "quote": "have long been known to induce psychosis, dissociative experiences, and especially visual hallucinations by overstimulating prefrontal and visual cortex 5HT2A receptors (compare Figure 4-52A and 4-52B; see also Figure 4-53)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 151,
+    "provenance": "verified",
+    "quote": "Hallucinogens such as LSD, psilocybin, and mescaline are 5HT2A agonists. (1) When these agents stimulate 5HT2A receptors on glutamatergic pyramidal neurons in the prefrontal cortex (PFC), this causes overactivation of the glutamate neuron. (2) The resultant release of glutamate into the ventral tegmental area (VTA) causes hyperactivity of the mesolimbic dopamine (DA) pathway, resulting in delusions and auditory hallucinations."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "5_ht2a_receptor",
+    "provenance": "verified",
+    "quote": "Primarily responsible for the psychedelic effects associated with 5-HT 2A receptor agonists such as LSD , DMT , etc. - Activation of the 5-HT 2A receptor with 2,5-dimethoxy-4-iodoamphetamine (DOI) produces potent anti-inflammatory effects in several tissues including cardiovascular and gut."
+   }
+  ],
+  "agonism:insomnia": [
+   {
+    "corpus": "stahl_essential",
+    "page": 332,
+    "provenance": "verified",
+    "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 330,
+    "provenance": "verified",
+    "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
+   }
+  ],
+  "agonism:prolactin_elevation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "5_ht2a_receptor",
+    "provenance": "verified",
+    "quote": "Other 5-HT 2A agonists like LSD also have potent anti-inflammatory effects against TNF-alpha -induced inflammation . - Activation of the 5-HT 2A receptor in hypothalamus causes increases in hormonal levels of oxytocin , prolactin , ACTH , corticosterone , and renin . - Role in memory and learning. - Role in arthralgia . - Role in Alzheimer's disease . - Smooth muscle contraction in the gut. - Probable role in sleep paralysis . - Probable role in aging ."
+   }
+  ],
+  "agonism:psychosis": [
+   {
+    "corpus": "stahl_essential",
+    "page": 148,
+    "provenance": "verified",
+    "quote": "have long been known to induce psychosis, dissociative experiences, and especially visual hallucinations by overstimulating prefrontal and visual cortex 5HT2A receptors (compare Figure 4-52A and 4-52B; see also Figure 4-53)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 148,
+    "provenance": "verified",
+    "quote": "These symptoms can be blocked by 5HT2A antagonists, demonstrating that hallucinogens cause psychosis by 5HT2A stimulation."
+   }
+  ],
+  "agonism:sexual_dysfunction": [
+   {
+    "corpus": "stahl_essential",
+    "page": 332,
+    "provenance": "verified",
+    "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 330,
+    "provenance": "verified",
+    "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
+   }
+  ]
+ },
+ "5ht2c": {
+  "agonism:anxiety": [
+   {
+    "corpus": "stahl_essential",
+    "page": 330,
+    "provenance": "verified",
+    "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "5_ht2c_receptor",
+    "provenance": "verified",
+    "quote": "Some of the initial anxiety caused by SSRIs is due to excessive signalling at 5-HT 2C receptors."
+   }
+  ],
+  "agonism:insomnia": [
+   {
+    "corpus": "stahl_essential",
+    "page": 330,
+    "provenance": "verified",
+    "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
+   }
+  ],
+  "agonism:sexual_dysfunction": [
+   {
+    "corpus": "stahl_essential",
+    "page": 330,
+    "provenance": "verified",
+    "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
+   }
+  ],
+  "antagonism:anxiety": [
+   {
+    "corpus": "stahl_essential",
+    "page": 309,
+    "provenance": "verified",
+    "quote": "The bad news could be that 5HT2C antagonist actions of fluoxetine may contribute to this agent being sometimes less well matched to patients with agitation, insomnia, and anxiety, who may experience unwanted activation and even a panic attack if given an agent that further activates them."
+   }
+  ],
+  "antagonism:weight_gain": [
+   {
+    "corpus": "stahl_essential",
+    "page": 234,
+    "provenance": "verified",
+    "quote": "Olanzapine’s 5HT2C antagonist properties may contribute to its efficacy for mood and cognitive symptoms, although together with its H1 antihistamine properties they could also contribute to its propensity to cause weight gain."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 235,
+    "provenance": "verified",
+    "quote": "However, 5HT2C antagonist actions combined with H1 antagonist actions may contribute to weight gain."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 241,
+    "provenance": "verified",
+    "quote": "The mechanisms of clozapine’s ability to cause neutropenia and myocarditis are entirely unknown; its weight gain may be partially associated with its potent blockade of both H1 histamine and 5HT2C receptors (Figure 5-43)."
+   }
+  ]
+ },
+ "5ht3": {
+  "agonism:nausea": [
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "_**5HT3 Antagonist Action**_ The 5HT3 receptors best known to clinicians are perhaps those localized in the chemoreceptor trigger zone of the brainstem, where they mediate nausea and vomiting, especially in response to cancer chemotherapy, and"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "5_ht3_receptor",
+    "provenance": "verified",
+    "quote": "When the receptor is activated to open the ion channel by agonists , the following effects are observed: - CNS : nausea and vomiting center in brain stem , anxiety, as well as anticonvulsant and pro- nociceptive activity. - PNS : neuronal excitation (in autonomic, nociceptive neurons), emesis ."
+   }
+  ]
+ },
+ "alpha1a": {
+  "antagonism:dizziness": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
+   }
+  ],
+  "antagonism:orthostatic_hypotension": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 241,
+    "provenance": "verified",
+    "quote": "Its other prominent pharmacological property is potent α1 antagonism, which may be responsible for the risk of orthostatic hypotension but also may contribute to its low risk of drug-induced parkinsonism (DIP)."
+   }
+  ],
+  "antagonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 238,
+    "provenance": "verified",
+    "quote": "Alpha-2 antagonist properties may contribute to efficacy for depression, but this can be diminished by simultaneous α1 antagonist properties, which can also contribute to orthostatic hypotension and sedation."
+   }
+  ]
+ },
+ "alpha1b": {
+  "antagonism:dizziness": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
+   }
+  ],
+  "antagonism:orthostatic_hypotension": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 241,
+    "provenance": "verified",
+    "quote": "Its other prominent pharmacological property is potent α1 antagonism, which may be responsible for the risk of orthostatic hypotension but also may contribute to its low risk of drug-induced parkinsonism (DIP)."
+   }
+  ],
+  "antagonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 238,
+    "provenance": "verified",
+    "quote": "Alpha-2 antagonist properties may contribute to efficacy for depression, but this can be diminished by simultaneous α1 antagonist properties, which can also contribute to orthostatic hypotension and sedation."
+   }
+  ]
+ },
+ "alpha1d": {
+  "antagonism:dizziness": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
+   }
+  ],
+  "antagonism:orthostatic_hypotension": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 241,
+    "provenance": "verified",
+    "quote": "Its other prominent pharmacological property is potent α1 antagonism, which may be responsible for the risk of orthostatic hypotension but also may contribute to its low risk of drug-induced parkinsonism (DIP)."
+   }
+  ],
+  "antagonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 238,
+    "provenance": "verified",
+    "quote": "Alpha-2 antagonist properties may contribute to efficacy for depression, but this can be diminished by simultaneous α1 antagonist properties, which can also contribute to orthostatic hypotension and sedation."
+   }
+  ]
+ },
+ "alpha2": {
+  "agonism:sedation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_2_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   }
+  ]
+ },
+ "alpha2a": {
+  "agonism:sedation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_2_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   }
+  ]
+ },
+ "alpha2b": {
+  "agonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 497,
+    "provenance": "verified",
+    "quote": "Alpha-2B receptors are in high concentrations in the thalamus and may be important in mediating sedating actions of NE, while α2C receptors are densest in striatum."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_2_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   }
+  ]
+ },
+ "alpha2c": {
+  "agonism:sedation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_2_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   }
+  ]
+ },
+ "alpha2d": {
+  "agonism:sedation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "alpha_2_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   }
+  ]
+ },
+ "ampa": {
+  "agonism:seizures": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "ampa_receptor",
+    "provenance": "verified",
+    "quote": "Activation of AMPARs by agonists such as kainic acid , a convulsant that is widely used in epilepsy research, has been shown to induce seizures in both animal models and humans, emphasizing their contribution to epileptogenesis ."
+   }
+  ]
+ },
+ "d2": {
+  "agonism:nausea": [
+   {
+    "corpus": "stahl_essential",
+    "page": 209,
+    "provenance": "verified",
+    "quote": "Another D2 partial agonist, bifeprunox, is less of an agonist than OPC4392 but turned out to be still too much of an agonist since it caused nausea and vomiting; although it did have some efficacy for positive symptoms and did not cause motor side effects, it was less robust in improving positive symptoms than other agents and also had more gastrointestinal side effects, so the US Food and Drug Administration (FDA) did not approve it."
+   }
+  ],
+  "agonism:psychosis": [
+   {
+    "corpus": "stahl_essential",
+    "page": 200,
+    "provenance": "verified",
+    "quote": "For dopamine 2 (D2) binding, agents with too much agonism may be psychotomimetic and thus not ideal for treating psychosis, but may be useful within Parkinson’s disease."
+   }
+  ],
+  "antagonism:akathisia": [
+   {
+    "corpus": "stahl_essential",
+    "page": 181,
+    "provenance": "verified",
+    "quote": "**Figure 5-5** Nigrostriatal dopamine pathway and D2 antagonists. (A) The nigrostriatal dopamine pathway is theoretically unaffected in untreated schizophrenia. (B) Blockade of D2 receptors prevents dopamine from binding there and can cause motor side effects such as drug-induced parkinsonism (tremor, muscle rigidity, slowing or loss of movement), akathisia (motor restlessness), and dystonia (involuntary twisting and contractions)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 182,
+    "provenance": "verified",
+    "quote": "More precise terms than EPS include not only DIP but also akathisia (motor restlessness) and dystonia (involuntary twisting and contractions), which can also be caused by the acute administration of D2 antagonists/partial agonists and are discussed below."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 185,
+    "provenance": "verified",
+    "quote": "**Akathisia** Akathisia is a syndrome of motor restlessness seen commonly after treatment with D2 blockers."
+   }
+  ],
+  "antagonism:extrapyramidal_symptoms": [
+   {
+    "corpus": "stahl_essential",
+    "page": 105,
+    "provenance": "verified",
+    "quote": "These same movement disorders can be replicated by drugs that block D2 DA receptors in this pathway, causing drug-induced parkinsonism (sometimes called by its better-known but much less accurate name extrapyramidal symptoms or EPS)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 181,
+    "provenance": "verified",
+    "quote": "When D2 receptors are blocked _acutely_ in the nigrostriatal pathway – the same pathway that degenerates in Parkinson’s disease – this can cause a condition known as drug-induced parkinsonism (DIP) because it looks similar to Parkinson’s disease with tremor, muscular rigidity, and slowing of movements (bradykinesia) or loss of movement (akinesia) (Figure 5-5B)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 185,
+    "provenance": "verified",
+    "quote": "**Drug-Induced Acute Dystonia** Occasionally, exposure to D2 blockers, especially those with neither serotonergic nor anticholinergic properties, can cause a condition called dystonia, often upon first exposure to the D2 blocker."
+   }
+  ],
+  "antagonism:prolactin_elevation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 180,
+    "provenance": "verified",
+    "quote": "Dopamine 2 receptors in the tuberoinfundibular dopamine pathway are also blocked when D2 antagonists are administered and this causes plasma prolactin concentrations to rise, a condition called"
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 204,
+    "provenance": "verified",
+    "quote": "Thus, when D2 receptors alone are blocked by D2 antagonism, dopamine can no longer inhibit prolactin release, so prolactin levels rise (Figure 5-18C)."
+   }
+  ],
+  "antagonism:tardive_dyskinesia": [
+   {
+    "corpus": "stahl_essential",
+    "page": 105,
+    "provenance": "verified",
+    "quote": "Chronic blockade of these same D2 DA receptors in the nigrostriatal pathway is hypothesized to cause another hyperkinetic movement disorder known as tardive dyskinesia."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 182,
+    "provenance": "verified",
+    "quote": "Yet another abnormal involuntary movement disorder can be caused by the _chronic_ blockade of D2 receptors in the nigrostriatal dopamine pathway, namely tardive dyskinesia (TD) (“tardive” because, unlike the other motor symptoms caused by D2 blockade, these abnormal involuntary movements are late and delayed in onset, often after months to years of treatment) (Figure 5-6)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 182,
+    "provenance": "verified",
+    "quote": "**Figure 5-6** Tardive dyskinesia. (A) Dopamine binds to D2 receptors in the nigrostriatal pathway. (B) Chronic blockade of D2 receptors in the nigrostriatal dopamine pathway can cause upregulation of those receptors, which can lead to a hyperkinetic motor condition known as tardive dyskinesia, characterized by facial and tongue movements (e.g., tongue protrusions, facial grimaces, chewing) as well as quick, jerky limb movements."
+   }
+  ]
+ },
+ "dat": {
+  "inhibition:euphoria": [
+   {
+    "corpus": "stahl_essential",
+    "page": 561,
+    "provenance": "verified",
+    "quote": "He may have also exploited the second property of the drug, which is to produce euphoria, reduce fatigue, and create a sense of mental acuity due to inhibition of dopamine reuptake at the DAT, at least for a while, until drug-induced reward is replaced by drug-induced compulsivity."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 492,
+    "provenance": "verified",
+    "quote": "That is, rapid and high degrees of DAT occupancy cause euphoria and lead to abuse and addiction (Figure 11-35; see also Chapter 13"
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 321,
+    "provenance": "verified",
+    "quote": "Furthermore, there appears to be such a thing as “too much DAT occupancy.” That is, when 50% or more of DATs are occupied rapidly and briefly, this can lead to unwanted clinical actions, such as euphoria and reinforcement (see discussion of the mysterious DATs in Chapter 11 on attention deficit hyperactivity disorder"
+   }
+  ]
+ },
+ "delta": {
+  "agonism:seizures": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "delta_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Many delta agonists may also cause seizures at high doses, although not all delta agonists produce this effect."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "delta_opioid_receptor",
+    "provenance": "verified",
+    "quote": "However, there are now several selective δ-opioid receptor agonists available, including peptides such as DPDPE and deltorphin II, and non-peptide drugs such as SNC-80 , the more potent (+)- BW373U86 , a newer drug DPI-287 , which does not produce the problems with convulsions seen with the earlier agents, and the mixed μ/δ agonist DPI-3290 , which is a much more potent analgesic than the more highly selective δ agonists."
+   }
+  ]
+ },
+ "gaba_a": {
+  "agonism:euphoria": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "gabaa_receptor",
+    "provenance": "verified",
+    "quote": "Ligands which contribute to receptor activation typically have anxiolytic , anticonvulsant , amnesic , sedative , hypnotic , euphoriant , and muscle relaxant properties."
+   }
+  ],
+  "agonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 438,
+    "provenance": "verified",
+    "quote": "The α1 subtype is known to be critical for producing sedation and thus is targeted by every effective GABAA PAM hypnotic, both benzodiazepines"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "gabaa_receptor",
+    "provenance": "verified",
+    "quote": "This potentiates the inhibitory effect of the available GABA leading to sedative and anxiolytic effects."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "gabaa_receptor",
+    "provenance": "verified",
+    "quote": "Ligands which contribute to receptor activation typically have anxiolytic , anticonvulsant , amnesic , sedative , hypnotic , euphoriant , and muscle relaxant properties."
+   }
+  ],
+  "antagonism:seizures": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "gabaa_receptor",
+    "provenance": "verified",
+    "quote": "Ligands which decrease receptor activation usually have opposite effects, including anxiogenesis and convulsion ."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "gabaa_receptor",
+    "provenance": "verified",
+    "quote": "GABA A R is not just the target of agonist depressants and antagonist convulsants, but most GABA A R medicines also act at additional (allosteric) binding sites on GABA A R proteins."
+   }
+  ]
+ },
+ "h1": {
+  "antagonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "As already discussed, blockade of H1 receptors causes sedation and may cause weight gain (see Chapter 5 and Figure 5-13A)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 418,
+    "provenance": "verified",
+    "quote": "When these H1 receptors are blocked in the brain, this interferes with the wake-promoting actions of histamine, and thus can cause sedation, drowsiness, or sleep (see below)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "Clinical consequences of blocking H1 receptors have been discussed in Chapter 5 and illustrated in Figure 5-13A, showing that H1 antagonist actions are associated with sedation and weight gain."
+   }
+  ],
+  "antagonism:weight_gain": [
+   {
+    "corpus": "stahl_essential",
+    "page": 352,
+    "provenance": "verified",
+    "quote": "As already discussed, blockade of H1 receptors causes sedation and may cause weight gain (see Chapter 5 and Figure 5-13A)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 325,
+    "provenance": "verified",
+    "quote": "Clinical consequences of blocking H1 receptors have been discussed in Chapter 5 and illustrated in Figure 5-13A, showing that H1 antagonist actions are associated with sedation and weight gain."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 197,
+    "provenance": "verified",
+    "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
+   }
+  ]
+ },
+ "kappa": {
+  "agonism:dysphoria": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of KOR by dynorphins during stress exposure has been shown to induce dysphoria , aversion , and negative affective states in both human and non-human subject."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Unlike MOR agonists, KOR agonists do not cause respiratory depression and have lower abuse potential , but centrally -mediated side effects such as dysphoria , hallucinations , and dissociation have limited their clinical utility."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "The KOR also mediates the dysphoria and hallucinations seen with opioids such as pentazocine . - Alazocine – partial agonist - BPHA - Bremazocine – highly selective - 8-Carboxamidocyclazocine - Cyclazocine – partial agonist - Ketazocine - MCBPHA - MCPPHA – moderately biased for G protein - Metazocine – partial agonist - MR-2034 - Pentazocine – partial agonist - Phenazocine – partial agonist - 6'-Guanidinonaltrindole (6'-GNTI) – biased ligand:"
+   }
+  ],
+  "agonism:hallucinations": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Unlike MOR agonists, KOR agonists do not cause respiratory depression and have lower abuse potential , but centrally -mediated side effects such as dysphoria , hallucinations , and dissociation have limited their clinical utility."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "The KOR also mediates the dysphoria and hallucinations seen with opioids such as pentazocine . - Alazocine – partial agonist - BPHA - Bremazocine – highly selective - 8-Carboxamidocyclazocine - Cyclazocine – partial agonist - Ketazocine - MCBPHA - MCPPHA – moderately biased for G protein - Metazocine – partial agonist - MR-2034 - Pentazocine – partial agonist - Phenazocine – partial agonist - 6'-Guanidinonaltrindole (6'-GNTI) – biased ligand:"
+   }
+  ],
+  "agonism:prolactin_elevation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "KOR agonists increase serum prolactin levels by tonic inhibition of hypothalamic dopaminergic systems."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Furthermore, while cocaine abuse is associated with lowered prolactin response, KOR activation causes a release of prolactin, a hormone known for its important role in learning, neuronal plasticity and myelination ."
+   }
+  ],
+  "agonism:sedation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Evidence suggests that G protein signaling primarily mediates the therapeutic analgesic and antipruritic effects of KOR agonists, whilst β-arrestin2 -dependent signaling through p38 MAPK activation mediates adverse dysphoric, sedative, and aversive effects."
+   }
+  ]
+ },
+ "m1": {
+  "antagonism:anticholinergic_cognitive": [
+   {
+    "corpus": "stahl_essential",
+    "page": 442,
+    "provenance": "verified",
+    "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "muscarinic_acetylcholine_receptor_m1",
+    "provenance": "verified",
+    "quote": "This is a notable component in regards to the M 1 receptor since it helps explain how pharmacological compounds which antagonize the receptor site can consistently produce mental states like delirium (a major disruption in attention and decrease in baseline-level cognitive functioning), as well as the unusual and often frightening states of consciousness induced by M 1 blocking recreational drugs such as Datura or diphenhydramine ."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "muscarinic_acetylcholine_receptor_m1",
+    "provenance": "verified",
+    "quote": "As of 2015, the M 1 receptor remains the only known muscarinic receptor to have this effect of hallucinogenic delirium when its functionality is inhibited or antagonized. - Cognitive flexibility - Synaptic plasticity modulation - Anxiety-like behavior and spontaneous working memory - Task switching - Vagally-induced bronchoconstriction - Mediating olfactory neural pathways which help regulate aggression , mating , and social behavior in rodents."
+   }
+  ],
+  "antagonism:blurred_vision": [
+   {
+    "corpus": "stahl_essential",
+    "page": 442,
+    "provenance": "verified",
+    "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
+   }
+  ],
+  "antagonism:constipation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 442,
+    "provenance": "verified",
+    "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
+   }
+  ],
+  "antagonism:dry_mouth": [
+   {
+    "corpus": "stahl_essential",
+    "page": 442,
+    "provenance": "verified",
+    "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
+   }
+  ],
+  "antagonism:sedation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 198,
+    "provenance": "verified",
+    "quote": "In particular, antagonism of muscarinic M1, histamine H1, and α1-adrenergic receptors are all associated with sedating effects."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 241,
+    "provenance": "verified",
+    "quote": "Sedation is probably linked to clozapine’s potent antagonism of muscarinic M1, H1, and α1-adrenergic receptors (Figures 5-8, 5-14, and 5-43)."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 235,
+    "provenance": "verified",
+    "quote": "However, this property can also contribute to daytime sedation, especially combined with M1 antimuscarinic and α1-adrenergic antagonist properties."
+   }
+  ]
+ },
+ "m2": {
+  "antagonism:blurred_vision": [
+   {
+    "corpus": "stahl_essential",
+    "page": 56,
+    "provenance": "verified",
+    "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
+   }
+  ],
+  "antagonism:constipation": [
+   {
+    "corpus": "stahl_essential",
+    "page": 56,
+    "provenance": "verified",
+    "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
+   }
+  ],
+  "antagonism:dry_mouth": [
+   {
+    "corpus": "stahl_essential",
+    "page": 56,
+    "provenance": "verified",
+    "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
+   }
+  ],
+  "antagonism:urinary_retention": [
+   {
+    "corpus": "stahl_essential",
+    "page": 56,
+    "provenance": "verified",
+    "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
+   }
+  ]
+ },
+ "mao_a": {
+  "inhibition:cardiovascular": [
+   {
+    "corpus": "stahl_essential",
+    "page": 354,
+    "provenance": "verified",
+    "quote": "However, tyramine in the presence of MAO-A inhibition can elevate blood pressure because norepinephrine is not safely destroyed."
+   }
+  ]
+ },
+ "mu": {
+  "agonism:constipation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of these receptors inhibits peristaltic action which causes constipation, a major side effect of μ agonists."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
+   }
+  ],
+  "agonism:euphoria": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
+   }
+  ],
+  "agonism:nausea": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
+   }
+  ],
+  "agonism:respiratory_depression": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
+   }
+  ],
+  "agonism:sedation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
+   }
+  ]
+ },
+ "net": {
+  "inhibition:anxiety": [
+   {
+    "corpus": "stahl_essential",
+    "page": 386,
+    "provenance": "verified",
+    "quote": "The clinical effects of NET inhibitors can be confusing because symptoms of anxiety can actually be made transiently worse immediately following initiation of an SNRI or selective NET inhibitor, when noradrenergic activity is initially increased but the postsynaptic receptors have not yet adapted."
+   }
+  ],
+  "inhibition:cardiovascular": [
+   {
+    "corpus": "stahl_essential",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "Adding NET inhibition likely accounts for two side effects of venlafaxine in some patients: sweating and elevated blood pressure."
+   }
+  ]
+ },
+ "nmda": {
+  "antagonism:hallucinations": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nmda_receptor",
+    "provenance": "verified",
+    "quote": "Complete blockade of all NMDA receptor activity results in side effects such as hallucinations , agitation and anesthesia ."
+   }
+  ],
+  "antagonism:psychosis": [
+   {
+    "corpus": "stahl_essential",
+    "page": 129,
+    "provenance": "verified",
+    "quote": "**Figure 4-33** NMDA receptor blockade and psychosis in ketamine abuse. (A) The cortical brainstem glutamate projection communicates with the mesolimbic dopamine pathway in the ventral tegmental area (VTA) to regulate dopamine release in the nucleus accumbens. (B) If ketamine blocks NMDA receptors on cortical GABA interneurons, then GABA release is inhibited and the cortical brainstem pathway to the VTA will be overactivated, leading to excessive release of glutamate in the VTA."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 125,
+    "provenance": "verified",
+    "quote": "input (Figure 4-29B, box 1A), whereas in ketamine/PCP psychosis, the NMDA hypofunction is hypothesized to be caused by acute and reversible pharmacological actions directly at NMDA receptors (Figure 4-29B, box 1B)."
+   }
+  ]
+ },
+ "sert": {
+  "inhibition:anxiety": [
+   {
+    "corpus": "stahl_essential",
+    "page": 332,
+    "provenance": "verified",
+    "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
+   }
+  ],
+  "inhibition:insomnia": [
+   {
+    "corpus": "stahl_essential",
+    "page": 332,
+    "provenance": "verified",
+    "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
+   }
+  ],
+  "inhibition:sexual_dysfunction": [
+   {
+    "corpus": "stahl_essential",
+    "page": 322,
+    "provenance": "verified",
+    "quote": "Bupropion does not appear to cause the bothersome sexual dysfunction that frequently occurs with many drugs for unipolar depression that act by SERT inhibition, probably because bupropion lacks a significant serotonergic component to its mechanism of action."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 332,
+    "provenance": "verified",
+    "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
+   }
+  ]
+ }
+}

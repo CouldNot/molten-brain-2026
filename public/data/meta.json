@@ -306,6 +306,49 @@
           }
         ]
       },
+      "effects": [
+        {
+          "mode": "inhibition",
+          "effect": "anxiety",
+          "sources": [
+            {
+              "quote_id": "q_16dbb5fa800a",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "mode": "inhibition",
+          "effect": "insomnia",
+          "sources": [
+            {
+              "quote_id": "q_16dbb5fa800a",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "mode": "inhibition",
+          "effect": "sexual_dysfunction",
+          "sources": [
+            {
+              "quote_id": "q_3959c7b169df",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_16dbb5fa800a",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Serotonin_transporter",
       "wikipedia_provenance": "sourced",
       "gene": "SLC6A4",
@@ -362,6 +405,32 @@
           }
         ]
       },
+      "effects": [
+        {
+          "mode": "inhibition",
+          "effect": "anxiety",
+          "sources": [
+            {
+              "quote_id": "q_96b078dd2784",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "mode": "inhibition",
+          "effect": "cardiovascular",
+          "sources": [
+            {
+              "quote_id": "q_fe6103d67833",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Norepinephrine_transporter",
       "wikipedia_provenance": "sourced",
       "gene": "SLC6A2",
@@ -451,6 +520,30 @@
           }
         ]
       },
+      "effects": [
+        {
+          "mode": "inhibition",
+          "effect": "euphoria",
+          "sources": [
+            {
+              "quote_id": "q_338892bdc6bd",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_61efc64028e2",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f617d09de9c1",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Dopamine_transporter",
       "wikipedia_provenance": "sourced",
       "gene": "SLC6A3",
@@ -861,6 +954,20 @@
           }
         ]
       },
+      "effects": [
+        {
+          "mode": "inhibition",
+          "effect": "cardiovascular",
+          "sources": [
+            {
+              "quote_id": "q_b9ce4e9d36d6",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Monoamine_oxidase_A",
       "wikipedia_provenance": "sourced",
       "gene": "MAOA",
@@ -1845,6 +1952,20 @@
           }
         ]
       },
+      "effects": [
+        {
+          "mode": "agonism",
+          "effect": "sedation",
+          "sources": [
+            {
+              "quote_id": "q_f3164e029ac4",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Alpha-2_adrenergic_receptor",
       "wikipedia_provenance": "sourced",
       "gene": "ADRA2A",
@@ -4352,8 +4473,8 @@
         "unknown": 0
       },
       "receptor_effect": {
-        "total": 0,
-        "verified": 0,
+        "total": 66,
+        "verified": 66,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -4383,15 +4504,15 @@
       }
     },
     "nodes": {
-      "total": 7694,
-      "verified": 7120,
+      "total": 7760,
+      "verified": 7186,
       "uncertain": 268,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 7388,
+      "backed": 7454,
       "pct_backed": 96
     },
     "ki_coverage": {
