@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.117.1",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "In a drug's Pharmacokinetics formulations, a value's source badge no longer sits almost against the next label",
+          "commits": [
+            "e747bdb"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.117.0",
       "date": "2026-10-13",
       "entries": [
