@@ -33,7 +33,7 @@ import os
 import re
 from typing import Any, Callable
 
-from . import cpic, pharmfreq
+from . import clinpgx, cpic, pharmfreq
 from .provenance import SOURCE_CORPORA, corpus_page_path
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -64,9 +64,10 @@ def _mtime_date(paths: list[str]) -> str | None:
     return _dt.date.fromtimestamp(min(stamps)).isoformat()
 
 
-def _cpic_date() -> str | None:
-    """The CPIC export's own ``fetched`` field (fetch_cpic.py writes it)."""
-    path = cpic.export_path(ROOT)
+def _export_fetched(module) -> str | None:
+    """A committed JSON export's own ``fetched`` field (CPIC's or ClinPGx's: each
+    fetcher writes it), read through the corpus module's ``export_path``."""
+    path = module.export_path(ROOT)
     if not os.path.exists(path):
         return None
     with open(path, encoding="utf-8") as fh:
@@ -90,7 +91,8 @@ BULK_DATES: dict[str, Callable[[], str | None]] = {
     "gtopdb_ki": lambda: _mtime_date([_repo("data_sources/gtopdb/interactions.csv")]),
     "allen_ahba": lambda: _mtime_date(
         glob.glob(_repo("data_sources/allen/raw/normalized_microarray_donor*.zip"))),
-    "cpic": _cpic_date,
+    "cpic": lambda: _export_fetched(cpic),
+    "clinpgx": lambda: _export_fetched(clinpgx),
     "pharmfreq": _pharmfreq_date,
 }
 

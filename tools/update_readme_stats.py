@@ -89,6 +89,7 @@ CORPUS_DESC = {
     "europepmc":       ("Primary literature (Europe PMC abstracts)", "Claims only a study measures (e.g. brain half-life)"),
     "drugsfda":        ("US regulator register (Drugs@FDA)", "First US approval, where no other source dates one"),
     "agnp_tdm":        ("Consensus guideline (AGNP TDM, 2026)", "Therapeutic range, alert level, CYP substrate cross-check"),
+    "clinpgx":         ("Pharmacogenomic annotations (ClinPGx)", "Receptor & target gene variant associations"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
@@ -131,6 +132,7 @@ KIND_LABELS = {
     "receptor_effect": "Receptor clinical effects (beta)",
     "receptor_release_modulation": "Receptor release modulation (beta)",
     "receptor_demographic": "Receptor availability across age and sex (beta)",
+    "receptor_variant": "Receptor & target gene variants",
     "enzyme_variability": "Enzyme population variability",
     "structures": "Brain-region anatomy",
     "addons": "Panel annotations",

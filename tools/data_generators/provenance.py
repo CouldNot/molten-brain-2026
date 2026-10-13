@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from . import cpic, pharmfreq
+from . import clinpgx, cpic, pharmfreq
 
 # ---------------------------------------------------------------------------
 # Source provenance grades. Every source / reference the viewer shows carries a
@@ -896,6 +896,26 @@ SOURCE_CORPORA: dict[str, dict] = {
         "pages_dir": "data_sources/drugsfda/pages",
         "editable": True,
     },
+    "clinpgx": {
+        # Pharmacogenomic-association corpus #20: ClinPGx's (formerly PharmGKB) clinical
+        # annotations for the genes of the modeled receptors and targets ("patients with
+        # the AA genotype may have ..."), one node per annotation (kind receptor_variant).
+        # tools/fetch/fetch_clinpgx.py filters the bulk download to our genes at levels
+        # 1A-3 (level 4 dropped); `page` is the clinical annotation id, so a citation
+        # resolves to clinpgx.org/clinicalAnnotation/<page>. One quote per genotype,
+        # ClinPGx's own sentence, copied by code (`extraction: "code"`, no judge).
+        # Committed and pinned by sha256 like #15, re-derived by check_data family 12.
+        # Licence: CC BY-SA 4.0 (licence text beside the export; ShareAlike covers it).
+        "ref": "ClinPGx (PharmGKB), clinical annotation",
+        "citation": "ClinPGx (formerly PharmGKB). Clinical annotation, cited id. "
+                    "clinpgx.org (CC BY-SA 4.0); annotations are revised, so the export "
+                    "is dated.",
+        "url": "https://www.clinpgx.org/",
+        "tsv_dir": clinpgx.EXPORT_DIR,
+        "export_sha256": clinpgx.load_pins(),
+        "machine": True,
+        "editable": True,
+    },
     "agnp_tdm": {
         # Consensus-guideline corpus #19: the AGNP TDM task force's 2026 update of its
         # therapeutic drug monitoring guidelines (Pharmacopsychiatry, open access, a
@@ -1551,9 +1571,13 @@ def _provenance_stats(structures: list[dict[str, Any]],
                                  for n in r.get("release_modulation", [])]
     # Availability-across-age/sex nodes (kind receptor_demographic, BETA): one per (owner,
     # factor, direction, structure), receptors and non-receptor targets alike.
-    demographic_grades = [n["grade"] for o in (*receptors, *(
-                              t for t in drug_targets.values() if t.get("type") != "receptor"))
+    gene_owners = (*receptors, *(t for t in drug_targets.values()
+                                 if t.get("type") != "receptor"))
+    demographic_grades = [n["grade"] for o in gene_owners
                           for n in o.get("demographics", [])]
+    # Gene-variant associations (kind receptor_variant, ClinPGx #20): one per (owner,
+    # clinical annotation), receptors and non-receptor targets alike.
+    variant_grades = [n["grade"] for o in gene_owners for n in o.get("variants", [])]
     # Brain-region anatomy (existence / group / position), graded per emitted
     # structure record (both hemispheres of a pair count, one line each).
     structure_grades = [s.get("classification_provenance", DEFAULT_PROVENANCE)
@@ -1627,6 +1651,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "receptor_effect": tally(receptor_effect_grades),
         "receptor_release_modulation": tally(release_modulation_grades),
         "receptor_demographic": tally(demographic_grades),
+        "receptor_variant": tally(variant_grades),
         "structures": tally(structure_grades),
         "references": tally(ref_grades),
     }

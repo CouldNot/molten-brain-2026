@@ -383,6 +383,846 @@
           "grade": "verified"
         }
       ],
+      "variants": [
+        {
+          "annotation": "1184136773",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "clomipramine"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184136773",
+          "sources": [
+            {
+              "quote_id": "q_b0c44b3a7fa6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3968e4d58b4a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b61d73124301",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184136804",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 2,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184136804",
+          "sources": [
+            {
+              "quote_id": "q_3920c6eb8fa1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5a53abd0c175",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_dd4b5fa58589",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "Selective serotonin reuptake inhibitors"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184136856",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "ondansetron"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184136856",
+          "sources": [
+            {
+              "quote_id": "q_19ae947b8ab2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5805f91a3cf4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0ea71e9fb951",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184136899",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "risperidone"
+          ],
+          "phenotypes": [
+            "Drug Toxicity"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR short form (S allele)/HTTLPR long form (L allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184136899",
+          "sources": [
+            {
+              "quote_id": "q_456d10c7611c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_69e751b3c00d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_695fcf3b8ffa",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184349177",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "paroxetine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder",
+            "Mood Disorder",
+            "Panic Disorder"
+          ],
+          "pmids": 23,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR short form (S allele)/HTTLPR long form (L allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184349177",
+          "sources": [
+            {
+              "quote_id": "q_e4a6c3119825",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a5190b04687e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_331c24b3e0f9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184989960",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "fluoxetine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184989960",
+          "sources": [
+            {
+              "quote_id": "q_5575ed455ebb",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b266a1873be9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_930716a985ee",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184989990",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "fluvoxamine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 8,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184989990",
+          "sources": [
+            {
+              "quote_id": "q_8ccd3b16e789",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_56809fe7ec27",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b177f555b3dd",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184990000",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "mirtazapine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184990000",
+          "sources": [
+            {
+              "quote_id": "q_eb98804ab5c7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_bcaa149a1255",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9ea1fbac1ab2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448100265",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Chronic hepatitis C virus infection"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR short form (S allele)/HTTLPR long form (L allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448100265",
+          "sources": [
+            {
+              "quote_id": "q_053b31a4ead9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d19295ba029c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_bb14650e5871",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "peginterferon alfa-2b",
+            "ribavirin"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1449271288",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "buprenorphine",
+            "methadone"
+          ],
+          "phenotypes": [
+            "Opioid-Related Disorders"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1449271288",
+          "sources": [
+            {
+              "quote_id": "q_47930ffd1b1a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_86762d8fba5b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1926892c68b7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450812998",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "bupropion"
+          ],
+          "phenotypes": [
+            "Tobacco Use Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450812998",
+          "sources": [
+            {
+              "quote_id": "q_10e58ea9259b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3a785774adea",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_603126c14aa9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451124240",
+          "variant": "SLC6A4 HTTLPR long form (L allele), SLC6A4 HTTLPR short form (S allele)",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "HTTLPR long form (L allele)/HTTLPR long form (L allele)",
+            "HTTLPR long form (L allele)/HTTLPR short form (S allele)",
+            "HTTLPR short form (S allele)/HTTLPR short form (S allele)"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451124240",
+          "sources": [
+            {
+              "quote_id": "q_7228a9aac670",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9e6970c017a9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f193a1206e6c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183491262",
+          "variant": "rs1042173",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "ondansetron"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183491262",
+          "sources": [
+            {
+              "quote_id": "q_798c447af88c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8603c9c28150",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_77efbbb53c72",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451149000",
+          "variant": "rs1042173",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "dosage"
+          ],
+          "drugs": [
+            "morphine"
+          ],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451149000",
+          "sources": [
+            {
+              "quote_id": "q_ad09de5d6662",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a4507ae071e4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a0310fe13e11",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451124260",
+          "variant": "rs2066713",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451124260",
+          "sources": [
+            {
+              "quote_id": "q_02b6ec7e5ffa",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_201e5801f234",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b811c0aee5d9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451124280",
+          "variant": "rs25531",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451124280",
+          "sources": [
+            {
+              "quote_id": "q_1df1405cc159",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6ba583a6b593",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cb9206e1890c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451124300",
+          "variant": "rs4251417",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451124300",
+          "sources": [
+            {
+              "quote_id": "q_d974e3947a81",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_fb3596fadbd4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_2e90deeba6d6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183617765",
+          "variant": "rs57098334",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "fluoxetine"
+          ],
+          "phenotypes": [
+            "Depression",
+            "Major Depressive Disorder"
+          ],
+          "pmids": 4,
+          "genotypes": [
+            "(AGCCCACCC)12/(AGCCCACCC)12"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183617765",
+          "sources": [
+            {
+              "quote_id": "q_c2b956eb7118",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183617783",
+          "variant": "rs57098334",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Depression"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "(AGCCCACCC)12/(AGCCCACCC)12"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183617783",
+          "sources": [
+            {
+              "quote_id": "q_74442ad123c3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antidepressants"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1447991729",
+          "variant": "rs57098334",
+          "genes": [
+            "SLC6A4"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "paroxetine"
+          ],
+          "phenotypes": [
+            "Depression"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "(CCCACCCGA)9/(CCCACCCGA)9",
+            "(CCCACCCGA)10/(CCCACCCGA)9",
+            "(CCCACCCGA)10/(CCCACCCGA)10",
+            "(CCCACCCGA)12/(CCCACCCGA)9",
+            "(CCCACCCGA)12/(CCCACCCGA)10",
+            "(CCCACCCGA)12/(CCCACCCGA)12"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1447991729",
+          "sources": [
+            {
+              "quote_id": "q_7c085f99713e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c6f257bb38b4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_064b4884c8dc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_2f3fc8ddd356",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_fa9c72fede57",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cf22ea6c856c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Serotonin_transporter",
       "wikipedia_provenance": "sourced",
       "gene": "SLC6A4",
@@ -490,6 +1330,299 @@
               "provenance": "verified"
             }
           ],
+          "grade": "verified"
+        }
+      ],
+      "variants": [
+        {
+          "annotation": "1444703086",
+          "variant": "rs12708954",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "atomoxetine"
+          ],
+          "phenotypes": [
+            "Attention Deficit Disorder with Hyperactivity"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444703086",
+          "sources": [
+            {
+              "quote_id": "q_d39ce32e5d5a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8dbdbfdeedd2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_35b712967927",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1449164869",
+          "variant": "rs1861647",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "mdma"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1449164869",
+          "sources": [
+            {
+              "quote_id": "q_62f3a1413179",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4b2d9c4153db",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b44e64b17565",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448601910",
+          "variant": "rs2242446",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "venlafaxine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448601910",
+          "sources": [
+            {
+              "quote_id": "q_45944d60a335",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_01bf5361d45f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_677d36e3cfa5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1449164857",
+          "variant": "rs2242446",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "mdma"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1449164857",
+          "sources": [
+            {
+              "quote_id": "q_20a7f8da0601",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_19c275e8a604",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8b93ad9cd69b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450376443",
+          "variant": "rs28386840",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "methylphenidate_dl"
+          ],
+          "phenotypes": [
+            "Attention Deficit Disorder with Hyperactivity"
+          ],
+          "pmids": 7,
+          "genotypes": [
+            "AA",
+            "AT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450376443",
+          "sources": [
+            {
+              "quote_id": "q_2bf416d3c597",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e24b5bb2860a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_17aa5abdf5a2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1449164863",
+          "variant": "rs36029",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "mdma"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1449164863",
+          "sources": [
+            {
+              "quote_id": "q_59de5e136eda",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a672b758e91d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_790d8a8436e1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1444607796",
+          "variant": "rs3785143",
+          "genes": [
+            "SLC6A2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "atomoxetine"
+          ],
+          "phenotypes": [
+            "Attention Deficit Disorder with Hyperactivity"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444607796",
+          "sources": [
+            {
+              "quote_id": "q_aca50bccea91",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4bb4683b5d3c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f982174e8bde",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
           "grade": "verified"
         }
       ],
@@ -648,6 +1781,296 @@
             {
               "quote_id": "q_258eed36da6d",
               "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
+      "variants": [
+        {
+          "annotation": "1450826545",
+          "variant": "rs28363170",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT",
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/del",
+            "del/del"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450826545",
+          "sources": [
+            {
+              "quote_id": "q_1530f5159d97",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_713b2744bf66",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b811143d5e28",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450826553",
+          "variant": "rs28363170",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT",
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/del",
+            "del/del"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450826553",
+          "sources": [
+            {
+              "quote_id": "q_f391ac893511",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_06a132624942",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7de6b841618c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451106705",
+          "variant": "rs28363170",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "disulfiram"
+          ],
+          "phenotypes": [
+            "Cocaine dependence"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT",
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/del",
+            "del/del"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451106705",
+          "sources": [
+            {
+              "quote_id": "q_9c8781560554",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7b220f23007b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4854e33a1a39",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1452473160",
+          "variant": "rs28363170",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [
+            "Alcohol abuse"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT",
+            "GGGGGCCCTGCATGCGTCCTGGGGTAGTACACGCTCCAGT/del",
+            "del/del"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1452473160",
+          "sources": [
+            {
+              "quote_id": "q_1d07b54875b1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f4c24206297d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3696e2594741",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448104005",
+          "variant": "rs2975226",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "clozapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448104005",
+          "sources": [
+            {
+              "quote_id": "q_dda66afc917e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_99be0795ada7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6205288fb0f1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1444703906",
+          "variant": "rs3836790",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "levodopa"
+          ],
+          "phenotypes": [
+            "Parkinson Disease"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "ACATACACACTCAGACACACATACCATGCA/ACATACACACTCAGACACACATACCATGCA",
+            "ACATACACACTCAGACACACATACCATGCA/del",
+            "del/del"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444703906",
+          "sources": [
+            {
+              "quote_id": "q_560d1d434ecc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9bf952128288",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_04358f4b1cd5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1449003823",
+          "variant": "rs6350",
+          "genes": [
+            "SLC6A3"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1449003823",
+          "sources": [
+            {
+              "quote_id": "q_cc21d68ccaaa",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_02ac0dc72e8f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5a1d6987957c",
+              "pipeline": "machine",
               "provenance": "verified"
             }
           ],
@@ -966,6 +2389,135 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1450814659",
+          "variant": "rs363225",
+          "genes": [
+            "SLC18A2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "bupropion"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450814659",
+          "sources": [
+            {
+              "quote_id": "q_61053ae80a52",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_891f15d00520",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0ece90047a28",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450814665",
+          "variant": "rs363226",
+          "genes": [
+            "SLC18A2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "bupropion"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450814665",
+          "sources": [
+            {
+              "quote_id": "q_4d0d3c6eb052",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1049e4a8894e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a4bcf3d06efe",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448428117",
+          "variant": "rs363341",
+          "genes": [
+            "SLC18A2"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Psychotic Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448428117",
+          "sources": [
+            {
+              "quote_id": "q_fca63b529346",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8813c39f08f9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0fbd2e76c1f0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Vesicular_monoamine_transporter_2",
       "wikipedia_provenance": "sourced",
       "gene": "SLC18A2",
@@ -1267,6 +2819,50 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1447990192",
+          "variant": "rs2571598",
+          "genes": [
+            "ACHE"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "rivastigmine"
+          ],
+          "phenotypes": [
+            "Alzheimer Disease"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1447990192",
+          "sources": [
+            {
+              "quote_id": "q_3318f3c592c1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f8e4f55e37ae",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ed34f3931c71",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Acetylcholinesterase",
       "wikipedia_provenance": "sourced",
       "gene": "ACHE",
@@ -1329,6 +2925,608 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1451504360",
+          "variant": "rs1560022535",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451504360",
+          "sources": [
+            {
+              "quote_id": "q_9b76f245a22e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_53438b8d5e09",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cb9e3fbe9fc3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184513863",
+          "variant": "rs1799807",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Butyrylcholinesterase deficiency"
+          ],
+          "pmids": 10,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184513863",
+          "sources": [
+            {
+              "quote_id": "q_c1c73976783d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_605e788e5770",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4db4f33c28b5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184513880",
+          "variant": "rs1803274",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Butyrylcholinesterase deficiency"
+          ],
+          "pmids": 8,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184513880",
+          "sources": [
+            {
+              "quote_id": "q_56f2c1735691",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3c6231d25e48",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_971968116995",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1447990050",
+          "variant": "rs1803274",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "rivastigmine"
+          ],
+          "phenotypes": [
+            "Alzheimer Disease",
+            "Lewy Body Disease"
+          ],
+          "pmids": 4,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1447990050",
+          "sources": [
+            {
+              "quote_id": "q_3dc87782e52e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1852105f09a5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f5dc02c45bd0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448097837",
+          "variant": "rs1803274",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "cocaine"
+          ],
+          "phenotypes": [
+            "Cocaine dependence"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448097837",
+          "sources": [
+            {
+              "quote_id": "q_90d3e6463fac",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_bece6ef82f5a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_18ed2a49d5d5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1449564963",
+          "variant": "rs1803274",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "donepezil"
+          ],
+          "phenotypes": [
+            "Alzheimer Disease",
+            "Cognitive disorder"
+          ],
+          "pmids": 4,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1449564963",
+          "sources": [
+            {
+              "quote_id": "q_3d73ce1cce11",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0c678fb3fb9a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f2267d041d4b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451504376",
+          "variant": "rs201820739",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451504376",
+          "sources": [
+            {
+              "quote_id": "q_63c7d2d4ff58",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_898a9dd0aef0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e7cc9df0a9e0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184513893",
+          "variant": "rs28933389",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184513893",
+          "sources": [
+            {
+              "quote_id": "q_c0cee66d3345",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0bae70cc7464",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_836d8cd61910",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184513898",
+          "variant": "rs28933390",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 3,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184513898",
+          "sources": [
+            {
+              "quote_id": "q_9659beae97ea",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c5a064824b92",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9be30269791d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451504368",
+          "variant": "rs531738678",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451504368",
+          "sources": [
+            {
+              "quote_id": "q_511ccc22b073",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_dfd7a4833bbe",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4bf3e26a1f64",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451504300",
+          "variant": "rs568724445",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451504300",
+          "sources": [
+            {
+              "quote_id": "q_03e236623a96",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3f3ba722fa08",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1fa229c61904",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451416140",
+          "variant": "rs745364489",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451416140",
+          "sources": [
+            {
+              "quote_id": "q_e64ae797c713",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c109b5f15697",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_990381a556e5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451504307",
+          "variant": "rs764841347",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451504307",
+          "sources": [
+            {
+              "quote_id": "q_8b312387d896",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d605ec6d4944",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7e665804586c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451504280",
+          "variant": "rs774072493",
+          "genes": [
+            "BCHE"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Apnea"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "C/del",
+            "CC",
+            "del/del"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451504280",
+          "sources": [
+            {
+              "quote_id": "q_2b3cf0a4cf9f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8402a2d9344a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d28ebc6ecfed",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "succinylcholine"
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Butyrylcholinesterase",
       "wikipedia_provenance": "sourced",
       "gene": "BCHE",
@@ -1454,6 +3652,387 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "613978931",
+          "variant": "rs3812718",
+          "genes": [
+            "SCN1A"
+          ],
+          "level": "2B",
+          "categories": [
+            "dosage"
+          ],
+          "drugs": [
+            "carbamazepine"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 6,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/613978931",
+          "sources": [
+            {
+              "quote_id": "q_2b4fdbb67263",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c0a721fbc2d1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b6c9f8980998",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183698531",
+          "variant": "rs2304016",
+          "genes": [
+            "SCN2A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183698531",
+          "sources": [
+            {
+              "quote_id": "q_b27b16492e6f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6f8f72f9c162",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9a3e71f6d3ee",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antiepileptics"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451599320",
+          "variant": "rs2304016",
+          "genes": [
+            "SCN2A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "carbamazepine"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451599320",
+          "sources": [
+            {
+              "quote_id": "q_ce7fd083e73f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_91f14869e8f4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6e9d9e4972c7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451599327",
+          "variant": "rs2304016",
+          "genes": [
+            "SCN2A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "lamotrigine"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451599327",
+          "sources": [
+            {
+              "quote_id": "q_adc7a2dc9bb8",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b5f3eb86e08f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_177cd4a2144a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451599340",
+          "variant": "rs2304016",
+          "genes": [
+            "SCN2A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "oxcarbazepine"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451599340",
+          "sources": [
+            {
+              "quote_id": "q_e1a863422f07",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3c88d8bb64c7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5637bc01fc88",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451599347",
+          "variant": "rs2304016",
+          "genes": [
+            "SCN2A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "phenytoin"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451599347",
+          "sources": [
+            {
+              "quote_id": "q_622870aa06f1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4c45babf3591",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_940673b32ce0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451599354",
+          "variant": "rs2304016",
+          "genes": [
+            "SCN2A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "topiramate"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451599354",
+          "sources": [
+            {
+              "quote_id": "q_aaa9c7b8ad71",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5f029d595747",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_599b9de1d065",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183614624",
+          "variant": "rs3812718",
+          "genes": [
+            "SCN1A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "carbamazepine"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 5,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183614624",
+          "sources": [
+            {
+              "quote_id": "q_2343ee80079e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_da99700660f8",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0a1600e23c4a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "613978937",
+          "variant": "rs3812718",
+          "genes": [
+            "SCN1A"
+          ],
+          "level": "3",
+          "categories": [
+            "dosage"
+          ],
+          "drugs": [
+            "phenytoin"
+          ],
+          "phenotypes": [
+            "Epilepsy"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/613978937",
+          "sources": [
+            {
+              "quote_id": "q_7ab40faec238",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d7428aef9ad3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_df0f3e4f880a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Sodium_channel",
       "wikipedia_provenance": "sourced",
       "gene": "SCN1A",
@@ -1525,6 +4104,478 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1444704763",
+          "variant": "rs1006737",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "citalopram"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444704763",
+          "sources": [
+            {
+              "quote_id": "q_5667c4f2bb0f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3a70d8b73567",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_133e5a781b0c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451129800",
+          "variant": "rs1034936",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "ethanol"
+          ],
+          "phenotypes": [
+            "Alcohol abuse",
+            "Bipolar Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451129800",
+          "sources": [
+            {
+              "quote_id": "q_3ab525e72835",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_345986e01846",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_67108167d37d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "827863928",
+          "variant": "rs1051375",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Coronary Artery Disease",
+            "Hypertension"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/827863928",
+          "sources": [
+            {
+              "quote_id": "q_45a97d6fbc00",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e2d5567daaca",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_2f6e6411d5e6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "atenolol",
+            "verapamil"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448615614",
+          "variant": "rs10774053",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "adverse events",
+            "Premature Birth"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448615614",
+          "sources": [
+            {
+              "quote_id": "q_7ce8f600eafb",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_96383d8ce376",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9cda79d5d8b6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "ritodrine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1444705191",
+          "variant": "rs10848635",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "citalopram"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444705191",
+          "sources": [
+            {
+              "quote_id": "q_ec22f95ddf41",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_88df785bb8c6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_78181924a783",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448100187",
+          "variant": "rs2112460",
+          "genes": [
+            "CACNA1A"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448100187",
+          "sources": [
+            {
+              "quote_id": "q_c06a08e95976",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6756768a2235",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_36ada5560fb1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antidepressants"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183606758",
+          "variant": "rs2238032",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Hypertension"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "GG",
+            "GT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183606758",
+          "sources": [
+            {
+              "quote_id": "q_c3c50def9d4e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_eda232c843fb",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_529018b11cb1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "Calcium channel blockers"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183606395",
+          "variant": "rs2239050",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Hypertension"
+          ],
+          "pmids": 3,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183606395",
+          "sources": [
+            {
+              "quote_id": "q_a3dee63c0ab1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_eae32d6afd7e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5d7762d4c1ca",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "Calcium channel blockers"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450812417",
+          "variant": "rs2239050",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450812417",
+          "sources": [
+            {
+              "quote_id": "q_625b6b2b0bff",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7615bacd11c5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_89a989ef88ff",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "nimodipine"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183605989",
+          "variant": "rs2239128",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Hypertension"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183605989",
+          "sources": [
+            {
+              "quote_id": "q_465a2438b548",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e96c78cd3a2e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cae766d81e66",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "Calcium channel blockers"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450812410",
+          "variant": "rs2239128",
+          "genes": [
+            "CACNA1C"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450812410",
+          "sources": [
+            {
+              "quote_id": "q_272ce1b00288",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0dbb0aefdadc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e9a8d03ec682",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "nimodipine"
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Voltage-gated_calcium_channel",
       "wikipedia_provenance": "sourced",
       "gene": "CACNA1A",
@@ -1747,6 +4798,50 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1447963604",
+          "variant": "rs12718541",
+          "genes": [
+            "DDC"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "nicotine"
+          ],
+          "phenotypes": [
+            "Tobacco Use Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1447963604",
+          "sources": [
+            {
+              "quote_id": "q_a946e23819c9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_dd379e468f86",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5323ef66bcdc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Aromatic_L-amino_acid_decarboxylase",
       "wikipedia_provenance": "sourced",
       "gene": "DDC",
@@ -1808,6 +4903,2665 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1183680526",
+          "variant": "rs13306278",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183680526",
+          "sources": [
+            {
+              "quote_id": "q_04235b490c9a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0df492745bfb",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_850715b134a2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "Selective serotonin reuptake inhibitors"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "655385072",
+          "variant": "rs165599",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "risperidone"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/655385072",
+          "sources": [
+            {
+              "quote_id": "q_486f6dc4bec4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9ae9368bad1e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_11b93d91e68a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "655385418",
+          "variant": "rs165599",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "bupropion"
+          ],
+          "phenotypes": [
+            "Tobacco Use Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/655385418",
+          "sources": [
+            {
+              "quote_id": "q_b2d849165fee",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_30895ef8b5c2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_346904e72596",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184233504",
+          "variant": "rs4633",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184233504",
+          "sources": [
+            {
+              "quote_id": "q_4e43ecd7d357",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_434f13a3fcb9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_54af8a2e3af8",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451134300",
+          "variant": "rs4633",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Dizziness"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451134300",
+          "sources": [
+            {
+              "quote_id": "q_30d40dd152f1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_951f993e0f78",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6624d51b573d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451134540",
+          "variant": "rs4633",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Physiological sexual disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451134540",
+          "sources": [
+            {
+              "quote_id": "q_9c19481838b4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_148e94f42ddd",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_231b54054974",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451408008",
+          "variant": "rs4633",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451408008",
+          "sources": [
+            {
+              "quote_id": "q_77cf7687f276",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_947d0e740032",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_21ad534ed728",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "butorphanol"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448634065",
+          "variant": "rs4646316",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Neoplasms",
+            "Nephrotoxicity"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448634065",
+          "sources": [
+            {
+              "quote_id": "q_a0295255220c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_74d9656e02b2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7b2fa6cd3340",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "cisplatin"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "655386589",
+          "variant": "rs4646316",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Drug Toxicity",
+            "Neoplasms",
+            "Ototoxicity"
+          ],
+          "pmids": 7,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/655386589",
+          "sources": [
+            {
+              "quote_id": "q_d95f0ec2a69e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ef114702eb2f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_aaf6426e4dda",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "cisplatin"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1043880039",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "fluvoxamine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1043880039",
+          "sources": [
+            {
+              "quote_id": "q_6bc23f98110f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ed289b7c1fac",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_14b020587e24",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1043880165",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "venlafaxine"
+          ],
+          "phenotypes": [
+            "Anxiety Disorders",
+            "Depressive Disorder"
+          ],
+          "pmids": 3,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1043880165",
+          "sources": [
+            {
+              "quote_id": "q_7494be74947b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_99e15850b5d1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9902b3c9fc4e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184233524",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184233524",
+          "sources": [
+            {
+              "quote_id": "q_d6606cbbfa26",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ae8d2a280fba",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_34c8615b6e47",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184987573",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [
+            "sumatriptan"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184987573",
+          "sources": [
+            {
+              "quote_id": "q_a416ae8f615d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f60426eec0a5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7161e55492ea",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "Analgesics",
+            "Antiinflammatory agents, non-steroids",
+            "Ergot alkaloids",
+            "opioids"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1444673123",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "haloperidol"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444673123",
+          "sources": [
+            {
+              "quote_id": "q_2c72688b5556",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_97c222e63700",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f74b251805b3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1444704400",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "entacapone"
+          ],
+          "phenotypes": [
+            "Parkinson Disease"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444704400",
+          "sources": [
+            {
+              "quote_id": "q_729bfb6eff4b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3899eba48359",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5126650b5321",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1444706787",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "paroxetine"
+          ],
+          "phenotypes": [
+            "Major Depressive Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1444706787",
+          "sources": [
+            {
+              "quote_id": "q_893126fc07e3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ffa43994dc3a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a13f2fa31e77",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1445401142",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1445401142",
+          "sources": [
+            {
+              "quote_id": "q_6d1eed49773e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5aaef7525570",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4bf9189cce89",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1445401149",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1445401149",
+          "sources": [
+            {
+              "quote_id": "q_f5ade2bd31d0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_77b055b84b55",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_05e42900b7b3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1445402111",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "clozapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1445402111",
+          "sources": [
+            {
+              "quote_id": "q_807435ff4410",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_987dbbd1146a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_37045dd06832",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450807912",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "nicotine"
+          ],
+          "phenotypes": [
+            "Tobacco Use Disorder"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450807912",
+          "sources": [
+            {
+              "quote_id": "q_8646a900af02",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f010ef291a85",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8e6b1c10230a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450813994",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "modafinil"
+          ],
+          "phenotypes": [
+            "Methamphetamine dependence"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450813994",
+          "sources": [
+            {
+              "quote_id": "q_78a6a0ce9e14",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_28f460d5410e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_bb388522ebc0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450931828",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "fentanyl"
+          ],
+          "phenotypes": [
+            "Somnolence"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450931828",
+          "sources": [
+            {
+              "quote_id": "q_d8b216943c60",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_79d8047060a7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ffce52c1410d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450932687",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "buprenorphine",
+            "fentanyl",
+            "tramadol"
+          ],
+          "phenotypes": [
+            "adverse events",
+            "Opioid-Related Disorders"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450932687",
+          "sources": [
+            {
+              "quote_id": "q_875498f25607",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9089fc0205c3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b22143edf92b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451148520",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Hyperalgesia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451148520",
+          "sources": [
+            {
+              "quote_id": "q_2011f232547b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9236db9bbd43",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1cb85e243b9f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451212500",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Death",
+            "Opioid-Related Disorders"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451212500",
+          "sources": [
+            {
+              "quote_id": "q_788149f78f2c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8071d0425ee2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d45c3d66ea99",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451225320",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "buprenorphine"
+          ],
+          "phenotypes": [
+            "Neonatal Abstinence Syndrome"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451225320",
+          "sources": [
+            {
+              "quote_id": "q_6527d6b9e577",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c78f22126f07",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7cbe66b5ba3f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451225360",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "buprenorphine"
+          ],
+          "phenotypes": [
+            "Neonatal Abstinence Syndrome"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451225360",
+          "sources": [
+            {
+              "quote_id": "q_b2ea71406b0f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1cd9ceb7948f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_76e798ff1696",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451226160",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "methadone"
+          ],
+          "phenotypes": [
+            "Neonatal Abstinence Syndrome"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451226160",
+          "sources": [
+            {
+              "quote_id": "q_9cd1fe1233df",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_dee61216f7c2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b37c8786c852",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451226166",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "methadone"
+          ],
+          "phenotypes": [
+            "Neonatal Abstinence Syndrome"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451226166",
+          "sources": [
+            {
+              "quote_id": "q_c49a39df576e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8ac24a0ae0da",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_824ee23a3095",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451238460",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "buprenorphine",
+            "fentanyl",
+            "tramadol"
+          ],
+          "phenotypes": [
+            "Exanthema",
+            "Opioid-Related Disorders"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451238460",
+          "sources": [
+            {
+              "quote_id": "q_a023054d265f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4220cacd630f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_517db9ae38cd",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451244869",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "fentanyl"
+          ],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451244869",
+          "sources": [
+            {
+              "quote_id": "q_4bcb651df911",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_21722b18f8e4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_100b88d89651",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451244900",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451244900",
+          "sources": [
+            {
+              "quote_id": "q_52d7a24b5da2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_57755364f1bd",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_292f30743ba0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "remifentanil"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451244920",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "dosage"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451244920",
+          "sources": [
+            {
+              "quote_id": "q_f78976401c14",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c9a57488e6ea",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_216d4cdbe534",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "sufentanil"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451244980",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "oxycodone"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451244980",
+          "sources": [
+            {
+              "quote_id": "q_f1d2c8de2e65",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_97d0d9fa2440",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8a50648dc2f6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451245004",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "dosage"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain",
+            "Pain, Postoperative"
+          ],
+          "pmids": 6,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451245004",
+          "sources": [
+            {
+              "quote_id": "q_9adabf9d9657",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e335d876c1de",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e2d4436afc56",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451245040",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451245040",
+          "sources": [
+            {
+              "quote_id": "q_60a6d396ec53",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_794ce12699e1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_546c929aff65",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451245081",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "morphine"
+          ],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 4,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451245081",
+          "sources": [
+            {
+              "quote_id": "q_cabca5981225",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8550467655c6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4973a2f19f0b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451246040",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "nicotine"
+          ],
+          "phenotypes": [
+            "Tobacco Use Disorder"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451246040",
+          "sources": [
+            {
+              "quote_id": "q_7f7729553c88",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ab8fc8e18b4d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_fbe3d2172e1e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451359886",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "propranolol"
+          ],
+          "phenotypes": [
+            "Temporomandibular joint dysfunction syndrome"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451359886",
+          "sources": [
+            {
+              "quote_id": "q_2589d7bd6aec",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_117380461060",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c2607a441b09",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451825220",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "naloxone",
+            "oxycodone"
+          ],
+          "phenotypes": [
+            "Vomiting"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451825220",
+          "sources": [
+            {
+              "quote_id": "q_1365534705e8",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a61a8e148204",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1d2a619353d2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451825226",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "naloxone",
+            "oxycodone"
+          ],
+          "phenotypes": [
+            "Erythema"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451825226",
+          "sources": [
+            {
+              "quote_id": "q_d577f34a663a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_fe0fedd371ec",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_163756432ea9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1452569800",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "erenumab"
+          ],
+          "phenotypes": [
+            "Migraine with Aura",
+            "Migraine without Aura"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1452569800",
+          "sources": [
+            {
+              "quote_id": "q_a1ad7dc9f75b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_723c59afcc43",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_6d632c7be421",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1452569820",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Migraine with Aura",
+            "Migraine without Aura"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1452569820",
+          "sources": [
+            {
+              "quote_id": "q_0b586e846153",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b186ea7d95c0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e00b70489300",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "fremanezumab"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1452569827",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Migraine with Aura",
+            "Migraine without Aura"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1452569827",
+          "sources": [
+            {
+              "quote_id": "q_f03eb6b79ef6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b8d597660263",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_22ae8b1a32df",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "galcanezumab"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "655385205",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "dosage"
+          ],
+          "drugs": [
+            "morphine"
+          ],
+          "phenotypes": [
+            "Pain",
+            "Pain, Postoperative"
+          ],
+          "pmids": 9,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/655385205",
+          "sources": [
+            {
+              "quote_id": "q_a63f4f970632",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_2fbe07c48178",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0061e42b5e7d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "981202618",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "nicotine"
+          ],
+          "phenotypes": [
+            "Tobacco Use Disorder"
+          ],
+          "pmids": 4,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/981202618",
+          "sources": [
+            {
+              "quote_id": "q_5a104659f3d3",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4e03e15a10df",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3acc7d816d96",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "981202646",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Tardive Dyskinesia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/981202646",
+          "sources": [
+            {
+              "quote_id": "q_0559251ed2c2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cf04c56726f7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_45b098a99242",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "981202674",
+          "variant": "rs4680",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/981202674",
+          "sources": [
+            {
+              "quote_id": "q_3e091eff6951",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c2b124adde2a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0bd9f0065969",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184233517",
+          "variant": "rs4818",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184233517",
+          "sources": [
+            {
+              "quote_id": "q_644d6d43229c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f14913129c47",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c94c9b9fa706",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448423795",
+          "variant": "rs4818",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "quetiapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448423795",
+          "sources": [
+            {
+              "quote_id": "q_4e848c91e914",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_bb7209288da8",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7de30134744b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1450928505",
+          "variant": "rs4818",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "risperidone"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1450928505",
+          "sources": [
+            {
+              "quote_id": "q_80ca4654ae76",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cca5a126d957",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_25bdc254f8d7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448423763",
+          "variant": "rs5993883",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "quetiapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "GG",
+            "GT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448423763",
+          "sources": [
+            {
+              "quote_id": "q_5299d23cda19",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d888301ecbbb",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b8ed77f54bb6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1184233486",
+          "variant": "rs6269",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "other"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Pain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1184233486",
+          "sources": [
+            {
+              "quote_id": "q_a11680284a51",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f16b7a7b99d5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8c0eee54a8d0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "opioids"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448423788",
+          "variant": "rs6269",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "quetiapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448423788",
+          "sources": [
+            {
+              "quote_id": "q_dfd65ae0f988",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b331f57241a7",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a662e0a932a4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451407981",
+          "variant": "rs6269",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "morphine"
+          ],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451407981",
+          "sources": [
+            {
+              "quote_id": "q_31f218d33c8f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3045d6d14e21",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_872cca39ab36",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451408023",
+          "variant": "rs6269",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [],
+          "phenotypes": [],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451408023",
+          "sources": [
+            {
+              "quote_id": "q_c7035de161a9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_aee63579f05b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0fdb19df8b94",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "butorphanol"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451226212",
+          "variant": "rs740603",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "buprenorphine"
+          ],
+          "phenotypes": [
+            "Neonatal Abstinence Syndrome"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451226212",
+          "sources": [
+            {
+              "quote_id": "q_8d52e8fe846b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_68d539c1bd77",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7ea16f5c0a63",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451226220",
+          "variant": "rs740603",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "methadone"
+          ],
+          "phenotypes": [
+            "Neonatal Abstinence Syndrome"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451226220",
+          "sources": [
+            {
+              "quote_id": "q_b0e415d2896c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b0323028e7f9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_e89b19c6cbfe",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1448634071",
+          "variant": "rs9332377",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Neoplasms",
+            "Nephrotoxicity"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1448634071",
+          "sources": [
+            {
+              "quote_id": "q_81b405eeac58",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_39907550b88a",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4dbbb9560d32",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "cisplatin"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "655386601",
+          "variant": "rs9332377",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Drug Toxicity",
+            "Neoplasms",
+            "Ototoxicity"
+          ],
+          "pmids": 8,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/655386601",
+          "sources": [
+            {
+              "quote_id": "q_4435fd51cf63",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_a3e89299bcda",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_df53fe4cb3dc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "cisplatin"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451148025",
+          "variant": "rs933271",
+          "genes": [
+            "COMT",
+            "TXNRD2"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "methadone"
+          ],
+          "phenotypes": [
+            "Opioid-Related Disorders"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451148025",
+          "sources": [
+            {
+              "quote_id": "q_0ff000e47e48",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_d880f189fdee",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_df1b8e72eddc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "982030854",
+          "variant": "rs9606186",
+          "genes": [
+            "COMT"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "risperidone"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "CC",
+            "CG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/982030854",
+          "sources": [
+            {
+              "quote_id": "q_40b6019d779e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0d43fa5f2fd0",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_581a8ba55fb2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Catechol-O-methyltransferase",
       "wikipedia_provenance": "sourced",
       "gene": "COMT",
@@ -2315,6 +8069,612 @@
           }
         ]
       },
+      "variants": [
+        {
+          "annotation": "1183693532",
+          "variant": "rs11872992",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "clozapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183693532",
+          "sources": [
+            {
+              "quote_id": "q_805dcbfa468d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c05fab9bb4b5",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1eac27d21ad4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451605911",
+          "variant": "rs11872992",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "olanzapine"
+          ],
+          "phenotypes": [
+            "Schizophrenia",
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AG",
+            "GG"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451605911",
+          "sources": [
+            {
+              "quote_id": "q_dc3c773d52af",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_af14c67fb28b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c973c1627852",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1183614676",
+          "variant": "rs17782313",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 3,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1183614676",
+          "sources": [
+            {
+              "quote_id": "q_94fcada98ee4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_9be6232d4868",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_223f9959955c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398293",
+          "variant": "rs17782313",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "paliperidone"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398293",
+          "sources": [
+            {
+              "quote_id": "q_db2757824c51",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3aa606bcb15d",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_331f14cc5a29",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398299",
+          "variant": "rs17782313",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "risperidone"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398299",
+          "sources": [
+            {
+              "quote_id": "q_a37fb9f4cedb",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_c35e51dab64c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0b5f4a61df38",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398340",
+          "variant": "rs17782313",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "quetiapine"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398340",
+          "sources": [
+            {
+              "quote_id": "q_9f77b11f2ce4",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1a536f63b060",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f6041d104f12",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398387",
+          "variant": "rs17782313",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "amisulpride"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "CC",
+            "CT",
+            "TT"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398387",
+          "sources": [
+            {
+              "quote_id": "q_a2ae38366053",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_3c3732b491ef",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_1424175c6fe6",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1446898992",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 4,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1446898992",
+          "sources": [
+            {
+              "quote_id": "q_fdecf568a79f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_7264c9806d0b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_0c8f2e47741c",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "drug_names": [
+            "antipsychotics"
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398287",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "efficacy"
+          ],
+          "drugs": [
+            "paliperidone"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398287",
+          "sources": [
+            {
+              "quote_id": "q_c88cdb55b412",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_43469d420fdc",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8f8bb3c76682",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398307",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "haloperidol"
+          ],
+          "phenotypes": [
+            "Hypertriglyceridemia",
+            "Schizoaffective disorder",
+            "Schizophrenia",
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398307",
+          "sources": [
+            {
+              "quote_id": "q_984b5fe4ca70",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cf7e3417fa63",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8574254eb0e9",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398314",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "quetiapine"
+          ],
+          "phenotypes": [
+            "Hypertriglyceridemia",
+            "Schizoaffective disorder",
+            "Schizophrenia",
+            "Weight gain"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398314",
+          "sources": [
+            {
+              "quote_id": "q_5ddd77753214",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_29d08cd15f4e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5af34690086e",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398347",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "risperidone"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 3,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398347",
+          "sources": [
+            {
+              "quote_id": "q_5006dbd479ba",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_8f1deae92af8",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5b6081de12da",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398380",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "amisulpride"
+          ],
+          "phenotypes": [
+            "Hypertriglyceridemia",
+            "Weight gain"
+          ],
+          "pmids": 2,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398380",
+          "sources": [
+            {
+              "quote_id": "q_50fdb9c46f36",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_59ee4beb4a7b",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_5c78ca5a4b1f",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        },
+        {
+          "annotation": "1451398394",
+          "variant": "rs489693",
+          "genes": [
+            "MC4R"
+          ],
+          "level": "3",
+          "categories": [
+            "toxicity"
+          ],
+          "drugs": [
+            "aripiprazole"
+          ],
+          "phenotypes": [
+            "Weight gain"
+          ],
+          "pmids": 1,
+          "genotypes": [
+            "AA",
+            "AC",
+            "CC"
+          ],
+          "url": "https://www.clinpgx.org/clinicalAnnotation/1451398394",
+          "sources": [
+            {
+              "quote_id": "q_ac93db29c7d1",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_763cf53b0253",
+              "pipeline": "machine",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_cc601569d5c2",
+              "pipeline": "machine",
+              "provenance": "verified"
+            }
+          ],
+          "population": "Pediatric",
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Melanocortin_receptor",
       "wikipedia_provenance": "sourced",
       "gene": "MC4R",
@@ -4035,6 +10395,41 @@
       "no_difference": "="
     }
   },
+  "variants": {
+    "levels": {
+      "1A": {
+        "strength": "high",
+        "label": "in a prescribing guideline (CPIC or a medical society) or implemented in a major health system"
+      },
+      "1B": {
+        "strength": "high",
+        "label": "replicated association with a strong effect"
+      },
+      "2A": {
+        "strength": "moderate",
+        "label": "replicated association, in a well-known pharmacogene"
+      },
+      "2B": {
+        "strength": "moderate",
+        "label": "replicated association"
+      },
+      "3": {
+        "strength": "low",
+        "label": "a single study, or several that do not clearly agree"
+      }
+    },
+    "categories": {
+      "efficacy": "efficacy",
+      "toxicity": "toxicity",
+      "dosage": "dosage",
+      "pk": "pharmacokinetics",
+      "pd": "pharmacodynamics",
+      "other": "other"
+    },
+    "populations": {
+      "Pediatric": "children"
+    }
+  },
   "source_corpora": {
     "stahl": {
       "ref": "Prescriber's Guide: Stahl's Essential Psychopharmacology, 8th ed.",
@@ -4182,6 +10577,17 @@
       "citation": "U.S. Food and Drug Administration. Drugs@FDA: FDA-approved drugs, cited application's original approval (openFDA drug/drugsfda export, public domain; application number pinned per citation).",
       "url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
       "pages_dir": "data_sources/drugsfda/pages",
+      "editable": true
+    },
+    "clinpgx": {
+      "ref": "ClinPGx (PharmGKB), clinical annotation",
+      "citation": "ClinPGx (formerly PharmGKB). Clinical annotation, cited id. clinpgx.org (CC BY-SA 4.0); annotations are revised, so the export is dated.",
+      "url": "https://www.clinpgx.org/",
+      "tsv_dir": "tools/data/clinpgx",
+      "export_sha256": {
+        "clinical_annotations.json": "80ac4c7f9a3afc2de5a60533aeac0d389eb96da0c7818a05ce7f7a0f6836ae40"
+      },
+      "machine": true,
       "editable": true
     },
     "agnp_tdm": {
@@ -4716,6 +11122,16 @@
         "missing": 0,
         "unknown": 0
       },
+      "receptor_variant": {
+        "total": 546,
+        "verified": 546,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "structures": {
         "total": 57,
         "verified": 57,
@@ -4738,15 +11154,15 @@
       }
     },
     "nodes": {
-      "total": 7845,
-      "verified": 7113,
+      "total": 8391,
+      "verified": 7659,
       "uncertain": 426,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 7539,
+      "backed": 8085,
       "pct_backed": 96
     },
     "ki_coverage": {

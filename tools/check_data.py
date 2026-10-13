@@ -144,6 +144,7 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "receptor_locations", "receptor_density", "targets", "target_polarity",
               "target_locations", "target_density", "receptor_effect",
               "receptor_release_modulation", "receptor_demographic",
+              "receptor_variant",
               "structures")
 
 
@@ -1569,6 +1570,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         check_effects(f"receptor {r.get('id')}", r, is_receptor=True)
         check_release_modulation(r)
         check_demographics(f"receptor {r.get('id')}", r)
+        for n in r.get("variants") or []:
+            for i, src in enumerate(n.get("sources") or []):
+                check_one(f"receptor {r.get('id')} variants[{n.get('annotation')}] "
+                          f"sources[{i}]", src)
 
     for tid, tinfo in (meta.get("drug_targets", {}) or {}).items():
         if isinstance(tinfo, dict):
@@ -1584,6 +1589,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                 check_one(f"target {tid} density sources[{i}]", src)
             check_effects(f"target {tid}", tinfo, is_receptor=False)
             check_demographics(f"target {tid}", tinfo)
+            for n in tinfo.get("variants") or []:
+                for i, src in enumerate(n.get("sources") or []):
+                    check_one(f"target {tid} variants[{n.get('annotation')}] "
+                              f"sources[{i}]", src)
 
     # Metabolizer-status profiles hang off `meta.enzymes`, not off any node file, so
     # they are reached from here rather than by the walks above. The page lookup stands
@@ -2075,7 +2084,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # rebuilds the emitted quotes with the very code that wrote them, which is
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data_generators import cpic, freshness, pharmfreq, unknown  # noqa: E402
+from data_generators import clinpgx, cpic, freshness, pharmfreq, unknown  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402
 from data_generators import demographics as DEMOG  # noqa: E402
@@ -2538,6 +2547,63 @@ def check_cpic_guidance(report, meta, drugs):
               f"exact match")
 
 
+def check_clinpgx_variants(report, meta, receptors):
+    """Family 12, last part: ClinPGx's variant annotations, re-derived from their export.
+
+    Every ``receptor_variant`` node is rebuilt from the pinned export by the generator's
+    own reader (``clinpgx.variant_nodes``) and must match the emitted one field for
+    field, its quotes included: ClinPGx's sentences are copied by code, so no step may
+    trim or reword one. An export row no owner carries (an owner id the emitted data
+    does not have) and an emitted node the export does not hold are both errors.
+    """
+    corpora = meta.get("source_corpora") or {}
+    if "clinpgx" not in corpora:
+        report.ok("no ClinPGx corpus to re-derive")
+        return
+    try:
+        want = clinpgx.variant_nodes(
+            clinpgx.read_export(clinpgx.export_path(str(REPO_ROOT))))
+    except clinpgx.ExportError as exc:
+        report.error(f"clinpgx: {exc}")
+        return
+    got = {("receptor", r["id"]): r.get("variants") or [] for r in receptors}
+    got.update((("target", tid), t.get("variants") or [])
+               for tid, t in (meta.get("drug_targets") or {}).items()
+               if isinstance(t, dict) and t.get("type") != "receptor")
+    keys = ("annotation", "variant", "genes", "level", "categories", "drugs",
+            "drug_names", "phenotypes", "pmids", "genotypes", "population", "url")
+    n = 0
+    for owner in sorted(set(want) | {k for k, v in got.items() if v}):
+        ctx = f"{owner[0]} {owner[1]} variants"
+        if owner not in got:
+            report.error(f"{ctx}: the export holds {len(want[owner])} annotation(s) for "
+                         f"an owner the emitted data does not have (fix genes.GENE_OWNERS)")
+            continue
+        wants, emitted = want.get(owner, []), got[owner]
+        if [w["annotation"] for w in wants] != [e.get("annotation") for e in emitted]:
+            report.error(f"{ctx}: emitted annotations are not the export's (re-run "
+                         f"tools/generate_data.py)")
+            continue
+        for w, e in zip(wants, emitted):
+            for key in keys:
+                if e.get(key) != w.get(key):
+                    report.error(f"{ctx} {w['annotation']}: {key} is {e.get(key)!r}, not "
+                                 f"{w.get(key)!r} as the export reads")
+            quotes = [s.get("quote") for s in e.get("sources") or []]
+            if quotes != [s["quote"] for s in w["sources"]]:
+                report.error(f"{ctx} {w['annotation']}: its citations do not quote the "
+                             f"export's genotype sentences verbatim")
+                continue
+            for i, src in enumerate(e["sources"]):
+                if src.get("corpus") != "clinpgx" or src.get("page") != w["annotation"]:
+                    report.error(f"{ctx} {w['annotation']} sources[{i}]: not cited to "
+                                 f"clinpgx page {w['annotation']!r}")
+                else:
+                    n += 1
+    report.ok(f"{n} ClinPGx variant quote(s) re-derived from the pinned export, "
+              f"exact match")
+
+
 def check_cpic_enzyme_coverage(report, want, drugs):
     """A gene CPIC doses a drug on, that the drug's enzyme list does not carry.
 
@@ -2743,6 +2809,7 @@ def main():
     check_innervation(report, meta, structures, projections, receptors)
     check_baked_meshes(report, structures)
     check_enzyme_variability(report, meta, drugs)
+    check_clinpgx_variants(report, meta, receptors)
     check_freshness(report, meta, collections, metabolites=metabolites)
     return _summary(report)
 

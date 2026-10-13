@@ -36,3 +36,30 @@ RECEPTOR_GENES: dict[str, str] = dict(_receptor_genes())
 TARGET_GENES: dict[str, str] = {
     tid: genes[0] for tid, genes in _TARGET_GENE_LISTS.items() if genes
 }
+
+
+# A heteromeric receptor's other subunit gene, which RECEPTOR_GENES (one gene per
+# receptor) cannot name. Without it CHRNB2 would fall through to fetch_allen's
+# "nicotinic" group key, which is no emitted target.
+_HETEROMER_SUBUNITS = {"CHRNB2": "nachr_a4b2"}
+
+
+def _gene_owners() -> dict[str, tuple[str, str]]:
+    """HGNC symbol -> the ``(owner_kind, owner_id)`` a gene-keyed claim hangs off.
+
+    A gene a receptor carries belongs to that receptor (``ADRB2`` -> ``beta2``), never to
+    the group target that also lists it (``beta``), so one claim lands on one panel.
+    Any other gene a target lists (every member, not only the representative above)
+    belongs to the first target listing it (``CHRNB2`` -> ``nicotinic``).
+    """
+    owners: dict[str, tuple[str, str]] = {g: ("receptor", r)
+                                          for r, g in RECEPTOR_GENES.items()}
+    owners.update((g, ("receptor", r)) for g, r in _HETEROMER_SUBUNITS.items())
+    for tid, genes in _TARGET_GENE_LISTS.items():
+        for g in genes:
+            owners.setdefault(g, ("target", tid))
+    return owners
+
+
+#: HGNC symbol -> ``(owner_kind, owner_id)``, see :func:`_gene_owners`.
+GENE_OWNERS: dict[str, tuple[str, str]] = _gene_owners()
