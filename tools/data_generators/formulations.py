@@ -124,6 +124,9 @@ IR_FORMS_FR = re.compile(
     r"\b(?:comprim[ée]s?|g[ée]lules?|capsules?|solution buvable|suspension buvable|"
     r"sirop|gouttes buvables|granul[ée]s)\b", re.IGNORECASE)
 
+# The FDA established name of an extended-release product leads with the word
+# ("EXTENDED PHENYTOIN SODIUM CAPSULE"); uppercase only, as a title writes it.
+_EXTENDED_NAME = re.compile(r"\s*EXTENDED\b")
 # A label covering several products (a kit, a title naming two products) says nothing
 # about which one a sentence of it describes.
 _KIT = re.compile(r"\bKIT\b", re.IGNORECASE)
@@ -151,11 +154,16 @@ def classify(text: str) -> str | None:
     return found[0] if found else None
 
 
-def classify_label_title(title: str) -> str | None:
+def classify_label_title(title: str, routes=()) -> str | None:
     """The release of a DailyMed SPL title ("QUETIAPINE TABLET, EXTENDED RELEASE [..]").
 
     The labeler in brackets is dropped (a company name is not a dosage form). A kit
-    covers several products, so it is never classified.
+    covers several products, so it is never classified. ``routes`` are the SPL's own
+    route-of-administration codes (``fetch_dailymed.spl_routes``): the title names a
+    dosage form, not a route, so a generic "ASENAPINE TABLET" is a sublingual tablet,
+    and a tablet is read as immediate release only when nothing says it is not
+    swallowed. An "EXTENDED <name>" title is the FDA established name of an
+    extended-release product ("Extended Phenytoin Sodium Capsules").
 
     >>> classify_label_title("ALPRAZOLAM TABLET [ACTAVIS PHARMA, INC.]")
     'ir'
@@ -165,6 +173,10 @@ def classify_label_title(title: str) -> str | None:
     'injection'
     >>> classify_label_title("CANNABIDIOL SOLUTION [X]") is None
     True
+    >>> classify_label_title("ASENAPINE TABLET [ALEMBIC]", {"SUBLINGUAL"})
+    'sublingual'
+    >>> classify_label_title("EXTENDED PHENYTOIN SODIUM (PHENYTOIN SODIUM) CAPSULE [X]")
+    'xr'
     """
     body = re.sub(r"\[[^\]]*\]", " ", title or "")
     if _KIT.search(body):
@@ -172,6 +184,12 @@ def classify_label_title(title: str) -> str | None:
     named = classify(body)
     if named:
         return named
+    if _EXTENDED_NAME.match(body):
+        return "xr"
+    routes = {r.upper() for r in routes}
+    if routes - {"ORAL"}:
+        # One non-oral route names the release; a label mixing routes is not one product.
+        return classify(next(iter(routes))) if len(routes) == 1 else None
     return "ir" if IR_FORMS_EN.search(body) else None
 
 

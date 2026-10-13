@@ -53,6 +53,21 @@ class ClassifyTest(unittest.TestCase):
         self.assertIsNone(F.classify_denomination("X 10 mg, comprimé", "orale;rectale"))
         self.assertEqual(F.classify_denomination("X 10 mg, comprimé", "orale"), "ir")
 
+    def test_label_route_overrides_a_bare_tablet(self):
+        # Generic Saphris: the SPL title says "TABLET", its route code says sublingual.
+        # Read as IR, its 1 h peak was published as a swallowed tablet's (3.114.0).
+        title = "ASENAPINE TABLET [ALEMBIC PHARMACEUTICALS INC.]"
+        self.assertEqual(F.classify_label_title(title, {"SUBLINGUAL"}), "sublingual")
+        self.assertEqual(F.classify_label_title(title, {"ORAL"}), "ir")
+        self.assertIsNone(F.classify_label_title(title, {"ORAL", "SUBLINGUAL"}))
+
+    def test_extended_established_name_is_xr(self):
+        # "Extended Phenytoin Sodium Capsules" (Dilantin Kapseals' generic): its
+        # 4-12 h peak is the extended capsule's, never an IR one.
+        self.assertEqual(F.classify_label_title(
+            "EXTENDED PHENYTOIN SODIUM (PHENYTOIN SODIUM) CAPSULE [REMEDYREPACK INC.]",
+            {"ORAL"}), "xr")
+
     def test_kit_title_is_never_classified(self):
         self.assertIsNone(F.classify_label_title(
             "AUSTEDO (DEUTETRABENAZINE) TABLET KIT AUSTEDO XR TABLET, EXTENDED RELEASE"))

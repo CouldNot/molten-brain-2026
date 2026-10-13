@@ -187,6 +187,19 @@ def section_texts(xml: str) -> list[str]:
     return out
 
 
+def spl_routes(setid: str) -> set[str]:
+    """The route-of-administration codes the stored SPL declares ("SUBLINGUAL", "ORAL").
+
+    Read off ``raw/<setid>.xml``; empty when the label is not on disk. The title names
+    only a dosage form, so this is what tells a sublingual tablet from a swallowed one.
+    """
+    path = RAW_DIR / f"{setid}.xml"
+    if not path.exists():
+        return set()
+    xml = path.read_text("utf-8", errors="replace")
+    return set(re.findall(r'<routeCode\b[^>]*displayName="([^"]+)"', xml))
+
+
 def page_text(meta: dict, lines: list[str]) -> str:
     """The stored page: a provenance header, then one pharmacokinetics line per line."""
     head = [

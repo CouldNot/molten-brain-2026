@@ -53,6 +53,7 @@ from data_generators.provenance import corpus_page_path  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402
 import fetch_tmax  # noqa: E402  (sentences(), durations_in / durations_in_fr)
 import fetch_bdpm  # noqa: E402  (the product table, its folding)
+import fetch_dailymed  # noqa: E402  (spl_routes: a label's route codes)
 
 OUT_PATH = ROOT / "tools" / "generated_cache" / "formulation_worklist.json"
 FIELDS = ("tmax", "half_life")
@@ -87,7 +88,7 @@ def product_line(corpus: str, page) -> tuple[str, str] | None:
         return None
     title = lines[0][2:].strip()
     if corpus == "dailymed":
-        rel = F.classify_label_title(title)
+        rel = F.classify_label_title(title, fetch_dailymed.spl_routes(str(page)))
     else:
         route = next((ln.split(":", 1)[1] for ln in lines[1:8]
                       if ln.startswith("route:")), "")
