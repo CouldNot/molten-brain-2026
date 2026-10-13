@@ -43,9 +43,12 @@ these grades (and why `llm` counts as unbacked): see The "% sourced" figure.
 model's capability; it is quote-node metadata (not part of the id hash), absent = unknown. Any new
 sourcing/recheck pass must stamp it (a non-LLM deterministic source like Allen's PACall omits it).
 A batch recheck (`tools/sourcing/recheck_quotes.py`, run as a Sonnet workflow) writes a central
-`generated_cache/quote_llm.json` (`{quote_id: llm}`) that `quote_table` applies uniformly (an override
-wins over a source-level `llm`); quotes it could not confirm land in `quote_recheck_flagged.json` for
-review, not stamped.
+`generated_cache/quote_llm.json` (`{quote_id: {citation_site: llm}}`) that the generator applies per
+citation (an override wins over a source-level `llm`): a verdict covers only the sites the judge was
+shown, so a quote newly cited somewhere else ships **unjudged** there until rechecked
+(`recheck_quotes.py build --unjudged`). A verdict can pass some sites and reject others
+(`rejected_sites`): the rest are stamped and only the rejected sites land in
+`quote_recheck_flagged.json` (row `sites`), which `demote_quotes.py --flagged` demotes.
 
 **A verdict is about a claim, not a sentence (the citation site).** A quote id is a content hash, so
 one sentence reaching two claims is one id, and the excerpt table stays deduplicated for it. What that
@@ -138,7 +141,7 @@ verbatim and stands its subject-less-quote guard down for a binding that declare
 answer the same problem). **The three flags about a quote's REACH are derived, never authored per
 site**: `apply_binding_uncertainty` / `apply_projection_uncertainty` compute both the flags and the
 bullets from the emitted data, so a data edit cannot leave a stale flag behind and a new drug or arrow
-is covered the day it lands. Five flags today, and a node hit by any is uncertain:
+is covered the day it lands. Six flags today, and a node hit by any is uncertain:
 - **the subject-less side-effect rule** (89 bindings): the quote's heading trail ends in Stahl's *How Drug
   Causes Side Effects* and the sentence does not attribute the action to the drug (`_attributes_to_drug`:
   it neither names it, nor uses a pronoun subject, nor elides the subject in Stahl's telegraphic style).
@@ -165,6 +168,7 @@ is covered the day it lands. Five flags today, and a node hit by any is uncertai
   `apply_enzyme_uncertainty` raises when an entry names no emitted row, so a fetcher re-run cannot
   drop the doubted claim and leave the contradiction marking nothing.
   A sub-claim (a receptor's `classification[attr]`, an enzyme row's `claims.strength`) carries the bullet on itself, so only that pill turns orange (`ENZYME_STRENGTH_CONTRADICTIONS`, `RECEPTOR_CONTRADICTIONS`). A drug binding a corpus places otherwise (`BINDING_CONTRADICTIONS`, keyed `(drug, target)`: etomidate's GABA-A site, Wikipedia's beta+/alpha- transmembrane site vs Stahl Essential p338's "same sites as neuroactive steroids") gets the bullet appended after its derived ones. A denied claim with no document of its own (a bare `llm` sign or site) keeps its grey pill and stays **missing** in the tally: the bullet shows in its tooltip, but a denial is not a backing (`bucket` in `provenance.py`, `shownGrade` in `js/node-browser.js`).
+- **the animal-only claim** (`animal_evidence`, `tools/data_generators/quotes/animal_evidence.py`): every source of the node that records a species names a non-primate animal and none a human or monkey (a rat Ki, a rat GtoPdb tissue line, a mouse Europe PMC paper). The grade stays; the bullet lists the species. One vocabulary (`tools/species.py`) folds GtoPdb `species`, PDSP Ki `species` (cell lines included) and Europe PMC MeSH species (`generated_cache/europepmc_species.json`, written by `fetch_europepmc.py --species`); a source recording no species (a book, Wikipedia) leaves the claim unflagged. Covers drug + metabolite bindings, projection routes + transmitter/sign sub-claims, and "Found in" regions, whose bullets ride `location_uncertainty` (keyed like `location_sources`).
 The first three run as a post-pass (not `_binding_record` / `_projection_records`) because the bullets look across
 siblings: `class_wide` counts the drugs the same sentence is printed on, `family_claim` the subtypes one
 sentence covers, `blanket_claim` the arrows.
