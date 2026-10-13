@@ -386,6 +386,10 @@
 "receptor:d2/classification[family]": "sonnet",
 "receptor:d2/classification[receptor_class]": "sonnet"
 },
+"q_0afd0ce7b6a8": {
+"drug:selegiline/metabolites[l_amphetamine]": "opus",
+"drug:selegiline/metabolites[l_methamphetamine]": "opus"
+},
 "q_0b14d3a41a96": {
 "drug:trihexyphenidyl/first_approval": "opus"
 },
@@ -1929,6 +1933,9 @@
 },
 "q_34903df036af": {
 "drug:erenumab/half_life": "sonnet"
+},
+"q_34c43c0d4f9e": {
+"drug:aripiprazole/metabolites[dehydroaripiprazole]": "opus"
 },
 "q_34e1b80721ef": {
 "metabolite:6_hydroxybupropion/bindings[dat:reuptake_inhibitor]": "sonnet"
@@ -4485,6 +4492,9 @@
 "drug:venlafaxine/formulations[ir]/release": "opus",
 "drug:venlafaxine/formulations[ir]/tmax": "opus",
 "drug:venlafaxine/tmax": "opus"
+},
+"q_7bc4639dd6a3": {
+"drug:selegiline/metabolites[desmethylselegiline]": "opus"
 },
 "q_7bcbf1cb0154": {
 "drug:flumazenil/bindings[gaba_a:antagonist]": "sonnet"
@@ -7826,6 +7836,9 @@
 "q_d48338c5e45f": {
 "drug:daridorexant/brands[Quviviq]": "sonnet"
 },
+"q_d4a662cc1eeb": {
+"drug:nefazodone/metabolites[meta_chlorophenylpiperazine]": "opus"
+},
 "q_d4c93eed8ccc": {
 "drug:tiapride/tmax": "sonnet"
 },
@@ -7853,6 +7866,9 @@
 },
 "q_d5807d49aea7": {
 "drug:quazepam/bindings[gaba_a:pam]": "sonnet"
+},
+"q_d595db9b3e33": {
+"drug:ramelteon/metabolites[m_ii]": "opus"
 },
 "q_d596b8a88e8f": {
 "drug:paliperidone/brands[Invega Sustenna]": "sonnet"
@@ -8500,6 +8516,9 @@
 },
 "q_e64b6fcb80ee": {
 "drug:risperidone/bindings[5ht2b:antagonist]": "opus"
+},
+"q_e652df8c0ab7": {
+"drug:lofepramine/metabolites[desipramine]": "opus"
 },
 "q_e65ed82af400": {
 "drug:tropatepine/bindings[m1:antagonist]": "opus",
