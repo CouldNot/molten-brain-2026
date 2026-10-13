@@ -5,7 +5,7 @@
 #     "beautifulsoup4>=4.12",
 # ]
 # ///
-"""Merge LLM-extracted metabolite receptor bindings into ``drugs_data.jsonl``.
+"""Merge LLM-extracted metabolite receptor bindings into ``metabolites_data.jsonl``.
 
 Run under ``uv run`` (a ``beautifulsoup4`` dep) because it reuses
 ``fetch_wikipedia_pharmacology`` for the Ki-object + page-store helpers, and that module
@@ -22,7 +22,7 @@ Pipeline (mirrors the brand / PK / Wikipedia-Ki passes)::
 
     fetch_metabolite_bindings.py  -> metabolite_bindings_worklist.json  (Ki rows + action lines)
     <one LLM pass>                -> metabolite_bindings_judged.json     (per-metabolite actions)
-    apply_metabolite_bindings.py  -> drugs_data.jsonl                    (this script)
+    apply_metabolite_bindings.py  -> metabolites_data.jsonl              (this script)
 
 What a metabolite binding is made of (decision recorded in docs/DRUGS.md):
 
@@ -74,11 +74,6 @@ _spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_dat
 _cd = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_cd)
 normalize_for_match = _cd.normalize_for_match
-
-
-def norm_name(s: str) -> str:
-    """Fold a name for id/key matching (lowercase, alphanumerics only)."""
-    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
 
 
 def _page_text(slug: str) -> str | None:
@@ -197,20 +192,6 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
     return out
 
 
-def drop_if_linked(m: dict, by_norm: dict[str, str], drug_ids: set[str]) -> bool:
-    """Whether metabolite ``m`` IS a modeled drug, clearing its inline ``bindings`` if so.
-
-    Only non-modeled metabolites are sourced here: a modeled one reuses that drug's
-    bindings (js/data.js), so an inline copy written before the link existed (ODV's two
-    bindings once desvenlafaxine was linked) is a stale duplicate that must go.
-    """
-    linked = m.get("drug_id") or by_norm.get(norm_name(m["name"]))
-    if linked and linked in drug_ids:
-        m.pop("bindings", None)
-        return True
-    return False
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true",
@@ -225,33 +206,38 @@ def main() -> int:
     judged = json.loads(JUDGED.read_text(encoding="utf-8")) if JUDGED.exists() else {}
     valid_ids = wp.load_valid_ids()
     drugs = drugs_io.load_drugs()
-    drug_ids = {d["id"] for d in drugs}
-    by_norm = {norm_name(d.get("name", "")): d["id"] for d in drugs}
+    store = drugs_io.load_metabolites()
+    by_id = {m["id"]: m for m in store}
 
     warnings: list[str] = []
     warn = warnings.append
     n_metab = n_bind = n_action = n_affinity = 0
-    for d in drugs:
-        if only is not None and d["id"] not in only:
+    # One pass per MOLECULE (the store), so a metabolite two drugs make is sourced
+    # once; a modeled-drug metabolite reuses that drug's bindings, so any inline copy
+    # is cleared.
+    modeled = {m["id"] for m in store} - {
+        m["id"] for m in drugs_io.non_modeled_metabolites(drugs, store)}
+    for mm in drugs_io.non_modeled_metabolites(drugs, store):
+        if only is not None and not only & set(mm["parents"]):
             continue
-        for m in d.get("metabolites", []):
-            if drop_if_linked(m, by_norm, drug_ids):
-                continue
-            key = wp.slugify(m["name"]).lower()
-            entry = worklist.get(key)
-            if not entry:
-                warn(f"{m['name']}: no worklist entry (run the fetcher) - skipped")
-                m.pop("bindings", None)
-                continue
-            bindings = build_bindings(m["name"], entry, judged.get(key), valid_ids, warn)
-            if bindings:
-                m["bindings"] = bindings
-                n_metab += 1
-                n_bind += len(bindings)
-                n_action += sum(1 for b in bindings if not b.get("affinity_only"))
-                n_affinity += sum(1 for b in bindings if b.get("affinity_only"))
-            else:
-                m.pop("bindings", None)
+        m = by_id[mm["id"]]
+        key = wp.slugify(m["name"]).lower()
+        entry = worklist.get(key)
+        if not entry:
+            warn(f"{m['name']}: no worklist entry (run the fetcher) - skipped")
+            m.pop("bindings", None)
+            continue
+        bindings = build_bindings(m["name"], entry, judged.get(key), valid_ids, warn)
+        if bindings:
+            m["bindings"] = bindings
+            n_metab += 1
+            n_bind += len(bindings)
+            n_action += sum(1 for b in bindings if not b.get("affinity_only"))
+            n_affinity += sum(1 for b in bindings if b.get("affinity_only"))
+        else:
+            m.pop("bindings", None)
+    for mid in modeled:
+        by_id[mid].pop("bindings", None)
 
     for w in warnings:
         print(f"  warn: {w}")
@@ -260,8 +246,8 @@ def main() -> int:
     if args.dry_run:
         print("(dry run: nothing written)")
         return 0
-    drugs_io.save_drugs(drugs)
-    print(f"wrote {drugs_io.DRUGS_PATH if hasattr(drugs_io, 'DRUGS_PATH') else 'drugs_data.jsonl'}")
+    drugs_io.save_metabolites(store)
+    print(f"wrote {drugs_io.METABOLITES_PATH}")
     return 0
 
 

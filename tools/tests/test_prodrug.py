@@ -41,12 +41,13 @@ class GateTest(unittest.TestCase):
         self.drugs = [{"id": "psilocybin", "bindings": [{"target": "5ht2a",
                                                          "action": "agonist"}]},
                       {"id": "sertraline"}]
+        self.store: list = []
 
     def tearDown(self):
         self.tmp.cleanup()
 
     def run_apply(self, rec):
-        return A.apply({"psilocybin": rec}, self.offered, self.drugs, self.gate)
+        return A.apply({"psilocybin": rec}, self.offered, self.drugs, self.gate, self.store)
 
     def test_good_pick_flags_drops_bindings_adds_metabolite(self):
         applied, dropped, rejected = self.run_apply({"index": 0, "metabolite": "Psilocin"})
@@ -55,8 +56,18 @@ class GateTest(unittest.TestCase):
         self.assertTrue(d["prodrug"])
         self.assertEqual(d["bindings"], [])
         self.assertEqual(dropped, ["psilocybin: 5ht2a agonist"])
-        self.assertEqual(d["metabolites"][0]["name"], "Psilocin")
+        # One store record for the molecule, a sourced reference on the drug.
+        self.assertEqual(self.store, [{"id": "psilocin", "name": "Psilocin"}])
+        self.assertEqual(d["metabolites"][0]["id"], "psilocin")
+        self.assertEqual(d["metabolites"][0]["sources"][0]["quote"], LINES[0])
         self.assertEqual(d["prodrug_sources"][0]["quote"], LINES[0])
+
+    def test_metabolite_already_in_the_store_is_reused(self):
+        """A second prodrug of a known molecule references it instead of copying it."""
+        self.store.append({"id": "psilocin", "name": "Psilocin", "bindings": [{"target": "x"}]})
+        self.run_apply({"index": 0, "metabolite": "Psilocin"})
+        self.assertEqual(len(self.store), 1)
+        self.assertEqual(self.store[0]["bindings"], [{"target": "x"}])
 
     def test_activating_enzyme_substrate_binding_is_kept(self):
         """Levodopa is AADC's substrate: that IS the conversion, so it stays."""

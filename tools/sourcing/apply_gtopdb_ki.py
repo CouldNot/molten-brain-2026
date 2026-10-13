@@ -172,9 +172,9 @@ def apply_entry(binding: dict, entry: dict | None, owner: str, page_cache: dict,
 
 
 def apply_all(drugs: list[dict], proposals: dict, metab_proposals: dict,
-              page_cache: dict) -> tuple[Counter, list, list]:
-    """Merge every proposal into ``drugs`` in place: each drug's own bindings, then each
-    non-modeled active metabolite's (keyed by metabolite name; a metabolite linked to a
+              page_cache: dict, metabolites: list[dict] = ()) -> tuple[Counter, list, list]:
+    """Merge every proposal in place: each drug's own bindings, then each store
+    ``metabolites`` record's (keyed by metabolite name; a metabolite linked to a
     modeled drug reuses that drug's bindings and carries none of its own). Confirm-only
     for both: only a binding already listed is ever touched."""
     tally: Counter = Counter()
@@ -185,14 +185,15 @@ def apply_all(drugs: list[dict], proposals: dict, metab_proposals: dict,
         for binding in drug.get("bindings", []):
             apply_entry(binding, per_target.get(binding.get("target")), drug["id"],
                         page_cache, tally, refinements, conflicts)
-        for m in drug.get("metabolites", []):
-            per_target = metab_proposals.get(m["name"], {})
-            for binding in m.get("bindings", []):
-                before = tally["ki"] + tally["action"] + tally["confirm"]
-                apply_entry(binding, per_target.get(binding.get("target")),
-                            f"{drug['id']}/{m['name']}", page_cache, tally,
-                            refinements, conflicts)
-                tally["metabolite"] += tally["ki"] + tally["action"] + tally["confirm"] - before
+    # One pass per molecule: a metabolite two drugs make is one store record.
+    for m in metabolites:
+        per_target = metab_proposals.get(m["name"], {})
+        for binding in m.get("bindings", []):
+            before = tally["ki"] + tally["action"] + tally["confirm"]
+            apply_entry(binding, per_target.get(binding.get("target")),
+                        f"metabolite:{m['id']}", page_cache, tally,
+                        refinements, conflicts)
+            tally["metabolite"] += tally["ki"] + tally["action"] + tally["confirm"] - before
     return tally, refinements, conflicts
 
 
@@ -210,8 +211,10 @@ def main() -> int:
 
     cache = json.loads(CACHE.read_text("utf-8"))
     drugs = drugs_io.load_drugs()
+    metabolites = drugs_io.load_metabolites()
     tally, refinements, conflicts = apply_all(drugs, cache["drugs"],
-                                              cache.get("metabolites", {}), {})
+                                              cache.get("metabolites", {}), {},
+                                              metabolites)
     n_ki, kept_ki, n_action, n_confirm, n_gate_fail = (
         tally["ki"], tally["kept_ki"], tally["action"], tally["confirm"], tally["gate_fail"])
 
@@ -233,7 +236,9 @@ def main() -> int:
         print("\n(dry run: nothing written)")
         return 0
     drugs_io.save_drugs(drugs)
-    print(f"\nwrote {drugs_io.DRUGS_PATH.relative_to(REPO)}")
+    drugs_io.save_metabolites(metabolites)
+    print(f"\nwrote {drugs_io.DRUGS_PATH.relative_to(REPO)} + "
+          f"{drugs_io.METABOLITES_PATH.relative_to(REPO)}")
     return 0
 
 

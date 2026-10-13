@@ -32,39 +32,44 @@ def entry(corpora=ALL, searched="2026-10-12"):
 
 
 def drugs():
+    """Two drugs both making metabolite ``nor_a`` (one store record, see :func:`metabs`)."""
     return [{"id": "a", "bindings": [
         {"target": "d2", "affinity_only": True, "ki": {"median": 3.0}},
         {"target": "d3", "action": "antagonist", "sources": [{"provenance": "verified"}]}],
-        "metabolites": [{"name": "Nor-A", "bindings": [
-            {"target": "h1", "affinity_only": True}]}]},
-        {"id": "b", "bindings": [], "metabolites": [{"name": "nor a", "bindings": [
-            {"target": "h1", "affinity_only": True}]}]}]
+        "metabolites": [{"id": "nor_a"}]},
+        {"id": "b", "bindings": [], "metabolites": [{"id": "nor_a"}]}]
+
+
+def metabs():
+    return [{"id": "nor_a", "name": "Nor-A", "bindings": [
+        {"target": "h1", "affinity_only": True}]}]
 
 
 class ApplyTest(unittest.TestCase):
     def test_stamps_an_affinity_only_binding(self):
         ds = drugs()
-        unknown.apply_unknown(ds, {"drug:a/bindings[d2]": entry()})
+        unknown.apply_unknown(ds, metabs(), {"drug:a/bindings[d2]": entry()})
         self.assertEqual(ds[0]["bindings"][0]["unknown"],
                          {"searched": "2026-10-12", "corpora": ALL})
 
     def test_a_real_source_wins(self):
         ds = drugs()
-        stats = unknown.apply_unknown(ds, {"drug:a/bindings[d3]": entry()})
+        stats = unknown.apply_unknown(ds, metabs(), {"drug:a/bindings[d3]": entry()})
         self.assertNotIn("unknown", ds[0]["bindings"][1])
         self.assertEqual(stats, {"stamped": 0, "superseded": 1})
 
-    def test_metabolite_stamp_reaches_every_parent(self):
-        ds = drugs()
-        unknown.apply_unknown(ds, {"drug:a/metabolites[Nor-A]/bindings[h1]": entry()})
-        self.assertIn("unknown", ds[0]["metabolites"][0]["bindings"][0])
-        self.assertIn("unknown", ds[1]["metabolites"][0]["bindings"][0])
+    def test_metabolite_stamp_lands_on_the_one_record(self):
+        ms = metabs()
+        unknown.apply_unknown(drugs(), ms, {"metabolite:nor_a/bindings[h1]": entry()})
+        self.assertIn("unknown", ms[0]["bindings"][0])
 
     def test_stale_key_raises(self):
         with self.assertRaises(KeyError):
-            unknown.apply_unknown(drugs(), {"drug:a/bindings[sert]": entry()})
+            unknown.apply_unknown(drugs(), metabs(), {"drug:a/bindings[sert]": entry()})
         with self.assertRaises(KeyError):
-            unknown.apply_unknown(drugs(), {"drug:zz/bindings[d2]": entry()})
+            unknown.apply_unknown(drugs(), metabs(), {"drug:zz/bindings[d2]": entry()})
+        with self.assertRaises(KeyError):
+            unknown.apply_unknown(drugs(), metabs(), {"metabolite:zz/bindings[h1]": entry()})
 
 
 class SiteTest(unittest.TestCase):
@@ -72,23 +77,24 @@ class SiteTest(unittest.TestCase):
         sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "sourcing"))
         import citation_site as cs
         self.assertEqual(unknown.binding_site("a", "d2"), cs.site("drug", "a", "bindings[d2]"))
-        self.assertEqual(unknown.binding_site("a", "h1", "Nor-A"),
-                         cs.site("drug", "a", "metabolites[Nor-A]/bindings[h1]"))
+        self.assertEqual(unknown.binding_site("nor_a", "h1", "metabolite"),
+                         cs.site("metabolite", "nor_a", "bindings", "h1"))
 
-    def test_enumeration_dedups_shared_metabolites(self):
-        sites = [r["site"] for r in unknown.affinity_only_bindings(drugs())]
-        self.assertEqual(sites, ["drug:a/bindings[d2]",
-                                 "drug:a/metabolites[Nor-A]/bindings[h1]"])
+    def test_enumeration_lists_a_shared_metabolite_once(self):
+        rows = unknown.affinity_only_bindings(drugs(), metabs())
+        self.assertEqual([r["site"] for r in rows],
+                         ["drug:a/bindings[d2]", "metabolite:nor_a/bindings[h1]"])
+        self.assertEqual(rows[1]["drug"], "a")        # first parent, whose article a search reads
 
 
 class TallyTest(unittest.TestCase):
     def _action(self, ds):
-        return _provenance_stats([], [], [], [], [], ds, {}, [])
+        return _provenance_stats([], [], [], [], [], ds, metabs(), {}, [])
 
     def test_unknown_leaves_the_denominator(self):
         ds = drugs()
         before = self._action(ds)
-        unknown.apply_unknown(ds, {"drug:a/bindings[d2]": entry()})
+        unknown.apply_unknown(ds, metabs(), {"drug:a/bindings[d2]": entry()})
         after = self._action(ds)
         k0, k1 = before["by_kind"]["drug_binding_action"], after["by_kind"]["drug_binding_action"]
         self.assertEqual((k0["total"], k0["nosource"], k0["unknown"]), (3, 2, 0))
@@ -104,7 +110,7 @@ class CheckDataTest(unittest.TestCase):
 
     def _stamped(self, corpora=ALL, searched="2026-10-12"):
         ds = drugs()
-        unknown.apply_unknown(ds, {"drug:a/bindings[d2]": entry(corpora, searched)})
+        unknown.apply_unknown(ds, metabs(), {"drug:a/bindings[d2]": entry(corpora, searched)})
         return ds
 
     def _provenance_errors(self, ds):

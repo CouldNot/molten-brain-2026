@@ -221,7 +221,7 @@ export function indexDrugsByTarget(drugs) {
   // One metabolite can be produced by several modeled drugs (e.g. mCPP by both
   // nefazodone and trazodone), so it would otherwise contribute a separate, identical
   // row per parent to the same target. We collapse those into ONE row keyed by
-  // (folded metabolite name, target) and merge the parents into `viaMetaboliteOfList`,
+  // (metabolite id, target) and merge the parents into `viaMetaboliteOfList`,
   // so the panel reads "metab. of A, B" once instead of listing the same molecule
   // twice. Persists across the outer drug loop (a shared metabolite is visited under
   // each parent).
@@ -257,12 +257,12 @@ export function indexDrugsByTarget(drugs) {
     for (const m of d.metabolites) {
       if (m.linkFocusable) continue;
       for (const b of m.ownBindings) {
-        const rowKey = `${normName(m.name)}:${b.target}`;
+        const rowKey = `${m.id || normName(m.name)}:${b.target}`;
         const existing = metabRowByKey.get(rowKey);
         if (existing) {
           // Same metabolite, same target, different parent: merge the prodrug into the
-          // existing row rather than adding a duplicate. (The bindings are identical
-          // across parents, guarded by check_data, so keeping the first is safe.)
+          // existing row rather than adding a duplicate (one molecule, one record, so
+          // its bindings are the same under every parent).
           if (!existing.viaMetaboliteOfList.includes(d.displayName)) {
             existing.viaMetaboliteOfList.push(d.displayName);
           }
@@ -329,7 +329,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     }
   }
   const [metaRecord, structures, projections, circuits, projectionGroups,
-         receptors, drugs, addonRecords, quotes] =
+         receptors, drugs, metaboliteRecords, addonRecords, quotes] =
     await Promise.all([
       fetchOrThrow(`${dataDir}/meta.json`).then((r) => r.json()),
       fetchJsonl(`${dataDir}/structures.jsonl`),
@@ -338,6 +338,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       fetchJsonl(`${dataDir}/projection_groups.jsonl`),
       fetchJsonl(`${dataDir}/receptors.jsonl`),
       fetchJsonl(`${dataDir}/drugs.jsonl`),
+      fetchJsonl(`${dataDir}/metabolites.jsonl`),
       fetchJsonl(`${dataDir}/addons.jsonl`),
       fetchJsonl(`${dataDir}/quotes.jsonl`),
     ]);
@@ -349,7 +350,18 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   const quotesById = Object.create(null);
   for (const q of quotes) quotesById[q.id] = q;
   rehydrateQuotes([metaRecord, structures, projections, circuits,
-                   projectionGroups, receptors, drugs, addonRecords], quotesById);
+                   projectionGroups, receptors, drugs, metaboliteRecords, addonRecords],
+                  quotesById);
+  // A metabolite is ONE record per molecule (metabolites.jsonl: name, drug_id, own T½,
+  // own bindings), referenced by id from each parent's metabolites[] (`{id, sources,
+  // formed_by}`: the per-parent claims). Join them here, before any downstream use, so
+  // the rest of the viewer sees each parent's metabolite with the molecule's fields;
+  // the molecule's arrays stay shared objects across parents (nordazepam's bindings
+  // are one array under diazepam, clorazepate, prazepam and chlordiazepoxide).
+  const metaboliteById = new Map(metaboliteRecords.map((m) => [m.id, m]));
+  for (const d of drugs) {
+    d.metabolites = (d.metabolites || []).map((ref) => ({ ...metaboliteById.get(ref.id), ...ref }));
+  }
   // A symmetric pathway is stored once carrying `mirror: true` (the emitted file
   // authors only the right-hemisphere record, avoiding a duplicate row per
   // pathway; see generate_data.py _projection_records). Reflect each such record
@@ -1323,16 +1335,22 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // its inline `bindings` (a non-modeled metabolite's own Wikipedia/PDSP-sourced
   // receptor bindings) are resolved for display via the shared bindingDisplayFields.
   const drugById = new Map(drugs.map((d) => [d.id, d]));
+  // A molecule's own bindings, resolved ONCE per metabolite id and shared by every
+  // parent's row (so a target panel deduping by identity sees one molecule).
+  const ownBindingsById = new Map();
   for (const d of drugs) {
     d.metabolites = (d.metabolites || []).map((m) => {
       const linkedId = m.drug_id || drugByNorm.get(normName(m.name)) || null;
       const linked = linkedId ? drugById.get(linkedId) || null : null;
-      const ownBindings = (m.bindings || []).map((b) => {
-        // Drop the resolver's `tgt` scratch field; keep only display/provenance.
-        const { tgt, ...disp } = bindingDisplayFields(b);
-        void tgt;
-        return disp;
-      });
+      if (!ownBindingsById.has(m.id)) {
+        ownBindingsById.set(m.id, (m.bindings || []).map((b) => {
+          // Drop the resolver's `tgt` scratch field; keep only display/provenance.
+          const { tgt, ...disp } = bindingDisplayFields(b);
+          void tgt;
+          return disp;
+        }));
+      }
+      const ownBindings = ownBindingsById.get(m.id);
       // Which enzyme(s) MADE this metabolite: the mirror of d.enzymes above (there the
       // drug is the substrate, here the metabolite is the product), so it reuses the
       // same meta.enzymes labels and gets a `direction` of 0 (forming a metabolite says
@@ -1350,6 +1368,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
         };
       });
       return {
+        id: m.id,
         // A metabolite that IS a modeled drug shows under that drug's label, so the
         // reader sees it is the same molecule (risperidone's "Paliperidone
         // (9-OH-risperidone)" row is the paliperidone drug).

@@ -1253,7 +1253,7 @@
    }
   ]
  },
- "drug:amoxapine/metabolites[8-Hydroxyamoxapine]/bindings[d2]": {
+ "metabolite:8_hydroxyamoxapine/bindings[d2]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -8237,7 +8237,7 @@
    }
   ]
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m1]": {
+ "metabolite:norfluoxetine/bindings[m1]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -8276,7 +8276,7 @@
    }
   ]
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m2]": {
+ "metabolite:norfluoxetine/bindings[m2]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -8317,7 +8317,7 @@
    }
   ]
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m3]": {
+ "metabolite:norfluoxetine/bindings[m3]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -8356,7 +8356,7 @@
    }
   ]
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m4]": {
+ "metabolite:norfluoxetine/bindings[m4]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -8395,7 +8395,7 @@
    }
   ]
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m5]": {
+ "metabolite:norfluoxetine/bindings[m5]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -8434,7 +8434,7 @@
    }
   ]
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[net]": {
+ "metabolite:norfluoxetine/bindings[net]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -13867,7 +13867,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1d]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht1d]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -13908,7 +13908,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht3]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht3]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -13950,7 +13950,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht5a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht5a]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -13989,7 +13989,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht6]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht6]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14028,7 +14028,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht7]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht7]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14069,7 +14069,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha1a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha1a]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14108,7 +14108,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha1b]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha1b]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14147,7 +14147,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14186,7 +14186,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2a]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14225,7 +14225,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2b]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2b]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14264,7 +14264,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2c]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2c]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14303,7 +14303,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[beta1]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[beta1]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14342,7 +14342,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[beta2]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[beta2]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14381,7 +14381,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[d1]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[d1]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14422,7 +14422,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[h1]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[h1]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -14463,7 +14463,7 @@
    }
   ]
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[net]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[net]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19740,7 +19740,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1b]": {
+ "metabolite:psilocin/bindings[5ht1b]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19779,7 +19779,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1d]": {
+ "metabolite:psilocin/bindings[5ht1d]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19818,7 +19818,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1e]": {
+ "metabolite:psilocin/bindings[5ht1e]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19857,7 +19857,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht2b]": {
+ "metabolite:psilocin/bindings[5ht2b]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19899,7 +19899,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht5a]": {
+ "metabolite:psilocin/bindings[5ht5a]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19938,7 +19938,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht6]": {
+ "metabolite:psilocin/bindings[5ht6]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -19977,7 +19977,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht7]": {
+ "metabolite:psilocin/bindings[5ht7]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20016,7 +20016,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2a]": {
+ "metabolite:psilocin/bindings[alpha2a]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20055,7 +20055,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2b]": {
+ "metabolite:psilocin/bindings[alpha2b]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20094,7 +20094,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2c]": {
+ "metabolite:psilocin/bindings[alpha2c]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20133,7 +20133,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[d1]": {
+ "metabolite:psilocin/bindings[d1]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20172,7 +20172,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[d2]": {
+ "metabolite:psilocin/bindings[d2]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20211,7 +20211,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[d3]": {
+ "metabolite:psilocin/bindings[d3]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20250,7 +20250,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[dat]": {
+ "metabolite:psilocin/bindings[dat]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20289,7 +20289,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[h1]": {
+ "metabolite:psilocin/bindings[h1]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"
@@ -20330,7 +20330,7 @@
    }
   ]
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[sert]": {
+ "metabolite:psilocin/bindings[sert]": {
   "by": {
    "harness": "Claude Code",
    "model": "opus"

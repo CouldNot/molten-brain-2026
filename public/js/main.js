@@ -7107,13 +7107,13 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     // here to avoid a duplicate). A pick focuses the parent drug, whose panel lists
     // the metabolite under "Active metabolites"; the label carries the "metab. of X"
     // tag and keywords match on both the metabolite and the parent name. A metabolite
-    // produced by several parents (e.g. mCPP) collapses to ONE entry keyed by folded
-    // name, listing every parent, so search never shows the same molecule twice.
+    // produced by several parents (e.g. mCPP) collapses to ONE entry keyed by its
+    // metabolite id, listing every parent, so search never shows the same molecule twice.
     ...(() => {
       const byKey = new Map();
       for (const drug of (data.drugs || []).filter((d) => d.focusable)) {
         for (const m of (drug.metabolites || []).filter((x) => !x.linkFocusable)) {
-          const key = m.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+          const key = m.id;
           const existing = byKey.get(key);
           if (existing) {
             if (!existing.prodrugs.includes(drug.displayName)) existing.prodrugs.push(drug.displayName);

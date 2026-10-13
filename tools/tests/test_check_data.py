@@ -227,46 +227,57 @@ class FlowConsistencyEndToEndTest(unittest.TestCase):
         self.assertEqual(warns, [])
 
 
-class SharedMetaboliteGuardTest(unittest.TestCase):
-    """The shared-metabolite consistency guard in check_reachability.
+class MetaboliteStoreTest(unittest.TestCase):
+    """The metabolite-store reachability checks in check_reachability.
 
-    One metabolite can be produced by several modeled drugs (desipramine by imipramine
-    AND lofepramine, mCPP by nefazodone AND trazodone). Its bindings are a property of
-    the molecule, so every parent's inline copy must be identical; the guard fails loudly
-    when a hand-edit diverges them, since divergence would double-list the molecule and
-    skew the tally. These lock that behavior against a synthetic pair of parents.
+    A metabolite is ONE metabolites.jsonl record however many drugs make it
+    (desipramine by imipramine AND lofepramine), each parent holding only an ``{id}``
+    reference. So the failure modes are a dangling ref, an orphan record no panel
+    reaches, a ``drug_id`` link to no drug, and a binding on no known target. Each is
+    measured against a clean synthetic baseline, so the test isolates exactly one error.
     """
 
     META = {"drug_targets": {"h1": {}, "d2": {}}, "source_corpora": {}}
 
     @staticmethod
-    def _errors(drugs):
-        """Errors raised by check_reachability over a synthetic drug list."""
+    def _errors(drugs, metabolites):
         report = check_data.Report()
         with redirect_stdout(io.StringIO()):
-            check_data.check_reachability(report, SharedMetaboliteGuardTest.META,
-                                          [], [], [], [], [], drugs, [])
+            check_data.check_reachability(report, MetaboliteStoreTest.META,
+                                          [], [], [], [], [], drugs, [], metabolites)
         return report.errors
 
     @staticmethod
-    def _parents(binding_a, binding_b):
-        """Two drugs sharing a metabolite 'FooBar' with the given inline bindings."""
-        return [
-            {"id": "drugA", "name": "DrugA", "bindings": [],
-             "metabolites": [{"name": "FooBar", "bindings": binding_a}]},
-            {"id": "drugB", "name": "DrugB", "bindings": [],
-             "metabolites": [{"name": "FooBar", "bindings": binding_b}]},
-        ]
+    def _world(**metab):
+        """Two drugs sharing metabolite 'foobar' (one record, two refs)."""
+        drugs = [{"id": "drugA", "name": "DrugA", "bindings": [],
+                  "metabolites": [{"id": "foobar"}]},
+                 {"id": "drugB", "name": "DrugB", "bindings": [],
+                  "metabolites": [{"id": "foobar"}]}]
+        rec = {"id": "foobar", "name": "FooBar",
+               "bindings": [{"target": "h1", "action": "antagonist"}]}
+        rec.update(metab)
+        return drugs, [rec]
 
-    def test_divergent_bindings_add_exactly_one_error(self):
-        b = [{"target": "h1", "action": "antagonist"}]
-        # Same two parents, once with identical metabolite bindings and once with
-        # divergent ones: only the divergence trips the guard, so it costs exactly one
-        # extra error (isolating the guard from any unrelated per-drug errors).
-        identical = self._errors(self._parents(b, [dict(b[0])]))
-        diverged = self._errors(self._parents(
-            b, [{"target": "d2", "action": "antagonist"}]))
-        self.assertEqual(diverged, identical + 1)
+    def setUp(self):
+        self.base = self._errors(*self._world())
+
+    def test_dangling_ref_is_one_error(self):
+        drugs, metabs = self._world()
+        drugs[0]["metabolites"].append({"id": "nope"})
+        self.assertEqual(self._errors(drugs, metabs), self.base + 1)
+
+    def test_orphan_record_is_one_error(self):
+        drugs, metabs = self._world()
+        metabs.append({"id": "lonely", "name": "Lonely"})
+        self.assertEqual(self._errors(drugs, metabs), self.base + 1)
+
+    def test_bad_drug_link_is_one_error(self):
+        self.assertEqual(self._errors(*self._world(drug_id="ghost")), self.base + 1)
+
+    def test_unknown_binding_target_is_one_error(self):
+        bad = self._world(bindings=[{"target": "zz", "action": "antagonist"}])
+        self.assertEqual(self._errors(*bad), self.base + 1)
 
 
 class NoSubjectQuoteTest(unittest.TestCase):

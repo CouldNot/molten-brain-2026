@@ -21,9 +21,9 @@ lookup key or query run against it, how many hits it gave, the date, and who ran
              "read": ["12345678"]},
             ...]}
 
-A metabolite binding is keyed ``drug:<parent>/metabolites[<Name>]/bindings[<target>]``
-and applies to that metabolite under EVERY parent (its bindings are a property of the
-molecule, written identically to each parent; see ``provenance._provenance_stats``).
+A metabolite binding is keyed ``metabolite:<id>/bindings[<target>]``: the metabolite is
+one record whichever drugs make it (``tools/data/metabolites_data.jsonl``), so one entry
+covers it under every parent.
 
 Three rules, each enforced:
 
@@ -63,44 +63,46 @@ UNKNOWN_REQUIRED_SOURCES: dict[str, tuple[str, ...]] = {
 }
 
 _BINDING_SITE = re.compile(
-    r"^drug:(?P<drug>[^/]+)/(?:metabolites\[(?P<metab>[^\]]+)\]/)?bindings\[(?P<target>[^\]:]+)\]$")
+    r"^(?P<kind>drug|metabolite):(?P<owner>[^/]+)/bindings\[(?P<target>[^\]:]+)\]$")
 
 
 def fold(name: str) -> str:
-    """A metabolite name folded the way the tally dedups it (case + punctuation)."""
+    """A metabolite name folded for matching (case + punctuation)."""
     return re.sub(r"[^a-z0-9]", "", (name or "").lower())
 
 
-def binding_site(drug_id: str, target: str, metabolite: str | None = None) -> str:
+def binding_site(owner_id: str, target: str, kind: str = "drug") -> str:
     """A binding's log key, in ``tools/sourcing/citation_site.py``'s grammar (the test
-    suite pins the two together). An affinity-only binding has no action to key on."""
-    inner = f"metabolites[{metabolite}]/bindings[{target}]" if metabolite else \
-        f"bindings[{target}]"
-    return f"drug:{drug_id}/{inner}"
+    suite pins the two together): ``drug:<id>/bindings[<target>]``, or
+    ``metabolite:<id>/bindings[<target>]`` for a metabolite's own binding (one record
+    per molecule, whichever drugs make it). An affinity-only binding has no action."""
+    return f"{kind}:{owner_id}/bindings[{target}]"
 
 
-def affinity_only_bindings(drugs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def affinity_only_bindings(drugs: list[dict[str, Any]],
+                           metabolites: list[dict[str, Any]] = ()) -> list[dict[str, Any]]:
     """Every binding with no direction, as ``{site, drug, ligand, metabolite, target,
-    binding}``: a drug's own, then each non-modeled metabolite's, deduplicated by
-    folded metabolite name (first parent wins, as in the tally). ``ligand`` is the name
-    a search looks up. Works on the authored and the emitted records alike."""
-    out, seen = [], set()
+    binding}``: a drug's own, then each referenced metabolite's (``drug`` = its first
+    parent, whose article a search may also read; ``metabolite`` = its name). ``ligand``
+    is the name a search looks up. Works on the authored and the emitted records alike."""
+    out = []
+    first_parent: dict[str, str] = {}
     for d in drugs:
         for b in d.get("bindings", []):
             if b.get("affinity_only"):
                 out.append({"site": binding_site(d["id"], b["target"]), "drug": d["id"],
                             "ligand": d.get("name") or d["id"], "metabolite": None,
                             "target": b["target"], "binding": b})
-    for d in drugs:
-        for m in d.get("metabolites", []):
-            for b in m.get("bindings") or []:
-                key = (fold(m["name"]), b["target"])
-                if not b.get("affinity_only") or key in seen:
-                    continue
-                seen.add(key)
-                out.append({"site": binding_site(d["id"], b["target"], m["name"]),
-                            "drug": d["id"], "ligand": m["name"], "metabolite": m["name"],
-                            "target": b["target"], "binding": b})
+        for r in d.get("metabolites", []):
+            first_parent.setdefault(r["id"], d["id"])
+    for m in metabolites:
+        if m["id"] not in first_parent:
+            continue
+        for b in m.get("bindings") or []:
+            if b.get("affinity_only"):
+                out.append({"site": binding_site(m["id"], b["target"], "metabolite"),
+                            "drug": first_parent[m["id"]], "ligand": m["name"],
+                            "metabolite": m["name"], "target": b["target"], "binding": b})
     return out
 
 
@@ -130,33 +132,28 @@ def missing_required(kind: str, corpora: list[str]) -> list[str]:
     return [c for c in need if c not in corpora]
 
 
-def apply_unknown(drugs: list[dict[str, Any]],
+def apply_unknown(drugs: list[dict[str, Any]], metabolites: list[dict[str, Any]] = (),
                   log: dict[str, Any] | None = None) -> dict[str, int]:
     """Stamp ``unknown`` on every still-unsourced binding direction the log covers.
 
-    Mutates ``drugs`` (the emitted records) in place and returns a small tally. Raises
-    on a log key that resolves to no binding at all (a renamed drug or a dropped
-    target), so a stale entry can never sit silently in the committed log.
+    Mutates ``drugs`` / ``metabolites`` (the emitted records) in place and returns a
+    small tally. Raises on a log key that resolves to no binding at all (a renamed drug
+    or metabolite, a dropped target), so a stale entry can never sit silently in the
+    committed log.
     """
     log = load_log() if log is None else log
-    by_drug = {d["id"]: d for d in drugs}
+    owners = {("drug", d["id"]): d for d in drugs}
+    owners.update({("metabolite", m["id"]): m for m in metabolites})
     stats = {"stamped": 0, "superseded": 0}
     for key, entry in sorted(log.items()):
         m = _BINDING_SITE.match(key)
         if not m or entry.get("kind") != "drug_binding_action":
             raise ValueError(f"unknown_searches.json: {key!r} is not a binding-direction "
                              f"site (the only UNKNOWN kind today)")
-        drug = by_drug.get(m["drug"])
-        if drug is None:
-            raise KeyError(f"unknown_searches.json: {key!r} names no drug")
-        target = m["target"]
-        if m["metab"]:
-            want = fold(m["metab"])
-            rows = [b for d in drugs for mt in d.get("metabolites", [])
-                    if fold(mt.get("name")) == want for b in mt.get("bindings", [])
-                    if b["target"] == target]
-        else:
-            rows = [b for b in drug.get("bindings", []) if b["target"] == target]
+        owner = owners.get((m["kind"], m["owner"]))
+        if owner is None:
+            raise KeyError(f"unknown_searches.json: {key!r} names no {m['kind']}")
+        rows = [b for b in owner.get("bindings", []) if b["target"] == m["target"]]
         if not rows:
             raise KeyError(f"unknown_searches.json: {key!r} resolves to no binding")
         for b in rows:

@@ -84,10 +84,12 @@ class MetaboliteTest(unittest.TestCase):
 
     def _run(self, metab_bindings, proposals):
         drugs = [{"id": "fluoxetine", "bindings": [],
-                  "metabolites": [{"name": "Norfluoxetine", "bindings": metab_bindings}]}]
+                  "metabolites": [{"id": "norfluoxetine"}]}]
+        metabs = [{"id": "norfluoxetine", "name": "Norfluoxetine",
+                   "bindings": metab_bindings}]
         cache = {"norfluoxetine": apply_gtopdb_ki.normalize_for_match(self.QUOTE)}
-        tally, _, _ = apply_gtopdb_ki.apply_all(drugs, {}, proposals, cache)
-        return drugs[0]["metabolites"][0]["bindings"], tally
+        tally, _, _ = apply_gtopdb_ki.apply_all(drugs, {}, proposals, cache, metabs)
+        return metabs[0]["bindings"], tally
 
     def _entry(self):
         return {"Norfluoxetine": {"5ht2b": {

@@ -290,8 +290,8 @@ export function collectNodes(data, deps, opts = {}) {
   }
 
   // A metabolite's receptor BINDINGS are a property of the molecule, so a metabolite
-  // shared by two parents contributes them once (the applier writes an identical list
-  // to each parent). Its identity and its formation are not: "X is a metabolite of A"
+  // shared by two parents contributes them once (one metabolites.jsonl record, keyed by
+  // id). Its identity and its formation are not: "X is a metabolite of A"
   // and "X is a metabolite of B" are two separately sourced claims, and two parents
   // make it by two reactions, so both stay per parent. Matches the tally's own split.
   const seenMetaboliteBinding = new Set();
@@ -372,7 +372,7 @@ export function collectNodes(data, deps, opts = {}) {
       }
     }
     for (const m of d.metabolites || []) {
-      const mKey = (m.name || "").toLowerCase();
+      const mKey = m.id || (m.name || "").toLowerCase();
       // A metabolite has no panel of its own, so its nodes open the PARENT drug. Say
       // which metabolite was asked for, or the reader picks "6-Monoacetylmorphine"
       // and lands on a Heroin panel with nothing pointing at what they clicked.

@@ -227,33 +227,22 @@ class MetaAndTranslationsTest(unittest.TestCase):
         net effect, exactly like a drug binding."""
         meta = json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8"))
         valid_targets = set(meta["drug_targets"].keys())
-        drugs = [json.loads(l) for l in
-                 (DATA_DIR / "drugs.jsonl").read_text(encoding="utf-8").splitlines() if l]
-        # A metabolite produced by several drugs appears once under EACH parent with
-        # identical bindings; those bindings are a property of the molecule, so the tally
-        # counts them ONCE per unique metabolite (deduped by folded name), not per parent.
-        # Mirror that dedup here so the count matches the tally even if a shared
-        # metabolite is added later.
-        seen_metab = set()
+        # Bindings are a property of the molecule, which is ONE metabolites.jsonl record
+        # whatever its parents, so the tally counts each record's bindings once.
         n_bindings = 0
-        for d in drugs:
-            for m in d.get("metabolites", []):
-                key = re.sub(r"[^a-z0-9]", "", (m.get("name") or "").lower())
-                first_occurrence = key not in seen_metab
-                seen_metab.add(key)
-                for b in m.get("bindings", []):
-                    if first_occurrence:
-                        n_bindings += 1
-                    self.assertIn(b["target"], valid_targets,
-                                  f"{m['name']} binding hits unknown target {b['target']}")
-                    # An action binding names a functional action (the viewer derives the
-                    # net effect from it); an affinity-only one carries only a Ki.
-                    if b.get("affinity_only"):
-                        self.assertIn("ki", b,
-                                      f"{m['name']} affinity-only binding lacks a Ki")
-                    else:
-                        self.assertTrue(b.get("action"),
-                                        f"{m['name']} action binding lacks an action")
+        for m in _load_jsonl(DATA_DIR / "metabolites.jsonl"):
+            for b in m.get("bindings", []):
+                n_bindings += 1
+                self.assertIn(b["target"], valid_targets,
+                              f"{m['name']} binding hits unknown target {b['target']}")
+                # An action binding names a functional action (the viewer derives the
+                # net effect from it); an affinity-only one carries only a Ki.
+                if b.get("affinity_only"):
+                    self.assertIn("ki", b,
+                                  f"{m['name']} affinity-only binding lacks a Ki")
+                else:
+                    self.assertTrue(b.get("action"),
+                                    f"{m['name']} action binding lacks an action")
         kind = meta["provenance_stats"]["by_kind"].get("drug_metabolite_bindings", {})
         self.assertEqual(kind.get("total", 0), n_bindings,
                          "drug_metabolite_bindings tally != unique metabolite bindings")
@@ -265,21 +254,15 @@ class MetaAndTranslationsTest(unittest.TestCase):
         A measured Ki proves the ligand binds the target and says nothing about whether
         it activates or blocks it, so an affinity_only binding must read as a MISSING
         direction rather than vanish into a verified binding. Metabolite bindings are
-        counted in the same kind (a ligand's binding direction either way), deduped by
-        folded name exactly like drug_metabolite_bindings.
+        counted in the same kind (a ligand's binding direction either way), once per
+        metabolites.jsonl record exactly like drug_metabolite_bindings.
         """
         meta = json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8"))
         drugs = [json.loads(l) for l in
                  (DATA_DIR / "drugs.jsonl").read_text(encoding="utf-8").splitlines() if l]
         bindings = [b for d in drugs for b in d.get("bindings", [])]
-        seen_metab = set()
-        for d in drugs:
-            for m in d.get("metabolites", []):
-                key = re.sub(r"[^a-z0-9]", "", (m.get("name") or "").lower())
-                if key in seen_metab:
-                    continue
-                seen_metab.add(key)
-                bindings.extend(m.get("bindings", []))
+        for m in _load_jsonl(DATA_DIR / "metabolites.jsonl"):
+            bindings.extend(m.get("bindings", []))
 
         kind = meta["provenance_stats"]["by_kind"].get("drug_binding_action")
         self.assertIsNotNone(kind, "drug_binding_action missing from the tally")
@@ -357,7 +340,7 @@ class MetaAndTranslationsTest(unittest.TestCase):
                 seen = set()
                 for f in m.get("formed_by", []):
                     n_rows += 1
-                    where = f"{d['id']}/{m['name']}"
+                    where = f"{d['id']}/{m['id']}"
                     self.assertIn(f["enzyme"], enzymes,
                                   f"{where} names unknown enzyme {f['enzyme']}")
                     if "reaction" in f:
@@ -431,7 +414,7 @@ class QuoteTableTest(unittest.TestCase):
         cls.quotes = {q["id"]: q for q in _load_jsonl(DATA_DIR / "quotes.jsonl")}
         cls.docs = [json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8"))]
         for name in ("structures", "projections", "circuits",
-                     "projection_groups", "receptors", "drugs", "addons"):
+                     "projection_groups", "receptors", "drugs", "metabolites", "addons"):
             cls.docs.extend(_load_jsonl(DATA_DIR / f"{name}.jsonl"))
 
     def test_no_inline_quotes_remain(self):

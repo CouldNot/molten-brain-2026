@@ -1,10 +1,21 @@
-"""Shared I/O for the authored drug dataset (``tools/data/drugs_data.jsonl``).
+"""Shared I/O for the authored drug dataset (``tools/data/drugs_data.jsonl``) and its
+active-metabolite store (``tools/data/metabolites_data.jsonl``).
 
 The dataset is stored as JSONL (one compact JSON object per line) rather than a
 single pretty-printed JSON array: line-oriented diffs stay small and every
-consumer reads/writes it the same way. Centralized here so the five consumers
-(``generate_data.py``, ``fetch_ki.py``, ``apply_nbn_sources.py``,
-``apply_category_sources.py``, ``apply_source_quotes.py``) don't hand-roll it.
+consumer reads/writes it the same way. Centralized here so no consumer hand-rolls it.
+
+**One metabolite, one record.** A metabolite is a molecule, so what is true of the
+molecule (its name, its link to a modeled drug, its own half-life, its own receptor
+bindings) lives ONCE in ``metabolites_data.jsonl``, keyed by ``id``; a drug's
+``metabolites[]`` only references it, ``{id, sources}``, the sources being the per-parent
+claim "<metabolite> is an active metabolite of <drug>". So nordazepam, made by four
+benzodiazepines, is one record and four references, e.g.::
+
+    metabolites_data.jsonl  {"id": "desmethyldiazepam", "name": "Desmethyldiazepam (nordazepam)",
+                             "half_life": {...}, "half_life_sources": [...], "bindings": [...]}
+    drugs_data.jsonl        {"id": "diazepam", ..., "metabolites": [{"id": "desmethyldiazepam",
+                             "sources": [<the diazepam article sentence>]}, ...]}
 """
 
 import json
@@ -12,6 +23,7 @@ import re
 from pathlib import Path
 
 DRUGS_PATH = Path(__file__).resolve().parent / "data" / "drugs_data.jsonl"
+METABOLITES_PATH = Path(__file__).resolve().parent / "data" / "metabolites_data.jsonl"
 
 
 def load_drugs(path=None) -> list[dict]:
@@ -31,39 +43,100 @@ def save_drugs(records, path=None) -> None:
     p.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def non_modeled_metabolites(drugs: list[dict], key=str.lower) -> list[dict]:
-    """Every metabolite that is not itself a modeled drug, deduped by identity.
+def load_metabolites(path=None) -> list[dict]:
+    """Read the metabolite store (one record per molecule), ``[]`` when absent."""
+    p = Path(path) if path is not None else METABOLITES_PATH
+    return load_drugs(p) if p.exists() else []
+
+
+def save_metabolites(records, path=None) -> None:
+    """Write the metabolite store, sorted by id (stable diffs whatever the writer did)."""
+    save_drugs(sorted(records, key=lambda m: m["id"]),
+               path if path is not None else METABOLITES_PATH)
+
+
+def _fold(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
+
+
+def names_of(metabolite: str) -> list[str]:
+    """The folded names a source may use for a metabolite: ``"Desmethyldiazepam
+    (nordazepam)"`` -> ``["desmethyldiazepam", "nordazepam"]``, a bare
+    ``"(+)-alpha-Dihydrotetrabenazine"`` -> ``["alphadihydrotetrabenazine"]``."""
+    parts = [metabolite.split("(")[0]] + re.findall(r"\(([^)]*)\)", metabolite)
+    folded = [f for f in (_fold(p) for p in parts) if f]
+    whole = _fold(metabolite)
+    return folded if folded and not metabolite.startswith("(") else [whole]
+
+
+def metabolite_id(name: str) -> str:
+    """The id a NEW metabolite record gets: its name before any parenthesised synonym,
+    slugged (``"Desmethyldiazepam (nordazepam)"`` -> ``"desmethyldiazepam"``,
+    ``"Carbamazepine-10,11-epoxide"`` -> ``"carbamazepine_10_11_epoxide"``)."""
+    slug = lambda s: re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")
+    return slug(name.split("(")[0]) or slug(name)
+
+
+def find_metabolite(metabolites: list[dict], name: str) -> dict | None:
+    """The store record ``name`` designates (any of its :func:`names_of` matching), or None."""
+    want = set(names_of(name))
+    return next((m for m in metabolites if want & set(names_of(m["name"]))), None)
+
+
+def attach_metabolite(drug: dict, metabolites: list[dict], name: str) -> tuple[dict, dict]:
+    """``(ref, record)`` for metabolite ``name`` of ``drug``, creating what is missing.
+
+    The store record is found by name (:func:`find_metabolite`) or appended; the drug's
+    ``metabolites[]`` gets a ``{id}`` reference to it unless it already holds one. The
+    caller then writes per-parent facts on ``ref`` (``sources``) and molecule facts on
+    ``record`` (half-life, bindings), never the other way round."""
+    rec = find_metabolite(metabolites, name)
+    if rec is None:
+        mid = metabolite_id(name)
+        if any(m["id"] == mid for m in metabolites):
+            raise ValueError(f"metabolite id {mid!r} (from {name!r}) already names "
+                             f"another molecule; rename one")
+        rec = {"id": mid, "name": name}
+        metabolites.append(rec)
+    refs = drug.setdefault("metabolites", [])
+    ref = next((r for r in refs if r["id"] == rec["id"]), None)
+    if ref is None:
+        ref = {"id": rec["id"]}
+        refs.append(ref)
+    return ref, rec
+
+
+def parents_of(drugs: list[dict]) -> dict[str, list[str]]:
+    """Metabolite id -> the ids of the drugs listing it, in dataset order."""
+    out: dict[str, list[str]] = {}
+    for d in drugs:
+        for r in d.get("metabolites", []):
+            out.setdefault(r["id"], []).append(d["id"])
+    return out
+
+
+def non_modeled_metabolites(drugs: list[dict], metabolites: list[dict],
+                            key=str.lower) -> list[dict]:
+    """Every referenced metabolite that is not itself a modeled drug.
 
     Shared by every metabolite pass (Wikipedia ``fetch_metabolite_bindings.py``, GtoPdb
-    ``fetch_gtopdb_ki.py``). Mirrors ``js/data.js``: a metabolite links to a modeled drug by explicit
-    ``drug_id`` or by its name matching a drug id, and those reuse that drug's
-    bindings (nothing to source here). The rest are returned as
-    ``{name, parents, key}`` (``key`` = a stable lowercase id for --only / worklist).
-
-    A single metabolite can be produced by more than one modeled drug (e.g. mCPP by
-    nefazodone AND trazodone). Its bindings are a property of the molecule, not of the
-    parent relationship, so it is sourced ONCE: we key by ``key(name)`` (the caller's
-    stable id rule, e.g. the Wikipedia slug) and collect every parent into ``parents``. The applier then writes that one judged
-    binding list identically under each parent (check_data guards they stay identical),
-    and the tally + viewer dedup the same way -- so a shared metabolite is never
-    double-counted or double-listed."""
+    ``fetch_gtopdb_ki.py``). Mirrors ``js/data.js``: a metabolite links to a modeled drug
+    by explicit ``drug_id`` or by its name matching a drug name, and those reuse that
+    drug's bindings (nothing to source here). The rest are returned as
+    ``{id, name, parents, key}`` (``key`` = the caller's stable lowercase id rule, e.g.
+    the Wikipedia slug, for --only / worklist). One record per molecule, so a metabolite
+    two drugs make (mCPP: nefazodone AND trazodone) is sourced once, both parents listed.
+    """
     drug_ids = {d["id"] for d in drugs}
-    by_norm = {}
-    for d in drugs:
-        by_norm[re.sub(r"[^a-z0-9]+", "", d.get("name", "").lower())] = d["id"]
-    by_key: dict[str, dict] = {}
-    for d in drugs:
-        for m in d.get("metabolites", []):
-            name = m["name"]
-            linked = m.get("drug_id") or by_norm.get(
-                re.sub(r"[^a-z0-9]+", "", name.lower()))
-            if linked and linked in drug_ids:
-                continue
-            mkey = key(name)
-            entry = by_key.get(mkey)
-            if entry:
-                if d["id"] not in entry["parents"]:
-                    entry["parents"].append(d["id"])
-            else:
-                by_key[mkey] = {"name": name, "parents": [d["id"]], "key": mkey}
-    return list(by_key.values())
+    by_norm = {_fold(d.get("name", "")): d["id"] for d in drugs}
+    parents = parents_of(drugs)
+    out = []
+    for m in metabolites:
+        if m["id"] not in parents:
+            continue
+        linked = m.get("drug_id") or by_norm.get(_fold(m["name"]))
+        if linked and linked in drug_ids:
+            continue
+        out.append({"id": m["id"], "name": m["name"], "parents": parents[m["id"]],
+                    "key": key(m["name"])})
+    return out

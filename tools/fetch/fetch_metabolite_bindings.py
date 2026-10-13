@@ -275,7 +275,8 @@ def main() -> int:
     drugs = drugs_io.load_drugs()
     valid_ids = wp.load_valid_ids()
     ptitles = parent_titles(drugs)
-    metabs = drugs_io.non_modeled_metabolites(drugs, key=lambda n: wp.slugify(n).lower())
+    metabs = drugs_io.non_modeled_metabolites(drugs, drugs_io.load_metabolites(),
+                                              key=lambda n: wp.slugify(n).lower())
     if args.only:
         want = {k.strip().lower() for k in args.only.split(",") if k.strip()}
         metabs = [m for m in metabs if m["key"] in want]

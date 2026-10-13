@@ -451,7 +451,7 @@ def main() -> int:
     # STEREO entry of its own: its key goes to tag_allowed, so only untagged or racemic
     # rows join unless its name names the enantiomer (see ligand_rows).
     metab_proposals: dict[str, dict[str, dict]] = {}
-    for m in drugs_io.non_modeled_metabolites(drugs):
+    for m in drugs_io.non_modeled_metabolites(drugs, drugs_io.load_metabolites()):
         if only and not set(m["parents"]) & only:
             continue
         cands = ligand_rows(by_ligand, m["name"], f"metabolite:{m['key']}")
@@ -472,7 +472,7 @@ def main() -> int:
         prior.update(proposals)
         proposals = prior
         prior_m = json.loads(CACHE.read_text(encoding="utf-8")).get("metabolites", {})
-        for m in drugs_io.non_modeled_metabolites(drugs):
+        for m in drugs_io.non_modeled_metabolites(drugs, drugs_io.load_metabolites()):
             if set(m["parents"]) & only:
                 prior_m.pop(m["name"], None)
         prior_m.update(metab_proposals)

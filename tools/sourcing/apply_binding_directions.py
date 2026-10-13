@@ -288,19 +288,19 @@ def read_other(corpus: str, page) -> str | None:
     return normalize_for_match(path.read_text(encoding="utf-8"))
 
 
-def _owners(drugs: list[dict], rec: dict) -> list[dict]:
-    """The records holding a search record's binding: the drug, or every parent's copy
-    of the metabolite (one molecule, written identically under each parent)."""
+def _owners(drugs: list[dict], rec: dict, metabolites: list[dict] = ()) -> list[dict]:
+    """The record holding a search record's binding: the drug, or the metabolite's one
+    store record (one molecule, one record, whatever its parents)."""
     from data_generators import unknown
     if not rec.get("metabolite"):
         return [d for d in drugs if d["id"] == rec["drug"]]
     want = unknown.fold(rec["metabolite"])
-    return [m for d in drugs for m in d.get("metabolites", [])
-            if unknown.fold(m.get("name")) == want]
+    return [m for m in metabolites if unknown.fold(m.get("name")) == want]
 
 
 def apply_search(worklist: list[dict], judged: dict, drugs: list[dict], read_page,
-                 read_other_page) -> tuple[collections.Counter, list[str]]:
+                 read_other_page, metabolites: list[dict] = ()
+                 ) -> tuple[collections.Counter, list[str]]:
     """Gate the picks over the search worklist (``{site: {index, action}}``), same gates
     as :func:`apply`, the citation carrying the candidate's own corpus and page."""
     by_site = {rec["site"]: rec for rec in worklist}
@@ -319,7 +319,7 @@ def apply_search(worklist: list[dict], judged: dict, drugs: list[dict], read_pag
             gate.reject("candidate index out of range", label)
             continue
         cand, target = cands[index], rec["target"]
-        owners = _owners(drugs, rec)
+        owners = _owners(drugs, rec, metabolites)
         if not owners:
             gate.reject("no record holds that binding", label)
             continue
@@ -331,7 +331,7 @@ def apply_search(worklist: list[dict], judged: dict, drugs: list[dict], read_pag
 
 
 def unknown_log(worklist: list[dict], drugs: list[dict], by: dict,
-                prior: dict | None = None) -> dict:
+                prior: dict | None = None, metabolites: list[dict] = ()) -> dict:
     """The UNKNOWN search log: every worklist binding still without a direction, whose
     search found no direction anywhere (``elsewhere`` empty), keyed by its site.
 
@@ -339,7 +339,7 @@ def unknown_log(worklist: list[dict], drugs: list[dict], by: dict,
     erase them); ``apply_unknown`` drops any whose binding gained a source since.
     """
     from data_generators import unknown
-    still = {r["site"] for r in unknown.affinity_only_bindings(drugs)}
+    still = {r["site"] for r in unknown.affinity_only_bindings(drugs, metabolites)}
     log = dict(prior or {})
     for rec in worklist:
         site = rec["site"]
@@ -436,10 +436,12 @@ def _main_search(args) -> int:
     with open(SEARCH_WORKLIST, encoding="utf-8") as f:
         worklist = json.load(f)
     drugs = drugs_io.load_drugs()
+    metabolites = drugs_io.load_metabolites()
     if args.search:
         with open(SEARCH_JUDGED, encoding="utf-8") as f:
             judged = json.load(f)
-        stats, rejected = apply_search(worklist, judged, drugs, page_text, read_other)
+        stats, rejected = apply_search(worklist, judged, drugs, page_text, read_other,
+                                       metabolites)
         for key, n in sorted(stats.items()):
             print(f"  {key:<48} {n}")
         for line in rejected if args.verbose else []:
@@ -447,7 +449,7 @@ def _main_search(args) -> int:
     else:
         log = unknown_log(worklist, drugs, {"harness": "Claude Code", "model": args.model,
                                             "date": datetime.date.today().isoformat()},
-                          unknown.load_log())
+                          unknown.load_log(), metabolites)
         print(f"  UNKNOWN log: {len(log)} binding(s)")
         if not args.dry_run:
             with open(unknown.UNKNOWN_LOG_PATH, "w", encoding="utf-8") as f:
@@ -458,7 +460,9 @@ def _main_search(args) -> int:
         print("\n--dry-run: nothing written")
         return 0
     drugs_io.save_drugs(drugs)
-    print(f"wrote {drugs_io.DRUGS_PATH.relative_to(REPO)}")
+    drugs_io.save_metabolites(metabolites)
+    print(f"wrote {drugs_io.DRUGS_PATH.relative_to(REPO)} + "
+          f"{drugs_io.METABOLITES_PATH.relative_to(REPO)}")
     return 0
 
 

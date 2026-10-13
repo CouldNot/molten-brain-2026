@@ -154,17 +154,17 @@
   "index": 0,
   "note": "mianserin inhibited H2-mediated cAMP stimulation, Ki given"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht1a]": {
   "action": "partial_agonist",
   "index": 1,
   "note": "ref title: mCPP as partial agonist at 5-HT1A"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1b]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht1b]": {
   "action": "agonist",
   "index": 1,
   "note": "5-HT1B/2C receptor agonist meta-chlorophenylpiperazine"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[sert]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[sert]": {
   "action": "releaser",
   "index": 0,
   "note": "mCPP is SRI and serotonin releasing agent; releaser chosen"

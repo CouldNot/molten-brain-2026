@@ -434,11 +434,12 @@ def check_binding_dups(report, drugs):
 
 
 def check_duplicates(report, meta, structures, projections, circuits,
-                     projection_groups, receptors, drugs):
+                     projection_groups, receptors, drugs, metabolites=()):
     report.header("1. Duplicates (exact + normalized)")
     check_id_collection(report, "structures", structures)
     check_id_collection(report, "receptors", receptors)
     check_id_collection(report, "drugs", drugs)
+    check_id_collection(report, "metabolites", metabolites)
     check_id_collection(report, "circuits", circuits)
     check_id_collection(report, "projection groups", projection_groups)
     # drug_targets is a dict in meta; reshape to id-bearing records to reuse the
@@ -454,7 +455,7 @@ def check_duplicates(report, meta, structures, projections, circuits,
 # --------------------------------------------------------------------------- #
 
 def check_reachability(report, meta, structures, projections, circuits,
-                       projection_groups, receptors, drugs, addons):
+                       projection_groups, receptors, drugs, addons, metabolites=()):
     report.header("2. Reachability (dangling references)")
     structure_ids = {s.get("id") for s in structures}
     base_ids = {_HEMISPHERE_RE.sub("", sid) for sid in structure_ids}
@@ -643,44 +644,31 @@ def check_reachability(report, meta, structures, projections, circuits,
                 if corpus not in (meta.get("source_corpora", {}) or {}):
                     report.error(f"drug {did}: binding {target!r} ki source corpus "
                                  f"{corpus!r} is not in source_corpora")
-        # Active metabolites: a linked drug_id must be a real drug, and any inline
-        # metabolite binding target must be a known target (so it can be attributed
-        # in the receptor 'Interacting drugs' list once bindings are sourced).
-        for m in drug.get("metabolites", []) or []:
-            link = m.get("drug_id")
-            if link and link not in drug_ids:
-                report.error(f"drug {did}: metabolite {m.get('name')!r} links "
-                             f"drug_id {link!r} which is not a modeled drug")
-            for binding in m.get("bindings", []) or []:
-                if binding.get("target") not in targets:
-                    report.error(f"drug {did}: metabolite {m.get('name')!r} binding "
-                                 f"target {binding.get('target')!r} is not a known target")
-
-    # Shared-metabolite consistency guard. One metabolite can be produced by several
-    # modeled drugs (e.g. desipramine by imipramine AND lofepramine, mCPP by nefazodone
-    # AND trazodone), so it appears once under each parent. Its bindings are intrinsic to
-    # the molecule, not to which parent made it, so every occurrence MUST carry the same
-    # bindings; the applier guarantees this (it keys by metabolite name and writes an
-    # identical list to each parent), but a hand-edit to drugs_data.jsonl could diverge
-    # the two inline copies. That would make the viewer show contradictory rows and the
-    # tally count them inconsistently, so we fail loudly here. (Fold on the name only,
-    # matching the tally + viewer identity key.)
-    metab_occurrences = {}
+    # Active metabolites: one record per molecule (metabolites.jsonl), referenced by
+    # id from each parent's metabolites[]. Every ref must resolve, every record must be
+    # referenced (an orphan is a molecule no panel reaches), a linked drug_id must be a
+    # real drug, and a metabolite binding target must be a known target (so it can be
+    # attributed in the receptor 'Interacting drugs' list).
+    metab_ids = {m.get("id") for m in metabolites}
+    referenced_metabs = set()
     for drug in drugs:
-        for m in drug.get("metabolites", []) or []:
-            key = re.sub(r"[^a-z0-9]", "", (m.get("name") or "").lower())
-            metab_occurrences.setdefault(key, []).append(
-                (drug.get("id"), m.get("name"),
-                 json.dumps(m.get("bindings", []) or [], sort_keys=True)))
-    for key, occ in metab_occurrences.items():
-        distinct = {b for _, _, b in occ}
-        if len(occ) > 1 and len(distinct) > 1:
-            parents = ", ".join(sorted(did for did, _, _ in occ))
-            report.error(f"metabolite {occ[0][1]!r} is shared by drugs [{parents}] but "
-                         f"carries DIFFERENT bindings under them; a metabolite's bindings "
-                         f"are a property of the molecule and must be identical across "
-                         f"parents (re-run apply_metabolite_bindings.py, which writes them "
-                         f"consistently, or reconcile the hand-edit)")
+        for ref in drug.get("metabolites", []) or []:
+            referenced_metabs.add(ref.get("id"))
+            if ref.get("id") not in metab_ids:
+                report.error(f"drug {drug.get('id')}: metabolite ref {ref.get('id')!r} "
+                             f"is not a metabolites.jsonl id")
+    for m in metabolites:
+        mid = m.get("id")
+        if mid not in referenced_metabs:
+            report.error(f"metabolite {mid!r} is listed by no drug")
+        link = m.get("drug_id")
+        if link and link not in drug_ids:
+            report.error(f"metabolite {mid!r} links drug_id {link!r} which is not a "
+                         f"modeled drug")
+        for binding in m.get("bindings", []) or []:
+            if binding.get("target") not in targets:
+                report.error(f"metabolite {mid!r} binding target "
+                             f"{binding.get('target')!r} is not a known target")
 
     # Addon nodes carry their own insertion point, so "does it resolve?" is two
     # questions: does the anchored node exist, and is the slot one the viewer offers.
@@ -872,7 +860,7 @@ def print_coverage(stats):
 
 
 def check_provenance(report, meta, structures, projections, circuits,
-                     projection_groups, receptors, drugs, addons):
+                     projection_groups, receptors, drugs, addons, metabolites=()):
     report.header("4. Source provenance grades")
     before = report.errors
     counts = Counter()
@@ -950,20 +938,24 @@ def check_provenance(report, meta, structures, projections, circuits,
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 grade(src.get("provenance"), f"drug {drug.get('id')} withdrawals[{wi}] sources[{i}]")
-        for mi, m in enumerate(drug.get("metabolites", []) or []):
-            mid = f"drug {drug.get('id')} metabolite {m.get('name')}"
+        for m in drug.get("metabolites", []) or []:
             for i, src in enumerate(m.get("sources", []) or []):
-                grade(src.get("provenance"), f"{mid} sources[{i}]")
-            for i, src in enumerate(m.get("half_life_sources", []) or []):
-                grade(src.get("provenance"), f"{mid} half_life_sources[{i}]")
-            for binding in m.get("bindings", []) or []:
-                for i, src in enumerate(binding.get("sources", []) or []):
-                    grade(src.get("provenance"),
-                          f"{mid} binding {binding.get('target')} sources[{i}]")
+                grade(src.get("provenance"),
+                      f"drug {drug.get('id')} metabolite {m.get('id')} sources[{i}]")
         # A drug's description carries its own grade (llm synthesis vs sourced WP lead).
         if drug.get("description"):
             grade(drug.get("description_provenance"),
                   f"drug {drug.get('id')} description_provenance")
+
+    # A metabolite's own facts, once per molecule (metabolites.jsonl).
+    for m in metabolites:
+        mid = f"metabolite {m.get('id')}"
+        for i, src in enumerate(m.get("half_life_sources", []) or []):
+            grade(src.get("provenance"), f"{mid} half_life_sources[{i}]")
+        for binding in m.get("bindings", []) or []:
+            for i, src in enumerate(binding.get("sources", []) or []):
+                grade(src.get("provenance"),
+                      f"{mid} binding {binding.get('target')} sources[{i}]")
 
     # Each receptor / structure classification claim and each non-receptor target
     # classification carries a source grade (the panel's "Source" pill), counted in
@@ -1026,7 +1018,7 @@ def check_provenance(report, meta, structures, projections, circuits,
     # UNKNOWN stamps (data_generators/unknown.py): only on a claim still unsourced, and
     # only after a search that covered every corpus its kind requires.
     n_unknown = 0
-    for where, binding, stamp in _unknown_stamps(drugs):
+    for where, binding, stamp in _unknown_stamps(drugs, metabolites):
         n_unknown += 1
         if binding.get("action") or not binding.get("affinity_only"):
             report.error(f"{where}: UNKNOWN stamped on a binding that states a direction "
@@ -1189,7 +1181,8 @@ def quote_pages(node, corpus, out):
     return out
 
 
-def check_sources(report, meta, drugs, projections, structures, receptors, addons):
+def check_sources(report, meta, drugs, projections, structures, receptors, addons,
+                  metabolites=()):
     """The core of the sourcing system: confirm every quote-level source (a
     binding's ``sources``, a drug's ``nbn_sources``, an enzyme's ``variability``
     sources, and a projection's quote-level ``sources``) is actually present in the
@@ -1444,23 +1437,28 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             # HOW MUCH of the clearing the row claims: its own node, so its own gate.
             check_claims(f"drug {did} enzyme {e.get('enzyme')}", e,
                          {"strength": e.get("strength")})
+        # The per-parent half of a metabolite: "X is a metabolite of <did>" + the
+        # enzymes making it from <did>. Its molecule facts are walked once below.
         for m in drug.get("metabolites", []) or []:
-            mid = f"drug {did} metabolite {m.get('name')}"
+            mid = f"drug {did} metabolite {m.get('id')}"
             for i, src in enumerate(m.get("sources", []) or []):
                 check_one(f"{mid} sources[{i}]", src)
-            for i, src in enumerate(m.get("half_life_sources", []) or []):
-                check_one(f"{mid} half_life_sources[{i}]", src)
             for f in m.get("formed_by", []) or []:
                 for i, src in enumerate(f.get("sources", []) or []):
                     check_one(f"{mid} formed_by {f.get('enzyme')} sources[{i}]", src)
-            for binding in m.get("bindings", []) or []:
-                for i, src in enumerate(binding.get("sources", []) or []):
-                    check_one(f"{mid} binding {binding.get('target')} sources[{i}]", src)
-                # A metabolite binding's quote-carrying Ki (wikipedia_pharm table row) is
-                # gated exactly like a drug binding's (a PDSP CSV Ki is checked below).
-                ki_src = (binding.get("ki") or {}).get("source")
-                if ki_src and ki_src.get("quote"):
-                    check_one(f"{mid} binding {binding.get('target')} ki.source", ki_src)
+
+    for m in metabolites:
+        mid = f"metabolite {m.get('id')}"
+        for i, src in enumerate(m.get("half_life_sources", []) or []):
+            check_one(f"{mid} half_life_sources[{i}]", src)
+        for binding in m.get("bindings", []) or []:
+            for i, src in enumerate(binding.get("sources", []) or []):
+                check_one(f"{mid} binding {binding.get('target')} sources[{i}]", src)
+            # A metabolite binding's quote-carrying Ki (wikipedia_pharm table row) is
+            # gated exactly like a drug binding's (a PDSP CSV Ki is checked below).
+            ki_src = (binding.get("ki") or {}).get("source")
+            if ki_src and ki_src.get("quote"):
+                check_one(f"{mid} binding {binding.get('target')} ki.source", ki_src)
 
     for addon in addons:
         for i, src in enumerate(addon.get("sources", []) or []):
@@ -1670,10 +1668,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         did = drug.get("id")
         for binding in drug.get("bindings", []):
             check_ki(f"drug {did} binding {binding.get('target')} ki", binding)
-        for m in drug.get("metabolites", []) or []:
-            for binding in m.get("bindings", []) or []:
-                check_ki(f"drug {did} metabolite {m.get('name')} binding "
-                         f"{binding.get('target')} ki", binding)
+    for m in metabolites:
+        for binding in m.get("bindings", []) or []:
+            check_ki(f"metabolite {m.get('id')} binding {binding.get('target')} ki",
+                     binding)
     if ki_skipped:
         report.warn(f"Ki CSV absent for {sorted(ki_skipped)} (author-only material); "
                     f"skipped the ki-row-in-CSV check there")
@@ -2534,20 +2532,18 @@ def _editable_sources(node, editable, out):
     return out
 
 
-def _unknown_stamps(drugs):
+def _unknown_stamps(drugs, metabolites=()):
     """Every emitted UNKNOWN stamp, as ``(where, binding, stamp)``: a drug binding or a
     metabolite binding (data_generators/unknown.py)."""
-    for d in drugs:
-        owners = [(f"drug {d.get('id')}", d)] + [
-            (f"drug {d.get('id')} metabolite {m.get('name')}", m)
-            for m in d.get("metabolites", []) or []]
-        for label, owner in owners:
-            for b in owner.get("bindings", []) or []:
-                if b.get("unknown"):
-                    yield f"{label} binding {b.get('target')}", b, b["unknown"]
+    owners = [(f"drug {d.get('id')}", d) for d in drugs] + [
+        (f"metabolite {m.get('id')}", m) for m in metabolites]
+    for label, owner in owners:
+        for b in owner.get("bindings", []) or []:
+            if b.get("unknown"):
+                yield f"{label} binding {b.get('target')}", b, b["unknown"]
 
 
-def check_freshness(report, meta, collections, today=None):
+def check_freshness(report, meta, collections, today=None, metabolites=()):
     """Family 13: every cited page of an editable online corpus was downloaded recently.
 
     A book page does not change under a citation; a Wikipedia article or a live database
@@ -2605,7 +2601,7 @@ def check_freshness(report, meta, collections, today=None):
     drugs = next((c for c in collections if isinstance(c, list) and c
                   and isinstance(c[0], dict) and "bindings" in c[0]), [])
     old_searches = {}
-    for where, _b, stamp in _unknown_stamps(drugs):
+    for where, _b, stamp in _unknown_stamps(drugs, metabolites):
         searched = str(stamp.get("searched"))
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}", searched) and freshness.is_stale(
                 searched, today, months):
@@ -2634,6 +2630,7 @@ def main():
     projection_groups = load_jsonl(report, "projection_groups")
     receptors = load_jsonl(report, "receptors")
     drugs = load_jsonl(report, "drugs")
+    metabolites = load_jsonl(report, "metabolites")
     addons = load_jsonl(report, "addons")
 
     # Rehydrate the externalized source quotes in place (collecting referenced +
@@ -2642,21 +2639,23 @@ def main():
     quotes_by_id = load_quotes(report)
     referenced, dangling = set(), []
     rehydrate_quotes([meta, structures, projections, circuits, projection_groups,
-                      receptors, drugs, addons], quotes_by_id, referenced, dangling)
+                      receptors, drugs, metabolites, addons], quotes_by_id, referenced,
+                     dangling)
     check_quotes(report, quotes_by_id, referenced, dangling)
     collections = [meta, structures, projections, circuits, projection_groups,
-                   receptors, drugs, addons]
+                   receptors, drugs, metabolites, addons]
     if only:
-        check_freshness(report, meta, collections)
+        check_freshness(report, meta, collections, metabolites=metabolites)
         return _summary(report)
 
     args = (report, meta, structures, projections, circuits, projection_groups,
             receptors, drugs)
-    check_duplicates(*args)
-    check_reachability(*args, addons)
+    check_duplicates(*args, metabolites)
+    check_reachability(*args, addons, metabolites)
     check_todos(*args)
-    check_provenance(*args, addons)
-    check_sources(report, meta, drugs, projections, structures, receptors, addons)
+    check_provenance(*args, addons, metabolites)
+    check_sources(report, meta, drugs, projections, structures, receptors, addons,
+                  metabolites)
     check_connectivity(report, structures, projections)
     check_ki_coverage(report, meta, drugs)
     check_flow_consistency(report, meta, drugs, projections, receptors)
@@ -2664,7 +2663,7 @@ def main():
     check_innervation(report, meta, structures, projections, receptors)
     check_baked_meshes(report, structures)
     check_enzyme_variability(report, meta, drugs)
-    check_freshness(report, meta, collections)
+    check_freshness(report, meta, collections, metabolites=metabolites)
     return _summary(report)
 
 

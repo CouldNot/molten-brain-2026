@@ -253,7 +253,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:amoxapine/metabolites[8-Hydroxyamoxapine]/bindings[d2]": {
+ "metabolite:8_hydroxyamoxapine/bindings[d2]": {
   "hits": 0,
   "query": "ABSTRACT:\"8-Hydroxyamoxapine\" AND (ABSTRACT:\"D2\" OR ABSTRACT:\"DRD2\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
@@ -1808,19 +1808,19 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[5ht2b]": {
+ "metabolite:norfluoxetine/bindings[5ht2b]": {
   "hits": 0,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"5-HT2B\" OR ABSTRACT:\"5ht2b\" OR ABSTRACT:\"serotonin 2B\" OR ABSTRACT:\"HTR2B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m1]": {
+ "metabolite:norfluoxetine/bindings[m1]": {
   "hits": 0,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"M1\" OR ABSTRACT:\"CHRM1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m2]": {
+ "metabolite:norfluoxetine/bindings[m2]": {
   "hits": 1,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"M2\" OR ABSTRACT:\"CHRM2\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -1828,25 +1828,25 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m3]": {
+ "metabolite:norfluoxetine/bindings[m3]": {
   "hits": 0,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"M3\" OR ABSTRACT:\"CHRM3\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m4]": {
+ "metabolite:norfluoxetine/bindings[m4]": {
   "hits": 0,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"M4\" OR ABSTRACT:\"CHRM4\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m5]": {
+ "metabolite:norfluoxetine/bindings[m5]": {
   "hits": 0,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"M5\" OR ABSTRACT:\"CHRM5\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[net]": {
+ "metabolite:norfluoxetine/bindings[net]": {
   "hits": 8,
   "query": "ABSTRACT:\"Norfluoxetine\" AND (ABSTRACT:\"Norepinephrine transporter (NET)\" OR ABSTRACT:\"NET\" OR ABSTRACT:\"Norepinephrine transporter\" OR ABSTRACT:\"noradrenaline transporter\" OR ABSTRACT:\"norepinephrine reuptake\" OR ABSTRACT:\"noradrenaline reuptake\" OR ABSTRACT:\"SLC6A2\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3145,7 +3145,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht1a]": {
   "hits": 9,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT1A\" OR ABSTRACT:\"5ht1a\" OR ABSTRACT:\"serotonin 1A\" OR ABSTRACT:\"HTR1A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3157,7 +3157,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1b]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht1b]": {
   "hits": 7,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT1B\" OR ABSTRACT:\"5ht1b\" OR ABSTRACT:\"serotonin 1B\" OR ABSTRACT:\"HTR1B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3169,7 +3169,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1d]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht1d]": {
   "hits": 1,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT1D\" OR ABSTRACT:\"5ht1d\" OR ABSTRACT:\"serotonin 1D\" OR ABSTRACT:\"HTR1D\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3177,7 +3177,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht3]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht3]": {
   "hits": 2,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT3\" OR ABSTRACT:\"5ht3\" OR ABSTRACT:\"serotonin 3\" OR ABSTRACT:\"HTR3A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3186,19 +3186,19 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht5a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht5a]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT5A\" OR ABSTRACT:\"5ht5a\" OR ABSTRACT:\"serotonin 5A\" OR ABSTRACT:\"HTR5A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht6]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht6]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT6\" OR ABSTRACT:\"5ht6\" OR ABSTRACT:\"serotonin 6\" OR ABSTRACT:\"HTR6\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht7]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[5ht7]": {
   "hits": 1,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"5-HT7\" OR ABSTRACT:\"5ht7\" OR ABSTRACT:\"serotonin 7\" OR ABSTRACT:\"HTR7\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3206,55 +3206,55 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha1a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha1a]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"alpha1a\" OR ABSTRACT:\"ADRA1A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha1b]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha1b]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"alpha1b\" OR ABSTRACT:\"ADRA1B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"alpha2\" OR ABSTRACT:\"alpha2 adrenergic\" OR ABSTRACT:\"alpha2 autoreceptor\" OR ABSTRACT:\"alpha2 adrenoceptor\" OR ABSTRACT:\"ADRA2A\" OR ABSTRACT:\"ADRA2B\" OR ABSTRACT:\"ADRA2C\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2a]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2a]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"alpha2a\" OR ABSTRACT:\"ADRA2A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2b]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2b]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"alpha2b\" OR ABSTRACT:\"ADRA2B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2c]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[alpha2c]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"alpha2c\" OR ABSTRACT:\"ADRA2C\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[beta1]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[beta1]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"beta1\" OR ABSTRACT:\"ADRB1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[beta2]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[beta2]": {
   "hits": 0,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"beta2\" OR ABSTRACT:\"ADRB2\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[d1]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[d1]": {
   "hits": 1,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"D1\" OR ABSTRACT:\"DRD1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3262,7 +3262,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[h1]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[h1]": {
   "hits": 1,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"H1\" OR ABSTRACT:\"HRH1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3270,7 +3270,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[net]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[net]": {
   "hits": 3,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"Norepinephrine transporter (NET)\" OR ABSTRACT:\"NET\" OR ABSTRACT:\"Norepinephrine transporter\" OR ABSTRACT:\"noradrenaline transporter\" OR ABSTRACT:\"norepinephrine reuptake\" OR ABSTRACT:\"noradrenaline reuptake\" OR ABSTRACT:\"SLC6A2\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -3280,7 +3280,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[sert]": {
+ "metabolite:meta_chlorophenylpiperazine/bindings[sert]": {
   "hits": 4,
   "query": "ABSTRACT:\"Meta-chlorophenylpiperazine\" AND (ABSTRACT:\"Serotonin transporter (SERT)\" OR ABSTRACT:\"SERT\" OR ABSTRACT:\"Serotonin transporter\" OR ABSTRACT:\"5-HTT\" OR ABSTRACT:\"SLC6A4\" OR ABSTRACT:\"serotonin reuptake\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -4393,25 +4393,25 @@
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1b]": {
+ "metabolite:psilocin/bindings[5ht1b]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT1B\" OR ABSTRACT:\"5ht1b\" OR ABSTRACT:\"serotonin 1B\" OR ABSTRACT:\"HTR1B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1d]": {
+ "metabolite:psilocin/bindings[5ht1d]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT1D\" OR ABSTRACT:\"5ht1d\" OR ABSTRACT:\"serotonin 1D\" OR ABSTRACT:\"HTR1D\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1e]": {
+ "metabolite:psilocin/bindings[5ht1e]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT1E\" OR ABSTRACT:\"5ht1e\" OR ABSTRACT:\"serotonin 1E\" OR ABSTRACT:\"HTR1E\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht2b]": {
+ "metabolite:psilocin/bindings[5ht2b]": {
   "hits": 2,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT2B\" OR ABSTRACT:\"5ht2b\" OR ABSTRACT:\"serotonin 2B\" OR ABSTRACT:\"HTR2B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -4420,67 +4420,67 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht5a]": {
+ "metabolite:psilocin/bindings[5ht5a]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT5A\" OR ABSTRACT:\"5ht5a\" OR ABSTRACT:\"serotonin 5A\" OR ABSTRACT:\"HTR5A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht6]": {
+ "metabolite:psilocin/bindings[5ht6]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT6\" OR ABSTRACT:\"5ht6\" OR ABSTRACT:\"serotonin 6\" OR ABSTRACT:\"HTR6\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[5ht7]": {
+ "metabolite:psilocin/bindings[5ht7]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"5-HT7\" OR ABSTRACT:\"5ht7\" OR ABSTRACT:\"serotonin 7\" OR ABSTRACT:\"HTR7\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2a]": {
+ "metabolite:psilocin/bindings[alpha2a]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"alpha2a\" OR ABSTRACT:\"ADRA2A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2b]": {
+ "metabolite:psilocin/bindings[alpha2b]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"alpha2b\" OR ABSTRACT:\"ADRA2B\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2c]": {
+ "metabolite:psilocin/bindings[alpha2c]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"alpha2c\" OR ABSTRACT:\"ADRA2C\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[d1]": {
+ "metabolite:psilocin/bindings[d1]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"D1\" OR ABSTRACT:\"DRD1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[d2]": {
+ "metabolite:psilocin/bindings[d2]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"D2\" OR ABSTRACT:\"DRD2\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[d3]": {
+ "metabolite:psilocin/bindings[d3]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"D3\" OR ABSTRACT:\"DRD3\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[dat]": {
+ "metabolite:psilocin/bindings[dat]": {
   "hits": 0,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"Dopamine transporter (DAT)\" OR ABSTRACT:\"DAT\" OR ABSTRACT:\"Dopamine transporter\" OR ABSTRACT:\"dopamine reuptake\" OR ABSTRACT:\"SLC6A3\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[h1]": {
+ "metabolite:psilocin/bindings[h1]": {
   "hits": 1,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"H1\" OR ABSTRACT:\"HRH1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [
@@ -4488,7 +4488,7 @@
   ],
   "searched": "2026-10-12"
  },
- "drug:psilocybin/metabolites[Psilocin]/bindings[sert]": {
+ "metabolite:psilocin/bindings[sert]": {
   "hits": 1,
   "query": "ABSTRACT:\"Psilocin\" AND (ABSTRACT:\"Serotonin transporter (SERT)\" OR ABSTRACT:\"SERT\" OR ABSTRACT:\"Serotonin transporter\" OR ABSTRACT:\"5-HTT\" OR ABSTRACT:\"SLC6A4\" OR ABSTRACT:\"serotonin reuptake\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser) AND SRC:MED AND HAS_ABSTRACT:y",
   "read": [

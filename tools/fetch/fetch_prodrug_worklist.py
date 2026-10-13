@@ -64,6 +64,7 @@ def candidates(drug: dict) -> list[dict]:
 
 def build(only: set[str] | None = None) -> dict:
     drugs = {}
+    store = {m["id"]: m for m in drugs_io.load_metabolites()}
     for d in drugs_io.load_drugs():
         if only and d["id"] not in only:
             continue
@@ -72,8 +73,9 @@ def build(only: set[str] | None = None) -> dict:
             drugs[d["id"]] = {
                 "name": d["name"],
                 "bindings": len(d.get("bindings") or []),
-                "metabolites": [{"name": m["name"], "drug_id": m.get("drug_id")}
-                                for m in d.get("metabolites") or []],
+                "metabolites": [{"name": store[r["id"]]["name"],
+                                 "drug_id": store[r["id"]].get("drug_id")}
+                                for r in d.get("metabolites") or []],
                 "candidates": cands}
     return {"instructions": (
         "Mark a drug a prodrug ONLY when a candidate says the drug ITSELF is inactive "

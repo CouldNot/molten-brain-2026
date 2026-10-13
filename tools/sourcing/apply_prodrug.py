@@ -36,7 +36,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -53,15 +52,8 @@ JUDGED_PATH = ROOT / "tools" / "generated_cache" / "prodrug_judged.json"
 PAGES = {"wikipedia_pharm": ROOT / "data_sources" / "wikipedia" / "pages"}
 
 
-def _fold(s: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", s.lower())
-
-
-def names_of(metabolite: str) -> list[str]:
-    """The folded names a quote may use for a metabolite: ``"Desmethyldiazepam
-    (nordazepam)"`` -> ``["desmethyldiazepam", "nordazepam"]``."""
-    parts = [metabolite.split("(")[0]] + re.findall(r"\(([^)]*)\)", metabolite)
-    return [f for f in (_fold(p) for p in parts) if f]
+names_of = drugs_io.names_of
+_fold = drugs_io._fold
 
 
 def gate(did: str, rec: dict, cands: list[dict], ids: set[str],
@@ -85,9 +77,12 @@ def gate(did: str, rec: dict, cands: list[dict], ids: set[str],
             "provenance": "verified"}, ""
 
 
-def apply(judged: dict, offered: dict, drugs: list[dict],
-          pages: PageGate) -> tuple[list[str], list[str], list[str]]:
-    """Mutate ``drugs``; return (applied ids, dropped bindings, rejections)."""
+def apply(judged: dict, offered: dict, drugs: list[dict], pages: PageGate,
+          metabolites: list[dict] | None = None) -> tuple[list[str], list[str], list[str]]:
+    """Mutate ``drugs`` + the ``metabolites`` store (a new active metabolite is one
+    store record + one sourced reference on the drug); return (applied ids, dropped
+    bindings, rejections)."""
+    metabolites = [] if metabolites is None else metabolites
     by_id = {d["id"]: d for d in drugs}
     applied, dropped, rejected = [], [], []
     for did, rec in judged.items():
@@ -101,12 +96,9 @@ def apply(judged: dict, offered: dict, drugs: list[dict],
             continue
         drug["prodrug"] = True
         drug["prodrug_sources"] = [src]
-        mets = drug.setdefault("metabolites", [])
-        want = set(names_of(rec["metabolite"]))
-        met = next((m for m in mets if want & set(names_of(m["name"]))), None)
-        if met is None:
-            met = {"name": rec["metabolite"], "sources": [dict(src)]}
-            mets.append(met)
+        ref, met = drugs_io.attach_metabolite(drug, metabolites, rec["metabolite"])
+        if not ref.get("sources"):
+            ref["sources"] = [dict(src)]
         if rec.get("drug_id"):
             met["drug_id"] = rec["drug_id"]
         kept = []
@@ -132,8 +124,9 @@ def main() -> int:
         return 1
     judged = json.loads(args.judged.read_text("utf-8"))
     drugs = drugs_io.load_drugs()
+    metabolites = drugs_io.load_metabolites()
     applied, dropped, rejected = apply(judged, wl.build()["drugs"], drugs,
-                                       PageGate(PAGES))
+                                       PageGate(PAGES), metabolites)
     tag = "[dry-run] " if args.dry_run else ""
     print(f"{tag}{len(applied)} prodrug(s): {', '.join(applied)}")
     for line in dropped:
@@ -142,7 +135,9 @@ def main() -> int:
         print(f"  [rejected] {line}")
     if not args.dry_run:
         drugs_io.save_drugs(drugs)
-        print(f"wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}")
+        drugs_io.save_metabolites(metabolites)
+        print(f"wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)} + "
+              f"{drugs_io.METABOLITES_PATH.relative_to(ROOT)}")
     return 0
 
 

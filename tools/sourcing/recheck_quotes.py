@@ -247,6 +247,8 @@ def reconstruct_claims(quotes):
             claim += _doubts(node)
             claims[qid].append(f"{site} | {claim}" if site else claim)
 
+    metab_by_id = {m["id"]: m for m in _jsonl("metabolites.jsonl")}
+    parents_of: dict[str, list[str]] = {}
     for d in _jsonl("drugs.jsonl"):
         nm = d["name"]
         kind["now"] = "drug_bindings"
@@ -322,7 +324,7 @@ def reconstruct_claims(quotes):
                     CS.site("drug", d["id"], f"withdrawals[{CS.withdrawal_key(w)}]"))
         kind["now"] = "drug_prodrug"
         for q in _qids(d.get("prodrug_sources", [])):
-            mets = ", ".join(m["name"] for m in d.get("metabolites", []))
+            mets = ", ".join(metab_by_id[m["id"]]["name"] for m in d.get("metabolites", []))
             add(q, f"Drug {nm} is a prodrug: inactive itself, its effect comes from "
                    f"its active metabolite ({mets}).",
                 CS.site("drug", d["id"], "prodrug"))
@@ -346,31 +348,36 @@ def reconstruct_claims(quotes):
                        f"{e['enzyme'].upper()}{tier}.",
                     CS.site("drug", d["id"], f"enzymes[{CS.enzyme_key(e)}]"), e)
         for m in d.get("metabolites", []):
-            mn = m.get("name")
+            mn = metab_by_id[m["id"]]["name"]
+            parents_of.setdefault(m["id"], []).append(nm)
             kind["now"] = "drug_metabolites"
             for q in _qids(m.get("sources", [])):
                 add(q, f"Drug {nm} has an active metabolite, {mn}.",
-                    CS.site("drug", d["id"], f"metabolites[{mn}]"))
-            for q in _qids(m.get("half_life_sources", [])):
-                add(q, f"{mn}, an active metabolite of {nm}, has an elimination "
-                       f"half-life of {_hours(m.get('half_life'))}.",
-                    CS.site("drug", d["id"], f"metabolites[{mn}]/half_life"))
-            kind["now"] = "drug_metabolite_bindings"
-            for mb in m.get("bindings", []):
-                mt = target_names.get(mb["target"], mb["target"])
-                for q in _qids(mb.get("sources", [])):
-                    add(q, f"{mn}, an active metabolite of {nm}, acts on target "
-                           f"'{mt}' as {mb['action']}.",
-                        CS.site("drug", d["id"],
-                                f"metabolites[{mn}]/bindings[{CS.binding_key(mb)}]"))
+                    CS.site("drug", d["id"], f"metabolites[{m['id']}]"))
             kind["now"] = "drug_metabolite_enzyme"
             for fb in m.get("formed_by", []):
                 step = f" by {fb['reaction']}" if fb.get("reaction") else ""
                 for q in _qids(fb.get("sources", [])):
                     add(q, f"The metabolite {mn} is formed from {nm} by the enzyme "
                            f"{fb['enzyme'].upper()}{step}.",
-                        CS.site("drug", d["id"],
-                                f"metabolites[{mn}]/formed_by[{fb['enzyme']}]"))
+                        CS.site("drug", d["id"], f"metabolites[{m['id']}]/formed_by[{fb['enzyme']}]"))
+
+    # A metabolite's own facts (half-life, receptor bindings) live once per molecule in
+    # metabolites.jsonl, whichever drugs make it; the claim names every parent.
+    for mid, m in metab_by_id.items():
+        mn, of = m["name"], ", ".join(parents_of.get(mid, [])) or "a drug"
+        kind["now"] = "drug_metabolites"
+        for q in _qids(m.get("half_life_sources", [])):
+            add(q, f"{mn}, an active metabolite of {of}, has an elimination "
+                   f"half-life of {_hours(m.get('half_life'))}.",
+                CS.site("metabolite", mid, "half_life"))
+        kind["now"] = "drug_metabolite_bindings"
+        for mb in m.get("bindings", []):
+            mt = target_names.get(mb["target"], mb["target"])
+            for q in _qids(mb.get("sources", [])):
+                add(q, f"{mn}, an active metabolite of {of}, acts on target "
+                       f"'{mt}' as {mb.get('action') or 'a binder'}.",
+                    CS.site("metabolite", mid, f"bindings[{CS.binding_key(mb)}]"))
 
     for r in _jsonl("receptors.jsonl"):
         nm = r["name"]

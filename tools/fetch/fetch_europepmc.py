@@ -522,7 +522,8 @@ def binding_search(only: set | None, refresh: bool) -> int:
     ledger = json.loads(SEARCH_LEDGER.read_text("utf-8")) if SEARCH_LEDGER.exists() else {}
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     PAGES_DIR.mkdir(parents=True, exist_ok=True)
-    rows = [r for r in unknown.affinity_only_bindings(drugs_io.load_drugs())
+    rows = [r for r in unknown.affinity_only_bindings(drugs_io.load_drugs(),
+                                                    drugs_io.load_metabolites())
             if only is None or r["drug"] in only]
     failed = 0
     for i, row in enumerate(rows, 1):

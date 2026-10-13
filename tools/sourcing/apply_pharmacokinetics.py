@@ -34,7 +34,6 @@ writing ungated quotes).
 """
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -50,12 +49,9 @@ JUDGED_PATH = ROOT / "tools" / "generated_cache" / "pk_judged.json"
 
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 from prose_gate import PageGate  # noqa: E402 (check_data's normalizer, cached pages)
-from apply_prodrug import names_of  # noqa: E402 (one metabolite-name fold)
 
 
-def norm_name(s: str) -> str:
-    """Fold a name for drug-id matching (lowercase, alphanumerics only)."""
-    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+norm_name = drugs_io._fold          # one name fold (lowercase, alphanumerics only)
 
 
 def clean_half_life(hl: dict | None) -> dict | None:
@@ -88,23 +84,21 @@ def source(q: dict) -> dict:
             "provenance": "verified"}
 
 
-def _names(name: str) -> set[str]:
-    """The folded names a metabolite goes by (:func:`apply_prodrug.names_of`), or the
-    whole folded name when parentheses ARE the name (``(+)-alpha-Dihydrotetrabenazine``)."""
-    return set(names_of(name)) | {norm_name(name)}
-
-
 def apply(judged: dict, drugs: list[dict], pages: PageGate,
-          only: set[str] | None = None) -> tuple[int, int, list[str]]:
-    """Merge the judged T½ + metabolites onto ``drugs``; return (n_hl, n_met, warnings).
+          only: set[str] | None = None,
+          metabolites: list[dict] | None = None) -> tuple[int, int, list[str]]:
+    """Merge the judged T½ + metabolites onto ``drugs`` + the ``metabolites`` store;
+    return (n_hl, n_met, warnings).
 
-    Merge, not overwrite: a judged metabolite updates the existing record that shares a
-    name with it (:func:`apply_prodrug.names_of`, so ``"Desmethyldiazepam (nordazepam)"``
-    matches ``"Nordazepam"``), keeping the fields other passes own (``bindings``,
-    ``formed_by``); a metabolite the judged file does not name is left alone. Explicit
+    Merge, not overwrite: a judged metabolite resolves to the store record that shares a
+    name with it (:func:`drugs_io.find_metabolite`, so ``"Desmethyldiazepam (nordazepam)"``
+    matches ``"Nordazepam"``), whose name, ``bindings`` and links other passes own; the
+    molecule's T½ goes on that record, the "is a metabolite of <drug>" quote on the
+    drug's reference. A metabolite the judged file does not name is left alone. Explicit
     ``"half_life": null`` clears a T½ (the parent's, or a metabolite's) the source
     states for someone else, e.g. a prodrug's figure that is its metabolite's.
     """
+    metabolites = [] if metabolites is None else metabolites
     by_id = {d["id"]: d for d in drugs}
     drug_norm_to_id = {norm_name(d["name"]): d["id"] for d in drugs}
     warnings: list[str] = []
@@ -151,17 +145,12 @@ def apply(judged: dict, drugs: list[dict], pages: PageGate,
             if not name or (has_quote and not gated(m)):
                 warnings.append(f"{did}: metabolite {name!r} quote failed the gate")
                 continue
-            want = _names(name)
-            mrec = next((x for x in mets if want & _names(x["name"])), None)
-            if mrec is None:
-                if not has_quote:
-                    warnings.append(f"{did}: new metabolite {name!r} has no quote")
-                    continue
-                mrec = {"name": name}
-                mets.append(mrec)
-            # The judged name wins, so one molecule two parents share is spelled alike
-            # everywhere (a shared spelling = one bindings entry, see the bindings pass).
-            mrec["name"] = name
+            known = drugs_io.find_metabolite(metabolites, name)
+            listed = known is not None and any(r["id"] == known["id"] for r in mets)
+            if not listed and not has_quote:
+                warnings.append(f"{did}: new metabolite {name!r} has no quote")
+                continue
+            ref, mrec = drugs_io.attach_metabolite(drug, metabolites, name)
             # Link a metabolite that is itself a modeled drug (never the parent itself),
             # so the viewer reuses its bindings + T½ and jumps to it. An explicit
             # ``drug_id`` covers a synonym the name match cannot see (ODV = desvenlafaxine).
@@ -173,7 +162,7 @@ def apply(judged: dict, drugs: list[dict], pages: PageGate,
                 mrec["drug_id"] = linked
             set_half_life(m, mrec, f"{did}/{name}")
             if has_quote:
-                mrec["sources"] = [source(m)]
+                ref["sources"] = [source(m)]
             n_met += 1
         if not mets:
             del drug["metabolites"]
@@ -205,12 +194,14 @@ def main() -> int:
 
     judged = json.loads(args.judged.read_text(encoding="utf-8"))
     drugs = drugs_io.load_drugs()
-    n_hl, n_met, warnings = apply(judged, drugs, PageGate(PAGES), only)
+    metabolites = drugs_io.load_metabolites()
+    n_hl, n_met, warnings = apply(judged, drugs, PageGate(PAGES), only, metabolites)
     if args.dry_run:
         print(f"[dry-run] would set half_life on {n_hl} drugs, {n_met} metabolites; "
               f"{len(warnings)} quotes dropped.")
     else:
         drugs_io.save_drugs(drugs)
+        drugs_io.save_metabolites(metabolites)
         print(f"[ok] set half_life on {n_hl} drugs, {n_met} metabolites; "
               f"{len(warnings)} quotes dropped. Wrote {drugs_io.DRUGS_PATH.relative_to(ROOT)}.")
     for w in warnings[:40]:

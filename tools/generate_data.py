@@ -993,78 +993,85 @@ def _metabolite_enzymes(drug_id: str, name: str) -> list[dict[str, Any]]:
     return out
 
 
-def _drug_metabolites(drug_id: str, metabolites: Any,
-                      valid_targets: set[str]) -> list[dict[str, Any]]:
-    """Validate + normalize a drug's active ``metabolites`` (one graded node each).
+def _metabolite_records(store: list[dict[str, Any]], drugs: list[dict[str, Any]],
+                        valid_targets: set[str]) -> list[dict[str, Any]]:
+    """Validate + normalize the metabolite store into ``metabolites.jsonl`` (one per molecule).
 
-    Each authored metabolite is ``{name, drug_id?, half_life?, half_life_sources?,
-    bindings?, sources?}``:
+    ``tools/data/metabolites_data.jsonl`` holds what is true of the molecule, ONCE
+    (see ``drugs_io``): ``{id, name, drug_id?, half_life?, half_life_sources?, bindings?}``.
 
     - ``name`` is a non-empty proper noun (not FR-translated; a chemical name).
     - ``drug_id`` links a metabolite that is ITSELF a modeled drug (desvenlafaxine,
-      paliperidone, ...). The viewer then reuses that drug's bindings + T½ and links
-      the row, so we deliberately do NOT duplicate them here. Its existence is
-      cross-checked in check_data.py (which holds every drug id).
-    - ``half_life`` is the metabolite's own elimination T½ (canonical hours), graded
-      by its ``half_life_sources``.
-    - ``bindings`` are inline receptor bindings for a NON-drug metabolite, sourced from
-      the metabolite's own Wikipedia pharmacology by ``apply_metabolite_bindings.py``
-      (corpus #9, target + action + Ki, PDSP Ki preferred). Validated + Ki-normalized
-      exactly like a drug binding, so the receptor "Interacting drugs" list attributes
-      them as "<name> (metab. of <drug>)". Empty for a metabolite Wikipedia does not
-      cover.
-    - ``sources`` grades the "<name> is an active metabolite of <drug_id>" identity
-      claim (kind ``drug_metabolites``); a metabolite with no source is NOSOURCE.
-    - ``formed_by`` is which enzyme(s) make it, from the hand-curated
-      :data:`METABOLITE_ENZYME_QUOTES` rather than from this file (see
-      :func:`_metabolite_enzymes`). Absent for the metabolites no corpus pins down.
+      paliperidone, ...): the viewer reuses that drug's bindings + T½, so none are
+      duplicated here (existence cross-checked in check_data.py).
+    - ``half_life`` is its own elimination T½, graded by ``half_life_sources``.
+    - ``bindings`` are a non-modeled metabolite's own receptor bindings (kind
+      ``drug_metabolite_bindings``, counted once per molecule), written by
+      ``apply_metabolite_bindings.py``, validated + Ki-normalized like a drug binding.
 
-    Parameters
-    ----------
-    drug_id
-        Parent drug id (for error messages + the identity claim).
-    metabolites
-        The authored ``metabolites`` list (or None).
-    valid_targets
-        Valid binding target ids, for any inline metabolite bindings.
-
-    Returns
-    -------
-    list of dict
-        The emitted metabolite nodes (empty when none authored).
+    A record no drug references, or a duplicate id, raises: an orphan would ship a
+    molecule no panel can reach.
     """
+    referenced = {r["id"] for d in drugs for r in d.get("metabolites", [])}
     out: list[dict[str, Any]] = []
-    for m in metabolites or []:
-        name = m.get("name")
-        if not (isinstance(name, str) and name.strip()):
-            raise ValueError(f"Drug {drug_id!r} has a metabolite with no 'name'")
-        name = name.strip()
-        label = f"Drug {drug_id!r} metabolite {name!r}"
-        rec: dict[str, Any] = {"name": name}
+    seen: set[str] = set()
+    for m in store:
+        mid, name = m.get("id"), m.get("name")
+        if not (isinstance(mid, str) and mid) or not (isinstance(name, str) and name.strip()):
+            raise ValueError(f"Metabolite record {m!r} needs a non-empty 'id' and 'name'")
+        if mid in seen:
+            raise KeyError(f"Duplicate metabolite id {mid!r}")
+        seen.add(mid)
+        if mid not in referenced:
+            raise KeyError(f"Metabolite {mid!r} is listed by no drug's metabolites[]")
+        label = f"Metabolite {mid!r}"
+        rec: dict[str, Any] = {"id": mid, "name": name.strip()}
         if m.get("drug_id"):
             rec["drug_id"] = m["drug_id"]
         if m.get("half_life"):
             rec["half_life"] = _hours_value(m["half_life"], what=label)
-            hl_sources = _quote_sources(m.get("half_life_sources"),
-                                        f"{label} half_life")
+            hl_sources = _quote_sources(m.get("half_life_sources"), f"{label} half_life")
             if hl_sources:
                 rec["half_life_sources"] = hl_sources
         # with_ki=True: a non-modeled metabolite's bindings carry their own measured/
-        # literature Ki (PDSP or Wikipedia), authored by apply_metabolite_bindings.py,
-        # exactly like a drug binding. owner_id is the parent drug id, used only in Ki
-        # error messages (the Ki itself is already resolved onto the authored binding).
-        m_bindings = [_normalize_binding(b, valid_targets, owner_id=drug_id,
+        # literature Ki (PDSP or Wikipedia), exactly like a drug binding.
+        m_bindings = [_normalize_binding(b, valid_targets, owner_id=mid,
                                          owner_label=label, with_ki=True)
                       for b in m.get("bindings") or []]
         if m_bindings:
             rec["bindings"] = m_bindings
-        # Which enzyme MADE it (kind `drug_metabolite_enzyme`), a claim about the
-        # (parent, metabolite) pair rather than about the molecule, so it is not shared
-        # between two parents of the same metabolite the way `bindings` are.
+        out.append(rec)
+    return out
+
+
+def _drug_metabolites(drug_id: str, refs: Any,
+                      store_by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    """Validate + normalize a drug's ``metabolites`` references (one graded node each).
+
+    Each authored ref is ``{id, sources?}``: ``id`` names a ``metabolites_data.jsonl``
+    record (the molecule), ``sources`` grade the per-parent claim "<name> is an active
+    metabolite of <drug_id>" (kind ``drug_metabolites``; none = NOSOURCE). The emitted
+    ref adds ``formed_by``, the enzyme(s) that MAKE it from this parent (kind
+    ``drug_metabolite_enzyme``, hand-curated in :data:`METABOLITE_ENZYME_QUOTES`, see
+    :func:`_metabolite_enzymes`): a claim about the (parent, metabolite) pair, so it stays
+    on the ref while the molecule's own facts live once on the record.
+    """
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for ref in refs or []:
+        mid = ref.get("id")
+        if mid not in store_by_id:
+            raise KeyError(f"Drug {drug_id!r} metabolite ref {mid!r} is not a "
+                           f"metabolites_data.jsonl id")
+        if mid in seen:
+            raise KeyError(f"Drug {drug_id!r} lists metabolite {mid!r} twice")
+        seen.add(mid)
+        name = store_by_id[mid]["name"]
+        rec: dict[str, Any] = {"id": mid}
         formed_by = _metabolite_enzymes(drug_id, name)
         if formed_by:
             rec["formed_by"] = formed_by
-        sources = _quote_sources(m.get("sources"), label)
+        sources = _quote_sources(ref.get("sources"), f"Drug {drug_id!r} metabolite {name!r}")
         if sources:
             rec["sources"] = sources
         out.append(rec)
@@ -1232,7 +1239,8 @@ def _drug_prodrug(drug: dict[str, Any]) -> dict[str, Any]:
 def _drug_record(drug: dict[str, Any], valid_targets: set[str],
                  known_bases: set[str],
                  molecule_ids: set[str],
-                 enzyme_rows: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
+                 enzyme_rows: dict[str, list[dict[str, Any]]],
+                 metabolite_store: dict[str, dict[str, Any]]) -> dict[str, Any]:
     """Validate + normalize one authored drug into its ``drugs.jsonl`` record.
 
     The authored drug (from ``tools/data/drugs_data.jsonl``) is mostly passed through;
@@ -1356,10 +1364,10 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # Table 5 cache. See data_generators/tdm.py.
     out.update(tdm.drug_tdm(drug["id"], _quote_sources))
     # Active metabolites named in the source (one graded node each, kind
-    # `drug_metabolites`); a metabolite that is itself a modeled drug links via
-    # drug_id and reuses its bindings/T½ (no duplication), see _drug_metabolites.
+    # `drug_metabolites`): references into the one-per-molecule store, see
+    # _drug_metabolites + _metabolite_records.
     metabolites = _drug_metabolites(drug["id"], drug.get("metabolites"),
-                                    valid_targets)
+                                    metabolite_store)
     if metabolites:
         out["metabolites"] = metabolites
     # Metabolising / inhibited / induced enzymes (one graded node each, kind
@@ -1757,13 +1765,18 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     molecule_ids = _available_molecule_ids()
     enzyme_rows = _load_drug_enzymes()
     seen_drug_ids: set[str] = set()
-    for drug in _load_drugs():
+    authored_drugs = _load_drugs()
+    import drugs_io
+    metabolites = _metabolite_records(drugs_io.load_metabolites(), authored_drugs,
+                                      valid_targets)
+    metabolite_store = {m["id"]: m for m in metabolites}
+    for drug in authored_drugs:
         if drug["id"] in seen_drug_ids:
             raise KeyError(f"Duplicate drug id {drug['id']!r}")
         seen_drug_ids.add(drug["id"])
         drugs.append(
             _drug_record(drug, valid_targets, receptor_bases, molecule_ids,
-                         enzyme_rows))
+                         enzyme_rows, metabolite_store))
     _check_drug_aliases(seen_drug_ids)
     # The "uncertain" badges: a post-pass, not part of _drug_record, because two of the
     # bullets look across bindings (how many monographs print the same sentence, and how
@@ -1774,7 +1787,7 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     # UNKNOWN: a binding direction every reachable source was searched for, with no
     # hit (a recorded search log, see data_generators/unknown.py). After the
     # uncertainty pass so it only ever stamps a still-affinity-only binding.
-    apply_unknown(drugs)
+    apply_unknown(drugs, metabolites)
     # The same badge over the metabolism rows, from a hand-written table rather than a
     # derivation (see quotes/contradictions.py): a corpus denying what another states is
     # the one doubt this dataset cannot resolve, so both ship and the row says so.
@@ -1959,14 +1972,14 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # count, never hand-typed. See _provenance_stats.
         "provenance_stats": _provenance_stats(
             structures, projections, circuits, projection_groups,
-            receptors, drugs, drug_targets, addons, enzymes),
+            receptors, drugs, metabolites, drug_targets, addons, enzymes),
     }
 
     return ({"meta": meta, "structures": structures,
              "projections": projections, "circuits": circuits,
              "projection_groups": projection_groups,
              "receptors": receptors, "drugs": drugs,
-             "addons": addons}, shapes)
+             "metabolites": metabolites, "addons": addons}, shapes)
 
 
 def write_artifacts(root: Path) -> None:
@@ -2015,7 +2028,7 @@ def write_artifacts(root: Path) -> None:
     log.info("wrote %s", meta_path)
 
     for name in ("structures", "projections", "circuits", "projection_groups",
-                 "receptors", "drugs", "addons"):
+                 "receptors", "drugs", "metabolites", "addons"):
         path = data_dir / f"{name}.jsonl"
         with path.open("w", encoding="utf-8") as fh:
             for record in data[name]:

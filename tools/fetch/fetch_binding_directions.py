@@ -243,7 +243,7 @@ def _offered(lines, aliases, direction_re, must_mention=None) -> list[str]:
     return out
 
 
-def build_search(drugs: list[dict]) -> list[dict]:
+def build_search(drugs: list[dict], metabolites: list[dict] = ()) -> list[dict]:
     """The search worklist: one record per direction-less binding (see above)."""
     sys.path.insert(0, os.path.join(REPO, "tools", "fetch"))
     import fetch_category_worklist as catwl          # FR slug resolver
@@ -270,7 +270,7 @@ def build_search(drugs: list[dict]) -> list[dict]:
     by_drug = {d["id"]: d for d in drugs}
 
     records, pdsp_cache = [], {}
-    for row in unknown.affinity_only_bindings(drugs):
+    for row in unknown.affinity_only_bindings(drugs, metabolites):
         drug, target, ligand, metab = by_drug[row["drug"]], row["target"], row["ligand"], \
             row["metabolite"]
         al = aliases.get(target, [])
@@ -358,7 +358,7 @@ def main() -> int:
                     help="build the UNKNOWN search worklist over every corpus instead")
     args = ap.parse_args()
     if args.search:
-        records = build_search(drugs_io.load_drugs())
+        records = build_search(drugs_io.load_drugs(), drugs_io.load_metabolites())
         with open(SEARCH_WORKLIST, "w", encoding="utf-8") as f:
             json.dump(records, f, ensure_ascii=False, indent=1)
             f.write("\n")

@@ -35308,7 +35308,7 @@
   "candidates": []
  },
  {
-  "site": "drug:amoxapine/metabolites[8-Hydroxyamoxapine]/bindings[d2]",
+  "site": "metabolite:8_hydroxyamoxapine/bindings[d2]",
   "drug": "amoxapine",
   "ligand": "8-Hydroxyamoxapine",
   "metabolite": "8-Hydroxyamoxapine",
@@ -35352,7 +35352,7 @@
   "candidates": []
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[5ht2b]",
+  "site": "metabolite:norfluoxetine/bindings[5ht2b]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35400,7 +35400,7 @@
   "candidates": []
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m1]",
+  "site": "metabolite:norfluoxetine/bindings[m1]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35444,7 +35444,7 @@
   "candidates": []
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m2]",
+  "site": "metabolite:norfluoxetine/bindings[m2]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35496,7 +35496,7 @@
   ]
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m3]",
+  "site": "metabolite:norfluoxetine/bindings[m3]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35540,7 +35540,7 @@
   "candidates": []
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m4]",
+  "site": "metabolite:norfluoxetine/bindings[m4]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35584,7 +35584,7 @@
   "candidates": []
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[m5]",
+  "site": "metabolite:norfluoxetine/bindings[m5]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35628,7 +35628,7 @@
   "candidates": []
  },
  {
-  "site": "drug:fluoxetine/metabolites[Norfluoxetine]/bindings[net]",
+  "site": "metabolite:norfluoxetine/bindings[net]",
   "drug": "fluoxetine",
   "ligand": "Norfluoxetine",
   "metabolite": "Norfluoxetine",
@@ -35684,7 +35684,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1a]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht1a]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -35762,7 +35762,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1b]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht1b]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -35835,7 +35835,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht1d]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht1d]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -35889,7 +35889,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht3]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht3]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -35954,7 +35954,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht5a]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht5a]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36000,7 +36000,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht6]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht6]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36046,7 +36046,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[5ht7]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[5ht7]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36100,7 +36100,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha1a]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[alpha1a]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36145,7 +36145,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha1b]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[alpha1b]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36190,7 +36190,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[alpha2]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36244,7 +36244,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2a]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[alpha2a]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36289,7 +36289,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2b]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[alpha2b]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36334,7 +36334,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[alpha2c]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[alpha2c]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36379,7 +36379,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[beta1]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[beta1]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36424,7 +36424,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[beta2]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[beta2]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36469,7 +36469,7 @@
   "candidates": []
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[d1]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[d1]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36521,7 +36521,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[h1]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[h1]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36573,7 +36573,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[net]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[net]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36633,7 +36633,7 @@
   ]
  },
  {
-  "site": "drug:nefazodone/metabolites[Meta-chlorophenylpiperazine]/bindings[sert]",
+  "site": "metabolite:meta_chlorophenylpiperazine/bindings[sert]",
   "drug": "nefazodone",
   "ligand": "Meta-chlorophenylpiperazine",
   "metabolite": "Meta-chlorophenylpiperazine",
@@ -36723,7 +36723,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1b]",
+  "site": "metabolite:psilocin/bindings[5ht1b]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -36775,7 +36775,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1d]",
+  "site": "metabolite:psilocin/bindings[5ht1d]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -36821,7 +36821,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht1e]",
+  "site": "metabolite:psilocin/bindings[5ht1e]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -36867,7 +36867,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht2b]",
+  "site": "metabolite:psilocin/bindings[5ht2b]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -36927,7 +36927,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht5a]",
+  "site": "metabolite:psilocin/bindings[5ht5a]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -36973,7 +36973,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht6]",
+  "site": "metabolite:psilocin/bindings[5ht6]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37019,7 +37019,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[5ht7]",
+  "site": "metabolite:psilocin/bindings[5ht7]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37065,7 +37065,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2a]",
+  "site": "metabolite:psilocin/bindings[alpha2a]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37110,7 +37110,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2b]",
+  "site": "metabolite:psilocin/bindings[alpha2b]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37155,7 +37155,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[alpha2c]",
+  "site": "metabolite:psilocin/bindings[alpha2c]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37200,7 +37200,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[d1]",
+  "site": "metabolite:psilocin/bindings[d1]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37250,7 +37250,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[d2]",
+  "site": "metabolite:psilocin/bindings[d2]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37300,7 +37300,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[d3]",
+  "site": "metabolite:psilocin/bindings[d3]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37350,7 +37350,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[dat]",
+  "site": "metabolite:psilocin/bindings[dat]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37409,7 +37409,7 @@
   ]
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[h1]",
+  "site": "metabolite:psilocin/bindings[h1]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",
@@ -37455,7 +37455,7 @@
   "candidates": []
  },
  {
-  "site": "drug:psilocybin/metabolites[Psilocin]/bindings[sert]",
+  "site": "metabolite:psilocin/bindings[sert]",
   "drug": "psilocybin",
   "ligand": "Psilocin",
   "metabolite": "Psilocin",

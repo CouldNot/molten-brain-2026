@@ -1244,6 +1244,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
                       projection_groups: list[dict[str, Any]],
                       receptors: list[dict[str, Any]],
                       drugs: list[dict[str, Any]],
+                      metabolites: list[dict[str, Any]],
                       drug_targets: dict[str, dict[str, Any]],
                       addons: list[dict[str, Any]],
                       enzymes: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -1440,31 +1441,16 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # Non-modeled-metabolite receptor bindings, graded exactly like a drug binding
     # (quote source or measured Ki). A separate kind from drug_bindings so the drug Ki
     # coverage figures are unperturbed; authored by apply_metabolite_bindings.py.
-    #
-    # A single metabolite can be produced by more than one modeled drug (e.g. mCPP by
-    # nefazodone and trazodone), so it appears once under EACH parent in the data with
-    # identical bindings (the applier keys by metabolite name -> writes the same list to
-    # each parent; check_data guards that they stay identical). Those bindings are a
-    # property of the metabolite molecule, not of the parent relationship, so the tally
-    # counts them ONCE per unique metabolite (deduped by folded name), never once per
-    # parent -- else a shared metabolite would inflate the coverage denominator. (The
-    # identity node above legitimately stays per-parent: "X is a metabolite of A" and
-    # "X is a metabolite of B" are two distinct, separately sourced claims.)
-    metabolite_binding_grades = []
-    _seen_metab_bindings = set()
-    for d in drugs:
-        for m in d.get("metabolites", []):
-            key = re.sub(r"[^a-z0-9]", "", (m.get("name") or "").lower())
-            if key in _seen_metab_bindings:
-                continue
-            _seen_metab_bindings.add(key)
-            metabolite_binding_grades.extend(_binding_grade(b)
-                                             for b in m.get("bindings", []))
-            # A metabolite's binding direction is the same claim as a drug's, so it is
-            # counted in the SAME drug_binding_action kind (it is a ligand's binding
-            # direction either way), deduped by the same folded name.
-            binding_action_grades.extend(_binding_action_grade(b)
-                                         for b in m.get("bindings", []))
+    # Walked over the one-per-molecule metabolite store, not the parents: mCPP's
+    # bindings are a property of the molecule, so nefazodone AND trazodone listing it
+    # count them once. (The identity node above legitimately stays per-parent: "X is a
+    # metabolite of A" and "X is a metabolite of B" are two separately sourced claims.)
+    metabolite_binding_grades = [_binding_grade(b) for m in metabolites
+                                 for b in m.get("bindings", [])]
+    # A metabolite's binding direction is the same claim as a drug's, so it is counted
+    # in the SAME drug_binding_action kind (a ligand's binding direction either way).
+    binding_action_grades.extend(_binding_action_grade(b) for m in metabolites
+                                 for b in m.get("bindings", []))
     # (grade, is_uncertain) pairs, like the bindings above: a pathway the book states
     # only as a blanket sweep buckets as ``uncertain`` however strong its quote is.
     projection_grades = [(_strongest_grade(p.get("sources")), bool(p.get("uncertainty")))

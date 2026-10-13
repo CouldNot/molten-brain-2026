@@ -15,7 +15,7 @@ wrong is a separate, human judgement, and this tool deliberately does not make i
 
 Sources live in two machine-writable places, and this walks both:
 
-* ``tools/data/drugs_data.jsonl`` (bindings, NbN, class, brands, half-life, metabolites
+* ``tools/data/drugs_data.jsonl`` + ``metabolites_data.jsonl`` (bindings, NbN, class, brands, half-life, metabolites
   and their bindings / formed_by rows);
 * ``tools/generated_cache/*.json`` (the applier-written caches: expression locations,
   classifications, the two enzyme caches, expression density).
@@ -59,6 +59,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CACHE = os.path.join(ROOT, "tools", "generated_cache")
 DRUGS = os.path.join(ROOT, "tools", "data", "drugs_data.jsonl")
+METABOLITES = os.path.join(ROOT, "tools", "data", "metabolites_data.jsonl")
 DATA = os.path.join(ROOT, "public", "data")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
@@ -238,13 +239,18 @@ def main() -> None:
 
     ed = Editor(targets, emitted_page_dirs())
 
-    with open(DRUGS, encoding="utf-8") as fh:
-        rows = [json.loads(line) for line in fh if line.strip()]
-    rows = [ed.walk(r, "drugs_data.jsonl", (r.get("id"),)) for r in rows]
-    if not args.dry_run:
-        with open(DRUGS, "w", encoding="utf-8") as fh:
-            for r in rows:
-                fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    # The two authored JSONL files: the drugs, and the one-per-molecule metabolite
+    # store (a metabolite's own half-life + bindings live there, not on a parent).
+    for path in (DRUGS, METABOLITES):
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            rows = [json.loads(line) for line in fh if line.strip()]
+        rows = [ed.walk(r, os.path.basename(path), (r.get("id"),)) for r in rows]
+        if not args.dry_run:
+            with open(path, "w", encoding="utf-8") as fh:
+                for r in rows:
+                    fh.write(json.dumps(r, ensure_ascii=False) + "\n")
 
     for name in CACHE_FILES:
         path = os.path.join(CACHE, name)

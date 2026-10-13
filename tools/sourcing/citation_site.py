@@ -13,7 +13,8 @@ place a quote is cited from.
 
     drug:brexpiprazole/half_life
     drug:quetiapine/formulations[xr]/brands[Seroquel XR]
-    drug:brexpiprazole/metabolites[DM-3411]/half_life
+    metabolite:desmethyldiazepam/half_life
+    drug:diazepam/metabolites[desmethyldiazepam]
     drug:clozapine/bindings[5ht2a:antagonist]
     drug:fluoxetine/enzymes[cyp2d6:inhibitor]
     receptor:5ht1a/classification[family]
@@ -92,9 +93,11 @@ def _drug_site(path: list) -> str | None:
     drug, rest = path[0], path[1:]
     if not rest:
         return None
-    # `metabolites[NAME]/...` and `formulations[RELEASE]/...` are the two-level owners
-    # here: everything else hangs directly off the drug. A formulation holds the same
-    # brands / tmax / half_life facets as the drug, plus its own `release` claim.
+    # `formulations[RELEASE]/...` is the two-level owner here: everything else hangs
+    # directly off the drug. A formulation holds the same brands / tmax / half_life
+    # facets as the drug, plus its own `release` claim. A `metabolites[ID]` reference
+    # carries only the per-parent identity claim (and, emitted, its `formed_by` rows);
+    # the molecule's own facts are addressed `metabolite:<id>/...` (_metabolite_site).
     if rest[0] == "formulations" and len(rest) >= 3:
         inner = ("release" if rest[2] == "release_sources" else _drug_facet(rest[2:]))
         return (site("drug", drug, f"formulations[{rest[1]}]/{inner}")
@@ -139,6 +142,15 @@ def _metabolite_facet(tail: list) -> str | None:
     return {"half_life_sources": "half_life"}.get(head)
 
 
+def _metabolite_site(path: list) -> str | None:
+    """A row of ``tools/data/metabolites_data.jsonl`` (one per molecule), first element
+    the metabolite id: ``metabolite:<id>/half_life``, ``metabolite:<id>/bindings[...]``."""
+    if len(path) < 2:
+        return None
+    facet = _metabolite_facet(path[1:])
+    return site("metabolite", path[0], facet) if facet else None
+
+
 def _owner_kind(bucket: str) -> str:
     """``receptors``/``targets``, the two keys the owner-keyed caches split on."""
     return {"receptors": "receptor", "targets": "target"}.get(bucket, bucket)
@@ -180,6 +192,7 @@ def _drug_enzymes_site(path: list) -> str | None:
 
 RESOLVERS = {
     "drugs_data.jsonl": _drug_site,
+    "metabolites_data.jsonl": _metabolite_site,
     "location_sources.json": _location_site,
     "classification_sources.json": _classification_site,
     "expression_density.json": _density_site,
