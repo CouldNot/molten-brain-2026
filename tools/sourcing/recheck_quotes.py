@@ -80,6 +80,7 @@ from data_generators.provenance import SOURCING_LLMS  # noqa: E402
 from data_generators import history as HIST  # noqa: E402
 from data_generators import formulations as FORM  # noqa: E402
 from data_generators import provenance as PROV  # noqa: E402
+from data_generators import release_modulation as RELMOD  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import citation_site as CS  # noqa: E402
 from check_data import emitted_page_dirs  # noqa: E402
@@ -227,6 +228,24 @@ def _effect_claims(add, kind, label, owner_kind, oid, nm, owner):
             add(q, f"{label} {nm}: {mode} of it can cause (or contribute to) the "
                    f"clinical effect '{e['effect'].replace('_', ' ')}' in humans.",
                 CS.site(owner_kind, oid, "effects", f"{e['mode']}:{e['effect']}"))
+
+
+def _release_modulation_claims(add, kind, r, nm):
+    """One claim per receptor_release_modulation node's quote: the WHOLE node (kind, cell,
+    structure, transmitter, direction of activation), so a judge rejects a sentence that
+    states only part of it. Human / clinical pharmacology only (animal-only is rejected)."""
+    kind["now"] = "receptor_release_modulation"
+    for n in r.get("release_modulation") or []:
+        site = n.get("site") or {}
+        f = {"kind": n["kind"], "structure": site.get("structure"), "cell": site.get("cell"),
+             "modulates": n["modulates"], "effect": n["effect_of_activation"]}
+        where = f" in the {f['structure']}" if f["structure"] else ""
+        for q in _qids(n.get("sources", [])):
+            add(q, f"Receptor {nm} acts as a {f['kind']} on "
+                   f"{f['cell'].replace('_', ' ')}s{where}: ACTIVATING it {f['effect']}s the "
+                   f"release of {f['modulates']} (a blocker therefore does the opposite). "
+                   f"Reject an animal-only (rat / mouse / knockout) statement.",
+                CS.site("receptor", r["id"], "release_modulation", RELMOD.node_key(**f)))
 
 
 def reconstruct_claims(quotes):
@@ -403,6 +422,7 @@ def reconstruct_claims(quotes):
                 add(q, f"Receptor {nm} is expressed in brain region '{region}'.",
                     CS.site("receptor", r["id"], "locations", region))
         _effect_claims(add, kind, "Receptor", "receptor", r["id"], nm, r)
+        _release_modulation_claims(add, kind, r, nm)
 
     kind["now"] = "projections"
     for p in _jsonl("projections.jsonl"):

@@ -208,6 +208,7 @@ from data_generators.unknown import apply_unknown  # noqa: E402
 # family) live in the data_generators.receptors package. See the schema comment at
 # the RECEPTORS use-site below.
 from data_generators import receptor_effects as REFFECTS  # noqa: E402 (receptor_effect, BETA)
+from data_generators import release_modulation as RELMOD  # noqa: E402 (BETA)
 from data_generators.receptors import RECEPTORS  # noqa: E402
 
 # HGNC gene symbol per receptor / target, re-exported from the fetchers that own the
@@ -673,6 +674,11 @@ def _receptor_record(rec: dict[str, Any],
     effects = REFFECTS.effect_nodes(rec["id"], REFFECTS.load_cache(), "Receptor")
     if effects:
         out["effects"] = effects
+    # Release modulation it mediates (kind receptor_release_modulation, BETA): one node
+    # per (kind, site, transmitter, direction), each with its own quote.
+    modulation = RELMOD.modulation_nodes(rec, RELMOD.load_cache(), known_bases)
+    if modulation:
+        out["release_modulation"] = modulation
     if "description" in rec:
         out["description"] = {"en": rec["description"], "fr": rec["description_fr"]}
     if "wikipedia" in rec:
@@ -1942,6 +1948,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # receptor_effect vocabularies (BETA): mode -> {label, actions the drug-panel
         # join lets inherit it}, effect -> label. See data_generators/receptor_effects.py.
         **REFFECTS.meta_vocab(),
+        # receptor_release_modulation vocabularies (BETA): kinds, cells, transmitters
+        # (+ the receptor-system name each joins on). See data_generators/release_modulation.py.
+        **RELMOD.meta_vocab(),
         # Source corpora the per-binding (and later per-field) drug sources cite,
         # keyed by id (see SOURCE_CORPORA). The viewer reads citation/url to render
         # each binding's source; check_data.py reads pages_dir to confirm quotes.

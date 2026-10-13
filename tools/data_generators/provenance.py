@@ -1543,6 +1543,10 @@ def _provenance_stats(structures: list[dict[str, Any]],
     receptor_effect_grades = [e["grade"] for o in (*receptors, *(
         t for t in drug_targets.values() if t.get("type") != "receptor"))
         for e in o.get("effects", [])]
+    # Release-modulation nodes (kind receptor_release_modulation, BETA): one per (receptor,
+    # kind, site, transmitter, direction); exists only once sourced, so in the headline.
+    release_modulation_grades = [n["grade"] for r in receptors
+                                 for n in r.get("release_modulation", [])]
     # Brain-region anatomy (existence / group / position), graded per emitted
     # structure record (both hemispheres of a pair count, one line each).
     structure_grades = [s.get("classification_provenance", DEFAULT_PROVENANCE)
@@ -1614,6 +1618,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "target_locations": tally(target_location_grades),
         "target_density": tally(target_density_grades),
         "receptor_effect": tally(receptor_effect_grades),
+        "receptor_release_modulation": tally(release_modulation_grades),
         "structures": tally(structure_grades),
         "references": tally(ref_grades),
     }

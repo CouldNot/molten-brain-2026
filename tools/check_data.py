@@ -143,6 +143,7 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "receptor_class", "receptor_sign", "receptor_synaptic",
               "receptor_locations", "receptor_density", "targets", "target_polarity",
               "target_locations", "target_density", "receptor_effect",
+              "receptor_release_modulation",
               "structures")
 
 
@@ -1495,6 +1496,29 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for i, src in enumerate(e.get("sources") or []):
                 check_one(f"{where} sources[{i}]", src)
 
+    structure_bases = {s.get("id", "").removesuffix("_R").removesuffix("_L")
+                       for s in structures}
+
+    def check_release_modulation(r):
+        """receptor_release_modulation nodes (BETA): the same closed-vocabulary rules
+        the applier and the emitter enforce (``release_modulation.vocab_error``), one
+        quote at least, each quote gated like any other."""
+        for n in r.get("release_modulation") or []:
+            site = n.get("site") or {}
+            f = {"kind": n.get("kind"), "structure": site.get("structure"),
+                 "cell": site.get("cell"), "modulates": n.get("modulates"),
+                 "effect": n.get("effect_of_activation")}
+            where = f"receptor {r.get('id')} release_modulation[{RELMOD.node_key(**f)}]"
+            neuro = r.get("neurotransmitter")
+            why = RELMOD.vocab_error(f, neuro.get("en") if isinstance(neuro, dict) else neuro,
+                                     structure_bases)
+            if why:
+                report.error(f"{where}: {why}")
+            if not n.get("sources"):
+                report.error(f"{where}: a release-modulation node with no source")
+            for i, src in enumerate(n.get("sources") or []):
+                check_one(f"{where} sources[{i}]", src)
+
     for s in structures:
         for i, src in enumerate(s.get("sources", []) or []):
             check_one(f"structure {s.get('id')} sources[{i}]", src)
@@ -1514,6 +1538,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for i, src in enumerate((r.get("density") or {}).get("sources") or []):
             check_one(f"receptor {r.get('id')} density sources[{i}]", src)
         check_effects(f"receptor {r.get('id')}", r, is_receptor=True)
+        check_release_modulation(r)
 
     for tid, tinfo in (meta.get("drug_targets", {}) or {}).items():
         if isinstance(tinfo, dict):
@@ -2019,6 +2044,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators import cpic, freshness, pharmfreq, unknown  # noqa: E402
+from data_generators import release_modulation as RELMOD  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the
 # grade and quote walks cannot skip a formulation's claims).
 from data_generators.provenance import product_holders  # noqa: E402
