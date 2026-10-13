@@ -4622,9 +4622,12 @@ function createInfoPanel(data, sourcingModal) {
             // the product exists) and its Tmax / T½ on one line, its brands below.
             const row = el("div", "form-row");
             const head = el("div", "form-head");
-            head.appendChild(el("span", "form-release", f.label));
-            head.appendChild(makeProvenancePill(f.releaseProvenance,
+            // The pill rides inside the release name, so the row's wide gap
+            // only separates whole items (each chip already ends in its pill).
+            const release = el("span", "form-release", `${f.label} `);
+            release.appendChild(makeProvenancePill(f.releaseProvenance,
               sourcesTip(f.releaseSources)));
+            head.appendChild(release);
             if (f.tmax) {
               head.appendChild(valueChip(chipHelpers, {
                 label: t("drug.tmax"), tip: t("drug.tmaxTip"),
