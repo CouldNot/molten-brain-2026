@@ -4104,13 +4104,13 @@
         "unknown": 0
       },
       "drug_metabolites": {
-        "total": 72,
+        "total": 71,
         "verified": 71,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
-        "nosource": 1,
-        "missing": 1,
+        "nosource": 0,
+        "missing": 0,
         "unknown": 0
       },
       "drug_metabolite_enzyme": {
@@ -4305,13 +4305,13 @@
       }
     },
     "nodes": {
-      "total": 7688,
+      "total": 7687,
       "verified": 7098,
       "uncertain": 266,
       "sourced": 0,
       "llm": 254,
-      "nosource": 70,
-      "missing": 324,
+      "nosource": 69,
+      "missing": 323,
       "unknown": 656,
       "backed": 7364,
       "pct_backed": 96

@@ -179,18 +179,7 @@
    "page": 123,
    "quote": "Mean half-life 91 hours (brexpiprazole) and 86 hours (major metabolite DM-3411)"
   },
-  "metabolites": [
-   {
-    "name": "DM-3411",
-    "page": 123,
-    "quote": "Mean half-life 91 hours (brexpiprazole) and 86 hours (major metabolite DM-3411)",
-    "half_life": {
-     "hours": 86.0,
-     "page": 123,
-     "quote": "Mean half-life 91 hours (brexpiprazole) and 86 hours (major metabolite DM-3411)"
-    }
-   }
-  ]
+  "metabolites": []
  },
  "buprenorphine": {
   "half_life": {
