@@ -128,6 +128,7 @@ KIND_LABELS = {
     "target_polarity": "Target tone polarity",
     "target_locations": "Target expression regions",
     "target_density": "Target relative amount per region",
+    "receptor_effect": "Receptor clinical effects (beta)",
     "enzyme_variability": "Enzyme population variability",
     "structures": "Brain-region anatomy",
     "addons": "Panel annotations",

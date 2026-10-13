@@ -45,6 +45,7 @@ const KIND_ORDER = [
   "target_polarity",
   "target_locations",
   "target_density",
+  "receptor_effect",
   "drug_bindings",
   "drug_binding_action",
   "drug_nbn",
@@ -286,6 +287,14 @@ export function collectNodes(data, deps, opts = {}) {
     if (tg.densityInfo) {
       push("target_density", tg.name, topRegion(tg.densityInfo),
         tg.densityInfo.provenance || "llm", go, tg.densityInfo);
+    }
+  }
+  // receptor_effect (BETA): one row per (owner, mode, effect) node, receptors and
+  // non-receptor targets alike (data.js resolves both onto the target list).
+  for (const tg of data.targets || []) {
+    const go = tg.focusable ? () => nav.target(tg) : null;
+    for (const e of tg.effectInfo || []) {
+      push("receptor_effect", tg.name, `${e.label} (${e.modeLabel})`, e.provenance, go, e);
     }
   }
 

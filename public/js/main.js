@@ -36,6 +36,7 @@ import { createSimulation } from "./simulation.js";
 import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
+import { derivePossibleEffects } from "./receptor-effects.js";
 import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
 
@@ -2278,6 +2279,76 @@ function createInfoPanel(data, sourcingModal) {
     return container;
   };
 
+  // receptor_effect (BETA) section heading: the label plus the same quiet "beta"
+  // qualifier the Simulation section wears (.beta-tag, i18n sim.beta).
+  const betaHeading = (key) => {
+    const h = el("h3", null, t(key));
+    h.appendChild(el("span", "beta-tag", t("sim.beta")));
+    return h;
+  };
+
+  // A receptor / target panel's "Effects" section (BETA): one row per receptor_effect
+  // node, "<effect> · <mode>" with that node's own pill. Folded on its own (the
+  // shared foldSections), so the beta content starts collapsed. Nothing when the
+  // owner carries no sourced effect.
+  const appendEffects = (rows) => {
+    if (!rows || !rows.length) return;
+    const sec = el("div", "info-locations info-effects");
+    sec.dataset.tourSec = "effects";
+    sec.appendChild(betaHeading("effects.heading"));
+    sec.appendChild(el("p", "legend-caption", t("effects.hint")));
+    const ul = el("ul");
+    for (const e of rows) {
+      const li = el("li");
+      li.appendChild(el("span", "loc-name", e.label));
+      li.appendChild(el("span", "eff-mode", e.modeLabel));
+      li.appendChild(sourceBackedPill(e.provenance, e));
+      ul.appendChild(li);
+    }
+    sec.appendChild(ul);
+    const host = el("div");
+    host.appendChild(sec);
+    foldSections(host);
+    body.appendChild(host.firstElementChild);
+  };
+
+  // The drug panel's derived "Possible effects via its bindings" (BETA): the drug's
+  // directional bindings joined with the receptor_effect nodes of their targets
+  // (js/receptor-effects.js). Computed, never stored, and worded conditionally: it
+  // says what acting on these receptors can cause, never that this drug does. Each
+  // "via" chip names the binding, jumps to its target and carries the effect node's
+  // own pill. Folded with the rest of the drug panel by its final foldSections.
+  const appendPossibleEffects = (drug) => {
+    const effects = derivePossibleEffects(
+      drug.bindings, (tid) => data.effectsByTarget.get(tid) || [], data.meta.effectModes);
+    if (!effects.length) return;
+    const sec = el("div", "info-locations info-effects");
+    sec.dataset.tourSec = "effects";
+    sec.appendChild(betaHeading("effects.drugHeading"));
+    sec.appendChild(el("p", "legend-caption", t("effects.drugHint")));
+    const ul = el("ul");
+    for (const e of effects) {
+      const li = el("li", "eff-row");
+      li.appendChild(el("span", "loc-name", t("effects.couldCause", { effect: e.label })));
+      const via = el("span", "eff-via");
+      for (const { binding, node } of e.via) {
+        const tgt = targetById.get(binding.target);
+        const chip = el("button", "eff-chip",
+          `${binding.targetName} (${binding.actionLabel || binding.action})`);
+        chip.type = "button";
+        if (tgt && tgt.focusable) chip.addEventListener("click", () => onTargetPick(tgt));
+        else chip.disabled = true;
+        const wrap = el("span", "eff-via-item");
+        wrap.append(chip, sourceBackedPill(node.provenance, node));
+        via.appendChild(wrap);
+      }
+      li.appendChild(via);
+      ul.appendChild(li);
+    }
+    sec.appendChild(ul);
+    body.appendChild(sec);
+  };
+
   // One route endpoint (a structure id) for the connection panel's route line: its
   // name, made clickable to jump to (and isolate) that structure when the id
   // resolves to a modeled mesh, exactly like a "Found in" region row. A non-
@@ -3852,6 +3923,7 @@ function createInfoPanel(data, sourcingModal) {
           receptor.locationInfo, receptor.densityInfo));
       }
       body.appendChild(where);
+      appendEffects(receptor.effectInfo);
 
       // Drugs that act on this receptor, grouped by category.
       appendInteractingDrugs(receptor.id);
@@ -3929,6 +4001,7 @@ function createInfoPanel(data, sourcingModal) {
           target.locationInfo, target.densityInfo));
       }
       body.appendChild(where);
+      appendEffects(target.effectInfo);
 
       // Drugs that act on this target, grouped by category.
       appendInteractingDrugs(target.id);
@@ -4449,6 +4522,7 @@ function createInfoPanel(data, sourcingModal) {
         acts.appendChild(ul);
       }
       body.appendChild(acts);
+      appendPossibleEffects(drug);
 
       // Active metabolites: one row per metabolite (its own sourced identity node).
       // A metabolite that is itself a modeled drug links to it (jump via onDrugPick);
@@ -5951,6 +6025,7 @@ const KIND_LABELS = {
   target_polarity: "about.kindTargetPolarity",
   target_locations: "about.kindTargetLocations",
   target_density: "about.kindTargetDensity",
+  receptor_effect: "about.kindReceptorEffect",
   structures: "about.kindStructures",
 };
 
@@ -6428,6 +6503,11 @@ function buildKindExample(kind, data, nav) {
       const den = pick(otherTargets, (t2) => t2.densityInfo);
       const top = den && den.densityInfo && Object.keys(den.densityInfo.profile)[0];
       return top ? line(den.name, baseLabel(top), () => nav.target(den)) : null;
+    }
+    case "receptor_effect": {
+      const eff = pick(recTargets, (t2) => (t2.effectInfo || []).length);
+      const e = eff && (eff.effectInfo || [])[0];
+      return e ? line(eff.name, `${e.label} (${e.modeLabel})`, () => nav.target(eff)) : null;
     }
     case "target_polarity": {
       const pol = pick(otherTargets, (t2) =>

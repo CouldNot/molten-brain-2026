@@ -10,6 +10,8 @@
 // NOTE: because these are fetch()ed, the site must be served over http(s); see
 // CLAUDE.md ("Running"). Opening index.html via file:// will fail CORS.
 //
+import { resolveEffects } from "./receptor-effects.js";
+
 // Repeat-visit speed/offline resilience for these files is handled by the service
 // worker (stale-while-revalidate for /data/*, see public/sw.js), not here.
 
@@ -1584,6 +1586,22 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     });
   }
 
+  // receptor_effect nodes (BETA): target id -> resolved effect rows, for the
+  // receptor / target panel's Effects section and the drug panel's derived join
+  // (js/receptor-effects.js). A receptor-linked target reads its receptor's record.
+  const effectModes = Object.fromEntries(Object.entries(metaRecord.receptor_effect_modes || {})
+    .map(([k, v]) => [k, { label: localize(v.label), actions: v.actions || [] }]));
+  const effectLabels = localizeMap(metaRecord.receptor_effect_labels);
+  const effectsByTarget = new Map();
+  for (const tgt of targets) {
+    const raw = tgt.receptor ? tgt.receptor.effects : (drugTargets[tgt.id] || {}).effects;
+    const rows = resolveEffects(raw, effectModes, effectLabels)
+      .map((e) => ({ ...e, sources: mapSources(e.sources) }));
+    tgt.effectInfo = rows;
+    if (tgt.receptor) tgt.receptor.effectInfo = rows;
+    if (rows.length) effectsByTarget.set(tgt.id, rows);
+  }
+
   // The reverse of a receptor's "Found in": region base -> the targets expressed
   // there. Same node, read from the other end (the expression claim belongs to the
   // (target, region) pair, not to the target), so each entry carries THAT region's
@@ -1689,6 +1707,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     pkInteractionsOf,
     addons,
     addonsBySlot,
+    effectsByTarget,
     byId,
     meta: {
       projectionColors,
@@ -1712,6 +1731,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       addonSlots,
       addonTones,
       quotePipelines,
+      effectModes,
     },
   };
 }

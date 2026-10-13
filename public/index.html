@@ -2232,6 +2232,19 @@
       /* A region row that resolves to a modeled structure jumps to it on click. */
       .info-locations li.clickable { cursor: pointer; }
       .info-locations li.clickable:hover { color: var(--accent-bright); }
+      /* receptor_effect rows (BETA): "<effect>  <mode>" + the node's pill on a
+         receptor / target panel; on a drug panel, "could cause <effect>" then one
+         "via" chip per binding (jumps to the target) with that effect node's pill. */
+      .info-effects .eff-mode { font-size: 10px; color: var(--muted); white-space: nowrap; }
+      .info-effects li.eff-row { flex-wrap: wrap; align-items: baseline; }
+      .info-effects .eff-via { display: flex; flex-wrap: wrap; gap: 2px 10px; flex: 1 1 100%; padding-left: 10px; }
+      .info-effects .eff-via-item { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; }
+      .info-effects .eff-chip {
+        background: none; border: none; padding: 0; font: inherit;
+        color: var(--accent-bright); cursor: pointer; text-align: left;
+      }
+      .info-effects .eff-chip:hover { color: var(--accent-light); }
+      .info-effects .eff-chip:disabled { color: var(--muted); cursor: default; }
       /* Anatomical-group sub-headings inside the "Found in" list (one per group, in
          the Structures-legend order): a level below the section's h3, with top space
          so each group reads as its own block (which also spreads the pills apart). */
