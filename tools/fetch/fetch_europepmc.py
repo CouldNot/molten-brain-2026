@@ -143,6 +143,26 @@ PAPERS: dict[str, str] = {
     "19890256": "sibutramine metabolites M1/M2 inhibit SERT + NET (human PET)",
     "15111248": "sibutramine metabolites inhibit dopamine reuptake (rat + mouse)",
     "34204205": "disulfiram -> diethyldithiocarbamate, its active metabolite (review)",
+    # Receptor / transporter availability across age and sex (kind receptor_demographic):
+    # human PET / SPECT only, what no book on disk measures.
+    "28599217": "D1, D2, DAT decline with age, synthesis does not (meta-analysis, human PET)",
+    "8684263": "D2 decline with age in thalamus + temporal cortex (human PET)",
+    "8797238": "D2 decline with age, raclopride vs NMSP (human PET)",
+    "7475891": "5-HT2 + D2 availability decline with age (human PET)",
+    "11016537": "extrastriatal D2/D3 decline with age (human PET)",
+    "9619148": "striatal D2 binding differs by sex (human PET)",
+    "8053661": "DAT decline with age (human PET)",
+    "7790941": "striatal DAT decline with age (human SPECT)",
+    "10952500": "DAT decline with age, sex difference (human SPECT)",
+    "21849982": "5-HT1A + 5-HT2A binding by age and sex (human PET)",
+    "11282252": "5-HT1A decline with age (human PET)",
+    "12414100": "5-HT1A by sex and age (human PET)",
+    "18036835": "5-HT1A + SERT sex differences (human PET)",
+    "10924762": "SERT decline with age (human SPECT)",
+    "9330975": "MAO-B increase with age (human PET)",
+    "10360121": "mu-opioid binding by age and sex (human PET)",
+    "18077184": "CB1 binding increases with age, by sex (human PET)",
+    "19728366": "NET availability with age (human PET)",
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"

@@ -216,6 +216,7 @@ from data_generators.unknown import apply_unknown  # noqa: E402
 # the RECEPTORS use-site below.
 from data_generators import receptor_effects as REFFECTS  # noqa: E402 (receptor_effect, BETA)
 from data_generators import release_modulation as RELMOD  # noqa: E402 (BETA)
+from data_generators import demographics as DEMOG  # noqa: E402 (receptor_demographic, BETA)
 from data_generators.receptors import RECEPTORS  # noqa: E402
 
 # HGNC gene symbol per receptor / target, re-exported from the fetchers that own the
@@ -687,6 +688,11 @@ def _receptor_record(rec: dict[str, Any],
     modulation = RELMOD.modulation_nodes(rec, RELMOD.load_cache(), known_bases)
     if modulation:
         out["release_modulation"] = modulation
+    # Availability across age and sex (kind receptor_demographic, BETA): one node per
+    # (factor, direction, structure), each quoting a human PET / SPECT abstract.
+    demog = DEMOG.demographic_nodes(rec["id"], DEMOG.load_cache(), "Receptor", known_bases)
+    if demog:
+        out["demographics"] = demog
     if "description" in rec:
         out["description"] = {"en": rec["description"], "fr": rec["description_fr"]}
     if "wikipedia" in rec:
@@ -862,6 +868,10 @@ def _build_drug_targets(receptors: list[dict[str, Any]]) -> dict[str, dict[str, 
         teff = REFFECTS.effect_nodes(tid, REFFECTS.load_cache(), "Target")
         if teff:
             targets[tid]["effects"] = teff
+        # ... and its availability across age and sex (kind receptor_demographic, BETA).
+        tdem = DEMOG.demographic_nodes(tid, DEMOG.load_cache(), "Target")
+        if tdem:
+            targets[tid]["demographics"] = tdem
         if spec.get("wikipedia"):
             targets[tid]["wikipedia"] = spec["wikipedia"]
             targets[tid]["wikipedia_provenance"] = _wiki_provenance(tid)
@@ -1965,6 +1975,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # receptor_release_modulation vocabularies (BETA): kinds, cells, transmitters
         # (+ the receptor-system name each joins on). See data_generators/release_modulation.py.
         **RELMOD.meta_vocab(),
+        # receptor_demographic vocabularies (BETA): factor -> {label, directions}.
+        # See data_generators/demographics.py.
+        **DEMOG.meta_vocab(),
         # Source corpora the per-binding (and later per-field) drug sources cite,
         # keyed by id (see SOURCE_CORPORA). The viewer reads citation/url to render
         # each binding's source; check_data.py reads pages_dir to confirm quotes.

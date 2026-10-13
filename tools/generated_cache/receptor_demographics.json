@@ -1,0 +1,307 @@
+{
+ "5ht1a": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "approximately 10% per decade",
+    "page": "11282252",
+    "provenance": "verified",
+    "quote": "Overall, cortical 5-HT(1A) BP declined by approximately 10% per decade, except for the MTC, where we did not find a significant age effect."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "11282252",
+    "provenance": "verified",
+    "quote": "Voxelwise analysis revealed a significant global decrease of 5-HT(1A) BP with age (set level <.001)."
+   }
+  ],
+  "age:decrease:raphe": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "4.5% per decade of age",
+    "page": "21849982",
+    "provenance": "verified",
+    "quote": "Raphe 5HT1A receptor BP decreased 4.5% per decade of age (p=0.05), primarily in men."
+   }
+  ],
+  "age:no_difference:-": [
+   {
+    "corpus": "europepmc",
+    "page": "12414100",
+    "provenance": "verified",
+    "quote": "No significant correlation between age and BP was detected in any brain region."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "12414100",
+    "provenance": "verified",
+    "quote": "We did not detect an age dependent decrease in binding in males or females."
+   }
+  ],
+  "sex:higher_in_female:-": [
+   {
+    "corpus": "europepmc",
+    "page": "18036835",
+    "provenance": "verified",
+    "quote": "Compared to men, women had significantly higher 5-HT(1A) receptor and lower 5-HTT binding potentials in a wide array of cortical and subcortical brain regions."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "12414100",
+    "provenance": "verified",
+    "quote": "MANOVA of the first three principle components demonstrated a significantly higher BP in females compared with males (P=0.0127)."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "12414100",
+    "provenance": "verified",
+    "quote": "We have replicated our post-mortem finding of higher 5-HT(1A) binding in females compared to males."
+   }
+  ]
+ },
+ "5ht2a": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "8% per decade",
+    "page": "21849982",
+    "provenance": "verified",
+    "quote": "The significant decline in 5HT2A receptor BP relative to age (8% per decade; p<0.001) was not related to sex or hormone concentrations."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "7475891",
+    "provenance": "verified",
+    "quote": "5-HT2 Receptor availability decreased significantly with age."
+   }
+  ]
+ },
+ "cb1": {
+  "sex:higher_in_male:-": [
+   {
+    "corpus": "europepmc",
+    "page": "18077184",
+    "provenance": "verified",
+    "quote": "Men showed higher [(18)F]MK-9470 binding then women (p<0.001, uncorrected), in clusters of the limbic system and cortico-striato-thalamic-cortical circuit."
+   }
+  ]
+ },
+ "d1": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "page": "28599217",
+    "provenance": "verified",
+    "quote": "Age had a significantly larger effect on D1- than D2-like receptors."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "28599217",
+    "provenance": "verified",
+    "quote": "Results revealed significant moderate to large, negative effects of age on DA transporters and receptors."
+   }
+  ]
+ },
+ "d2": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "page": "8797238",
+    "provenance": "verified",
+    "quote": "Both ligands documented significant age-related decreases in dopamine D2 receptors that occurred relatively early in life (40 years of age)."
+   },
+   {
+    "corpus": "europepmc",
+    "magnitude": "loss per decade corresponded to 7.9%",
+    "page": "8797238",
+    "provenance": "verified",
+    "quote": "Estimates of dopamine D2 receptor loss per decade corresponded to 7.9% for the 11C-raclopride study and 7.8% for the NMS study."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "7475891",
+    "provenance": "verified",
+    "quote": "Dopamine D2 receptors were also found to decrease significantly with age (r = 0.63, p < or = 0.007)."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "9619148",
+    "provenance": "verified",
+    "quote": "Conclusions These results confirm the age-related reduction of D2 receptor density and binding potential in both sexes in vivo."
+   }
+  ],
+  "age:decrease:caudate": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "6.6% per decade in caudate",
+    "page": "8684263",
+    "provenance": "verified",
+    "quote": "The decrease in DA D2 receptor availability was 6.6% per decade in caudate, 8.2% in putamen, 7.6% in thalamus and 13% in temporal insula."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "8684263",
+    "provenance": "verified",
+    "quote": "Correlations between age and D2 receptors were significant in putamen (r = -0.58, p < or = 0.0001), caudate (r = -0.54, p < or = 0.0002), thalamus (r = -0.33, p < or = 0.03) and temporal insula (r = -0.39, p < or = 0.01) but not in any of the frontal regions."
+   }
+  ],
+  "age:decrease:cingulate": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "decline of 13% per increase of a decade in age",
+    "page": "11016537",
+    "provenance": "verified",
+    "quote": "Significant age-related declines of D2/3Rs were detected in all the brain regions studied: the anterior cingulate cortex (decline of 13% per increase of a decade in age, P < 0.001). the frontal cortex (11%, P < 0.001), the lateral temporal cortex (10%, P < 0.001), the hippocampus (10%, P < 0.01), the medial temporal cortex (9%, P < 0.001), the amygdala (7%, P < 0.01), the medial thalamus (6%, P < 0.001) and the lateral thalamus (5%, P < 0.01)."
+   }
+  ],
+  "age:decrease:putamen": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "8.2% in putamen",
+    "page": "8684263",
+    "provenance": "verified",
+    "quote": "The decrease in DA D2 receptor availability was 6.6% per decade in caudate, 8.2% in putamen, 7.6% in thalamus and 13% in temporal insula."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "8684263",
+    "provenance": "verified",
+    "quote": "Correlations between age and D2 receptors were significant in putamen (r = -0.58, p < or = 0.0001), caudate (r = -0.54, p < or = 0.0002), thalamus (r = -0.33, p < or = 0.03) and temporal insula (r = -0.39, p < or = 0.01) but not in any of the frontal regions."
+   }
+  ],
+  "age:decrease:thalamus": [
+   {
+    "corpus": "europepmc",
+    "magnitude": "7.6% in thalamus",
+    "page": "8684263",
+    "provenance": "verified",
+    "quote": "The decrease in DA D2 receptor availability was 6.6% per decade in caudate, 8.2% in putamen, 7.6% in thalamus and 13% in temporal insula."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "8684263",
+    "provenance": "verified",
+    "quote": "This study indicates that D2 losses with age are not limited to striatum and involve also thalamic as well as temporal cortical regions."
+   }
+  ]
+ },
+ "dat": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "page": "8053661",
+    "provenance": "verified",
+    "quote": "This results document an age-related decline in dopamine transporters in healthy individuals."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "10952500",
+    "provenance": "verified",
+    "quote": "The results of this study are consistent with findings from previous studies, which showed that dopamine transporter density declines with age."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "7790941",
+    "provenance": "verified",
+    "quote": "V3\" showed a significant inverse correlation with age (r = -0.73, n = 28, p Conclusion These findings confirm postmortem reports of dopamine transporter loss with aging."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "28599217",
+    "provenance": "verified",
+    "quote": "Results revealed significant moderate to large, negative effects of age on DA transporters and receptors."
+   }
+  ],
+  "sex:higher_in_female:-": [
+   {
+    "corpus": "europepmc",
+    "page": "10952500",
+    "provenance": "verified",
+    "quote": "The intriguing finding of a higher dopamine transporter density in females than in males is in line with findings from animal studies."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "10952500",
+    "provenance": "verified",
+    "quote": "Finally, females were found to have significantly higher [123I]FP-CIT binding ratios than males."
+   }
+  ]
+ },
+ "mao_b": {
+  "age:increase:-": [
+   {
+    "corpus": "europepmc",
+    "page": "9330975",
+    "provenance": "verified",
+    "quote": "Although the age-related increase in brain MAO B in living subjects is consistent with postmortem reports, the degree of increase is generally lower."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "9330975",
+    "provenance": "verified",
+    "quote": "Several studies of human brain postmortem report that monoamine oxidase B (MAO B) increases with age and it has been proposed that this increase reflects age-associated increases in glial cells."
+   }
+  ]
+ },
+ "mu": {
+  "age:increase:-": [
+   {
+    "corpus": "europepmc",
+    "page": "10360121",
+    "provenance": "verified",
+    "quote": "Results Mu-opioid receptor binding potential (Bmax/Kd) was found to increase with age in neocortical areas and the putamen."
+   }
+  ],
+  "sex:higher_in_female:-": [
+   {
+    "corpus": "europepmc",
+    "page": "10360121",
+    "provenance": "verified",
+    "quote": "Sex differences, with higher mu-opioid binding in women, were observed in a number of cortical and subcortical areas."
+   }
+  ]
+ },
+ "net": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "page": "19728366",
+    "provenance": "verified",
+    "quote": "The BP(ND) was significantly increased in thalamus (27%; P Conclusion Our results suggest that (a) brain NET concentration declines with age in HC, and (b) there is a significant upregulation of NET in thalamus and dorsomedial thalamic nucleus in COC as compared to HC."
+   }
+  ],
+  "age:decrease:locus_coeruleus": [
+   {
+    "corpus": "europepmc",
+    "page": "19728366",
+    "provenance": "verified",
+    "quote": "Results Locus coeruleus (LC), hypothalamus, and pulvinar showed a significant inverse correlation with age among HC (age range = 25-54 years; P = 0.04, 0.009, 0.03 respectively)."
+   }
+  ]
+ },
+ "sert": {
+  "age:decrease:-": [
+   {
+    "corpus": "europepmc",
+    "page": "10924762",
+    "provenance": "verified",
+    "quote": "These results demonstrate reductions in the availability of central SERT binding sites with age in living human subjects."
+   },
+   {
+    "corpus": "europepmc",
+    "magnitude": "approximately 4.2% per decade",
+    "page": "10924762",
+    "provenance": "verified",
+    "quote": "Linear regression analysis revealed that V(3)\" declined by 29.5% over the age range 18 to 88, or approximately 4.2% per decade."
+   }
+  ],
+  "sex:higher_in_male:-": [
+   {
+    "corpus": "europepmc",
+    "page": "18036835",
+    "provenance": "verified",
+    "quote": "Compared to men, women had significantly higher 5-HT(1A) receptor and lower 5-HTT binding potentials in a wide array of cortical and subcortical brain regions."
+   }
+  ]
+ }
+}

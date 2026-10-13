@@ -143,7 +143,7 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "receptor_class", "receptor_sign", "receptor_synaptic",
               "receptor_locations", "receptor_density", "targets", "target_polarity",
               "target_locations", "target_density", "receptor_effect",
-              "receptor_release_modulation",
+              "receptor_release_modulation", "receptor_demographic",
               "structures")
 
 
@@ -1528,6 +1528,25 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for i, src in enumerate(n.get("sources") or []):
                 check_one(f"{where} sources[{i}]", src)
 
+    def check_demographics(ctx, owner):
+        """receptor_demographic nodes (BETA): the closed vocabulary the applier and the
+        emitter enforce (``demographics.vocab_error``), a magnitude verbatim in one of
+        its own quotes, one quote at least, each quote gated like any other."""
+        for n in owner.get("demographics") or []:
+            f = {k: n.get(k) for k in ("factor", "direction", "structure")}
+            where = f"{ctx} demographics[{DEMOG.node_key(**f)}]"
+            why = DEMOG.vocab_error(f, structure_bases)
+            if why:
+                report.error(f"{where}: {why}")
+            if not n.get("sources"):
+                report.error(f"{where}: a demographic node with no source")
+            mag = n.get("magnitude")
+            if mag and not any(normalize_for_match(mag) in normalize_for_match(s.get("quote") or "")
+                               for s in n.get("sources") or []):
+                report.error(f"{where}: magnitude {mag!r} is in none of its quotes")
+            for i, src in enumerate(n.get("sources") or []):
+                check_one(f"{where} sources[{i}]", src)
+
     for s in structures:
         for i, src in enumerate(s.get("sources", []) or []):
             check_one(f"structure {s.get('id')} sources[{i}]", src)
@@ -1549,6 +1568,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             check_one(f"receptor {r.get('id')} density sources[{i}]", src)
         check_effects(f"receptor {r.get('id')}", r, is_receptor=True)
         check_release_modulation(r)
+        check_demographics(f"receptor {r.get('id')}", r)
 
     for tid, tinfo in (meta.get("drug_targets", {}) or {}).items():
         if isinstance(tinfo, dict):
@@ -1563,6 +1583,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for i, src in enumerate((tinfo.get("density") or {}).get("sources") or []):
                 check_one(f"target {tid} density sources[{i}]", src)
             check_effects(f"target {tid}", tinfo, is_receptor=False)
+            check_demographics(f"target {tid}", tinfo)
 
     # Metabolizer-status profiles hang off `meta.enzymes`, not off any node file, so
     # they are reached from here rather than by the walks above. The page lookup stands
@@ -2057,6 +2078,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators import cpic, freshness, pharmfreq, unknown  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402
+from data_generators import demographics as DEMOG  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the
 # grade and quote walks cannot skip a formulation's claims).
 from data_generators.provenance import product_holders  # noqa: E402

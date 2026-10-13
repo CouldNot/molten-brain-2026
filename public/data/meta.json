@@ -349,6 +349,40 @@
           "grade": "verified"
         }
       ],
+      "demographics": [
+        {
+          "factor": "age",
+          "direction": "decrease",
+          "structure": null,
+          "sources": [
+            {
+              "quote_id": "q_9dcbfdfe9c3f",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_b59999cb5589",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified",
+          "magnitude": "approximately 4.2% per decade"
+        },
+        {
+          "factor": "sex",
+          "direction": "higher_in_male",
+          "structure": null,
+          "sources": [
+            {
+              "quote_id": "q_9cd345b9d1e2",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Serotonin_transporter",
       "wikipedia_provenance": "sourced",
       "gene": "SLC6A4",
@@ -424,6 +458,34 @@
           "sources": [
             {
               "quote_id": "q_fe6103d67833",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
+      "demographics": [
+        {
+          "factor": "age",
+          "direction": "decrease",
+          "structure": null,
+          "sources": [
+            {
+              "quote_id": "q_2789d424e406",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "factor": "age",
+          "direction": "decrease",
+          "structure": "locus_coeruleus",
+          "sources": [
+            {
+              "quote_id": "q_999c9def2cb3",
               "pipeline": "page_llm_judged",
               "provenance": "verified"
             }
@@ -537,6 +599,54 @@
             },
             {
               "quote_id": "q_f617d09de9c1",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
+      "demographics": [
+        {
+          "factor": "age",
+          "direction": "decrease",
+          "structure": null,
+          "sources": [
+            {
+              "quote_id": "q_c7fdfb66843e",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_4003c57e8c1c",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_ba23cf159b77",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_20b32a3763a6",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        },
+        {
+          "factor": "sex",
+          "direction": "higher_in_female",
+          "structure": null,
+          "sources": [
+            {
+              "quote_id": "q_5c047eeaad13",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_258eed36da6d",
               "pipeline": "page_llm_judged",
               "provenance": "verified"
             }
@@ -1057,6 +1167,26 @@
           }
         ]
       },
+      "demographics": [
+        {
+          "factor": "age",
+          "direction": "increase",
+          "structure": null,
+          "sources": [
+            {
+              "quote_id": "q_5bbd1afd4c8c",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            },
+            {
+              "quote_id": "q_f5b6682a41b0",
+              "pipeline": "page_llm_judged",
+              "provenance": "verified"
+            }
+          ],
+          "grade": "verified"
+        }
+      ],
       "wikipedia": "https://en.wikipedia.org/wiki/Monoamine_oxidase_B",
       "wikipedia_provenance": "sourced",
       "gene": "MAOB",
@@ -3878,6 +4008,33 @@
       "cell_body"
     ]
   },
+  "demographics": {
+    "factors": {
+      "age": {
+        "label": "Age",
+        "directions": [
+          "decrease",
+          "increase",
+          "no_difference"
+        ]
+      },
+      "sex": {
+        "label": "Sex",
+        "directions": [
+          "higher_in_female",
+          "higher_in_male",
+          "no_difference"
+        ]
+      }
+    },
+    "glyphs": {
+      "decrease": "↓",
+      "increase": "↑",
+      "higher_in_female": "♀ >",
+      "higher_in_male": "♂ >",
+      "no_difference": "="
+    }
+  },
   "source_corpora": {
     "stahl": {
       "ref": "Prescriber's Guide: Stahl's Essential Psychopharmacology, 8th ed.",
@@ -4549,6 +4706,16 @@
         "missing": 0,
         "unknown": 0
       },
+      "receptor_demographic": {
+        "total": 21,
+        "verified": 21,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "structures": {
         "total": 57,
         "verified": 57,
@@ -4571,15 +4738,15 @@
       }
     },
     "nodes": {
-      "total": 7824,
-      "verified": 7092,
+      "total": 7845,
+      "verified": 7113,
       "uncertain": 426,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 7518,
+      "backed": 7539,
       "pct_backed": 96
     },
     "ki_coverage": {

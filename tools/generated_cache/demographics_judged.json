@@ -1,0 +1,219 @@
+{
+ "owners": {
+  "d1": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "picks": [
+     3,
+     2
+    ]
+   }
+  ],
+  "d2": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "magnitude": "loss per decade corresponded to 7.9%",
+    "picks": [
+     19,
+     18,
+     22,
+     32
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": "caudate",
+    "magnitude": "6.6% per decade in caudate",
+    "picks": [
+     12,
+     11
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": "putamen",
+    "magnitude": "8.2% in putamen",
+    "picks": [
+     12,
+     11
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": "thalamus",
+    "magnitude": "7.6% in thalamus",
+    "picks": [
+     12,
+     13
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": "cingulate",
+    "magnitude": "decline of 13% per increase of a decade in age",
+    "picks": [
+     26
+    ]
+   }
+  ],
+  "dat": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "picks": [
+     11,
+     23,
+     14,
+     2
+    ]
+   },
+   {
+    "factor": "sex",
+    "direction": "higher_in_female",
+    "structure": null,
+    "picks": [
+     24,
+     21
+    ]
+   }
+  ],
+  "5ht1a": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "magnitude": "approximately 10% per decade",
+    "picks": [
+     16,
+     14
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": "raphe",
+    "magnitude": "4.5% per decade of age",
+    "picks": [
+     4
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "no_difference",
+    "structure": null,
+    "picks": [
+     20,
+     25
+    ]
+   },
+   {
+    "factor": "sex",
+    "direction": "higher_in_female",
+    "structure": null,
+    "picks": [
+     30,
+     21,
+     24
+    ]
+   }
+  ],
+  "5ht2a": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "magnitude": "8% per decade",
+    "picks": [
+     10,
+     1
+    ]
+   }
+  ],
+  "sert": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "magnitude": "approximately 4.2% per decade",
+    "picks": [
+     5,
+     4
+    ]
+   },
+   {
+    "factor": "sex",
+    "direction": "higher_in_male",
+    "structure": null,
+    "picks": [
+     10
+    ]
+   }
+  ],
+  "net": [
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": null,
+    "picks": [
+     1
+    ]
+   },
+   {
+    "factor": "age",
+    "direction": "decrease",
+    "structure": "locus_coeruleus",
+    "picks": [
+     0
+    ]
+   }
+  ],
+  "mao_b": [
+   {
+    "factor": "age",
+    "direction": "increase",
+    "structure": null,
+    "picks": [
+     3,
+     0
+    ]
+   }
+  ],
+  "mu": [
+   {
+    "factor": "age",
+    "direction": "increase",
+    "structure": null,
+    "picks": [
+     5
+    ]
+   },
+   {
+    "factor": "sex",
+    "direction": "higher_in_female",
+    "structure": null,
+    "picks": [
+     6
+    ]
+   }
+  ],
+  "cb1": [
+   {
+    "factor": "sex",
+    "direction": "higher_in_male",
+    "structure": null,
+    "picks": [
+     3
+    ]
+   }
+  ]
+ }
+}

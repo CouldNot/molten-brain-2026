@@ -1,1 +1,32 @@
-[]
+[
+ {
+  "qid": "q_e73e8c950064",
+  "corpus": "europepmc",
+  "page": "18077184",
+  "heading": null,
+  "present": true,
+  "supports": false,
+  "quote": "We found that [(18)F]MK-9470 binding to CB1R increased with aging but only in women (p(FWE)<0.05, corrected for multiple comparisons); this was most pronounced in the basal ganglia, lateral temporal cortex and limbic system, especially in the hippocampus.",
+  "claims": [
+   "receptor:cb1/demographics[age:increase:-] | Receptor CB1: its brain availability / binding (PET, SPECT or post-mortem) INCREASES with age, measured in humans. Reject an animal-only statement, or a sentence about a different receptor / transporter than CB1."
+  ],
+  "note": "CB1 binding increased with aging ONLY in women; an unqualified 'CB1 increases with age' overstates a sex-restricted finding (men showed no age increase)"
+ },
+ {
+  "qid": "q_21c6860df3bf",
+  "corpus": "europepmc",
+  "page": "11016537",
+  "heading": null,
+  "present": true,
+  "supports": true,
+  "quote": "Significant age-related declines of D2/3Rs were detected in all the brain regions studied: the anterior cingulate cortex (decline of 13% per increase of a decade in age, P < 0.001). the frontal cortex (11%, P < 0.001), the lateral temporal cortex (10%, P < 0.001), the hippocampus (10%, P < 0.01), the medial temporal cortex (9%, P < 0.001), the amygdala (7%, P < 0.01), the medial thalamus (6%, P < 0.001) and the lateral thalamus (5%, P < 0.01).",
+  "claims": [
+   "receptor:d2/demographics[age:decrease:cingulate] | Receptor D2: its brain availability / binding (PET, SPECT or post-mortem) in the cingulate DECREASES with age (by decline of 13% per increase of a decade in age), measured in humans. Reject an animal-only statement, or a sentence about a different receptor / transporter than D2.",
+   "receptor:d3/demographics[age:decrease:cingulate] | Receptor D3: its brain availability / binding (PET, SPECT or post-mortem) in the cingulate DECREASES with age (by decline of 13% per increase of a decade in age), measured in humans. Reject an animal-only statement, or a sentence about a different receptor / transporter than D3."
+  ],
+  "note": "[11C]FLB 457 is D2/3-nonselective; cortical signal reasonably read as D2 (13%/decade ACC), but the sentence cannot attribute a decline to D3 specifically (D3 sparse in cortex)",
+  "sites": [
+   "receptor:d3/demographics[age:decrease:cingulate]"
+  ]
+ }
+]

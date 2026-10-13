@@ -130,6 +130,7 @@ KIND_LABELS = {
     "target_density": "Target relative amount per region",
     "receptor_effect": "Receptor clinical effects (beta)",
     "receptor_release_modulation": "Receptor release modulation (beta)",
+    "receptor_demographic": "Receptor availability across age and sex (beta)",
     "enzyme_variability": "Enzyme population variability",
     "structures": "Brain-region anatomy",
     "addons": "Panel annotations",

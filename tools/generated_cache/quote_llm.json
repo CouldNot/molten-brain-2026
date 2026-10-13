@@ -1015,6 +1015,9 @@
 "q_1ac87e2f3db8": {
 "drug:pipothiazine/brands[Piportil]": "sonnet"
 },
+"q_1ad6a720caa0": {
+"receptor:d2/demographics[age:decrease:-]": "opus"
+},
 "q_1ae3e9ff3361": {
 "drug:hydroxyzine/bindings[h1:antagonist]": "sonnet"
 },
@@ -1240,6 +1243,10 @@
 "group:kind:excitatory": "sonnet",
 "group:sign:excitatory": "sonnet"
 },
+"q_20b32a3763a6": {
+"receptor:d1/demographics[age:decrease:-]": "opus",
+"target:dat/demographics[age:decrease:-]": "opus"
+},
 "q_20b39098673f": {
 "drug:sulpiride/bindings[alpha1a:antagonist]": "sonnet",
 "drug:sulpiride/bindings[alpha1b:antagonist]": "sonnet",
@@ -1295,6 +1302,9 @@
 },
 "q_21ae7ca9a6cf": {
 "drug:biperiden/brands[Akineton]": "sonnet"
+},
+"q_21c6860df3bf": {
+"receptor:d2/demographics[age:decrease:cingulate]": "opus"
 },
 "q_21d40310a021": {
 "drug:protriptyline/first_approval": "opus"
@@ -1467,6 +1477,9 @@
 "q_256690b05ae0": {
 "drug:cariprazine/nbn": "sonnet"
 },
+"q_258eed36da6d": {
+"target:dat/demographics[sex:higher_in_female:-]": "opus"
+},
 "q_25c5e5a6b44e": {
 "receptor:alpha1a/classification[family]": "sonnet",
 "receptor:alpha1b/classification[family]": "sonnet",
@@ -1521,6 +1534,9 @@
 },
 "q_278584d067d5": {
 "projection:temporal_L->temporal_R": "sonnet"
+},
+"q_2789d424e406": {
+"target:net/demographics[age:decrease:-]": "opus"
 },
 "q_27b0c573ffa5": {
 "drug:nefazodone/first_approval": "opus"
@@ -1710,6 +1726,9 @@
 },
 "q_2d29a1511f4d": {
 "drug:sibutramine/tmax": "sonnet"
+},
+"q_2d2dc9256527": {
+"receptor:d2/demographics[age:decrease:-]": "opus"
 },
 "q_2d5f547776b4": {
 "receptor:5ht2c/effects[antagonism:weight_gain]": "opus"
@@ -2035,6 +2054,9 @@
 "q_3707a5a56179": {
 "drug:oxycodone/metabolites[oxymorphone]": "opus"
 },
+"q_371d45d98eff": {
+"receptor:5ht1a/demographics[age:decrease:raphe]": "opus"
+},
 "q_3727c90bdb83": {
 "drug:phentermine/withdrawals[uk:2000]": "opus"
 },
@@ -2336,6 +2358,9 @@
 "q_3fbc3ce85e37": {
 "drug:amantadine/first_approval": "opus"
 },
+"q_4003c57e8c1c": {
+"target:dat/demographics[age:decrease:-]": "opus"
+},
 "q_40040ba6c987": {
 "drug:flumazenil/brands[Lanexat]": "sonnet"
 },
@@ -2397,6 +2422,9 @@
 },
 "q_414271e9140f": {
 "drug:mianserin/categories": "sonnet"
+},
+"q_4149df36f754": {
+"receptor:5ht1a/demographics[sex:higher_in_female:-]": "opus"
 },
 "q_417f60feb5df": {
 "drug:sodium_oxybate/half_life": "sonnet"
@@ -2986,6 +3014,9 @@
 "q_512b4843f642": {
 "drug:triazolam/bindings[gaba_a:pam]": "sonnet"
 },
+"q_51308516a801": {
+"receptor:d1/demographics[age:decrease:-]": "opus"
+},
 "q_51355241a6ad": {
 "drug:dextromethorphanquinidine/bindings[sigma1:agonist]": "sonnet"
 },
@@ -3187,11 +3218,19 @@
 "q_57c9fe5ae9e7": {
 "drug:nortriptyline/categories": "sonnet"
 },
+"q_57cc95796419": {
+"receptor:d2/demographics[age:decrease:caudate]": "opus",
+"receptor:d2/demographics[age:decrease:putamen]": "opus",
+"receptor:d2/demographics[age:decrease:thalamus]": "opus"
+},
 "q_57cf88fbc29a": {
 "drug:pentazocine/half_life": "sonnet"
 },
 "q_57e9abd561b3": {
 "drug:cyamemazine/bindings[5ht3:antagonist]": "opus"
+},
+"q_582ed97d15f4": {
+"receptor:cb1/demographics[sex:higher_in_male:-]": "opus"
 },
 "q_58a043f17645": {
 "drug:lisdexamfetamine/brands[Samexid]": "sonnet"
@@ -3281,6 +3320,9 @@
 "drug:midazolam/formulations[ir]/tmax": "opus",
 "drug:midazolam/tmax": "opus"
 },
+"q_5bbd1afd4c8c": {
+"target:mao_b/demographics[age:increase:-]": "opus"
+},
 "q_5bd51795d3ca": {
 "drug:doxepin/enzymes[cyp1a2:substrate]": "opus",
 "drug:doxepin/enzymes[cyp1a2:substrate]/strength": "opus",
@@ -3296,6 +3338,9 @@
 },
 "q_5bfdc96ebb06": {
 "circuit:bg_indirect": "sonnet"
+},
+"q_5c047eeaad13": {
+"target:dat/demographics[sex:higher_in_female:-]": "opus"
 },
 "q_5c07ce29823a": {
 "metabolite:7_hydroxyamoxapine/bindings[d2:antagonist]": "sonnet"
@@ -4108,6 +4153,9 @@
 "q_70ee3e88ccf9": {
 "drug:methamphetamine/tmax": "sonnet"
 },
+"q_7104d3b1e6b6": {
+"receptor:5ht1a/demographics[age:no_difference:-]": "opus"
+},
 "q_710a55181601": {
 "drug:zolpidem/categories": "sonnet"
 },
@@ -4910,6 +4958,9 @@
 "structure:accumbens_L": "sonnet",
 "structure:accumbens_R": "sonnet"
 },
+"q_872e633278e2": {
+"receptor:5ht1a/demographics[sex:higher_in_female:-]": "opus"
+},
 "q_874a48cd9ef3": {
 "drug:trifluoperazine/bindings[h1:antagonist]": "sonnet"
 },
@@ -5506,6 +5557,10 @@
 "q_96dfd33c1235": {
 "receptor:5ht2a/locations[claustrum]": "sonnet"
 },
+"q_96e89aad5c16": {
+"receptor:d2/demographics[age:decrease:caudate]": "opus",
+"receptor:d2/demographics[age:decrease:putamen]": "opus"
+},
 "q_96e8d366ae32": {
 "drug:naltrexone/formulations[depot]/release": "opus"
 },
@@ -5627,6 +5682,9 @@
 "receptor:m4/classification[receptor_class]": "sonnet",
 "receptor:m5/classification[family]": "sonnet",
 "receptor:m5/classification[receptor_class]": "sonnet"
+},
+"q_999c9def2cb3": {
+"target:net/demographics[age:decrease:locus_coeruleus]": "opus"
 },
 "q_999cc66929f2": {
 "drug:protriptyline/bindings[alpha1a:antagonist]": "sonnet",
@@ -5790,6 +5848,10 @@
 "q_9cc05e3d4d90": {
 "drug:ondansetron/half_life": "sonnet"
 },
+"q_9cd345b9d1e2": {
+"receptor:5ht1a/demographics[sex:higher_in_female:-]": "opus",
+"target:sert/demographics[sex:higher_in_male:-]": "opus"
+},
 "q_9cd474c74b19": {
 "receptor:5ht2a/release_modulation[heteroreceptor:-:glutamatergic_neuron:dopamine:decrease]": "opus"
 },
@@ -5825,6 +5887,9 @@
 },
 "q_9da8bbfee38a": {
 "receptor:ampa/classification[sign]": "opus"
+},
+"q_9dcbfdfe9c3f": {
+"target:sert/demographics[age:decrease:-]": "opus"
 },
 "q_9de78726faad": {
 "drug:clozapine/bindings[d2:antagonist]": "sonnet"
@@ -6146,6 +6211,9 @@
 "q_a55ccb917ebd": {
 "drug:lurasidone/bindings[5ht7:antagonist]": "sonnet"
 },
+"q_a57c1487eab0": {
+"receptor:d2/demographics[age:decrease:thalamus]": "opus"
+},
 "q_a57e96757788": {
 "drug:lurasidone/formulations[ir]/tmax": "opus",
 "drug:lurasidone/tmax": "sonnet"
@@ -6232,6 +6300,9 @@
 },
 "q_a7d7535fdd1c": {
 "drug:phenytoin/formulations[xr]/tmax": "opus"
+},
+"q_a7dead6bd86e": {
+"receptor:mu/demographics[sex:higher_in_female:-]": "opus"
 },
 "q_a7f362ebff43": {
 "drug:modafinil/tmax": "opus"
@@ -6420,6 +6491,9 @@
 },
 "q_ae6b20e581b2": {
 "receptor:kainate/classification[synaptic]": "opus"
+},
+"q_ae7eed596654": {
+"receptor:5ht1a/demographics[age:no_difference:-]": "opus"
 },
 "q_ae88b4a84a82": {
 "drug:trazodone/brands[Desyrel]": "sonnet"
@@ -6720,6 +6794,9 @@
 "q_b598ebb59be7": {
 "drug:phenobarbital/brands[Gardénal]": "sonnet"
 },
+"q_b59999cb5589": {
+"target:sert/demographics[age:decrease:-]": "opus"
+},
 "q_b5ffda82e0cc": {
 "receptor:5ht1b/classification[synaptic]": "sonnet",
 "receptor:5ht1d/classification[synaptic]": "sonnet",
@@ -6899,6 +6976,9 @@
 "q_b9ed21e62773": {
 "projection:raphe->olfactory_bulb_R": "opus",
 "projection:raphe->olfactory_bulb_R/transmitter": "opus"
+},
+"q_ba23cf159b77": {
+"target:dat/demographics[age:decrease:-]": "opus"
 },
 "q_ba6c21f51e5e": {
 "drug:2cb/bindings[sert:reuptake_inhibitor]": "opus"
@@ -7081,6 +7161,9 @@
 "metabolite:o_desmethylvenlafaxine/bindings[net:reuptake_inhibitor]": "sonnet",
 "metabolite:o_desmethylvenlafaxine/bindings[sert:reuptake_inhibitor]": "sonnet"
 },
+"q_bfeedd2dc66e": {
+"receptor:5ht1a/demographics[age:decrease:-]": "opus"
+},
 "q_bff9f45a932c": {
 "drug:brexpiprazole/categories": "sonnet",
 "drug:brexpiprazole/nbn": "sonnet"
@@ -7156,6 +7239,9 @@
 "drug:pimozide/bindings[m3:antagonist]": "sonnet",
 "drug:pimozide/bindings[m4:antagonist]": "sonnet",
 "drug:pimozide/bindings[m5:antagonist]": "sonnet"
+},
+"q_c24b41c24742": {
+"receptor:mu/demographics[age:increase:-]": "opus"
 },
 "q_c2672a4a573b": {
 "drug:pizotifen/bindings[5ht2a:antagonist]": "sonnet",
@@ -7441,6 +7527,9 @@
 },
 "q_c7fa497532e9": {
 "drug:caffeine/tmax": "sonnet"
+},
+"q_c7fdfb66843e": {
+"target:dat/demographics[age:decrease:-]": "opus"
 },
 "q_c80cbe7c0455": {
 "drug:mesoridazine/bindings[5ht2a:antagonist]": "sonnet",
@@ -7741,6 +7830,9 @@
 "q_d12914e69266": {
 "drug:thioridazine/half_life": "opus"
 },
+"q_d14883fae658": {
+"receptor:5ht2a/demographics[age:decrease:-]": "opus"
+},
 "q_d15d68827f29": {
 "drug:methaqualone/brands[Malsedin]": "sonnet"
 },
@@ -7880,6 +7972,9 @@
 "q_d4fe43c45cf5": {
 "receptor:5ht3/release_modulation[heteroreceptor:frontal:gaba_interneuron:acetylcholine:decrease]": "opus",
 "receptor:5ht3/release_modulation[heteroreceptor:frontal:gaba_interneuron:norepinephrine:decrease]": "opus"
+},
+"q_d51193c89a5f": {
+"receptor:d2/demographics[age:decrease:-]": "opus"
 },
 "q_d51cefea1e16": {
 "drug:escitalopram/nbn": "sonnet"
@@ -9015,6 +9110,9 @@
 "q_f2f926660da1": {
 "drug:nalmefene/formulations[injection]/brands[Revex]": "opus"
 },
+"q_f301e8d36887": {
+"receptor:d2/demographics[age:decrease:-]": "opus"
+},
 "q_f3054d1f3c27": {
 "drug:asenapine/categories": "sonnet"
 },
@@ -9033,6 +9131,9 @@
 },
 "q_f372b242d492": {
 "receptor:nmda/classification[sign]": "opus"
+},
+"q_f3779b86c698": {
+"receptor:5ht2a/demographics[age:decrease:-]": "opus"
 },
 "q_f38d36f84dc1": {
 "drug:yohimbine/categories": "sonnet"
@@ -9125,6 +9226,9 @@
 },
 "q_f585ca79dcb1": {
 "drug:phenterminetopiramate/bindings[nav:modulator]": "sonnet"
+},
+"q_f5b6682a41b0": {
+"target:mao_b/demographics[age:increase:-]": "opus"
 },
 "q_f5bb16f2747f": {
 "drug:risperidone/bindings[5ht2a:antagonist]": "sonnet"
@@ -9437,6 +9541,9 @@
 },
 "q_fdbe4a6059d8": {
 "drug:sertraline/brands[Sertralin]": "sonnet"
+},
+"q_fdc78a45d1d7": {
+"receptor:5ht1a/demographics[age:decrease:-]": "opus"
 },
 "q_fde54394fa82": {
 "drug:pimavanserin/categories": "sonnet"

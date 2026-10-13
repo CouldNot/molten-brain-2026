@@ -26,6 +26,7 @@ from data_generators import history as HIST  # noqa: E402
 from data_generators import formulations as FORM  # noqa: E402
 from data_generators import provenance as PROV  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402
+from data_generators import demographics as DEMOG  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import citation_site as CS  # noqa: E402
 
@@ -178,6 +179,26 @@ def _effect_claims(add, kind, label, owner_kind, oid, nm, owner):
             add(q, f"{label} {nm}: {mode} of it can cause (or contribute to) the "
                    f"clinical effect '{e['effect'].replace('_', ' ')}' in humans.",
                 CS.site(owner_kind, oid, "effects", f"{e['mode']}:{e['effect']}"))
+
+
+def _demographic_claims(add, kind, label, owner_kind, oid, nm, owner):
+    """One claim per receptor_demographic node's quote (receptors and targets alike): the
+    WHOLE node (factor, direction, region, magnitude), in healthy humans only."""
+    kind["now"] = "receptor_demographic"
+    for n in owner.get("demographics") or []:
+        what = {"decrease": "DECREASES with age", "increase": "INCREASES with age",
+                "higher_in_female": "is HIGHER in women than in men",
+                "higher_in_male": "is HIGHER in men than in women",
+                "no_difference": f"does NOT differ by {n['factor']}"}[n["direction"]]
+        where = f" in the {n['structure']}" if n.get("structure") else ""
+        mag = f" (by {n['magnitude']})" if n.get("magnitude") else ""
+        for q in _qids(n.get("sources", [])):
+            add(q, f"{label} {nm}: its brain availability / binding (PET, SPECT or "
+                   f"post-mortem){where} {what}{mag}, measured in humans. Reject an "
+                   f"animal-only statement, or a sentence about a different receptor / "
+                   f"transporter than {nm}.",
+                CS.site(owner_kind, oid, "demographics",
+                        DEMOG.node_key(n["factor"], n["direction"], n.get("structure"))))
 
 
 def _release_modulation_claims(add, kind, r, nm):
@@ -413,6 +434,7 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
                     CS.site("receptor", r["id"], "locations", region))
         _effect_claims(add, kind, "Receptor", "receptor", r["id"], nm, r)
         _release_modulation_claims(add, kind, r, nm)
+        _demographic_claims(add, kind, "Receptor", "receptor", r["id"], nm, r)
 
     kind["now"] = "projections"
     for p in data["projections"]:
@@ -460,9 +482,10 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
                 add(q, f"Molecular target {nm} is expressed in brain region '{region}'.",
                     CS.site("target", tid, "locations", region))
         _effect_claims(add, kind, "Molecular target", "target", tid, nm, t)
+        _demographic_claims(add, kind, "Molecular target", "target", tid, nm, t)
         kind["now"] = "target_other"
         for k, v in t.items():
-            if k in ("location_sources", "effects"):
+            if k in ("location_sources", "effects", "demographics"):
                 continue
             if isinstance(v, dict) and "sources" in v:
                 for q in _qids(v["sources"]):
