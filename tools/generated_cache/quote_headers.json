@@ -71,6 +71,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_0055acd13111": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_0070fd8dd655": [
       "Tasimelteon",
       "Dosing and use",
@@ -115,11 +118,6 @@
       "Therapeutics",
       "How the Drug Works"
     ],
-    "q_027f6be6855d": [
-      "Lofepramine",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_02c237800074": [
       "Sertraline",
       "Dosing and use",
@@ -147,6 +145,9 @@
       "Maprotiline",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_054f0b33f7e1": [
+      "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
     ],
     "q_055408330d53": [
       "Lofexidine",
@@ -278,6 +279,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_098b929e124b": [
+      "6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"
+    ],
     "q_099ae4da974e": [
       "Dextromethorphan–Bupropion",
       "Therapeutics",
@@ -346,6 +350,11 @@
       "Levomilnacipran",
       "Therapeutics"
     ],
+    "q_0c358ff12c7e": [
+      "40 The Brain Stem",
+      "Monoaminergic Neurons in the Brain Stem Modulate Sensory, Motor, Autonomic, and Behavioral Functions",
+      "Monoaminergic Neurons Share Many Cellular Properties"
+    ],
     "q_0c4c48d89171": [
       "Zopiclone",
       "Therapeutics",
@@ -398,6 +407,12 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_0f092dca8467": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
+    "q_0f56854533f7": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_0f5f10329052": [
       "Dothiepin",
       "Dosing and use",
@@ -443,10 +458,16 @@
       "Clonidine",
       "Therapeutics"
     ],
+    "q_10d04994503e": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_10ea72df23ac": [
       "Temazepam",
       "Therapeutics",
       "Tests"
+    ],
+    "q_10edac416d6a": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_10ef2d60adc2": [
       "Lamotrigine",
@@ -580,6 +601,12 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_14d70f7f9135": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
+    "q_15dbb009a613": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_15dbd440f4f5": [
       "Risperidone",
       "Dosing and use",
@@ -604,6 +631,9 @@
       "Methylphenidate (D)",
       "Therapeutics",
       "Class"
+    ],
+    "q_16dbb5fa800a": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_16f5b4f95aee": [
       "Part VI The Biology of Emotion, Motivation, and Homeostasis",
@@ -633,6 +663,12 @@
       "Reboxetine",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_186c1bc266ce": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
+    "q_18c443400c80": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_18d0b2f0fb69": [
       "Ramelteon",
@@ -693,6 +729,9 @@
       "Physiological Signals Provide Further Clues to Function in the Basal Ganglia",
       "Ventral Midbrain Dopamine Neurons Receive Input From External Structures and Other Basal Ganglia Nuclei"
     ],
+    "q_1a79fe2ab7b2": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_1a98954efdcf": [
       "Lamotrigine",
       "Therapeutics",
@@ -722,6 +761,9 @@
       "Pipothiazine",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_1bdd23247f4c": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_1be40f59ffb2": [
       "Imipramine",
@@ -788,6 +830,9 @@
       "Therapeutics",
       "If It Doesn’t Work"
     ],
+    "q_1d4dd426eb63": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_1dd88d1a82c0": [
       "Zonisamide",
       "Dosing and use",
@@ -812,15 +857,13 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_1ec741d72575": [
-      "Ramelteon",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_1ee859c36ba6": [
       "Brexpiprazole",
       "Therapeutics",
       "Commonly Prescribed for"
+    ],
+    "q_1f2527938eb3": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_1f2f6f25e00d": [
       "Chlorpromazine",
@@ -884,6 +927,9 @@
     "q_20edaa302bc7": [
       "3 Ion Channels as Targets of Psychopharmacological Drug Action"
     ],
+    "q_20ffe1a548c7": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_210470bc97b9": [
       "40 The Brain Stem",
       "Monoaminergic Neurons in the Brain Stem Modulate Sensory, Motor, Autonomic, and Behavioral Functions",
@@ -899,6 +945,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_2121763f225e": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_21352763c4a6": [
       "Desipramine",
       "Therapeutics",
@@ -913,6 +962,9 @@
       "Blonanserin",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_21652616ffd7": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_21da9b2cc696": [
       "Paliperidone",
@@ -961,6 +1013,9 @@
     ],
     "q_22fc343f487d": [
       "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
+    ],
+    "q_2320533f4c84": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_2329237fd7b8": [
       "Clorazepate",
@@ -1143,6 +1198,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_2977b822ad31": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_2982038f68e8": [
       "Milnacipran",
       "Therapeutics",
@@ -1228,6 +1286,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_2d5f547776b4": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_2db6a0107730": [
       "Olanzapine",
       "Therapeutics"
@@ -1306,6 +1367,9 @@
       "Side effects",
       "How Drug Causes Side Effects"
     ],
+    "q_31634e8cdd1c": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_31df0eab653d": [
       "Reboxetine",
       "Therapeutics",
@@ -1323,6 +1387,9 @@
       "Bupropion",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_32645aa40ad3": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_3286883b8706": [
       "Clonidine",
@@ -1366,6 +1433,9 @@
       "Lofepramine",
       "Therapeutics",
       "Class"
+    ],
+    "q_338892bdc6bd": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_33b35a439a64": [
       "Lumateperone",
@@ -1455,6 +1525,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_368968eda24c": [
+      "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
+    ],
     "q_36d15c8b8463": [
       "Disulfiram",
       "Therapeutics",
@@ -1514,10 +1587,16 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_3959c7b169df": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_398bb8b99893": [
       "Gabapentin",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_39b4650b84e8": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_39f455bf919d": [
       "Brexpiprazole",
@@ -1554,10 +1633,8 @@
       "Therapeutics",
       "How the Drug Works"
     ],
-    "q_3ba606ce03bf": [
-      "Nefazodone",
-      "Side effects",
-      "How Drug Causes Side Effects"
+    "q_3bcd025afe5f": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_3bd08ff21167": [
       "Aripiprazole",
@@ -1712,6 +1789,9 @@
       "Dosing and use",
       "How to Stop"
     ],
+    "q_405c8937cb10": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_40d1d8463577": [
       "Vortioxetine",
       "Dosing and use",
@@ -1792,6 +1872,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_44f09f0969e2": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_450c0c54b727": [
       "Pimozide",
       "Therapeutics",
@@ -1857,6 +1940,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_4808dd4a48f5": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_486e5ac1d71e": [
       "Carbamazepine",
       "Dosing and use",
@@ -1882,6 +1968,9 @@
       "Olanzapine–Samidorphan",
       "Therapeutics"
     ],
+    "q_49ba33f6d4be": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_49d219722d69": [
       "Asenapine",
       "Therapeutics"
@@ -1890,6 +1979,9 @@
       "Eszopiclone",
       "Therapeutics",
       "Brands"
+    ],
+    "q_4aedabcd05fe": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_4b9ed6571d81": [
       "14. Telencephalon Basal Ganglia"
@@ -1936,11 +2028,6 @@
     ],
     "q_4d61674b151b": [
       "Lurasidone",
-      "Therapeutics",
-      "How the Drug Works"
-    ],
-    "q_4d65f11ee108": [
-      "Loflazepate",
       "Therapeutics",
       "How the Drug Works"
     ],
@@ -2070,6 +2157,9 @@
     "q_524c0da2af25": [
       "1 Chemical Neurotransmission"
     ],
+    "q_52bc098cfcf5": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_52ef474437cc": [
       "Desvenlafaxine",
       "Therapeutics",
@@ -2079,6 +2169,9 @@
       "Part I Overall Perspective",
       "1 The Brain and Behavior",
       "The First Strong Evidence for Localization of Cognitive Abilities Came From Studies of Language Disorders"
+    ],
+    "q_53522552ea79": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_5368a2ae0717": [
       "Part IV Perception",
@@ -2302,6 +2395,9 @@
       "37 The Cerebellum",
       "The Cerebellum Indirectly Controls Movement Through Other Brain Structures"
     ],
+    "q_5d798b714fcb": [
+      "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
+    ],
     "q_5d8075afed2a": [
       "Loxapine",
       "Therapeutics",
@@ -2325,11 +2421,6 @@
     "q_5e23d6b2b14f": [
       "Dextromethorphan–Bupropion",
       "Therapeutics"
-    ],
-    "q_5e89b7e1fbb9": [
-      "Selegiline",
-      "Dosing and use",
-      "Pharmacokinetics"
     ],
     "q_5eeaf62bbdbf": [
       "Duloxetine",
@@ -2364,6 +2455,12 @@
       "The Amygdala Has Been Implicated in Both Learned and Innate Fear",
       "The Amygdala Is Important for Fear in Humans"
     ],
+    "q_5f97a9c034cb": [
+      "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
+    ],
+    "q_5fae6acdcbba": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_6018739b7089": [
       "Zonisamide",
       "Dosing and use",
@@ -2394,10 +2491,16 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_61c590f22e63": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_61e45a5e82a5": [
       "Clomipramine",
       "Side effects",
       "How Drug Causes Side Effects"
+    ],
+    "q_61efc64028e2": [
+      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
     ],
     "q_620dec937f73": [
       "Viloxazine",
@@ -2421,6 +2524,9 @@
     ],
     "q_6277ac960af6": [
       "23. Greater Limbic System"
+    ],
+    "q_62866cfed28c": [
+      "15. Telencephalon Neocortex"
     ],
     "q_63559b4e983f": [
       "Tianeptine",
@@ -2740,6 +2846,9 @@
     "q_6ce626fa7c2e": [
       "9 Chronic Pain and Its Treatment"
     ],
+    "q_6cee8019ee5f": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_6d29e3cf2569": [
       "Quetiapine",
       "Therapeutics",
@@ -2769,6 +2878,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_6e7afe6a95a6": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_6e7e587e37c0": [
       "Dextromethorphan–Quinidine",
       "Therapeutics",
@@ -2794,6 +2906,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_6f5d86412d6e": [
+      "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
+    ],
     "q_6fb3589c9723": [
       "Protriptyline",
       "Therapeutics",
@@ -2811,6 +2926,9 @@
       "Chlordiazepoxide",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_707986996551": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_70ce41b3f320": [
       "Risperidone",
@@ -2839,6 +2957,9 @@
     ],
     "q_7187261ae2f3": [
       "14. Telencephalon Basal Ganglia"
+    ],
+    "q_71babafeaf3e": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_71bad2288fdd": [
       "Nortriptyline",
@@ -2894,6 +3015,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_7392bcea81e8": [
+      "6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"
+    ],
     "q_7393668ed116": [
       "Chlordiazepoxide",
       "Therapeutics",
@@ -2911,6 +3035,9 @@
       "Paliperidone",
       "Therapeutics",
       "Class"
+    ],
+    "q_74cfc8e2d676": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_751315383896": [
       "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
@@ -3201,6 +3328,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_81db7571f900": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_81ee2d668c40": [
       "Nortriptyline",
       "Therapeutics",
@@ -3225,6 +3355,9 @@
       "Methylphenidate (D,L)",
       "Therapeutics",
       "Brands"
+    ],
+    "q_837fe808cd4e": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_83bb37c650be": [
       "Rivastigmine",
@@ -3271,6 +3404,11 @@
       "Doxepin",
       "Therapeutics"
     ],
+    "q_858b2a6d6051": [
+      "Lumateperone",
+      "Therapeutics",
+      "How the Drug Works"
+    ],
     "q_85dc8c0ee87b": [
       "Brexpiprazole",
       "Therapeutics",
@@ -3314,6 +3452,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_87ad31b45fb3": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_87e924eb3312": [
       "Fluoxetine",
       "Therapeutics",
@@ -3340,6 +3481,12 @@
       "Paliperidone",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_893a4ddff15e": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
+    "q_896ab8ef06cc": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_898f03e53c9a": [
       "Escitalopram",
@@ -3395,6 +3542,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_8bc2ee2cb8ce": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_8c0125808cbf": [
       "Perphenazine",
       "Therapeutics",
@@ -3404,6 +3554,9 @@
       "Sodium Oxybate",
       "Therapeutics",
       "Brands"
+    ],
+    "q_8cd69471156a": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_8d14fbe19f44": [
       "Loxapine",
@@ -3497,6 +3650,9 @@
       "Triazolam",
       "Therapeutics"
     ],
+    "q_9015806a90bb": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_9032484238a2": [
       "Flurazepam",
       "Therapeutics",
@@ -3521,6 +3677,9 @@
       "35 The Control of Gaze",
       "Saccades Are Controlled by the Cerebral Cortex Through the Superior Colliculus",
       "The Superior Colliculus Integrates Visual and Motor Information into Oculomotor Signals for the Brain Stem"
+    ],
+    "q_90d2001f53bf": [
+      "11 Attention Deficit Hyperactivity Disorder and Its Treatment"
     ],
     "q_90d22cacf2be": [
       "Midazolam",
@@ -3553,6 +3712,9 @@
       "The Internal Circuitry of the Basal Ganglia Regulates How the Components Interact",
       "The Traditional Model of the Basal Ganglia Emphasizes Direct and Indirect Pathways"
     ],
+    "q_91b4181a59ed": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_91b6c068aefc": [
       "Sertraline",
       "Therapeutics",
@@ -3577,6 +3739,9 @@
       "Desvenlafaxine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_92476f6130d2": [
+      "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
     ],
     "q_9268257a2365": [
       "Escitalopram",
@@ -3648,6 +3813,11 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_954af7fff09e": [
+      "Amisulpride",
+      "Therapeutics",
+      "How the Drug Works"
+    ],
     "q_96685000b46e": [
       "Brexanolone",
       "Therapeutics",
@@ -3661,6 +3831,9 @@
     "q_96a4e74332df": [
       "Lofepramine",
       "Therapeutics"
+    ],
+    "q_96b078dd2784": [
+      "8 Anxiety, Trauma, and Treatment"
     ],
     "q_96de6b44f88a": [
       "Asenapine",
@@ -3763,6 +3936,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_9977a8b2bc41": [
+      "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
+    ],
     "q_9992b3608d70": [
       "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
     ],
@@ -3808,6 +3984,9 @@
       "Aripiprazole",
       "Therapeutics",
       "Brands"
+    ],
+    "q_9a3e1cbf7be7": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_9a6bf2394d59": [
       "Clozapine",
@@ -3857,10 +4036,16 @@
     "q_9bacd4eb53ec": [
       "2 Transporters, Receptors, and Enzymes as Targets of Psychopharmacological Drug Action"
     ],
+    "q_9bea2906fb7c": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_9bf6673a193b": [
       "Reboxetine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_9c245329d5c8": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_9c6d4483e325": [
       "Disulfiram",
@@ -3876,6 +4061,9 @@
       "38 The Basal Ganglia",
       "The Internal Circuitry of the Basal Ganglia Regulates How the Components Interact",
       "The Traditional Model of the Basal Ganglia Emphasizes Direct and Indirect Pathways"
+    ],
+    "q_9cd474c74b19": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_9cdb13805f22": [
       "Phenelzine",
@@ -3909,6 +4097,9 @@
       "Clomipramine",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_9e150462e315": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_9e7de6819216": [
       "Clomipramine",
@@ -4020,10 +4211,8 @@
       "Therapeutics",
       "How the Drug Works"
     ],
-    "q_a1c0761a3c36": [
-      "Clorazepate",
-      "Dosing and use",
-      "Pharmacokinetics"
+    "q_a1b2a7490c75": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_a1ee3c349c20": [
       "Amoxapine",
@@ -4034,6 +4223,9 @@
       "Triiodothyronine",
       "Therapeutics",
       "Class"
+    ],
+    "q_a251168adbac": [
+      "15. Telencephalon Neocortex"
     ],
     "q_a27e425a153a": [
       "Valproate",
@@ -4071,6 +4263,9 @@
       "Zotepine",
       "Therapeutics",
       "Brands"
+    ],
+    "q_a483ca1a379a": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_a48d8cbb8aed": [
       "Doxepin",
@@ -4278,6 +4473,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_ac5a46596b72": [
+      "9 Chronic Pain and Its Treatment"
+    ],
     "q_ad1f8336a2e5": [
       "Blonanserin",
       "Therapeutics",
@@ -4424,6 +4622,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_b24051246493": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_b251a6156044": [
       "Galantamine",
       "Therapeutics",
@@ -4470,6 +4671,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_b494ef4b0471": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_b49b837719e7": [
       "Clonazepam",
       "Dosing and use",
@@ -4484,6 +4688,9 @@
       "Buprenorphine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_b55f83be8132": [
+      "13 Impulsivity, Compulsivity, and Addiction"
     ],
     "q_b587ef6e6f49": [
       "22. The Reticular Formation and the Monoaminergic and Cholinergic Cell Groups"
@@ -4597,10 +4804,25 @@
     "q_b9c4b79a5f38": [
       "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
     ],
+    "q_b9cbaa697194": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
+    "q_b9ce4e9d36d6": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_b9dbfe73d79d": [
       "Clomipramine",
       "Dosing and use",
       "Dosing Tips"
+    ],
+    "q_b9ed21e62773": [
+      "11. Telencephalon Introduction and Olfactory System"
+    ],
+    "q_ba8badfd3364": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
+    "q_ba9bb8db4e2a": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_bab5aacd496b": [
       "Part IV Perception",
@@ -4657,10 +4879,8 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
-    "q_bdb29a2d1954": [
-      "Flurazepam",
-      "Dosing and use",
-      "Pharmacokinetics"
+    "q_bdccdbcdd0ee": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_be31dfcdb7a5": [
       "Clozapine",
@@ -4671,6 +4891,9 @@
       "Clomipramine",
       "Dosing and use",
       "Dosing Tips"
+    ],
+    "q_beb07d120139": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_beb989eb57e9": [
       "Viloxazine",
@@ -4690,10 +4913,19 @@
     "q_bf38ba0191ee": [
       "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
     ],
+    "q_bf41a81855c1": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_bf60f5f2d224": [
       "Quetiapine",
       "Therapeutics",
       "How the Drug Works"
+    ],
+    "q_bf83aeef6931": [
+      "12 Dementia: Causes, Symptomatic Treatments, and the Neurotransmitter Network Acetylcholine"
+    ],
+    "q_bf8ac3f55292": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_bf8adee0ccfc": [
       "Carbamazepine",
@@ -4710,10 +4942,16 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_c00fee5fb850": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_c0e60a6553a8": [
       "Lithium",
       "Therapeutics",
       "How Long Until It Works"
+    ],
+    "q_c0feddabbbdb": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_c131432adf3f": [
       "Serdexmethylphenidate",
@@ -4762,6 +5000,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_c2e6293e733c": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_c33aab525dba": [
       "Clozapine",
       "Side effects",
@@ -4808,6 +5049,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_c3e84c944fc8": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_c4457017d97a": [
       "Suvorexant",
       "Therapeutics",
@@ -4846,6 +5090,9 @@
     "q_c540f0c55276": [
       "14. Telencephalon Basal Ganglia"
     ],
+    "q_c544e5fd8632": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_c60508371af8": [
       "Lofexidine",
       "Dosing and use",
@@ -4865,6 +5112,9 @@
       "Hydroxyzine",
       "Therapeutics",
       "Class"
+    ],
+    "q_c6a437b2a81c": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_c6c3e8dd9ca4": [
       "Lemborexant",
@@ -4943,6 +5193,9 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_ca75d53ff5b8": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_ca8fec6c103d": [
       "Nefazodone",
       "Therapeutics",
@@ -4976,6 +5229,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_ccaf8ce3550e": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_ccf6bd359c72": [
       "Tasimelteon",
       "Dosing and use",
@@ -4990,6 +5246,12 @@
       "Olanzapine",
       "Dosing and use",
       "Pharmacokinetics"
+    ],
+    "q_cd428840f2c1": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
+    "q_cd74d576eef2": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_cd79aa6b8eb0": [
       "Topiramate",
@@ -5172,6 +5434,12 @@
       "Therapeutics",
       "Class"
     ],
+    "q_d45a284912c7": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
+    "q_d45d64592fc2": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_d4732b7f0210": [
       "Midazolam",
       "Side effects"
@@ -5190,6 +5458,9 @@
       "Trazodone",
       "Side effects",
       "How Drug Causes Side Effects"
+    ],
+    "q_d4fe43c45cf5": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_d5174f2711d1": [
       "Lurasidone",
@@ -5220,6 +5491,9 @@
       "Nalmefene",
       "The art of psychopharmacology",
       "Pearls"
+    ],
+    "q_d6502290c902": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_d66572dd2fe3": [
       "Perphenazine",
@@ -5269,10 +5543,16 @@
       "Dosing and use",
       "Pharmacokinetics"
     ],
+    "q_d905ed3a16cc": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_d93b6226a6c8": [
       "Dextromethorphan–Quinidine",
       "Therapeutics",
       "Class"
+    ],
+    "q_d940a4aa9267": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_d983adcd9958": [
       "Eszopiclone",
@@ -5313,6 +5593,9 @@
       "Benztropine",
       "Therapeutics",
       "Class"
+    ],
+    "q_dad4179cf91a": [
+      "6 Mood Disorders and the Neurotransmitter Networks Norepinephrine and γ-Aminobutyric Acid (GABA)"
     ],
     "q_dae6458cde8e": [
       "Olanzapine",
@@ -5401,6 +5684,9 @@
       "Therapeutics",
       "Class"
     ],
+    "q_de83c79a72a2": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_ded81e10535d": [
       "Valproate",
       "Therapeutics",
@@ -5488,6 +5774,9 @@
     "q_e28677243274": [
       "Olanzapine",
       "Therapeutics"
+    ],
+    "q_e28a4eecde47": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_e2a716fe0c7c": [
       "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
@@ -5588,6 +5877,9 @@
       "Therapeutics",
       "How the Drug Works"
     ],
+    "q_e546f8368efd": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
+    ],
     "q_e5640c205618": [
       "Naltrexone–Bupropion",
       "Therapeutics",
@@ -5602,6 +5894,11 @@
       "Topiramate",
       "Therapeutics",
       "Brands"
+    ],
+    "q_e652df8c0ab7": [
+      "Lofepramine",
+      "The art of psychopharmacology",
+      "Pearls"
     ],
     "q_e68181bee4c5": [
       "Rivastigmine",
@@ -5745,6 +6042,9 @@
       "Therapeutics",
       "Brands"
     ],
+    "q_eb600933b500": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
+    ],
     "q_eb8bec3e9e3a": [
       "Donepezil",
       "Therapeutics",
@@ -5881,10 +6181,8 @@
       "Therapeutics",
       "Brands"
     ],
-    "q_f133ac439e8c": [
-      "Oxcarbazepine",
-      "Therapeutics",
-      "How the Drug Works"
+    "q_f11956bd1a33": [
+      "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
     "q_f16c0ae00bdb": [
       "Agomelatine",
@@ -5935,6 +6233,10 @@
     ],
     "q_f2af5893c79c": [
       "10 Disorders of Sleep and Wakefulness and Their Treatment: Neurotransmitter Networks for Histamine and Orexin"
+    ],
+    "q_f2f926660da1": [
+      "Substance Use Disorder Medications",
+      "Nalmefene (Opvee) Fact Sheet [G]"
     ],
     "q_f3054d1f3c27": [
       "Asenapine",
@@ -6028,6 +6330,12 @@
       "Therapeutics",
       "Class"
     ],
+    "q_f60874f3d478": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
+    "q_f617d09de9c1": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
+    ],
     "q_f649968fd547": [
       "Selegiline",
       "Dosing and use",
@@ -6054,6 +6362,9 @@
     "q_f745ca9d3be3": [
       "Flumazenil",
       "Therapeutics"
+    ],
+    "q_f7a2f99d12e1": [
+      "2 Transporters, Receptors, and Enzymes as Targets of Psychopharmacological Drug Action"
     ],
     "q_f7a973c05951": [
       "Mianserin",
@@ -6172,11 +6483,6 @@
     "q_fc747a3c3431": [
       "4 Psychosis, Schizophrenia, and the Neurotransmitter Networks Dopamine, Serotonin, and Glutamate"
     ],
-    "q_fc8371f97114": [
-      "Lumateperone",
-      "Dosing and use",
-      "Pharmacokinetics"
-    ],
     "q_fc90954e1b6a": [
       "Clozapine",
       "Therapeutics",
@@ -6201,6 +6507,9 @@
       "Quetiapine",
       "Therapeutics",
       "Class"
+    ],
+    "q_fdad34a4176e": [
+      "5 Targeting Dopamine and Serotonin Receptors for Psychosis, Mood, and Beyond: So-Called “Antipsychotics”"
     ],
     "q_fde54394fa82": [
       "Pimavanserin",
@@ -6230,6 +6539,9 @@
       "Sodium Oxybate",
       "Therapeutics",
       "Class"
+    ],
+    "q_fe6103d67833": [
+      "7 Treatments for Mood Disorders: So-Called “Antidepressants” and “Mood Stabilizers”"
     ],
     "q_fe719b34a76e": [
       "Sertraline",

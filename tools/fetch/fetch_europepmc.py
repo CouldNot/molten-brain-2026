@@ -139,6 +139,10 @@ PAPERS: dict[str, str] = {
     "22357796": "frontal commissure: interhemispheric glutamatergic projections (human TMS)",
     "32769158": "sensory cortices: glutamatergic callosal projections (mouse)",
     "27335411": "raphe -> olfactory bulb: serotonergic innervation (mouse)",
+    # Active-metabolite activity a stored article states only for the parent drug.
+    "19890256": "sibutramine metabolites M1/M2 inhibit SERT + NET (human PET)",
+    "15111248": "sibutramine metabolites inhibit dopamine reuptake (rat + mouse)",
+    "34204205": "disulfiram -> diethyldithiocarbamate, its active metabolite (review)",
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"

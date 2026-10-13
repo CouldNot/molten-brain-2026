@@ -411,17 +411,23 @@
       {
         "target": "sert",
         "action": "reuptake_inhibitor",
-        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+        "quote": "Its effects are mostly attributable to serotonin and norepinephrine transporter (SERT and NET, respectively) inhibition by its potent metabolites mono-desmethylsibutramine (M1) and di-desmethylsibutramine (M2).",
+        "corpus": "europepmc",
+        "page": "19890256"
       },
       {
         "target": "net",
         "action": "reuptake_inhibitor",
-        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+        "quote": "Its effects are mostly attributable to serotonin and norepinephrine transporter (SERT and NET, respectively) inhibition by its potent metabolites mono-desmethylsibutramine (M1) and di-desmethylsibutramine (M2).",
+        "corpus": "europepmc",
+        "page": "19890256"
       },
       {
         "target": "dat",
         "action": "reuptake_inhibitor",
-        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+        "quote": "These results suggest that sibutramine exhibits neurochemical and behavioral dopaminomimetic activity in vivo, which is mediated by dopamine reuptake inhibition by the active metabolites of sibutramine.",
+        "corpus": "europepmc",
+        "page": "15111248"
       }
     ]
   },
@@ -430,17 +436,23 @@
       {
         "target": "sert",
         "action": "reuptake_inhibitor",
-        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+        "quote": "Its effects are mostly attributable to serotonin and norepinephrine transporter (SERT and NET, respectively) inhibition by its potent metabolites mono-desmethylsibutramine (M1) and di-desmethylsibutramine (M2).",
+        "corpus": "europepmc",
+        "page": "19890256"
       },
       {
         "target": "net",
         "action": "reuptake_inhibitor",
-        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+        "quote": "Its effects are mostly attributable to serotonin and norepinephrine transporter (SERT and NET, respectively) inhibition by its potent metabolites mono-desmethylsibutramine (M1) and di-desmethylsibutramine (M2).",
+        "corpus": "europepmc",
+        "page": "19890256"
       },
       {
         "target": "dat",
         "action": "reuptake_inhibitor",
-        "quote": "Sibutramine is reported to be a prodrug to two active metabolites , desmethylsibutramine (M1; BTS-54354) and didesmethylsibutramine (M2; BTS-54505), with much greater potency as monoamine reuptake inhibitors."
+        "quote": "These results suggest that sibutramine exhibits neurochemical and behavioral dopaminomimetic activity in vivo, which is mediated by dopamine reuptake inhibition by the active metabolites of sibutramine.",
+        "corpus": "europepmc",
+        "page": "15111248"
       }
     ]
   }

@@ -875,6 +875,10 @@
 "q_17907a37530d": {
 "group:kind:serotonergic": "sonnet"
 },
+"q_181236c0f43a": {
+"drug:asenapine/formulations[sublingual]/release": "opus",
+"drug:asenapine/formulations[sublingual]/tmax": "opus"
+},
 "q_182904e2d8ce": {
 "drug:ziprasidone/brands[Geodon]": "sonnet"
 },
@@ -1640,6 +1644,9 @@
 },
 "q_2a9fc516fe66": {
 "drug:chlordiazepoxide/bindings[gaba_a:pam]": "sonnet"
+},
+"q_2acefaa59dd3": {
+"drug:disulfiram/metabolites[diethyldithiocarbamate]": "opus"
 },
 "q_2b143bad1675": {
 "drug:mirtazapine/bindings[alpha2:antagonist]": "sonnet"
@@ -2622,6 +2629,12 @@
 },
 "q_46d082c1ab03": {
 "drug:lorazepam/brands[Témesta]": "sonnet"
+},
+"q_46f6940a8c8c": {
+"metabolite:desmethylsibutramine/bindings[net:reuptake_inhibitor]": "opus",
+"metabolite:desmethylsibutramine/bindings[sert:reuptake_inhibitor]": "opus",
+"metabolite:didesmethylsibutramine/bindings[net:reuptake_inhibitor]": "opus",
+"metabolite:didesmethylsibutramine/bindings[sert:reuptake_inhibitor]": "opus"
 },
 "q_46ff23162aff": {
 "drug:amphetamine_dl/first_approval": "opus"
@@ -4831,6 +4844,9 @@
 "q_856ec7b2b0b7": {
 "drug:glutethimide/categories": "opus"
 },
+"q_858b2a6d6051": {
+"drug:lumateperone/bindings[d2:antagonist]": "opus"
+},
 "q_8592430bfe19": {
 "drug:flunarizine/bindings[cav:blocker]": "sonnet",
 "drug:flunarizine/bindings[d2:antagonist]": "sonnet",
@@ -6214,6 +6230,9 @@
 "q_a7c538c18101": {
 "drug:lemborexant/brands[Dayvigo]": "sonnet"
 },
+"q_a7d7535fdd1c": {
+"drug:phenytoin/formulations[xr]/tmax": "opus"
+},
 "q_a7f362ebff43": {
 "drug:modafinil/tmax": "opus"
 },
@@ -6523,6 +6542,10 @@
 "q_b1bc24454da1": {
 "drug:ketamine/half_life": "sonnet"
 },
+"q_b1c5abdf5a8e": {
+"metabolite:desmethylsibutramine/bindings[dat:reuptake_inhibitor]": "opus",
+"metabolite:didesmethylsibutramine/bindings[dat:reuptake_inhibitor]": "opus"
+},
 "q_b21eda3c3caa": {
 "drug:lofexidine/tmax": "sonnet"
 },
@@ -6652,6 +6675,9 @@
 },
 "q_b49b837719e7": {
 "drug:clonazepam/half_life": "sonnet"
+},
+"q_b4a5acb1a3c0": {
+"drug:phenytoin/formulations[xr]/release": "opus"
 },
 "q_b4b1239cdf1c": {
 "drug:quazepam/formulations[ir]/tmax": "opus",
@@ -8985,6 +9011,9 @@
 "drug:clozapine/bindings[alpha1b:antagonist]": "sonnet",
 "drug:clozapine/bindings[alpha1c:antagonist]": "sonnet",
 "drug:clozapine/bindings[alpha1d:antagonist]": "sonnet"
+},
+"q_f2f926660da1": {
+"drug:nalmefene/formulations[injection]/brands[Revex]": "opus"
 },
 "q_f3054d1f3c27": {
 "drug:asenapine/categories": "sonnet"
