@@ -79,8 +79,8 @@ test("one receptor reaching a change through two of its nodes is one chip", () =
   assert.deepEqual(out[0].via.map((v) => v.binding.target), ["a2a"]);
 });
 
-test("transmitterVars hands French the elided form", () => {
-  const deNoun = (w) => (/^[aeiouh]/i.test(w) ? `d'${w}` : `de ${w}`);
-  assert.deepEqual(transmitterVars("histamine", deNoun),
-                   { transmitter: "histamine", ofTransmitter: "d'histamine" });
+test("transmitterVars passes the label through the language's article", () => {
+  const ofNoun = (w) => (/^[aeiouh]/i.test(w) ? `d'${w}` : `de ${w}`);
+  assert.deepEqual(transmitterVars("histamine", ofNoun), { transmitter: "d'histamine" });
+  assert.deepEqual(transmitterVars("histamine", (w) => w), { transmitter: "histamine" });
 });

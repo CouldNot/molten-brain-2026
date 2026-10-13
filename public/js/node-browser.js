@@ -307,7 +307,7 @@ export function collectNodes(data, deps, opts = {}) {
     for (const n of tg.modulationInfo || []) {
       push("receptor_release_modulation", tg.name,
         `${t(`relmod.activation.${n.effect}`,
-          transmitterVars(n.transmitterLabel, window.__I18N__.deNoun))} `
+          transmitterVars(n.transmitterLabel, window.__I18N__.ofNoun))} `
           + `(${n.kindLabel}, ${n.cellLabel})`, n.provenance, go, n);
     }
   }

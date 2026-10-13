@@ -44,7 +44,7 @@ import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } f
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
 // already resolved to the chosen language by js/data.js.
-const { t, deNoun } = window.__I18N__;
+const { t, ofNoun } = window.__I18N__;
 
 // Explode slider is 0..1; this is how much extra radial distance the most
 // outward regions travel at slider = 1 (as a multiple of their base distance
@@ -2373,7 +2373,7 @@ function createInfoPanel(data, sourcingModal) {
     for (const n of rows) {
       const li = el("li", "eff-row");
       li.appendChild(el("span", "loc-name", t(`relmod.activation.${n.effect}`,
-        transmitterVars(n.transmitterLabel, deNoun))));
+        transmitterVars(n.transmitterLabel, ofNoun))));
       li.appendChild(sourceBackedPill(n.provenance, n));
       li.appendChild(el("span", "eff-mode eff-site", t("relmod.site",
         { kind: n.kindLabel, cell: n.cellLabel, where: inStructure(n.structure) })));
@@ -2393,7 +2393,7 @@ function createInfoPanel(data, sourcingModal) {
     const { sec, ul } = betaSection("downstream", "relmod.drugHeading", "relmod.drugHint");
     for (const c of changes) {
       ul.appendChild(derivedRow(t(`relmod.could.${c.direction}`,
-        { ...transmitterVars(c.transmitterLabel, deNoun), where: inStructure(c.structure) }), c.via));
+        { ...transmitterVars(c.transmitterLabel, ofNoun), where: inStructure(c.structure) }), c.via));
     }
     body.appendChild(sec);
   };
@@ -6575,7 +6575,7 @@ function buildKindExample(kind, data, nav) {
       const rm = pick(recTargets, (t2) => (t2.modulationInfo || []).length);
       const n = rm && (rm.modulationInfo || [])[0];
       return n ? line(rm.name, t(`relmod.activation.${n.effect}`,
-        transmitterVars(n.transmitterLabel, deNoun)), () => nav.target(rm)) : null;
+        transmitterVars(n.transmitterLabel, ofNoun)), () => nav.target(rm)) : null;
     }
     case "target_polarity": {
       const pol = pick(otherTargets, (t2) =>

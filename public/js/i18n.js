@@ -1211,14 +1211,14 @@
       "effects.couldCause": "pourrait causer : {effect}",
       "relmod.heading": "En aval",
       "relmod.hint": "Comment son activation modifie la libération d'un neurotransmetteur, selon le circuit décrit par une source (un effet de second ordre, chez l'humain). Un énoncé sur le récepteur, pas sur un médicament en particulier.",
-      "relmod.activation.increase": "son activation augmente la libération {ofTransmitter}",
-      "relmod.activation.decrease": "son activation diminue la libération {ofTransmitter}",
+      "relmod.activation.increase": "son activation augmente la libération {transmitter}",
+      "relmod.activation.decrease": "son activation diminue la libération {transmitter}",
       "relmod.site": "{kind} sur {cell}{where}",
       "relmod.inStructure": " (région : {structure})",
       "relmod.drugHeading": "Modifications de libération possibles via ses liaisons",
       "relmod.drugHint": "Déduit, non sourcé pour ce médicament : ses liaisons orientées croisées avec la façon dont une source décrit la modulation de la libération par chaque récepteur. Un antagoniste inverse l'effet de l'activation ; une simple affinité (sens inconnu) n'apporte rien. Indicatif seulement, et pas un avis médical.",
-      "relmod.could.increase": "pourrait augmenter la libération {ofTransmitter}{where}",
-      "relmod.could.decrease": "pourrait diminuer la libération {ofTransmitter}{where}",
+      "relmod.could.increase": "pourrait augmenter la libération {transmitter}{where}",
+      "relmod.could.decrease": "pourrait diminuer la libération {transmitter}{where}",
       "receptor.foundOther": "Autres régions",
       "receptor.ubiquitous": "Dans tout le cerveau",
       "receptor.noRole": "Pas de rôle significatif dans le système nerveux central.",
@@ -1705,16 +1705,18 @@
     });
   }
 
-  // French "de" + a noun, elided before a vowel or mute h ("d'histamine",
-  // "de dopamine"). For a template slot that sits after "de", e.g. {ofTransmitter}.
-  function deNoun(word) {
+  // A noun filling a slot that French reads as "de <noun>": the French template drops
+  // its "de" and this supplies it, elided before a vowel or mute h ("libération
+  // d'histamine", "de dopamine"). English gets the bare noun.
+  function ofNoun(word) {
+    if (lang !== "fr") return word;
     return /^[aeiouyhàâéèêîïôûœ]/i.test(word) ? "d'" + word : "de " + word;
   }
 
   window.__I18N__ = {
     lang: lang,
     t: t,
-    deNoun: deNoun,
+    ofNoun: ofNoun,
     pick: pick,
     setDataTranslations: setDataTranslations,
     setLang: setLang,

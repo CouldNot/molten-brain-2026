@@ -41,13 +41,13 @@ export function resolveModulation(raw, vocab) {
 }
 
 /**
- * Template vars for a transmitter label: English templates read {transmitter}, French
- * ones the elided "de" form {ofTransmitter} ("d'histamine", "de dopamine").
+ * Template vars for a transmitter label: the French templates read {transmitter} as
+ * "de <transmitter>" and leave the article to `ofNoun` ("d'histamine").
  * @param {string} label
- * @param {(word:string) => string} deNoun  window.__I18N__.deNoun.
+ * @param {(word:string) => string} ofNoun  window.__I18N__.ofNoun.
  */
-export function transmitterVars(label, deNoun) {
-  return { transmitter: label, ofTransmitter: deNoun(label) };
+export function transmitterVars(label, ofNoun) {
+  return { transmitter: ofNoun(label) };
 }
 
 /**
