@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.114.2",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "The guided tour's highlight ring no longer points off-screen while the panel is still scrolling to the row it marks: a step that scrolls its target into view now waits for it to arrive (and finishes a stalled smooth scroll with a jump) before ringing it",
+          "commits": [
+            "95eee4f"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.114.1",
       "date": "2026-10-13",
       "entries": [
