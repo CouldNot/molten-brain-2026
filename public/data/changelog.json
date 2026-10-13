@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.118.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A drug's \"Acts on\" section is now called \"Direct action on receptors\", and for a drug with active metabolites it opens with a warning naming them, since their own actions are not in that list, with a link that jumps to the Active metabolites section",
+          "commits": [
+            "3714e06"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.117.2",
       "date": "2026-10-13",
       "entries": [
