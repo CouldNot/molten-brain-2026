@@ -88,10 +88,23 @@
 	# The /api Markdown pages, rendered into the image at build time (docker/Dockerfile,
 	# tools/render_api.py), not part of the mounted /srv tree.
 	redir /api /api/ 308
+	# An address with no page (a typo, a guessed id, a plural kind) gets not_found.md,
+	# the full page list with ids, under a 404 status: a way out, not a dead end.
 	handle /api/* {
 		root * /opt/neurarium
-		file_server {
-			index index.md
+		# The folder index before {path} itself: a trailing-slash {path} matches the folder.
+		@page file {path}.md {path}/index.md {path}
+		handle @page {
+			rewrite {file_match.relative}
+			file_server {
+				index index.md
+			}
+		}
+		handle {
+			rewrite * /api/not_found.md
+			file_server {
+				status 404
+			}
 		}
 	}
 	handle {
@@ -162,8 +175,8 @@
 	# keeps the French strings from being decoded as latin-1. There is no registered
 	# JSONL type a browser renders any better: one JSON object per line is not valid
 	# JSON, so `application/json` would only make a JSON viewer report a parse error.
-	# `.md` (the /api pages) gets the same treatment, as Markdown.
-	@md path /api/*.md /api/
+	# Everything under /api is Markdown (a page, an index, or the 404 page), typed as such.
+	@md path /api/*
 	header @md Content-Type "text/markdown; charset=utf-8"
 
 	@jsonl path *.jsonl
