@@ -43,12 +43,7 @@ is pinned and exactly one inner region scrolls (`#controls-main`, or `#details-p
   (`projVis`; composes with the Hypothetical toggle). Off is not "no arrows": the set the current
   focus lights is exempt (`projVis.setFocusArrows`, fed by `selection.onIsolate`'s third argument),
   so a circuit / drug / structure focus still draws its own pathways and only those.
-- **See inside** (`#see-inside`, off): `createNearCull` recomputes each frame which **outer-shell**
-  structures (`group == "lobe"` + the cerebellum, `isShellMesh`) sit on the camera-facing side
-  (centre > `NEAR_CULL_BIAS` past the orbit-centre plane) and hides them, peeling the near cortex off
-  the deep nuclei; the nuclei themselves are never culled, or the mode would hide what it is for.
-  Snapshots visibility to restore; composes with `?only=`; arrows stay. `cull.tick()` runs after
-  `controls.update()`.
+- **See inside** (`#see-inside`, off): `createSeeInside` recomputes each frame which **outer-shell** structures (`group == "lobe"` + the cerebellum, `isShellMesh`) sit on the camera-facing side (centre > `NEAR_CULL_BIAS` past the orbit-centre plane) and eases them to glass (`SEE_INSIDE_OPACITY`) instead of hiding them, so the near cortex turns see-through over the deep nuclei with no pop as you orbit; the nuclei themselves never fade, or the mode would hide what it is for. The fade composes with focus dimming through `writeMeshOpacity` (the lower of the two wins), and a faded shell is skipped by picking (`isPickableMesh`), so a click lands on the nucleus behind it. Its `tick()` runs after `controls.update()` and keeps the loop rendering while a fade moves.
 - **Animations** (`#toggle-animations`, `animSettings.enabled`): the decorative motion (intro,
   gem-dot twinkle, drug wash, circuit pulse). Default on for a fine pointer, off for coarse /
   reduced-motion; persisted. Off is *content-preserving*: focus still lights regions/arrows + shows
@@ -350,5 +345,5 @@ pan-aside. While a focus is held, moving Separate keeps it centered: the explode
 `reaimFocused()`, enabling a **pivot-follow** that `tick()` eases (only the pivot moves, so the
 camera holds the user's distance + angle). The tracked center is `getFocusMeshes` over the live
 `selection.getSelected()`: a single `focused` structure tracks precisely, a multi-region focus tracks
-the visible set's bounding-sphere center (only visible meshes, so it composes with "See inside"). The
+the visible set's bounding-sphere center (only visible meshes, so it composes with `?only=`). The
 follow disables itself once settled, on a camera grab (`cancel`), or when the focus clears.

@@ -381,72 +381,83 @@ function createArrowWidth({ arrows, camera, controls, focus }) {
   };
 }
 
-// "See inside" cull: how far past the orbit-centre plane (toward the camera) an
-// outer-shell structure's centre must sit before it is hidden. Small and positive,
-// so a shell straddling the plane is kept rather than blinking at every crossing.
+// "See inside": how far past the orbit-centre plane (toward the camera) an
+// outer-shell structure's centre must sit before it fades. Small and positive, so a
+// shell straddling the plane stays solid rather than flickering at every crossing.
 const NEAR_CULL_BIAS = 0.3;
+// The opacity a near shell fades to: faint enough to see the nuclei through, still
+// there as a ghost so the brain keeps its outline. Eased per frame, never popped.
+const SEE_INSIDE_OPACITY = 0.08;
+const SEE_INSIDE_EASE = 0.18; // per-frame approach fraction toward the target fade
 
 // The outer shell: the structures big enough to wrap the core and hide it. Only
-// these are ever culled. Culling by position alone (the whole near half, deep nuclei
+// these are ever faded. Fading by position alone (the whole near half, deep nuclei
 // included) reads backwards: from a lateral view it dropped the near hippocampus,
 // amygdala and striatum - the very things you opened the mode to see - while keeping
 // the near frontal and parietal lobes, whose centres sit close to the midline, so the
-// brain still looked whole. Removing only the shell is the anatomical cutaway instead:
-// the near cortex peels away, every nucleus stays, and the far cortex remains as the
-// backdrop that gives them their place.
+// brain still looked whole. Fading only the shell is the anatomical cutaway instead:
+// the near cortex turns to glass, every nucleus stays, and the far cortex remains as
+// the backdrop that gives them their place.
 const SHELL_STRUCTURE_IDS = new Set(["cerebellum"]); // the one non-lobe that wraps
 const isShellMesh = (mesh) =>
   mesh.userData.structure?.group === "lobe"
   || SHELL_STRUCTURE_IDS.has(mesh.userData.id);
 
 /**
- * Toggleable "see inside" mode: peel away the cortical shell between you and the
- * core so the deep nuclei aren't blocked by the near cortex. The hidden set is
- * recomputed every frame from the live camera/target, so it follows as you orbit.
- * Composes with `?only=` (a mesh already hidden stays hidden) and with isolate mode
- * (which dims via opacity, not visibility). Off by default.
+ * The one writer of a structure mesh's opacity: the lower of what the focus wants
+ * (`userData.focusOpacity`, set by the selection's apply) and the "See inside" fade
+ * (`userData.insideFade`, set by createSeeInside), so the two compose whichever moved.
+ * @param {THREE.Mesh} mesh
+ */
+function writeMeshOpacity(mesh) {
+  const op = Math.min(mesh.userData.focusOpacity ?? 1, mesh.userData.insideFade ?? 1);
+  mesh.material.opacity = op;
+  mesh.material.depthWrite = op >= 0.99;
+}
+
+/** A structure a click / hover can land on: shown, and not faded to glass by "See
+ *  inside" (so a deep nucleus is picked through the near cortex in front of it). */
+const isPickableMesh = (mesh) =>
+  mesh.visible && (mesh.userData.insideFade ?? 1) > 0.5;
+
+/**
+ * Toggleable "see inside" mode: fade the cortical shell between you and the core to
+ * glass so the deep nuclei aren't blocked by the near cortex. Which shells fade is
+ * recomputed every frame from the live camera/target, so it follows as you orbit, and
+ * each one eases toward its target (no pop). Off by default.
  *
  * @param {{meshes:THREE.Mesh[], camera:THREE.Camera,
  *          controls:import("three/addons/controls/OrbitControls.js").OrbitControls}} deps
  */
-function createNearCull({ meshes, camera, controls }) {
+function createSeeInside({ meshes, camera, controls }) {
   let enabled = false;
   const shells = meshes.filter(isShellMesh);
-  const center = new THREE.Vector3();
   const viewOut = new THREE.Vector3();
   const toMesh = new THREE.Vector3();
   return {
-    /** Enable/disable. On enable, snapshot current visibility so disable restores
-     *  exactly that (e.g. meshes hidden by ?only= stay hidden). */
     setEnabled(on) {
-      if (on === enabled) return;
       enabled = on;
-      if (on) {
-        for (const m of shells) m.userData.cullRestore = m.visible;
-      } else {
-        for (const m of shells) {
-          if (m.userData.cullRestore !== undefined) {
-            m.visible = m.userData.cullRestore;
-          }
-        }
-      }
     },
-    /** Per-frame: hide every otherwise-visible shell structure whose centre is more
-     *  than NEAR_CULL_BIAS past the orbit-centre plane toward the camera. */
+    /** Per-frame: ease each shell toward faint when its centre is more than
+     *  NEAR_CULL_BIAS past the orbit-centre plane toward the camera, else toward solid
+     *  (always solid when off). Returns whether any fade moved, to keep rendering. */
     tick() {
-      if (!enabled) return;
       viewOut.copy(camera.position).sub(controls.target);
-      if (viewOut.lengthSq() < 1e-9) return;
-      viewOut.normalize();
-      center.copy(controls.target);
+      const haveView = viewOut.lengthSq() > 1e-9;
+      if (haveView) viewOut.normalize();
+      let moving = false;
       for (const m of shells) {
-        if (!m.userData.cullRestore) {
-          m.visible = false;
-          continue;
-        }
-        toMesh.copy(m.position).sub(center);
-        m.visible = toMesh.dot(viewOut) <= NEAR_CULL_BIAS;
+        toMesh.copy(m.position).sub(controls.target);
+        const near = enabled && haveView && toMesh.dot(viewOut) > NEAR_CULL_BIAS;
+        const want = near ? SEE_INSIDE_OPACITY : 1;
+        const cur = m.userData.insideFade ?? 1;
+        if (cur === want) continue;
+        const next = Math.abs(want - cur) < 0.01 ? want : cur + (want - cur) * SEE_INSIDE_EASE;
+        m.userData.insideFade = next;
+        writeMeshOpacity(m);
+        moving = true;
       }
+      return moving;
     },
   };
 }
@@ -846,9 +857,8 @@ function createSelection({ meshes, arrows }) {
         halo.visible = mesh.visible && (mesh === highlighted || isolated.has(mesh));
       }
       // Isolated (or no isolation) -> the slider opacity; everything else faint.
-      const op = !active || isolated.has(mesh) ? baseOpacity : Math.min(baseOpacity, DIM);
-      mesh.material.opacity = op;
-      mesh.material.depthWrite = op >= 0.99;
+      mesh.userData.focusOpacity = !active || isolated.has(mesh) ? baseOpacity : Math.min(baseOpacity, DIM);
+      writeMeshOpacity(mesh);
     }
     // Arrows: keep those in the focus opaque, fade the rest into the background
     // with the dimmed structures; the picked arrow also lights its halo. The ones
@@ -5983,20 +5993,22 @@ function createCameraFocus({ camera, controls, meshes, getFocusMeshes }) {
     return dir.normalize();
   };
 
-  // Whole-brain fit: the distance from `center` along `dir` at which every visible
-  // vertex lands inside the viewport on both axes, and inside the part the expanded
-  // panel leaves clear (the screen offset slides the brain there, so only that part
-  // counts), times `margin`. Exact rather than a bounding sphere: the sphere around
-  // the brain's box is much wider than the brain itself seen from any side, which
-  // left a fresh desktop load framed far too loosely. One pass over the vertices,
-  // only on a load / reset, never per frame.
-  const fitAllDistance = (center, dir, margin) => {
+  // Whole-brain fit, seen along `dir` from `center`: the distance at which every
+  // visible vertex lands inside the viewport on both axes, and inside the part the
+  // expanded panel leaves clear (the screen offset slides the brain there, so only
+  // that part counts), times `margin`; plus how far off-centre the silhouette sits
+  // at that distance (`shiftX`/`shiftY`, world units along the screen axes). Exact
+  // rather than a bounding sphere: the sphere around the brain's box is much wider
+  // than the brain seen from any side, which left a desktop load framed far too
+  // loosely. One pass over the vertices, only on a load / reset, never per frame.
+  const measureFit = (center, dir, margin) => {
     const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
     const clearV = tanV * (1 - 2 * Math.abs(offsetTarget.y));
     const clearH = tanV * camera.aspect * (1 - 2 * Math.abs(offsetTarget.x));
     const right = new THREE.Vector3().crossVectors(camera.up, dir).normalize();
     const up = new THREE.Vector3().crossVectors(dir, right);
     const v = new THREE.Vector3();
+    const pts = [];
     let dist = 0;
     for (const mesh of meshes) {
       if (!mesh.visible) continue;
@@ -6004,24 +6016,39 @@ function createCameraFocus({ camera, controls, meshes, getFocusMeshes }) {
       mesh.updateMatrixWorld();
       for (let i = 0; i < pos.count; i++) {
         v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld).sub(center);
-        const z = v.dot(dir);
-        dist = Math.max(dist, z + Math.abs(v.dot(right)) / clearH,
-          z + Math.abs(v.dot(up)) / clearV);
+        const x = v.dot(right), y = v.dot(up), z = v.dot(dir);
+        pts.push(x, y, z);
+        dist = Math.max(dist, z + Math.abs(x) / clearH, z + Math.abs(y) / clearV);
       }
     }
-    return Math.max(controls.minDistance, dist * margin);
+    dist = Math.max(controls.minDistance, dist * margin);
+    // Screen extents (as tangents) from that distance, mapped back to the pivot plane.
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (let i = 0; i < pts.length; i += 3) {
+      const depth = dist - pts[i + 2];
+      const sx = pts[i] / depth, sy = pts[i + 1] / depth;
+      if (sx < minX) minX = sx;
+      if (sx > maxX) maxX = sx;
+      if (sy < minY) minY = sy;
+      if (sy > maxY) maxY = sy;
+    }
+    return { dist, right, up, shiftX: ((minX + maxX) / 2) * dist, shiftY: ((minY + maxY) / 2) * dist };
   };
 
   // The center + distance framing the whole visible brain from the present view
   // direction, or null when nothing is visible. Shared by recenter + frameAllNow so
-  // the reset button and a fresh load land on the same pose.
+  // the reset button and a fresh load land on the same pose. Measured twice: once
+  // about the box centre to find how far off-centre the silhouette sits, then again
+  // about the silhouette's centre (the olfactory bulbs alone pull the box forward).
   const fitAll = () => {
     box.makeEmpty();
     for (const mesh of meshes) if (mesh.visible) box.expandByObject(mesh);
     if (box.isEmpty()) return null;
     const center = box.getCenter(new THREE.Vector3());
     const dir = viewDir();
-    return { center, dir, dist: fitAllDistance(center, dir, FIT_ALL_MARGIN) };
+    const first = measureFit(center, dir, FIT_ALL_MARGIN);
+    center.addScaledVector(first.right, first.shiftX).addScaledVector(first.up, first.shiftY);
+    return { center, dir, dist: measureFit(center, dir, FIT_ALL_MARGIN).dist };
   };
 
   // Begin a tween that looks at `center` and frames a sphere of `radius` (or sits
@@ -6904,7 +6931,7 @@ const TYPING_SETTLE_MS = 400;
 // The same, for a slider drag (which fires per frame): write the settled value once.
 const SLIDER_SETTLE_MS = 300;
 
-function wireControls({ camera, controls, meshes, arrows, labels, focus, selection, projVis, cull, urlState }) {
+function wireControls({ camera, controls, meshes, arrows, labels, focus, selection, projVis, seeThrough, urlState }) {
   const autorotate = document.getElementById("autorotate");
   const seeInside = document.getElementById("see-inside");
   const toggleAnimations = document.getElementById("toggle-animations");
@@ -7082,8 +7109,8 @@ function wireControls({ camera, controls, meshes, arrows, labels, focus, selecti
   });
 
   // "See inside": hide the near hemisphere so the deep structures show through.
-  cull.setEnabled(seeInside.checked);
-  seeInside.addEventListener("change", () => cull.setEnabled(seeInside.checked));
+  seeThrough.setEnabled(seeInside.checked);
+  seeInside.addEventListener("change", () => seeThrough.setEnabled(seeInside.checked));
 
   // "Animations": the checkbox reflects the persisted animSettings state (default
   // on for desktop, off for a phone / reduced-motion). Flipping it flows through
@@ -8438,7 +8465,7 @@ async function main() {
   const pickStructureHit = (clientX, clientY) => {
     setPointer(clientX, clientY);
     for (const hit of raycaster.intersectObjects(meshes, false)) {
-      if (hit.object.visible) return hit;
+      if (isPickableMesh(hit.object)) return hit;
     }
     return null;
   };
@@ -8896,7 +8923,7 @@ async function main() {
   controls.addEventListener("start", () => focus.cancel());
 
   // "See inside" mode: hide the near hemisphere so the deep nuclei show through.
-  const cull = createNearCull({ meshes, camera, controls });
+  const seeThrough = createSeeInside({ meshes, camera, controls });
 
   // Every way of picking content (click/tap, double-click, search, a
   // structure-panel connection row) funnels through these two helpers, so the
@@ -9234,7 +9261,7 @@ async function main() {
   });
 
   const { autoSpread, autoSpreadIfDeep, arrowRetrim, expandPanel } = wireControls(
-    { camera, controls, meshes, arrows, labels, focus, selection, projVis, cull, urlState });
+    { camera, controls, meshes, arrows, labels, focus, selection, projVis, seeThrough, urlState });
   // Hold arrows a constant apparent width as the camera zooms (advanced by its
   // tick() in the render loop, like arrowRetrim).
   const arrowWidth = createArrowWidth({ arrows, camera, controls, focus });
@@ -10178,6 +10205,8 @@ async function main() {
     if (controls.update()) active = true;
     // After controls.update() so it reads this frame's settled camera distance.
     if (arrowWidth.tick()) active = true;
+    // After controls.update() so the fade reads this frame's camera + target.
+    if (seeThrough.tick()) active = true;
     if (active) needsRender = true;
     const rendered = needsRender;
     // Adaptive quality watches the frame time of actually-rendered animated frames
@@ -10189,8 +10218,6 @@ async function main() {
     // no-op when unchanged; a stop always triggers one final render here, so it can't
     // stay stuck visible after the focus clears.
     updateSpeedRow();
-    // After controls.update() so the cull reads this frame's camera + target.
-    cull.tick();
     renderer.render(scene, camera);
     // CSS2D labels render as a separate DOM pass after the WebGL frame.
     labels.render(scene, camera);

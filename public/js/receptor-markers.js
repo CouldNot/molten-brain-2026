@@ -11,7 +11,7 @@
 // mesh, so they inherit its explode / mirror / position transform with zero
 // per-frame work, exactly like the selection halo and the circuit node-flash
 // shells. Because a Points cloud is a child of the mesh, it also disappears
-// automatically when the mesh is hidden ("See inside" cull, ?only=), so the dots
+// automatically when the mesh is hidden (?only=), so the dots
 // never float over a region that isn't drawn.
 //
 // Additive blending + a crisp sparkle sprite make them read as shiny gems, not
