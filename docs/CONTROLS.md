@@ -113,7 +113,7 @@ Single source of truth for what is highlighted/focused.
   projections.
 - **Hypothetical pathways** (off by default): a "Show speculative (N)" toggle reveals every
   `tentative` (dotted) arrow, composed with **Show projections** via `createProjectionVisibility`.
-- **reset** + **double-click empty space** fully clear (halos + isolate + circuit).
+- **reset** + **double-click empty space** fully clear (halos + isolate + circuit). Reset also puts every Settings control back to its shipped default (each url-state view's `reset()`, run by `urlState.resetAll`) before reframing the whole brain.
 
 ### Structure names
 
@@ -343,7 +343,7 @@ space recenters.
 
 ### Camera focus (`createCameraFocus`)
 
-All framing (reset, search, panel buttons) goes through one smooth tween: moves the orbit pivot +
+A fresh load (`frameAllNow`) and reset (`recenter`) share `fitAll`: the exact distance at which every visible vertex fits the part of the viewport the panel leaves clear (`FIT_ALL_MARGIN` padding), not a bounding sphere, which framed a wide desktop window far too loosely. All framing (reset, search, panel buttons) goes through one smooth tween: moves the orbit pivot +
 camera distance, keeps the view direction, advanced once per frame, cancelled the moment the user
 grabs the controls. Also owns the screen offset (`setScreenOffset`, eased in `tick`) for the
 pan-aside. While a focus is held, moving Separate keeps it centered: the explode handler calls

@@ -54,6 +54,9 @@ const { t, ofNoun } = window.__I18N__;
 // maxDistance (see initThree) is comfortably beyond the farthest region so the
 // user can zoom out to see the whole spread.
 const EXPLODE_STRENGTH = 2.5;
+// Padding around the whole assembled brain when a load / the reset button frames it
+// (createCameraFocus fitAll): 1 would touch the viewport edge.
+const FIT_ALL_MARGIN = 1.15;
 
 // Intro animation: on a plain page load the brain starts fully blown out and
 // settles together into the assembled whole, the camera pulling in from the
@@ -5973,13 +5976,59 @@ function createCameraFocus({ camera, controls, meshes, getFocusMeshes }) {
   const fitDistance = (radius, margin) =>
     (radius / Math.sin(THREE.MathUtils.degToRad(camera.fov) / 2)) * margin;
 
-  // Begin a tween that looks at `center` and frames a sphere of `radius`,
-  // keeping the present view direction.
-  function tweenTo(center, radius, margin) {
+  // The present view direction (target -> camera, unit length).
+  const viewDir = () => {
     const dir = camera.position.clone().sub(controls.target);
     if (dir.lengthSq() < 1e-6) dir.set(...VIEW_DIRS.iso);
-    dir.normalize();
-    const dist = Math.max(controls.minDistance, fitDistance(radius, margin));
+    return dir.normalize();
+  };
+
+  // Whole-brain fit: the distance from `center` along `dir` at which every visible
+  // vertex lands inside the viewport on both axes, and inside the part the expanded
+  // panel leaves clear (the screen offset slides the brain there, so only that part
+  // counts), times `margin`. Exact rather than a bounding sphere: the sphere around
+  // the brain's box is much wider than the brain itself seen from any side, which
+  // left a fresh desktop load framed far too loosely. One pass over the vertices,
+  // only on a load / reset, never per frame.
+  const fitAllDistance = (center, dir, margin) => {
+    const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+    const clearV = tanV * (1 - 2 * Math.abs(offsetTarget.y));
+    const clearH = tanV * camera.aspect * (1 - 2 * Math.abs(offsetTarget.x));
+    const right = new THREE.Vector3().crossVectors(camera.up, dir).normalize();
+    const up = new THREE.Vector3().crossVectors(dir, right);
+    const v = new THREE.Vector3();
+    let dist = 0;
+    for (const mesh of meshes) {
+      if (!mesh.visible) continue;
+      const pos = mesh.geometry.attributes.position;
+      mesh.updateMatrixWorld();
+      for (let i = 0; i < pos.count; i++) {
+        v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld).sub(center);
+        const z = v.dot(dir);
+        dist = Math.max(dist, z + Math.abs(v.dot(right)) / clearH,
+          z + Math.abs(v.dot(up)) / clearV);
+      }
+    }
+    return Math.max(controls.minDistance, dist * margin);
+  };
+
+  // The center + distance framing the whole visible brain from the present view
+  // direction, or null when nothing is visible. Shared by recenter + frameAllNow so
+  // the reset button and a fresh load land on the same pose.
+  const fitAll = () => {
+    box.makeEmpty();
+    for (const mesh of meshes) if (mesh.visible) box.expandByObject(mesh);
+    if (box.isEmpty()) return null;
+    const center = box.getCenter(new THREE.Vector3());
+    const dir = viewDir();
+    return { center, dir, dist: fitAllDistance(center, dir, FIT_ALL_MARGIN) };
+  };
+
+  // Begin a tween that looks at `center` and frames a sphere of `radius` (or sits
+  // `dist` away when given), keeping the present view direction.
+  function tweenTo(center, radius, margin, dist = null) {
+    const dir = viewDir();
+    if (dist == null) dist = Math.max(controls.minDistance, fitDistance(radius, margin));
     anim = {
       fromTarget: controls.target.clone(),
       toTarget: center.clone(),
@@ -6058,30 +6107,21 @@ function createCameraFocus({ camera, controls, meshes, getFocusMeshes }) {
     },
     /** Recenter the pivot on the middle of the brain and frame the whole thing. */
     recenter() {
-      box.makeEmpty();
-      for (const mesh of meshes) if (mesh.visible) box.expandByObject(mesh);
-      if (box.isEmpty()) return;
-      box.getBoundingSphere(sphere);
-      tweenTo(sphere.center, sphere.radius, 1.4);
+      const fit = fitAll();
+      if (!fit) return;
+      tweenTo(fit.center, 0, 0, fit.dist);
       focused = null;
     },
     /**
      * Instantly frame the whole visible brain (no tween), preserving the current
      * view direction. Used to seat the initial resting pose so a fresh load already
-     * sits exactly where the reset button (recenter, same 1.4 margin) would put it,
-     * instead of a hardcoded camera distance that only roughly matched.
+     * sits exactly where the reset button (recenter, same fitAll) would put it.
      */
     frameAllNow() {
-      box.makeEmpty();
-      for (const mesh of meshes) if (mesh.visible) box.expandByObject(mesh);
-      if (box.isEmpty()) return;
-      box.getBoundingSphere(sphere);
-      const dir = camera.position.clone().sub(controls.target);
-      if (dir.lengthSq() < 1e-6) dir.set(...VIEW_DIRS.iso);
-      dir.normalize();
-      const dist = Math.max(controls.minDistance, fitDistance(sphere.radius, 1.4));
-      controls.target.copy(sphere.center);
-      camera.position.copy(sphere.center).addScaledVector(dir, dist);
+      const fit = fitAll();
+      if (!fit) return;
+      controls.target.copy(fit.center);
+      camera.position.copy(fit.center).addScaledVector(fit.dir, fit.dist);
       controls.update();
       focused = null;
     },
@@ -7160,26 +7200,36 @@ function wireControls({ camera, controls, meshes, arrows, labels, focus, selecti
   // control sits at its shipped default, keeping a plain link short; `write` drives
   // the control through its own event, so every side effect runs exactly as a click
   // or a drag would (no second implementation of what the control does).
-  const checkboxView = (input, dflt) => ({
-    read: () => (input.checked === dflt ? null : input.checked ? "1" : "0"),
-    write: (v) => {
+  // Each also carries `reset` (back to `dflt`), which the toolbar's reset button runs
+  // through urlState.resetAll.
+  const checkboxView = (input, dflt) => {
+    const write = (v) => {
       const on = v !== "0";
       if (input.checked === on) return;
       input.checked = on;
       input.dispatchEvent(new Event("change"));
-    },
-  });
-  const sliderView = (input, dflt) => ({
-    read: () => {
-      const value = parseFloat(input.value);
-      return value === dflt ? null : String(value);
-    },
-    write: (v) => {
+    };
+    return {
+      read: () => (input.checked === dflt ? null : input.checked ? "1" : "0"),
+      write,
+      reset: () => write(dflt ? "1" : "0"),
+    };
+  };
+  const sliderView = (input, dflt) => {
+    const write = (v) => {
       if (!Number.isFinite(parseFloat(v))) return;
       input.value = v;
       input.dispatchEvent(new Event("input"));
-    },
-  });
+    };
+    return {
+      read: () => {
+        const value = parseFloat(input.value);
+        return value === dflt ? null : String(value);
+      },
+      write,
+      reset: () => write(String(dflt)),
+    };
+  };
   // Register a view AND let the control's own events refresh the URL, so the address
   // bar tracks it live. A slider fires `input` per frame while dragged, so its sync is
   // debounced and lands once on the settled value (see url-state.js sync).
@@ -7200,11 +7250,7 @@ function wireControls({ camera, controls, meshes, arrows, labels, focus, selecti
   // Animations have no fixed default: it is the per-device heuristic (off on a phone /
   // under reduced-motion), so the key is written whenever the visitor diverges from
   // THEIR default, which is what has to travel for the link to look the same.
-  registerControl("anim", toggleAnimations, {
-    read: () => (toggleAnimations.checked === animSettings.defaultEnabled
-      ? null : toggleAnimations.checked ? "1" : "0"),
-    write: checkboxView(toggleAnimations, animSettings.defaultEnabled).write,
-  });
+  registerControl("anim", toggleAnimations, checkboxView(toggleAnimations, animSettings.defaultEnabled));
 
   // Panel layout: whether the panel body is collapsed, whether the Controls sub-section
   // is open, and which browse section the accordion has open. Written through the same
@@ -7339,6 +7385,9 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
   // back.
 
   resetBtn.addEventListener("click", () => {
+    // Every Settings control back to its shipped default first (un-spreading the brain
+    // among them), so the recenter below frames the assembled brain.
+    urlState.resetAll();
     focus.recenter();
     // Full reset: close any open detail tabs (which clears the 3D focus and strips
     // the deep-link hash via setOnEmpty), then drop any remaining halo / isolate set,
@@ -9181,6 +9230,7 @@ async function main() {
   urlState.register("colors", {
     read: () => (signColorMode ? "sign" : null),
     write: (v) => setColorMode(v === "sign"),
+    reset: () => setColorMode(false),
   });
 
   const { autoSpread, autoSpreadIfDeep, arrowRetrim, expandPanel } = wireControls(
@@ -10007,14 +10057,16 @@ async function main() {
     });
     // `speed=<multiplier>`: the multiplier itself (1 = the reference pace), not the
     // slider's linear position, so the link stays meaningful if the mapping changes.
+    const writeSpeed = (v) => {
+      if (!Number.isFinite(parseFloat(v))) return;
+      animSettings.setSpeed(parseFloat(v));
+      speedSlider.value = String(speedToSlider(animSettings.speed));
+      invalidate();
+    };
     urlState.register("speed", {
       read: () => (animSettings.speed === 1 ? null : String(Number(animSettings.speed.toFixed(2)))),
-      write: (v) => {
-        if (!Number.isFinite(parseFloat(v))) return;
-        animSettings.setSpeed(parseFloat(v));
-        speedSlider.value = String(speedToSlider(animSettings.speed));
-        invalidate();
-      },
+      write: writeSpeed,
+      reset: () => writeSpeed("1"),
     });
     speedSlider.addEventListener("input", () => urlState.sync(SLIDER_SETTLE_MS));
   }

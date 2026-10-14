@@ -16,6 +16,10 @@
  *     it, and a link that simply says nothing must not silently override a persisted
  *     preference (animations, panel-only mode, ...).
  *
+ * A view may also carry a `reset()` that puts its control back to the shipped default:
+ * `resetAll()` runs every one of them (the toolbar's reset button), so "default" is
+ * defined once per control, beside the `read()` that recognizes it.
+ *
  * `priority` orders both directions: a higher number is applied later, so a view that
  * must win over what another one implies (the camera over a focus's own framing)
  * registers above it. Same-priority views run in registration order.
@@ -47,11 +51,12 @@ const enc = (s) =>
  * Create the registry for one page.
  *
  * @returns {{
- *   register: (key: string, view: {read: () => string|null, write: (v: string) => void},
- *              priority?: number) => void,
+ *   register: (key: string, view: {read: () => string|null, write: (v: string) => void,
+ *              reset?: () => void}, priority?: number) => void,
  *   apply: (params: URLSearchParams) => number,
  *   applyHash: () => number,
  *   hash: () => string,
+ *   resetAll: () => void,
  *   sync: (delay?: number) => void,
  *   start: () => void,
  * }}
@@ -72,17 +77,18 @@ export function createUrlState() {
     [...views.entries()].sort(
       (a, b) => a[1].priority - b[1].priority || a[1].seq - b[1].seq);
 
-  const writeInto = (view, value) => {
+  const quietly = (fn) => {
     applying = true;
     try {
-      view.write(value);
+      fn();
     } finally {
       applying = false;
     }
   };
+  const writeInto = (view, value) => quietly(() => view.write(value));
 
   function register(key, view, priority = 0) {
-    const entry = { read: view.read, write: view.write, priority, seq: seq++ };
+    const entry = { read: view.read, write: view.write, reset: view.reset, priority, seq: seq++ };
     views.set(key, entry);
     if (pending.has(key)) {
       const value = pending.get(key);
@@ -127,6 +133,15 @@ export function createUrlState() {
     return parts.length ? `#${parts.join("&")}` : "";
   }
 
+  /** Put every view that knows its default back there (in apply order), then write the
+   *  resulting, now shorter, fragment once. */
+  function resetAll() {
+    for (const [, view] of ordered()) {
+      if (view.reset) quietly(view.reset);
+    }
+    sync();
+  }
+
   /** Write the current UI into the address bar. `replaceState` fires no `hashchange`
    *  (so this never loops back into applyHash) and spams no back/forward entry. */
   function syncNow() {
@@ -161,5 +176,5 @@ export function createUrlState() {
     });
   }
 
-  return { register, apply, applyHash, hash, sync, start };
+  return { register, apply, applyHash, hash, resetAll, sync, start };
 }
