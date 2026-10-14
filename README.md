@@ -35,6 +35,9 @@ Live at **[neurarium.olicorne.org](https://neurarium.olicorne.org)**.
 > likewise unreviewed. neurarium is an early tool for exploring and learning or finding sources but **not** as a
 > primary clinical reference: do not rely on it, and never bet a patient's care solely on it.
 
+> [!TIP]
+> **AI-ready:** paste [`neurarium.olicorne.org/llms.txt`](https://neurarium.olicorne.org/llms.txt) once into Claude, ChatGPT, Le Chat, Gemini or another assistant and ask it to remember the site: it can then look up and check neurarium's facts against their quoted sources (see [Can I ask an AI assistant about it?](#can-i-ask-an-ai-assistant-about-it)).
+
 ## FAQ
 
 - [What kind of information is inside?](#what-kind-of-information-is-inside)
@@ -45,6 +48,7 @@ Live at **[neurarium.olicorne.org](https://neurarium.olicorne.org)**.
 - [How does the sourcing work?](#how-does-the-sourcing-work)
 - [What are the sources?](#what-are-the-sources)
 - [How can I reuse the data?](#how-can-i-reuse-the-data)
+- [Can I ask an AI assistant about it?](#can-i-ask-an-ai-assistant-about-it)
 - [What's the license, and why?](#whats-the-license-and-why)
 - [What's on the roadmap?](#whats-on-the-roadmap)
 - [What is it built with?](#what-is-it-built-with)
@@ -291,6 +295,22 @@ Each row of every file carries its own provenance grade and source, so the graph
 self-describing. For how to extend the dataset, the per-tool reference, and the
 emitted-data field contract, see [`tools/README.md`](tools/README.md). The data is under
 the same [license](#whats-the-license-and-why) as the code.
+
+</details>
+
+<a name="can-i-ask-an-ai-assistant-about-it"></a>
+<details>
+<summary><strong>Can I ask an AI assistant about it?</strong></summary>
+
+Yes, neurarium is AI-ready. Paste this link once into Claude, ChatGPT, Mistral's Le Chat, Gemini or any assistant that can read web pages, and ask it to remember the site:
+
+```
+https://neurarium.olicorne.org/llms.txt
+```
+
+That page tells the assistant where the whole dataset lives and how to read it, including a plain-text version of every panel at [`/api/`](https://neurarium.olicorne.org/api/) (one page per drug, receptor, region and pathway). From then on you can ask it things like "according to neurarium, what does aripiprazole bind, and how well sourced is each binding?" and it can quote the exact source sentence and grade behind each answer instead of answering from memory. Whether it keeps the link across conversations depends on the assistant's own memory feature; if it forgets, paste the link again.
+
+The assistant only reads what neurarium states, so the work-in-progress warning above still applies, and the 3D viewer itself is not part of the text version.
 
 </details>
 

@@ -43,6 +43,9 @@ En ligne sur **[neurarium.olicorne.org](https://neurarium.olicorne.org)**.
 > une référence clinique de premier plan : ne vous y fiez pas, et ne pariez jamais les
 > soins d'un patient uniquement dessus.
 
+> [!TIP]
+> **Prêt pour l'IA :** collez une fois [`neurarium.olicorne.org/llms.txt`](https://neurarium.olicorne.org/llms.txt) dans Claude, ChatGPT, Le Chat, Gemini ou un autre assistant et demandez-lui de retenir le site : il pourra ensuite chercher et vérifier les faits de neurarium avec leurs citations sources (voir [Puis-je interroger un assistant IA à son sujet ?](#can-i-ask-an-ai-assistant-about-it)).
+
 ## FAQ
 
 - [Quelles informations trouve-t-on à l'intérieur ?](#what-kind-of-information-is-inside)
@@ -53,6 +56,7 @@ En ligne sur **[neurarium.olicorne.org](https://neurarium.olicorne.org)**.
 - [Comment fonctionne le sourçage ?](#how-does-the-sourcing-work)
 - [Quelles sont les sources ?](#what-are-the-sources)
 - [Comment réutiliser les données ?](#how-can-i-reuse-the-data)
+- [Puis-je interroger un assistant IA à son sujet ?](#can-i-ask-an-ai-assistant-about-it)
 - [Quelle est la licence, et pourquoi ?](#whats-the-license-and-why)
 - [Qu'y a-t-il sur la feuille de route ?](#whats-on-the-roadmap)
 - [Avec quoi est-ce construit ?](#what-is-it-built-with)
@@ -314,6 +318,22 @@ que le graphe reste auto-descriptif. Pour savoir comment étendre le jeu de donn
 référence par outil et le contrat de champs des données émises, voir
 [`tools/README.md`](tools/README.md). Les données sont sous la même
 [licence](#whats-the-license-and-why) que le code.
+
+</details>
+
+<a name="can-i-ask-an-ai-assistant-about-it"></a>
+<details>
+<summary><strong>Puis-je interroger un assistant IA à son sujet ?</strong></summary>
+
+Oui, neurarium est prêt pour l'IA. Collez une fois ce lien dans Claude, ChatGPT, Le Chat de Mistral, Gemini ou tout assistant capable de lire des pages web, et demandez-lui de retenir le site :
+
+```
+https://neurarium.olicorne.org/llms.txt
+```
+
+Cette page indique à l'assistant où se trouve l'ensemble des données et comment les lire, y compris une version texte de chaque panneau sur [`/api/`](https://neurarium.olicorne.org/api/) (une page par médicament, récepteur, région et voie). Vous pouvez ensuite lui demander par exemple « d'après neurarium, sur quoi se lie l'aripiprazole, et à quel point chaque liaison est-elle sourcée ? » : il peut citer la phrase source exacte et le niveau de preuve derrière chaque réponse au lieu de répondre de mémoire. Qu'il garde le lien d'une conversation à l'autre dépend de la fonction mémoire de l'assistant ; s'il l'oublie, recollez le lien.
+
+L'assistant ne lit que ce qu'affirme neurarium : l'avertissement « travail en cours » ci-dessus s'applique toujours, et la vue 3D elle-même ne fait pas partie de la version texte.
 
 </details>
 
