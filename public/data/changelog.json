@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "3.121.3",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "The /api text pages now give each source the same link its tooltip in the viewer offers (label page, paper, permalink), use shorter addresses without .md, and say plainly that the 3D version shows slightly more",
+          "commits": []
+        },
+        {
+          "category": "docs",
+          "text": "The README explains why neurarium follows the llms.txt convention rather than running an MCP server",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.121.2",
       "date": "2026-10-14",
       "entries": [
