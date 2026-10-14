@@ -205,6 +205,7 @@ import claim_walk as CW  # noqa: E402
 # to public/data/changelog.json (docs/ is not web-exposed, so the emit is what makes
 # them reachable).
 from data_generators.changelog import load_changelog  # noqa: E402
+from data_generators import llms_txt  # noqa: E402 (public/llms.txt for LLM agents)
 
 # The CPIC reader (corpus #15), shared with tools/check_data.py so both ends derive
 # the guidance blocks and the enzyme routes they state from the same committed export.
@@ -2125,6 +2126,15 @@ def write_artifacts(root: Path) -> None:
         json.dumps({"versions": releases}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8")
     log.info("wrote %s (%d versions)", changelog_path, len(releases))
+
+    # The site explained to an LLM agent (data files, fields, how to read a claim),
+    # written at the site root next to robots.txt rather than under data/. The version
+    # is the repo's own (like the changelog), so a --root elsewhere still renders.
+    llms_path = root / "llms.txt"
+    llms_path.write_text(llms_txt.render(
+        llms_txt.app_version(Path(__file__).resolve().parent.parent / "public"), {name: emitted[name] for name in CW.COLLECTIONS},
+        list(emitted["meta"]), len(QUOTES)), encoding="utf-8")
+    log.info("wrote %s", llms_path)
 
     # The deduplicated quote table, one quote node per line, sorted by id for
     # stable diffs. Fetched by the viewer (rehydrated onto each source at load).

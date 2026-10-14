@@ -1,0 +1,59 @@
+# Neurarium
+
+> An interactive 3D brain visualizer with an open dataset of brain regions, pathways, neurotransmitter receptors and CNS drugs (bindings, pharmacokinetics, metabolism, pharmacogenomics). Every claim is a "node" carrying its own source quote and a provenance grade. Version 3.120.0. Not medical advice.
+
+## Please do not crawl or index this site
+
+The site is a single page; everything it shows is already in the public repository, so crawling it only loads a small server. To read or analyse the data in bulk, clone the repository instead:
+
+```
+git clone https://github.com/thiswillbeyourgithub/neurarium
+```
+
+The data is under `public/data/`. For a handful of lookups, fetching the individual files listed below is fine.
+
+## The code is documented
+
+The whole codebase (viewer, data generator, sourcing pipeline, deploy) is documented in the repository. It was written with the help of Claude Code, and the docs are written to be read by an agent:
+
+- [CLAUDE.md](https://github.com/thiswillbeyourgithub/neurarium/blob/main/CLAUDE.md): the map of the repository and its non-obvious rules; start here
+- [docs/ARCHITECTURE.md](https://github.com/thiswillbeyourgithub/neurarium/blob/main/docs/ARCHITECTURE.md): the node model, data flow, module graph
+- [docs/PROVENANCE.md](https://github.com/thiswillbeyourgithub/neurarium/blob/main/docs/PROVENANCE.md): sources, grades, how a quote is verified
+- [docs/DRUGS.md](https://github.com/thiswillbeyourgithub/neurarium/blob/main/docs/DRUGS.md): the drug dataset and how each field is sourced
+- [tools/README.md](https://github.com/thiswillbeyourgithub/neurarium/blob/main/tools/README.md): how the data is generated, checked and refreshed
+
+## Data files
+
+Static JSON Lines (one record per line) and JSON, regenerated from the repository on every release. English only; French strings are in `translations.fr.json` (English string -> French).
+
+- [structures.jsonl](https://neurarium.olicorne.org/data/structures.jsonl): 57 brain regions (id, name, group, position, aliases, sources). Paired regions are emitted once on the right (`mirror: true`); the left twin is implied. Fields: `id`, `name`, `base_name`, `group`, `position`, `color`, `shape_file`, `classification_provenance`, `sources`, `aliases`, `wikipedia`, `wikipedia_provenance`, `structure_image`, `structure_image_gallery`, `mirror`
+- [projections.jsonl](https://neurarium.olicorne.org/data/projections.jsonl): 116 pathways between regions (from, to, kind, transmitter/sign claims, sources). Fields: `from`, `to`, `kind`, `neurotransmitter`, `label`, `description`, `sources`, `mirror`, `claims`, `uncertainty`, `bidirectional`, `tentative`
+- [circuits.jsonl](https://neurarium.olicorne.org/data/circuits.jsonl): 6 named circuits (a set of regions; member pathways are the projections with both ends in the set). Fields: `id`, `name`, `structures`, `description`, `sources`, `wikipedia`, `wikipedia_provenance`, `structure_image`, `structure_image_gallery`
+- [projection_groups.jsonl](https://neurarium.olicorne.org/data/projection_groups.jsonl): 12 projection groups by kind or sign (members are the projections matching it). Fields: `id`, `mode`, `key`, `name`, `description`, `classification_provenance`, `wikipedia`, `wikipedia_provenance`, `sources`
+- [receptors.jsonl](https://neurarium.olicorne.org/data/receptors.jsonl): 62 neurotransmitter receptors (family, class, sign, synaptic site, expression regions + density, effects, variants), each attribute graded separately. Fields: `id`, `name`, `family`, `neurotransmitter`, `receptor_class`, `sign`, `synaptic`, `classification`, `locations`, `location_sources`, `effects`, `release_modulation`, `variants`, `description`, `wikipedia`, `wikipedia_provenance`, `gene`, `density`, `location_uncertainty`, `demographics`, `ubiquitous`
+- [drugs.jsonl](https://neurarium.olicorne.org/data/drugs.jsonl): 301 CNS-active drugs (bindings with action + Ki, categories, brands, half-life, Tmax, enzymes, metabolites, pharmacogenomics, formulations, regulatory history). Fields: `id`, `name`, `categories`, `bindings`, `focusable`, `category_sources`, `category_provenance`, `nbn`, `nbn_sources`, `half_life`, `half_life_sources`, `tmax`, `tmax_sources`, `formulations`, `first_approval`, `first_approval_sources`, `therapeutic_range`, `therapeutic_range_sources`, `alert_level`, `alert_level_sources`, `wikipedia`, `wikipedia_provenance`, `structure_image`, `brands`, `enzymes`, `withdrawals`, `metabolites`, `pgx`, `aliases`, `nbn_nonstandard`, `prodrug`, `prodrug_sources`, `name_qualifier`, `constituents`
+- [metabolites.jsonl](https://neurarium.olicorne.org/data/metabolites.jsonl): 61 active metabolites, one record per molecule (`drug_id`, half-life, own bindings), referenced from a drug's `metabolites[]`. Fields: `id`, `name`, `bindings`, `half_life`, `half_life_sources`, `drug_id`
+- [addons.jsonl](https://neurarium.olicorne.org/data/addons.jsonl): 5 annotations attached to one panel (`owner_kind`, `owner`, `slot`), e.g. a caveat on one drug. Fields: `id`, `owner_kind`, `owner`, `slot`, `display`, `tone`, `basis`, `text`, `sources`, `title`
+- [quotes.jsonl](https://neurarium.olicorne.org/data/quotes.jsonl): 6994 source quotes (`id`, `corpus`, `page`, `quote`, judge `llm`, `fetched` date). Records cite them by `quote_id`
+- [meta.json](https://neurarium.olicorne.org/data/meta.json): vocabularies and labels shared by the records (`projection_colors`, `kind_labels`, `group_labels`, `kind_signs`, `sign_colors`, `sign_labels`, `system_flow_kinds`, `tone_rules`, `tone_factors`, `receptor_family_labels`, `receptor_family_colors`, `receptor_class_labels`, `synaptic_labels`, `drug_category_labels`, `drug_releases`, `drug_history_countries`, `drug_history_scopes`, `drug_history_agencies`, `drug_withdrawal_reasons`, `drug_targets`, `target_type_labels`, `target_type_colors`, `drug_actions`, `drug_effect_colors`, `drug_effect_labels`, `enzymes`, `metabolizer_phenotypes`, `metabolizer_groups`, `enzyme_roles`, `enzyme_strengths`, `enzyme_reactions`, `receptor_effect_modes`, `receptor_effect_labels`, `release_modulation`, `demographics`, `variants`, `source_corpora`, `addon_slots`, `addon_sections`, `addon_displays`, `addon_tones`, `addon_bases`, `uncertainty_reasons`, `quote_pipelines`, `density_min_reliability`, `provenance_stats`)
+- [changelog.json](https://neurarium.olicorne.org/data/changelog.json): what changed in each release
+
+## How to find things
+
+- A drug, receptor or region: find its line in the matching `.jsonl` by `id` (lowercase, underscores, e.g. `sertraline`, `d2`, `putamen_R`) or by `name`.
+- A claim's evidence: each claim has `sources: [{"quote_id", "pipeline", "provenance"}]`. Look up `quote_id` in `quotes.jsonl` for the verbatim sentence, and its `corpus` in `meta.json` `source_corpora` for the full reference. `page` is a book page or a corpus-specific id (PMID, GtoPdb target id, Wikipedia slug, DailyMed setid, ...).
+- How much to trust a claim: `provenance` is `verified` (quote found on the page and confirmed by a separate LLM judge), `sourced` (document given, quote not checked) or `llm` (from model memory, unchecked). No source at all means unsourced. A non-empty `uncertainty[]` lists reasons for doubt. `meta.json` `provenance_stats` gives the totals per node kind.
+- What a drug does: `drugs.jsonl` `bindings[]` gives `target` (a receptor id from `receptors.jsonl` or a target in `meta.json` `drug_targets`), `action` and, where measured, the Ki. Effects in the viewer (which regions light up, tone changes, drug interactions) are derived from these in the browser code under `public/js/`, not stored.
+- Descriptions are not stored: the viewer fetches the live Wikipedia lead linked from a record's `wikipedia` field.
+
+## Live status
+
+- [status.json](https://neurarium.olicorne.org/status.json): `{"version", "started_at"}`, the running release and the container start time (Unix seconds). Compare `version` with the one above to see whether this file is current.
+
+## Linking a person to a view
+
+Hash deep links open detail panels: `https://neurarium.olicorne.org/#tabs=drug:sertraline` (kinds `drug`, `target`, `structure`, `circuit`, `group`, `enzyme`; several comma-separated, e.g. `#tabs=drug:sertraline,target:d2`).
+
+## Feature ideas, errors, questions
+
+Tell the developer at https://olicorne.org/en/contact. A suggestion from an agent relaying its user is welcome, as is a report of a wrong or badly sourced claim (cite the record `id` and `quote_id`).
