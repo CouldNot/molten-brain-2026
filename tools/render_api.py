@@ -36,6 +36,11 @@ SKIP = {"id", "name", "color", "position", "shape_file", "shape", "focusable", "
 # The viewer's `#tabs=<kind>:<id>` opener for each page kind, where one exists.
 TAB_KIND = {"drug": "drug", "receptor": "target", "target": "target", "structure": "structure",
             "circuit": "circuit", "group": "group"}
+API = "/api"  # absolute links, so a page reads the same served at any address (the 404)
+NOT_FOUND = ("**No page at this address.** Page paths are `/api/<kind>/<id>.md` with a singular "
+             "kind and the record id (lowercase, underscores, e.g. `/api/drug/sertraline.md`, "
+             "`/api/drug/amphetamine_dl.md`, `/api/structure/putamen_R.md`); a pathway id is "
+             "`<from>--<to>`. Every valid page is listed below with its id.")
 KIND_TITLES = {"drug": "Drugs", "metabolite": "Active metabolites", "receptor": "Receptors",
                "target": "Other drug targets", "structure": "Brain regions",
                "projection": "Pathways", "circuit": "Circuits", "group": "Projection groups"}
@@ -94,7 +99,7 @@ class Renderer:
         record = self.pages.get(kind, {}).get(ident)
         if record is None:
             return label or ident
-        return f"[{label or record.get('name') or record.get('label') or ident}](../{kind}/{ident}.md)"
+        return f"[{label or record.get('name') or record.get('label') or ident}]({API}/{kind}/{ident}.md)"
 
     def linked(self, key: str, value: Any, parent: str) -> str | None:
         """``value`` as a link when ``key`` names another node, else None."""
@@ -195,7 +200,7 @@ class Renderer:
             lines.append("Paired: stated once for the right hemisphere, the left twin is implied.")
         lines.append("Each claim lists its sources as [grade quote_id]; the verbatim quotes are under "
                      "Sources at the end (also in /data/quotes.jsonl by id). A source without a quote "
-                     "id (a database row) is spelled out inline. Index: [all pages](../index.md).")
+                     f"id (a database row) is spelled out inline. Index: [all pages]({API}/index.md).")
         facts = [(k, v) for k, v in rec.items() if k not in SKIP and self.is_scalar(v)]
         if facts:
             lines += ["", "## Facts", ""]
@@ -211,18 +216,28 @@ class Renderer:
         lines += self.sources_section()
         return "\n".join(lines) + "\n"
 
-    def index(self, version: str) -> str:
-        lines = [f"# Neurarium API (version {version})", "",
-                 "One Markdown page per node of the dataset: stored fields only, each claim tagged "
-                 "[grade quote_id], the verbatim quotes listed under Sources at the end of each page. What the viewer computes in the browser "
-                 "(possible effects, release changes, neurotransmitter tone, drug interactions, "
-                 f"simulation) is not included. Overview and raw data: {llms_txt.SITE_URL}/llms.txt"]
-        for kind, records in self.pages.items():
-            lines += ["", f"## {KIND_TITLES[kind]} ({len(records)})", ""]
-            for ident, rec in sorted(records.items(),
-                                     key=lambda kv: str(kv[1].get("name") or kv[1].get("label") or kv[0]).lower()):
-                name = rec.get("name") or rec.get("label") or ident
-                lines.append(f"- [{name}]({kind}/{ident}.md)")
+    def listing(self, kind: str) -> list[str]:
+        """One kind's pages, by name, as a Markdown section."""
+        records = self.pages[kind]
+        lines = ["", f"## [{KIND_TITLES[kind]}]({API}/{kind}/) ({len(records)})", ""]
+        for ident, rec in sorted(records.items(),
+                                 key=lambda kv: str(kv[1].get("name") or kv[1].get("label") or kv[0]).lower()):
+            name = rec.get("name") or rec.get("label") or ident
+            lines.append(f"- [{name}]({API}/{kind}/{ident}.md) `{ident}`")
+        return lines
+
+    def index(self, version: str, kinds: list[str] | None = None, lead: str = "") -> str:
+        """The page list (every kind, or just ``kinds``), under ``lead`` when given."""
+        lines = [f"# Neurarium API (version {version})", ""]
+        if lead:
+            lines += [lead, ""]
+        lines.append("One Markdown page per node of the dataset: stored fields only, each claim tagged "
+                     "[grade quote_id], the verbatim quotes listed under Sources at the end of each "
+                     "page. What the viewer computes in the browser (possible effects, release "
+                     "changes, neurotransmitter tone, drug interactions, simulation) is not included. "
+                     f"Every page: [{API}/]({API}/). Overview and raw data: {llms_txt.SITE_URL}/llms.txt")
+        for kind in kinds or self.pages:
+            lines += self.listing(kind)
         return "\n".join(lines) + "\n"
 
 
@@ -237,7 +252,11 @@ def render(data_dir: Path, out: Path, version: str) -> int:
         for ident, rec in records.items():
             (out / kind / f"{ident}.md").write_text(r.page(kind, ident, rec), encoding="utf-8")
             n += 1
+        (out / kind / "index.md").write_text(r.index(version, [kind]), encoding="utf-8")
     (out / "index.md").write_text(r.index(version), encoding="utf-8")
+    # Served (status 404) for any /api address with no page, so a mistyped or guessed
+    # id still leads somewhere: the full list, ids shown, is the way out.
+    (out / "not_found.md").write_text(r.index(version, lead=NOT_FOUND), encoding="utf-8")
     return n
 
 
