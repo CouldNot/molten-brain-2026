@@ -1,6 +1,17 @@
 {
   "versions": [
     {
+      "version": "3.120.0",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "added",
+          "text": "An llms.txt page tells AI assistants where the open dataset lives, what each file holds and how to read a claim's source, and a status.json gives the running version and when the server last restarted",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.119.1",
       "date": "2026-10-13",
       "entries": [
