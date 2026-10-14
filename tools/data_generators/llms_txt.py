@@ -85,6 +85,10 @@ The whole codebase (viewer, data generator, sourcing pipeline, deploy) is docume
 - [docs/DRUGS.md]({REPO_URL}/blob/main/docs/DRUGS.md): the drug dataset and how each field is sourced
 - [tools/README.md]({REPO_URL}/blob/main/tools/README.md): how the data is generated, checked and refreshed
 
+## Readable pages (start here for a lookup)
+
+[{SITE_URL}/api/]({SITE_URL}/api/) is the dataset as Markdown, one page per node (e.g. `{SITE_URL}/api/drug/sertraline.md`, `{SITE_URL}/api/receptor/d2.md`), listed in `/api/index.md`. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes listed under Sources at the end. What the viewer computes in the browser (possible effects, release changes, neurotransmitter tone, drug interactions, simulation) is not on these pages.
+
 ## Data files
 
 Static JSON Lines (one record per line) and JSON, regenerated from the repository on every release. English only; French strings are in `translations.fr.json` (English string -> French).
