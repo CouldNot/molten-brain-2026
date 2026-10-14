@@ -10,7 +10,7 @@ A hardened Caddy container (`docker/docker-compose.yml`): non-root UID 1000,
 `deploy.resources.limits` so `pids` isn't double-defined, which compose rejects),
 `mem_swappiness: 0`, rotated `json-file` logging. Listens `:8359`, published
 `127.0.0.1:8359` so a host reverse proxy terminates TLS in front. The image
-(`docker/Dockerfile`) is a two-stage build: a `caddy:2-builder-alpine` stage
+(`docker/Dockerfile`, built from the repo root as context, allowlisted by `.dockerignore`) is a three-stage build: a `python:3.13-alpine` `api` stage renders the `/api/` Markdown pages from `public/data` (`tools/render_api.py`, baked into the image at `/opt/neurarium/api`, so they refresh only on a rebuild); a `caddy:2-builder-alpine` stage
 `xcaddy build`s a custom binary with the `github.com/mholt/caddy-ratelimit` module
 (Caddy has no built-in rate limiting, so `docker compose build` needs network on
 the deploy host), dropped into a `caddy:2-alpine` runtime stage that also strips

@@ -7,6 +7,15 @@
 FROM caddy:2-builder-alpine AS builder
 RUN xcaddy build --with github.com/mholt/caddy-ratelimit
 
+# The /api Markdown pages (tools/render_api.py): rendered here from the data being
+# deployed, so they are never committed. Stdlib only, so a bare python image.
+FROM python:3.13-alpine AS api
+COPY tools/render_api.py /src/tools/render_api.py
+COPY tools/data_generators/llms_txt.py /src/tools/data_generators/llms_txt.py
+COPY public/version.js /src/public/version.js
+COPY public/data /src/public/data
+RUN python -I /src/tools/render_api.py --public /src/public --out /api
+
 # Runtime: the stock alpine image with our custom binary dropped in over the
 # stock one.
 #
@@ -26,5 +35,8 @@ RUN apk add --no-cache --virtual .build-deps libcap \
 
 # Startup wrapper: stamps STARTED_AT and validates ANALYTICS_URL (reachable +
 # actually JavaScript) before exec'ing caddy. See entrypoint.sh.
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Served by Caddy at /api/ (see Caddyfile).
+COPY --from=api /api /opt/neurarium/api

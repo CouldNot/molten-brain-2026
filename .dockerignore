@@ -1,0 +1,9 @@
+# The image builds from the repo root (docker/docker-compose.yml `context: ..`), so
+# allowlist only what docker/Dockerfile COPYs: never the books, data_sources/ or .git.
+*
+!docker/entrypoint.sh
+!tools/render_api.py
+!tools/data_generators/llms_txt.py
+!public/version.js
+!public/data/*.jsonl
+!public/data/meta.json

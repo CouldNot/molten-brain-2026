@@ -3,9 +3,11 @@ services:
     # Static site served by Caddy. We build a thin image off caddy:2-alpine
     # (see docker/Dockerfile) only to strip the binary's cap_net_bind_service
     # file capability, which otherwise makes exec fail under no-new-privileges.
+    # The context is the repo root so the image can render /api from public/data
+    # (see Dockerfile); ../.dockerignore allowlists what is sent.
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     image: neurarium:local
     container_name: neurarium
     restart: unless-stopped

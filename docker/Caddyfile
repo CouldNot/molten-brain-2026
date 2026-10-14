@@ -85,6 +85,15 @@
 		root * /gen
 		file_server
 	}
+	# The /api Markdown pages, rendered into the image at build time (docker/Dockerfile,
+	# tools/render_api.py), not part of the mounted /srv tree.
+	redir /api /api/ 308
+	handle /api/* {
+		root * /opt/neurarium
+		file_server {
+			index index.md
+		}
+	}
 	handle {
 		file_server
 	}
@@ -153,6 +162,10 @@
 	# keeps the French strings from being decoded as latin-1. There is no registered
 	# JSONL type a browser renders any better: one JSON object per line is not valid
 	# JSON, so `application/json` would only make a JSON viewer report a parse error.
+	# `.md` (the /api pages) gets the same treatment, as Markdown.
+	@md path /api/*.md /api/
+	header @md Content-Type "text/markdown; charset=utf-8"
+
 	@jsonl path *.jsonl
 	header @jsonl Content-Type "text/plain; charset=utf-8"
 
