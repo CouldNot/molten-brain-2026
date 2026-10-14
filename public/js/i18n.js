@@ -666,6 +666,10 @@
         'Have an idea for a feature? I\'d happily build it, ' +
         '<a href="https://olicorne.org/en/contact" target="_blank" ' +
         'rel="noopener noreferrer">get in touch</a>.',
+      "loading.ai":
+        'AI-ready: paste <a href="llms.txt" target="_blank" rel="noopener">this link</a> ' +
+        'once into Claude, ChatGPT, Le Chat or Gemini and ask it to remember the site, ' +
+        'so it can check any fact here against its quoted source.',
       "loading.enter": "Start exploring",
       "common.byline":
         'by <a href="https://olicorne.org/en" target="_blank" ' +
@@ -1499,6 +1503,10 @@
         'Une idée de fonctionnalité ? Je la réaliserais volontiers, ' +
         '<a href="https://olicorne.org/fr/contact" target="_blank" ' +
         'rel="noopener noreferrer">prenez contact</a>.',
+      "loading.ai":
+        'Prêt pour l\'IA : collez une fois <a href="llms.txt" target="_blank" rel="noopener">ce lien</a> ' +
+        'dans Claude, ChatGPT, Le Chat ou Gemini et demandez-lui de retenir le site, ' +
+        'pour qu\'il vérifie chaque fait d\'ici avec sa citation source.',
       "loading.enter": "Commencer l'exploration",
       "common.byline":
         'par <a href="https://olicorne.org/fr" target="_blank" ' +
