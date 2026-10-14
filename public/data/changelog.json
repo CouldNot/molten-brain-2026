@@ -1,6 +1,17 @@
 {
   "versions": [
     {
+      "version": "3.120.1",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "status.json rounds the server's last restart down to 5 minutes",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.120.0",
       "date": "2026-10-14",
       "entries": [

@@ -1098,6 +1098,7 @@
   "serotonin, norepinephrine, dopamine reversible enzyme inhibitor (SN-RevEI)": "inhibiteur enzymatique réversible de la sérotonine, noradrénaline, dopamine (SN-RevEI)",
   "serotonin-dopamine antagonist": "antagoniste sérotonino-dopaminergique",
   "somewhat increased activity": "activité un peu augmentée",
+  "status.json rounds the server's last restart down to 5 minutes": "status.json arrondit le dernier redémarrage du serveur aux 5 minutes inférieures",
   "strong": "puissant",
   "the activity dosing guidance assumes": "l'activité que suppose la posologie usuelle",
   "toxicity": "toxicité",
