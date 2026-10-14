@@ -97,7 +97,10 @@ echo "entrypoint: rendered /gen/app-config.js (dev='${DEV:-}')"
 # from public/llms.txt: the version is read from the mounted /srv/version.js, the
 # one place it lives. BRE sed (no -E) so it works under busybox.
 APP_VERSION="$(sed -n 's/.*__APP_VERSION__ *= *"\([^"]*\)".*/\1/p' /srv/version.js)"
-printf '{"version": "%s", "started_at": %s}\n' "$APP_VERSION" "$STARTED_AT" > /gen/status.json
+# The start time is floored to 5 minutes: enough to tell "restarted recently", without
+# publishing the exact second of each deploy.
+STATUS_STARTED_AT=$((STARTED_AT / 300 * 300))
+printf '{"version": "%s", "started_at": %s}\n' "$APP_VERSION" "$STATUS_STARTED_AT" > /gen/status.json
 echo "entrypoint: rendered /gen/status.json (version=$APP_VERSION)"
 
 exec caddy run --config /etc/caddy/Caddyfile --adapter caddyfile

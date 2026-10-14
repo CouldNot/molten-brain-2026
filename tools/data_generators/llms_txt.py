@@ -104,7 +104,7 @@ Static JSON Lines (one record per line) and JSON, regenerated from the repositor
 
 ## Live status
 
-- [status.json]({SITE_URL}/status.json): `{{"version", "started_at"}}`, the running release and the container start time (Unix seconds). Compare `version` with the one above to see whether this file is current.
+- [status.json]({SITE_URL}/status.json): `{{"version", "started_at"}}`, the running release and the container start time (Unix seconds, rounded down to 5 minutes). Compare `version` with the one above to see whether this file is current.
 
 ## Linking a person to a view
 
