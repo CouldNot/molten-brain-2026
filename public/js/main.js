@@ -614,7 +614,13 @@ function createIntroAnimation({ meshes, arrows, slider, camera, controls, focus,
       lastAmount = FROM;
     },
     cancel() {
-      if (running) finish(false);
+      if (!running) return;
+      // Cancelled before its first frame (an automated `?ui=0` launch starts the intro
+      // at once, then a URL fragment cancels it): start() has already blown the brain
+      // apart with no camera pull-back yet, so put it back together rather than leave
+      // that half-applied pose on screen.
+      if (startTime === null) applyAmount(TO);
+      finish(false);
     },
     tick() {
       if (!running) return false;
