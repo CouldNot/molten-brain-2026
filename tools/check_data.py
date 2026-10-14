@@ -1415,7 +1415,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for i, src in enumerate(drug.get("nbn_sources", []) or []):
             check_one(f"drug {did} nbn_sources[{i}]", src)
         for i, src in enumerate(drug.get("category_sources", []) or []):
-            check_one(f"drug {did} category_sources[{i}]", src)
+            # A class quote is the class label itself ("Stimulant"): short by design.
+            check_one(f"drug {did} category_sources[{i}]", src, short_ok=True)
         # Half-life quote + each metabolite's identity/T½/binding quotes are gated the
         # same way (verbatim substring on the cited corpus page).
         # ... as are the brands, and each formulation's release type, brands, T½, Tmax.

@@ -725,29 +725,36 @@ class ShortQuoteTest(unittest.TestCase):
     and its target + value make a chance match implausible, so warning on it only
     buried the real short quotes (it fired on ~480 Ki rows on every run)."""
 
-    def _warns(self, binding):
+    PAGE = "5-HT 1B | 1744 | Human\nIt blocks D2 well.\nClass: Stimulant\n"
+
+    def _warns(self, drug):
+        """The incidental-substring warnings check_sources prints for one drug, its
+        quotes cited against a one-page synthetic corpus ``wiki`` holding PAGE."""
         import tempfile
         with tempfile.TemporaryDirectory(dir=check_data.REPO_ROOT) as tmp:
-            Path(tmp, "page.md").write_text(
-                "5-HT 1B | 1744 | Human\nIt blocks D2 well.\n", encoding="utf-8")
+            Path(tmp, "page.md").write_text(self.PAGE, encoding="utf-8")
             rel = str(Path(tmp).relative_to(check_data.REPO_ROOT))
             meta = {"source_corpora": {"wiki": {"pages_dir": rel}}}
-            drug = {"id": "x", "bindings": [binding]}
-            report = check_data.Report()
             buf = io.StringIO()
             with redirect_stdout(buf):
-                check_data.check_sources(report, meta, [drug], [], [], [], [])
+                check_data.check_sources(check_data.Report(), meta,
+                                         [{"id": "x", "bindings": [], **drug}], [], [], [], [])
         return [ln for ln in buf.getvalue().splitlines() if "incidental" in ln]
 
+    @staticmethod
+    def _src(quote):
+        return {"corpus": "wiki", "page": "page", "quote": quote, "provenance": "sourced"}
+
     def test_a_ki_row_is_not_warned(self):
-        src = {"corpus": "wiki", "page": "page", "quote": "5-HT 1B | 1744 | Human",
-               "provenance": "verified"}
-        self.assertEqual(self._warns({"target": "5ht1b", "ki": {"source": src}}), [])
+        ki = {"source": self._src("5-HT 1B | 1744 | Human")}
+        self.assertEqual(self._warns({"bindings": [{"target": "5ht1b", "ki": ki}]}), [])
+
+    def test_a_class_label_is_not_warned(self):
+        self.assertEqual(self._warns({"category_sources": [self._src("Stimulant")]}), [])
 
     def test_a_short_binding_quote_still_is(self):
-        src = {"corpus": "wiki", "page": "page", "quote": "blocks D2",
-               "provenance": "sourced"}
-        self.assertEqual(len(self._warns({"target": "d2", "sources": [src]})), 1)
+        binding = {"target": "d2", "sources": [self._src("blocks D2")]}
+        self.assertEqual(len(self._warns({"bindings": [binding]})), 1)
 
 
 if __name__ == "__main__":
