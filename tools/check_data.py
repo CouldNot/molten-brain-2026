@@ -1303,7 +1303,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                          f"p.{page}: {quote!r}")
             return
         n_checked += 1
-        # A brand quote IS a short proper noun (the name, verbatim): short by design.
+        # A brand quote IS a short proper noun (the name, verbatim) and a Ki quote one
+        # table row: short by design (callers pass short_ok).
         if not short_ok and len(needle.replace(" ", "")) < _MIN_QUOTE_CHARS:
             report.warn(f"{ctx}: quote is very short ({quote!r}); it matched "
                         f"but may be an incidental substring")
@@ -1406,7 +1407,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             # only feed a Ki source that actually carries a quote.
             ki_src = (binding.get("ki") or {}).get("source")
             if ki_src and ki_src.get("quote"):
-                check_one(f"drug {did} binding {binding.get('target')} ki.source", ki_src)
+                # A Ki quote is one table row (target | value | species): short by
+                # design, and its number + target make a chance match implausible.
+                check_one(f"drug {did} binding {binding.get('target')} ki.source", ki_src,
+                          short_ok=True)
             check_uncertainty(f"drug {did} binding {binding.get('target')}", binding)
         for i, src in enumerate(drug.get("nbn_sources", []) or []):
             check_one(f"drug {did} nbn_sources[{i}]", src)
@@ -1471,7 +1475,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             # gated exactly like a drug binding's (a PDSP CSV Ki is checked below).
             ki_src = (binding.get("ki") or {}).get("source")
             if ki_src and ki_src.get("quote"):
-                check_one(f"{mid} binding {binding.get('target')} ki.source", ki_src)
+                check_one(f"{mid} binding {binding.get('target')} ki.source", ki_src,
+                          short_ok=True)  # a table row, as for a drug's Ki above
             check_uncertainty(f"{mid} binding {binding.get('target')}", binding)
 
     for addon in addons:

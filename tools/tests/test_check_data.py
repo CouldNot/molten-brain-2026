@@ -718,6 +718,38 @@ class RehydrateQuotesTest(unittest.TestCase):
         self.assertEqual(dangling, ["nope"])
 
 
+class ShortQuoteTest(unittest.TestCase):
+    """The "very short quote, may be an incidental substring" warning skips a Ki row.
+
+    A Ki quote is one affinity-table row ('5-HT 1B | 1744 | Human'): short by design,
+    and its target + value make a chance match implausible, so warning on it only
+    buried the real short quotes (it fired on ~480 Ki rows on every run)."""
+
+    def _warns(self, binding):
+        import tempfile
+        with tempfile.TemporaryDirectory(dir=check_data.REPO_ROOT) as tmp:
+            Path(tmp, "page.md").write_text(
+                "5-HT 1B | 1744 | Human\nIt blocks D2 well.\n", encoding="utf-8")
+            rel = str(Path(tmp).relative_to(check_data.REPO_ROOT))
+            meta = {"source_corpora": {"wiki": {"pages_dir": rel}}}
+            drug = {"id": "x", "bindings": [binding]}
+            report = check_data.Report()
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                check_data.check_sources(report, meta, [drug], [], [], [], [])
+        return [ln for ln in buf.getvalue().splitlines() if "incidental" in ln]
+
+    def test_a_ki_row_is_not_warned(self):
+        src = {"corpus": "wiki", "page": "page", "quote": "5-HT 1B | 1744 | Human",
+               "provenance": "verified"}
+        self.assertEqual(self._warns({"target": "5ht1b", "ki": {"source": src}}), [])
+
+    def test_a_short_binding_quote_still_is(self):
+        src = {"corpus": "wiki", "page": "page", "quote": "blocks D2",
+               "provenance": "sourced"}
+        self.assertEqual(len(self._warns({"target": "d2", "sources": [src]})), 1)
+
+
 if __name__ == "__main__":
     unittest.main()
 
