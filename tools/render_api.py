@@ -1,7 +1,7 @@
 """Render the emitted dataset as one Markdown page per node, served under ``/api/``.
 
 The text twin of the viewer's detail panels, for LLM agents and anything that cannot run
-WebGL: ``/api/index.md`` lists every page, ``/api/drug/sertraline.md`` holds that drug's
+WebGL: ``/api/`` lists every page, ``/api/drug/sertraline`` holds that drug's
 stored fields, each claim tagged with its grade + quote id and the verbatim quotes listed once
 at the end of the page.
 
@@ -22,6 +22,7 @@ import shutil
 import sys
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "data_generators"))
 import llms_txt  # noqa: E402 (SITE_URL + the version, defined once there)
@@ -36,10 +37,12 @@ SKIP = {"id", "name", "color", "position", "shape_file", "shape", "focusable", "
 # The viewer's `#tabs=<kind>:<id>` opener for each page kind, where one exists.
 TAB_KIND = {"drug": "drug", "receptor": "target", "target": "target", "structure": "structure",
             "circuit": "circuit", "group": "group"}
+# What JS encodeURIComponent leaves unescaped, so a page URL matches the viewer's byte for byte.
+URI_SAFE = "-_.!~*'()"
 API = "/api"  # absolute links, so a page reads the same served at any address (the 404)
-NOT_FOUND = ("**No page at this address.** Page paths are `/api/<kind>/<id>.md` with a singular "
-             "kind and the record id (lowercase, underscores, e.g. `/api/drug/sertraline.md`, "
-             "`/api/drug/amphetamine_dl.md`, `/api/structure/putamen_R.md`); a pathway id is "
+NOT_FOUND = ("**No page at this address.** Page paths are `/api/<kind>/<id>` with a singular "
+             "kind and the record id (lowercase, underscores, e.g. `/api/drug/sertraline`, "
+             "`/api/drug/amphetamine_dl`, `/api/structure/putamen_R`); a pathway id is "
              "`<from>--<to>`. Every valid page is listed below with its id.")
 KIND_TITLES = {"drug": "Drugs", "metabolite": "Active metabolites", "receptor": "Receptors",
                "target": "Other drug targets", "structure": "Brain regions",
@@ -99,7 +102,7 @@ class Renderer:
         record = self.pages.get(kind, {}).get(ident)
         if record is None:
             return label or ident
-        return f"[{label or record.get('name') or record.get('label') or ident}]({API}/{kind}/{ident}.md)"
+        return f"[{label or record.get('name') or record.get('label') or ident}]({API}/{kind}/{ident})"
 
     def linked(self, key: str, value: Any, parent: str) -> str | None:
         """``value`` as a link when ``key`` names another node, else None."""
@@ -126,11 +129,16 @@ class Renderer:
         q = self.quotes.get(ref.get("quote_id") or "")
         corpus = (q or ref).get("corpus")
         where = self.corpora.get(corpus, {}).get("ref", corpus or "unknown source")
-        if q:
-            self.cited.setdefault(q["id"], q)
-            return f"[{grade} {q['id']}]"
         extra = "; ".join(f"{k}: {v}" for k, v in ref.items()
                           if k not in ("corpus", "provenance", "quote_id", "pipeline") and v is not None)
+        if q:
+            self.cited.setdefault(q["id"], q)
+            return f"[{grade} {q['id']}]" + (f" ({extra})" if extra else "")
+        # A bare database row links where the viewer's Ki tooltip does: its own
+        # reference URL, else the corpus's generic one.
+        url = self.corpora.get(corpus, {}).get("url")
+        if url and "http" not in extra:
+            extra = f"{extra}; {url}" if extra else url
         return f"[{grade}] {where}" + (f" ({extra})" if extra else "")
 
     # -- values --------------------------------------------------------------------------
@@ -186,8 +194,13 @@ class Renderer:
         lines = ["", "## Sources", ""]
         for qid, q in self.cited.items():
             where = self.corpora.get(q.get("corpus"), {}).get("ref", q.get("corpus"))
-            page = f", {q['page']}" if q.get("page") not in (None, "") else ""
-            lines.append(f"- `{qid}` ({where}{page}): \"{q['quote']}\"")
+            has_page = q.get("page") not in (None, "")
+            page = f", {q['page']}" if has_page else ""
+            # The corpus's public URL for this page, the link the viewer's tooltip shows.
+            page_url = self.corpora.get(q.get("corpus"), {}).get("page_url")
+            link = (f" {page_url.replace('{page}', quote(str(q['page']), safe=URI_SAFE))}"
+                    if page_url and has_page else "")
+            lines.append(f"- `{qid}` ({where}{page}){link}: \"{q['quote']}\"")
         return lines
 
     def page(self, kind: str, ident: str, rec: dict[str, Any]) -> str:
@@ -200,7 +213,7 @@ class Renderer:
             lines.append("Paired: stated once for the right hemisphere, the left twin is implied.")
         lines.append("Each claim lists its sources as [grade quote_id]; the verbatim quotes are under "
                      "Sources at the end (also in /data/quotes.jsonl by id). A source without a quote "
-                     f"id (a database row) is spelled out inline. Index: [all pages]({API}/index.md).")
+                     f"id (a database row) is spelled out inline. Index: [all pages]({API}/).")
         facts = [(k, v) for k, v in rec.items() if k not in SKIP and self.is_scalar(v)]
         if facts:
             lines += ["", "## Facts", ""]
@@ -223,7 +236,7 @@ class Renderer:
         for ident, rec in sorted(records.items(),
                                  key=lambda kv: str(kv[1].get("name") or kv[1].get("label") or kv[0]).lower()):
             name = rec.get("name") or rec.get("label") or ident
-            lines.append(f"- [{name}]({API}/{kind}/{ident}.md) `{ident}`")
+            lines.append(f"- [{name}]({API}/{kind}/{ident}) `{ident}`")
         return lines
 
     def index(self, version: str, kinds: list[str] | None = None, lead: str = "") -> str:
@@ -233,8 +246,9 @@ class Renderer:
             lines += [lead, ""]
         lines.append("One Markdown page per node of the dataset: stored fields only, each claim tagged "
                      "[grade quote_id], the verbatim quotes listed under Sources at the end of each "
-                     "page. What the viewer computes in the browser (possible effects, release "
-                     "changes, neurotransmitter tone, drug interactions, simulation) is not included. "
+                     "page. The human version (the 3D viewer) shows slightly more: what it computes in "
+                     "the browser from these facts (possible effects, release changes, "
+                     "neurotransmitter tone, drug interactions, simulation) is not included. "
                      f"Every page: [{API}/]({API}/). Overview and raw data: {llms_txt.SITE_URL}/llms.txt")
         for kind in kinds or self.pages:
             lines += self.listing(kind)

@@ -43,7 +43,8 @@ class RenderApiTest(unittest.TestCase):
     def test_every_link_resolves(self):
         for name, text in self.pages.items():
             for target in LINK.findall(text):
-                page = target + "index.md" if target.endswith("/") or not target else target
+                self.assertFalse(target.endswith(".md"), f"{name}: {target} keeps its .md")
+                page = target + "index.md" if target.endswith("/") or not target else target + ".md"
                 self.assertIn(page, self.pages, f"{name} links to missing {target}")
 
     def test_every_quote_marker_is_listed_once(self):
@@ -57,7 +58,15 @@ class RenderApiTest(unittest.TestCase):
         self.assertIn("No page at this address", text)
         for name in self.pages:
             if not name.endswith("index.md") and name != "not_found.md":
-                self.assertIn(f"(/api/{name})", text)
+                self.assertIn(f"(/api/{name.removesuffix('.md')})", text)
+
+    def test_source_links_match_the_viewer_tooltip(self):
+        # A DailyMed quote carries its label page (corpus page_url), as the tooltip does.
+        self.assertRegex(self.pages["drug/sertraline.md"] + "".join(self.pages.values()),
+                         r"https://dailymed\.nlm\.nih\.gov/dailymed/drugInfo\.cfm\?setid=[0-9a-f-]+")
+        # A Ki cited by quote keeps its own reference permalink next to the marker.
+        self.assertRegex("".join(self.pages.values()),
+                         r"\[verified q_[0-9a-f]+\] \([^)]*reference: https://")
 
     def test_presentation_fields_skipped(self):
         self.assertNotIn("shape_file", self.pages["structure/putamen_R.md"])
