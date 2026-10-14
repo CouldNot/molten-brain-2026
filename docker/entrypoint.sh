@@ -1,5 +1,6 @@
 #!/bin/sh
-# Container entrypoint for the neurarium static site. Three jobs before handing
+# Container entrypoint for the neurarium static site. Three jobs (plus a
+# /status.json for agents, rendered next to the config) before handing
 # off to Caddy:
 #
 #   1. Stamp the container start time into STARTED_AT (epoch seconds) so the
@@ -91,5 +92,12 @@ window.__APP_CONFIG__ = {
 };
 CONFIG
 echo "entrypoint: rendered /gen/app-config.js (dev='${DEV:-}')"
+
+# Render /status.json (the running release + this start time) for agents, linked
+# from public/llms.txt: the version is read from the mounted /srv/version.js, the
+# one place it lives. BRE sed (no -E) so it works under busybox.
+APP_VERSION="$(sed -n 's/.*__APP_VERSION__ *= *"\([^"]*\)".*/\1/p' /srv/version.js)"
+printf '{"version": "%s", "started_at": %s}\n' "$APP_VERSION" "$STARTED_AT" > /gen/status.json
+echo "entrypoint: rendered /gen/status.json (version=$APP_VERSION)"
 
 exec caddy run --config /etc/caddy/Caddyfile --adapter caddyfile

@@ -79,7 +79,9 @@
 	# take analytics AND the DEV banner down together). The file is named
 	# generically, not "analytics-*", so content filters / proxies that block
 	# "analytics" paths don't 404 it.
-	handle /app-config.js {
+	# /status.json (version + start time, linked from llms.txt) is rendered the same way.
+	@gen path /app-config.js /status.json
+	handle @gen {
 		root * /gen
 		file_server
 	}
