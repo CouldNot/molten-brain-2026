@@ -1504,7 +1504,7 @@
         '<a href="https://olicorne.org/fr/contact" target="_blank" ' +
         'rel="noopener noreferrer">prenez contact</a>.',
       "loading.ai":
-        'Prêt pour l\'IA : collez une fois <a href="llms.txt" target="_blank" rel="noopener">ce lien</a> ' +
+        'Utilisable par les IA : collez une fois <a href="llms.txt" target="_blank" rel="noopener">ce lien</a> ' +
         'dans Claude, ChatGPT, Le Chat ou Gemini et demandez-lui de retenir le site, ' +
         'pour qu\'il vérifie chaque fait d\'ici avec sa citation source.',
       "loading.enter": "Commencer l'exploration",

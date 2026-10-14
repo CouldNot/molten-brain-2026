@@ -44,7 +44,7 @@ En ligne sur **[neurarium.olicorne.org](https://neurarium.olicorne.org)**.
 > soins d'un patient uniquement dessus.
 
 > [!TIP]
-> **Prêt pour l'IA :** collez une fois [`neurarium.olicorne.org/llms.txt`](https://neurarium.olicorne.org/llms.txt) dans Claude, ChatGPT, Le Chat, Gemini ou un autre assistant et demandez-lui de retenir le site : il pourra ensuite chercher et vérifier les faits de neurarium avec leurs citations sources (voir [Puis-je interroger un assistant IA à son sujet ?](#can-i-ask-an-ai-assistant-about-it)).
+> **Utilisable par les IA :** collez une fois [`neurarium.olicorne.org/llms.txt`](https://neurarium.olicorne.org/llms.txt) dans Claude, ChatGPT, Le Chat, Gemini ou un autre assistant et demandez-lui de retenir le site : il pourra ensuite chercher et vérifier les faits de neurarium avec leurs citations sources (voir [Puis-je interroger un assistant IA à son sujet ?](#can-i-ask-an-ai-assistant-about-it)).
 
 ## FAQ
 
@@ -325,7 +325,7 @@ référence par outil et le contrat de champs des données émises, voir
 <details>
 <summary><strong>Puis-je interroger un assistant IA à son sujet ?</strong></summary>
 
-Oui, neurarium est prêt pour l'IA. Collez une fois ce lien dans Claude, ChatGPT, Le Chat de Mistral, Gemini ou tout assistant capable de lire des pages web, et demandez-lui de retenir le site :
+Oui, neurarium est utilisable par les IA. Collez une fois ce lien dans Claude, ChatGPT, Le Chat de Mistral, Gemini ou tout assistant capable de lire des pages web, et demandez-lui de retenir le site :
 
 ```
 https://neurarium.olicorne.org/llms.txt
