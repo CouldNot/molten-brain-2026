@@ -1,6 +1,6 @@
 # Neurarium
 
-> An interactive 3D brain visualizer with an open dataset of brain regions, pathways, neurotransmitter receptors and CNS drugs (bindings, pharmacokinetics, metabolism, pharmacogenomics). Every claim is a "node" carrying its own source quote and a provenance grade. Version 3.121.0. Not medical advice.
+> An interactive 3D brain visualizer with an open dataset of brain regions, pathways, neurotransmitter receptors and CNS drugs (bindings, pharmacokinetics, metabolism, pharmacogenomics). Every claim is a "node" carrying its own source quote and a provenance grade. Version 3.121.1. Not medical advice.
 
 ## Please do not crawl or index this site
 
@@ -24,7 +24,7 @@ The whole codebase (viewer, data generator, sourcing pipeline, deploy) is docume
 
 ## Readable pages (start here for a lookup)
 
-[https://neurarium.olicorne.org/api/](https://neurarium.olicorne.org/api/) is the dataset as Markdown, one page per node (e.g. `https://neurarium.olicorne.org/api/drug/sertraline.md`, `https://neurarium.olicorne.org/api/receptor/d2.md`), listed in `/api/index.md`. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes listed under Sources at the end. What the viewer computes in the browser (possible effects, release changes, neurotransmitter tone, drug interactions, simulation) is not on these pages.
+[https://neurarium.olicorne.org/api/](https://neurarium.olicorne.org/api/) is the dataset as Markdown, one page per node (e.g. `https://neurarium.olicorne.org/api/drug/sertraline.md`, `https://neurarium.olicorne.org/api/receptor/d2.md`), listed in `/api/index.md` (one kind: `/api/drug/`). The `.md` is optional, and an address with no page returns the full list with ids (status 404), so a guessed id is one step from the right one. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes listed under Sources at the end. What the viewer computes in the browser (possible effects, release changes, neurotransmitter tone, drug interactions, simulation) is not on these pages.
 
 ## Data files
 

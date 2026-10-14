@@ -87,7 +87,7 @@ The whole codebase (viewer, data generator, sourcing pipeline, deploy) is docume
 
 ## Readable pages (start here for a lookup)
 
-[{SITE_URL}/api/]({SITE_URL}/api/) is the dataset as Markdown, one page per node (e.g. `{SITE_URL}/api/drug/sertraline.md`, `{SITE_URL}/api/receptor/d2.md`), listed in `/api/index.md`. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes listed under Sources at the end. What the viewer computes in the browser (possible effects, release changes, neurotransmitter tone, drug interactions, simulation) is not on these pages.
+[{SITE_URL}/api/]({SITE_URL}/api/) is the dataset as Markdown, one page per node (e.g. `{SITE_URL}/api/drug/sertraline.md`, `{SITE_URL}/api/receptor/d2.md`), listed in `/api/index.md` (one kind: `/api/drug/`). The `.md` is optional, and an address with no page returns the full list with ids (status 404), so a guessed id is one step from the right one. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes listed under Sources at the end. What the viewer computes in the browser (possible effects, release changes, neurotransmitter tone, drug interactions, simulation) is not on these pages.
 
 ## Data files
 
