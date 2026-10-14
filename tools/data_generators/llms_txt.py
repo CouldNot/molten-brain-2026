@@ -87,7 +87,9 @@ The whole codebase (viewer, data generator, sourcing pipeline, deploy) is docume
 
 ## Readable pages (start here for a lookup)
 
-[{SITE_URL}/api/]({SITE_URL}/api/) is the dataset as Markdown, one page per node (e.g. `{SITE_URL}/api/drug/sertraline.md`, `{SITE_URL}/api/receptor/d2.md`), listed in `/api/index.md` (one kind: `/api/drug/`). The `.md` is optional, and an address with no page returns the full list with ids (status 404), so a guessed id is one step from the right one. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes listed under Sources at the end. What the viewer computes in the browser (possible effects, release changes, neurotransmitter tone, drug interactions, simulation) is not on these pages.
+[{SITE_URL}/api/]({SITE_URL}/api/) is the dataset as Markdown, one page per node (e.g. `{SITE_URL}/api/drug/sertraline`, `{SITE_URL}/api/receptor/d2`), all listed at `/api/` (one kind: `/api/drug/`). An address with no page returns the full list with ids (status 404), so a guessed id is one step from the right one. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes and their source links listed under Sources at the end.
+
+**The human version shows slightly more.** The 3D viewer also computes a few sections in the browser from these stored facts, and they are deliberately not on the text pages: a drug's possible effects and release changes (from its bindings and each receptor's effects), its indicative neurotransmitter tone, possible drug-drug interactions (from shared metabolic enzymes), and the simulation. Each is a combination of claims that are on the pages, so an agent can reason them out itself, but it should say so rather than present them as neurarium's statement, and point its user to the viewer link on each page to see them.
 
 ## Data files
 
