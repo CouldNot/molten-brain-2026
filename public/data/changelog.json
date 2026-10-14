@@ -1,6 +1,26 @@
 {
   "versions": [
     {
+      "version": "3.122.1",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "A link opened in the automated screenshot mode no longer leaves the brain blown apart",
+          "commits": [
+            "6197c50"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The data check no longer flags every quoted Ki table row as possibly too short, so the warnings that matter stand out",
+          "commits": [
+            "6e4892a"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.122.0",
       "date": "2026-10-14",
       "entries": [
