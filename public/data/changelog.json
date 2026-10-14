@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.122.2",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "The data check no longer flags a quoted drug class label (\"Stimulant\") as possibly too short",
+          "commits": [
+            "c186f21"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.122.1",
       "date": "2026-10-14",
       "entries": [
