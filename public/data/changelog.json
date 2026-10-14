@@ -1,6 +1,48 @@
 {
   "versions": [
     {
+      "version": "3.122.0",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "\"See inside\" now turns the near lobes to glass instead of making them vanish, fading smoothly as you turn the brain, and a click goes through them to the structure behind",
+          "commits": [
+            "d04791c"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The French notice about AI assistants now reads \"Utilisable par les IA\"",
+          "commits": [
+            "46ede94"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "On a wide screen the brain opened far too small: it now fills the space beside the panel from the start, and Reset brings back that same view",
+          "commits": [
+            "bd135d0",
+            "d04791c"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Reset now also puts every 3D setting (Separate, Transparency, Auto-rotate, names, projections, See inside, animations and their speed, arrow colours) back to its default",
+          "commits": [
+            "bd135d0"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "No more browser warning about the deprecated apple-mobile-web-app-capable tag",
+          "commits": [
+            "6ea7e9a"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.121.3",
       "date": "2026-10-14",
       "entries": [
