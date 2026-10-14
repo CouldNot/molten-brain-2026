@@ -1,6 +1,17 @@
 {
   "versions": [
     {
+      "version": "3.121.1",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A mistyped /api address now shows the list of every page with its id instead of a bare error, each kind has its own list (e.g. /api/drug/), and the .md ending is optional",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.121.0",
       "date": "2026-10-14",
       "entries": [
