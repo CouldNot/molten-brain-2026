@@ -129,12 +129,17 @@ _PROVENANCE_LEVELS = {"llm", "sourced", "verified"}
 # ``drug_binding_action`` is graded from the bindings' own quote sources, so its quotes
 # are already walked as part of drug_bindings / drug_metabolite_bindings: the kind adds a
 # tally column, never a new quote to gate.
+# The per-drug physicochemistry citations (kinds drug_lipophilicity / drug_polar_surface /
+# drug_bbb, data_generators/physchem.py).
+PHYSCHEM_SOURCES = ("xlogp_sources", "tpsa_sources", "bbb_sources")
+
 NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "drug_brands",
               "drug_categories",
               "drug_half_life", "drug_tmax", "drug_formulations",
               "drug_first_approval", "drug_withdrawals",
               "drug_holders", "drug_originator", "drug_originator_country",
               "drug_prodrug", "drug_therapeutic_range", "drug_alert_level",
+              "drug_lipophilicity", "drug_polar_surface", "drug_bbb",
               "drug_enzymes", "drug_enzyme_strength",
               "enzyme_variability", "drug_pgx",
               "drug_metabolites",
@@ -954,7 +959,7 @@ def check_provenance(report, meta, structures, projections, circuits,
             grade(src.get("provenance"), f"drug {drug.get('id')} first_approval_sources[{i}]")
         for i, src in enumerate(drug.get("prodrug_sources", []) or []):
             grade(src.get("provenance"), f"drug {drug.get('id')} prodrug_sources[{i}]")
-        for f in ("therapeutic_range_sources", "alert_level_sources"):
+        for f in ("therapeutic_range_sources", "alert_level_sources") + PHYSCHEM_SOURCES:
             for i, src in enumerate(drug.get(f, []) or []):
                 grade(src.get("provenance"), f"drug {drug.get('id')} {f}[{i}]")
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
@@ -1462,6 +1467,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for f in ("therapeutic_range_sources", "alert_level_sources"):
             for i, src in enumerate(drug.get(f, []) or []):
                 check_one(f"drug {did} {f}[{i}]", src)
+        # A PubChem quote is one short `Label: value` line by design ("XLogP3: 3.2").
+        for f in PHYSCHEM_SOURCES:
+            for i, src in enumerate(drug.get(f, []) or []):
+                check_one(f"drug {did} {f}[{i}]", src, short_ok=True)
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 check_one(f"drug {did} withdrawals[{wi}] sources[{i}]", src)

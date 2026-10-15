@@ -89,6 +89,7 @@ def _pharmfreq_date() -> str | None:
 BULK_DATES: dict[str, Callable[[], str | None]] = {
     "pdsp_ki": lambda: _mtime_date([_repo(SOURCE_CORPORA["pdsp_ki"]["csv"])]),
     "gtopdb_ki": lambda: _mtime_date([_repo("data_sources/gtopdb/interactions.csv")]),
+    "b3db": lambda: _mtime_date([_repo("data_sources/b3db/B3DB_classification.tsv")]),
     "allen_ahba": lambda: _mtime_date(
         glob.glob(_repo("data_sources/allen/raw/normalized_microarray_donor*.zip"))),
     "cpic": lambda: _export_fetched(cpic),

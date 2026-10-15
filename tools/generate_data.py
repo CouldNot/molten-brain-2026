@@ -212,6 +212,7 @@ from data_generators import llms_txt  # noqa: E402 (public/llms.txt for LLM agen
 # the guidance blocks and the enzyme routes they state from the same committed export.
 from data_generators import cpic  # noqa: E402
 from data_generators import tdm  # noqa: E402 (AGNP TDM ranges, corpus #19)
+from data_generators import physchem  # noqa: E402 (PubChem #21 + B3DB #22)
 from data_generators import page_links as PAGE_LINKS  # noqa: E402 (per-page source urls)
 from data_generators.unknown import apply_unknown  # noqa: E402
 
@@ -1418,6 +1419,9 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # drug_therapeutic_range / drug_alert_level), from the AGNP TDM guideline's
     # Table 5 cache. See data_generators/tdm.py.
     out.update(tdm.drug_tdm(drug["id"], _quote_sources))
+    # Lipophilicity, polar surface, blood-brain-barrier label (kinds drug_lipophilicity /
+    # drug_polar_surface / drug_bbb). See data_generators/physchem.py.
+    out.update(physchem.drug_physchem(drug["id"], _quote_sources))
     # Active metabolites named in the source (one graded node each, kind
     # `drug_metabolites`): references into the one-per-molecule store, see
     # _drug_metabolites + _metabolite_records.

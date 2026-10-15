@@ -11487,6 +11487,25 @@
       "page_kind": "annotation",
       "page_url": "https://www.clinpgx.org/clinicalAnnotation/{page}"
     },
+    "pubchem": {
+      "ref": "PubChem (NCBI), computed compound properties",
+      "citation": "Kim S, Chen J, Cheng T, et al. PubChem 2025 update. Nucleic Acids Res. 2025;53(D1):D1516-D1525. doi:10.1093/nar/gkae1059. Computed properties of the cited compound (CID), public domain.",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/",
+      "pages_dir": "data_sources/pubchem/pages",
+      "machine": true,
+      "editable": true,
+      "page_kind": "cid",
+      "page_url": "https://pubchem.ncbi.nlm.nih.gov/compound/{page}"
+    },
+    "b3db": {
+      "ref": "B3DB, blood-brain barrier permeability database",
+      "citation": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors. Sci Data. 2021;8:289. doi:10.1038/s41597-021-01069-5. github.com/theochem/B3DB (CC0 1.0).",
+      "url": "https://github.com/theochem/B3DB",
+      "pages_dir": "data_sources/b3db/pages",
+      "machine": true,
+      "editable": true,
+      "page_kind": "cid"
+    },
     "agnp_tdm": {
       "ref": "AGNP Consensus Guidelines for TDM in Neuropsychopharmacology, 2026",
       "citation": "Hart XM, Gründer G, Hiemke C, et al. Consensus Guidelines for Therapeutic Drug Monitoring in Neuropsychopharmacology: Update 2026. Pharmacopsychiatry. 2026;59:166-295. doi:10.1055/a-2860-7861.",
@@ -11809,6 +11828,36 @@
         "missing": 0,
         "unknown": 0
       },
+      "drug_lipophilicity": {
+        "total": 286,
+        "verified": 286,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
+      "drug_polar_surface": {
+        "total": 286,
+        "verified": 286,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
+      "drug_bbb": {
+        "total": 239,
+        "verified": 239,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "drug_enzymes": {
         "total": 573,
         "verified": 570,
@@ -12081,15 +12130,15 @@
       }
     },
     "nodes": {
-      "total": 8976,
-      "verified": 8242,
+      "total": 9787,
+      "verified": 9053,
       "uncertain": 428,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 8670,
+      "backed": 9481,
       "pct_backed": 97
     },
     "ki_coverage": {

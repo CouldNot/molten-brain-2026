@@ -90,6 +90,8 @@ CORPUS_DESC = {
     "drugsfda":        ("US regulator register (Drugs@FDA)", "First US approval, where no other source dates one"),
     "agnp_tdm":        ("Consensus guideline (AGNP TDM, 2026)", "Therapeutic range, alert level, CYP substrate cross-check"),
     "clinpgx":         ("Pharmacogenomic annotations (ClinPGx)", "Receptor & target gene variant associations"),
+    "pubchem":         ("Chemistry database (PubChem computed properties)", "Drug lipophilicity (XLogP3), polar surface area"),
+    "b3db":            ("Blood-brain barrier database (B3DB)", "Drug brain entry (BBB+ / BBB-, logBB)"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
@@ -108,6 +110,9 @@ KIND_LABELS = {
     "drug_prodrug": "Drug prodrug flags",
     "drug_therapeutic_range": "Drug therapeutic reference ranges",
     "drug_alert_level": "Drug laboratory alert levels",
+    "drug_lipophilicity": "Drug lipophilicity (XLogP3)",
+    "drug_polar_surface": "Drug polar surface area",
+    "drug_bbb": "Drug blood-brain barrier label",
     "drug_enzymes": "Drug metabolising enzymes",
     "drug_enzyme_strength": "Drug metabolism strength tier",
     "drug_metabolites": "Drug active metabolites",

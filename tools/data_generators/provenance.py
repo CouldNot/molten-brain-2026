@@ -948,6 +948,46 @@ SOURCE_CORPORA: dict[str, dict] = {
         "page_kind": "annotation",
         "page_url": "https://www.clinpgx.org/clinicalAnnotation/{page}",
     },
+    "pubchem": {
+        # Physicochemical corpus #21: PubChem's computed properties of a drug's compound
+        # (kinds drug_lipophilicity / drug_polar_surface): XLogP3 and the topological
+        # polar surface area, computed estimates, not measurements. The compound is the
+        # CID on the drug's stored English Wikipedia drugbox; tools/fetch/fetch_physchem.py
+        # stores one page per CID (one `Label: value` line per property, the quote, copied
+        # by code, no judge). PubChem recomputes, so the page is dated (editable).
+        # Licence: PubChem data is public domain.
+        "ref": "PubChem (NCBI), computed compound properties",
+        "citation": "Kim S, Chen J, Cheng T, et al. PubChem 2025 update. Nucleic Acids "
+                    "Res. 2025;53(D1):D1516-D1525. doi:10.1093/nar/gkae1059. Computed "
+                    "properties of the cited compound (CID), public domain.",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/",
+        "pages_dir": "data_sources/pubchem/pages",
+        "machine": True,
+        "editable": True,
+        "page_kind": "cid",
+        "page_url": "https://pubchem.ncbi.nlm.nih.gov/compound/{page}",
+    },
+    "b3db": {
+        # Brain-entry corpus #22: B3DB, a curated database of measured blood-brain
+        # barrier permeability compiled from 50 published sources (kind drug_bbb): a
+        # BBB+ / BBB- label per compound and, for about 1,000 of them, a measured logBB.
+        # One bulk TSV from the B3DB GitHub repository, joined by CID (else exact name,
+        # chirality-guarded, and always by InChI formula + connectivity) in
+        # tools/fetch/fetch_physchem.py, which flattens the matched rows into one page per
+        # CID (`page`); the quote is one row line, copied by code (no judge). The
+        # repository is updated now and then, so the download is dated (editable).
+        # Licence: CC0 1.0.
+        "ref": "B3DB, blood-brain barrier permeability database",
+        "citation": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular "
+                    "database of blood-brain barrier permeability with chemical "
+                    "descriptors. Sci Data. 2021;8:289. doi:10.1038/s41597-021-01069-5. "
+                    "github.com/theochem/B3DB (CC0 1.0).",
+        "url": "https://github.com/theochem/B3DB",
+        "pages_dir": "data_sources/b3db/pages",
+        "machine": True,
+        "editable": True,
+        "page_kind": "cid",
+    },
     "agnp_tdm": {
         # Consensus-guideline corpus #19: the AGNP TDM task force's 2026 update of its
         # therapeutic drug monitoring guidelines (Pharmacopsychiatry, open access, a
@@ -1456,6 +1496,10 @@ def _provenance_stats(structures: list[dict[str, Any]],
                   for d in drugs if d.get("therapeutic_range")]
     alert_grades = [_strongest_grade(d.get("alert_level_sources"))
                     for d in drugs if d.get("alert_level")]
+    # Physicochemistry and brain entry (data_generators/physchem.py): ONE node per drug
+    # for each of its computed XLogP3, its computed polar surface and its B3DB label.
+    physchem_grades = {f: [_strongest_grade(d.get(f"{f}_sources")) for d in drugs if f in d]
+                       for f in ("xlogp", "tpsa", "bbb")}
     # Drug-metabolism nodes ("<drug> is a substrate of / inhibits / induces <enzyme>"),
     # one per (drug, enzyme, role) row. A pharmacokinetic claim, independent of the
     # drug's receptor bindings: it is what the derived drug -> drug interaction edges
@@ -1672,6 +1716,9 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_prodrug": tally(prodrug_grades),
         "drug_therapeutic_range": tally(trr_grades),
         "drug_alert_level": tally(alert_grades),
+        "drug_lipophilicity": tally(physchem_grades["xlogp"]),
+        "drug_polar_surface": tally(physchem_grades["tpsa"]),
+        "drug_bbb": tally(physchem_grades["bbb"]),
         "drug_enzymes": tally(enzyme_grades),
         "drug_enzyme_strength": tally(enzyme_strength_grades),
         "drug_pgx": tally(pgx_grades),

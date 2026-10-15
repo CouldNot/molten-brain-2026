@@ -393,6 +393,19 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
             add(q, f"Drug {nm} laboratory alert level in blood is "
                    f"{al.get('value')} {al.get('unit')}.",
                 CS.site("drug", d["id"], "alert_level"))
+        kind["now"] = "drug_lipophilicity"
+        for q in _qids(d.get("xlogp_sources", [])):
+            add(q, f"Drug {nm}'s computed XLogP3 (octanol/water partition) is "
+                   f"{d.get('xlogp')}.", CS.site("drug", d["id"], "xlogp"))
+        kind["now"] = "drug_polar_surface"
+        for q in _qids(d.get("tpsa_sources", [])):
+            add(q, f"Drug {nm}'s computed topological polar surface area is "
+                   f"{d.get('tpsa')} square angstroms.", CS.site("drug", d["id"], "tpsa"))
+        kind["now"] = "drug_bbb"
+        bbb = d.get("bbb") or {}
+        for q in _qids(d.get("bbb_sources", [])):
+            add(q, f"Drug {nm} is labelled {bbb.get('label')} (blood-brain barrier "
+                   f"permeable or not) by B3DB.", CS.site("drug", d["id"], "bbb"))
         kind["now"] = "drug_enzymes"
         for e in d.get("enzymes", []):
             tier = f", {e['strength']}" if e.get("strength") else ""
