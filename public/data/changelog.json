@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "version": "3.126.1",
+      "date": "2026-10-15",
+      "entries": [
+        {
+          "category": "data",
+          "text": "Receptor effects gain a second source, the IUPHAR/BPS Guide to Pharmacology's curated function and pathophysiology notes (human data only): 164 sourced effects, now including beta3 bladder relaxation, M5 vasodilation and 5-HT4 gut motility",
+          "commits": [
+            "d49136f",
+            "9d06929"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.126.0",
       "date": "2026-10-15",
       "entries": [
