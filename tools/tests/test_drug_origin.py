@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_drug_holders as AH  # noqa: E402
+import apply_originator as AO  # noqa: E402
 from data_generators import origin  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 
@@ -84,6 +85,73 @@ class HolderTest(unittest.TestCase):
         row = AH.gate("fr", found, self.pages)
         self.assertEqual(row["names"], ["ETHYPHARM"])
         self.assertIsNone(AH.gate("fr", [("X", "holder: X", "1")], self.pages))  # not on page
+
+
+DRUG_LINE = "Citalopram was first synthesized in 1972 at the company Lundbeck."
+CO_LINES = ["Headquarters | Valby, Copenhagen, Denmark",
+            "Lundbeck was acquired by Novartis in 2030.",
+            "Lundbeck was founded in Copenhagen.",
+            "Novartis merged with Lundbeck in 2031."]
+
+
+class OriginatorTest(unittest.TestCase):
+    """The applier's gates: index, verbatim name, company names, attested country."""
+
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        d = Path(tmp.name)
+        (d / "citalopram.md").write_text("# Citalopram\n\n" + DRUG_LINE + "\n", "utf-8")
+        (d / "lundbeck.md").write_text("# Lundbeck\n\n" + "\n".join(CO_LINES) + "\n", "utf-8")
+        self.pages = PageGate({"wikipedia_pharm": d})
+        cand = lambda page, line: {"corpus": "wikipedia_pharm", "page": page, "line": line}
+        self.wl = {"drugs": {"x": {"candidates": [cand("citalopram", DRUG_LINE)]}},
+                   "companies": {"lundbeck": {"candidates": [
+                       cand("lundbeck", ln) for ln in CO_LINES]}}}
+
+    def run_apply(self, drug_pick, company_pick=None):
+        drugs = [{"id": "x", "originator": {"name": "STALE"}}]
+        judged = {"drugs": {"x": drug_pick},
+                  "companies": {"lundbeck": company_pick or {}}}
+        AO.apply(self.wl, judged, drugs, self.pages, {"lundbeck": ["Lundbeck"]})
+        return drugs[0]
+
+    def test_full_pick(self):
+        d = self.run_apply({"index": 0, "name": "Lundbeck", "company": "lundbeck"},
+                           {"country": {"index": 0, "country": "dk"},
+                            "now": {"index": 1, "name": "Novartis"}})
+        self.assertEqual(d["originator"], {"name": "Lundbeck", "now": "Novartis"})
+        self.assertEqual(d["originator_country"], "dk")
+        self.assertEqual(d["originator_country_sources"][0]["quote"], CO_LINES[0])
+        self.assertEqual(d["originator_now_sources"][0]["quote"], CO_LINES[1])
+
+    def test_gates_drop_what_the_quotes_do_not_say(self):
+        """A name absent from its quote, a bad index, an unattested country, a `now`
+        from a sentence with no successor verb all publish nothing (stale fields go)."""
+        self.assertNotIn("originator", self.run_apply({"index": 0, "name": "Pfizer"}))
+        self.assertNotIn("originator", self.run_apply({"index": 3, "name": "Lundbeck"}))
+        d = self.run_apply({"index": 0, "name": "Lundbeck", "company": "lundbeck"},
+                           {"country": {"index": 0, "country": "se"},
+                            "now": {"index": 2, "name": "Copenhagen"}})
+        self.assertEqual(d["originator"], {"name": "Lundbeck"})
+        self.assertNotIn("originator_country", d)
+
+    def test_now_chain_cites_every_sentence(self):
+        """A two-sentence chain cites both, and every link must be a successor one."""
+        d = self.run_apply({"index": 0, "name": "Lundbeck", "company": "lundbeck"},
+                           {"now": {"index": [1, 3], "name": "Novartis"}})
+        self.assertEqual([s["quote"] for s in d["originator_now_sources"]],
+                         [CO_LINES[1], CO_LINES[3]])
+        d = self.run_apply({"index": 0, "name": "Lundbeck", "company": "lundbeck"},
+                           {"now": {"index": [1, 2], "name": "Novartis"}})
+        self.assertNotIn("now", d["originator"])
+
+    def test_company_must_list_the_picked_name(self):
+        """A drug naming another lab never borrows the company's country."""
+        d = self.run_apply({"index": 0, "name": "company", "company": "lundbeck"},
+                           {"country": {"index": 0, "country": "dk"}})
+        self.assertEqual(d["originator"], {"name": "company"})
+        self.assertNotIn("originator_country", d)
 
 
 class EmitTest(unittest.TestCase):
