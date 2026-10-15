@@ -77,7 +77,7 @@ fixed Stahl list.
   orange ⚠ when it carries `uncertainty[]`, see Source provenance),
   sorted strongest-affinity first. Below it a **Neurotransmitter tone (indicative)** section (only when `flowKinds`
   non-empty), opening with a derived "indicative only" caution box and the formula caption: one row per
-  ascending system whose tone the drug sets (jumps to that kind-mode group), an out-/in-arrow and the
+  ascending system whose tone the drug sets (jumps to that kind-mode group), an up/down arrow and the
   signed raw sum `flowSystems[kind].sum`, then one line per contributing binding (`toneBySystem` terms in
   `js/data.js`: target, `tone.rule.<driver>` label from `meta.tone_rules`, `±1 × factor × toneWeightOf(ki)`,
   its own pill). `toneWeightOf` is the floor-free Ki ramp (0 at 1 µM, 1 at 0.1 nM, 0.5 without a Ki) so weak hits

@@ -3790,7 +3790,8 @@ function createInfoPanel(data, sourcingModal) {
   // (reciprocal / commissural). Drawn as inline SVG so the head is genuinely wide
   // and it stays crisp at any size (a Unicode arrowhead's shape varies by font).
   const SVG_NS = "http://www.w3.org/2000/svg";
-  const DIR_TIP = { out: "info.dirOut", in: "info.dirIn", both: "info.dirBoth" };
+  const DIR_TIP = { out: "info.dirOut", in: "info.dirIn", both: "info.dirBoth",
+    up: "info.toneUp", down: "info.toneDown" };
   // The localized "what this arrow's colour means" line for a pathway: the kind
   // label (the colour IS the projection kind, meta.projectionColors[kind]) plus the
   // neurotransmitter, matching the connection panel's type line. Empty for a pathway
@@ -3811,6 +3812,11 @@ function createInfoPanel(data, sourcingModal) {
         ? "M24,6 L12,6 L12,2 L2,8 L12,14 L12,10 L24,10 Z"
         : dir === "both"
         ? "M2,8 L9,2 L9,6 L17,6 L17,2 L24,8 L17,14 L17,10 L9,10 L9,14 Z"
+        // Tone rows (up = raises, down = lowers): vertical, centred in the 26-wide box.
+        : dir === "up"
+        ? "M11,15 L11,8 L7,8 L13,1 L19,8 L15,8 L15,15 Z"
+        : dir === "down"
+        ? "M11,1 L11,8 L7,8 L13,15 L19,8 L15,8 L15,1 Z"
         : "M2,6 L14,6 L14,2 L24,8 L14,14 L14,10 L2,10 Z"); // "out" (default)
     path.setAttribute("fill", color || "#fff");
     svg.appendChild(path);
@@ -4891,7 +4897,7 @@ function createInfoPanel(data, sourcingModal) {
       // overlay lights (drug.flowKinds, from meta.system_flow_kinds). A *derived*
       // inference from the drug's *tone-setter* bindings only (a reuptake/enzyme/
       // vesicle target or a presynaptic autoreceptor, see js/data.js toneBySystem):
-      // each row shows the signed sum (out-arrow = raises the tone, in-arrow = lowers
+      // each row shows the signed sum (up arrow = raises the tone, down arrow = lowers
       // it), jumps to that projection group, and lists the per-binding arithmetic with
       // each binding's own pill, so the value is traceable. A purely postsynaptic drug
       // sets no tone -> empty flowKinds -> section omitted.
@@ -4914,7 +4920,7 @@ function createInfoPanel(data, sourcingModal) {
           const li = el("li", "clickable");
           li.title = group.name;
           li.appendChild(directionArrow(projColors[kind] || "#fff",
-            flow.direction < 0 ? "in" : "out",
+            flow.direction < 0 ? "down" : "up",
             (data.meta.kindLabels && data.meta.kindLabels[kind]) || kind));
           li.appendChild(el("span", "conn-label", group.name));
           li.appendChild(el("span", "tone-value", fmtTone(netTone(drug, kind))));
