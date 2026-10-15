@@ -6684,6 +6684,11 @@ function buildKindExample(kind, data, nav) {
   // the example is stable and never empty for a kind that has any data.
   const pick = (arr, prefer) => (arr || []).find(prefer) || (arr || [])[0] || null;
   const focusableDrugs = (data.drugs || []).filter((d) => d.focusable);
+  // The preferred example drug if it qualifies, else the first that does, else null.
+  // (`pick` falls back to the first drug whatever it carries, so it cannot be used
+  // when the example needs a field only some drugs have.)
+  const drugWith = (id, has) => focusableDrugs.find((x) => x.id === id && has(x))
+    || focusableDrugs.find(has) || null;
   const drug = pick(focusableDrugs, (d) => d.id === "olanzapine");
   const recTargets = (data.targets || []).filter((t) => t.kind === "receptor" && t.focusable);
   const rec = pick(recTargets, (t) => t.id === "5ht2a");
@@ -6757,78 +6762,66 @@ function buildKindExample(kind, data, nav) {
       return c ? line(drug.name, c, () => nav.drug(drug)) : null;
     }
     case "drug_half_life": {
-      const d = pick(focusableDrugs, (x) => x.id === "olanzapine" && x.halfLife)
-        || focusableDrugs.find((x) => x.halfLife);
+      const d = drugWith("olanzapine", (x) => x.halfLife);
       const s = d && d.halfLife && formatHalfLife(d.halfLife);
       return s ? line(d.name, `T½ ${s}`, () => nav.drug(d)) : null;
     }
     case "drug_tmax": {
-      const d = pick(focusableDrugs, (x) => x.id === "olanzapine" && x.tmax)
-        || focusableDrugs.find((x) => x.tmax);
+      const d = drugWith("olanzapine", (x) => x.tmax);
       const s = d && d.tmax && formatHalfLife(d.tmax);
       return s ? line(d.name, `${t("drug.tmax")} ${s}`, () => nav.drug(d)) : null;
     }
     case "drug_formulations": {
       const has = (x) => (x.formulations || []).length > 1;
-      const d = pick(focusableDrugs, (x) => x.id === "quetiapine" && x.formulations.length)
-        || focusableDrugs.find(has);
+      const d = drugWith("quetiapine", has);
       return d ? line(d.name, d.formulations.map((f) => f.label).join(", "),
         () => nav.drug(d)) : null;
     }
     case "drug_first_approval": {
-      const d = pick(focusableDrugs, (x) => x.id === "sertraline" && x.firstApproval)
-        || focusableDrugs.find((x) => x.firstApproval);
+      const d = drugWith("sertraline", (x) => x.firstApproval);
       return d ? line(d.name, `${approvalLabel(d.firstApproval, t)} ${formatApproval(d.firstApproval)}`,
         () => nav.drug(d)) : null;
     }
     case "drug_prodrug": {
       // e.g. Psilocybin "Prodrug: inactive itself, acts through its active metabolite".
-      const d = pick(focusableDrugs, (x) => x.id === "psilocybin" && x.prodrug)
-        || focusableDrugs.find((x) => x.prodrug);
+      const d = drugWith("psilocybin", (x) => x.prodrug);
       return d ? line(d.name, t("drug.prodrug"), () => nav.drug(d)) : null;
     }
     case "drug_therapeutic_range": {
       // e.g. Clozapine "Therapeutic range 350–600 ng/mL".
-      const d = pick(focusableDrugs, (x) => x.id === "clozapine" && x.therapeuticRange)
-        || focusableDrugs.find((x) => x.therapeuticRange);
+      const d = drugWith("clozapine", (x) => x.therapeuticRange);
       return d ? line(d.name, `${t("drug.therapeuticRange")} `
         + formatRange(d.therapeuticRange, window.__I18N__.lang), () => nav.drug(d)) : null;
     }
     case "drug_alert_level": {
-      const d = pick(focusableDrugs, (x) => x.id === "clozapine" && x.alertLevel)
-        || focusableDrugs.find((x) => x.alertLevel);
+      const d = drugWith("clozapine", (x) => x.alertLevel);
       return d ? line(d.name, `${t("drug.alertLevel")} `
         + formatAlert(d.alertLevel, window.__I18N__.lang), () => nav.drug(d)) : null;
     }
     case "drug_withdrawals": {
-      const d = pick(focusableDrugs, (x) => x.id === "nefazodone" && x.withdrawals.length)
-        || focusableDrugs.find((x) => x.withdrawals.length);
+      const d = drugWith("nefazodone", (x) => x.withdrawals.length);
       return d ? line(d.name, `${t("drug.withdrawn")} ${formatWithdrawal(d.withdrawals[0])}`,
         () => nav.drug(d)) : null;
     }
     case "drug_holders": {
-      const d = pick(focusableDrugs, (x) => x.id === "quetiapine" && x.holders.length)
-        || focusableDrugs.find((x) => x.holders.length);
+      const d = drugWith("quetiapine", (x) => x.holders.length);
       return d ? line(d.name, `${t("drug.holders")} ${formatHolder(d.holders[0])}`,
         () => nav.drug(d)) : null;
     }
     case "drug_originator": {
-      const d = pick(focusableDrugs, (x) => x.id === "citalopram" && x.originator)
-        || focusableDrugs.find((x) => x.originator);
+      const d = drugWith("haloperidol", (x) => x.originator);
       return d ? line(d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,
         () => nav.drug(d)) : null;
     }
     case "drug_originator_country": {
-      const d = pick(focusableDrugs, (x) => x.id === "cyamemazine" && x.originator?.country)
-        || focusableDrugs.find((x) => x.originator?.country);
+      const d = drugWith("citalopram", (x) => x.originator?.country);
       return d ? line(d.name, `${t("drug.originator")} ${d.originator.country.label}`,
         () => nav.drug(d)) : null;
     }
     case "drug_enzymes": {
       // A metabolism row: the drug is the clickable subject, the notion names the
       // enzyme and the role, e.g. Fluoxetine "CYP2D6: Inhibitor".
-      const d = pick(focusableDrugs, (x) => x.id === "fluoxetine" && (x.enzymes || []).length)
-        || focusableDrugs.find((x) => (x.enzymes || []).length);
+      const d = drugWith("fluoxetine", (x) => (x.enzymes || []).length);
       const e = d && (d.enzymes || [])[0];
       return e ? line(d.name, `${e.label}: ${e.roleLabel}`, () => nav.drug(d)) : null;
     }
@@ -6842,8 +6835,7 @@ function buildKindExample(kind, data, nav) {
         () => nav.drug(d)) : null;
     }
     case "drug_metabolites": {
-      const d = pick(focusableDrugs, (x) => x.id === "fluoxetine" && (x.metabolites || []).length)
-        || focusableDrugs.find((x) => (x.metabolites || []).length);
+      const d = drugWith("fluoxetine", (x) => (x.metabolites || []).length);
       const m = d && (d.metabolites || [])[0];
       return m ? line(d.name, m.name, () => nav.drug(d)) : null;
     }
