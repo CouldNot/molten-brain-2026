@@ -7284,14 +7284,18 @@ function wireControls({ camera, controls, meshes, arrows, labels, focus, selecti
   registerControl("explode", explode, sliderView(explode, 0), "input", SLIDER_SETTLE_MS,
     SCENE_URL_PRIORITY);
   registerControl("transparency", transparency, sliderView(transparency, 1), "input", SLIDER_SETTLE_MS);
-  registerControl("rotate", autorotate, checkboxView(autorotate, true));
+  // Apply-only keys: still applied from a link (and reset by the toolbar), never written,
+  // because the address bar would only carry noise. A still view always writes `cam=`,
+  // whose apply stops the spin by itself, so `rotate=0` would be redundant beside it.
+  const writeOnlyView = (view) => ({ ...view, read: () => null });
+  registerControl("rotate", autorotate, writeOnlyView(checkboxView(autorotate, true)));
   registerControl("names", toggleNames, checkboxView(toggleNames, false));
   registerControl("arrows", toggleProjections, checkboxView(toggleProjections, false));
   registerControl("inside", seeInside, checkboxView(seeInside, false));
-  // Animations have no fixed default: it is the per-device heuristic (off on a phone /
-  // under reduced-motion), so the key is written whenever the visitor diverges from
-  // THEIR default, which is what has to travel for the link to look the same.
-  registerControl("anim", toggleAnimations, checkboxView(toggleAnimations, animSettings.defaultEnabled));
+  // Animations are a persisted personal preference (js/prefs.js), not part of what is
+  // on screen, so a shared link does not impose the sender's choice: apply-only too.
+  registerControl("anim", toggleAnimations,
+    writeOnlyView(checkboxView(toggleAnimations, animSettings.defaultEnabled)));
 
   // Panel layout: whether the panel body is collapsed, whether the Controls sub-section
   // is open, and which browse section the accordion has open. Written through the same
@@ -10104,12 +10108,9 @@ async function main() {
       speedSlider.value = String(speedToSlider(animSettings.speed));
       invalidate();
     };
-    urlState.register("speed", {
-      read: () => (animSettings.speed === 1 ? null : String(Number(animSettings.speed.toFixed(2)))),
-      write: writeSpeed,
-      reset: () => writeSpeed("1"),
-    });
-    speedSlider.addEventListener("input", () => urlState.sync(SLIDER_SETTLE_MS));
+    // Apply-only, like `anim`: the speed is a persisted personal preference.
+    urlState.register("speed", { read: () => null, write: writeSpeed,
+      reset: () => writeSpeed("1") });
   }
   const animationShown = () => animSettings.enabled
     && (drugAnim.active || receptorMarkers.active || circuitAnim.active);

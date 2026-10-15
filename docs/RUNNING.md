@@ -93,8 +93,8 @@ moment it registers.
 | `#popup=about\|legend\|sources\|shortcuts\|whatsnew` | the open popup |
 | `#cam=<az>,<polar>,<dist>[,<tx>,<ty>,<tz>]` | the orbit: degrees around the pivot, distance from it, and the pivot when a focus moved it off centre |
 | `#explode=0..1` / `#transparency=0.1..1` | the two sliders |
-| `#rotate=0` / `#names=1` / `#arrows=1` / `#inside=1` | Auto-rotate / Show all names / Show projections / See inside |
-| `#anim=0\|1` / `#speed=<multiplier>` | Animations and the animation-speed multiplier (1 = the reference pace) |
+| `#names=1` / `#arrows=1` / `#inside=1` | Show all names / Show projections / See inside |
+| `#rotate=0` / `#anim=0\|1` / `#speed=<multiplier>` | Auto-rotate, Animations, the animation-speed multiplier (1 = the reference pace). Applied from a link but never written: a still view always writes `cam=` (which stops the spin), and the animation pair are persisted personal preferences a shared link should not impose |
 | `#colors=sign` | colour arrows by excitatory/inhibitory instead of by transmitter |
 | `#collapsed=1` / `#settings=0` | the panel body collapsed / the Controls sub-section closed |
 | `#section=drugs\|receptors\|enzymes\|structures\|projections` | the open browse section (empty = all closed) |
