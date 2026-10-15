@@ -1,6 +1,42 @@
 {
   "versions": [
     {
+      "version": "3.124.0",
+      "date": "2026-10-15",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A drug panel now has an Administrative section gathering its first approval (with how many years ago, e.g. \"1997 (29 years ago)\"), any market withdrawals and its brand names",
+          "commits": [
+            "1eaaca1"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "Every source in a tooltip is now a clickable link: the exact Wikipedia revision checked, a paper's DOI, a Drugs@FDA application page, or a book's DOI (ISBN on WorldCat when the book has none)",
+          "commits": [
+            "4af2aeb"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Haloperidol now carries a sourced note that the brain clears it far more slowly than the blood (brain-tissue half-life of 6.8 days, Kornhuber 1999)",
+          "commits": [
+            "56845a4",
+            "f65d732"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Receptor effects grow from 66 to 151 sourced claims, adding therapeutic effects such as antiemetic, anxiolytic, antipsychotic or sleep promotion, so a drug's panel now shows them too (vortioxetine's 5-HT3 blockade gives an antiemetic effect)",
+          "commits": [
+            "1e8d175",
+            "b339be7"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.123.0",
       "date": "2026-10-15",
       "entries": [
