@@ -335,6 +335,9 @@
 "drug:nabilone/formulations[ir]/tmax": "opus",
 "drug:nabilone/tmax": "sonnet"
 },
+"q_09aa71ed26e6": {
+"addon:drug:haloperidol": "opus"
+},
 "q_09abbee984b4": {
 "drug:brivaracetam/bindings[sv2a:modulator]": "opus"
 },
@@ -1684,6 +1687,9 @@
 },
 "q_2a49f960a0c6": {
 "drug:tapentadol/half_life": "sonnet"
+},
+"q_2a64d7ec4435": {
+"addon:drug:haloperidol": "opus"
 },
 "q_2a66b3cf93bb": {
 "drug:loxapine/bindings[d1:antagonist]": "opus"
@@ -7689,6 +7695,9 @@
 },
 "q_c6d93913aaee": {
 "drug:nalmefene/brands[Selincro]": "sonnet"
+},
+"q_c6f13028ab51": {
+"addon:drug:haloperidol": "opus"
 },
 "q_c6f85a417f1a": {
 "drug:vortioxetine/nbn": "sonnet"
