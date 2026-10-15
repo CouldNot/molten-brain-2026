@@ -188,11 +188,18 @@ def _expand_mirrored(projections):
 
 
 class Report:
-    """Collects errors/warnings while printing each section as it runs."""
+    """Collects errors/warnings while printing each section as it runs.
 
-    def __init__(self):
+    A third level, ``review``, is for the per-item lines of an eyeball list whose
+    flags are mostly intended (family 8's presynaptic-tone vs. postsynaptic-block
+    split, family 7's drugs without a Ki): counted and summarized, but listed only
+    under ``--verbose``, so the default run's warnings stay few enough to be read."""
+
+    def __init__(self, verbose=False):
         self.errors = 0
         self.warnings = 0
+        self.reviews = 0
+        self.verbose = verbose
 
     def header(self, title):
         print(f"\n{title}\n{'-' * len(title)}")
@@ -207,6 +214,11 @@ class Report:
     def warn(self, msg):
         self.warnings += 1
         print(f"  [warn]  {msg}")
+
+    def review(self, msg):
+        self.reviews += 1
+        if self.verbose:
+            print(f"  [review] {msg}")
 
 
 def normalize(value):
@@ -1304,8 +1316,11 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             return
         n_checked += 1
         # A brand quote IS a short proper noun (the name, verbatim) and a Ki quote one
-        # table row: short by design (callers pass short_ok).
-        if not short_ok and len(needle.replace(" ", "")) < _MIN_QUOTE_CHARS:
+        # table row: short by design (callers pass short_ok). Any flattened table row
+        # ("α 2A | 15 | Antagonist") is too, whichever node cites it: its cells are a
+        # whole row of the page, never an incidental substring of prose.
+        if (not short_ok and " | " not in quote
+                and len(needle.replace(" ", "")) < _MIN_QUOTE_CHARS):
             report.warn(f"{ctx}: quote is very short ({quote!r}); it matched "
                         f"but may be an incidental substring")
 
@@ -1424,9 +1439,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for f in ("half_life_sources", "tmax_sources", "release_sources"):
                 for i, src in enumerate(h.get(f, []) or []):
                     # A release read off a brand's own suffix cites that brand name
-                    # ("Seroquel XR"): short by design, like a brand quote.
-                    check_one(f"{hctx} {f}[{i}]", src,
-                              short_ok=f == "release_sources")
+                    # ("Seroquel XR"), and a duration is one labelled cell of the
+                    # drug's own monograph ("Half-life 10 hours"): short by design.
+                    check_one(f"{hctx} {f}[{i}]", src, short_ok=True)
             for br in h.get("brands", []) or []:
                 for i, src in enumerate(br.get("sources", []) or []):
                     check_one(f"{hctx} brand {br.get('name')} sources[{i}]", src,
@@ -1446,7 +1461,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         # hand-edit of the emitted data).
         for e in drug.get("enzymes", []) or []:
             for i, src in enumerate(e.get("sources", []) or []):
-                check_one(f"drug {did} enzyme {e.get('enzyme')} sources[{i}]", src)
+                # One cell of the drug's own metabolism table ("Inhibits CYP2D6").
+                check_one(f"drug {did} enzyme {e.get('enzyme')} sources[{i}]", src,
+                          short_ok=True)
             # The denial quote of a contradicted row is gated exactly like the claim it
             # doubts: both sides of a corpus disagreement earn their grade the same way.
             check_uncertainty(f"drug {did} enzyme {e.get('enzyme')} ({e.get('role')})", e)
@@ -1569,7 +1586,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         # that keeps a future "5-HT2A is dense in the PFC" citation honest).
         for base, srcs in (r.get("location_sources") or {}).items():
             for i, src in enumerate(srcs or []):
-                check_one(f"receptor {r.get('id')} location_sources[{base}][{i}]", src)
+                # One tissue line of the receptor's own gene page ("CNS: pons.").
+                check_one(f"receptor {r.get('id')} location_sources[{base}][{i}]", src,
+                          short_ok=True)
         check_location_uncertainty(f"receptor {r.get('id')}", r)
         # The density profile's quote carries the z per region and the cross-donor
         # agreement, so gating it verbatim is what keeps those numbers honest.
@@ -1591,7 +1610,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             # like the receptor ones (same honesty gate for a future citation).
             for base, srcs in (tinfo.get("location_sources") or {}).items():
                 for i, src in enumerate(srcs or []):
-                    check_one(f"target {tid} location_sources[{base}][{i}]", src)
+                    check_one(f"target {tid} location_sources[{base}][{i}]", src,
+                              short_ok=True)  # one line of its gene page, as above
             check_location_uncertainty(f"target {tid}", tinfo)
             for i, src in enumerate((tinfo.get("density") or {}).get("sources") or []):
                 check_one(f"target {tid} density sources[{i}]", src)
@@ -1881,7 +1901,7 @@ def check_ki_coverage(report, meta, drugs):
                      "disagrees with recomputed list")
 
     for did in no_ki:
-        report.warn(f"drug {did!r}: no measured Ki on any binding "
+        report.review(f"drug {did!r}: no measured Ki on any binding "
                     "(sourced by quote only, or unsourced)")
     report.ok(f"{pct}% of {len(bindings)} bindings carry a measured Ki; "
               f"{len(no_ki)}/{len(ki_drugs)} drugs have none")
@@ -2067,11 +2087,11 @@ def check_flow_consistency(report, meta, drugs, projections, receptors):
             b_flags.append((drug["id"], system, sorted(recs), sorted(regs)))
 
     for did, system, direction, drivers, lean, blocked in sorted(a_flags):
-        report.warn(
+        report.review(
             f"drug {did!r}: {system} flow modeled {direction} ({drivers}) but its "
             f"postsynaptic {system} bindings net-{lean} ({', '.join(blocked)})")
     for did, system, recs, regs in sorted(b_flags):
-        report.warn(
+        report.review(
             f"drug {did!r}: boosts {system} flow into {', '.join(regs)} yet blocks "
             f"{system} receptor(s) expressed there ({', '.join(recs)})")
     report.ok(
@@ -2770,11 +2790,14 @@ def check_freshness(report, meta, collections, today=None, metabolites=()):
 
 
 def main():
-    only = sys.argv[1:] == ["--only", "freshness"]
-    if sys.argv[1:] and not only:
-        print("usage: check_data.py [--only freshness]", file=sys.stderr)
+    argv = sys.argv[1:]
+    verbose = "--verbose" in argv
+    argv = [a for a in argv if a != "--verbose"]
+    only = argv == ["--only", "freshness"]
+    if argv and not only:
+        print("usage: check_data.py [--verbose] [--only freshness]", file=sys.stderr)
         return 2
-    report = Report()
+    report = Report(verbose=verbose)
     print(f"neurarium data integrity check\nreading {DATA_DIR}")
 
     meta = load_meta(report)
@@ -2824,6 +2847,9 @@ def main():
 
 def _summary(report):
     print(f"\nSummary: {report.errors} error(s), {report.warnings} warning(s)")
+    if report.reviews and not report.verbose:
+        print(f"         {report.reviews} review item(s) not listed "
+              f"(intended-by-design eyeball lists; --verbose prints them)")
     if report.errors:
         print("FAILED: fix the errors above (warnings are informational).")
         return 1

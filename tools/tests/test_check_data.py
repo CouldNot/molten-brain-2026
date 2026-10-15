@@ -27,13 +27,13 @@ from data_generators.drugs import DRUG_ACTIONS, TONE_RULES  # noqa: E402
 
 
 def _run_check(meta, drugs, projections, receptors):
-    """Run family 8 over synthetic data, returning (report, [warning lines])."""
-    report = check_data.Report()
+    """Run family 8 over synthetic data, returning (report, [review lines])."""
+    report = check_data.Report(verbose=True)
     buf = io.StringIO()
     with redirect_stdout(buf):
         check_data.check_flow_consistency(report, meta, drugs, projections, receptors)
-    warns = [ln.split("[warn]", 1)[1].strip()
-             for ln in buf.getvalue().splitlines() if "[warn]" in ln]
+    warns = [ln.split("[review]", 1)[1].strip()
+             for ln in buf.getvalue().splitlines() if "[review]" in ln]
     return report, warns
 
 
@@ -225,6 +225,28 @@ class FlowConsistencyEndToEndTest(unittest.TestCase):
         _, warns = _run_check(self._meta(), [drug], self._projections(),
                               self._receptors())
         self.assertEqual(warns, [])
+
+
+class ReviewLevelTest(unittest.TestCase):
+    """A review item is counted but printed only under --verbose (never a warning)."""
+
+    def _out(self, verbose):
+        report = check_data.Report(verbose=verbose)
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            report.review("drug 'x': intended split")
+            check_data._summary(report)
+        return report, buf.getvalue()
+
+    def test_hidden_by_default_but_counted(self):
+        report, out = self._out(False)
+        self.assertEqual((report.reviews, report.warnings), (1, 0))
+        self.assertNotIn("intended split", out)
+        self.assertIn("1 review item(s) not listed", out)
+
+    def test_listed_when_verbose(self):
+        _, out = self._out(True)
+        self.assertIn("[review] drug 'x': intended split", out)
 
 
 class MetaboliteStoreTest(unittest.TestCase):
@@ -725,7 +747,8 @@ class ShortQuoteTest(unittest.TestCase):
     and its target + value make a chance match implausible, so warning on it only
     buried the real short quotes (it fired on ~480 Ki rows on every run)."""
 
-    PAGE = "5-HT 1B | 1744 | Human\nIt blocks D2 well.\nClass: Stimulant\n"
+    PAGE = ("5-HT 1B | 1744 | Human\nIt blocks D2 well.\nClass: Stimulant\n"
+            "α 2A | 15 | Antagonist\nInhibits CYP2D6\n")
 
     def _warns(self, drug):
         """The incidental-substring warnings check_sources prints for one drug, its
@@ -751,6 +774,15 @@ class ShortQuoteTest(unittest.TestCase):
 
     def test_a_class_label_is_not_warned(self):
         self.assertEqual(self._warns({"category_sources": [self._src("Stimulant")]}), [])
+
+    def test_any_table_row_is_not_warned(self):
+        # A direction row cited by a binding (not a Ki) is a whole table row too.
+        binding = {"target": "alpha2a", "sources": [self._src("α 2A | 15 | Antagonist")]}
+        self.assertEqual(self._warns({"bindings": [binding]}), [])
+
+    def test_a_metabolism_cell_is_not_warned(self):
+        enzyme = {"enzyme": "cyp2d6", "sources": [self._src("Inhibits CYP2D6")]}
+        self.assertEqual(self._warns({"enzymes": [enzyme]}), [])
 
     def test_a_short_binding_quote_still_is(self):
         binding = {"target": "d2", "sources": [self._src("blocks D2")]}

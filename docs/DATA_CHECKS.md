@@ -9,6 +9,8 @@ independent of `generate_data.py`. Exit 0 = no errors (warnings allowed), 1 =
 errors. Functions take loaded data as args (unit-testable). Fourteen families (numbered
 0-13 in the output):
 
+Three severities: `[ERROR]` fails the run, `[warn]` is printed for a human to act on, and `[review]` is an eyeball list whose flags are mostly intended (family 8's flow-vs-binding split, family 7's per-drug "no measured Ki"): counted in the summary but listed only with `python tools/check_data.py --verbose`, so the default run's warnings stay few enough to read. The short-quote warning (family 5) skips any flattened table row (`cell | cell`) and one-cell facts on the owner's own page (a brand, class label, duration, metabolism cell, tissue line); it still fires on a short binding or pathway quote, where an incidental substring is plausible.
+
 - **Quote table** (referential integrity of the externalized `quotes.jsonl`): every node's
   `{quote_id, provenance}` source must resolve to a quote node, and every quote node must be
   referenced by at least one node (no orphans) = error either way. The loader rehydrates each
