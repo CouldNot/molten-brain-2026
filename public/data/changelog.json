@@ -1,6 +1,35 @@
 {
   "versions": [
     {
+      "version": "3.125.0",
+      "date": "2026-10-15",
+      "entries": [
+        {
+          "category": "added",
+          "text": "The drug panel's Administrative section now names who invented the drug (with the company's current name when it was bought or renamed, e.g. \"Ciba (now Novartis)\") and that company's country, both sourced from Wikipedia, for 113 drugs",
+          "commits": [
+            "ccbda54",
+            "38bb709",
+            "01f198a"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "It also shows the current holder of the marketing authorisation in the United States (Drugs@FDA) and in France (BDPM)",
+          "commits": [
+            "b02bef9"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The Sources popup no longer fails to open when an example drug lacks the field it illustrates",
+          "commits": [
+            "e5872af"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.124.0",
       "date": "2026-10-15",
       "entries": [
