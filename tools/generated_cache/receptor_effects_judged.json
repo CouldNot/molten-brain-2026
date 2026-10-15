@@ -1,5 +1,309 @@
 {
  "owners": {
+  "5ht1a": [
+   {
+    "effect": "anxiolytic",
+    "mode": "agonism",
+    "picks": [
+     49,
+     61
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "agonism",
+    "picks": [
+     12,
+     40,
+     61
+    ]
+   },
+   {
+    "effect": "hypothermia",
+    "mode": "agonism",
+    "picks": [
+     60
+    ]
+   },
+   {
+    "effect": "bradycardia",
+    "mode": "agonism",
+    "picks": [
+     59
+    ]
+   },
+   {
+    "effect": "pro_cognitive",
+    "mode": "agonism",
+    "picks": [
+     20,
+     70
+    ]
+   },
+   {
+    "effect": "antipsychotic",
+    "mode": "agonism",
+    "picks": [
+     67
+    ]
+   },
+   {
+    "effect": "vasodilation",
+    "mode": "agonism",
+    "picks": [
+     60
+    ]
+   }
+  ],
+  "5ht1b": [
+   {
+    "effect": "vasoconstriction",
+    "mode": "agonism",
+    "picks": [
+     8,
+     23
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "antagonism",
+    "picks": [
+     0
+    ]
+   }
+  ],
+  "5ht1d": [
+   {
+    "effect": "vasoconstriction",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "5ht2a": [
+   {
+    "effect": "hallucinations",
+    "mode": "agonism",
+    "picks": [
+     6,
+     16,
+     140
+    ]
+   },
+   {
+    "effect": "psychosis",
+    "mode": "agonism",
+    "picks": [
+     6,
+     7
+    ]
+   },
+   {
+    "effect": "sexual_dysfunction",
+    "mode": "agonism",
+    "picks": [
+     92,
+     89
+    ]
+   },
+   {
+    "effect": "insomnia",
+    "mode": "agonism",
+    "picks": [
+     92,
+     89
+    ]
+   },
+   {
+    "effect": "anxiety",
+    "mode": "agonism",
+    "picks": [
+     92,
+     89
+    ]
+   },
+   {
+    "effect": "prolactin_elevation",
+    "mode": "agonism",
+    "picks": [
+     141
+    ]
+   },
+   {
+    "effect": "antipsychotic",
+    "mode": "antagonism",
+    "picks": [
+     33,
+     50
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "antagonism",
+    "picks": [
+     62,
+     137
+    ]
+   },
+   {
+    "effect": "sleep_promotion",
+    "mode": "antagonism",
+    "picks": [
+     86,
+     88
+    ]
+   }
+  ],
+  "5ht2b": [
+   {
+    "effect": "cardiac_valvulopathy",
+    "mode": "agonism",
+    "picks": [
+     3
+    ]
+   }
+  ],
+  "5ht2c": [
+   {
+    "effect": "weight_gain",
+    "mode": "antagonism",
+    "picks": [
+     5,
+     6,
+     10
+    ]
+   },
+   {
+    "effect": "sexual_dysfunction",
+    "mode": "agonism",
+    "picks": [
+     29
+    ]
+   },
+   {
+    "effect": "insomnia",
+    "mode": "agonism",
+    "picks": [
+     29
+    ]
+   },
+   {
+    "effect": "anxiety",
+    "mode": "agonism",
+    "picks": [
+     29,
+     48
+    ]
+   },
+   {
+    "effect": "anxiety",
+    "mode": "antagonism",
+    "picks": [
+     23
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "antagonism",
+    "picks": [
+     18,
+     46
+    ]
+   }
+  ],
+  "5ht3": [
+   {
+    "effect": "nausea",
+    "mode": "agonism",
+    "picks": [
+     6,
+     17
+    ]
+   },
+   {
+    "effect": "antiemetic",
+    "mode": "antagonism",
+    "picks": [
+     0,
+     7,
+     18
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "antagonism",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "effect": "anxiety",
+    "mode": "agonism",
+    "picks": [
+     17
+    ]
+   }
+  ],
+  "5ht4": [
+   {
+    "effect": "gi_motility",
+    "mode": "agonism",
+    "picks": [
+     10,
+     11
+    ]
+   }
+  ],
+  "5ht7": [
+   {
+    "effect": "antidepressant",
+    "mode": "antagonism",
+    "picks": [
+     16,
+     14
+    ]
+   },
+   {
+    "effect": "pro_cognitive",
+    "mode": "antagonism",
+    "picks": [
+     14
+    ]
+   },
+   {
+    "effect": "sleep_promotion",
+    "mode": "antagonism",
+    "picks": [
+     7
+    ]
+   }
+  ],
+  "a2a": [
+   {
+    "effect": "antiparkinsonian",
+    "mode": "antagonism",
+    "picks": [
+     2
+    ]
+   },
+   {
+    "effect": "vasodilation",
+    "mode": "agonism",
+    "picks": [
+     0
+    ]
+   }
+  ],
+  "ache": [
+   {
+    "effect": "pro_cognitive",
+    "mode": "inhibition",
+    "picks": [
+     4
+    ]
+   }
+  ],
   "alpha1a": [
    {
     "effect": "orthostatic_hypotension",
@@ -38,7 +342,9 @@
     "effect": "vasoconstriction",
     "mode": "agonism",
     "picks": [
-     54
+     54,
+     62,
+     63
     ]
    },
    {
@@ -87,7 +393,9 @@
     "effect": "vasoconstriction",
     "mode": "agonism",
     "picks": [
-     54
+     54,
+     62,
+     63
     ]
    },
    {
@@ -147,19 +455,30 @@
     ]
    }
   ],
+  "alpha2": [
+   {
+    "effect": "sedation",
+    "mode": "agonism",
+    "picks": [
+     39
+    ]
+   }
+  ],
   "alpha2a": [
    {
     "effect": "sedation",
     "mode": "agonism",
     "picks": [
-     10
+     10,
+     20
     ]
    },
    {
     "effect": "analgesia",
     "mode": "agonism",
     "picks": [
-     10
+     10,
+     20
     ]
    },
    {
@@ -167,6 +486,13 @@
     "mode": "agonism",
     "picks": [
      12
+    ]
+   },
+   {
+    "effect": "bradycardia",
+    "mode": "agonism",
+    "picks": [
+     19
     ]
    }
   ],
@@ -201,6 +527,13 @@
     "picks": [
      3
     ]
+   },
+   {
+    "effect": "vasoconstriction",
+    "mode": "agonism",
+    "picks": [
+     11
+    ]
    }
   ],
   "alpha2d": [
@@ -219,12 +552,421 @@
     ]
    }
   ],
-  "alpha2": [
+  "ampa": [
+   {
+    "effect": "seizures",
+    "mode": "agonism",
+    "picks": [
+     12
+    ]
+   },
+   {
+    "effect": "anticonvulsant",
+    "mode": "antagonism",
+    "picks": [
+     13,
+     14
+    ]
+   }
+  ],
+  "beta1": [
+   {
+    "effect": "anxiolytic",
+    "mode": "antagonism",
+    "picks": [
+     1
+    ]
+   }
+  ],
+  "beta2": [
+   {
+    "effect": "cardiovascular",
+    "mode": "agonism",
+    "picks": [
+     2,
+     5
+    ]
+   },
+   {
+    "effect": "bronchodilation",
+    "mode": "agonism",
+    "picks": [
+     4,
+     6
+    ]
+   },
+   {
+    "effect": "vasodilation",
+    "mode": "agonism",
+    "picks": [
+     7,
+     1
+    ]
+   }
+  ],
+  "beta3": [
+   {
+    "effect": "vasodilation",
+    "mode": "agonism",
+    "picks": [
+     1
+    ]
+   },
+   {
+    "effect": "bladder_relaxation",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "cb1": [
+   {
+    "effect": "analgesia",
+    "mode": "agonism",
+    "picks": [
+     6
+    ]
+   }
+  ],
+  "cgrp": [
+   {
+    "effect": "antimigraine",
+    "mode": "antagonism",
+    "picks": [
+     3
+    ]
+   }
+  ],
+  "d1": [
+   {
+    "effect": "antiparkinsonian",
+    "mode": "agonism",
+    "picks": [
+     13
+    ]
+   },
+   {
+    "effect": "pro_cognitive",
+    "mode": "agonism",
+    "picks": [
+     9
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "d2": [
+   {
+    "effect": "extrapyramidal_symptoms",
+    "mode": "antagonism",
+    "picks": [
+     5,
+     30,
+     39
+    ]
+   },
+   {
+    "effect": "akathisia",
+    "mode": "antagonism",
+    "picks": [
+     31,
+     34,
+     41
+    ]
+   },
+   {
+    "effect": "tardive_dyskinesia",
+    "mode": "antagonism",
+    "picks": [
+     7,
+     35,
+     37
+    ]
+   },
+   {
+    "effect": "prolactin_elevation",
+    "mode": "antagonism",
+    "picks": [
+     28,
+     80
+    ]
+   },
+   {
+    "effect": "nausea",
+    "mode": "agonism",
+    "picks": [
+     95
+    ]
+   },
+   {
+    "effect": "psychosis",
+    "mode": "agonism",
+    "picks": [
+     63
+    ]
+   },
+   {
+    "effect": "antipsychotic",
+    "mode": "antagonism",
+    "picks": [
+     18,
+     111
+    ]
+   },
+   {
+    "effect": "antiparkinsonian",
+    "mode": "agonism",
+    "picks": [
+     63,
+     187
+    ]
+   }
+  ],
+  "d3": [
+   {
+    "effect": "antidepressant",
+    "mode": "antagonism",
+    "picks": [
+     2,
+     12
+    ]
+   },
+   {
+    "effect": "antipsychotic",
+    "mode": "antagonism",
+    "picks": [
+     12
+    ]
+   },
+   {
+    "effect": "antiparkinsonian",
+    "mode": "agonism",
+    "picks": [
+     18
+    ]
+   }
+  ],
+  "dat": [
+   {
+    "effect": "euphoria",
+    "mode": "inhibition",
+    "picks": [
+     32,
+     21,
+     7
+    ]
+   },
+   {
+    "effect": "appetite_decrease",
+    "mode": "inhibition",
+    "picks": [
+     28
+    ]
+   }
+  ],
+  "delta": [
+   {
+    "effect": "seizures",
+    "mode": "agonism",
+    "picks": [
+     14,
+     19
+    ]
+   },
+   {
+    "effect": "analgesia",
+    "mode": "agonism",
+    "picks": [
+     8
+    ]
+   }
+  ],
+  "gaba_a": [
    {
     "effect": "sedation",
     "mode": "agonism",
     "picks": [
-     39
+     10,
+     22,
+     25
+    ]
+   },
+   {
+    "effect": "euphoria",
+    "mode": "agonism",
+    "picks": [
+     25
+    ]
+   },
+   {
+    "effect": "seizures",
+    "mode": "antagonism",
+    "picks": [
+     26,
+     20
+    ]
+   },
+   {
+    "effect": "anxiolytic",
+    "mode": "agonism",
+    "picks": [
+     22,
+     6
+    ]
+   },
+   {
+    "effect": "sleep_promotion",
+    "mode": "agonism",
+    "picks": [
+     9,
+     8
+    ]
+   },
+   {
+    "effect": "anticonvulsant",
+    "mode": "agonism",
+    "picks": [
+     24,
+     25
+    ]
+   }
+  ],
+  "gaba_b": [
+   {
+    "effect": "sleep_promotion",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "h1": [
+   {
+    "effect": "sedation",
+    "mode": "antagonism",
+    "picks": [
+     19,
+     22,
+     14
+    ]
+   },
+   {
+    "effect": "weight_gain",
+    "mode": "antagonism",
+    "picks": [
+     19,
+     14,
+     1
+    ]
+   },
+   {
+    "effect": "sleep_promotion",
+    "mode": "antagonism",
+    "picks": [
+     30,
+     32
+    ]
+   },
+   {
+    "effect": "anxiolytic",
+    "mode": "antagonism",
+    "picks": [
+     0
+    ]
+   },
+   {
+    "effect": "wakefulness",
+    "mode": "agonism",
+    "picks": [
+     21
+    ]
+   }
+  ],
+  "h2": [
+   {
+    "effect": "gastric_acid_reduction",
+    "mode": "antagonism",
+    "picks": [
+     4
+    ]
+   }
+  ],
+  "h3": [
+   {
+    "effect": "wakefulness",
+    "mode": "antagonism",
+    "picks": [
+     3,
+     4
+    ]
+   },
+   {
+    "effect": "vasoconstriction",
+    "mode": "agonism",
+    "picks": [
+     13
+    ]
+   },
+   {
+    "effect": "analgesia",
+    "mode": "agonism",
+    "picks": [
+     14
+    ]
+   }
+  ],
+  "kappa": [
+   {
+    "effect": "dysphoria",
+    "mode": "agonism",
+    "picks": [
+     7,
+     72,
+     58,
+     99
+    ]
+   },
+   {
+    "effect": "hallucinations",
+    "mode": "agonism",
+    "picks": [
+     72,
+     58,
+     99
+    ]
+   },
+   {
+    "effect": "sedation",
+    "mode": "agonism",
+    "picks": [
+     10,
+     99
+    ]
+   },
+   {
+    "effect": "prolactin_elevation",
+    "mode": "agonism",
+    "picks": [
+     25,
+     38,
+     98
+    ]
+   },
+   {
+    "effect": "analgesia",
+    "mode": "agonism",
+    "picks": [
+     13,
+     12,
+     100,
+     101,
+     16
     ]
    }
   ],
@@ -321,120 +1063,218 @@
     ]
    }
   ],
-  "d2": [
+  "m3": [
    {
-    "effect": "extrapyramidal_symptoms",
-    "mode": "antagonism",
+    "effect": "nausea",
+    "mode": "agonism",
     "picks": [
-     5,
-     30,
-     39
+     1
     ]
    },
    {
-    "effect": "akathisia",
-    "mode": "antagonism",
+    "effect": "vasodilation",
+    "mode": "agonism",
     "picks": [
-     31,
-     34,
-     41
+     3
+    ]
+   }
+  ],
+  "m4": [
+   {
+    "effect": "antipsychotic",
+    "mode": "agonism",
+    "picks": [
+     1
+    ]
+   }
+  ],
+  "m5": [
+   {
+    "effect": "vasodilation",
+    "mode": "agonism",
+    "picks": [
+     0
+    ]
+   }
+  ],
+  "mao_a": [
+   {
+    "effect": "cardiovascular",
+    "mode": "inhibition",
+    "picks": [
+     4
     ]
    },
    {
-    "effect": "tardive_dyskinesia",
-    "mode": "antagonism",
+    "effect": "antidepressant",
+    "mode": "inhibition",
     "picks": [
-     7,
-     35,
-     37
+     0
+    ]
+   }
+  ],
+  "mao_b": [
+   {
+    "effect": "antiparkinsonian",
+    "mode": "inhibition",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "mglur2": [
+   {
+    "effect": "anxiolytic",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "mglur3": [
+   {
+    "effect": "anxiolytic",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
+   }
+  ],
+  "mt1": [
+   {
+    "effect": "sleep_promotion",
+    "mode": "agonism",
+    "picks": [
+     0,
+     6,
+     4
     ]
    },
    {
-    "effect": "prolactin_elevation",
-    "mode": "antagonism",
+    "effect": "circadian_shift",
+    "mode": "agonism",
     "picks": [
-     28,
-     80
+     0
+    ]
+   },
+   {
+    "effect": "vasoconstriction",
+    "mode": "agonism",
+    "picks": [
+     10
+    ]
+   }
+  ],
+  "mt2": [
+   {
+    "effect": "sleep_promotion",
+    "mode": "agonism",
+    "picks": [
+     0,
+     6
+    ]
+   },
+   {
+    "effect": "circadian_shift",
+    "mode": "agonism",
+    "picks": [
+     0,
+     8
+    ]
+   }
+  ],
+  "mu": [
+   {
+    "effect": "sedation",
+    "mode": "agonism",
+    "picks": [
+     15
     ]
    },
    {
     "effect": "nausea",
     "mode": "agonism",
     "picks": [
-     95
-    ]
-   },
-   {
-    "effect": "psychosis",
-    "mode": "agonism",
-    "picks": [
-     63
-    ]
-   },
-   {
-    "effect": "antipsychotic",
-    "mode": "antagonism",
-    "picks": [
-     18,
-     111
-    ]
-   },
-   {
-    "effect": "antiparkinsonian",
-    "mode": "agonism",
-    "picks": [
-     63,
-     187
-    ]
-   }
-  ],
-  "gaba_a": [
-   {
-    "effect": "sedation",
-    "mode": "agonism",
-    "picks": [
-     10,
-     22,
-     25
+     15
     ]
    },
    {
     "effect": "euphoria",
     "mode": "agonism",
     "picks": [
-     25
+     15
     ]
    },
    {
-    "effect": "seizures",
-    "mode": "antagonism",
-    "picks": [
-     26,
-     20
-    ]
-   },
-   {
-    "effect": "anxiolytic",
+    "effect": "respiratory_depression",
     "mode": "agonism",
     "picks": [
-     22,
+     15
+    ]
+   },
+   {
+    "effect": "constipation",
+    "mode": "agonism",
+    "picks": [
+     13,
+     15
+    ]
+   },
+   {
+    "effect": "analgesia",
+    "mode": "agonism",
+    "picks": [
+     7,
+     16,
      6
     ]
-   },
+   }
+  ],
+  "nachr_a4b2": [
    {
-    "effect": "sleep_promotion",
+    "effect": "euphoria",
     "mode": "agonism",
     "picks": [
-     9,
-     8
+     2
+    ]
+   }
+  ],
+  "nachr_a7": [
+   {
+    "effect": "pro_cognitive",
+    "mode": "agonism",
+    "picks": [
+     1
+    ]
+   }
+  ],
+  "net": [
+   {
+    "effect": "cardiovascular",
+    "mode": "inhibition",
+    "picks": [
+     16
     ]
    },
    {
-    "effect": "anticonvulsant",
-    "mode": "agonism",
+    "effect": "anxiety",
+    "mode": "inhibition",
     "picks": [
-     24,
-     25
+     27
+    ]
+   },
+   {
+    "effect": "antidepressant",
+    "mode": "inhibition",
+    "picks": [
+     13
+    ]
+   },
+   {
+    "effect": "analgesia",
+    "mode": "inhibition",
+    "picks": [
+     20
     ]
    }
   ],
@@ -451,7 +1291,7 @@
     "effect": "hallucinations",
     "mode": "antagonism",
     "picks": [
-     82
+     83
     ]
    },
    {
@@ -462,322 +1302,13 @@
     ]
    }
   ],
-  "ampa": [
-   {
-    "effect": "seizures",
-    "mode": "agonism",
-    "picks": [
-     12
-    ]
-   },
-   {
-    "effect": "anticonvulsant",
-    "mode": "antagonism",
-    "picks": [
-     13,
-     14
-    ]
-   }
-  ],
-  "h1": [
-   {
-    "effect": "sedation",
-    "mode": "antagonism",
-    "picks": [
-     19,
-     22,
-     14
-    ]
-   },
-   {
-    "effect": "weight_gain",
-    "mode": "antagonism",
-    "picks": [
-     19,
-     14,
-     1
-    ]
-   },
+  "orexin": [
    {
     "effect": "sleep_promotion",
-    "mode": "antagonism",
-    "picks": [
-     30,
-     32
-    ]
-   },
-   {
-    "effect": "anxiolytic",
-    "mode": "antagonism",
-    "picks": [
-     0
-    ]
-   },
-   {
-    "effect": "wakefulness",
-    "mode": "agonism",
-    "picks": [
-     21
-    ]
-   }
-  ],
-  "mu": [
-   {
-    "effect": "sedation",
-    "mode": "agonism",
-    "picks": [
-     14
-    ]
-   },
-   {
-    "effect": "nausea",
-    "mode": "agonism",
-    "picks": [
-     14
-    ]
-   },
-   {
-    "effect": "euphoria",
-    "mode": "agonism",
-    "picks": [
-     14
-    ]
-   },
-   {
-    "effect": "respiratory_depression",
-    "mode": "agonism",
-    "picks": [
-     14
-    ]
-   },
-   {
-    "effect": "constipation",
-    "mode": "agonism",
-    "picks": [
-     12,
-     14
-    ]
-   },
-   {
-    "effect": "analgesia",
-    "mode": "agonism",
-    "picks": [
-     6,
-     15
-    ]
-   }
-  ],
-  "delta": [
-   {
-    "effect": "seizures",
-    "mode": "agonism",
-    "picks": [
-     14,
-     19
-    ]
-   },
-   {
-    "effect": "analgesia",
-    "mode": "agonism",
-    "picks": [
-     8
-    ]
-   }
-  ],
-  "kappa": [
-   {
-    "effect": "dysphoria",
-    "mode": "agonism",
-    "picks": [
-     6,
-     69,
-     56
-    ]
-   },
-   {
-    "effect": "hallucinations",
-    "mode": "agonism",
-    "picks": [
-     69,
-     56
-    ]
-   },
-   {
-    "effect": "sedation",
-    "mode": "agonism",
-    "picks": [
-     9
-    ]
-   },
-   {
-    "effect": "prolactin_elevation",
-    "mode": "agonism",
-    "picks": [
-     23,
-     36
-    ]
-   },
-   {
-    "effect": "analgesia",
-    "mode": "agonism",
-    "picks": [
-     12,
-     11
-    ]
-   }
-  ],
-  "5ht2a": [
-   {
-    "effect": "hallucinations",
-    "mode": "agonism",
-    "picks": [
-     6,
-     16,
-     140
-    ]
-   },
-   {
-    "effect": "psychosis",
-    "mode": "agonism",
-    "picks": [
-     6,
-     7
-    ]
-   },
-   {
-    "effect": "sexual_dysfunction",
-    "mode": "agonism",
-    "picks": [
-     92,
-     89
-    ]
-   },
-   {
-    "effect": "insomnia",
-    "mode": "agonism",
-    "picks": [
-     92,
-     89
-    ]
-   },
-   {
-    "effect": "anxiety",
-    "mode": "agonism",
-    "picks": [
-     92,
-     89
-    ]
-   },
-   {
-    "effect": "prolactin_elevation",
-    "mode": "agonism",
-    "picks": [
-     141
-    ]
-   },
-   {
-    "effect": "antipsychotic",
-    "mode": "antagonism",
-    "picks": [
-     33,
-     50
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "antagonism",
-    "picks": [
-     62,
-     137
-    ]
-   },
-   {
-    "effect": "sleep_promotion",
-    "mode": "antagonism",
-    "picks": [
-     86,
-     88
-    ]
-   }
-  ],
-  "5ht2c": [
-   {
-    "effect": "weight_gain",
-    "mode": "antagonism",
-    "picks": [
-     5,
-     6,
-     10
-    ]
-   },
-   {
-    "effect": "sexual_dysfunction",
-    "mode": "agonism",
-    "picks": [
-     29
-    ]
-   },
-   {
-    "effect": "insomnia",
-    "mode": "agonism",
-    "picks": [
-     29
-    ]
-   },
-   {
-    "effect": "anxiety",
-    "mode": "agonism",
-    "picks": [
-     29,
-     48
-    ]
-   },
-   {
-    "effect": "anxiety",
-    "mode": "antagonism",
-    "picks": [
-     23
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "antagonism",
-    "picks": [
-     18,
-     46
-    ]
-   }
-  ],
-  "5ht3": [
-   {
-    "effect": "nausea",
-    "mode": "agonism",
-    "picks": [
-     6,
-     17
-    ]
-   },
-   {
-    "effect": "antiemetic",
     "mode": "antagonism",
     "picks": [
      0,
-     7,
-     18
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "antagonism",
-    "picks": [
-     9
-    ]
-   },
-   {
-    "effect": "anxiety",
-    "mode": "agonism",
-    "picks": [
-     17
+     28
     ]
    }
   ],
@@ -813,348 +1344,6 @@
     ]
    }
   ],
-  "net": [
-   {
-    "effect": "cardiovascular",
-    "mode": "inhibition",
-    "picks": [
-     16
-    ]
-   },
-   {
-    "effect": "anxiety",
-    "mode": "inhibition",
-    "picks": [
-     27
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "inhibition",
-    "picks": [
-     13
-    ]
-   },
-   {
-    "effect": "analgesia",
-    "mode": "inhibition",
-    "picks": [
-     20
-    ]
-   }
-  ],
-  "dat": [
-   {
-    "effect": "euphoria",
-    "mode": "inhibition",
-    "picks": [
-     32,
-     21,
-     7
-    ]
-   },
-   {
-    "effect": "appetite_decrease",
-    "mode": "inhibition",
-    "picks": [
-     28
-    ]
-   }
-  ],
-  "mao_a": [
-   {
-    "effect": "cardiovascular",
-    "mode": "inhibition",
-    "picks": [
-     4
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "inhibition",
-    "picks": [
-     0
-    ]
-   }
-  ],
-  "5ht1a": [
-   {
-    "effect": "anxiolytic",
-    "mode": "agonism",
-    "picks": [
-     49,
-     61
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "agonism",
-    "picks": [
-     12,
-     40,
-     61
-    ]
-   },
-   {
-    "effect": "hypothermia",
-    "mode": "agonism",
-    "picks": [
-     60
-    ]
-   },
-   {
-    "effect": "bradycardia",
-    "mode": "agonism",
-    "picks": [
-     59
-    ]
-   },
-   {
-    "effect": "pro_cognitive",
-    "mode": "agonism",
-    "picks": [
-     20,
-     70
-    ]
-   },
-   {
-    "effect": "antipsychotic",
-    "mode": "agonism",
-    "picks": [
-     67
-    ]
-   }
-  ],
-  "5ht1b": [
-   {
-    "effect": "vasoconstriction",
-    "mode": "agonism",
-    "picks": [
-     8
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "antagonism",
-    "picks": [
-     0
-    ]
-   }
-  ],
-  "5ht1d": [
-   {
-    "effect": "vasoconstriction",
-    "mode": "agonism",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "5ht2b": [
-   {
-    "effect": "cardiac_valvulopathy",
-    "mode": "agonism",
-    "picks": [
-     3
-    ]
-   }
-  ],
-  "5ht7": [
-   {
-    "effect": "antidepressant",
-    "mode": "antagonism",
-    "picks": [
-     16,
-     14
-    ]
-   },
-   {
-    "effect": "pro_cognitive",
-    "mode": "antagonism",
-    "picks": [
-     14
-    ]
-   },
-   {
-    "effect": "sleep_promotion",
-    "mode": "antagonism",
-    "picks": [
-     7
-    ]
-   }
-  ],
-  "beta1": [
-   {
-    "effect": "anxiolytic",
-    "mode": "antagonism",
-    "picks": [
-     1
-    ]
-   }
-  ],
-  "beta2": [
-   {
-    "effect": "cardiovascular",
-    "mode": "agonism",
-    "picks": [
-     1
-    ]
-   },
-   {
-    "effect": "bronchodilation",
-    "mode": "agonism",
-    "picks": [
-     3
-    ]
-   }
-  ],
-  "m3": [
-   {
-    "effect": "nausea",
-    "mode": "agonism",
-    "picks": [
-     1
-    ]
-   }
-  ],
-  "m4": [
-   {
-    "effect": "antipsychotic",
-    "mode": "agonism",
-    "picks": [
-     1
-    ]
-   }
-  ],
-  "nachr_a4b2": [
-   {
-    "effect": "euphoria",
-    "mode": "agonism",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "nachr_a7": [
-   {
-    "effect": "pro_cognitive",
-    "mode": "agonism",
-    "picks": [
-     1
-    ]
-   }
-  ],
-  "d1": [
-   {
-    "effect": "antiparkinsonian",
-    "mode": "agonism",
-    "picks": [
-     13
-    ]
-   },
-   {
-    "effect": "pro_cognitive",
-    "mode": "agonism",
-    "picks": [
-     9
-    ]
-   },
-   {
-    "effect": "antidepressant",
-    "mode": "agonism",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "d3": [
-   {
-    "effect": "antidepressant",
-    "mode": "antagonism",
-    "picks": [
-     2,
-     12
-    ]
-   },
-   {
-    "effect": "antipsychotic",
-    "mode": "antagonism",
-    "picks": [
-     12
-    ]
-   },
-   {
-    "effect": "antiparkinsonian",
-    "mode": "agonism",
-    "picks": [
-     18
-    ]
-   }
-  ],
-  "gaba_b": [
-   {
-    "effect": "sleep_promotion",
-    "mode": "agonism",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "h2": [
-   {
-    "effect": "gastric_acid_reduction",
-    "mode": "antagonism",
-    "picks": [
-     3
-    ]
-   }
-  ],
-  "h3": [
-   {
-    "effect": "wakefulness",
-    "mode": "antagonism",
-    "picks": [
-     3,
-     4
-    ]
-   }
-  ],
-  "mglur2": [
-   {
-    "effect": "anxiolytic",
-    "mode": "agonism",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "mglur3": [
-   {
-    "effect": "anxiolytic",
-    "mode": "agonism",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "cb1": [
-   {
-    "effect": "analgesia",
-    "mode": "agonism",
-    "picks": [
-     5
-    ]
-   }
-  ],
-  "a2a": [
-   {
-    "effect": "antiparkinsonian",
-    "mode": "antagonism",
-    "picks": [
-     1
-    ]
-   }
-  ],
   "sigma1": [
    {
     "effect": "anxiolytic",
@@ -1168,79 +1357,6 @@
     "mode": "agonism",
     "picks": [
      9
-    ]
-   }
-  ],
-  "mt1": [
-   {
-    "effect": "sleep_promotion",
-    "mode": "agonism",
-    "picks": [
-     0,
-     6,
-     4
-    ]
-   },
-   {
-    "effect": "circadian_shift",
-    "mode": "agonism",
-    "picks": [
-     0
-    ]
-   }
-  ],
-  "mt2": [
-   {
-    "effect": "sleep_promotion",
-    "mode": "agonism",
-    "picks": [
-     0,
-     6
-    ]
-   },
-   {
-    "effect": "circadian_shift",
-    "mode": "agonism",
-    "picks": [
-     0,
-     8
-    ]
-   }
-  ],
-  "mao_b": [
-   {
-    "effect": "antiparkinsonian",
-    "mode": "inhibition",
-    "picks": [
-     2
-    ]
-   }
-  ],
-  "ache": [
-   {
-    "effect": "pro_cognitive",
-    "mode": "inhibition",
-    "picks": [
-     4
-    ]
-   }
-  ],
-  "orexin": [
-   {
-    "effect": "sleep_promotion",
-    "mode": "antagonism",
-    "picks": [
-     0,
-     28
-    ]
-   }
-  ],
-  "cgrp": [
-   {
-    "effect": "antimigraine",
-    "mode": "antagonism",
-    "picks": [
-     3
     ]
    }
   ]

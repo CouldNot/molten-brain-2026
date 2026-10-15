@@ -507,6 +507,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "alpha_1_adrenergic_receptor",
+     "line": "During exercise, α 1 -adrenergic receptors in active muscles are attenuated in an exercise intensity-dependent manner, allowing the β 2 -adrenergic receptors which mediate vasodilation to dominate.",
+     "effects": [
+      "vasodilation"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "alpha_1_adrenergic_receptor",
      "line": "In contrast to α 2 -adrenergic receptors, α 1 -adrenergic-receptors in the arterial vasculature of skeletal muscle are more resistant to inhibition, and attenuation of α1-adrenergic-receptor-mediated vasoconstriction only occurs during heavy exercise.",
      "effects": [
       "vasoconstriction"
@@ -525,8 +533,27 @@
      "page": "alpha_1_adrenergic_receptor",
      "line": "This action is generally undesirable in such agents and mediates side effects like orthostatic hypotension , and headaches due to excessive vasodilation.",
      "effects": [
-      "orthostatic_hypotension"
+      "orthostatic_hypotension",
+      "vasodilation"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 22,
+     "line": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | physiological function (Human): Contraction of skeletal muscle resistance arteries. | tissue: Vasculature.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 22,
+     "line": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | physiological function (Human): Contraction of right gastroepiploic artery. | tissue: Artery.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -1037,6 +1064,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "alpha_1_adrenergic_receptor",
+     "line": "During exercise, α 1 -adrenergic receptors in active muscles are attenuated in an exercise intensity-dependent manner, allowing the β 2 -adrenergic receptors which mediate vasodilation to dominate.",
+     "effects": [
+      "vasodilation"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "alpha_1_adrenergic_receptor",
      "line": "In contrast to α 2 -adrenergic receptors, α 1 -adrenergic-receptors in the arterial vasculature of skeletal muscle are more resistant to inhibition, and attenuation of α1-adrenergic-receptor-mediated vasoconstriction only occurs during heavy exercise.",
      "effects": [
       "vasoconstriction"
@@ -1055,8 +1090,27 @@
      "page": "alpha_1_adrenergic_receptor",
      "line": "This action is generally undesirable in such agents and mediates side effects like orthostatic hypotension , and headaches due to excessive vasodilation.",
      "effects": [
-      "orthostatic_hypotension"
+      "orthostatic_hypotension",
+      "vasodilation"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 23,
+     "line": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | physiological function (Human): Contraction of umbilical vein. | tissue: Vasculature.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 23,
+     "line": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | physiological function (Human): Contraction of mammary artery and saphenous vein (with α1A). | tissue: Vasculature",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -1567,6 +1621,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "alpha_1_adrenergic_receptor",
+     "line": "During exercise, α 1 -adrenergic receptors in active muscles are attenuated in an exercise intensity-dependent manner, allowing the β 2 -adrenergic receptors which mediate vasodilation to dominate.",
+     "effects": [
+      "vasodilation"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "alpha_1_adrenergic_receptor",
      "line": "In contrast to α 2 -adrenergic receptors, α 1 -adrenergic-receptors in the arterial vasculature of skeletal muscle are more resistant to inhibition, and attenuation of α1-adrenergic-receptor-mediated vasoconstriction only occurs during heavy exercise.",
      "effects": [
       "vasoconstriction"
@@ -1585,7 +1647,8 @@
      "page": "alpha_1_adrenergic_receptor",
      "line": "This action is generally undesirable in such agents and mediates side effects like orthostatic hypotension , and headaches due to excessive vasodilation.",
      "effects": [
-      "orthostatic_hypotension"
+      "orthostatic_hypotension",
+      "vasodilation"
      ]
     }
    ]
@@ -1745,6 +1808,35 @@
      "effects": [
       "antidepressant"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 25,
+     "line": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Prefontal cortex cognitive disorders. | tissue: Prefrontal cortex.",
+     "effects": [
+      "pro_cognitive"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 25,
+     "line": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Central cardiovascular regulation – hypotension and bradycardia. | tissue: CNS.",
+     "effects": [
+      "orthostatic_hypotension",
+      "bradycardia"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 25,
+     "line": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Sedation and analgesia. | tissue: CNS.",
+     "effects": [
+      "sedation",
+      "analgesia"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -1930,6 +2022,51 @@
      "effects": [
       "antidepressant"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 27,
+     "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Human): Venous vasoconstriction. | tissue: Veins.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 27,
+     "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Human): Formation of functional heterodimers between α2C-A and AT1-R. | tissue: HEK293 cells expressing human receptors. Heterodimers may have a function in hypertension and heart failure.",
+     "effects": [
+      "cardiovascular"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 27,
+     "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Monkey): Locomotor activity and hand-eye coordination. | tissue: α2C-AR antagonist treatment improves locomotor activity and hand-eye coordination in model of Parkinson’s disease.",
+     "effects": [
+      "antiparkinsonian"
+     ],
+     "species": "Monkey"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 27,
+     "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Human): Exaggerated cold induced vasoconstriction. | tissue: Skin blood vessels.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 27,
+     "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | altered gene expression (Human): 2C-AR polymorphism associated with opiate abuse and dependence.",
+     "effects": [
+      "euphoria"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -2183,6 +2320,24 @@
       "cardiovascular",
       "antidepressant"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 28,
+     "line": "β1-adrenoceptor (ADRB1), GtoPdb target 28 | pathophysiology: Variation in resting heart rate | role: Cardiovascular morbidity and mortality risk increased progressively with increasing heart rate",
+     "effects": [
+      "cardiovascular",
+      "bradycardia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 28,
+     "line": "β1-adrenoceptor (ADRB1), GtoPdb target 28 | pathophysiology: Variation in resting heart rate | mutation: Highest mean resting heart rates were seen in individuals with the Ser49Gly polymorphism in ADRB1",
+     "effects": [
+      "cardiovascular",
+      "bradycardia"
+     ]
     }
    ]
   },
@@ -2199,6 +2354,14 @@
       "weight_gain",
       "appetite_decrease",
       "bronchodilation"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "beta_2_adrenergic_receptor",
+     "line": "Protein kinase A then goes on to phosphorylate (and thus inactivate) myosin light-chain kinase , which causes smooth muscle relaxation, accounting for the vasodilatory effects of beta 2 stimulation.",
+     "effects": [
+      "vasodilation"
      ]
     },
     {
@@ -2226,6 +2389,93 @@
      "effects": [
       "bronchodilation"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 29,
+     "line": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Positive inotropic, chronotropic and lusitropic effects in atria. | tissue: Right atrial appendage.",
+     "effects": [
+      "cardiovascular",
+      "bradycardia"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 29,
+     "line": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Bronchodilation in human and other animals. | tissue: Lung.",
+     "effects": [
+      "bronchodilation"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 29,
+     "line": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Coronary vasodilation. | tissue: Coronary blood vessels.",
+     "effects": [
+      "vasodilation"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 29,
+     "line": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | pathophysiology: Asthma, susceptibility to | comments: Polymorphisms in ADRB2 are associated with susceptibility to nocturnal asthma.",
+     "effects": [
+      "bronchodilation"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 29,
+     "line": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | pathophysiology: Obesity | role: Mutations in ADRB2 are associated with susceptibility to obesity.",
+     "effects": [
+      "weight_gain",
+      "appetite_decrease"
+     ]
+    }
+   ]
+  },
+  "beta3": {
+   "kind": "receptor",
+   "name": "β3",
+   "wikipedia": "https://en.wikipedia.org/wiki/Beta-3_adrenergic_receptor",
+   "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "beta_3_adrenergic_receptor",
+     "line": "Mirabegron (YM-178), approved for treatment of overactive bladder in Japan, United States, UK, Canada, China and India. - Nebivolol selective beta(1)-blocker and beta(3)-agonist. - Vibegron (MK-4618)",
+     "effects": [
+      "bladder_relaxation"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 30,
+     "line": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Vasodilatation via nitric oxide and vessel hyperpolarisation. | tissue: Coronary resistance arteries.",
+     "effects": [
+      "vasodilation"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 30,
+     "line": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Bladder relaxation. | tissue: Urinary bladder.",
+     "effects": [
+      "bladder_relaxation"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 30,
+     "line": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Gall bladder relaxation. | tissue: Gall bladder.",
+     "effects": [
+      "bladder_relaxation"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -2403,6 +2653,15 @@
       "antidepressant",
       "antipsychotic"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 13,
+     "line": "M1 receptor (CHRM1), GtoPdb target 13 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
+     "effects": [
+      "bronchodilation"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -2481,6 +2740,15 @@
       "cardiovascular",
       "bradycardia"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 14,
+     "line": "M2 receptor (CHRM2), GtoPdb target 14 | physiological function (Human): Autoreceptor: modulation of ACh release. | tissue: Bronchi.",
+     "effects": [
+      "bronchodilation"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -2520,7 +2788,8 @@
      "page": "muscarinic_acetylcholine_receptor_m3",
      "line": "However, with respect to vasculature, activation of M 3 on vascular endothelial cells causes increased synthesis of nitric oxide , which diffuses to adjacent vascular smooth muscle cells and causes their relaxation and vasodilation , thereby explaining the paradoxical effect of parasympathomimetics on vascular tone and bronchiolar tone.",
      "effects": [
-      "bronchodilation"
+      "bronchodilation",
+      "vasodilation"
      ]
     },
     {
@@ -2604,6 +2873,22 @@
       "extrapyramidal_symptoms",
       "antiparkinsonian"
      ]
+    }
+   ]
+  },
+  "m5": {
+   "kind": "receptor",
+   "name": "M5",
+   "wikipedia": "https://en.wikipedia.org/wiki/Muscarinic_acetylcholine_receptor_M5",
+   "candidates": [
+    {
+     "corpus": "gtopdb_function",
+     "page": 17,
+     "line": "M5 receptor (CHRM5), GtoPdb target 17 | physiological function (Human): Vasodilation. | tissue: Intracortical arterioles.",
+     "effects": [
+      "vasodilation"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -2858,6 +3143,54 @@
      "effects": [
       "antipsychotic"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 465,
+     "line": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | pathophysiology: Epilepsy, nocturnal frontal lobe, 1; ENFL1 | mutation: The insertion does not alter the reading frame and results in the insertion of a leucine residue. This affects the M2 region of the protein and results in reduced permeability to calcium.",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 465,
+     "line": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | pathophysiology: Epilepsy, nocturnal frontal lobe, 1; ENFL1 | mutation: The amino acid substitution is in the Torpedo α subunit of the receptor",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 465,
+     "line": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | pathophysiology: Epilepsy, nocturnal frontal lobe, 1; ENFL1 | mutation: Mutation results in increased acetylcholine sensitivity",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 465,
+     "line": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | pathophysiology: Sporadic nocturnal frontal lobe epilepsy | mutation: The amino acid substitution is in the Torpedo α subunit of the receptor",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 465,
+     "line": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | pathophysiology: Sporadic nocturnal frontal lobe epilepsy | mutation: Exon 5",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 465,
+     "line": "nicotinic acetylcholine receptor α4 subunit (CHRNA4), GtoPdb target 465 | pathophysiology comment: The nomenclature of α4 subunit mutations associated with nocturnal frontal lobe epilepsy has been inconsistent (for further details see Duga et al. 2002). Alternative nomenclature is given in parenthesis.",
+     "effects": [
+      "anticonvulsant"
+     ]
     }
    ]
   },
@@ -2979,6 +3312,30 @@
      "corpus": "wikipedia_pharm",
      "page": "nicotinic_acetylcholine_receptor",
      "line": "Additionally, smoking rates are significantly higher in those with schizophrenia, implying that smoking nicotine may be a form of self-medicating.",
+     "effects": [
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 468,
+     "line": "nicotinic acetylcholine receptor α7 subunit (CHRNA7), GtoPdb target 468 | pathophysiology: Schizophrenia 13; SCZD13 | role: There is linkage between the α7 gene locus on chromosome 15 and auditory gating deficits common in schizophrenic patients. Polymorphisms in the promoter region of the α7 gene that reduce its transcription appear to be associated with schizophrenia. Brains of schizophrenics have reduced levels of α-bungarotoxin binding sites.",
+     "effects": [
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 468,
+     "line": "nicotinic acetylcholine receptor α7 subunit (CHRNA7), GtoPdb target 468 | pathophysiology: Schizophrenia 13; SCZD13 | mutation: Chromosome 15",
+     "effects": [
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 468,
+     "line": "nicotinic acetylcholine receptor α7 subunit (CHRNA7), GtoPdb target 468 | pathophysiology: Schizophrenia 13; SCZD13 | mutation: Promoter",
      "effects": [
       "antipsychotic"
      ]
@@ -3228,6 +3585,15 @@
      "effects": [
       "antidepressant"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 214,
+     "line": "D1 receptor (DRD1), GtoPdb target 214 | physiological function (Human): Contribution to pathophysiology and/or maintenance of increased blood pressure in essential hypertension. | tissue: In vivo.",
+     "effects": [
+      "cardiovascular"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -5173,6 +5539,14 @@
       "antipsychotic",
       "antiparkinsonian"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 216,
+     "line": "D3 receptor (DRD3), GtoPdb target 216 | pathophysiology: Schizophrenia | role: The Ba1I restriction fragment length polymorphism (corresponding to a point mutation in the 1st exon and resulting in a serine-to-glycine substitution in the N-terminal extracellular domain of the receptor) has been associated with schizophrenia.",
+     "effects": [
+      "antipsychotic"
+     ]
     }
    ]
   },
@@ -5381,6 +5755,14 @@
      "line": "D 5 receptors that are expressed in kidneys are also involved in the regulation of blood pressure via modulating expression of renalase and excretion of sodium , and disturbance of these processes can contribute to hypertension as well.",
      "effects": [
       "cardiovascular"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 218,
+     "line": "D5 receptor (DRD5), GtoPdb target 218 | pathophysiology: Cervical dystonia | comments: Microsatellite polymorphism may increase incidence of cervical dystonia.",
+     "effects": [
+      "extrapyramidal_symptoms"
      ]
     }
    ]
@@ -6378,6 +6760,14 @@
      "effects": [
       "psychosis",
       "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 636,
+     "line": "histamine at, 406 hypofunction, 111, 114 NMDA receptor activation, 375 nociception, 380, 381",
+     "effects": [
+      "analgesia"
      ]
     },
     {
@@ -7764,6 +8154,15 @@
      "effects": [
       "sedation"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 262,
+     "line": "H1 receptor (HRH1), GtoPdb target 262 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
+     "effects": [
+      "bronchodilation"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -7799,10 +8198,27 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "histamine_h2_receptor",
+     "line": "It also regulates gastrointestinal motility and intestinal secretion and is thought to be involved in regulating cell growth and differentiation.",
+     "effects": [
+      "gi_motility"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "histamine_h2_receptor",
      "line": "Activation of the H 2 receptor results in the following physiological responses: - Stimulation of gastric acid secretion (Target of anti-histaminergics (H 2 receptors) for peptic ulcer disease and GERD ) - Smooth muscle relaxation (Experimental histamine H 2 receptor agonist used for asthma and COPD) - Inhibit antibody synthesis, T-cell proliferation and cytokine production - Vasodilation – PKA activity causes phosphorylation of MLCK , decreasing its activity, resulting in MLC of myosin being dephosphorylated by MLCP and thus inhibiting contraction.",
      "effects": [
       "bronchodilation",
-      "gastric_acid_reduction"
+      "gastric_acid_reduction",
+      "vasodilation"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "histamine_h2_receptor",
+     "line": "The smooth muscle relaxation leads to vasodilation. - Inhibition of neutrophil activation and chemotaxis",
+     "effects": [
+      "vasodilation"
      ]
     },
     {
@@ -7812,6 +8228,15 @@
      "effects": [
       "sedation"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 263,
+     "line": "H2 receptor (HRH2), GtoPdb target 263 | physiological function (Human): Stimulation of gastric acid secretion. | tissue: In vivo.",
+     "effects": [
+      "gastric_acid_reduction"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -7934,6 +8359,24 @@
      "effects": [
       "sedation"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 264,
+     "line": "H3 receptor (HRH3), GtoPdb target 264 | physiological function (Human): Vasoconstriction. | tissue: Turbinate mucosa strips.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 264,
+     "line": "H3 receptor (HRH3), GtoPdb target 264 | physiological function (Human): Activation of spinal H3 receptors inhibits mechanical nociception. | tissue: In vivo.",
+     "effects": [
+      "analgesia"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -8026,6 +8469,14 @@
     {
      "corpus": "stahl_essential",
      "page": 406,
+     "line": "release endorphins, which act via mostly presynaptic μ-opioid receptors to inhibit neurotransmission from nociceptive primary afferent neurons (Figure 9-2).",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "stahl_essential",
+     "page": 406,
      "line": "Spinal μ-opioid receptors are one target of opioid analgesics; so are μ-opioid receptors in the periaqueductal gray itself (Figure 9-11).",
      "effects": [
       "analgesia"
@@ -8076,7 +8527,8 @@
      "page": "mu_opioid_receptor",
      "line": "Activation of these receptors inhibits peristaltic action which causes constipation, a major side effect of μ agonists.",
      "effects": [
-      "constipation"
+      "constipation",
+      "gi_motility"
      ]
     },
     {
@@ -8128,7 +8580,8 @@
      "line": "Fatal opioid overdose typically occurs due to bradypnea , hypoxemia , and decreased cardiac output ( hypotension occurs due to vasodilation , and bradycardia further contributes to decreased cardiac output).",
      "effects": [
       "orthostatic_hypotension",
-      "bradycardia"
+      "bradycardia",
+      "vasodilation"
      ]
     },
     {
@@ -8162,7 +8615,8 @@
      "page": "mu_opioid_receptor",
      "line": "Less commonly, massive overdoses have been known to cause circulatory collapse from vasodilation and bradycardia.",
      "effects": [
-      "bradycardia"
+      "bradycardia",
+      "vasodilation"
      ]
     },
     {
@@ -8181,6 +8635,14 @@
      "effects": [
       "respiratory_depression",
       "antidepressant"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "mu_opioid_receptor",
+     "line": "Amastatin - BL-2401 - Candoxatril - D -Phenylalanine - Dexecadotril (retorphan) - Ecadotril (sinorphan) - Kelatorphan - Racecadotril (acetorphan) - RB-101 - RB-120 - RB-3007 - Opiorphan - Selank - Semax - Spinorphin - Thiorphan - Tynorphin - Ubenimex (bestatin) - Propeptides: β-Lipotropin (proendorphin) - Prodynorphin - Proenkephalin - Pronociceptin - Proopiomelanocortin (POMC) - Others:",
+     "effects": [
+      "analgesia"
      ]
     }
    ]
@@ -8356,6 +8818,14 @@
       "seizures",
       "analgesia"
      ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "delta_opioid_receptor",
+     "line": "Amastatin - BL-2401 - Candoxatril - D -Phenylalanine - Dexecadotril (retorphan) - Ecadotril (sinorphan) - Kelatorphan - Racecadotril (acetorphan) - RB-101 - RB-120 - RB-3007 - Opiorphan - Selank - Semax - Spinorphin - Thiorphan - Tynorphin - Ubenimex (bestatin) - Propeptides: β-Lipotropin (proendorphin) - Prodynorphin - Proenkephalin - Pronociceptin - Proopiomelanocortin (POMC) - Others:",
+     "effects": [
+      "analgesia"
+     ]
     }
    ]
   },
@@ -8368,6 +8838,14 @@
      "corpus": "stahl_essential",
      "page": 406,
      "line": "Enkephalins, which also act via δ-opioid receptors, are also antinociceptive, whereas dynorphins, acting at κ-opioid receptors, can be either anti- or pronociceptive.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "These include altering nociception , mood , reward system , and motor control .",
      "effects": [
       "analgesia"
      ]
@@ -8495,6 +8973,14 @@
      "corpus": "wikipedia_pharm",
      "page": "kappa_opioid_receptor",
      "line": "The analgesic actions of KOR occur at both spinal and supraspinal sites.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "In the spinal cord , presynaptic activation suppresses nociceptive transmission through inhibition of calcium influx and reduction of neurotransmitter release from primary sensory neurons .",
      "effects": [
       "analgesia"
      ]
@@ -8925,6 +9411,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "kappa_opioid_receptor",
+     "line": "Besides KOR-DOR the receptor heterodimerizes with μ-opioid (preferentially forms in females), nociceptin (NOP), orexin receptor 1 (OX 1 ), dopamine transporter (DAT), neurotensin 1 , bradykinin B2 , beta-2 adrenergic receptors , GPR88 .",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
      "line": "Inhibition of p38 MAPK selectively blocks stress-induced immobility and conditioned place aversion while preserving analgesia and non-selective learning processes, isolating p38 signaling as specifically responsible for dysphoric-like behavioral responses.",
      "effects": [
       "dysphoria",
@@ -9153,6 +9647,60 @@
      "effects": [
       "antidepressant"
      ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "δ-opioid receptor - μ-opioid receptor - Nociceptin receptor - GPR139",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "Amastatin - BL-2401 - Candoxatril - D -Phenylalanine - Dexecadotril (retorphan) - Ecadotril (sinorphan) - Kelatorphan - Racecadotril (acetorphan) - RB-101 - RB-120 - RB-3007 - Opiorphan - Selank - Semax - Spinorphin - Thiorphan - Tynorphin - Ubenimex (bestatin) - Propeptides: β-Lipotropin (proendorphin) - Prodynorphin - Proenkephalin - Pronociceptin - Proopiomelanocortin (POMC) - Others:",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 318,
+     "line": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Neuroendocrine effects: stimulation of prolactin release, probably by modulation of the tuberoinfundibular dopamine system. | tissue: In vivo.",
+     "effects": [
+      "prolactin_elevation"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 318,
+     "line": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
+     "effects": [
+      "sedation",
+      "hallucinations",
+      "dysphoria"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 318,
+     "line": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Antinociception: systemic administration. | tissue: In vivo.",
+     "effects": [
+      "analgesia"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 318,
+     "line": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Stimulation of relief from abdominal pain and bloating. | tissue: In vivo.",
+     "effects": [
+      "analgesia"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -9697,7 +10245,8 @@
      "line": "They decrease blood pressure and heart rate via a central mechanism, by inducing peripheral vasodilation , and by stimulating the vagus nerve .",
      "effects": [
       "cardiovascular",
-      "bradycardia"
+      "bradycardia",
+      "vasodilation"
      ]
     },
     {
@@ -9705,7 +10254,8 @@
      "page": "5_ht1a_receptor",
      "line": "Vasodilation of the blood vessels in the skin via central 5-HT 1A activation increases heat dissipation from the organism out into the environment, causing a decrease in body temperature .",
      "effects": [
-      "hypothermia"
+      "hypothermia",
+      "vasodilation"
      ]
     },
     {
@@ -10181,6 +10731,15 @@
      "effects": [
       "antimigraine"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 2,
+     "line": "5-HT1B receptor (HTR1B), GtoPdb target 2 | physiological function (Human): Vasoconstriction. | tissue: Coronary artery.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -12956,7 +13515,8 @@
       "seizures",
       "antiemetic",
       "anticonvulsant",
-      "anxiolytic"
+      "anxiolytic",
+      "analgesia"
      ]
     },
     {
@@ -13142,6 +13702,24 @@
      "effects": [
       "antimigraine"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 9,
+     "line": "5-HT4 receptor (HTR4), GtoPdb target 9 | physiological function (Human): Stimulation of gastric emptying. | tissue: In vivo.",
+     "effects": [
+      "gi_motility"
+     ],
+     "species": "Human"
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 9,
+     "line": "5-HT4 receptor (HTR4), GtoPdb target 9 | physiological function (Human): Stimulation of peristaltic reflex (ascending contraction and descending relaxation). | tissue: Jejunum.",
+     "effects": [
+      "gi_motility"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -13163,7 +13741,8 @@
      "page": "5_ht5a_receptor",
      "line": "The neurotransmitter serotonin (5-hydroxytryptamine, 5-HT) has been implicated in a wide range of psychiatric conditions and also has vasoconstrictive and vasodilatory effects.",
      "effects": [
-      "vasoconstriction"
+      "vasoconstriction",
+      "vasodilation"
      ]
     },
     {
@@ -13785,6 +14364,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "cannabinoid_receptor_1",
+     "line": "Dorsal root ganglion also express these receptors, which target a variety of peripheral terminals involved in nociception.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "cannabinoid_receptor_1",
      "line": "Endogenous cannabinoids are believed to exhibit an analgesic effect on these receptors by limiting both GABA and glutamate of PAG cells that relate to nociceptive input processing, a hypothesis consistent with the finding that anandamide release in the PAG is increased in response to pain-triggering stimuli.",
      "effects": [
       "analgesia"
@@ -13881,6 +14468,14 @@
    "name": "A2A",
    "wikipedia": "https://en.wikipedia.org/wiki/Adenosine_A2A_receptor",
    "candidates": [
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "adenosine_a2a_receptor",
+     "line": "A 1 and A 2A receptors are believed to regulate myocardial oxygen demand and to increase coronary circulation by vasodilation .",
+     "effects": [
+      "vasodilation"
+     ]
+    },
     {
      "corpus": "wikipedia_pharm",
      "page": "adenosine_a2a_receptor",
@@ -14141,6 +14736,15 @@
      "effects": [
       "circadian_shift"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 287,
+     "line": "MT1 receptor (MTNR1A), GtoPdb target 287 | physiological function (Human): Vasoconstriction. | tissue: Coronary artery.",
+     "effects": [
+      "vasoconstriction"
+     ],
+     "species": "Human"
     }
    ]
   },
@@ -15343,6 +15947,14 @@
       "extrapyramidal_symptoms",
       "antiparkinsonian"
      ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 927,
+     "line": "DAT (SLC6A3), GtoPdb target 927 | pathophysiology: Tobacco addiction, susceptibility to | role: A polymorphism in DAT gives protection against nicotine dependence",
+     "effects": [
+      "euphoria"
+     ]
     }
    ]
   },
@@ -15648,6 +16260,78 @@
     }
    ]
   },
+  "nav": {
+   "kind": "target",
+   "name": "Voltage-gated sodium channel",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sodium_channel",
+   "candidates": [
+    {
+     "corpus": "gtopdb_function",
+     "page": 578,
+     "line": "Nav1.1 (SCN1A), GtoPdb target 578 | pathophysiology: Generalized epilepsy with febrile seizures plus, type 2; GEFSP2 | drugs: Treated with anti-epileptic drugs.",
+     "effects": [
+      "seizures",
+      "anticonvulsant"
+     ]
+    }
+   ]
+  },
+  "cav": {
+   "kind": "target",
+   "name": "Voltage-gated calcium channel",
+   "wikipedia": "https://en.wikipedia.org/wiki/Voltage-gated_calcium_channel",
+   "candidates": [
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Migraine, familial hemiplegic, 1; FHM1 | comments: The majority of FHM-1 mutations are located in the S4 voltage sensors and flanking regions. Examination of FHM-1 mutations on Cav2.1 biophysical properties using electrophysiological analysis in Xenopus laevis oocytes and HEK-293 cells shows considerable variability that may be accounted for by the use of different expression systems, Cav2.1 splice variants, auxiliary subunits and experimental conditions. Overall trends point towards FHM-1 mutations causing a predicted gain-of-function phenotype: shift of V0.5,act to more hyperpolarised potentials, increased availability of opening at lower membrane potentials, increased channel open probability and single channel conductance. Knock-in mice carrying R192Q and S218L FHM-1 mutations support gain-of-function in showing a lower threshold for stimulation of cortical spreading depression and increased velocity of propagation across the cortex, increased presynaptic basal calcium levels and altered synaptic plasticity. The severity of phenotype resulting from some FHM-1 mutations appears to be affected by CACNA1A alternative splicing.",
+     "effects": [
+      "antidepressant",
+      "antimigraine"
+     ]
+    }
+   ]
+  },
+  "cav_t": {
+   "kind": "target",
+   "name": "T-type calcium channel",
+   "wikipedia": "https://en.wikipedia.org/wiki/T-type_calcium_channel",
+   "candidates": [
+    {
+     "corpus": "gtopdb_function",
+     "page": 535,
+     "line": "Cav3.1 (CACNA1G), GtoPdb target 535 | pathophysiology: Absence epilepsy | role: Thalamic oscillation.",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 535,
+     "line": "Cav3.1 (CACNA1G), GtoPdb target 535 | pathophysiology: Absence epilepsy | side effects: Rarely: GI distres, drowsiness, leukopenia.",
+     "effects": [
+      "sedation",
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 535,
+     "line": "Cav3.1 (CACNA1G), GtoPdb target 535 | pathophysiology: Absence epilepsy | use: Absence epilepsy.",
+     "effects": [
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 535,
+     "line": "Cav3.1 (CACNA1G), GtoPdb target 535 | pathophysiology: Absence epilepsy | comments: The mutation frequency has not been determined",
+     "effects": [
+      "anticonvulsant"
+     ]
+    }
+   ]
+  },
   "aadc": {
    "kind": "target",
    "name": "Aromatic L-amino acid decarboxylase (AADC)",
@@ -15829,6 +16513,23 @@
      "line": "A novel 12-transmembrane-region synaptic vesicle transporter of uncertain mechanism and with unclear substrates, called the SV2A transporter and localized within the synaptic vesicle membrane, binds the anticonvulsant levetiracetam, perhaps interfering with neurotransmitter release and thereby reducing seizures.",
      "effects": [
       "seizures",
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 2634,
+     "line": "synaptic vesicle glycoprotein 2A (SV2A), GtoPdb target 2634 | pathophysiology: Epilepsy | role: SV2A is a widely distributed CNS protein believed to be involved in the abnormal coordination of synaptic vesicle exocytosis and neurotransmitter release underlying pathological brain activity in epileptic seizure. The exact mechanism has yet to be defined.",
+     "effects": [
+      "seizures",
+      "anticonvulsant"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 2634,
+     "line": "synaptic vesicle glycoprotein 2A (SV2A), GtoPdb target 2634 | pathophysiology: Epilepsy | drugs: levetiracetam and brivaracetam",
+     "effects": [
       "anticonvulsant"
      ]
     }
@@ -16818,6 +17519,22 @@
     }
    ]
   },
+  "melanocortin": {
+   "kind": "target",
+   "name": "Melanocortin receptors",
+   "wikipedia": "https://en.wikipedia.org/wiki/Melanocortin_receptor",
+   "candidates": [
+    {
+     "corpus": "gtopdb_function",
+     "page": 285,
+     "line": "MC4 receptor (MC4R), GtoPdb target 285 | pathophysiology: Obesity due to melanocortin 4 receptor deficiency | comments: Mutations in the MC4 receptor that lead to loss of function cause an obese phenotype in man. It may be responsible for 3-4% of obesity in individuals with severe childhood onset obesity.",
+     "effects": [
+      "weight_gain",
+      "appetite_decrease"
+     ]
+    }
+   ]
+  },
   "cgrp": {
    "kind": "target",
    "name": "CGRP receptor",
@@ -16844,7 +17561,8 @@
      "page": "calcrl",
      "line": "Administration of adrenomedullin causes vasodilation and decreased blood pressure via binding to its receptors.",
      "effects": [
-      "cardiovascular"
+      "cardiovascular",
+      "vasodilation"
      ]
     },
     {

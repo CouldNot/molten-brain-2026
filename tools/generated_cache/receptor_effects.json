@@ -71,6 +71,14 @@
     "provenance": "verified",
     "quote": "5-HT 1A activation is known to improve cognitive functions associated with the prefrontal cortex, possibly via inducing prefrontal cortex dopamine and acetylcholine release."
    }
+  ],
+  "agonism:vasodilation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "5_ht1a_receptor",
+    "provenance": "verified",
+    "quote": "Vasodilation of the blood vessels in the skin via central 5-HT 1A activation increases heat dissipation from the organism out into the environment, causing a decrease in body temperature ."
+   }
   ]
  },
  "5ht1b": {
@@ -80,6 +88,13 @@
     "page": "5_ht1b_receptor",
     "provenance": "verified",
     "quote": "Activation of these receptors results in vasoconstriction ."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 2,
+    "provenance": "verified",
+    "quote": "5-HT1B receptor (HTR1B), GtoPdb target 2 | physiological function (Human): Vasoconstriction. | tissue: Coronary artery.",
+    "species": "Human"
    }
   ],
   "antagonism:antidepressant": [
@@ -365,6 +380,24 @@
    }
   ]
  },
+ "5ht4": {
+  "agonism:gi_motility": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 9,
+    "provenance": "verified",
+    "quote": "5-HT4 receptor (HTR4), GtoPdb target 9 | physiological function (Human): Stimulation of gastric emptying. | tissue: In vivo.",
+    "species": "Human"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 9,
+    "provenance": "verified",
+    "quote": "5-HT4 receptor (HTR4), GtoPdb target 9 | physiological function (Human): Stimulation of peristaltic reflex (ascending contraction and descending relaxation). | tissue: Jejunum.",
+    "species": "Human"
+   }
+  ]
+ },
  "5ht7": {
   "antagonism:antidepressant": [
    {
@@ -398,6 +431,14 @@
   ]
  },
  "a2a": {
+  "agonism:vasodilation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "adenosine_a2a_receptor",
+    "provenance": "verified",
+    "quote": "A 1 and A 2A receptors are believed to regulate myocardial oxygen demand and to increase coronary circulation by vasodilation ."
+   }
+  ],
   "antagonism:antiparkinsonian": [
    {
     "corpus": "wikipedia_pharm",
@@ -424,6 +465,20 @@
     "page": "alpha_1_adrenergic_receptor",
     "provenance": "verified",
     "quote": "In smooth muscle cells of blood vessels the principal effect of activation of these receptors is vasoconstriction ."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 22,
+    "provenance": "verified",
+    "quote": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | physiological function (Human): Contraction of skeletal muscle resistance arteries. | tissue: Vasculature.",
+    "species": "Human"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 22,
+    "provenance": "verified",
+    "quote": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | physiological function (Human): Contraction of right gastroepiploic artery. | tissue: Artery.",
+    "species": "Human"
    }
   ],
   "antagonism:anxiolytic": [
@@ -504,6 +559,20 @@
     "page": "alpha_1_adrenergic_receptor",
     "provenance": "verified",
     "quote": "In smooth muscle cells of blood vessels the principal effect of activation of these receptors is vasoconstriction ."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 23,
+    "provenance": "verified",
+    "quote": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | physiological function (Human): Contraction of umbilical vein. | tissue: Vasculature.",
+    "species": "Human"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 23,
+    "provenance": "verified",
+    "quote": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | physiological function (Human): Contraction of mammary artery and saphenous vein (with α1A). | tissue: Vasculature",
+    "species": "Human"
    }
   ],
   "antagonism:anxiolytic": [
@@ -674,6 +743,22 @@
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 25,
+    "provenance": "verified",
+    "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Sedation and analgesia. | tissue: CNS.",
+    "species": "Human"
+   }
+  ],
+  "agonism:bradycardia": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 25,
+    "provenance": "verified",
+    "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Central cardiovascular regulation – hypotension and bradycardia. | tissue: CNS.",
+    "species": "Human"
    }
   ],
   "agonism:pro_cognitive": [
@@ -690,6 +775,13 @@
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 25,
+    "provenance": "verified",
+    "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Sedation and analgesia. | tissue: CNS.",
+    "species": "Human"
    }
   ]
  },
@@ -732,6 +824,15 @@
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
+   }
+  ],
+  "agonism:vasoconstriction": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 27,
+    "provenance": "verified",
+    "quote": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Human): Venous vasoconstriction. | tissue: Veins.",
+    "species": "Human"
    }
   ]
  },
@@ -794,6 +895,13 @@
     "page": "beta_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Inhibit histamine -release from mast cells . - Increase protein content of secretions from lacrimal glands . - Receptor also present in cerebellum . - Bronchiole dilation (targeted while treating asthma attacks) - Involved in brain - immune - communication"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 29,
+    "provenance": "verified",
+    "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Bronchodilation in human and other animals. | tissue: Lung.",
+    "species": "Human"
    }
   ],
   "agonism:cardiovascular": [
@@ -802,6 +910,48 @@
     "page": "beta_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Increases heart rate in sinoatrial node (SA node) ( chronotropic effect)."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 29,
+    "provenance": "verified",
+    "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Positive inotropic, chronotropic and lusitropic effects in atria. | tissue: Right atrial appendage.",
+    "species": "Human"
+   }
+  ],
+  "agonism:vasodilation": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 29,
+    "provenance": "verified",
+    "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Coronary vasodilation. | tissue: Coronary blood vessels.",
+    "species": "Human"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "beta_2_adrenergic_receptor",
+    "provenance": "verified",
+    "quote": "Protein kinase A then goes on to phosphorylate (and thus inactivate) myosin light-chain kinase , which causes smooth muscle relaxation, accounting for the vasodilatory effects of beta 2 stimulation."
+   }
+  ]
+ },
+ "beta3": {
+  "agonism:bladder_relaxation": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 30,
+    "provenance": "verified",
+    "quote": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Bladder relaxation. | tissue: Urinary bladder.",
+    "species": "Human"
+   }
+  ],
+  "agonism:vasodilation": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 30,
+    "provenance": "verified",
+    "quote": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Vasodilatation via nitric oxide and vessel hyperpolarisation. | tissue: Coronary resistance arteries.",
+    "species": "Human"
    }
   ]
  },
@@ -1236,6 +1386,24 @@
   ]
  },
  "h3": {
+  "agonism:analgesia": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 264,
+    "provenance": "verified",
+    "quote": "H3 receptor (HRH3), GtoPdb target 264 | physiological function (Human): Activation of spinal H3 receptors inhibits mechanical nociception. | tissue: In vivo.",
+    "species": "Human"
+   }
+  ],
+  "agonism:vasoconstriction": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 264,
+    "provenance": "verified",
+    "quote": "H3 receptor (HRH3), GtoPdb target 264 | physiological function (Human): Vasoconstriction. | tissue: Turbinate mucosa strips.",
+    "species": "Human"
+   }
+  ],
   "antagonism:wakefulness": [
    {
     "corpus": "stahl_essential",
@@ -1264,6 +1432,26 @@
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Similarly to μ-opioid receptor (MOR), KOR activation produces antinociceptive effects."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Antinociception: systemic administration. | tissue: In vivo.",
+    "species": "Human"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Stimulation of relief from abdominal pain and bloating. | tissue: In vivo.",
+    "species": "Human"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "In the spinal cord , presynaptic activation suppresses nociceptive transmission through inhibition of calcium influx and reduction of neurotransmitter release from primary sensory neurons ."
    }
   ],
   "agonism:dysphoria": [
@@ -1284,6 +1472,13 @@
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "The KOR also mediates the dysphoria and hallucinations seen with opioids such as pentazocine . - Alazocine – partial agonist - BPHA - Bremazocine – highly selective - 8-Carboxamidocyclazocine - Cyclazocine – partial agonist - Ketazocine - MCBPHA - MCPPHA – moderately biased for G protein - Metazocine – partial agonist - MR-2034 - Pentazocine – partial agonist - Phenazocine – partial agonist - 6'-Guanidinonaltrindole (6'-GNTI) – biased ligand:"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
+    "species": "Human"
    }
   ],
   "agonism:hallucinations": [
@@ -1298,6 +1493,13 @@
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "The KOR also mediates the dysphoria and hallucinations seen with opioids such as pentazocine . - Alazocine – partial agonist - BPHA - Bremazocine – highly selective - 8-Carboxamidocyclazocine - Cyclazocine – partial agonist - Ketazocine - MCBPHA - MCPPHA – moderately biased for G protein - Metazocine – partial agonist - MR-2034 - Pentazocine – partial agonist - Phenazocine – partial agonist - 6'-Guanidinonaltrindole (6'-GNTI) – biased ligand:"
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
+    "species": "Human"
    }
   ],
   "agonism:prolactin_elevation": [
@@ -1312,6 +1514,13 @@
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Furthermore, while cocaine abuse is associated with lowered prolactin response, KOR activation causes a release of prolactin, a hormone known for its important role in learning, neuronal plasticity and myelination ."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Neuroendocrine effects: stimulation of prolactin release, probably by modulation of the tuberoinfundibular dopamine system. | tissue: In vivo.",
+    "species": "Human"
    }
   ],
   "agonism:sedation": [
@@ -1320,6 +1529,13 @@
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Evidence suggests that G protein signaling primarily mediates the therapeutic analgesic and antipruritic effects of KOR agonists, whilst β-arrestin2 -dependent signaling through p38 MAPK activation mediates adverse dysphoric, sedative, and aversive effects."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 318,
+    "provenance": "verified",
+    "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
+    "species": "Human"
    }
   ]
  },
@@ -1461,6 +1677,14 @@
     "provenance": "verified",
     "quote": "In the CNS , they induce emesis ."
    }
+  ],
+  "agonism:vasodilation": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "muscarinic_acetylcholine_receptor_m3",
+    "provenance": "verified",
+    "quote": "However, with respect to vasculature, activation of M 3 on vascular endothelial cells causes increased synthesis of nitric oxide , which diffuses to adjacent vascular smooth muscle cells and causes their relaxation and vasodilation , thereby explaining the paradoxical effect of parasympathomimetics on vascular tone and bronchiolar tone."
+   }
   ]
  },
  "m4": {
@@ -1470,6 +1694,17 @@
     "page": 258,
     "provenance": "verified",
     "quote": "M4 receptor agonism may reduce psychotic symptoms whereas M1 receptor agonism may be most relevant to improving the cognitive deficits of schizophrenia."
+   }
+  ]
+ },
+ "m5": {
+  "agonism:vasodilation": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 17,
+    "provenance": "verified",
+    "quote": "M5 receptor (CHRM5), GtoPdb target 17 | physiological function (Human): Vasodilation. | tissue: Intracortical arterioles.",
+    "species": "Human"
    }
   ]
  },
@@ -1549,6 +1784,15 @@
     "provenance": "verified",
     "quote": "Ramelteon is a MT1/MT2 agonist marketed for insomnia, and tasimelteon, another MT1/MT2 agonist, is marketed for non-24-hour sleep–wake disorder (Figure 10-57)."
    }
+  ],
+  "agonism:vasoconstriction": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 287,
+    "provenance": "verified",
+    "quote": "MT1 receptor (MTNR1A), GtoPdb target 287 | physiological function (Human): Vasoconstriction. | tissue: Coronary artery.",
+    "species": "Human"
+   }
   ]
  },
  "mt2": {
@@ -1594,6 +1838,12 @@
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Some of these effects, such as analgesia, sedation, euphoria, itching and decreased respiration, tend to lessen with continued use as tolerance develops."
+   },
+   {
+    "corpus": "stahl_essential",
+    "page": 406,
+    "provenance": "verified",
+    "quote": "release endorphins, which act via mostly presynaptic μ-opioid receptors to inhibit neurotransmission from nociceptive primary afferent neurons (Figure 9-2)."
    }
   ],
   "agonism:constipation": [
