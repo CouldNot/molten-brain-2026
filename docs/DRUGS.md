@@ -262,6 +262,12 @@ python tools/sourcing/recheck_quotes.py build --out <dir> --unstamped   # indepe
 Gates: closed factor / direction vocabulary, `structure` a modeled structure or null, the factor's cue offered, every picked paper `human` in the MeSH species ledger (animal studies out), `magnitude` verbatim in a picked sentence (`check_data.py` re-checks it against the emitted quotes). A judge reject is dropped from the judged file (a subgroup-only finding, e.g. CB1 rising with age only in women, is not an unqualified age node).
 
 
+### Physicochemistry and brain entry
+
+A drug panel's "Brain entry" section (`js/physchem.js`, right after the Pharmacokinetics block) shows three chips, each its own node kind with ONE node per drug: lipophilicity as PubChem's XLogP3 (`drug_lipophilicity`, log10 of the octanol/water partition; higher crosses membranes more easily), topological polar surface area (`drug_polar_surface`, in Å²; brain-penetrant drugs usually sit below about 90 Å²), and B3DB's BBB+/BBB- label with measured logBB where a study reported one (`drug_bbb`, a range when its rows differ, e.g. olanzapine `BBB+ (logBB 0.78 to 0.8)`). The label tooltips say the first two are computed estimates and the third curated measurement data, so a reader never takes an XLogP3 for an assay.
+
+Everything is code-read (corpora #21 / #22, see docs/PROVENANCE.md), no LLM and no judge: `python tools/fetch/fetch_physchem.py` writes `tools/generated_cache/physchem.json`, which `tools/data_generators/physchem.py` emits. Coverage: XLogP3 and TPSA on 286 drugs, BBB on 239 (227 BBB+, 12 BBB-; 9 joined by name because B3DB lists a different CID). No value for combination products, salts or mixtures (acamprosate, sodium oxybate, thiopental, ...), inorganics (lithium, xenon) or drugs without a CID (erenumab, nitrous oxide); the cache's `skipped` map says why per drug. A B3DB row whose structure is not the drug's own (InChI guard) is refused rather than published, and rows disagreeing on the label publish no BBB node at all (none today).
+
 ## Drug metabolism
 
 Which enzymes clear a drug, or have their activity changed by it. **Pharmacokinetics, so it
