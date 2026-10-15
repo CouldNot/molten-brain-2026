@@ -351,20 +351,26 @@ def rank(products: list[dict], keys: set[str]) -> list[tuple[dict, str]]:
             for p in pool]
 
 
-def section_52(page_html: str) -> list[str]:
-    """The RCP section 5.2 as text lines, one paragraph per line ([] when absent)."""
-    m = re.search(r"id=['\"]5\.2\.[^'\"]*['\"]", page_html)
+def section_body(page_html: str, number: str, anchor: str) -> str | None:
+    """The raw HTML of one RCP section (``number`` like ``"5.2"``, its ``anchor`` name
+    like ``"RcpPropPharmacocinetiques"``), from just after its heading paragraph up to
+    the next level-1/2 heading, or None when the page lacks it. Shared by every
+    section reader (5.2 here, 4.2 / 4.3 / 4.4 in ``fetch_bdpm_rcp.py``)."""
+    m = re.search(r"id=['\"]" + re.escape(number + ".") + r"[^'\"]*['\"]", page_html)
     if not m:
-        m = re.search(r"name=['\"]RcpPropPharmacocinetiques['\"]", page_html)
+        m = re.search(r"name=['\"]" + re.escape(anchor) + r"['\"]", page_html)
     if not m:
-        return []
+        return None
     start = page_html.find("</p>", m.end())
     end_m = re.search(r"class=\"?AmmAnnexeTitre[12]\"?", page_html[start:])
     if end_m:
         stop = page_html.rfind("<", start, start + end_m.start())   # the heading's <p
-        body = page_html[start:stop if stop > start else start + end_m.start()]
-    else:
-        body = page_html[start:]
+        return page_html[start:stop if stop > start else start + end_m.start()]
+    return page_html[start:]
+
+
+def html_lines(body: str) -> list[str]:
+    """An RCP HTML slice as text lines, one paragraph per line, bullets stripped."""
     body = re.sub(r"</(p|li|td|tr|div|h\d)>|<br\s*/?>", "\n", body, flags=re.I)
     out = []
     for line in re.sub(r"<[^>]+>", "", body).splitlines():
@@ -372,6 +378,12 @@ def section_52(page_html: str) -> list[str]:
         if len(line) > 1:
             out.append(line)
     return out
+
+
+def section_52(page_html: str) -> list[str]:
+    """The RCP section 5.2 as text lines, one paragraph per line ([] when absent)."""
+    body = section_body(page_html, "5.2", "RcpPropPharmacocinetiques")
+    return html_lines(body) if body is not None else []
 
 
 def states_pk(lines: list[str]) -> bool:
