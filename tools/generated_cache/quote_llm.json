@@ -1,6 +1,7 @@
 {
 "q_00053b173d4c": {
-"drug:citalopram/first_approval": "opus"
+"drug:citalopram/first_approval": "opus",
+"drug:citalopram/originator": "opus"
 },
 "q_0019a11cebbc": {
 "drug:brexanolone/categories": "sonnet"
@@ -29,7 +30,8 @@
 "drug:disulfiram/brands[Antabuse]": "sonnet"
 },
 "q_0091e519f0ae": {
-"drug:hydroxyzine/first_approval": "opus"
+"drug:hydroxyzine/first_approval": "opus",
+"drug:hydroxyzine/originator": "opus"
 },
 "q_00a4387f1e07": {
 "drug:benperidol/half_life": "sonnet"
@@ -57,7 +59,8 @@
 "drug:alprazolam/bindings[gaba_a:pam]": "sonnet"
 },
 "q_01d0d49cbb07": {
-"drug:rimegepant/first_approval": "opus"
+"drug:rimegepant/first_approval": "opus",
+"drug:rimegepant/originator": "opus"
 },
 "q_01d92a51ab4d": {
 "drug:molindone/categories": "sonnet"
@@ -91,8 +94,14 @@
 "q_027f6be6855d": {
 "drug:lofepramine/metabolites[desipramine]": "sonnet"
 },
+"q_0280731d1f41": {
+"drug:quazepam/originator": "opus"
+},
 "q_02d8ebe1de87": {
 "drug:dothiepin/categories": "sonnet"
+},
+"q_02f037e294e1": {
+"drug:granisetron/originator/now": "opus"
 },
 "q_03110b6650fd": {
 "receptor:5ht2a/classification[synaptic]": "opus"
@@ -118,6 +127,14 @@
 },
 "q_0439d1a62162": {
 "metabolite:nordoxepin/half_life": "opus"
+},
+"q_043b212f9148": {
+"drug:pethidine/originator": "opus"
+},
+"q_049cea99200a": {
+"drug:fluoxetine/originator_country": "opus",
+"drug:memantine/originator_country": "opus",
+"drug:nabilone/originator_country": "opus"
 },
 "q_049dfb3b5c38": {
 "drug:ibogaine/bindings[kappa:agonist]": "opus",
@@ -197,6 +214,9 @@
 "drug:phenelzine/half_life": "opus",
 "drug:phenelzine/tmax": "opus"
 },
+"q_06970ba9e56a": {
+"drug:trimipramine/originator": "opus"
+},
 "q_069eddf12d0e": {
 "drug:esketamine/bindings[nmda:antagonist]": "sonnet"
 },
@@ -252,6 +272,9 @@
 "q_07a8778349c9": {
 "drug:lurasidone/brands[Latuda]": "sonnet"
 },
+"q_07ab5483988b": {
+"drug:aripiprazole/originator": "opus"
+},
 "q_07b19bde01af": {
 "drug:pitolisant/half_life": "sonnet"
 },
@@ -282,6 +305,9 @@
 },
 "q_080f80b6ebd2": {
 "drug:clonidine/brands[Catapressan]": "sonnet"
+},
+"q_082861f67cca": {
+"drug:selegiline/originator": "opus"
 },
 "q_0860d1740b9a": {
 "drug:deutetrabenazine/bindings[vmat2:vesicular_inhibitor]": "sonnet"
@@ -521,11 +547,17 @@
 "drug:risperidone/bindings[alpha1c:antagonist]": "sonnet",
 "drug:risperidone/bindings[alpha1d:antagonist]": "sonnet"
 },
+"q_0dd56a488dbc": {
+"drug:granisetron/originator_country": "opus"
+},
 "q_0e03f0a51bf4": {
 "drug:hydroxyzine/half_life": "sonnet"
 },
 "q_0e2439812d64": {
 "drug:entacapone/bindings[comt:enzyme_inhibitor]": "sonnet"
+},
+"q_0e7e4b34be09": {
+"drug:pentobarbital/originator_country": "opus"
 },
 "q_0e8036433891": {
 "drug:salvinorin_a/half_life": "opus"
@@ -612,6 +644,9 @@
 "drug:flibanserin/bindings[5ht1a:agonist]": "sonnet",
 "drug:flibanserin/bindings[5ht2a:antagonist]": "sonnet",
 "drug:flibanserin/categories": "sonnet"
+},
+"q_10815add4bcb": {
+"drug:pethidine/originator_country": "opus"
 },
 "q_108c355b714f": {
 "drug:alpidem/half_life": "opus"
@@ -732,6 +767,9 @@
 "q_12b933af4dc7": {
 "drug:sertraline/bindings[dat:reuptake_inhibitor]": "sonnet"
 },
+"q_12c2c1620c7d": {
+"drug:clozapine/originator_country": "opus"
+},
 "q_12e8387e8f64": {
 "drug:paliperidone/formulations[xr]/release": "opus"
 },
@@ -743,6 +781,9 @@
 },
 "q_136f9623b613": {
 "metabolite:meta_chlorophenylpiperazine/bindings[5ht1b:agonist]": "opus"
+},
+"q_139034db7f2f": {
+"drug:ketanserin/originator": "opus"
 },
 "q_139967085d73": {
 "drug:paliperidone/brands[Trevicta]": "sonnet",
@@ -818,6 +859,9 @@
 },
 "q_159ae1ccf116": {
 "drug:promethazine/half_life": "sonnet"
+},
+"q_15a04382b7c0": {
+"drug:promethazine/originator": "opus"
 },
 "q_15bfd0966d6c": {
 "receptor:alpha2a/locations[frontal]": "sonnet"
@@ -898,6 +942,9 @@
 },
 "q_17907a37530d": {
 "group:kind:serotonergic": "sonnet"
+},
+"q_17f653e3793d": {
+"drug:rivastigmine/originator": "opus"
 },
 "q_181236c0f43a": {
 "drug:asenapine/formulations[sublingual]/release": "opus",
@@ -1126,6 +1173,9 @@
 "drug:buprenorphine/categories": "sonnet",
 "drug:buprenorphine/nbn": "sonnet"
 },
+"q_1cb5b83e9b7e": {
+"drug:flurazepam/originator": "opus"
+},
 "q_1ccfe81baa05": {
 "drug:acamprosate/categories": "sonnet"
 },
@@ -1188,6 +1238,9 @@
 },
 "q_1ec741d72575": {
 "drug:ramelteon/metabolites[m_ii]": "sonnet"
+},
+"q_1ece788e5b37": {
+"drug:glutethimide/originator": "opus"
 },
 "q_1edf30183c4f": {
 "drug:alimemazine/categories": "sonnet"
@@ -1255,6 +1308,9 @@
 },
 "q_2061e2a2156f": {
 "drug:tramadol/first_approval": "opus"
+},
+"q_206c8ee08e73": {
+"drug:thioridazine/originator": "opus"
 },
 "q_2077fe8dbb75": {
 "drug:melatonin/formulations[xr]/release": "opus"
@@ -1354,6 +1410,9 @@
 "q_22357a0b997d": {
 "drug:clozapine/half_life": "sonnet"
 },
+"q_224dd19392dd": {
+"drug:mirtazapine/originator_country": "opus"
+},
 "q_22580062533c": {
 "drug:ketamine/first_approval": "opus"
 },
@@ -1395,6 +1454,11 @@
 "projection:locus_coeruleus_R->medulla": "opus",
 "projection:locus_coeruleus_R->medulla/transmitter": "opus"
 },
+"q_2308a731ef36": {
+"drug:amitriptyline/originator_country": "opus",
+"drug:protriptyline/originator_country": "opus",
+"drug:suvorexant/originator_country": "opus"
+},
 "q_231b5065993d": {
 "drug:phenterminetopiramate/formulations[xr]/release": "opus"
 },
@@ -1424,7 +1488,8 @@
 "projection:olfactory_bulb_R->insula_R/transmitter": "opus"
 },
 "q_236721543310": {
-"drug:fluvoxamine/first_approval": "opus"
+"drug:fluvoxamine/first_approval": "opus",
+"drug:fluvoxamine/originator": "opus"
 },
 "q_2375ef73b473": {
 "drug:protriptyline/bindings[h1:antagonist]": "sonnet"
@@ -1495,7 +1560,8 @@
 "drug:melatonin/tmax": "opus"
 },
 "q_251d4e4e57be": {
-"drug:zopiclone/first_approval": "opus"
+"drug:zopiclone/first_approval": "opus",
+"drug:zopiclone/originator": "opus"
 },
 "q_252172112162": {
 "drug:modafinil/half_life": "sonnet"
@@ -1549,6 +1615,9 @@
 "q_26e186538e09": {
 "receptor:delta/locations[frontal]": "sonnet",
 "receptor:delta/locations[parietal]": "sonnet"
+},
+"q_27073f05497f": {
+"drug:nimetazepam/originator": "opus"
 },
 "q_2711bbac8e81": {
 "drug:amoxapine/bindings[5ht2a:antagonist]": "sonnet"
@@ -1700,8 +1769,15 @@
 "q_2a7066162efb": {
 "drug:lisdexamfetamine/brands[Venvanse]": "sonnet"
 },
+"q_2a9cd78b0289": {
+"drug:methylphenidate_dl/originator": "opus"
+},
 "q_2a9fc516fe66": {
 "drug:chlordiazepoxide/bindings[gaba_a:pam]": "sonnet"
+},
+"q_2ab8d5af223e": {
+"drug:donepezil/originator_country": "opus",
+"drug:perampanel/originator_country": "opus"
 },
 "q_2acefaa59dd3": {
 "drug:disulfiram/metabolites[diethyldithiocarbamate]": "opus"
@@ -1824,6 +1900,9 @@
 },
 "q_2f4664fb4b0e": {
 "drug:sildenafil/bindings[pde5:enzyme_inhibitor]": "sonnet"
+},
+"q_2f4c84049c66": {
+"drug:sildenafil/originator": "opus"
 },
 "q_2fcb804e2ec0": {
 "drug:duloxetine/first_approval": "opus"
@@ -2049,6 +2128,9 @@
 "q_35580f77f0b1": {
 "drug:valbenazine/categories": "sonnet"
 },
+"q_356a0427bf48": {
+"drug:flunarizine/originator": "opus"
+},
 "q_35c17e74a0f8": {
 "drug:quetiapine/metabolites[norquetiapine]/formed_by[cyp3a4]": "sonnet"
 },
@@ -2136,8 +2218,17 @@
 "q_3853a0b2c6e1": {
 "drug:donepezil/brands[Namzaric (in combination with memantine)]": "sonnet"
 },
+"q_386d94b850b0": {
+"drug:naltrexone/originator": "opus"
+},
 "q_388d5b189778": {
 "drug:reboxetine/brands[Norebox]": "sonnet"
+},
+"q_388ed2393134": {
+"drug:domperidone/originator": "opus"
+},
+"q_3899252add6f": {
+"drug:flunitrazepam/originator": "opus"
 },
 "q_38eb28bfffaa": {
 "receptor:glycine/classification[sign]": "opus"
@@ -2181,6 +2272,12 @@
 "q_39f455bf919d": {
 "drug:brexpiprazole/bindings[5ht2a:antagonist]": "sonnet"
 },
+"q_39fa6fed7d02": {
+"drug:acamprosate/originator": "opus"
+},
+"q_39fbfddf827d": {
+"drug:diazepam/originator": "opus"
+},
 "q_3a328015a573": {
 "drug:propranolol/first_approval": "opus"
 },
@@ -2188,8 +2285,14 @@
 "projection:amygdala_R->accumbens_R": "opus",
 "projection:amygdala_R->accumbens_R/transmitter": "opus"
 },
+"q_3a799dc6aa1f": {
+"drug:naltrexonebupropion/originator": "opus"
+},
 "q_3a86dae6df37": {
 "drug:rotigotine/categories": "opus"
+},
+"q_3a9ec195dbeb": {
+"drug:zaleplon/originator_country": "opus"
 },
 "q_3ab39664ba7e": {
 "drug:midazolam/brands[Dormicum]": "sonnet"
@@ -2225,6 +2328,9 @@
 },
 "q_3b45aed355a2": {
 "receptor:5ht1b/effects[antagonism:antidepressant]": "opus"
+},
+"q_3b55a1725921": {
+"drug:bromocriptine/originator": "opus"
 },
 "q_3b6557db4c3c": {
 "drug:brotizolam/brands[Sintonal]": "sonnet"
@@ -2358,6 +2464,9 @@
 "q_3e06c95f0461": {
 "drug:topiramate/bindings[nav:blocker]": "sonnet"
 },
+"q_3e0b306e0462": {
+"drug:lofepramine/originator": "opus"
+},
 "q_3e2a23ffd032": {
 "drug:prazepam/half_life": "sonnet"
 },
@@ -2468,6 +2577,16 @@
 "receptor:nachr_a7/locations[hippocampus]": "sonnet",
 "receptor:nachr_a7/locations[thalamus]": "sonnet"
 },
+"q_40e113c400df": {
+"drug:baclofen/originator_country": "opus",
+"drug:clomipramine/originator_country": "opus",
+"drug:desipramine/originator_country": "opus",
+"drug:imipramine/originator_country": "opus",
+"drug:maprotiline/originator_country": "opus",
+"drug:methylphenidate_dl/originator_country": "opus",
+"drug:nortriptyline/originator_country": "opus",
+"drug:opipramol/originator_country": "opus"
+},
 "q_40fe49a57fc0": {
 "drug:molindone/first_approval": "opus"
 },
@@ -2518,6 +2637,9 @@
 },
 "q_4201cd19ad5b": {
 "drug:gabapentin/brands[Horizant]": "sonnet"
+},
+"q_420a429e2f4a": {
+"drug:ziprasidone/originator": "opus"
 },
 "q_4228136b5d28": {
 "target:mao_a/classification": "sonnet"
@@ -2595,6 +2717,12 @@
 },
 "q_43cbe07cbe1c": {
 "metabolite:o_desmethyltramadol/bindings[net:reuptake_inhibitor]": "opus"
+},
+"q_43d523cb52bc": {
+"drug:oxycodone/originator": "opus"
+},
+"q_43eb48779b83": {
+"drug:erenumab/originator_country": "opus"
 },
 "q_43ed53b25948": {
 "drug:clonidine/first_approval": "opus"
@@ -2764,6 +2892,9 @@
 "drug:prazosin/bindings[alpha1c:antagonist]": "sonnet",
 "drug:prazosin/bindings[alpha1d:antagonist]": "sonnet"
 },
+"q_476e8b8918c2": {
+"drug:nitrazepam/originator": "opus"
+},
 "q_477836fbe51b": {
 "drug:amphetamine_dl/brands[Dexedrine]": "sonnet"
 },
@@ -2783,6 +2914,9 @@
 },
 "q_487deca3f9e8": {
 "drug:dextromethorphanquinidine/brands[Nuedexta (in combination with quinidine)]": "sonnet"
+},
+"q_48807f7a92c7": {
+"drug:suvorexant/originator": "opus"
 },
 "q_488d9264046b": {
 "drug:ramelteon/enzymes[cyp1a2:substrate]": "opus",
@@ -2806,6 +2940,19 @@
 },
 "q_4932a7724ab9": {
 "drug:olanzapinesamidorphan/brands[Lybalvi]": "sonnet"
+},
+"q_49425dc36fb8": {
+"drug:benperidol/originator/now": "opus",
+"drug:bromperidol/originator/now": "opus",
+"drug:domperidone/originator/now": "opus",
+"drug:etomidate/originator/now": "opus",
+"drug:fentanyl/originator/now": "opus",
+"drug:flunarizine/originator/now": "opus",
+"drug:fluspirilene/originator/now": "opus",
+"drug:haloperidol/originator/now": "opus",
+"drug:ketanserin/originator/now": "opus",
+"drug:pimozide/originator/now": "opus",
+"drug:pipamperone/originator/now": "opus"
 },
 "q_49589ed1614c": {
 "drug:loprazolam/brands[Dormonoct]": "sonnet"
@@ -2923,6 +3070,9 @@
 },
 "q_4c167648c941": {
 "drug:amphetamine_d/brands[Attentin]": "sonnet"
+},
+"q_4c260cf63ce7": {
+"drug:trazodone/originator_country": "opus"
 },
 "q_4c2ffd58f401": {
 "drug:aripiprazole/bindings[5ht1a:partial_agonist]": "sonnet"
@@ -3139,6 +3289,9 @@
 "target:cav/classification": "sonnet",
 "target:nav/classification": "sonnet"
 },
+"q_524f14d5c242": {
+"drug:modafinil/originator": "opus"
+},
 "q_525197f898ad": {
 "drug:tolcapone/half_life": "sonnet"
 },
@@ -3186,7 +3339,8 @@
 "drug:phenobarbital/half_life": "sonnet"
 },
 "q_541c68c5a9b7": {
-"drug:etomidate/first_approval": "opus"
+"drug:etomidate/first_approval": "opus",
+"drug:etomidate/originator": "opus"
 },
 "q_542ebba3e11b": {
 "drug:amphetamine_d/nbn": "sonnet"
@@ -3259,6 +3413,9 @@
 "q_55a2d1383edf": {
 "drug:midazolam/first_approval": "opus"
 },
+"q_55ac2c08d413": {
+"drug:pimavanserin/originator": "opus"
+},
 "q_55afaf26f4fc": {
 "drug:ethanol/bindings[gaba_a:pam]": "sonnet"
 },
@@ -3305,6 +3462,9 @@
 "drug:iloperidone/bindings[alpha1c:antagonist]": "sonnet",
 "drug:iloperidone/bindings[alpha1d:antagonist]": "sonnet"
 },
+"q_57c9b30fed01": {
+"drug:daridorexant/originator": "opus"
+},
 "q_57c9fe5ae9e7": {
 "drug:nortriptyline/categories": "sonnet"
 },
@@ -3321,6 +3481,9 @@
 },
 "q_582ed97d15f4": {
 "receptor:cb1/demographics[sex:higher_in_male:-]": "opus"
+},
+"q_5890f0eb9d34": {
+"drug:aripiprazole/originator_country": "opus"
 },
 "q_58a043f17645": {
 "drug:lisdexamfetamine/brands[Samexid]": "sonnet"
@@ -3347,6 +3510,9 @@
 "q_595a27a94d94": {
 "receptor:delta/effects[agonism:seizures]": "opus"
 },
+"q_595b15327226": {
+"drug:prazepam/originator_country": "opus"
+},
 "q_596087126bc7": {
 "drug:flibanserin/brands[Addyi]": "sonnet"
 },
@@ -3362,6 +3528,9 @@
 },
 "q_59ca22362f70": {
 "projection:insula_R->cingulate_R": "sonnet"
+},
+"q_59cdf3d5673c": {
+"drug:rasagiline/originator": "opus"
 },
 "q_59ed3181f324": {
 "drug:pregabalin/bindings[cav:blocker]": "sonnet"
@@ -3386,6 +3555,9 @@
 },
 "q_5a895d9bbc8a": {
 "drug:dexmedetomidine/brands[Igalmi]": "sonnet"
+},
+"q_5a902770c114": {
+"drug:tapentadol/originator_country": "opus"
 },
 "q_5ade5a557f3b": {
 "drug:amoxapine/half_life": "sonnet"
@@ -3602,6 +3774,9 @@
 "q_603766443e9f": {
 "target:cav_t/classification": "opus"
 },
+"q_6061e70768fb": {
+"drug:gabapentin/originator": "opus"
+},
 "q_606b11bf2b6a": {
 "drug:clomethiazole/bindings[gaba_a:pam]": "sonnet"
 },
@@ -3675,6 +3850,9 @@
 "q_61f185752a34": {
 "receptor:alpha2a/locations[midbrain]": "sonnet"
 },
+"q_6207bc63ed56": {
+"drug:buprenorphine/originator_country": "opus"
+},
 "q_621333ee83dc": {
 "structure:globus_pallidus_L": "sonnet",
 "structure:globus_pallidus_R": "sonnet"
@@ -3716,6 +3894,9 @@
 "receptor:m4/locations[accumbens]": "sonnet",
 "receptor:m4/locations[caudate]": "sonnet",
 "receptor:m4/locations[putamen]": "sonnet"
+},
+"q_62f728a8fe07": {
+"drug:pimavanserin/originator_country": "opus"
 },
 "q_62f79aba0860": {
 "drug:vortioxetine/first_approval": "opus"
@@ -3836,6 +4017,9 @@
 "q_651809175d63": {
 "drug:daridorexant/tmax": "sonnet"
 },
+"q_651cce6ac18e": {
+"drug:prazepam/originator": "opus"
+},
 "q_6561a31210b0": {
 "drug:levomepromazine/half_life": "sonnet"
 },
@@ -3850,6 +4034,9 @@
 },
 "q_65958613137c": {
 "drug:perospirone/bindings[d2:antagonist]": "sonnet"
+},
+"q_65beaae0fac4": {
+"drug:tiagabine/originator_country": "opus"
 },
 "q_65c1819f8146": {
 "drug:thiopental/formulations[injection]/release": "opus"
@@ -4058,6 +4245,9 @@
 "q_6b5520af9edd": {
 "drug:lofexidine/bindings[alpha2:agonist]": "sonnet"
 },
+"q_6b70b71cb6ab": {
+"drug:prazepam/originator/now": "opus"
+},
 "q_6b7157c55280": {
 "drug:fluvoxamine/half_life": "sonnet"
 },
@@ -4090,6 +4280,10 @@
 "q_6be863931dfa": {
 "drug:escitalopram/brands[Lexapro]": "sonnet"
 },
+"q_6bea9963d64a": {
+"drug:mdma/originator_country": "opus",
+"drug:vilazodone/originator_country": "opus"
+},
 "q_6c19ec788c29": {
 "drug:amitriptyline/nbn": "sonnet"
 },
@@ -4101,6 +4295,9 @@
 },
 "q_6c45b9cb169d": {
 "drug:solriamfetol/tmax": "sonnet"
+},
+"q_6c684d7ca220": {
+"drug:cabergoline/originator": "opus"
 },
 "q_6c6ee6773b6c": {
 "drug:paroxetine/bindings[net:reuptake_inhibitor]": "sonnet"
@@ -4162,6 +4359,9 @@
 "drug:selegiline/enzymes[cyp2a6:substrate]": "opus",
 "drug:selegiline/enzymes[cyp2a6:substrate]/strength": "opus"
 },
+"q_6e1893bc50e6": {
+"drug:desipramine/originator": "opus"
+},
 "q_6e41473ad08a": {
 "receptor:5ht1f/locations[frontal]": "sonnet",
 "receptor:5ht1f/locations[thalamus]": "sonnet"
@@ -4217,6 +4417,9 @@
 "q_6f5d86412d6e": {
 "receptor:h1/effects[antagonism:sedation]": "opus"
 },
+"q_6f6557b7c7d5": {
+"drug:maprotiline/originator": "opus"
+},
 "q_6f9443d9ad4f": {
 "drug:sibutramine/prodrug": "opus"
 },
@@ -4240,6 +4443,9 @@
 },
 "q_701d475a1264": {
 "drug:chlordiazepoxide/half_life": "sonnet"
+},
+"q_702bf2dfa480": {
+"drug:nefazodone/originator": "opus"
 },
 "q_702dc122c3de": {
 "drug:lisdexamfetamine/brands[XURTA]": "sonnet"
@@ -4291,7 +4497,8 @@
 "drug:buprenorphine/metabolites[norbuprenorphine]": "opus"
 },
 "q_71567c771b55": {
-"drug:mirtazapine/first_approval": "opus"
+"drug:mirtazapine/first_approval": "opus",
+"drug:mirtazapine/originator": "opus"
 },
 "q_715b100760c3": {
 "drug:memantine/bindings[nmda:antagonist]": "sonnet"
@@ -4379,6 +4586,9 @@
 "q_73029ebd88be": {
 "drug:nalmefene/first_approval": "opus"
 },
+"q_730531d17ad6": {
+"drug:midazolam/originator": "opus"
+},
 "q_730975131024": {
 "drug:doxepin/categories": "sonnet"
 },
@@ -4394,6 +4604,9 @@
 },
 "q_733bdb1cd568": {
 "drug:methylphenidate_d/brands[Focalin XR]": "sonnet"
+},
+"q_733d0c0b5bd1": {
+"drug:haloperidol/originator": "opus"
 },
 "q_7342561984af": {
 "drug:aripiprazole/bindings[5ht2a:antagonist]": "sonnet"
@@ -4491,6 +4704,9 @@
 "q_756bea28a599": {
 "drug:cabergoline/bindings[5ht7:antagonist]": "sonnet"
 },
+"q_75b92f67eb03": {
+"drug:clomipramine/originator": "opus"
+},
 "q_75e1768d1fb2": {
 "drug:prochlorperazine/categories": "opus"
 },
@@ -4535,6 +4751,9 @@
 },
 "q_76e683d4bd3e": {
 "drug:trimipramine/bindings[h1:antagonist]": "sonnet"
+},
+"q_76e6dc1e7e8a": {
+"drug:safinamide/originator": "opus"
 },
 "q_76f854fe2b6a": {
 "drug:levodopa/half_life": "sonnet"
@@ -4609,6 +4828,9 @@
 "q_7884390dc311": {
 "drug:pimozide/brands[Orap]": "sonnet"
 },
+"q_788dc01c88f1": {
+"drug:perampanel/originator": "opus"
+},
 "q_78bb32998ef8": {
 "drug:milnacipran/half_life": "sonnet"
 },
@@ -4633,6 +4855,9 @@
 },
 "q_79639695ac19": {
 "drug:trazodone/tmax": "sonnet"
+},
+"q_79798156ea9b": {
+"drug:granisetron/originator": "opus"
 },
 "q_797b030951ec": {
 "drug:paliperidone/brands[Invega]": "sonnet"
@@ -4669,6 +4894,9 @@
 "q_7a8c91cf2ec4": {
 "drug:amitriptyline/brands[Elavil]": "sonnet"
 },
+"q_7ab4ac55b357": {
+"drug:tiagabine/originator/now": "opus"
+},
 "q_7accc7a77f36": {
 "drug:nimetazepam/metabolites[nitrazepam]": "sonnet"
 },
@@ -4695,6 +4923,10 @@
 },
 "q_7bef6373cde6": {
 "drug:methylphenidate_d/half_life": "sonnet"
+},
+"q_7bf377e7d21a": {
+"drug:propofol/originator_country": "opus",
+"drug:viloxazine/originator_country": "opus"
 },
 "q_7c3d97640a71": {
 "drug:solriamfetol/brands[Sunosi]": "sonnet"
@@ -4730,6 +4962,9 @@
 },
 "q_7d242c3e7c5f": {
 "drug:sodium_oxybate/nbn": "sonnet"
+},
+"q_7d27145e516e": {
+"drug:clobazam/originator": "opus"
 },
 "q_7d83b2b6f38d": {
 "drug:acamprosate/bindings[glutamate:antagonist]": "sonnet",
@@ -4788,6 +5023,10 @@
 },
 "q_7ebcc7a70904": {
 "drug:dextromethorphanquinidine/metabolites[dextrorphan]": "opus"
+},
+"q_7ebe023405fd": {
+"drug:propofol/originator/now": "opus",
+"drug:viloxazine/originator/now": "opus"
 },
 "q_7ecb5a740e94": {
 "drug:apomorphine/categories": "opus"
@@ -4878,6 +5117,9 @@
 },
 "q_802d0e84fbd3": {
 "metabolite:norquetiapine/bindings[net:reuptake_inhibitor]": "sonnet"
+},
+"q_8042df305cc6": {
+"drug:protriptyline/originator": "opus"
 },
 "q_805b2ea26f19": {
 "structure:subthalamic_nucleus_L": "sonnet",
@@ -4976,6 +5218,12 @@
 "q_838f6ef24310": {
 "drug:levodopa/first_approval": "opus"
 },
+"q_839ae0debaee": {
+"drug:zimelidine/originator_country": "opus"
+},
+"q_83a3bae8cc07": {
+"drug:clozapine/originator": "opus"
+},
 "q_83ae2221c9bf": {
 "drug:cyproheptadine/half_life": "opus"
 },
@@ -4994,6 +5242,15 @@
 "q_83f2a49ee95b": {
 "drug:mesoridazine/withdrawals[us:2004]": "opus"
 },
+"q_84353582ac55": {
+"drug:buspirone/originator_country": "opus"
+},
+"q_84473bced014": {
+"drug:ondansetron/originator_country": "opus"
+},
+"q_844f864d990e": {
+"drug:mdma/originator": "opus"
+},
 "q_84683291b942": {
 "projection:occipital_R->thalamus_R": "opus",
 "projection:occipital_R->thalamus_R/sign": "opus"
@@ -5005,11 +5262,17 @@
 "projection:temporal_R->hippocampus_R": "opus",
 "projection:temporal_R->hippocampus_R/sign": "opus"
 },
+"q_84e6d02c3da8": {
+"drug:sevoflurane/originator": "opus"
+},
 "q_84eccead07d2": {
 "drug:buspirone/half_life": "sonnet"
 },
 "q_852f25a46fcb": {
 "drug:phenobarbital/categories": "opus"
+},
+"q_8536a8f01833": {
+"drug:daridorexant/originator_country": "opus"
 },
 "q_85413a371cb5": {
 "projection:hippocampus_R->septal_nuclei_R": "sonnet"
@@ -5302,12 +5565,20 @@
 "q_8bc2ee2cb8ce": {
 "receptor:d2/effects[antagonism:akathisia]": "opus"
 },
+"q_8bca4d4d61ea": {
+"drug:cabergoline/originator_country": "opus",
+"drug:reboxetine/originator_country": "opus",
+"drug:safinamide/originator_country": "opus"
+},
 "q_8bca7ae9b44a": {
 "drug:levomepromazine/formulations[ir]/tmax": "opus",
 "drug:levomepromazine/tmax": "opus"
 },
 "q_8bf1fee0030a": {
 "receptor:a2a/effects[antagonism:antiparkinsonian]": "opus"
+},
+"q_8bf6ebeeb0dc": {
+"drug:agomelatine/originator": "opus"
 },
 "q_8c0125808cbf": {
 "drug:perphenazine/brands[Trilafon]": "sonnet"
@@ -5359,6 +5630,9 @@
 "q_8ce7e12393fb": {
 "drug:zaleplon/tmax": "sonnet"
 },
+"q_8d0f41b08c2e": {
+"drug:sertindole/originator": "opus"
+},
 "q_8d14fbe19f44": {
 "drug:loxapine/bindings[5ht2a:antagonist]": "sonnet"
 },
@@ -5385,6 +5659,9 @@
 "q_8d8097cf8541": {
 "drug:nimetazepam/categories": "sonnet"
 },
+"q_8d925d91f49e": {
+"drug:quazepam/originator_country": "opus"
+},
 "q_8d993ffae6d2": {
 "drug:zaleplon/enzymes[cyp3a4:substrate]": "opus",
 "drug:zaleplon/enzymes[cyp3a4:substrate]/strength": "opus"
@@ -5395,6 +5672,12 @@
 },
 "q_8da58fe30ead": {
 "drug:naltrexone/half_life": "sonnet"
+},
+"q_8dafb6219e9e": {
+"drug:phenterminetopiramate/originator": "opus"
+},
+"q_8dfc0430503a": {
+"drug:tapentadol/originator": "opus"
 },
 "q_8e1151434183": {
 "projection:amygdala_R->hypothalamus_R": "opus",
@@ -5471,6 +5754,9 @@
 },
 "q_9070da903e0d": {
 "drug:rasagiline/half_life": "opus"
+},
+"q_9088471fc6e6": {
+"drug:imipramine/originator": "opus"
 },
 "q_9092cada4791": {
 "drug:olanzapinesamidorphan/bindings[d2:antagonist]": "sonnet"
@@ -5590,6 +5876,9 @@
 "q_93500de080b2": {
 "receptor:5ht1a/effects[agonism:antipsychotic]": "opus"
 },
+"q_936a43f62aef": {
+"drug:fluspirilene/originator": "opus"
+},
 "q_938d835b7c1d": {
 "receptor:kappa/effects[agonism:dysphoria]": "opus",
 "receptor:kappa/effects[agonism:hallucinations]": "opus"
@@ -5606,11 +5895,17 @@
 "q_940ae2f8be40": {
 "receptor:5ht1a/effects[agonism:pro_cognitive]": "opus"
 },
+"q_941de2a5f7a8": {
+"drug:flupenthixol/originator": "opus"
+},
 "q_9422a239292b": {
 "drug:amisulpride/nbn": "sonnet"
 },
 "q_9447609b3d80": {
 "drug:pargyline/first_approval": "opus"
+},
+"q_9469d8e5b069": {
+"drug:tiagabine/originator": "opus"
 },
 "q_946b7ed2ab2d": {
 "drug:pipothiazine/bindings[m1:antagonist]": "sonnet",
@@ -5791,6 +6086,9 @@
 "q_988f46f78f4d": {
 "drug:levodopa/categories": "sonnet"
 },
+"q_98a360e385c8": {
+"drug:propofol/originator": "opus"
+},
 "q_98ae15c619fa": {
 "drug:fentanyl/half_life": "opus"
 },
@@ -5808,6 +6106,9 @@
 },
 "q_98fe7040d38f": {
 "drug:lumateperone/bindings[d2:partial_agonist]": "opus"
+},
+"q_990a2388e7f9": {
+"drug:vilazodone/originator": "opus"
 },
 "q_9924e877c92e": {
 "drug:topiramate/bindings[carbonic_anhydrase:enzyme_inhibitor]": "sonnet"
@@ -5878,6 +6179,9 @@
 "q_99bad984adfd": {
 "drug:flupenthixol/first_approval": "opus"
 },
+"q_99d3caa64955": {
+"drug:quazepam/originator/now": "opus"
+},
 "q_99df2e54672c": {
 "drug:amphetamine_d/brands[Dexedrine Spansule]": "sonnet"
 },
@@ -5896,6 +6200,9 @@
 "q_9a3e1cbf7be7": {
 "receptor:nachr_a4b2/release_modulation[heteroreceptor:vta:gaba_interneuron:dopamine:decrease]": "opus"
 },
+"q_9a41861ef5c0": {
+"drug:memantine/originator": "opus"
+},
 "q_9a571577c217": {
 "receptor:m2/locations[pons]": "sonnet"
 },
@@ -5911,7 +6218,8 @@
 "drug:amoxapine/bindings[net:reuptake_inhibitor]": "sonnet"
 },
 "q_9a98cb2a9efd": {
-"drug:thiothixene/first_approval": "opus"
+"drug:thiothixene/first_approval": "opus",
+"drug:thiothixene/originator": "opus"
 },
 "q_9aab3e532cb8": {
 "drug:tranylcypromine/half_life": "opus"
@@ -5976,6 +6284,9 @@
 },
 "q_9bacd4eb53ec": {
 "target:sv2a/classification": "sonnet"
+},
+"q_9bd6c1e3852f": {
+"drug:rotigotine/originator": "opus"
 },
 "q_9bdd4e59f5ba": {
 "receptor:5ht2b/effects[agonism:cardiac_valvulopathy]": "opus"
@@ -6110,11 +6421,17 @@
 "q_9e7de6819216": {
 "drug:clomipramine/bindings[sert:reuptake_inhibitor]": "sonnet"
 },
+"q_9e928ebf4279": {
+"drug:nefazodone/originator_country": "opus"
+},
 "q_9ea604644949": {
 "drug:nortriptyline/bindings[alpha1a:antagonist]": "sonnet",
 "drug:nortriptyline/bindings[alpha1b:antagonist]": "sonnet",
 "drug:nortriptyline/bindings[alpha1c:antagonist]": "sonnet",
 "drug:nortriptyline/bindings[alpha1d:antagonist]": "sonnet"
+},
+"q_9ead945c21cd": {
+"drug:rimonabant/originator_country": "opus"
 },
 "q_9eee33b6181a": {
 "drug:agomelatine/categories": "sonnet"
@@ -6139,6 +6456,9 @@
 },
 "q_9f2c5ddae70a": {
 "drug:clonidine/categories": "sonnet"
+},
+"q_9f35265f14bd": {
+"drug:alpidem/originator": "opus"
 },
 "q_9f4d87b10160": {
 "drug:amoxapine/bindings[sert:reuptake_inhibitor]": "sonnet"
@@ -6329,6 +6649,11 @@
 "q_a380448e7b01": {
 "drug:citalopram/brands[Recital]": "sonnet"
 },
+"q_a381380dcc4d": {
+"drug:cabergoline/originator/now": "opus",
+"drug:reboxetine/originator/now": "opus",
+"drug:safinamide/originator/now": "opus"
+},
 "q_a3e6fff9a83f": {
 "drug:perampanel/bindings[ampa:nam]": "sonnet"
 },
@@ -6400,11 +6725,19 @@
 "q_a5a8259fae6e": {
 "receptor:mu/locations[temporal]": "sonnet"
 },
+"q_a5c6464617e9": {
+"drug:zimelidine/originator/now": "opus"
+},
 "q_a5e568141426": {
 "drug:lacosamide/first_approval": "opus"
 },
 "q_a5f2fd101e62": {
 "drug:imipramine/bindings[net:reuptake_inhibitor]": "sonnet"
+},
+"q_a6218e446b27": {
+"drug:bromocriptine/originator_country": "opus",
+"drug:lsd/originator_country": "opus",
+"drug:thioridazine/originator_country": "opus"
 },
 "q_a649e8b2ab0f": {
 "drug:tetrabenazine/brands[Xentra]": "sonnet"
@@ -6433,6 +6766,9 @@
 "q_a6987f547ba7": {
 "structure:cingulate_L": "sonnet",
 "structure:cingulate_R": "sonnet"
+},
+"q_a6a3da49cc9d": {
+"drug:tianeptine/originator": "opus"
 },
 "q_a6a40f273202": {
 "drug:tropatepine/brands[Lepticur]": "sonnet"
@@ -6489,6 +6825,12 @@
 "q_a7fe2216f26a": {
 "drug:lurasidone/categories": "sonnet"
 },
+"q_a81440c0755d": {
+"drug:citalopram/originator_country": "opus",
+"drug:flupenthixol/originator_country": "opus",
+"drug:sertindole/originator_country": "opus",
+"drug:vortioxetine/originator_country": "opus"
+},
 "q_a835d6f811b9": {
 "receptor:nachr_a7/locations[amygdala]": "sonnet"
 },
@@ -6522,6 +6864,9 @@
 "q_a9216a393eff": {
 "drug:tizanidine/tmax": "opus"
 },
+"q_a957f8d4011c": {
+"drug:nortriptyline/originator": "opus"
+},
 "q_a9586b4b90d8": {
 "drug:vilazodone/formulations[ir]/tmax": "opus",
 "drug:vilazodone/tmax": "sonnet"
@@ -6531,6 +6876,9 @@
 },
 "q_a9acfd6fcda3": {
 "drug:vilazodone/half_life": "sonnet"
+},
+"q_a9b1adff37be": {
+"drug:naltrexonebupropion/originator_country": "opus"
 },
 "q_a9c807bcec10": {
 "drug:esketamine/categories": "sonnet"
@@ -6601,6 +6949,9 @@
 "drug:clobazam/metabolites[n_desmethylclobazam]/formed_by[cyp2c19]": "sonnet",
 "drug:clobazam/metabolites[n_desmethylclobazam]/formed_by[cyp3a4]": "sonnet"
 },
+"q_ac0ab3e42547": {
+"drug:pentazocine/originator": "opus"
+},
 "q_ac0f1cd7ca8e": {
 "drug:amisulpride/brands[Solian]": "sonnet"
 },
@@ -6655,6 +7006,9 @@
 "drug:phenelzine/bindings[mao_a:enzyme_inhibitor]": "sonnet",
 "drug:phenelzine/bindings[mao_b:enzyme_inhibitor]": "sonnet",
 "drug:tranylcypromine/bindings[mao_b:enzyme_inhibitor]": "sonnet"
+},
+"q_adbf137ac920": {
+"drug:reboxetine/originator": "opus"
 },
 "q_ade51052d28e": {
 "drug:pipamperone/half_life": "sonnet"
@@ -6788,6 +7142,9 @@
 },
 "q_b165a5000226": {
 "receptor:m3/locations[thalamus]": "sonnet"
+},
+"q_b167d8036656": {
+"drug:erenumab/originator": "opus"
 },
 "q_b18b9373a3ee": {
 "drug:trimipramine/categories": "sonnet"
@@ -7005,6 +7362,9 @@
 "q_b6095be5acc6": {
 "drug:chlorprothixene/first_approval": "opus"
 },
+"q_b61592d3ea89": {
+"drug:fluoxetine/originator": "opus"
+},
 "q_b62389b3f693": {
 "drug:blonanserin/brands[Lonasen]": "sonnet"
 },
@@ -7026,6 +7386,9 @@
 },
 "q_b67a119d5e8d": {
 "drug:fluphenazine/categories": "sonnet"
+},
+"q_b6912df44aa4": {
+"drug:vortioxetine/originator": "opus"
 },
 "q_b6a39291c9b8": {
 "drug:cariprazine/first_approval": "opus"
@@ -7122,6 +7485,9 @@
 "q_b8beb1cb467f": {
 "drug:zotepine/half_life": "opus"
 },
+"q_b8c03fdad9eb": {
+"drug:cariprazine/originator": "opus"
+},
 "q_b8f176845b18": {
 "drug:amphetamine_dl/brands[Benzédrine]": "sonnet"
 },
@@ -7201,6 +7567,9 @@
 "q_bac4572fef66": {
 "drug:bupropion/formulations[ir]/release": "opus"
 },
+"q_bac684238696": {
+"drug:buprenorphine/originator": "opus"
+},
 "q_baca16d053df": {
 "receptor:5ht3/classification[family]": "sonnet",
 "receptor:5ht3/classification[receptor_class]": "sonnet",
@@ -7208,7 +7577,8 @@
 "receptor:glycine/classification[receptor_class]": "sonnet"
 },
 "q_bae7294722d3": {
-"drug:zaleplon/first_approval": "opus"
+"drug:zaleplon/first_approval": "opus",
+"drug:zaleplon/originator": "opus"
 },
 "q_bb0b93fffa8d": {
 "drug:sevoflurane/half_life": "sonnet"
@@ -7288,6 +7658,16 @@
 "q_bdb29a2d1954": {
 "drug:flurazepam/half_life": "sonnet"
 },
+"q_bdcac6867fcd": {
+"drug:baclofen/originator/now": "opus",
+"drug:clomipramine/originator/now": "opus",
+"drug:desipramine/originator/now": "opus",
+"drug:imipramine/originator/now": "opus",
+"drug:maprotiline/originator/now": "opus",
+"drug:methylphenidate_dl/originator/now": "opus",
+"drug:nortriptyline/originator/now": "opus",
+"drug:opipramol/originator/now": "opus"
+},
 "q_bdccdbcdd0ee": {
 "receptor:m1/effects[antagonism:sedation]": "opus"
 },
@@ -7296,6 +7676,9 @@
 },
 "q_be31dfcdb7a5": {
 "drug:clozapine/nbn": "sonnet"
+},
+"q_be357228f6fc": {
+"drug:zaleplon/originator/now": "opus"
 },
 "q_be3f5356e3af": {
 "drug:clomipramine/half_life": "sonnet"
@@ -7308,6 +7691,12 @@
 },
 "q_be66aa77de92": {
 "drug:prazepam/categories": "sonnet"
+},
+"q_be6cfa0d5064": {
+"drug:quazepam/originator/now": "opus"
+},
+"q_be91c73f392c": {
+"drug:solriamfetol/originator": "opus"
 },
 "q_be96048c584f": {
 "drug:nortriptyline/brands[Sensoval]": "sonnet"
@@ -7394,7 +7783,8 @@
 "drug:clozapine/tmax": "sonnet"
 },
 "q_c0a034678372": {
-"drug:clomethiazole/categories": "sonnet"
+"drug:clomethiazole/categories": "opus",
+"drug:clomethiazole/originator": "opus"
 },
 "q_c0b7aae8fc71": {
 "receptor:5ht3/locations[pons]": "sonnet"
@@ -7432,6 +7822,9 @@
 },
 "q_c1fbd3080b11": {
 "drug:desipramine/bindings[sigma1:agonist]": "opus"
+},
+"q_c214142169a9": {
+"drug:pregabalin/originator": "opus"
 },
 "q_c21da0785338": {
 "drug:propranolol/enzymes[cyp2c19:substrate]": "opus",
@@ -7571,6 +7964,9 @@
 "q_c3f60a660a2a": {
 "receptor:d2/effects[antagonism:antipsychotic]": "opus"
 },
+"q_c41f5f4fdd87": {
+"drug:butobarbital/originator": "opus"
+},
 "q_c4457017d97a": {
 "drug:suvorexant/brands[Belsomra]": "sonnet"
 },
@@ -7608,6 +8004,9 @@
 "q_c4f4f7905438": {
 "drug:benztropine/half_life": "sonnet"
 },
+"q_c501755d7a72": {
+"drug:bupropion/originator": "opus"
+},
 "q_c51f51edbd99": {
 "drug:amitriptyline/brands[Endep]": "sonnet"
 },
@@ -7624,6 +8023,9 @@
 },
 "q_c5793d379fcf": {
 "drug:primidone/bindings[gaba_a:pam]": "sonnet"
+},
+"q_c57b64042b8e": {
+"drug:dexmedetomidine/originator": "opus"
 },
 "q_c5af06acd050": {
 "drug:dexmedetomidine/enzymes[cyp2a6:substrate]": "opus",
@@ -7732,6 +8134,16 @@
 "projection:globus_pallidus_R->subthalamic_nucleus_R": "opus",
 "projection:globus_pallidus_R->subthalamic_nucleus_R/sign": "opus"
 },
+"q_c7e6167987c9": {
+"drug:baclofen/originator/now": "opus",
+"drug:clomipramine/originator/now": "opus",
+"drug:desipramine/originator/now": "opus",
+"drug:imipramine/originator/now": "opus",
+"drug:maprotiline/originator/now": "opus",
+"drug:methylphenidate_dl/originator/now": "opus",
+"drug:nortriptyline/originator/now": "opus",
+"drug:opipramol/originator/now": "opus"
+},
 "q_c7e6d454450c": {
 "drug:flumazenil/first_approval": "opus"
 },
@@ -7779,6 +8191,9 @@
 },
 "q_c95fb6f86f5a": {
 "drug:bupropion/formulations[xr]/release": "opus"
+},
+"q_c972e09bd5d1": {
+"drug:dextromethorphanbupropion/originator": "opus"
 },
 "q_c98c15686975": {
 "drug:guanfacine/bindings[alpha2a:agonist]": "sonnet"
@@ -7834,6 +8249,9 @@
 "q_cb0c96449c66": {
 "drug:2cb/bindings[5ht2b:agonist]": "sonnet"
 },
+"q_cb140815a5a3": {
+"drug:lisdexamfetamine/originator": "opus"
+},
 "q_cb1cc8ad9b93": {
 "drug:tiapride/bindings[d2:antagonist]": "sonnet",
 "drug:tiapride/bindings[d3:antagonist]": "sonnet"
@@ -7872,6 +8290,12 @@
 "q_cc0f2ebe7a63": {
 "target:mao_a/effects[inhibition:antidepressant]": "opus"
 },
+"q_cc191170fb7c": {
+"drug:indalpine/originator": "opus"
+},
+"q_cc32f8caa7bd": {
+"drug:lsd/originator": "opus"
+},
 "q_cc564c343651": {
 "drug:zuranolone/bindings[gaba_a:modulator]": "sonnet",
 "drug:zuranolone/categories": "sonnet"
@@ -7907,6 +8331,9 @@
 "q_cd428840f2c1": {
 "receptor:5ht2c/release_modulation[heteroreceptor:-:gaba_interneuron:dopamine:decrease]": "opus",
 "receptor:5ht2c/release_modulation[heteroreceptor:-:gaba_interneuron:norepinephrine:decrease]": "opus"
+},
+"q_cd545353eab7": {
+"drug:hydroxyzine/originator_country": "opus"
 },
 "q_cd6a14235838": {
 "target:pde5/classification": "opus"
@@ -7981,6 +8408,11 @@
 "q_cec45188267d": {
 "drug:methylphenidate_dl/brands[Daytrana]": "sonnet"
 },
+"q_cf0b8635309e": {
+"drug:promethazine/originator_country": "opus",
+"drug:trimipramine/originator_country": "opus",
+"drug:zopiclone/originator_country": "opus"
+},
 "q_cf1309cc1733": {
 "drug:naltrexone/bindings[mu:antagonist]": "sonnet"
 },
@@ -7989,6 +8421,19 @@
 },
 "q_cf3a2fbb30ee": {
 "drug:indalpine/first_approval": "opus"
+},
+"q_cf4579ca662f": {
+"drug:benperidol/originator_country": "opus",
+"drug:bromperidol/originator_country": "opus",
+"drug:domperidone/originator_country": "opus",
+"drug:etomidate/originator_country": "opus",
+"drug:fentanyl/originator_country": "opus",
+"drug:flunarizine/originator_country": "opus",
+"drug:fluspirilene/originator_country": "opus",
+"drug:haloperidol/originator_country": "opus",
+"drug:ketanserin/originator_country": "opus",
+"drug:pimozide/originator_country": "opus",
+"drug:pipamperone/originator_country": "opus"
 },
 "q_cf4af48bd668": {
 "drug:moclobemide/tmax": "sonnet"
@@ -8270,6 +8715,9 @@
 "q_d66572dd2fe3": {
 "drug:perphenazine/bindings[d2:antagonist]": "sonnet"
 },
+"q_d67217b33942": {
+"drug:pipamperone/originator": "opus"
+},
 "q_d6775ad8656c": {
 "drug:pitolisant/enzymes[cyp2d6:substrate]": "opus",
 "drug:pitolisant/enzymes[cyp3a4:substrate]": "opus",
@@ -8332,6 +8780,9 @@
 "q_d86880176a14": {
 "drug:alprazolam/categories": "sonnet"
 },
+"q_d8729a481bed": {
+"drug:bremelanotide/originator": "opus"
+},
 "q_d874d820cb2f": {
 "drug:moclobemide/brands[Aurorix]": "sonnet"
 },
@@ -8379,6 +8830,9 @@
 "drug:alprazolam/formulations[ir]/tmax": "opus",
 "drug:alprazolam/tmax": "sonnet"
 },
+"q_d95022b04dfb": {
+"drug:sodium_oxybate/originator": "opus"
+},
 "q_d983adcd9958": {
 "drug:eszopiclone/nbn": "sonnet"
 },
@@ -8414,6 +8868,9 @@
 "q_da435f586403": {
 "drug:amphetamine_dl/categories": "sonnet"
 },
+"q_da4d3eecb5fe": {
+"drug:pimozide/originator": "opus"
+},
 "q_da6161cb9aad": {
 "drug:quetiapine/brands[Xeroquel]": "sonnet"
 },
@@ -8423,6 +8880,15 @@
 },
 "q_da6dd045edaa": {
 "drug:cyproheptadine/bindings[5ht2b:antagonist]": "sonnet"
+},
+"q_dab8a0dc1402": {
+"drug:clomethiazole/originator_country": "opus",
+"drug:diazepam/originator_country": "opus",
+"drug:flunitrazepam/originator_country": "opus",
+"drug:flurazepam/originator_country": "opus",
+"drug:midazolam/originator_country": "opus",
+"drug:nimetazepam/originator_country": "opus",
+"drug:nitrazepam/originator_country": "opus"
 },
 "q_dac306593944": {
 "drug:hydromorphone/first_approval": "opus"
@@ -8465,6 +8931,9 @@
 },
 "q_dbc2037fb57a": {
 "drug:lithium/brands[Eskalith]": "sonnet"
+},
+"q_dc0e91552ef9": {
+"drug:sibutramine/originator": "opus"
 },
 "q_dc39beccb155": {
 "drug:pimavanserin/bindings[5ht2a:antagonist]": "sonnet",
@@ -8550,6 +9019,9 @@
 "q_de342a0ecb5b": {
 "drug:nitrazepam/tmax": "sonnet"
 },
+"q_de3637776fe3": {
+"drug:lacosamide/originator": "opus"
+},
 "q_de36850ddf41": {
 "drug:quetiapine/bindings[d2:antagonist]": "sonnet"
 },
@@ -8574,6 +9046,9 @@
 },
 "q_de83c79a72a2": {
 "receptor:5ht3/release_modulation[heteroreceptor:-:gaba_interneuron:glutamate:decrease]": "opus"
+},
+"q_de861e5b31cc": {
+"drug:agomelatine/originator_country": "opus"
 },
 "q_ded81e10535d": {
 "drug:valproate/brands[Depakene]": "sonnet"
@@ -8655,12 +9130,21 @@
 "q_e116e149f58d": {
 "drug:bupropion/bindings[net:reuptake_inhibitor]": "sonnet"
 },
+"q_e1175f5e8fe4": {
+"drug:ondansetron/originator": "opus"
+},
 "q_e140882beb7f": {
 "drug:perphenazine/bindings[h1:antagonist]": "sonnet",
 "drug:perphenazine/bindings[m1:antagonist]": "sonnet"
 },
+"q_e1443aba2f4b": {
+"drug:pentazocine/originator_country": "opus"
+},
 "q_e1637e9b5e87": {
 "drug:lumateperone/brands[Caplyta]": "sonnet"
+},
+"q_e1774c3ed366": {
+"drug:baclofen/originator": "opus"
 },
 "q_e18646e15cb9": {
 "drug:sevoflurane/categories": "opus"
@@ -8677,6 +9161,9 @@
 },
 "q_e1eb0eff0da9": {
 "drug:methaqualone/brands[Malsed]": "sonnet"
+},
+"q_e1f77e943a8e": {
+"drug:pentobarbital/originator": "opus"
 },
 "q_e217a059a8c4": {
 "drug:iloperidone/brands[Zomaril]": "sonnet"
@@ -8805,6 +9292,9 @@
 "drug:topiramate/formulations[ir]/tmax": "opus",
 "drug:topiramate/tmax": "sonnet"
 },
+"q_e48291f2ecec": {
+"drug:viloxazine/originator": "opus"
+},
 "q_e48d46210132": {
 "drug:maprotiline/bindings[alpha1a:antagonist]": "sonnet",
 "drug:maprotiline/bindings[alpha1b:antagonist]": "sonnet",
@@ -8828,8 +9318,14 @@
 "drug:diazepam/formulations[ir]/tmax": "opus",
 "drug:diazepam/tmax": "sonnet"
 },
+"q_e4c7930b8aff": {
+"drug:meprobamate/originator": "opus"
+},
 "q_e4c87d0c5800": {
 "drug:levomilnacipran/formulations[xr]/release": "opus"
+},
+"q_e4caecdda988": {
+"drug:trazodone/originator": "opus"
 },
 "q_e4d94e7ebfa7": {
 "drug:levetiracetam/categories": "sonnet"
@@ -8866,6 +9362,9 @@
 },
 "q_e57e4fd692f3": {
 "drug:clozapine/bindings[alpha2:antagonist]": "opus"
+},
+"q_e5842e38f5e2": {
+"drug:buspirone/originator": "opus"
 },
 "q_e58a50568d07": {
 "drug:trihexyphenidyl/brands[Artane]": "sonnet"
@@ -8932,6 +9431,9 @@
 },
 "q_e6ad37ea123d": {
 "drug:vigabatrin/bindings[gaba_t:enzyme_inhibitor]": "sonnet"
+},
+"q_e6cc45c414fd": {
+"drug:sibutramine/originator_country": "opus"
 },
 "q_e6d0c3516591": {
 "drug:mirtazapine/brands[Remeron]": "sonnet"
@@ -9147,6 +9649,9 @@
 "q_ece29bafd1f3": {
 "drug:methamphetamine/bindings[alpha2b:agonist]": "opus"
 },
+"q_eceb40276b0e": {
+"drug:opipramol/originator": "opus"
+},
 "q_ecf5c0c3268c": {
 "drug:imipramine/first_approval": "opus"
 },
@@ -9325,6 +9830,9 @@
 "q_f16c0ae00bdb": {
 "drug:agomelatine/bindings[mt1:agonist]": "sonnet",
 "drug:agomelatine/bindings[mt2:agonist]": "sonnet"
+},
+"q_f1955921b297": {
+"drug:bromperidol/originator": "opus"
 },
 "q_f1b7e0a086e5": {
 "drug:loxapine/nbn": "sonnet"
@@ -9508,6 +10016,9 @@
 "q_f585ca79dcb1": {
 "drug:phenterminetopiramate/bindings[nav:modulator]": "sonnet"
 },
+"q_f59cda2f6472": {
+"drug:rimonabant/originator": "opus"
+},
 "q_f5b6682a41b0": {
 "target:mao_b/demographics[age:increase:-]": "opus"
 },
@@ -9537,6 +10048,12 @@
 },
 "q_f676586a1500": {
 "drug:deutetrabenazine/brands[Austedo XR]": "sonnet"
+},
+"q_f6781a42ae03": {
+"drug:sertraline/originator_country": "opus",
+"drug:sildenafil/originator_country": "opus",
+"drug:thiothixene/originator_country": "opus",
+"drug:ziprasidone/originator_country": "opus"
 },
 "q_f678f75d71a5": {
 "drug:clozapine/bindings[h2:inverse_agonist]": "opus"
@@ -9608,7 +10125,8 @@
 "drug:mianserin/brands[Lerivon]": "sonnet"
 },
 "q_f7b8d9470c02": {
-"drug:benperidol/first_approval": "opus"
+"drug:benperidol/first_approval": "opus",
+"drug:benperidol/originator": "opus"
 },
 "q_f7d4120e5c0b": {
 "drug:quetiapine/brands[Seroquel XR]": "sonnet"
@@ -9655,6 +10173,9 @@
 "projection:substantia_nigra_R->putamen_R": "opus",
 "projection:substantia_nigra_R->putamen_R/transmitter": "opus"
 },
+"q_f9436216ad71": {
+"drug:dothiepin/originator": "opus"
+},
 "q_f9510cad5e68": {
 "drug:mianserin/bindings[alpha1a:antagonist]": "sonnet",
 "drug:mianserin/bindings[alpha1b:antagonist]": "sonnet",
@@ -9682,6 +10203,9 @@
 },
 "q_f9d8483fee26": {
 "drug:donepezil/categories": "sonnet"
+},
+"q_f9e7eab58cae": {
+"drug:nabilone/originator": "opus"
 },
 "q_fa09f00841f9": {
 "receptor:mt1/effects[agonism:sleep_promotion]": "opus"
@@ -9750,7 +10274,8 @@
 "drug:cocaine/categories": "opus"
 },
 "q_fbd2223aba80": {
-"drug:donepezil/first_approval": "opus"
+"drug:donepezil/first_approval": "opus",
+"drug:donepezil/originator": "opus"
 },
 "q_fbe185762a17": {
 "drug:phencyclidine/bindings[nmda:antagonist]": "sonnet"
@@ -9815,6 +10340,9 @@
 "drug:flupenthixol/bindings[m4:antagonist]": "sonnet",
 "drug:flupenthixol/bindings[m5:antagonist]": "sonnet"
 },
+"q_fcf754e9065c": {
+"drug:fentanyl/originator": "opus"
+},
 "q_fd07438aa9c4": {
 "drug:amphetamine_dl/brands[Adzenys ER]": "sonnet"
 },
@@ -9824,6 +10352,9 @@
 },
 "q_fd407c6a6ff0": {
 "drug:lurasidone/first_approval": "opus"
+},
+"q_fd883718d159": {
+"drug:amitriptyline/originator": "opus"
 },
 "q_fd8c1965d8b6": {
 "receptor:mt1/locations[hypothalamus]": "sonnet"
@@ -9842,6 +10373,9 @@
 },
 "q_fdc78a45d1d7": {
 "receptor:5ht1a/demographics[age:decrease:-]": "opus"
+},
+"q_fdd0c002acaf": {
+"drug:sertraline/originator": "opus"
 },
 "q_fde54394fa82": {
 "drug:pimavanserin/categories": "sonnet"
@@ -9949,6 +10483,9 @@
 },
 "q_ff657f52f32a": {
 "drug:thiothixene/tmax": "sonnet"
+},
+"q_ff999bf47df0": {
+"drug:zimelidine/originator": "opus"
 },
 "q_ffaa60252bf2": {
 "receptor:nachr_a4b2/classification[sign]": "opus",

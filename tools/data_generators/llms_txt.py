@@ -25,7 +25,7 @@ COLLECTION_BLURBS: dict[str, str] = {
     "circuits": "named circuits (a set of regions; member pathways are the projections with both ends in the set)",
     "projection_groups": "projection groups by kind or sign (members are the projections matching it)",
     "receptors": "neurotransmitter receptors (family, class, sign, synaptic site, expression regions + density, effects, variants), each attribute graded separately",
-    "drugs": "CNS-active drugs (bindings with action + Ki, categories, brands, half-life, Tmax, enzymes, metabolites, pharmacogenomics, formulations, regulatory history)",
+    "drugs": "CNS-active drugs (bindings with action + Ki, categories, brands, half-life, Tmax, enzymes, metabolites, pharmacogenomics, formulations, regulatory history, originator company + its country, current marketing-authorisation holders)",
     "metabolites": "active metabolites, one record per molecule (`drug_id`, half-life, own bindings), referenced from a drug's `metabolites[]`",
     "addons": "annotations attached to one panel (`owner_kind`, `owner`, `slot`), e.g. a caveat on one drug",
 }
