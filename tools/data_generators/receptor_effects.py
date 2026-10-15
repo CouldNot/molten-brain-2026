@@ -100,6 +100,10 @@ RECEPTOR_EFFECTS: dict[str, dict[str, str]] = {
     "gastric_acid_reduction": {"en": "Reduced gastric acid secretion",
                                "fr": "Diminution de la sécrétion acide gastrique"},
     "vasoconstriction": {"en": "Vasoconstriction", "fr": "Vasoconstriction"},
+    "vasodilation": {"en": "Vasodilation", "fr": "Vasodilatation"},
+    "bladder_relaxation": {"en": "Bladder relaxation", "fr": "Relâchement de la vessie"},
+    "gi_motility": {"en": "Increased gut motility (prokinetic)",
+                    "fr": "Augmentation de la motilité digestive (prokinétique)"},
 }
 
 

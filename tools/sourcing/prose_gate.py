@@ -62,8 +62,11 @@ class PageGate:
                 misses.append(f"{what}: quote not on {c['corpus']}/{c['page']}: "
                               f"{c['line'][:80]!r}")
                 return None
-            out.append({"corpus": c["corpus"], "page": c["page"], "quote": c["line"],
-                        "provenance": "verified"})
+            src = {"corpus": c["corpus"], "page": c["page"], "quote": c["line"],
+                   "provenance": "verified"}
+            if c.get("species"):  # a corpus recording its assay species (GtoPdb #23)
+                src["species"] = c["species"]
+            out.append(src)
         return out
 
 

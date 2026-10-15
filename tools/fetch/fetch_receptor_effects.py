@@ -8,7 +8,12 @@ indexed, every sentence that names the owner AND hits an effect keyword
 
 * Stahl's Essential Psychopharmacology (corpus #3 ``stahl_essential``, primary);
 * the owner's own stored English Wikipedia article (corpus #9 ``wikipedia_pharm``,
-  fallback; only articles already under ``data_sources/wikipedia/pages/``).
+  fallback; only articles already under ``data_sources/wikipedia/pages/``);
+* the owner's GtoPdb function page (corpus #23 ``gtopdb_function``, written by
+  ``fetch_gtopdb_function.py``): every statement line hitting a keyword, a row whose
+  species GtoPdb states offered only when human (``fetch_gtopdb_function.offerable``),
+  the species carried onto the candidate. Appended last, so adding the corpus never
+  shifts an index the judged file already answers by.
 
 Each candidate carries the effect ids its keywords hit, so the LLM pass (answering by
 index into ``tools/generated_cache/receptor_effects_judged.json``) and the applier
@@ -39,6 +44,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import fetch_classification_worklist as cls  # noqa: E402 (sentences, stahl_sentences, aliases)
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402 (slug_of)
+import fetch_gtopdb_function as gfunc  # noqa: E402 (RAW, offerable)
 import target_aliases  # noqa: E402
 from data_generators.receptor_effects import RECEPTOR_EFFECTS  # noqa: E402
 from worklist_io import merge_scoped  # noqa: E402
@@ -74,7 +80,8 @@ EFFECT_KEYWORDS: dict[str, re.Pattern[str]] = {k: re.compile(v, re.I) for k, v i
     "respiratory_depression": r"respiratory depression|respiration",
     "seizures": r"seizure|convuls",
     "psychosis": r"psychosis|psychotic",
-    "cardiovascular": r"tachycardia|heart rate|blood pressure|hypertension",
+    "cardiovascular": (r"tachycardia|heart rate|blood pressure|hypertension|"
+                       r"positive(?:ly)? (?:inotropic, )?chronotrop"),
     "cardiac_valvulopathy": r"valvulopath|valvular|heart valve|fibros",
     "antiemetic": r"anti-?emetic|nausea|vomit|emesis",
     "anticonvulsant": r"anticonvuls|anti-?epilep|antiseizure|epilep|seizure",
@@ -82,7 +89,7 @@ EFFECT_KEYWORDS: dict[str, re.Pattern[str]] = {k: re.compile(v, re.I) for k, v i
     "antidepressant": r"antidepress|depressi",
     "antipsychotic": r"antipsychotic|schizophreni|psychosis|psychotic",
     "antiparkinsonian": r"parkinson",
-    "analgesia": r"analges|antinocicept|\bpain",
+    "analgesia": r"analges|nocicept|\bpain",
     "antimigraine": r"migraine|triptan|cluster headache",
     "appetite_decrease": r"satiety|anorec|anorexi|appetite|weight loss|food intake|obesity",
     "pro_cognitive": r"cognit|memory|learning|attention",
@@ -93,7 +100,11 @@ EFFECT_KEYWORDS: dict[str, re.Pattern[str]] = {k: re.compile(v, re.I) for k, v i
     "bradycardia": r"bradycard|heart rate|chronotrop",
     "bronchodilation": r"bronchodilat|bronch|asthma|airway",
     "gastric_acid_reduction": r"gastric acid|acid secretion|peptic|ulcer|heartburn|reflux",
-    "vasoconstriction": r"vasoconstrict",
+    "vasoconstriction": r"vasoconstrict|contraction of (?:\w+ ){0,4}(?:arter|vein)",
+    "vasodilation": r"vasodilat|vasorelax",
+    "bladder_relaxation": r"bladder relax|detrusor relax|overactive bladder",
+    "gi_motility": (r"gastric emptying|peristal|prokinetic|gut motility|"
+                    r"gastrointestinal motility|colonic transit"),
 }.items()}
 assert set(EFFECT_KEYWORDS) == set(RECEPTOR_EFFECTS), "keyword table out of sync"
 
@@ -130,6 +141,26 @@ def owners() -> dict[str, dict]:
     return out
 
 
+def gtopdb_candidates(oid: str, hits, key: str) -> list[dict]:
+    """The owner's offerable GtoPdb function lines hitting a cue (``[]`` without a page).
+
+    The page is about the owner alone, so no alias match is needed (unlike the prose)."""
+    raw = gfunc.RAW / f"{oid}.json"
+    if not raw.exists():
+        return []
+    payload = json.loads(raw.read_text("utf-8"))
+    out = []
+    for item in payload.get("lines") or []:
+        hit = hits(item["line"]) if gfunc.offerable(item) else None
+        if hit:
+            c = {"corpus": "gtopdb_function", "page": payload["target_id"],
+                 "line": item["line"], key: hit}
+            if item.get("species"):
+                c["species"] = item["species"]
+            out.append(c)
+    return out
+
+
 def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
                aliases: dict[str, list[str]], hits=None, key: str = "effects",
                family: dict[str, list[str]] | None = None) -> list[dict]:
@@ -155,6 +186,7 @@ def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
             if hit:
                 out.append({"corpus": "wikipedia_pharm", "page": slug, "line": line,
                             key: hit})
+    out += gtopdb_candidates(oid, hits, key)
     seen: set[tuple] = set()
     return [c for c in out if not ((c["corpus"], c["line"]) in seen
                                    or seen.add((c["corpus"], c["line"])))]

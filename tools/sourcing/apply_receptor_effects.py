@@ -43,7 +43,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators.receptor_effects import (  # noqa: E402
     CACHE, RECEPTOR_EFFECT_MODES, RECEPTOR_EFFECTS)
 from prose_gate import apply_picks, not_offered, run_applier  # noqa: E402
-from apply_classification_sources import PROSE_PAGES  # noqa: E402 (same two corpora)
+from apply_classification_sources import PROSE_PAGES as _PROSE  # noqa: E402
+from data_generators.provenance import corpus_page_path  # noqa: E402
+
+# The two prose corpora plus GtoPdb's function pages (corpus #23).
+PROSE_PAGES = {**_PROSE, "gtopdb_function": corpus_page_path("gtopdb_function", 0).parent}
 
 WORKLIST = TOOLS / "generated_cache" / "receptor_effects_worklist.json"
 JUDGED = TOOLS / "generated_cache" / "receptor_effects_judged.json"

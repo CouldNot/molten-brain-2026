@@ -755,6 +755,25 @@ SOURCE_CORPORA: dict[str, dict] = {
         "page_kind": "target",
         "page_url": "https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId={page}",
     },
+    "gtopdb_function": {
+        # Function corpus #23: GtoPdb's fourth slice, the curated per-target prose of
+        # three target-page sections, "Physiological Functions", "Clinically-Relevant
+        # Mutations and Pathophysiology" and "Physiological Consequences of Altering
+        # Gene Expression" (+ their comments), backing receptor_effect nodes.
+        # tools/fetch/fetch_gtopdb_function.py flattens them into one author-side page
+        # per target id (`page`), one statement per line naming its section and the
+        # species GtoPdb records; a row with a stated non-human species is never offered
+        # as a candidate. An LLM picks the line (not `machine`), so a judge must follow.
+        # Licence: contents CC BY-SA 4.0, database ODbL, as #7 / #11 / #12.
+        "ref": "IUPHAR/BPS Guide to Pharmacology (GtoPdb), target function",
+        "citation": GTOPDB_NAR_CITATION,
+        "required_citations": GTOPDB_TARGET_CITATIONS,
+        "url": "https://www.guidetopharmacology.org/",
+        "pages_dir": "data_sources/gtopdb/pages_function",
+        "editable": True,
+        "page_kind": "target",
+        "page_url": "https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId={page}",
+    },
     "pharmfreq": {
         # Enzyme variability corpus #13: how fast people clear a drug through one
         # enzyme, and how common each speed is per population group. The only corpus
