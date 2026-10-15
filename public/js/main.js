@@ -43,6 +43,7 @@ import {
   appendDrugHistory, approvalLabel, formatApproval, formatHolder, formatOriginator, formatWithdrawal,
 } from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
+import { appendPhyschemChips, formatBbb, formatLogP, formatTpsa, hasPhyschem } from "./physchem.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -4780,6 +4781,19 @@ function createInfoPanel(data, sourcingModal) {
         body.appendChild(hlEl);
       }
 
+      // Physicochemistry and brain entry: the computed lipophilicity and polar surface
+      // (PubChem) beside the curated blood-brain-barrier label (B3DB), each its own
+      // node. Its own small section rather than the Pharmacokinetics block, which is
+      // about time (when the drug peaks, how long it stays); this is about whether
+      // and how easily it reaches the brain at all. Same chip layout (info-halflife).
+      if (hasPhyschem(drug)) {
+        const pc = el("div", "info-bindings info-halflife info-physchem");
+        pc.appendChild(el("h3", null, t("drug.physchem")));
+        appendPhyschemChips(pc, drug,
+          { el, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
+        body.appendChild(pc);
+      }
+
       // (Ki ranking uses the shared bindingKi helper.)
 
       // What it binds: one row per target, coloured by the action's net effect.
@@ -6393,6 +6407,9 @@ const KIND_LABELS = {
   drug_prodrug: "about.kindDrugProdrug",
   drug_therapeutic_range: "about.kindDrugTherapeuticRange",
   drug_alert_level: "about.kindDrugAlertLevel",
+  drug_lipophilicity: "about.kindDrugLipophilicity",
+  drug_polar_surface: "about.kindDrugPolarSurface",
+  drug_bbb: "about.kindDrugBbb",
   drug_enzymes: "about.kindDrugEnzymes",
   drug_enzyme_strength: "about.kindDrugEnzymeStrength",
   enzyme_variability: "about.kindEnzymeVariability",
@@ -6797,6 +6814,23 @@ function buildKindExample(kind, data, nav) {
       const d = drugWith("clozapine", (x) => x.alertLevel);
       return d ? line(d.name, `${t("drug.alertLevel")} `
         + formatAlert(d.alertLevel, window.__I18N__.lang), () => nav.drug(d)) : null;
+    }
+    case "drug_lipophilicity": {
+      // e.g. Citalopram "XLogP3 3.2".
+      const d = drugWith("citalopram", (x) => x.xlogp);
+      return d ? line(d.name, `${t("drug.xlogp")} `
+        + formatLogP(d.xlogp.value, window.__I18N__.lang), () => nav.drug(d)) : null;
+    }
+    case "drug_polar_surface": {
+      const d = drugWith("citalopram", (x) => x.tpsa);
+      return d ? line(d.name, `${t("drug.tpsa")} `
+        + formatTpsa(d.tpsa.value, window.__I18N__.lang), () => nav.drug(d)) : null;
+    }
+    case "drug_bbb": {
+      // e.g. Olanzapine "Brain entry BBB+ (logBB 0.78 to 0.8)".
+      const d = drugWith("olanzapine", (x) => x.bbb);
+      return d ? line(d.name, `${t("drug.bbb")} `
+        + formatBbb(d.bbb, t, window.__I18N__.lang), () => nav.drug(d)) : null;
     }
     case "drug_withdrawals": {
       const d = drugWith("nefazodone", (x) => x.withdrawals.length);

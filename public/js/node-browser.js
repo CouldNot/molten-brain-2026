@@ -19,6 +19,7 @@ import {
   approvalLabel, formatApproval, formatHolder, formatOriginator, formatWithdrawal,
 } from "./drug-history.js";
 import { formatAlert, formatRange } from "./tdm.js";
+import { formatBbb, formatLogP, formatTpsa } from "./physchem.js";
 import { transmitterVars } from "./release-modulation.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
@@ -67,6 +68,9 @@ const KIND_ORDER = [
   "drug_prodrug",
   "drug_therapeutic_range",
   "drug_alert_level",
+  "drug_lipophilicity",
+  "drug_polar_surface",
+  "drug_bbb",
   "drug_enzymes",
   "drug_enzyme_strength",
   "drug_metabolites",
@@ -396,6 +400,15 @@ export function collectNodes(data, deps, opts = {}) {
       push("drug_alert_level", d.name, `${t("drug.alertLevel")} `
         + formatAlert(d.alertLevel, window.__I18N__.lang),
         d.alertLevel.provenance, go, { sources: d.alertLevel.sources });
+    }
+    const lang = window.__I18N__.lang;
+    for (const [kind, node, key, text] of [
+      ["drug_lipophilicity", d.xlogp, "drug.xlogp", (n) => formatLogP(n.value, lang)],
+      ["drug_polar_surface", d.tpsa, "drug.tpsa", (n) => formatTpsa(n.value, lang)],
+      ["drug_bbb", d.bbb, "drug.bbb", (n) => formatBbb(n, t, lang)],
+    ]) {
+      if (node) push(kind, d.name, `${t(key)} ${text(node)}`, node.provenance, go,
+        { sources: node.sources });
     }
     if (d.originator) {
       push("drug_originator", d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,

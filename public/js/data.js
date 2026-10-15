@@ -1114,6 +1114,16 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       sources: mapSources(d.alert_level_sources),
       provenance: strongestGrade(d.alert_level_sources),
     } : null;
+    // Physicochemistry and brain entry (kinds drug_lipophilicity / drug_polar_surface /
+    // drug_bbb, PubChem #21 + B3DB #22), one graded node each, rendered by
+    // js/physchem.js. `xlogp` / `tpsa` arrive as bare numbers, so they are wrapped.
+    const physNode = (srcs, rest) => ({
+      ...rest, sources: mapSources(srcs), provenance: strongestGrade(srcs) });
+    d.xlogp = d.xlogp != null ? physNode(d.xlogp_sources, { value: d.xlogp }) : null;
+    d.tpsa = d.tpsa != null ? physNode(d.tpsa_sources, { value: d.tpsa }) : null;
+    d.bbb = d.bbb ? physNode(d.bbb_sources, {
+      label: d.bbb.label, logbb: d.bbb.logbb ?? null, logbbMax: d.bbb.logbb_max ?? null,
+    }) : null;
     d.withdrawals = (d.withdrawals || []).map((w) => ({
       year: w.year,
       country: w.country,
