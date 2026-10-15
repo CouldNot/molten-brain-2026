@@ -1,18 +1,5 @@
 [
  {
-  "qid": "q_e73e8c950064",
-  "corpus": "europepmc",
-  "page": "18077184",
-  "heading": null,
-  "present": true,
-  "supports": false,
-  "quote": "We found that [(18)F]MK-9470 binding to CB1R increased with aging but only in women (p(FWE)<0.05, corrected for multiple comparisons); this was most pronounced in the basal ganglia, lateral temporal cortex and limbic system, especially in the hippocampus.",
-  "claims": [
-   "receptor:cb1/demographics[age:increase:-] | Receptor CB1: its brain availability / binding (PET, SPECT or post-mortem) INCREASES with age, measured in humans. Reject an animal-only statement, or a sentence about a different receptor / transporter than CB1."
-  ],
-  "note": "CB1 binding increased with aging ONLY in women; an unqualified 'CB1 increases with age' overstates a sex-restricted finding (men showed no age increase)"
- },
- {
   "qid": "q_21c6860df3bf",
   "corpus": "europepmc",
   "page": "11016537",

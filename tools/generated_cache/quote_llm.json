@@ -135,6 +135,12 @@
 "q_04d2bd7dd3f3": {
 "drug:quetiapine/tmax": "sonnet"
 },
+"q_04ed9ad86b44": {
+"receptor:5ht1d/effects[agonism:vasoconstriction]": "opus"
+},
+"q_050c181be67a": {
+"receptor:h2/effects[antagonism:gastric_acid_reduction]": "opus"
+},
 "q_05170853c357": {
 "receptor:delta/locations[accumbens]": "sonnet",
 "receptor:delta/locations[amygdala]": "sonnet",
@@ -171,6 +177,9 @@
 },
 "q_0604c2ff534c": {
 "drug:buspirone/brands[BuSpar]": "sonnet"
+},
+"q_0607f2de8792": {
+"target:mao_b/effects[inhibition:antiparkinsonian]": "opus"
 },
 "q_06409f94d6be": {
 "drug:sumatriptan/categories": "sonnet"
@@ -347,6 +356,9 @@
 "q_09dfb3de6826": {
 "drug:thc/brands[Sativex]": "sonnet"
 },
+"q_09fa3505a0d7": {
+"receptor:h1/effects[agonism:wakefulness]": "opus"
+},
 "q_0a0e09bd476c": {
 "drug:safinamide/first_approval": "opus"
 },
@@ -486,6 +498,10 @@
 },
 "q_0d5ed17f0018": {
 "drug:cyamemazine/brands[Tercian]": "sonnet"
+},
+"q_0d627d448604": {
+"receptor:5ht1a/effects[agonism:antidepressant]": "opus",
+"receptor:5ht1a/effects[agonism:anxiolytic]": "opus"
 },
 "q_0d8428afda0f": {
 "projection:hippocampus_R->fornix_R": "opus",
@@ -810,6 +826,10 @@
 "drug:pseudoephedrine/formulations[xr]/tmax": "opus",
 "drug:pseudoephedrine/tmax": "sonnet"
 },
+"q_15d199c2bb44": {
+"receptor:m1/effects[agonism:antipsychotic]": "opus",
+"receptor:m1/effects[agonism:pro_cognitive]": "opus"
+},
 "q_15dbb009a613": {
 "receptor:h1/effects[antagonism:sedation]": "opus",
 "receptor:h1/effects[antagonism:weight_gain]": "opus"
@@ -858,6 +878,7 @@
 "receptor:alpha1d/locations[thalamus]": "sonnet"
 },
 "q_174599076bd0": {
+"receptor:gaba_a/effects[agonism:anxiolytic]": "opus",
 "receptor:gaba_a/effects[agonism:sedation]": "opus"
 },
 "q_1749d1c625f4": {
@@ -1014,6 +1035,9 @@
 },
 "q_1ac87e2f3db8": {
 "drug:pipothiazine/brands[Piportil]": "sonnet"
+},
+"q_1ad54b4f1b00": {
+"receptor:5ht7/effects[antagonism:antidepressant]": "opus"
 },
 "q_1ad6a720caa0": {
 "receptor:d2/demographics[age:decrease:-]": "opus"
@@ -1214,6 +1238,9 @@
 "q_201f8338608a": {
 "drug:perospirone/bindings[5ht2a:antagonist]": "sonnet"
 },
+"q_20205634f87c": {
+"receptor:5ht3/effects[antagonism:antiemetic]": "opus"
+},
 "q_20254d993b31": {
 "drug:clotiazepam/half_life": "sonnet"
 },
@@ -1408,6 +1435,9 @@
 "q_23bf17908b16": {
 "drug:molindone/brands[Moban]": "sonnet"
 },
+"q_240f35cc0c92": {
+"receptor:5ht2c/effects[antagonism:antidepressant]": "opus"
+},
 "q_240fcf160318": {
 "drug:propranolol/bindings[beta2:antagonist]": "sonnet"
 },
@@ -1538,6 +1568,9 @@
 "q_2789d424e406": {
 "target:net/demographics[age:decrease:-]": "opus"
 },
+"q_27a63c52786a": {
+"receptor:5ht2c/effects[antagonism:antidepressant]": "opus"
+},
 "q_27b0c573ffa5": {
 "drug:nefazodone/first_approval": "opus"
 },
@@ -1580,6 +1613,9 @@
 },
 "q_28f8e8173034": {
 "drug:zuclopenthixol/brands[Clopixol]": "sonnet"
+},
+"q_29024a5a7546": {
+"receptor:gaba_a/effects[agonism:sleep_promotion]": "opus"
 },
 "q_290b12cbb0f9": {
 "drug:clozapine/bindings[alpha2c:antagonist]": "opus"
@@ -1733,6 +1769,9 @@
 "q_2d5f547776b4": {
 "receptor:5ht2c/effects[antagonism:weight_gain]": "opus"
 },
+"q_2d8aea981e9d": {
+"receptor:ampa/effects[antagonism:anticonvulsant]": "opus"
+},
 "q_2d9b73c1c637": {
 "receptor:a2a/locations[putamen]": "sonnet"
 },
@@ -1770,6 +1809,9 @@
 "drug:phentermine/bindings[dat:releaser]": "sonnet",
 "drug:phentermine/bindings[net:releaser]": "sonnet"
 },
+"q_2f0eb481545a": {
+"target:sert/effects[inhibition:antidepressant]": "opus"
+},
 "q_2f12294e7766": {
 "drug:sumatriptan/formulations[ir]/tmax": "opus",
 "drug:sumatriptan/tmax": "opus"
@@ -1779,6 +1821,9 @@
 },
 "q_2fcb804e2ec0": {
 "drug:duloxetine/first_approval": "opus"
+},
+"q_2fd91c0ad9b5": {
+"receptor:h1/effects[antagonism:sleep_promotion]": "opus"
 },
 "q_2fdc49044b7b": {
 "drug:zimelidine/metabolites[norzimelidine]": "sonnet"
@@ -2001,6 +2046,9 @@
 "q_35c17e74a0f8": {
 "drug:quetiapine/metabolites[norquetiapine]/formed_by[cyp3a4]": "sonnet"
 },
+"q_35daa7469760": {
+"receptor:d1/effects[agonism:antiparkinsonian]": "opus"
+},
 "q_35f4a685b1f1": {
 "drug:mesoridazine/categories": "opus"
 },
@@ -2069,6 +2117,9 @@
 },
 "q_37b3ec7d35c2": {
 "drug:lofepramine/bindings[sert:reuptake_inhibitor]": "sonnet"
+},
+"q_37f9b7e85e58": {
+"receptor:5ht1a/effects[agonism:antidepressant]": "opus"
 },
 "q_37fd752667b4": {
 "drug:lorazepam/half_life": "sonnet"
@@ -2165,6 +2216,9 @@
 },
 "q_3b282236c244": {
 "drug:diazepam/half_life": "sonnet"
+},
+"q_3b45aed355a2": {
+"receptor:5ht1b/effects[antagonism:antidepressant]": "opus"
 },
 "q_3b6557db4c3c": {
 "drug:brotizolam/brands[Sintonal]": "sonnet"
@@ -2426,6 +2480,9 @@
 "q_4149df36f754": {
 "receptor:5ht1a/demographics[sex:higher_in_female:-]": "opus"
 },
+"q_41799f2ad571": {
+"target:orexin/effects[antagonism:sleep_promotion]": "opus"
+},
 "q_417f60feb5df": {
 "drug:sodium_oxybate/half_life": "sonnet"
 },
@@ -2434,6 +2491,9 @@
 },
 "q_41aa8192c11e": {
 "projection:temporal_R->hippocampus_R": "sonnet"
+},
+"q_41c6793cd88f": {
+"receptor:beta2/effects[agonism:cardiovascular]": "opus"
 },
 "q_41ca7968b335": {
 "drug:asenapine/bindings[d2:antagonist]": "sonnet"
@@ -2567,6 +2627,10 @@
 "q_446fa1524d19": {
 "drug:sertindole/bindings[5ht2c:antagonist]": "sonnet"
 },
+"q_449484fdef3e": {
+"receptor:mt2/effects[agonism:circadian_shift]": "opus",
+"receptor:mt2/effects[agonism:sleep_promotion]": "opus"
+},
 "q_44ac0410d205": {
 "drug:naltrexonebupropion/first_approval": "opus",
 "drug:naltrexonebupropion/formulations[xr]/release": "opus"
@@ -2666,6 +2730,9 @@
 },
 "q_46ff23162aff": {
 "drug:amphetamine_dl/first_approval": "opus"
+},
+"q_470b2155b4fd": {
+"receptor:5ht2a/effects[antagonism:sleep_promotion]": "opus"
 },
 "q_47176256a93a": {
 "drug:doxepin/half_life": "sonnet"
@@ -3002,11 +3069,17 @@
 "q_50d12d8fbaab": {
 "projection:fornix_R->mammillary_R": "sonnet"
 },
+"q_50e7768316c2": {
+"receptor:d1/effects[agonism:antidepressant]": "opus"
+},
 "q_50f31a69f353": {
 "circuit:bg_direct": "sonnet"
 },
 "q_510263167136": {
 "drug:clotiazepam/brands[Clozan]": "sonnet"
+},
+"q_511b18ff4dc6": {
+"target:orexin/effects[antagonism:sleep_promotion]": "opus"
 },
 "q_5121530fbd0b": {
 "drug:zolpidem/brands[Ambien CR]": "sonnet"
@@ -3038,6 +3111,9 @@
 },
 "q_51b8e96aeebd": {
 "drug:thc/tmax": "sonnet"
+},
+"q_51c1e3245cd5": {
+"receptor:d2/effects[agonism:antiparkinsonian]": "opus"
 },
 "q_51d8fad772b0": {
 "projection:raphe->medulla": "opus",
@@ -3114,6 +3190,11 @@
 },
 "q_5454d7aaa88a": {
 "drug:tianeptine/bindings[ampa:pam]": "sonnet"
+},
+"q_546b5ce4d806": {
+"receptor:alpha1a/effects[agonism:vasoconstriction]": "opus",
+"receptor:alpha1b/effects[agonism:vasoconstriction]": "opus",
+"receptor:alpha1d/effects[agonism:vasoconstriction]": "opus"
 },
 "q_548323235dfd": {
 "drug:paroxetine/brands[Paxil]": "sonnet"
@@ -3206,6 +3287,9 @@
 "q_574979af9e3a": {
 "drug:clotiazepam/categories": "sonnet"
 },
+"q_574e4df66050": {
+"receptor:alpha2a/effects[agonism:pro_cognitive]": "opus"
+},
 "q_5765f356d816": {
 "drug:duloxetine/bindings[sert:reuptake_inhibitor]": "sonnet"
 },
@@ -3234,6 +3318,11 @@
 },
 "q_58a043f17645": {
 "drug:lisdexamfetamine/brands[Samexid]": "sonnet"
+},
+"q_58a670b31bc9": {
+"receptor:alpha1a/effects[antagonism:anxiolytic]": "opus",
+"receptor:alpha1b/effects[antagonism:anxiolytic]": "opus",
+"receptor:alpha1d/effects[antagonism:anxiolytic]": "opus"
 },
 "q_58b75257e8db": {
 "drug:flupenthixol/categories": "sonnet"
@@ -3355,6 +3444,9 @@
 "drug:chlorpromazine/bindings[h2:antagonist]": "sonnet",
 "drug:chlorpromazine/bindings[m2:antagonist]": "sonnet"
 },
+"q_5cd56743b3e8": {
+"receptor:nmda/effects[antagonism:antidepressant]": "opus"
+},
 "q_5cd9732c0ff7": {
 "projection:cerebellum->thalamus_R": "sonnet"
 },
@@ -3394,6 +3486,9 @@
 },
 "q_5ddcd9eaf9a6": {
 "drug:thiothixene/categories": "sonnet"
+},
+"q_5de6def5fb70": {
+"receptor:gaba_a/effects[agonism:anticonvulsant]": "opus"
 },
 "q_5de9f0107d75": {
 "receptor:alpha1a/locations[frontal]": "sonnet"
@@ -3480,6 +3575,9 @@
 },
 "q_5f97a9c034cb": {
 "receptor:gaba_a/effects[agonism:sedation]": "opus"
+},
+"q_5f9bffff7e98": {
+"receptor:gaba_a/effects[agonism:sleep_promotion]": "opus"
 },
 "q_5fa15b607f46": {
 "drug:viloxazine/withdrawals[worldwide:2002]": "opus"
@@ -3574,6 +3672,9 @@
 "q_621333ee83dc": {
 "structure:globus_pallidus_L": "sonnet",
 "structure:globus_pallidus_R": "sonnet"
+},
+"q_621e76908745": {
+"receptor:sigma1/effects[agonism:anxiolytic]": "opus"
 },
 "q_6231ae21f25c": {
 "drug:zotepine/bindings[5ht2a:antagonist]": "sonnet"
@@ -3989,6 +4090,9 @@
 "q_6c1e531ce6fc": {
 "drug:pregabalin/brands[Lyrica CR]": "sonnet"
 },
+"q_6c35c72819ed": {
+"receptor:mu/effects[agonism:analgesia]": "opus"
+},
 "q_6c45b9cb169d": {
 "drug:solriamfetol/tmax": "sonnet"
 },
@@ -4121,6 +4225,9 @@
 "projection:thalamus_R->cingulate_R/sign": "opus",
 "projection:thalamus_R->frontal_R": "opus",
 "projection:thalamus_R->frontal_R/sign": "opus"
+},
+"q_6fff1c91adeb": {
+"receptor:m2/effects[agonism:bradycardia]": "opus"
 },
 "q_70174ed78b63": {
 "drug:maprotiline/categories": "sonnet"
@@ -4260,6 +4367,9 @@
 "q_72819bd471d0": {
 "drug:tetrabenazine/brands[Xenazine]": "sonnet"
 },
+"q_72fc8a9363e0": {
+"receptor:5ht3/effects[antagonism:antiemetic]": "opus"
+},
 "q_73029ebd88be": {
 "drug:nalmefene/first_approval": "opus"
 },
@@ -4335,6 +4445,9 @@
 "receptor:5ht1b/release_modulation[heteroreceptor:-:presynaptic_terminal:histamine:decrease]": "opus",
 "receptor:5ht1b/release_modulation[heteroreceptor:-:presynaptic_terminal:norepinephrine:decrease]": "opus"
 },
+"q_74d4f6e9e6df": {
+"receptor:gaba_a/effects[agonism:anxiolytic]": "opus"
+},
 "q_74e028e9b5c7": {
 "metabolite:6_hydroxybupropion/bindings[nachr_a4b2:antagonist]": "sonnet"
 },
@@ -4381,6 +4494,10 @@
 "q_75f0a8d38a82": {
 "metabolite:meta_chlorophenylpiperazine/half_life": "sonnet"
 },
+"q_75fa8dc2b730": {
+"receptor:5ht7/effects[antagonism:antidepressant]": "opus",
+"receptor:5ht7/effects[antagonism:pro_cognitive]": "opus"
+},
 "q_762ece562208": {
 "drug:amphetamine_d/formulations[ir]/tmax": "opus",
 "drug:amphetamine_d/tmax": "opus"
@@ -4416,6 +4533,9 @@
 "q_76f854fe2b6a": {
 "drug:levodopa/half_life": "sonnet"
 },
+"q_770572419c69": {
+"receptor:sigma1/effects[agonism:antidepressant]": "opus"
+},
 "q_7713fb7bcb92": {
 "drug:selegiline/formulations[transdermal]/release": "opus"
 },
@@ -4445,6 +4565,9 @@
 },
 "q_77acd80cafa5": {
 "drug:amphetamine_dl/brands[Mydayis]": "sonnet"
+},
+"q_77b3bd7ec206": {
+"target:sert/effects[inhibition:antidepressant]": "opus"
 },
 "q_77c307a68efd": {
 "structure:insula_L": "sonnet",
@@ -4547,7 +4670,8 @@
 "drug:clorazepate/first_approval": "opus"
 },
 "q_7b7a1a9aa45c": {
-"receptor:nachr_a7/classification[synaptic]": "opus"
+"receptor:nachr_a7/classification[synaptic]": "opus",
+"receptor:nachr_a7/effects[agonism:pro_cognitive]": "opus"
 },
 "q_7bbf640d4919": {
 "drug:venlafaxine/formulations[ir]/release": "opus",
@@ -4610,6 +4734,10 @@
 },
 "q_7db171d18557": {
 "drug:tranylcypromine/brands[Parnate]": "sonnet"
+},
+"q_7db677290de3": {
+"receptor:mt1/effects[agonism:sleep_promotion]": "opus",
+"receptor:mt2/effects[agonism:sleep_promotion]": "opus"
 },
 "q_7db85a8f54e3": {
 "drug:clorazepate/metabolites[desmethyldiazepam]": "opus",
@@ -4892,6 +5020,9 @@
 "q_856ec7b2b0b7": {
 "drug:glutethimide/categories": "opus"
 },
+"q_8571ae0ce966": {
+"receptor:5ht1b/effects[agonism:vasoconstriction]": "opus"
+},
 "q_858b2a6d6051": {
 "drug:lumateperone/bindings[d2:antagonist]": "opus"
 },
@@ -4899,6 +5030,9 @@
 "drug:flunarizine/bindings[cav:blocker]": "sonnet",
 "drug:flunarizine/bindings[d2:antagonist]": "sonnet",
 "drug:flunarizine/bindings[h1:antagonist]": "sonnet"
+},
+"q_85af503b24fd": {
+"target:net/effects[inhibition:antidepressant]": "opus"
 },
 "q_85da709820b3": {
 "receptor:mu/classification[synaptic]": "opus"
@@ -4975,6 +5109,9 @@
 },
 "q_879b19279296": {
 "drug:olanzapinesamidorphan/bindings[mu:antagonist]": "sonnet"
+},
+"q_87a75e7eeb1e": {
+"receptor:d1/effects[agonism:pro_cognitive]": "opus"
 },
 "q_87ad04cb4f6e": {
 "drug:phenterminetopiramate/categories": "sonnet"
@@ -5163,6 +5300,9 @@
 "drug:levomepromazine/formulations[ir]/tmax": "opus",
 "drug:levomepromazine/tmax": "opus"
 },
+"q_8bf1fee0030a": {
+"receptor:a2a/effects[antagonism:antiparkinsonian]": "opus"
+},
 "q_8c0125808cbf": {
 "drug:perphenazine/brands[Trilafon]": "sonnet"
 },
@@ -5196,6 +5336,10 @@
 },
 "q_8cba128e10f4": {
 "drug:meclizine/categories": "sonnet"
+},
+"q_8cd318ebe536": {
+"receptor:m1/effects[agonism:pro_cognitive]": "opus",
+"receptor:m4/effects[agonism:antipsychotic]": "opus"
 },
 "q_8cd69471156a": {
 "receptor:d2/release_modulation[heteroreceptor:-:cell_body:acetylcholine:decrease]": "opus"
@@ -5437,6 +5581,9 @@
 "q_933a0dd896a6": {
 "drug:loflazepate/categories": "sonnet"
 },
+"q_93500de080b2": {
+"receptor:5ht1a/effects[agonism:antipsychotic]": "opus"
+},
 "q_938d835b7c1d": {
 "receptor:kappa/effects[agonism:dysphoria]": "opus",
 "receptor:kappa/effects[agonism:hallucinations]": "opus"
@@ -5449,6 +5596,9 @@
 },
 "q_93e58cf7b0e0": {
 "drug:biperiden/categories": "sonnet"
+},
+"q_940ae2f8be40": {
+"receptor:5ht1a/effects[agonism:pro_cognitive]": "opus"
 },
 "q_9422a239292b": {
 "drug:amisulpride/nbn": "sonnet"
@@ -5481,6 +5631,9 @@
 },
 "q_94cf71d81248": {
 "drug:zotepine/bindings[net:reuptake_inhibitor]": "sonnet"
+},
+"q_94d38ed81ef0": {
+"receptor:5ht1a/effects[agonism:bradycardia]": "opus"
 },
 "q_950bbd47ac90": {
 "drug:topiramate/brands[Topamac]": "sonnet"
@@ -5541,6 +5694,10 @@
 },
 "q_967d47f4f16a": {
 "drug:thiothixene/bindings[h1:antagonist]": "sonnet"
+},
+"q_9690f06dd834": {
+"receptor:5ht1a/effects[agonism:antidepressant]": "opus",
+"receptor:5ht2a/effects[antagonism:antidepressant]": "opus"
 },
 "q_96a4e74332df": {
 "drug:lofepramine/brands[Gamanil]": "sonnet"
@@ -5814,6 +5971,9 @@
 "q_9bacd4eb53ec": {
 "target:sv2a/classification": "sonnet"
 },
+"q_9bdd4e59f5ba": {
+"receptor:5ht2b/effects[agonism:cardiac_valvulopathy]": "opus"
+},
 "q_9bea2906fb7c": {
 "receptor:alpha1a/release_modulation[heteroreceptor:-:glutamatergic_neuron:dopamine:decrease]": "opus",
 "receptor:alpha1b/release_modulation[heteroreceptor:-:glutamatergic_neuron:dopamine:decrease]": "opus",
@@ -5870,6 +6030,9 @@
 "q_9d250028b64e": {
 "drug:ketanserin/tmax": "sonnet"
 },
+"q_9d4649b672d3": {
+"receptor:beta1/effects[antagonism:anxiolytic]": "opus"
+},
 "q_9d5724888443": {
 "projection:olfactory_bulb_R->insula_R": "sonnet"
 },
@@ -5915,7 +6078,11 @@
 "receptor:5ht1b/release_modulation[heteroreceptor:-:presynaptic_terminal:histamine:decrease]": "opus",
 "receptor:5ht1b/release_modulation[heteroreceptor:-:presynaptic_terminal:norepinephrine:decrease]": "opus"
 },
+"q_9e1ba51897b6": {
+"target:ache/effects[inhibition:pro_cognitive]": "opus"
+},
 "q_9e2d02c03054": {
+"receptor:gaba_a/effects[agonism:anticonvulsant]": "opus",
 "receptor:gaba_a/effects[agonism:euphoria]": "opus",
 "receptor:gaba_a/effects[agonism:sedation]": "opus"
 },
@@ -5984,6 +6151,9 @@
 },
 "q_9f97aa9d1f20": {
 "drug:mescaline/tmax": "sonnet"
+},
+"q_9f9827dee060": {
+"receptor:d2/effects[antagonism:antipsychotic]": "opus"
 },
 "q_9fa8f1d2f109": {
 "drug:chlorpromazine/enzymes[cyp2d6:substrate]": "opus",
@@ -6119,6 +6289,9 @@
 },
 "q_a2d9433377cc": {
 "drug:amphetamine_d/brands[ProCentra]": "sonnet"
+},
+"q_a2dfd48ca1fd": {
+"receptor:5ht2a/effects[antagonism:antidepressant]": "opus"
 },
 "q_a301f47d59ff": {
 "drug:ramelteon/tmax": "sonnet"
@@ -6433,6 +6606,9 @@
 "projection:cerebellum->thalamus_R": "opus",
 "projection:cerebellum->thalamus_R/sign": "opus"
 },
+"q_ac380ddcd558": {
+"receptor:mu/effects[agonism:analgesia]": "opus"
+},
 "q_ac5a46596b72": {
 "target:cgrp/classification": "opus"
 },
@@ -6448,6 +6624,9 @@
 },
 "q_acf0816b54a2": {
 "drug:alpidem/first_approval": "opus"
+},
+"q_ad17a0aad2f5": {
+"receptor:5ht2a/effects[antagonism:antipsychotic]": "opus"
 },
 "q_ad1f8336a2e5": {
 "drug:blonanserin/bindings[d2:antagonist]": "sonnet"
@@ -6540,6 +6719,9 @@
 "q_af8f7aa92158": {
 "projection:claustrum_R->frontal_R": "opus",
 "projection:claustrum_R->frontal_R/transmitter": "opus"
+},
+"q_af93795ac814": {
+"receptor:beta2/effects[agonism:bronchodilation]": "opus"
 },
 "q_afa70b68a32a": {
 "receptor:5ht1d/locations[frontal]": "sonnet",
@@ -6692,6 +6874,7 @@
 "drug:lithium/half_life": "opus"
 },
 "q_b3495ff866f4": {
+"receptor:5ht3/effects[agonism:anxiety]": "opus",
 "receptor:5ht3/effects[agonism:nausea]": "opus"
 },
 "q_b350583e58ad": {
@@ -6777,6 +6960,9 @@
 },
 "q_b50b9fe5f70b": {
 "drug:carbamazepine/bindings[nav:blocker]": "sonnet"
+},
+"q_b5110f60650a": {
+"target:dat/effects[inhibition:appetite_decrease]": "opus"
 },
 "q_b55f83be8132": {
 "receptor:gaba_b/release_modulation[autoreceptor:-:presynaptic_terminal:gaba:decrease]": "opus"
@@ -6980,6 +7166,9 @@
 "q_ba23cf159b77": {
 "target:dat/demographics[age:decrease:-]": "opus"
 },
+"q_ba526828ccc5": {
+"receptor:d3/effects[agonism:antiparkinsonian]": "opus"
+},
 "q_ba6c21f51e5e": {
 "drug:2cb/bindings[sert:reuptake_inhibitor]": "opus"
 },
@@ -6996,6 +7185,7 @@
 "drug:thiopental/bindings[nachr_a4b2:antagonist]": "sonnet"
 },
 "q_ba9bb8db4e2a": {
+"receptor:d2/effects[agonism:antiparkinsonian]": "opus",
 "receptor:d2/effects[agonism:psychosis]": "opus"
 },
 "q_bab5aacd496b": {
@@ -7043,6 +7233,9 @@
 },
 "q_bbdd9312ed3c": {
 "drug:protriptyline/half_life": "sonnet"
+},
+"q_bc14178c094d": {
+"receptor:5ht3/effects[antagonism:antiemetic]": "opus"
 },
 "q_bc73090b3e15": {
 "drug:scopolamine/tmax": "sonnet"
@@ -7181,6 +7374,10 @@
 "q_c0129d0bf30f": {
 "drug:haloperidol/bindings[sigma1:antagonist]": "sonnet"
 },
+"q_c01b1cb243bf": {
+"receptor:mglur2/effects[agonism:anxiolytic]": "opus",
+"receptor:mglur3/effects[agonism:anxiolytic]": "opus"
+},
 "q_c03b9f0e3ddb": {
 "drug:fenfluramine/withdrawals[us:1997]": "opus"
 },
@@ -7214,6 +7411,9 @@
 },
 "q_c137db7dacad": {
 "drug:levomilnacipran/bindings[net:reuptake_inhibitor]": "sonnet"
+},
+"q_c145051f8c5c": {
+"receptor:kappa/effects[agonism:analgesia]": "opus"
 },
 "q_c1694bec90d6": {
 "drug:methadone/half_life": "opus"
@@ -7361,6 +7561,9 @@
 },
 "q_c3e84c944fc8": {
 "receptor:5ht7/release_modulation[heteroreceptor:raphe:gaba_interneuron:gaba:increase]": "opus"
+},
+"q_c3f60a660a2a": {
+"receptor:d2/effects[antagonism:antipsychotic]": "opus"
 },
 "q_c4457017d97a": {
 "drug:suvorexant/brands[Belsomra]": "sonnet"
@@ -7512,12 +7715,19 @@
 "q_c7ade881d563": {
 "drug:zonisamide/bindings[nav:modulator]": "sonnet"
 },
+"q_c7c7a0f666dc": {
+"receptor:d3/effects[antagonism:antidepressant]": "opus",
+"receptor:d3/effects[antagonism:antipsychotic]": "opus"
+},
 "q_c7d020cada63": {
 "projection:globus_pallidus_R->subthalamic_nucleus_R": "opus",
 "projection:globus_pallidus_R->subthalamic_nucleus_R/sign": "opus"
 },
 "q_c7e6d454450c": {
 "drug:flumazenil/first_approval": "opus"
+},
+"q_c7e9e4898c79": {
+"receptor:delta/effects[agonism:analgesia]": "opus"
 },
 "q_c7ed540d728b": {
 "drug:baclofen/first_approval": "opus"
@@ -7544,6 +7754,9 @@
 },
 "q_c9058a647d0e": {
 "drug:etomidate/bindings[gaba_a:modulator]": "opus"
+},
+"q_c90a769d2390": {
+"receptor:nachr_a4b2/effects[agonism:euphoria]": "opus"
 },
 "q_c9429e83cd86": {
 "drug:thiothixene/bindings[alpha1a:antagonist]": "sonnet",
@@ -7606,6 +7819,9 @@
 "q_cac95b47599d": {
 "drug:moclobemide/nbn": "sonnet"
 },
+"q_cacfc9e5ec23": {
+"receptor:5ht2a/effects[antagonism:antipsychotic]": "opus"
+},
 "q_cb0c96449c66": {
 "drug:2cb/bindings[5ht2b:agonist]": "sonnet"
 },
@@ -7643,6 +7859,9 @@
 },
 "q_cc07c2dea820": {
 "drug:pizotifen/tmax": "sonnet"
+},
+"q_cc0f2ebe7a63": {
+"target:mao_a/effects[inhibition:antidepressant]": "opus"
 },
 "q_cc564c343651": {
 "drug:zuranolone/bindings[gaba_a:modulator]": "sonnet",
@@ -7688,6 +7907,10 @@
 },
 "q_cd79aa6b8eb0": {
 "drug:topiramate/half_life": "sonnet"
+},
+"q_cdb2e29b34c5": {
+"receptor:mt1/effects[agonism:circadian_shift]": "opus",
+"receptor:mt1/effects[agonism:sleep_promotion]": "opus"
 },
 "q_cdc47d3d8fbb": {
 "drug:memantine/tmax": "sonnet"
@@ -7846,6 +8069,9 @@
 "drug:esketamine/enzymes[cyp3a4:substrate]": "opus",
 "drug:esketamine/enzymes[cyp3a4:substrate]/strength": "opus"
 },
+"q_d1c2c88bbf85": {
+"receptor:m3/effects[agonism:nausea]": "opus"
+},
 "q_d1e8d8f05699": {
 "drug:varenicline/brands[Chantix]": "sonnet"
 },
@@ -7985,6 +8211,9 @@
 "drug:flibanserin/bindings[alpha1c:antagonist]": "sonnet",
 "drug:flibanserin/bindings[alpha1d:antagonist]": "sonnet"
 },
+"q_d554071abfff": {
+"receptor:h3/effects[antagonism:wakefulness]": "opus"
+},
 "q_d5807d49aea7": {
 "drug:quazepam/bindings[gaba_a:pam]": "sonnet"
 },
@@ -8103,6 +8332,9 @@
 "q_d8796a74f2b7": {
 "drug:cyproheptadine/bindings[5ht2c:antagonist]": "opus"
 },
+"q_d88f167b3bb6": {
+"target:cgrp/effects[antagonism:antimigraine]": "opus"
+},
 "q_d8b0e95b294a": {
 "drug:amitriptyline/brands[Trepiline]": "sonnet"
 },
@@ -8197,6 +8429,9 @@
 "q_dafc354a969b": {
 "drug:haloperidol/tmax": "sonnet"
 },
+"q_dafcc576fe07": {
+"receptor:gaba_b/effects[agonism:sleep_promotion]": "opus"
+},
 "q_db1001a0bf1d": {
 "drug:bupropion/formulations[xr]/release": "opus"
 },
@@ -8226,10 +8461,16 @@
 "drug:pimavanserin/bindings[5ht2a:antagonist]": "sonnet",
 "drug:pimavanserin/bindings[5ht2a:inverse_agonist]": "sonnet"
 },
+"q_dc8dd3808801": {
+"receptor:h1/effects[antagonism:anxiolytic]": "opus"
+},
 "q_dc90313b279d": {
 "drug:methamphetamine/bindings[dat:releaser]": "opus",
 "drug:methamphetamine/bindings[net:releaser]": "opus",
 "drug:methamphetamine/bindings[sert:releaser]": "opus"
+},
+"q_dcc6d85969c8": {
+"receptor:mt2/effects[agonism:circadian_shift]": "opus"
 },
 "q_dcda36c75380": {
 "drug:opipramol/bindings[sigma1:agonist]": "sonnet"
@@ -8422,6 +8663,9 @@
 "drug:olanzapine/formulations[ir]/tmax": "opus",
 "drug:olanzapine/tmax": "sonnet"
 },
+"q_e1c945c0a565": {
+"receptor:5ht7/effects[antagonism:sleep_promotion]": "opus"
+},
 "q_e1eb0eff0da9": {
 "drug:methaqualone/brands[Malsed]": "sonnet"
 },
@@ -8492,6 +8736,9 @@
 "q_e33e41a9b351": {
 "drug:diazepam/metabolites[desmethyldiazepam]": "opus"
 },
+"q_e34b205b320f": {
+"target:net/effects[inhibition:analgesia]": "opus"
+},
 "q_e36230bedcf5": {
 "receptor:gaba_b/classification[family]": "sonnet",
 "receptor:gaba_b/classification[receptor_class]": "sonnet"
@@ -8534,6 +8781,12 @@
 },
 "q_e412f82cba93": {
 "drug:venlafaxine/categories": "sonnet"
+},
+"q_e415ba57eb0e": {
+"receptor:h3/effects[antagonism:wakefulness]": "opus"
+},
+"q_e44c9490891f": {
+"receptor:5ht3/effects[antagonism:antidepressant]": "opus"
 },
 "q_e44ca8f7f1fa": {
 "drug:clomipramine/bindings[5ht2a:antagonist]": "sonnet",
@@ -8583,6 +8836,9 @@
 },
 "q_e52014920fa6": {
 "drug:clonazepam/bindings[gaba_a:pam]": "sonnet"
+},
+"q_e5323e9e6e06": {
+"receptor:5ht1a/effects[agonism:hypothermia]": "opus"
 },
 "q_e53fadbc2add": {
 "drug:naltrexonebupropion/bindings[mu:antagonist]": "sonnet"
@@ -8656,8 +8912,14 @@
 "drug:nicotine/metabolites[cotinine]": "opus",
 "metabolite:cotinine/half_life": "opus"
 },
+"q_e6821704b45c": {
+"receptor:h1/effects[antagonism:sleep_promotion]": "opus"
+},
 "q_e6966f1495a6": {
 "drug:rivastigmine/nbn": "sonnet"
+},
+"q_e69b7fc8b5fd": {
+"receptor:ampa/effects[antagonism:anticonvulsant]": "opus"
 },
 "q_e6ad37ea123d": {
 "drug:vigabatrin/bindings[gaba_t:enzyme_inhibitor]": "sonnet"
@@ -8933,6 +9195,9 @@
 "drug:naltrexonebupropion/bindings[dat:reuptake_inhibitor]": "sonnet",
 "drug:naltrexonebupropion/bindings[net:reuptake_inhibitor]": "sonnet"
 },
+"q_ee8465e6aec7": {
+"receptor:d3/effects[antagonism:antidepressant]": "opus"
+},
 "q_eeb98b483b25": {
 "drug:nefazodone/brands[Dutonin]": "sonnet"
 },
@@ -9117,9 +9382,13 @@
 "drug:asenapine/categories": "sonnet"
 },
 "q_f3164e029ac4": {
+"receptor:alpha2a/effects[agonism:analgesia]": "opus",
 "receptor:alpha2a/effects[agonism:sedation]": "opus",
+"receptor:alpha2b/effects[agonism:analgesia]": "opus",
 "receptor:alpha2b/effects[agonism:sedation]": "opus",
+"receptor:alpha2c/effects[agonism:analgesia]": "opus",
 "receptor:alpha2c/effects[agonism:sedation]": "opus",
+"receptor:alpha2d/effects[agonism:analgesia]": "opus",
 "receptor:alpha2d/effects[agonism:sedation]": "opus",
 "target:alpha2/effects[agonism:sedation]": "opus"
 },
@@ -9153,6 +9422,9 @@
 },
 "q_f40ae47ca035": {
 "drug:methylphenidate_dl/brands[Relexxii]": "sonnet"
+},
+"q_f410ec8fec92": {
+"receptor:5ht1a/effects[agonism:anxiolytic]": "opus"
 },
 "q_f42533208ac1": {
 "drug:ethosuximide/half_life": "sonnet"
@@ -9309,6 +9581,11 @@
 "q_f75db5036f72": {
 "drug:phenobarbital/brands[Luminal]": "sonnet"
 },
+"q_f7913f635975": {
+"receptor:alpha1a/effects[antagonism:sleep_promotion]": "opus",
+"receptor:alpha1b/effects[antagonism:sleep_promotion]": "opus",
+"receptor:alpha1d/effects[antagonism:sleep_promotion]": "opus"
+},
 "q_f79c77e2e10c": {
 "receptor:ampa/classification[synaptic]": "opus"
 },
@@ -9335,6 +9612,9 @@
 },
 "q_f834775dc716": {
 "drug:aripiprazole/formulations[depot]/release": "opus"
+},
+"q_f842ee87c844": {
+"receptor:cb1/effects[agonism:analgesia]": "opus"
 },
 "q_f8481918badb": {
 "drug:cyamemazine/bindings[d2:antagonist]": "sonnet"
@@ -9393,6 +9673,9 @@
 },
 "q_f9d8483fee26": {
 "drug:donepezil/categories": "sonnet"
+},
+"q_fa09f00841f9": {
+"receptor:mt1/effects[agonism:sleep_promotion]": "opus"
 },
 "q_fa2016cd2b57": {
 "drug:selegiline/formulations[ir]/release": "opus"
@@ -9466,6 +9749,9 @@
 "q_fc0abedb6a33": {
 "drug:lormetazepam/bindings[gaba_a:pam]": "sonnet"
 },
+"q_fc323f7350cc": {
+"receptor:kappa/effects[agonism:analgesia]": "opus"
+},
 "q_fc439ad06b60": {
 "receptor:kainate/classification[sign]": "opus"
 },
@@ -9533,6 +9819,9 @@
 "q_fd8c1965d8b6": {
 "receptor:mt1/locations[hypothalamus]": "sonnet"
 },
+"q_fd8e79a00529": {
+"receptor:5ht2a/effects[antagonism:sleep_promotion]": "opus"
+},
 "q_fda224a28c60": {
 "drug:quetiapine/nbn": "sonnet"
 },
@@ -9597,6 +9886,9 @@
 },
 "q_fe719b34a76e": {
 "drug:sertraline/brands[Zoloft]": "sonnet"
+},
+"q_fe83892d8c1a": {
+"receptor:5ht1a/effects[agonism:pro_cognitive]": "opus"
 },
 "q_fe953267d5a6": {
 "drug:ibogaine/metabolites[noribogaine]": "sonnet"

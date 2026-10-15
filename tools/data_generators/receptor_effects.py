@@ -77,6 +77,29 @@ RECEPTOR_EFFECTS: dict[str, dict[str, str]] = {
     "psychosis": {"en": "Psychosis", "fr": "Psychose"},
     "cardiovascular": {"en": "Raised heart rate / blood pressure",
                        "fr": "Hausse de la fréquence cardiaque / tension"},
+    "cardiac_valvulopathy": {"en": "Cardiac valvulopathy", "fr": "Valvulopathie cardiaque"},
+    # Therapeutic / non-adverse effects: the drug-panel join is direction-aware, so a
+    # 5-HT3 antagonist inherits "antiemetic" without the viewer inverting "nausea".
+    "antiemetic": {"en": "Antiemetic effect", "fr": "Effet antiémétique"},
+    "anticonvulsant": {"en": "Anticonvulsant effect", "fr": "Effet anticonvulsivant"},
+    "anxiolytic": {"en": "Anxiolytic effect", "fr": "Effet anxiolytique"},
+    "antidepressant": {"en": "Antidepressant effect", "fr": "Effet antidépresseur"},
+    "antipsychotic": {"en": "Antipsychotic effect", "fr": "Effet antipsychotique"},
+    "antiparkinsonian": {"en": "Antiparkinsonian effect", "fr": "Effet antiparkinsonien"},
+    "analgesia": {"en": "Pain relief (analgesia)", "fr": "Soulagement de la douleur (analgésie)"},
+    "antimigraine": {"en": "Migraine relief", "fr": "Soulagement de la migraine"},
+    "appetite_decrease": {"en": "Decreased appetite / satiety",
+                          "fr": "Diminution de l'appétit / satiété"},
+    "pro_cognitive": {"en": "Improved cognition", "fr": "Amélioration cognitive"},
+    "sleep_promotion": {"en": "Sleep promotion", "fr": "Induction du sommeil"},
+    "circadian_shift": {"en": "Circadian rhythm shift", "fr": "Recalage du rythme circadien"},
+    "wakefulness": {"en": "Wakefulness / alertness", "fr": "Éveil / vigilance"},
+    "hypothermia": {"en": "Lowered body temperature", "fr": "Baisse de la température corporelle"},
+    "bradycardia": {"en": "Slowed heart rate", "fr": "Ralentissement de la fréquence cardiaque"},
+    "bronchodilation": {"en": "Bronchodilation", "fr": "Bronchodilatation"},
+    "gastric_acid_reduction": {"en": "Reduced gastric acid secretion",
+                               "fr": "Diminution de la sécrétion acide gastrique"},
+    "vasoconstriction": {"en": "Vasoconstriction", "fr": "Vasoconstriction"},
 }
 
 

@@ -223,7 +223,7 @@ page to link, and the grade, not the link, conveys provenance); a *present* corp
 real link, which `check_data.py` enforces.
 ### Receptor effects (BETA)
 
-`receptor_effect` nodes (H1 antagonism -> sedation) come from Stahl Essential (#3) prose, with the receptor's own Wikipedia article (#9) as fallback, human / clinical statements only (no knockout phenotype). Four-step pipeline, offline:
+`receptor_effect` nodes (H1 antagonism -> sedation, 5-HT3 antagonism -> antiemetic: side effects and therapeutic effects share one vocabulary, the direction-aware join needs no inversion) come from Stahl Essential (#3) prose, with the receptor's own Wikipedia article (#9) as fallback, human / clinical statements only (no knockout phenotype). Four-step pipeline, offline:
 
 ```
 python tools/fetch/fetch_receptor_effects.py              # -> receptor_effects_worklist.json (keyword-offered candidates, no verdict)
