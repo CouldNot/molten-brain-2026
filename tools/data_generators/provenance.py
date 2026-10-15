@@ -666,7 +666,9 @@ SOURCE_CORPORA: dict[str, dict] = {
         # every table flattened to rows), so one corpus backs three different claims:
         # a binding `ki` where PDSP (corpus #5) has none (a fallback, never overriding
         # a measured assay), an active metabolite's own bindings, and a drug's
-        # metabolising-enzyme roles for the 149 drugs outside Stahl's roster.
+        # metabolising-enzyme roles for the 149 drugs outside Stahl's roster. It also
+        # backs a drug's originator (its own article) and that company's country and
+        # current name (the company's own article, same pages/ tree).
         # tools/fetch/fetch_wikipedia_pharmacology.py fetches the article pinned to a
         # revision id and writes the whole page as author-side text; a source's `page`
         # is the article slug and its `quote` is a verbatim line of it (a table row, a
@@ -829,7 +831,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         # Tmax / half-life quotes are French sentences picked by a model and judged like
         # any prose (four-step pipeline); a brand quote is the denomination's brand word,
         # copied by code from the product table (`extraction: "code"`, no judge), and its
-        # page is that product's header page. Author-side pages, like #14.
+        # page is that product's header page; a current French holder is that header's
+        # `holder:` line, copied the same way. Author-side pages, like #14.
         # Licence: Licence Ouverte / Open Licence (Etalab); the citation names the source
         # and the database as the licence asks.
         "ref": "Base de données publique des médicaments (ANSM), RCP",
@@ -903,8 +906,9 @@ SOURCE_CORPORA: dict[str, dict] = {
     "drugsfda": {
         # Regulatory register corpus #18: Drugs@FDA, the FDA's own list of approved
         # applications, read from openFDA's bulk drug/drugsfda export (www.fda.gov
-        # refuses scripted downloads). It exists for one fact: a drug's first US
-        # approval, as the fallback where Wikipedia (#9/#10) states no first approval.
+        # refuses scripted downloads). It exists for two facts: a drug's first US
+        # approval, as the fallback where Wikipedia (#9/#10) states no first approval,
+        # and the sponsor holding that NDA today (`holders`, the page title).
         # tools/fetch/fetch_drugsfda.py takes, per drug, the earliest original (ORIG)
         # approval among the NDAs whose single active ingredient is that drug (never an
         # ANDA, never a combination), and only when that NDA's own FDA class is "new
