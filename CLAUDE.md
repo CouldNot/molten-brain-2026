@@ -247,6 +247,7 @@ Corpora (`SOURCE_CORPORA`):
 - #20 `clinpgx`: ClinPGx (PharmGKB) clinical annotations, CC BY-SA 4.0, committed export `tools/data/clinpgx/` pinned + re-derived like #15, one quote per genotype sentence (code copy, no judge), `page` = annotation id.
 - #21 `pubchem`: computed XLogP3 + TPSA (code-read property table, no judge), `page` = PubChem CID, the drug's CID read off its stored Wikipedia drugbox.
 - #22 `b3db`: B3DB blood-brain-barrier benchmark (Meng 2021), BBB+/BBB- label + logBB, one quote per row (code copy, no judge), joined by CID else exact name and always guarded by InChI formula + connectivity, `page` = CID.
+- #23 `gtopdb_function`: GtoPdb per-target "Physiological Functions", "Clinically-Relevant Mutations and Pathophysiology" and "Altering Gene Expression" rows (+ comments), one statement per line naming its section and species, backing `receptor_effect` (LLM-picked by index + judged; a row with a stated non-human species is never offered), `page` = targetId.
 - #18 `drugsfda`: Drugs@FDA (openFDA export), the fallback first **US** approval (`national: true`, code-read, no judge) where no other source dates one, `page` = NDA number.
 
 Full detail (sourcing model, citation sites, book heading trails, the four uncertainty flags, per-corpus mechanics, the "% sourced" maths): [`docs/PROVENANCE.md`](docs/PROVENANCE.md).

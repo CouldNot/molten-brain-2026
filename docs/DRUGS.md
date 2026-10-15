@@ -224,7 +224,7 @@ page to link, and the grade, not the link, conveys provenance); a *present* corp
 real link, which `check_data.py` enforces.
 ### Receptor effects (BETA)
 
-`receptor_effect` nodes (H1 antagonism -> sedation, 5-HT3 antagonism -> antiemetic: side effects and therapeutic effects share one vocabulary, the direction-aware join needs no inversion) come from Stahl Essential (#3) prose, with the receptor's own Wikipedia article (#9) as fallback, human / clinical statements only (no knockout phenotype). Four-step pipeline, offline:
+`receptor_effect` nodes (H1 antagonism -> sedation, 5-HT3 antagonism -> antiemetic: side effects and therapeutic effects share one vocabulary, the direction-aware join needs no inversion) come from Stahl Essential (#3) prose, with the receptor's own Wikipedia article (#9) as fallback, plus GtoPdb's curated target-function rows (#23: physiological functions, pathophysiology, altered gene expression; a row with a stated non-human species is never offered, see docs/PROVENANCE.md), human / clinical statements only (no knockout phenotype, no gene-association-only or "potential target" line, no ligand list). The GtoPdb candidates are appended after the prose ones, so adding the corpus never shifts an index the judged file answers by. The GtoPdb pages need one network step first (`python tools/fetch/fetch_gtopdb_function.py`, GtoPdb API key as for #7; `--no-fetch` re-flattens offline). Four-step pipeline, offline:
 
 ```
 python tools/fetch/fetch_receptor_effects.py              # -> receptor_effects_worklist.json (keyword-offered candidates, no verdict)
