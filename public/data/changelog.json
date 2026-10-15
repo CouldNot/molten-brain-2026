@@ -1,6 +1,40 @@
 {
   "versions": [
     {
+      "version": "3.123.0",
+      "date": "2026-10-15",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "A drug's Neurotransmitter tone rows now show an up or down arrow (tone rises or falls) instead of a left/right one, with a matching tooltip",
+          "commits": [
+            "5ad358a"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "In a source tooltip, a blank line now separates the quote from \"How this quote got here\"",
+          "commits": [
+            "55e4293"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The address bar no longer carries auto-rotate, animation or animation-speed settings: a shared link still applies them if present, but never writes them",
+          "commits": [
+            "d6b76bb"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The Pharmacokinetics values (time to peak, half-life, therapeutic range, alert level) no longer sit glued to the previous value's source badge",
+          "commits": [
+            "33b46e7"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.122.2",
       "date": "2026-10-14",
       "entries": [
