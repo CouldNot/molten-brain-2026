@@ -99,6 +99,7 @@ from data_generators.presentation import (  # noqa: E402
 # TARGET_TYPE_*) live in data_generators.drugs.
 # ---------------------------------------------------------------------------
 from data_generators import history  # noqa: E402 (regulatory history vocabularies)
+from data_generators import origin  # noqa: E402 (originator + current holders)
 from data_generators import formulations  # noqa: E402 (release-type sub-nodes)
 from data_generators.drugs import (  # noqa: E402
     DRUG_ACTIONS,
@@ -1409,6 +1410,9 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # Regulatory history: first approval + market withdrawals (kinds
     # drug_first_approval / drug_withdrawals). See apply_drug_history.py.
     out.update(history.drug_history(drug))
+    # Originator lab + its country + current market holders (kinds drug_originator /
+    # drug_originator_country / drug_holders). See data_generators/origin.py.
+    out.update(origin.drug_origin(drug))
     out.update(_drug_prodrug(drug))
     # Therapeutic reference range + laboratory alert level (kinds
     # drug_therapeutic_range / drug_alert_level), from the AGNP TDM guideline's

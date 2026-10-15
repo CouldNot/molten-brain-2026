@@ -133,6 +133,7 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "drug_categories",
               "drug_half_life", "drug_tmax", "drug_formulations",
               "drug_first_approval", "drug_withdrawals",
+              "drug_holders", "drug_originator", "drug_originator_country",
               "drug_prodrug", "drug_therapeutic_range", "drug_alert_level",
               "drug_enzymes", "drug_enzyme_strength",
               "enzyme_variability", "drug_pgx",
@@ -959,6 +960,8 @@ def check_provenance(report, meta, structures, projections, circuits,
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 grade(src.get("provenance"), f"drug {drug.get('id')} withdrawals[{wi}] sources[{i}]")
+        for _ctx, src in _origin_sources(drug):
+            grade(src.get("provenance"), f"drug {drug.get('id')} {_ctx}")
         for m in drug.get("metabolites", []) or []:
             for i, src in enumerate(m.get("sources", []) or []):
                 grade(src.get("provenance"),
@@ -1462,6 +1465,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 check_one(f"drug {did} withdrawals[{wi}] sources[{i}]", src)
+        # Holder names are short register strings ("holder: UCB PHARMA"), by design.
+        for ctx, src in _origin_sources(drug):
+            check_one(f"drug {did} {ctx}", src, short_ok=ctx.startswith("holders"))
         # Metabolism rows (fetch_cyp.py already gates these on the way in, but that
         # is the author-side pass; this is the backstop that also catches a later
         # hand-edit of the emitted data).
@@ -2139,6 +2145,17 @@ def _holder_ctxs(ctx, drug):
     """``(context label, holder)`` for the drug and each of its formulations."""
     return [(ctx if h is drug else f"{ctx} formulation {h.get('release')}", h)
             for h in product_holders(drug)]
+
+
+def _origin_sources(drug):
+    """``(context label, source)`` for every originator / holder citation of a drug
+    (kinds drug_holders / drug_originator / drug_originator_country)."""
+    out = [(f"holders[{h.get('market')}] sources[{i}]", src)
+           for h in drug.get("holders", []) or []
+           for i, src in enumerate(h.get("sources", []) or [])]
+    for f in ("originator_sources", "originator_now_sources", "originator_country_sources"):
+        out += [(f"{f}[{i}]", src) for i, src in enumerate(drug.get(f, []) or [])]
+    return out
 
 
 def check_innervation(report, meta, structures, projections, receptors):

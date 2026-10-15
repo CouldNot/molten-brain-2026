@@ -15,7 +15,9 @@
 // this module never touches the scene.
 
 import { loadFlag, saveFlag } from "./prefs.js";
-import { approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
+import {
+  approvalLabel, formatApproval, formatHolder, formatOriginator, formatWithdrawal,
+} from "./drug-history.js";
 import { formatAlert, formatRange } from "./tdm.js";
 import { transmitterVars } from "./release-modulation.js";
 
@@ -59,6 +61,9 @@ const KIND_ORDER = [
   "drug_formulations",
   "drug_first_approval",
   "drug_withdrawals",
+  "drug_holders",
+  "drug_originator",
+  "drug_originator_country",
   "drug_prodrug",
   "drug_therapeutic_range",
   "drug_alert_level",
@@ -391,6 +396,19 @@ export function collectNodes(data, deps, opts = {}) {
       push("drug_alert_level", d.name, `${t("drug.alertLevel")} `
         + formatAlert(d.alertLevel, window.__I18N__.lang),
         d.alertLevel.provenance, go, { sources: d.alertLevel.sources });
+    }
+    if (d.originator) {
+      push("drug_originator", d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,
+        d.originator.provenance, go, { sources: d.originator.sources });
+      const c = d.originator.country;
+      if (c) {
+        push("drug_originator_country", d.name, `${t("drug.originator")} ${c.label}`,
+          c.provenance, go, { sources: c.sources });
+      }
+    }
+    for (const h of d.holders || []) {
+      push("drug_holders", d.name, `${t("drug.holders")} ${formatHolder(h)}`, h.provenance,
+        go, { sources: h.sources });
     }
     for (const w of d.withdrawals || []) {
       push("drug_withdrawals", d.name, `${t("drug.withdrawn")} ${formatWithdrawal(w)}`,

@@ -39,7 +39,9 @@ import { createTheme } from "./theme.js";
 import { derivePossibleEffects } from "./receptor-effects.js";
 import { groupByVariant, variantsForDrug } from "./receptor-variants.js";
 import { deriveReleaseChanges, transmitterVars } from "./release-modulation.js";
-import { appendDrugHistory, approvalLabel, formatApproval, formatWithdrawal } from "./drug-history.js";
+import {
+  appendDrugHistory, approvalLabel, formatApproval, formatHolder, formatOriginator, formatWithdrawal,
+} from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
@@ -6385,6 +6387,9 @@ const KIND_LABELS = {
   drug_formulations: "about.kindDrugFormulations",
   drug_first_approval: "about.kindDrugFirstApproval",
   drug_withdrawals: "about.kindDrugWithdrawals",
+  drug_holders: "about.kindDrugHolders",
+  drug_originator: "about.kindDrugOriginator",
+  drug_originator_country: "about.kindDrugOriginatorCountry",
   drug_prodrug: "about.kindDrugProdrug",
   drug_therapeutic_range: "about.kindDrugTherapeuticRange",
   drug_alert_level: "about.kindDrugAlertLevel",
@@ -6799,6 +6804,24 @@ function buildKindExample(kind, data, nav) {
       const d = pick(focusableDrugs, (x) => x.id === "nefazodone" && x.withdrawals.length)
         || focusableDrugs.find((x) => x.withdrawals.length);
       return d ? line(d.name, `${t("drug.withdrawn")} ${formatWithdrawal(d.withdrawals[0])}`,
+        () => nav.drug(d)) : null;
+    }
+    case "drug_holders": {
+      const d = pick(focusableDrugs, (x) => x.id === "quetiapine" && x.holders.length)
+        || focusableDrugs.find((x) => x.holders.length);
+      return d ? line(d.name, `${t("drug.holders")} ${formatHolder(d.holders[0])}`,
+        () => nav.drug(d)) : null;
+    }
+    case "drug_originator": {
+      const d = pick(focusableDrugs, (x) => x.id === "citalopram" && x.originator)
+        || focusableDrugs.find((x) => x.originator);
+      return d ? line(d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,
+        () => nav.drug(d)) : null;
+    }
+    case "drug_originator_country": {
+      const d = pick(focusableDrugs, (x) => x.id === "cyamemazine" && x.originator?.country)
+        || focusableDrugs.find((x) => x.originator?.country);
+      return d ? line(d.name, `${t("drug.originator")} ${d.originator.country.label}`,
         () => nav.drug(d)) : null;
     }
     case "drug_enzymes": {

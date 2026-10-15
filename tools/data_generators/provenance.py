@@ -1434,6 +1434,14 @@ def _provenance_stats(structures: list[dict[str, Any]],
                              for d in drugs if d.get("first_approval")]
     withdrawal_grades = [_strongest_grade(w.get("sources"))
                          for d in drugs for w in d.get("withdrawals", [])]
+    # Who the drug comes from (data_generators/origin.py): ONE holder node per (drug,
+    # market), ONE originator and ONE originator-country node per drug carrying one.
+    holder_grades = [_strongest_grade(h.get("sources"))
+                     for d in drugs for h in d.get("holders", [])]
+    originator_grades = [_strongest_grade(d.get("originator_sources"))
+                         for d in drugs if d.get("originator")]
+    originator_country_grades = [_strongest_grade(d.get("originator_country_sources"))
+                                 for d in drugs if d.get("originator_country")]
     # ONE node per prodrug ("inactive until metabolised into X"); a drug active itself
     # carries no claim. See apply_prodrug.py.
     prodrug_grades = [_strongest_grade(d.get("prodrug_sources"))
@@ -1654,6 +1662,9 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_formulations": tally(formulation_grades),
         "drug_first_approval": tally(first_approval_grades),
         "drug_withdrawals": tally(withdrawal_grades),
+        "drug_holders": tally(holder_grades),
+        "drug_originator": tally(originator_grades),
+        "drug_originator_country": tally(originator_country_grades),
         "drug_prodrug": tally(prodrug_grades),
         "drug_therapeutic_range": tally(trr_grades),
         "drug_alert_level": tally(alert_grades),

@@ -1070,6 +1070,29 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       sources: mapSources(d.first_approval_sources),
       provenance: strongestGrade(d.first_approval_sources),
     } : null;
+    // Who the drug comes from (kinds drug_originator / drug_originator_country /
+    // drug_holders): the originator lab (its `now` name cited apart, shown in its
+    // tooltip, graded by the name's own sources), that lab's country, and the current
+    // marketing-authorisation holders, one node per market.
+    const og = d.originator;
+    d.originator = og ? {
+      name: og.name,
+      now: og.now || null,
+      sources: mapSources([...(d.originator_sources || []), ...(d.originator_now_sources || [])]),
+      provenance: strongestGrade(d.originator_sources),
+      country: d.originator_country ? {
+        label: historyCountries[d.originator_country] || d.originator_country,
+        sources: mapSources(d.originator_country_sources),
+        provenance: strongestGrade(d.originator_country_sources),
+      } : null,
+    } : null;
+    d.holders = (d.holders || []).map((h) => ({
+      market: h.market,
+      marketLabel: historyCountries[h.market] || h.market,
+      names: h.names,
+      sources: mapSources(h.sources),
+      provenance: strongestGrade(h.sources),
+    }));
     // Prodrug flag (kind drug_prodrug): its own graded claim; the borrowed
     // bindings are wired by the prodrug pass above this loop.
     d.prodrug = d.prodrug ? {

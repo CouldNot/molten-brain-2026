@@ -355,6 +355,26 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
                        f"({HIST.COUNTRIES[w['country']]['en']}) in {w['year']}, "
                        f"reason: {why}.",
                     CS.site("drug", d["id"], f"withdrawals[{CS.withdrawal_key(w)}]"))
+        kind["now"] = "drug_holders"
+        for h in d.get("holders", []):
+            where = HIST.COUNTRIES[h["market"]]["en"]
+            for q in _qids(h.get("sources", [])):
+                add(q, f"Drug {nm}'s marketing authorisation in {where} is currently "
+                       f"held by one of: {', '.join(h['names'])}.",
+                    CS.site("drug", d["id"], f"holders[{h['market']}]"))
+        og = d.get("originator") or {}
+        kind["now"] = "drug_originator"
+        for q in _qids(d.get("originator_sources", [])):
+            add(q, f"Drug {nm} was discovered, first synthesized or developed by "
+                   f"{og.get('name')}.", CS.site("drug", d["id"], "originator"))
+        for q in _qids(d.get("originator_now_sources", [])):
+            add(q, f"The company {og.get('name')} is now part of, or now named, "
+                   f"{og.get('now')}.", CS.site("drug", d["id"], "originator/now"))
+        kind["now"] = "drug_originator_country"
+        for q in _qids(d.get("originator_country_sources", [])):
+            country = HIST.COUNTRIES[d["originator_country"]]["en"]
+            add(q, f"The company {og.get('name')} (originator of drug {nm}) is based in "
+                   f"{country}.", CS.site("drug", d["id"], "originator_country"))
         kind["now"] = "drug_prodrug"
         for q in _qids(d.get("prodrug_sources", [])):
             mets = ", ".join(metab_by_id[m["id"]]["name"] for m in d.get("metabolites", []))

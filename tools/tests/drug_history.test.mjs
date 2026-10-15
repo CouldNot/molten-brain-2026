@@ -1,8 +1,11 @@
 // Unit tests for public/js/drug-history.js groupWithdrawals (one panel row per
-// (year, reason)), approvalLabel (a one-country approval is labelled so) and yearsAgo, run by tools/tests/test_js_units.py via `node --test`.
+// (year, reason)), approvalLabel (a one-country approval is labelled so), yearsAgo and
+// the originator / holder wording, run by tools/tests/test_js_units.py via `node --test`.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { approvalLabel, formatApproval, groupWithdrawals, yearsAgo } from "../../public/js/drug-history.js";
+import {
+  approvalLabel, formatApproval, formatHolder, formatOriginator, groupWithdrawals, yearsAgo,
+} from "../../public/js/drug-history.js";
 
 const w = (year, reason, countryLabel, scope = false) =>
   ({ year, reason, reasonLabel: reason, countryLabel, scope });
@@ -50,4 +53,18 @@ test("formatApproval puts the elapsed years right after the year", () => {
   const fa = { year: 1994, countryLabel: "United States", agencyLabel: "FDA" };
   assert.equal(formatApproval(fa), "1994, United States (FDA)");
   assert.equal(formatApproval(fa, "32 years ago"), "1994 (32 years ago), United States (FDA)");
+});
+
+test("a holder row names every holder, then its market", () => {
+  assert.equal(formatHolder({ names: ["CHEPLAPHARM"], marketLabel: "United States" }),
+    "CHEPLAPHARM (United States)");
+  assert.equal(formatHolder({ names: ["ETHYPHARM", "MUNDIPHARMA"], marketLabel: "France" }),
+    "ETHYPHARM, MUNDIPHARMA (France)");
+});
+
+test("an originator shows its current name only when a source gives one", () => {
+  const t = (k, v) => (k === "drug.originatorNow" ? `${v.name} (now ${v.now})` : k);
+  assert.equal(formatOriginator({ name: "Lundbeck", now: null }, t), "Lundbeck");
+  assert.equal(formatOriginator({ name: "Rhône-Poulenc", now: "Sanofi" }, t),
+    "Rhône-Poulenc (now Sanofi)");
 });
