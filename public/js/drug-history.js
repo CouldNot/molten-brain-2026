@@ -14,11 +14,24 @@ export function approvalLabel(fa, t) {
   return t(fa.national ? "drug.firstNationalApproval" : "drug.firstApproval");
 }
 
-/** "1994, United States (FDA)" from a mapped `drug.firstApproval`. */
-export function formatApproval(fa) {
+/** "1994, United States (FDA)" from a mapped `drug.firstApproval`, or with `elapsed`
+ *  (see yearsAgo) "1994 (32 years ago), United States (FDA)". */
+export function formatApproval(fa, elapsed = "") {
+  const since = elapsed ? ` (${elapsed})` : "";
   const where = fa.countryLabel ? `, ${fa.countryLabel}` : "";
   const agency = fa.agencyLabel ? ` (${fa.agencyLabel})` : "";
-  return `${fa.year}${where}${agency}`;
+  return `${fa.year}${since}${where}${agency}`;
+}
+
+/**
+ * "32 years ago" for a year, counted from `now` (a Date, today by default). Kept
+ * out of formatApproval and out of the generated data: it ages, so it is computed at
+ * view time and only where a reader sees it (the detail panel), never baked in.
+ */
+export function yearsAgo(year, t, now = new Date()) {
+  const n = now.getFullYear() - year;
+  if (n <= 0) return t("drug.thisYear");
+  return t(n === 1 ? "drug.yearAgo" : "drug.yearsAgo", { n });
 }
 
 /** "2004, most markets: liver toxicity" from one mapped `drug.withdrawals[]` row. */
@@ -68,8 +81,9 @@ export function appendDrugHistory(facts, drug,
     ? makeProvenancePill(node.provenance, sourcesTip(node.sources))
     : makeProvenancePill(node.provenance || null));
   if (drug.firstApproval) {
-    addFactRow(facts, approvalLabel(drug.firstApproval, t), formatApproval(drug.firstApproval),
-      null, { pill: pill(drug.firstApproval) });
+    const fa = drug.firstApproval;
+    addFactRow(facts, approvalLabel(fa, t), formatApproval(fa, yearsAgo(fa.year, t)),
+      null, { pill: pill(fa) });
     facts.lastChild.title = t(drug.firstApproval.national ? "drug.firstNationalApprovalTip"
       : "drug.firstApprovalTip");
     facts.lastChild.classList.add("fact-history");

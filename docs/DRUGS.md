@@ -134,7 +134,7 @@ fixed Stahl list.
 - **Regulatory history (first approval + withdrawals, Wikipedia EN then FR).** A drug carries an optional
   `first_approval` (`{year, country?, agency?, national?}`, kind `drug_first_approval`, source `first_approval_sources`)
   and an optional `withdrawals[]` (`{year, country, reason, sources}`, kind `drug_withdrawals`, one node
-  each), shown as rows of the panel's facts block by `js/drug-history.js` (a withdrawal in caution ink).
+  each), shown by `js/drug-history.js` as rows of the panel's "Administrative" section, above the brands (a withdrawal in caution ink; the approval year is followed by the years elapsed, computed at view time so it never goes stale in the data).
   Every value is an id from a closed vocabulary in `tools/data_generators/history.py` (`COUNTRIES`, with
   the `worldwide` / `most_markets` scopes; `AGENCIES`; `WITHDRAWAL_REASONS`, with `unstated` for a
   sentence that gives no why), emitted into meta as `drug_history_countries` / `drug_history_agencies` /

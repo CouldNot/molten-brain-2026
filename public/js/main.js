@@ -4631,8 +4631,6 @@ function createInfoPanel(data, sourcingModal) {
           note: drug.nbnNonstandard ? t("drug.nbnNonstandard") : null,
         });
       }
-      appendDrugHistory(facts, drug,
-        { addFactRow, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
       if (facts.childElementCount) body.appendChild(facts);
 
       // Commercial brand names, each its own graded node (Stahl backs na, Wikipedia
@@ -4648,11 +4646,20 @@ function createInfoPanel(data, sourcingModal) {
           ? makeProvenancePill(b.sources[0].provenance, sourcesTip(b.sources))
           : makeProvenancePill(null));
       };
+      // Administrative: the regulatory history (first approval + years since,
+      // withdrawals) and the brands, i.e. what the drug is as a marketed product rather
+      // than as a molecule. Omitted when it would hold nothing.
+      const admin = el("div", "info-bindings info-admin");
+      admin.appendChild(el("h3", null, t("drug.admin")));
+      const history = el("div", "info-facts");
+      appendDrugHistory(history, drug,
+        { addFactRow, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
+      if (history.childElementCount) admin.appendChild(history);
       const moleculeBrands = (drug.brandsOrdered || []).filter((b) => !b.release);
       if (moleculeBrands.length) {
-        const brandsEl = el("div", "info-bindings info-brands");
+        const brandsEl = el("div", "info-brands");
         brandsEl.dataset.tourSec = "brands"; // guided-tour section anchor
-        brandsEl.appendChild(el("h3", null, t("drug.brands")));
+        brandsEl.appendChild(el("h4", null, t("drug.brands")));
         const ul = el("ul");
         for (const b of moleculeBrands) {
           const li = el("li");
@@ -4660,8 +4667,9 @@ function createInfoPanel(data, sourcingModal) {
           ul.appendChild(li);
         }
         brandsEl.appendChild(ul);
-        body.appendChild(brandsEl);
+        admin.appendChild(brandsEl);
       }
+      if (admin.childElementCount > 1) body.appendChild(admin);
 
       // Does the Metabolism section below carry a non-linear-kinetics admonition?
       // A single T½ is only meaningful when clearance is a straight line, so a drug
