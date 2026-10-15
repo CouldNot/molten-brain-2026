@@ -2706,8 +2706,10 @@ function createInfoPanel(data, sourcingModal) {
     // same, and it should, because the grade really is the same; but a sentence a model
     // read off a book page and a table cell a parser copied are different evidence, and
     // the reader is the one entitled to weigh that.
+    // A blank line before it, so the trail reads apart from the quote block above.
     const chain = quoteChain(s.pipeline);
-    return [withSpecies, licenceLine(s.licence), chain, corpusCitations(s.corpus)]
+    return [withSpecies, licenceLine(s.licence), chain && `\n${chain}`,
+      corpusCitations(s.corpus)]
       .filter(Boolean).join("\n");
   };
 
