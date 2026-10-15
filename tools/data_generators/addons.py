@@ -140,6 +140,59 @@ ADDONS: list[dict[str, Any]] = [
         ],
     },
     {
+        # Same shape as lithium's: the chip above is haloperidol's PLASMA half-life
+        # (Stahl, 12-38 h). Post-mortem tissue from 11 treated patients, so the text says
+        # it is one small study and an estimate.
+        "id": "haloperidol_brain_half_life",
+        "owner_kind": "drug",
+        "owner": "haloperidol",
+        "slot": "drug.timing",
+        "display": "admonition",
+        "tone": "caution",
+        "title": {
+            "en": "The brain lets go of haloperidol far more slowly",
+            "fr": "Le cerveau élimine l'halopéridol bien plus lentement",
+        },
+        "text": {
+            "en": "Measured in post-mortem brain tissue of 11 treated patients (one "
+                  "small study, a population estimate), haloperidol sat at 10 to 30 "
+                  "times its optimal serum level and left the brain with a half-life of "
+                  "6.8 days, against hours in the blood: its effects can outlast the "
+                  "last dose by weeks.",
+            "fr": "Mesuré dans le tissu cérébral post mortem de 11 patients traités (une "
+                  "seule petite étude, une estimation de population), l'halopéridol y "
+                  "était 10 à 30 fois plus concentré que le taux sérique optimal et en "
+                  "sortait avec une demi-vie de 6,8 jours, contre quelques heures dans "
+                  "le sang : ses effets peuvent durer des semaines après la dernière "
+                  "prise.",
+        },
+        "sources": [
+            {
+                "corpus": "europepmc",
+                "page": "10360127",
+                "quote": "The elimination half-life from brain tissue was calculated to "
+                         "be 6.8 days.",
+                "provenance": "verified",
+            },
+            {
+                "corpus": "europepmc",
+                "page": "10360127",
+                "quote": "Haloperidol concentrations in the human brain tissue were "
+                         "10-30 times higher than optimal serum concentrations used in "
+                         "the treatment of schizophrenia.",
+                "provenance": "verified",
+            },
+            {
+                "corpus": "europepmc",
+                "page": "10360127",
+                "quote": "Patients exposed to haloperidol cannot be considered to be free "
+                         "of residual effects of the drug for a number of weeks after "
+                         "withdrawal.",
+                "provenance": "verified",
+            },
+        ],
+    },
+    {
         "id": "paroxetine_nonlinear_pk",
         "owner_kind": "drug",
         "owner": "paroxetine",

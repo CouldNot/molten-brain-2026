@@ -109,6 +109,8 @@ PAGES_DIR = ROOT / "data_sources" / "europepmc" / "pages"
 PAPERS: dict[str, str] = {
     "7827213": "lithium: brain half-life (7Li MRS) longer than serum half-life "
                "(addon lithium_brain_half_life)",
+    "10360127": "haloperidol: brain-tissue elimination half-life (post-mortem HPLC) far "
+                "longer than the serum one (addon haloperidol_brain_half_life)",
     # Primate tract-tracing for the monoamine pathways the books never name (check_data
     # family 10, docs/SOURCING_GAPS.md "Innervation coverage"). Species in each line.
     "27028222": "raphe -> globus pallidus, serotonergic (primate review)",
