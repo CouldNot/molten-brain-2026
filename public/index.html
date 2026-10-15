@@ -2706,17 +2706,16 @@
         font-size: 12px;
       }
       /* The Pharmacokinetics block: chips side by side with a real gap between them
-         (not glued pill-to-label), wrapping on a narrow panel; the heading and any
-         addon take a full line each. */
-      .info-halflife {
+         (not glued pill-to-label), wrapping on a narrow panel; any addon takes a full
+         line. The flex sits on the folded section's body (foldSections moves every
+         child there), not on the section itself, or the gap never reaches the chips. */
+      .info-halflife > .panel-sec-body {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
         gap: var(--sp-m) var(--sp-xl);
       }
-      .info-halflife > h3, .info-halflife > .addon { flex-basis: 100%; }
-      .info-halflife > h3 { margin-bottom: 0; }
-      .info-halflife > .addon { margin: var(--sp-s) 0 0; }
+      .info-halflife .addon { flex-basis: 100%; margin: var(--sp-s) 0 0; }
       /* Per-formulation list: one hairline-separated block each, release type + pill
          + its Tmax / T½ chips on one wrapping line, its brands wrapping below. */
       .info-halflife .formulations { flex-basis: 100%; }
