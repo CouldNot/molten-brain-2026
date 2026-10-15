@@ -5,7 +5,10 @@ Reads every editable corpus's author-side pages (or its bulk download) through
 ``data_generators.freshness.scan`` and writes ``tools/generated_cache/fetch_dates.json``,
 which ``generate_data.py`` stamps onto each emitted source. Run it after any refetch, then
 ``generate_data.py``; a cited page the ledger does not know fails ``check_data.py``.
-A corpus absent from this disk keeps its prior dates. Stdlib only, offline.
+A corpus absent from this disk keeps its prior dates. It also writes
+``tools/generated_cache/page_links.json`` (``data_generators.page_links``): the url each
+Wikipedia / Drugs@FDA page header names, so a cited page is a clickable link on a clone.
+Stdlib only, offline.
 
     python tools/fetch/stamp_fetch_dates.py            # write the ledger
     python tools/fetch/stamp_fetch_dates.py --dry-run  # report only
@@ -21,7 +24,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from data_generators import freshness  # noqa: E402  (path shim above)
+from data_generators import freshness, page_links  # noqa: E402  (path shim above)
 
 
 def main() -> int:
@@ -41,11 +44,15 @@ def main() -> int:
         span = dates[0] if dates[0] == dates[-1] else f"{dates[0]} .. {dates[-1]}"
         pages = "bulk" if isinstance(entry, str) else f"{len(dates)} pages"
         print(f"  {corpus:<16} {pages:<10} {span}" + (f"  ({stale} stale)" if stale else ""))
+    links = page_links.build_ledger(page_links.load_ledger())
+    for corpus, urls in links.items():
+        print(f"  {corpus:<16} {len(urls)} page links")
     if args.dry_run:
         return 0
-    Path(freshness.LEDGER_PATH).write_text(
-        json.dumps(ledger, indent=1, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"wrote {Path(freshness.LEDGER_PATH).relative_to(freshness.ROOT)}")
+    for path, data in ((freshness.LEDGER_PATH, ledger), (page_links.LEDGER_PATH, links)):
+        Path(path).write_text(json.dumps(data, indent=1, sort_keys=True) + "\n",
+                              encoding="utf-8")
+        print(f"wrote {Path(path).relative_to(freshness.ROOT)}")
     return 0
 
 

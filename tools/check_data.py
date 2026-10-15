@@ -798,10 +798,13 @@ def check_todos(report, meta, structures, projections, circuits,
 
     # --- corpus links ---
     # Per-claim sources are quote-level ``{corpus, page, quote}`` and carry no url of
-    # their own (the viewer resolves the link from ``meta.source_corpora``). A corpus's
-    # ``url`` is optional: a copyrighted book has no free landing page to link, and the
-    # provenance pill, not a link, is what conveys the grade, so the key is simply
-    # omitted there. What would be a bug is a *present* url that is not a real link.
+    # their own: the viewer links a cited page from ``meta.source_corpora``, trying the
+    # corpus's ``page_urls[page]``, then its ``page_url`` template, then its ``url``
+    # landing page (a book's DOI or ISBN). So every corpus needs a real ``url``, and any
+    # link it does carry must be one.
+    def is_link(u):
+        return str(u).startswith(("http://", "https://"))
+
     no_link = []
     for cid, corpus in (meta.get("source_corpora", {}) or {}).items():
         if not isinstance(corpus, dict):
@@ -809,12 +812,15 @@ def check_todos(report, meta, structures, projections, circuits,
         url = corpus.get("url")
         if url is None:
             no_link.append(cid)
-        elif not str(url).startswith(("http://", "https://")):
-            report.error(f"source_corpora.{cid}.url is not a real link: {url!r} "
-                         f"(omit the key instead)")
+        elif not is_link(url):
+            report.error(f"source_corpora.{cid}.url is not a real link: {url!r}")
+        bad = [p for p, u in (corpus.get("page_urls") or {}).items() if not is_link(u)]
+        if bad:
+            report.error(f"source_corpora.{cid}.page_urls: not a real link for "
+                         f"{len(bad)} page(s), e.g. {bad[0]!r}")
     if no_link:
-        report.ok(f"{len(no_link)} source corpus/corpora carry no url "
-                  f"(expected for a book: {', '.join(sorted(no_link))})")
+        report.warn(f"{len(no_link)} source corpus/corpora carry no url, so their "
+                    f"citations are not clickable: {', '.join(sorted(no_link))}")
     else:
         report.ok("every source corpus carries a real url")
 

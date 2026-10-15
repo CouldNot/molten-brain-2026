@@ -136,7 +136,7 @@ class Renderer:
             return f"[{grade} {q['id']}]" + (f" ({extra})" if extra else "")
         # A bare database row links where the viewer's Ki tooltip does: its own
         # reference URL, else the corpus's generic one.
-        url = self.corpora.get(corpus, {}).get("url")
+        url = self.page_link(corpus, ref.get("page"))
         if url and "http" not in extra:
             extra = f"{extra}; {url}" if extra else url
         return f"[{grade}] {where}" + (f" ({extra})" if extra else "")
@@ -187,6 +187,17 @@ class Renderer:
         return [f"{pad}- {self.scalar(key, v, parent)}"]
 
     # -- pages ---------------------------------------------------------------------------
+    def page_link(self, corpus: str | None, page: Any) -> str | None:
+        """The link for one cited page, as the viewer's tooltip resolves it: the corpus's
+        stored ``page_urls[page]``, else its ``{page}`` template, else its landing ``url``."""
+        c = self.corpora.get(corpus, {})
+        if page is not None:
+            if c.get("page_urls", {}).get(str(page)):
+                return c["page_urls"][str(page)]
+            if c.get("page_url"):
+                return c["page_url"].replace("{page}", quote(str(page), safe=URI_SAFE))
+        return c.get("url")
+
     def sources_section(self) -> list[str]:
         """The quotes this page cited, once each, in first-cited order."""
         if not self.cited:
@@ -196,10 +207,9 @@ class Renderer:
             where = self.corpora.get(q.get("corpus"), {}).get("ref", q.get("corpus"))
             has_page = q.get("page") not in (None, "")
             page = f", {q['page']}" if has_page else ""
-            # The corpus's public URL for this page, the link the viewer's tooltip shows.
-            page_url = self.corpora.get(q.get("corpus"), {}).get("page_url")
-            link = (f" {page_url.replace('{page}', quote(str(q['page']), safe=URI_SAFE))}"
-                    if page_url and has_page else "")
+            # The page's public URL, the link the viewer's tooltip shows (see page_link).
+            link = self.page_link(q.get("corpus"), q['page'] if has_page else None)
+            link = f" {link}" if link else ""
             lines.append(f"- `{qid}` ({where}{page}){link}: \"{q['quote']}\"")
         return lines
 

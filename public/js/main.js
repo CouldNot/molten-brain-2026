@@ -2681,10 +2681,14 @@ function createInfoPanel(data, sourcingModal) {
     const c = corpora[s.corpus] || {};
     const label = c.ref || c.short || s.corpus;
     // `page` is a book page unless the corpus names what it holds instead (a PMID, a
-    // DailyMed setid, a gene), and resolves to a public URL when the corpus gives one.
+    // DailyMed setid, a gene). The link is that exact page when the corpus can name it
+    // (a stored per-page url such as a Wikipedia permalink or a paper's DOI, else the
+    // `{page}` template), else the corpus's own landing page (a book's DOI or ISBN).
     const pageRef = c.page_kind ? `info.sourcePage.${c.page_kind}` : "info.sourceRef";
-    const pageUrl = s.page != null && c.page_url
-      ? `\n${c.page_url.replace("{page}", encodeURIComponent(s.page))}` : "";
+    const url = (s.page != null && (c.page_urls?.[s.page]
+      || (c.page_url && c.page_url.replace("{page}", encodeURIComponent(s.page)))))
+      || c.url;
+    const pageUrl = url ? `\n${url}` : "";
     const ref = withFetched(s.page != null
       ? t(pageRef, { corpus: label, page: s.page })
       : label, s.fetched, t) + pageUrl;

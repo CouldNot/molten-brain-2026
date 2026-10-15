@@ -97,7 +97,7 @@ two claims by two routes (Stahl's Class line is model-picked for the drug's clas
 the NbN fallback).
 
 **Where the grade lives.** One source shape, quote-level `{corpus, page, quote, provenance}` against a
-`SOURCE_CORPORA` corpus (`page` is a book page unless the corpus sets `page_kind`, e.g. `pmid` / `setid` / `gene`, labelled by `info.sourcePage.<kind>` in `js/i18n.js`; an optional `page_url` template with `{page}` turns it into a clickable link in the tooltip); `provenance` defaults `DEFAULT_PROVENANCE` (`"llm"`), a sourceless node is
+`SOURCE_CORPORA` corpus (`page` is a book page unless the corpus sets `page_kind`, e.g. `pmid` / `setid` / `gene`, labelled by `info.sourcePage.<kind>` in `js/i18n.js`; the tooltip links the exact page via the corpus's `page_urls[page]` (read from each fetched page's header by `tools/data_generators/page_links.py`: a Wikipedia revision permalink, a paper's DOI, a Drugs@FDA application page; committed as `tools/generated_cache/page_links.json` by `stamp_fetch_dates.py`), else its `page_url` template with `{page}`, else the corpus `url` landing page, a book's DOI or its ISBN on WorldCat); `provenance` defaults `DEFAULT_PROVENANCE` (`"llm"`), a sourceless node is
 `NOSOURCE`. Each `wikipedia` reference emits a sibling `wikipedia_provenance` (`WIKIPEDIA_PROVENANCE`
 registry); a **present** link defaults `"sourced"` (`WIKIPEDIA_DEFAULT_PROVENANCE`), not `llm` (a real
 reference the viewer live-fetches). `_provenance` validates every grade; upgrading a source is a data edit.

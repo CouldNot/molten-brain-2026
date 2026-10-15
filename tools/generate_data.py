@@ -211,6 +211,7 @@ from data_generators import llms_txt  # noqa: E402 (public/llms.txt for LLM agen
 # the guidance blocks and the enzyme routes they state from the same committed export.
 from data_generators import cpic  # noqa: E402
 from data_generators import tdm  # noqa: E402 (AGNP TDM ranges, corpus #19)
+from data_generators import page_links as PAGE_LINKS  # noqa: E402 (per-page source urls)
 from data_generators.unknown import apply_unknown  # noqa: E402
 
 # The receptor classification records (pure data, one module per neurotransmitter
@@ -2100,6 +2101,8 @@ def write_artifacts(root: Path) -> None:
     CW.reconstruct_claims(QUOTES, emitted,
                           on_cite=lambda site, ref: sites.setdefault(id(ref), site))
     finalize_citations(emitted, sites)
+    emitted["meta"]["source_corpora"] = PAGE_LINKS.attach(
+        emitted["meta"]["source_corpora"], QUOTES.values())
 
     meta_path = data_dir / "meta.json"
     meta_path.write_text(

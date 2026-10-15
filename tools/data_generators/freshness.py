@@ -102,17 +102,22 @@ def editable_corpora() -> list[str]:
     return sorted(c for c, rec in SOURCE_CORPORA.items() if rec.get("editable"))
 
 
-def header_date(path: str) -> str | None:
-    """The ``fetched:`` date stamped in a page file's header, or None."""
+def header_field(path: str, pattern: re.Pattern) -> str | None:
+    """Group 1 of ``pattern``'s first match in a page file's header, or None."""
     try:
         with open(path, encoding="utf-8") as fh:
             for _, line in zip(range(_HEADER_LINES), fh):
-                m = _HEADER_RE.search(line)
+                m = pattern.search(line)
                 if m:
                     return m.group(1)
     except OSError:
         return None
     return None
+
+
+def header_date(path: str) -> str | None:
+    """The ``fetched:`` date stamped in a page file's header, or None."""
+    return header_field(path, _HEADER_RE)
 
 
 def page_path(corpus: str, page: Any) -> str | None:

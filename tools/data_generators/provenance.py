@@ -520,10 +520,10 @@ def _density_node(registry: dict[str, dict[str, Any]], owner_id: str,
 # (see ``data_sources/books/stahl/`` in CLAUDE.local.md); it is emitted into ``meta.json`` so the
 # checker is data-driven, and is simply absent on a checkout without that
 # (uncommitted, large) source material, in which case the quote-in-page check is
-# skipped while the structural checks still run. ``url`` is *optional* and carried
-# only by the web corpora that have a free landing page: a copyrighted book has no
-# such link, and the provenance pill (not a link) is what conveys the grade, so the
-# key is omitted rather than filled with a placeholder. ``editable`` marks a corpus
+# skipped while the structural checks still run. ``url`` is the corpus's landing page
+# (a book's DOI, else its ISBN on WorldCat), the link a cited page falls back to when
+# neither a ``page_url`` template (``{page}`` filled in) nor a per-page ``page_urls``
+# entry (data_generators/page_links.py, added at emit time) names that exact page. ``editable`` marks a corpus
 # whose pages can change upstream (a wiki, a live database): each of its cited pages
 # carries its download date and must be refetched within a year (see
 # data_generators/freshness.py); a book omits the key.
@@ -557,6 +557,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "ref": "Prescriber's Guide: Stahl's Essential Psychopharmacology, 8th ed.",
         "citation": "Stahl SM. Prescriber's Guide: Stahl's Essential "
                     "Psychopharmacology. 8th ed. Cambridge University Press; 2024.",
+        "url": "https://doi.org/10.1017/9781009464772",
         "pages_dir": "data_sources/books/stahl/pages",
     },
     "kandel": {
@@ -566,6 +567,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "ref": "Kandel, Principles of Neural Science, 6th ed.",
         "citation": "Kandel ER, Koester JD, Mack SH, Siegelbaum SA, eds. "
                     "Principles of Neural Science. 6th ed. McGraw Hill; 2021.",
+        # No DOI: the print ISBN 978-1-25-964223-4, via WorldCat.
+        "url": "https://search.worldcat.org/search?q=bn:9781259642234",
         "pages_dir": "data_sources/books/eric_kandel/pages",
     },
     "stahl_essential": {
@@ -576,6 +579,7 @@ SOURCE_CORPORA: dict[str, dict] = {
         "citation": "Stahl SM. Stahl's Essential Psychopharmacology: "
                     "Neuroscientific Basis and Practical Applications. 5th ed. "
                     "Cambridge University Press; 2021.",
+        "url": "https://doi.org/10.1017/9781108975292",
         "pages_dir": "data_sources/books/stahl_essential_pharmacology/pages",
     },
     "carlat": {
@@ -583,6 +587,8 @@ SOURCE_CORPORA: dict[str, dict] = {
         "ref": "Carlat Medication Fact Book for Psychiatric Practice, 7th ed.",
         "citation": "Carlat DJ. The Carlat Medication Fact Book for Psychiatric "
                     "Practice. 7th ed. Carlat Publishing; 2024.",
+        # No DOI: the print ISBN 979-8-9873354-8-2, via WorldCat.
+        "url": "https://search.worldcat.org/search?q=bn:9798987335482",
         "pages_dir": "data_sources/books/carlat_medication/pages",
     },
     "nieuwenhuys": {
@@ -594,6 +600,7 @@ SOURCE_CORPORA: dict[str, dict] = {
                "System, 4th ed.",
         "citation": "Nieuwenhuys R, Voogd J, van Huijzen C. The Human Central "
                     "Nervous System. 4th ed. Springer; 2008.",
+        "url": "https://doi.org/10.1007/978-3-540-34686-9",
         "pages_dir": "data_sources/books/nieuwenhuys_atlas/pages",
     },
     "gtopdb": {
