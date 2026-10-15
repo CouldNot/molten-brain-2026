@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "3.126.0",
+      "date": "2026-10-15",
+      "entries": [
+        {
+          "category": "added",
+          "text": "A drug panel now has a \"Brain entry\" section: how fat-soluble the drug is (XLogP3) and how polar (polar surface area), computed by PubChem, plus whether it crosses the blood-brain barrier (BBB+ or BBB-, with logBB when measured) from the B3DB dataset, each with a tooltip on how to read it",
+          "commits": [
+            "43ac690",
+            "7546ebb",
+            "4c93863",
+            "cd0b4b2"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.125.0",
       "date": "2026-10-15",
       "entries": [
