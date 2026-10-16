@@ -37,3 +37,16 @@ test("a non-drug metabolite keeps its own counted row, never a borrowed one", ()
   assert.deepEqual(rows[0].viaMetaboliteOfList, ["Psilocybin"]);
   assert.equal(prodrugsByTarget.size, 0);
 });
+
+test("a salt through a modeled constituent is listed apart, not counted", () => {
+  const dph = { displayName: "Diphenhydramine", metabolites: [], bindings: [{ target: "h1" }] };
+  const salt = {
+    displayName: "Dimenhydrinate", metabolites: [],
+    combo: [{ name: "Diphenhydramine", drugId: "diphenhydramine" },
+            { name: "8-Chlorotheophylline", drugId: null }],
+    bindings: [{ target: "h1", viaMetabolite: "Diphenhydramine" }],
+  };
+  const { drugsByTarget, prodrugsByTarget } = indexDrugsByTarget([dph, salt]);
+  assert.deepEqual(drugsByTarget.get("h1").map((r) => r.drug), [dph]);
+  assert.deepEqual(prodrugsByTarget.get("h1").map((r) => r.drug), [salt]);
+});

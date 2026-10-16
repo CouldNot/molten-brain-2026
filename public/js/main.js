@@ -4607,6 +4607,15 @@ function createInfoPanel(data, sourcingModal) {
             links.appendChild(el("span", "combo-plain", c.name));
           }
         });
+        // A salt's declared composition is its own graded node (drug_constituents);
+        // a combo named after its parts states nothing to grade.
+        const cc = drug.constituentsClaim;
+        if (cc) {
+          links.appendChild(document.createTextNode(" "));
+          links.appendChild(cc.sources.length
+            ? makeProvenancePill(cc.provenance, sourcesTip(cc.sources))
+            : makeProvenancePill(cc.provenance || null));
+        }
         warn.appendChild(links);
         body.appendChild(warn);
       }
@@ -6551,6 +6560,7 @@ const KIND_LABELS = {
   drug_originator: "about.kindDrugOriginator",
   drug_originator_country: "about.kindDrugOriginatorCountry",
   drug_prodrug: "about.kindDrugProdrug",
+  drug_constituents: "about.kindDrugConstituents",
   drug_therapeutic_range: "about.kindDrugTherapeuticRange",
   drug_alert_level: "about.kindDrugAlertLevel",
   drug_lipophilicity: "about.kindDrugLipophilicity",
@@ -6950,6 +6960,12 @@ function buildKindExample(kind, data, nav) {
       // e.g. Psilocybin "Prodrug: inactive itself, acts through its active metabolite".
       const d = drugWith("psilocybin", (x) => x.prodrug);
       return d ? line(d.name, t("drug.prodrug"), () => nav.drug(d)) : null;
+    }
+    case "drug_constituents": {
+      // e.g. Dimenhydrinate "Made of Diphenhydramine + 8-Chlorotheophylline".
+      const d = drugWith("dimenhydrinate", (x) => x.constituentsClaim);
+      return d ? line(d.name, t("drug.constituentsOf", { parts: d.constituents.join(" + ") }),
+        () => nav.drug(d)) : null;
     }
     case "drug_therapeutic_range": {
       // e.g. Clozapine "Therapeutic range 350–600 ng/mL".

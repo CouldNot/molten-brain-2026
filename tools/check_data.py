@@ -138,7 +138,7 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "drug_half_life", "drug_tmax", "drug_formulations",
               "drug_first_approval", "drug_withdrawals",
               "drug_holders", "drug_originator", "drug_originator_country",
-              "drug_prodrug", "drug_therapeutic_range", "drug_alert_level",
+              "drug_prodrug", "drug_constituents", "drug_therapeutic_range", "drug_alert_level",
               "drug_lipophilicity", "drug_polar_surface", "drug_bbb", "drug_workup",
               "drug_enzymes", "drug_enzyme_strength",
               "enzyme_variability", "drug_pgx",
@@ -957,8 +957,9 @@ def check_provenance(report, meta, structures, projections, circuits,
                     grade(src.get("provenance"), f"{hctx} brand {br.get('name')} sources[{i}]")
         for i, src in enumerate(drug.get("first_approval_sources", []) or []):
             grade(src.get("provenance"), f"drug {drug.get('id')} first_approval_sources[{i}]")
-        for i, src in enumerate(drug.get("prodrug_sources", []) or []):
-            grade(src.get("provenance"), f"drug {drug.get('id')} prodrug_sources[{i}]")
+        for f in ("prodrug_sources", "constituents_sources"):
+            for i, src in enumerate(drug.get(f, []) or []):
+                grade(src.get("provenance"), f"drug {drug.get('id')} {f}[{i}]")
         for f in ("therapeutic_range_sources", "alert_level_sources") + PHYSCHEM_SOURCES:
             for i, src in enumerate(drug.get(f, []) or []):
                 grade(src.get("provenance"), f"drug {drug.get('id')} {f}[{i}]")
@@ -1471,8 +1472,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                               short_ok=True)
         for i, src in enumerate(drug.get("first_approval_sources", []) or []):
             check_one(f"drug {did} first_approval_sources[{i}]", src)
-        for i, src in enumerate(drug.get("prodrug_sources", []) or []):
-            check_one(f"drug {did} prodrug_sources[{i}]", src)
+        for f in ("prodrug_sources", "constituents_sources"):
+            for i, src in enumerate(drug.get(f, []) or []):
+                check_one(f"drug {did} {f}[{i}]", src)
         for f in ("therapeutic_range_sources", "alert_level_sources"):
             for i, src in enumerate(drug.get(f, []) or []):
                 check_one(f"drug {did} {f}[{i}]", src)

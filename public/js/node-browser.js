@@ -67,6 +67,7 @@ const KIND_ORDER = [
   "drug_originator",
   "drug_originator_country",
   "drug_prodrug",
+  "drug_constituents",
   "drug_therapeutic_range",
   "drug_alert_level",
   "drug_lipophilicity",
@@ -392,6 +393,11 @@ export function collectNodes(data, deps, opts = {}) {
     if (d.prodrug) {
       push("drug_prodrug", d.name, t("drug.prodrug"), d.prodrug.provenance, go,
         { sources: d.prodrug.sources });
+    }
+    if (d.constituentsClaim) {
+      push("drug_constituents", d.name,
+        t("drug.constituentsOf", { parts: d.constituents.join(" + ") }),
+        d.constituentsClaim.provenance, go, { sources: d.constituentsClaim.sources });
     }
     if (d.therapeuticRange) {
       push("drug_therapeutic_range", d.name, `${t("drug.therapeuticRange")} `

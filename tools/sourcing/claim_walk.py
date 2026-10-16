@@ -391,6 +391,10 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
             add(q, f"Drug {nm} is a prodrug: inactive itself, its effect comes from "
                    f"its active metabolite ({mets}).",
                 CS.site("drug", d["id"], "prodrug"))
+        kind["now"] = "drug_constituents"
+        for q in _qids(d.get("constituents_sources", [])):
+            add(q, f"Drug {nm} is made of {' and '.join(d.get('constituents') or [])}.",
+                CS.site("drug", d["id"], "constituents"))
         kind["now"] = "drug_therapeutic_range"
         trr = d.get("therapeutic_range") or {}
         for q in _qids(d.get("therapeutic_range_sources", [])):

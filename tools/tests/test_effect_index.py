@@ -50,6 +50,16 @@ class JoinTest(unittest.TestCase):
         self.assertEqual(set(got), {"pro", "active"})
         self.assertEqual(got["pro"][0][0]["via_metabolite"], "Active")
 
+    def test_salt_borrows_its_modeled_constituents_bindings(self):
+        drugs = [{"id": "salt", "name": "Salt", "bindings": [],
+                  "constituents": ["Diphenhydramine", "8-Chlorotheophylline"]},
+                 {"id": "diphenhydramine", "name": "Diphenhydramine",
+                  "bindings": [{"target": "h1", "action": "antagonist"}]}]
+        idx = {e["id"]: e for e in effect_index.build(RECEPTORS, drugs, [], META)}
+        got = {d["drug"]["id"]: d["via"] for d in idx["sedation"]["drugs"]}
+        self.assertEqual(set(got), {"salt", "diphenhydramine"})
+        self.assertEqual(got["salt"][0][0]["via_metabolite"], "Diphenhydramine")
+
     def test_summary_line(self):
         drugs = [{"id": "q", "bindings": [{"target": "h1", "action": "antagonist"}]}]
         lines = effect_index.summary_lines(effect_index.build(RECEPTORS, drugs, [], META),

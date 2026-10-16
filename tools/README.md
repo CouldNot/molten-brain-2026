@@ -695,6 +695,8 @@ there is no node-level catch-all `sources` block.
   `drug_alert_level`, emitted from `generated_cache/agnp_tdm.json`, never authored),
   optional `prodrug: true` + `prodrug_sources[]` (kind `drug_prodrug`, written by `apply_prodrug.py`;
   a prodrug carries no `bindings`, its metabolite does),
+  optional `constituents[]` (names) + `constituents_sources[]` for a salt with an INN of its own (kind
+  `drug_constituents`, hand-authored; no `bindings`, the viewer borrows its modeled constituents'),
   optional
   `enzymes[]` (each: `enzyme` (a `meta.enzymes` key), `role`, optional `strength`, `sources[]`;
   one node per (enzyme, role) pair, kind `drug_enzymes`, merged in from the committed

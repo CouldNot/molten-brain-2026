@@ -1463,10 +1463,15 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # A combination product is normally NAMED after its parts, so the viewer reads
     # them off the name. A salt of two molecules carries an INN of its own instead
     # (dimenhydrinate IS diphenhydramine + 8-chlorotheophylline), so it states them
-    # here. Not a node: naming what a product is made of is chemistry, not a claim
-    # about the brain, and each constituent's own pharmacology is its own entry.
+    # here, as ONE node (kind ``drug_constituents``): the viewer lends it each modeled
+    # constituent's bindings (js/data.js), so what it is made of is a claim with
+    # consequences and must be sourced like one.
     if drug.get("constituents"):
         out["constituents"] = [str(c) for c in drug["constituents"]]
+        sources = _quote_sources(drug.get("constituents_sources"),
+                                 f"Drug {drug['id']!r} constituents")
+        if sources:
+            out["constituents_sources"] = sources
     if drug.get("wikipedia"):
         out["wikipedia"] = drug["wikipedia"]
         out["wikipedia_provenance"] = _wiki_provenance(drug["id"])

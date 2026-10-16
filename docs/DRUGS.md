@@ -223,7 +223,12 @@ fixed Stahl list.
   with a neutral glyph, no source pill, and never animate (excluded from `structureIds`/`flowKinds`);
   the missing direction is its own NOSOURCE node (`drug_binding_action`, red ✕ on the action line).
   A **combo** drug (name "A + B") leads with a warning box linking each constituent (`drug.combo`);
-  combos carry no Ki. A measured Ki backs `_binding_grade`, lifting the binding to `verified`.
+  combos carry no Ki. A salt with an INN of its own (dimenhydrinate = diphenhydramine +
+  8-chlorotheophylline) declares `constituents` + `constituents_sources` (kind `drug_constituents`,
+  ONE node per salt, pilled on the warning box) and borrows each **modeled** constituent's bindings
+  tagged "via <constituent>", like a prodrug (`js/data.js`, mirrored by `effect_index.drug_bindings`;
+  kept on the salt's own ligand in the simulation, listed apart in receptor panels); an unmodeled
+  constituent lends nothing. A measured Ki backs `_binding_grade`, lifting the binding to `verified`.
   `fetch_ki.py --apply` drops every PDSP assay >=10 uM as "inactive", so a genuine but weak binder
   (caffeine at A2a) can only be recorded by hand; such a `ki.source` carries `"curated": true` so the
   idempotent `--apply` refresh never strips it (`_is_curated_ki`). Where PDSP has no assay at all,

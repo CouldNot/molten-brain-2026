@@ -18,6 +18,7 @@ Built with the help of Claude Code.
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 
@@ -39,11 +40,22 @@ def owner_effects(receptors: list[dict[str, Any]],
     return out
 
 
+def _norm(name: str) -> str:
+    """A drug name folded like the viewer's ``normName`` (js/data.js)."""
+    return re.sub(r"[^a-z0-9]", "", (name or "").lower())
+
+
 def drug_bindings(drug: dict[str, Any], drugs_by_id: dict[str, dict[str, Any]],
                   metabolites_by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
-    """The drug's bindings as the viewer joins them: a prodrug also borrows each
-    metabolite's own bindings, else its linked modeled drug's (tagged ``via_metabolite``)."""
+    """The drug's bindings as the viewer joins them, borrowing tagged ``via_metabolite``
+    (the molecule lent from): a prodrug each metabolite's own bindings, else its linked
+    modeled drug's; a salt declaring ``constituents`` each modeled constituent's."""
     out = list(drug.get("bindings") or [])
+    for name in drug.get("constituents") or []:
+        part = drugs_by_id.get(name.lower()) or next(
+            (d for d in drugs_by_id.values() if _norm(d.get("name")) == _norm(name)), None)
+        if part and part is not drug:
+            out += [{**b, "via_metabolite": name} for b in part.get("bindings") or []]
     if not drug.get("prodrug"):
         return out
     for ref in drug.get("metabolites") or []:

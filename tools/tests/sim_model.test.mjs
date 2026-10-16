@@ -173,3 +173,11 @@ test("buildMatrix: skips direction-less bindings and drugs engaging no row", () 
   assert.equal(cols.length, 0);
   assert.equal(buildMatrix([a], ["d2", "h1"]).cols[0].vec[1], -1);
 });
+
+test("ligandsOf: a salt keeps its constituent's borrowed bindings, a prodrug hands them to its metabolite", () => {
+  const lent = bind("h1", "block", 10, { viaMetabolite: "Diphenhydramine" });
+  const salt = ligandsOf(drug("salt", [lent]), { metabolites: false });
+  assert.deepEqual(salt[0].bindings, [lent]);
+  const pro = ligandsOf(drug("pro", [lent], { prodrug: { sources: [] } }), { metabolites: false });
+  assert.deepEqual(pro[0].bindings, []);
+});

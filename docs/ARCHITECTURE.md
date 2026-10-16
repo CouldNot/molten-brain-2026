@@ -86,6 +86,7 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug therapeutic reference range -> a drug's `therapeutic_range` (`{low, high, unit, analyte?, tdm_level?}`, + `therapeutic_range_sources`) -> `drug_therapeutic_range` (ONE node per drug, AGNP Table 5)
 - drug laboratory alert level -> a drug's `alert_level` (`{value, unit, analyte?}`, + `alert_level_sources`) -> `drug_alert_level` (ONE node per drug, same table row as the range but a separate claim)
 - drug prodrug flag -> a drug's `prodrug: true` (+ `prodrug_sources`) -> `drug_prodrug` (ONE node per prodrug; the drug then carries no binding of its own, see Prodrugs in DRUGS.md)
+- drug salt composition -> a drug's `constituents` (+ `constituents_sources`) -> `drug_constituents` (ONE node per salt; it borrows its modeled constituents' bindings, see Drugs in DRUGS.md)
 - drug market withdrawal -> a drug's `withdrawals[]` (`{year, country, reason, sources}`) -> `drug_withdrawals` (one node per withdrawal; a drug never withdrawn carries none, since absence is not a claim)
 - drug metabolism role -> a drug's `enzymes[]` (`{enzyme, role, strength?}`) -> `drug_enzymes` (one node per (enzyme, role) pair; pharmacokinetics, so it has no anatomy, see Drug metabolism in DRUGS.md)
 - drug metabolism **strength tier** -> that row's `claims.strength` -> `drug_enzyme_strength` (only on a row that states a tier; the CYP quote gate checks the isoform is named, never the tier, so it is graded by the same word test the pathway claims use, `quotes/attestation.py`)

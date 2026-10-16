@@ -110,6 +110,7 @@ KIND_LABELS = {
     "drug_first_approval": "Drug first approval",
     "drug_withdrawals": "Drug market withdrawals",
     "drug_prodrug": "Drug prodrug flags",
+    "drug_constituents": "Drug salt / combination constituents",
     "drug_therapeutic_range": "Drug therapeutic reference ranges",
     "drug_alert_level": "Drug laboratory alert levels",
     "drug_lipophilicity": "Drug lipophilicity (XLogP3)",

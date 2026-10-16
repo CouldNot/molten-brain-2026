@@ -1546,6 +1546,10 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # carries no claim. See apply_prodrug.py.
     prodrug_grades = [_strongest_grade(d.get("prodrug_sources"))
                       for d in drugs if d.get("prodrug")]
+    # ONE node per salt / combination declaring its `constituents` (what the viewer
+    # lends it the bindings of); a combo named after its parts carries no such claim.
+    constituents_grades = [_strongest_grade(d.get("constituents_sources"))
+                           for d in drugs if d.get("constituents")]
     # Therapeutic drug monitoring (AGNP, corpus #19): ONE therapeutic-range node and
     # ONE alert-level node per drug carrying them (see data_generators/tdm.py).
     trr_grades = [_strongest_grade(d.get("therapeutic_range_sources"))
@@ -1776,6 +1780,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_originator": tally(originator_grades),
         "drug_originator_country": tally(originator_country_grades),
         "drug_prodrug": tally(prodrug_grades),
+        "drug_constituents": tally(constituents_grades),
         "drug_therapeutic_range": tally(trr_grades),
         "drug_alert_level": tally(alert_grades),
         "drug_lipophilicity": tally(physchem_grades["xlogp"]),

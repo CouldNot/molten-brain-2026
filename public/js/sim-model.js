@@ -192,8 +192,10 @@ export function ligandsOf(drug, { metabolites = true } = {}) {
   const tmax = tmaxHours(drug);
   const own = pkCurve(halfLifeHours(oralDuration(drug, "halfLife")), { tmax });
   const out = [{ key: drug.id, name: drug.name, drug, metabolite: null,
-    // A prodrug's borrowed bindings (viaMetabolite) are its metabolite ligand's below.
-    bindings: (drug.bindings || []).filter((b) => !b.viaMetabolite), curve: own }];
+    // A prodrug's borrowed bindings (viaMetabolite) are its metabolite ligand's below;
+    // a salt's (constituents) stay here: the constituent IS the salt in circulation.
+    bindings: (drug.bindings || []).filter((b) => !(b.viaMetabolite && drug.prodrug)),
+    curve: own }];
   if (!metabolites) return out;
   for (const m of drug.metabolites || []) {
     const hl = halfLifeHours(m.halfLife);

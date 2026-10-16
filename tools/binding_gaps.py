@@ -151,6 +151,8 @@ def is_stahl(drug: dict) -> bool:
 
 
 def offerable(drug: dict) -> bool:
-    """A combo's pharmacology is its constituents', a prodrug's its metabolite's: neither
-    carries own bindings, so neither can have a gap of its own."""
-    return not (combo_constituents(drug.get("name") or "") or drug.get("prodrug"))
+    """A combo's pharmacology is its constituents' (named "A + B", or a salt declaring
+    ``constituents``), a prodrug's its metabolite's: neither carries own bindings, so
+    neither can have a gap of its own."""
+    return not (combo_constituents(drug.get("name") or "") or drug.get("constituents")
+                or drug.get("prodrug"))

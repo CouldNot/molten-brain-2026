@@ -146,6 +146,7 @@ def _drug_facet(rest: list) -> str | None:
             "originator_now_sources": "originator/now",
             "originator_country_sources": "originator_country",
             "prodrug_sources": "prodrug",
+            "constituents_sources": "constituents",
             "therapeutic_range_sources": "therapeutic_range",
             "alert_level_sources": "alert_level",
             "xlogp_sources": "xlogp", "tpsa_sources": "tpsa",

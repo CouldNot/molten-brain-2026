@@ -299,11 +299,14 @@ export function indexDrugsByTarget(drugs) {
   // A prodrug's borrowed bindings, kept apart from `drugsByTarget` so a target panel
   // can show "LISDEXAMFETAMINE (via dextroamphetamine)" without counting it: the
   // binding node is the metabolite's (see the prodrug pass above). Only a borrowing
-  // through a focusable metabolite drug lands here; a non-drug metabolite already
+  // through a focusable metabolite drug (or a salt's modeled constituent) lands here; a non-drug metabolite already
   // gets its own "NAME (metab. of PRODRUG)" row below, which names the prodrug.
   const prodrugsByTarget = new Map();
+  // A salt lends its constituent's bindings under the same tag (see the borrowing
+  // pass), so a modeled constituent counts as the lender too.
   const focusableMetabolite = (d, name) =>
-    d.metabolites.some((m) => m.name === name && m.linkFocusable);
+    d.metabolites.some((m) => m.name === name && m.linkFocusable)
+    || (d.combo || []).some((c) => c.name === name && c.drugId);
   for (const d of drugs) {
     const seen = new Set();
     const seenBorrowed = new Set();
@@ -1012,6 +1015,20 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   // since the metabolite already owns that node. Runs on raw records, before any
   // drug's bindings are mapped.
   const rawDrugById = new Map(drugs.map((d) => [d.id, d]));
+  // A salt declaring `constituents` (node kind drug_constituents: dimenhydrinate IS
+  // diphenhydramine + 8-chlorotheophylline) borrows each MODELED constituent's raw
+  // bindings the same way, under the same tag (it names the molecule lent from, so the
+  // panel reads "via Diphenhydramine"); an unmodeled constituent lends nothing.
+  // Mirrored for the agent surface by data_generators/effect_index.py drug_bindings.
+  const rawDrugByNorm = new Map(drugs.map((d) => [normName(d.name), d]));
+  for (const d of drugs) {
+    for (const name of d.constituents || []) {
+      const part = rawDrugById.get(name.toLowerCase()) || rawDrugByNorm.get(normName(name));
+      if (!part || part === d) continue;
+      d.bindings = (d.bindings || []).concat(
+        (part.bindings || []).map((b) => ({ ...b, via_metabolite: name })));
+    }
+  }
   for (const d of drugs) {
     if (!d.prodrug) continue;
     d.bindings = (d.bindings || []).concat((d.metabolites || []).flatMap((m) => {
@@ -1116,6 +1133,12 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     d.prodrug = d.prodrug ? {
       sources: mapSources(d.prodrug_sources),
       provenance: strongestGrade(d.prodrug_sources),
+    } : null;
+    // A salt's declared composition (kind drug_constituents): its own graded claim,
+    // pilled on the combo box; the borrowed bindings are wired above this loop.
+    d.constituentsClaim = (d.constituents || []).length ? {
+      sources: mapSources(d.constituents_sources),
+      provenance: strongestGrade(d.constituents_sources),
     } : null;
     // Therapeutic drug monitoring (kinds drug_therapeutic_range / drug_alert_level,
     // AGNP corpus #19): each its own graded node, both from one Table 5 row.

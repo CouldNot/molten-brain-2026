@@ -5046,6 +5046,9 @@
 "q_7235c3d07cea": {
 "receptor:nachr_muscle/classification[synaptic]": "opus"
 },
+"q_723c7a3fadea": {
+"drug:dimenhydrinate/constituents": "opus"
+},
 "q_727ac2c8fde6": {
 "drug:metoclopramide/formulations[ir]/tmax": "opus",
 "drug:metoclopramide/tmax": "sonnet"
