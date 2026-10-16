@@ -5786,6 +5786,10 @@ function buildEffectLegend(data, onPick) {
   const container = document.getElementById("effects-body");
   if (!container) return () => {};
   container.replaceChildren();
+  // No effect index (derived/effects.json failed to load, already said by a red
+  // banner): hide the whole section rather than show an empty, clickable header.
+  const section = document.getElementById("effects");
+  if (section) section.hidden = !(data.effects || []).length;
   const rows = [];
   const caption = document.createElement("p");
   caption.className = "legend-caption";

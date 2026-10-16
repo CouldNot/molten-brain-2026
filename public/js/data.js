@@ -357,6 +357,18 @@ export function indexDrugsByTarget(drugs) {
 }
 
 /**
+ * Where a build-time derived file sits: `derived/` is the SIBLING of the data dir
+ * (`data` -> `derived/effects.json`, `site/data` -> `site/derived/effects.json`), so a
+ * viewer pointed at another data dir reads that dir's index, never the page's.
+ * @param {string} dataDir
+ * @param {string} name
+ */
+export function derivedUrl(dataDir, name) {
+  const parent = dataDir.replace(/\/+$/, "").replace(/[^/]*$/, "");
+  return `${parent}derived/${name}`;
+}
+
+/**
  * Load and assemble the whole dataset: the per-type data files (meta.json +
  * structures/projections/circuits.jsonl) plus every referenced shape file, all
  * fetched in parallel.
@@ -417,7 +429,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       // The effect index is built at deploy / serve time, never committed (see
       // tools/data_generators/effect_index.py). Non-fatal: the viewer still works
       // without it, the red banner says what is missing.
-      fetchOrThrow("derived/effects.json").then((r) => r.json()).catch((e) => {
+      fetchOrThrow(derivedUrl(dataDir, "effects.json")).then((r) => r.json()).catch((e) => {
         console.error("Could not load the effect index.", e);
         window.showErrorBanner?.(window.__I18N__
           ? window.__I18N__.t("effects.loadError", { msg: e.message }) : e.message);
