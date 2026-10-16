@@ -1,0 +1,946 @@
+{
+ "agomelatine": [
+  {
+   "index": 1,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "liver_function",
+   "timing": "during"
+  }
+ ],
+ "amisulpride": [
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "amitriptyline": [
+  {
+   "index": 6,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "amphetamine_d": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 1,
+   "test": "heart_rate",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "bromocriptine": [
+  {
+   "index": 0,
+   "test": "echocardiography",
+   "timing": "before"
+  }
+ ],
+ "bumetanide": [
+  {
+   "index": 1,
+   "test": "electrolytes",
+   "timing": "during"
+  }
+ ],
+ "cabergoline": [
+  {
+   "index": 4,
+   "test": "echocardiography",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "echocardiography",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 11,
+   "test": "pregnancy_test",
+   "timing": "before"
+  },
+  {
+   "index": 12,
+   "test": "pregnancy_test",
+   "timing": "during"
+  },
+  {
+   "index": 1,
+   "test": "prolactin",
+   "timing": "during"
+  }
+ ],
+ "caffeine": [
+  {
+   "index": 0,
+   "test": "drug_level",
+   "timing": "during"
+  }
+ ],
+ "carbamazepine": [
+  {
+   "index": 5,
+   "test": "blood_count",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "blood_count",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "electrolytes",
+   "timing": "before"
+  },
+  {
+   "index": 7,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 7,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 11,
+   "test": "pregnancy_test",
+   "timing": "before"
+  }
+ ],
+ "chlorpromazine": [
+  {
+   "index": 2,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "eye_exam",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "blood_count",
+   "timing": "during"
+  }
+ ],
+ "clobazam": [
+  {
+   "index": 2,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "renal_function",
+   "timing": "during"
+  }
+ ],
+ "clomipramine": [
+  {
+   "index": 8,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 4,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 10,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 10,
+   "test": "renal_function",
+   "timing": "during"
+  },
+  {
+   "index": 11,
+   "test": "blood_count",
+   "timing": "during"
+  }
+ ],
+ "clozapine": [
+  {
+   "index": 5,
+   "test": "blood_count",
+   "timing": "before"
+  },
+  {
+   "index": 10,
+   "test": "blood_count",
+   "timing": "before"
+  },
+  {
+   "index": 4,
+   "test": "blood_count",
+   "timing": "during"
+  },
+  {
+   "index": 10,
+   "test": "blood_count",
+   "timing": "during"
+  },
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 33,
+   "test": "lipids",
+   "timing": "before"
+  },
+  {
+   "index": 33,
+   "test": "lipids",
+   "timing": "during"
+  },
+  {
+   "index": 34,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "cyamemazine": [
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "disulfiram": [
+  {
+   "index": 1,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "liver_function",
+   "timing": "during"
+  }
+ ],
+ "ethosuximide": [
+  {
+   "index": 2,
+   "test": "blood_count",
+   "timing": "during"
+  }
+ ],
+ "flupenthixol": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "furosemide": [
+  {
+   "index": 2,
+   "test": "electrolytes",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "electrolytes",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "renal_function",
+   "timing": "during"
+  },
+  {
+   "index": 7,
+   "test": "blood_pressure",
+   "timing": "during"
+  }
+ ],
+ "galantamine": [
+  {
+   "index": 1,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "haloperidol": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "electrolytes",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "electrolytes",
+   "timing": "during"
+  }
+ ],
+ "imipramine": [
+  {
+   "index": 1,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 4,
+   "test": "blood_count",
+   "timing": "during"
+  }
+ ],
+ "ketamine": [
+  {
+   "index": 0,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "liver_function",
+   "timing": "during"
+  }
+ ],
+ "levomepromazine": [
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "lisdexamfetamine": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 1,
+   "test": "heart_rate",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "lithium": [
+  {
+   "index": 8,
+   "test": "drug_level",
+   "timing": "during"
+  },
+  {
+   "index": 11,
+   "test": "renal_function",
+   "timing": "before"
+  },
+  {
+   "index": 11,
+   "test": "electrolytes",
+   "timing": "before"
+  },
+  {
+   "index": 12,
+   "test": "pregnancy_test",
+   "timing": "before"
+  },
+  {
+   "index": 13,
+   "test": "electrolytes",
+   "timing": "before"
+  },
+  {
+   "index": 13,
+   "test": "blood_count",
+   "timing": "before"
+  },
+  {
+   "index": 15,
+   "test": "thyroid_function",
+   "timing": "before"
+  },
+  {
+   "index": 16,
+   "test": "glycaemia",
+   "timing": "before"
+  },
+  {
+   "index": 17,
+   "test": "eeg",
+   "timing": "before"
+  },
+  {
+   "index": 14,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 18,
+   "test": "renal_function",
+   "timing": "during"
+  },
+  {
+   "index": 18,
+   "test": "electrolytes",
+   "timing": "during"
+  },
+  {
+   "index": 19,
+   "test": "ecg",
+   "timing": "during"
+  },
+  {
+   "index": 20,
+   "test": "thyroid_function",
+   "timing": "during"
+  },
+  {
+   "index": 21,
+   "test": "drug_level",
+   "timing": "during"
+  }
+ ],
+ "lormetazepam": [
+  {
+   "index": 0,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 0,
+   "test": "blood_count",
+   "timing": "during"
+  }
+ ],
+ "loxapine": [
+  {
+   "index": 1,
+   "test": "glycaemia",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "glycaemia",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "lipids",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "lipids",
+   "timing": "during"
+  },
+  {
+   "index": 4,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 4,
+   "test": "blood_pressure",
+   "timing": "during"
+  }
+ ],
+ "maprotiline": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "blood_count",
+   "timing": "during"
+  }
+ ],
+ "methylphenidate_dl": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "heart_rate",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 4,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "heart_rate",
+   "timing": "during"
+  }
+ ],
+ "milnacipran": [
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "heart_rate",
+   "timing": "during"
+  }
+ ],
+ "modafinil": [
+  {
+   "index": 1,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "heart_rate",
+   "timing": "during"
+  }
+ ],
+ "naltrexone": [
+  {
+   "index": 0,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 1,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "liver_function",
+   "timing": "during"
+  }
+ ],
+ "olanzapine": [
+  {
+   "index": 5,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "lipids",
+   "timing": "before"
+  },
+  {
+   "index": 6,
+   "test": "lipids",
+   "timing": "during"
+  }
+ ],
+ "phenobarbital": [
+  {
+   "index": 1,
+   "test": "pregnancy_test",
+   "timing": "before"
+  }
+ ],
+ "phenytoin": [
+  {
+   "index": 7,
+   "test": "drug_level",
+   "timing": "during"
+  },
+  {
+   "index": 10,
+   "test": "pregnancy_test",
+   "timing": "before"
+  }
+ ],
+ "pimozide": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "ecg",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "electrolytes",
+   "timing": "during"
+  }
+ ],
+ "pipamperone": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "pipothiazine": [
+  {
+   "index": 2,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "pramipexole": [
+  {
+   "index": 6,
+   "test": "eye_exam",
+   "timing": "during"
+  }
+ ],
+ "primidone": [
+  {
+   "index": 3,
+   "test": "pregnancy_test",
+   "timing": "before"
+  }
+ ],
+ "quetiapine": [
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "lipids",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "lipids",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 8,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "risperidone": [
+  {
+   "index": 3,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "rivastigmine": [
+  {
+   "index": 1,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "rotigotine": [
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "eye_exam",
+   "timing": "during"
+  }
+ ],
+ "sulpiride": [
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "tetrabenazine": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "tiapride": [
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ],
+ "topiramate": [
+  {
+   "index": 8,
+   "test": "pregnancy_test",
+   "timing": "before"
+  },
+  {
+   "index": 15,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "valproate": [
+  {
+   "index": 5,
+   "test": "pregnancy_test",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "pregnancy_test",
+   "timing": "during"
+  },
+  {
+   "index": 9,
+   "test": "pregnancy_test",
+   "timing": "before"
+  },
+  {
+   "index": 16,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 16,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 19,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 19,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 20,
+   "test": "blood_count",
+   "timing": "before"
+  },
+  {
+   "index": 20,
+   "test": "blood_count",
+   "timing": "during"
+  },
+  {
+   "index": 20,
+   "test": "coagulation",
+   "timing": "before"
+  },
+  {
+   "index": 20,
+   "test": "coagulation",
+   "timing": "during"
+  }
+ ],
+ "venlafaxine": [
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "during"
+  }
+ ],
+ "vigabatrin": [
+  {
+   "index": 4,
+   "test": "eye_exam",
+   "timing": "before"
+  },
+  {
+   "index": 4,
+   "test": "eye_exam",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "eye_exam",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "eye_exam",
+   "timing": "during"
+  },
+  {
+   "index": 8,
+   "test": "eye_exam",
+   "timing": "before"
+  },
+  {
+   "index": 14,
+   "test": "eye_exam",
+   "timing": "before"
+  },
+  {
+   "index": 14,
+   "test": "eye_exam",
+   "timing": "during"
+  }
+ ],
+ "zuclopenthixol": [
+  {
+   "index": 1,
+   "test": "ecg",
+   "timing": "before"
+  }
+ ]
+}

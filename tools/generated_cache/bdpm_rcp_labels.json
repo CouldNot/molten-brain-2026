@@ -1,0 +1,1597 @@
+{
+ "acamprosate": {
+  "cis": "63759295",
+  "date_source": "file mtime",
+  "denomination": "AOTAL 333 mg, comprimé enrobé gastro-résistant",
+  "fetched": "2026-07-23",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "agomelatine": {
+  "cis": "62525777",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "AGOMELATINE ZENTIVA 25 mg, comprimé pelliculé",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "alimemazine": {
+  "cis": "66801066",
+  "date_source": "file mtime",
+  "denomination": "THERALENE 5 mg, comprimé pelliculé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "alprazolam": {
+  "cis": "60647049",
+  "date_source": "file mtime",
+  "denomination": "XANAX 0,50 mg, comprimé sécable",
+  "fetched": "2026-07-22",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "amantadine": {
+  "cis": "67703803",
+  "date_source": "file mtime",
+  "denomination": "MANTADIX 100 mg, capsule",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "amisulpride": {
+  "cis": "60019927",
+  "date_source": "file mtime",
+  "denomination": "SOLIAN 100 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "amitriptyline": {
+  "cis": "62633436",
+  "date_source": "file mtime",
+  "denomination": "LAROXYL 50 mg, comprimé pelliculé",
+  "fetched": "2026-07-19",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "amphetamine_d": {
+  "cis": "61746712",
+  "date_source": "file mtime",
+  "denomination": "TENTIN 10 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "apomorphine": {
+  "cis": "63665248",
+  "date_source": "file mtime",
+  "denomination": "APOMORPHINE VIATRIS 5 mg/ml, solution injectable",
+  "fetched": "2026-07-26",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "aripiprazole": {
+  "cis": "60031071",
+  "date_source": "file mtime",
+  "denomination": "ARIPIPRAZOLE SANDOZ 10 mg, comprimé orodispersible",
+  "fetched": "2026-07-23",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "atropine": {
+  "cis": "63358772",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "ATROPINE SULFATE AGUETTANT 0,1 mg/mL, solution injectable en seringue préremplie",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "baclofen": {
+  "cis": "60304050",
+  "date_source": "file mtime",
+  "denomination": "LIORESAL 10 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "betahistine": {
+  "cis": "62132998",
+  "date_source": "file mtime",
+  "denomination": "LECTIL 16 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "biperiden": {
+  "cis": "66782153",
+  "date_source": "file mtime",
+  "denomination": "AKINETON L.P. 4 mg, comprimé enrobé à libération prolongée",
+  "fetched": "2026-07-26",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "bromazepam": {
+  "cis": "66796142",
+  "date_source": "file mtime",
+  "denomination": "LEXOMIL 6 mg, comprimé quadrisécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "bromocriptine": {
+  "cis": "63369053",
+  "date_source": "file mtime",
+  "denomination": "PARLODEL 2,5 mg, comprimé sécable",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "bumetanide": {
+  "cis": "61834055",
+  "date_source": "file mtime",
+  "denomination": "BURINEX 2 mg/4 ml IV, solution injectable en ampoule",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "buprenorphine": {
+  "cis": "60549391",
+  "date_source": "file mtime",
+  "denomination": "TEMGESIC 0,2 mg, comprimé sublingual",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "bupropion": {
+  "cis": "64556383",
+  "date_source": "file mtime",
+  "denomination": "ZYBAN L.P. 150 mg, comprimé à libération prolongée",
+  "fetched": "2026-08-01",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "buspirone": {
+  "cis": "61964472",
+  "date_source": "file mtime",
+  "denomination": "BUSPIRONE VIATRIS 10 mg, comprimé sécable",
+  "fetched": "2026-07-23",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "cabergoline": {
+  "cis": "69671845",
+  "date_source": "file mtime",
+  "denomination": "DOSTINEX 0,5 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "caffeine": {
+  "cis": "65973294",
+  "date_source": "file mtime",
+  "denomination": "CITRATE DE CAFEINE COOPER 25 mg/mL, solution injectable et buvable",
+  "fetched": "2026-07-28",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "carbamazepine": {
+  "cis": "61009918",
+  "date_source": "file mtime",
+  "denomination": "TEGRETOL 200 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "chlorpromazine": {
+  "cis": "62184888",
+  "date_source": "file mtime",
+  "denomination": "LARGACTIL 25 mg/5 ml, solution injectable en ampoule",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "citalopram": {
+  "cis": "68231138",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "SEROPRAM 40 mg/ml, solution buvable",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clobazam": {
+  "cis": "62905911",
+  "date_source": "file mtime",
+  "denomination": "URBANYL 10 mg, comprimé sécable",
+  "fetched": "2026-07-26",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clomipramine": {
+  "cis": "61426025",
+  "date_source": "file mtime",
+  "denomination": "ANAFRANIL 75 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-23",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clonazepam": {
+  "cis": "61496251",
+  "date_source": "file mtime",
+  "denomination": "RIVOTRIL 2,5 mg/ml, solution buvable en goutte",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clonidine": {
+  "cis": "64256681",
+  "date_source": "file mtime",
+  "denomination": "CATAPRESSAN 0,15 mg/ml, solution injectable",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clorazepate": {
+  "cis": "62416105",
+  "date_source": "file mtime",
+  "denomination": "TRANXENE 20 mg/2 ml, lyophilisat et solution pour usage parentéral",
+  "fetched": "2026-07-26",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clotiazepam": {
+  "cis": "65558647",
+  "date_source": "file mtime",
+  "denomination": "VERATRAN 5 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "clozapine": {
+  "cis": "62552920",
+  "date_source": "file mtime",
+  "denomination": "LEPONEX 100 mg, comprimé sécable",
+  "fetched": "2026-07-24",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "codeine": {
+  "cis": "60811833",
+  "date_source": "file mtime",
+  "denomination": "PADERYL 19,5 mg, comprimé enrobé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "cyamemazine": {
+  "cis": "60271248",
+  "date_source": "file mtime",
+  "denomination": "TERCIAN 100 mg, comprimé pelliculé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "cyproheptadine": {
+  "cis": "67231270",
+  "date_source": "file mtime",
+  "denomination": "PERIACTINE 4 mg, comprimé",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "dexmedetomidine": {
+  "cis": "64729383",
+  "date_source": "file mtime",
+  "denomination": "DEXMEDETOMIDINE EVER PHARMA 100 microgrammes/mL, solution à diluer pour perfusion",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "diazepam": {
+  "cis": "60290800",
+  "date_source": "file mtime",
+  "denomination": "VALIUM 10 mg, comprimé sécable",
+  "fetched": "2026-07-22",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "dimenhydrinate": {
+  "cis": "60173964",
+  "date_source": "file mtime",
+  "denomination": "NAUSICALM ADULTES 50 mg, gélule",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "disulfiram": {
+  "cis": "61500746",
+  "date_source": "file mtime",
+  "denomination": "ESPERAL 500 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "domperidone": {
+  "cis": "60764337",
+  "date_source": "file mtime",
+  "denomination": "DOMPERIDONE EG 10 mg, comprimé orodispersible",
+  "fetched": "2026-07-23",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "donepezil": {
+  "cis": "62262995",
+  "date_source": "file mtime",
+  "denomination": "ARICEPT 5 mg, comprimé orodispersible",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "doxepin": {
+  "cis": "63046819",
+  "date_source": "file mtime",
+  "denomination": "QUITAXON 10 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-28",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "doxylamine": {
+  "cis": "62382724",
+  "date_source": "file mtime",
+  "denomination": "DONORMYL 15 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-29",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "duloxetine": {
+  "cis": "60299831",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "DULOXETINE ALMUS 60 mg, gélule gastro-résistante",
+  "fetched": "2026-07-18",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "entacapone": {
+  "cis": "65562898",
+  "date_source": "file mtime",
+  "denomination": "ENTACAPONE VIATRIS 200 mg, comprimé pelliculé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "ephedrine": {
+  "cis": "60149276",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "EPHEDRINE AGUETTANT 3 mg/ml, solution injectable en seringue préremplie",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "escitalopram": {
+  "cis": "60474889",
+  "date_source": "file mtime",
+  "denomination": "SEROPLEX 15 mg, comprimé pelliculé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "esketamine": {
+  "cis": "60811559",
+  "date_source": "file mtime",
+  "denomination": "ESKESIA 25 mg/mL, solution injectable/pour perfusion",
+  "fetched": "2026-07-31",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "estazolam": {
+  "cis": "69888457",
+  "date_source": "file mtime",
+  "denomination": "NUCTALON 2 mg, comprimé",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "ethosuximide": {
+  "cis": "68481191",
+  "date_source": "file mtime",
+  "denomination": "ZARONTIN 250 mg/5 ml, sirop",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "etomidate": {
+  "cis": "63444171",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "HYPNOMIDATE 2 mg/ml, solution injectable",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "fentanyl": {
+  "cis": "60282999",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "ABSTRAL 400 microgrammes, comprimé sublingual",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "flumazenil": {
+  "cis": "67248985",
+  "date_source": "file mtime",
+  "denomination": "FLUMAZENIL HIKMA 0,1 mg/mL, solution injectable/pour perfusion",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "fluoxetine": {
+  "cis": "60338857",
+  "date_source": "file mtime",
+  "denomination": "FLUOXETINE BIOGARAN 20 mg, comprimé dispersible sécable",
+  "fetched": "2026-07-18",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "flupenthixol": {
+  "cis": "62571671",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "FLUANXOL 4 %, solution buvable",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "fluvoxamine": {
+  "cis": "60439525",
+  "date_source": "file mtime",
+  "denomination": "FLOXYFRAL 100 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "furosemide": {
+  "cis": "61547571",
+  "date_source": "file mtime",
+  "denomination": "LASILIX SPECIAL 500 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "gabapentin": {
+  "cis": "61022591",
+  "date_source": "file mtime",
+  "denomination": "NEURONTIN 400 mg, gélule",
+  "fetched": "2026-07-20",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "galantamine": {
+  "cis": "63358402",
+  "date_source": "file mtime",
+  "denomination": "GALANTAMINE BIOGARAN LP 8 mg, gélule à libération prolongée",
+  "fetched": "2026-07-31",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "granisetron": {
+  "cis": "63420868",
+  "date_source": "file mtime",
+  "denomination": "KYTRIL 2 mg, comprimé pelliculé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "haloperidol": {
+  "cis": "61490049",
+  "date_source": "file mtime",
+  "denomination": "HALDOL 1 mg, comprimé",
+  "fetched": "2026-07-24",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "hydromorphone": {
+  "cis": "63771924",
+  "date_source": "file mtime",
+  "denomination": "SOPHIDONE L.P. 8 mg, gélule à libération prolongée",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "hydroxyzine": {
+  "cis": "61162294",
+  "date_source": "file mtime",
+  "denomination": "ATARAX 2 mg/mL, sirop",
+  "fetched": "2026-07-17",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "imipramine": {
+  "cis": "67117128",
+  "date_source": "file mtime",
+  "denomination": "TOFRANIL 25 mg, comprimé enrobé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "isoflurane": {
+  "cis": "63498500",
+  "date_source": "file mtime",
+  "denomination": "AERRANE, liquide pour inhalation par vapeur",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "ketamine": {
+  "cis": "62768665",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "KETAMINE PANPHARMA 10 mg/mL, solution injectable (I.V.-I.M.)",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lacosamide": {
+  "cis": "60575525",
+  "date_source": "file mtime",
+  "denomination": "LACOSAMIDE EG 100 mg, comprimé pelliculé",
+  "fetched": "2026-10-11",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lamotrigine": {
+  "cis": "61043653",
+  "date_source": "file mtime",
+  "denomination": "LAMICTAL 2 mg, comprimé dispersible ou à croquer",
+  "fetched": "2026-07-19",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "levetiracetam": {
+  "cis": "60591091",
+  "date_source": "file mtime",
+  "denomination": "LEVIDCEN 1000 mg, granulés enrobés en sachet",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "levomepromazine": {
+  "cis": "64026417",
+  "date_source": "file mtime",
+  "denomination": "NOZINAN 25 mg/ml, solution injectable en ampoule (I.M.)",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lisdexamfetamine": {
+  "cis": "64274416",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "XURTA 50 mg, gélule",
+  "fetched": "2026-07-18",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lithium": {
+  "cis": "62124478",
+  "date_source": "file mtime",
+  "denomination": "TERALITHE 250 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "loflazepate": {
+  "cis": "68104411",
+  "date_source": "file mtime",
+  "denomination": "VICTAN 2 mg, comprimé pelliculé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "loprazolam": {
+  "cis": "69071035",
+  "date_source": "file mtime",
+  "denomination": "HAVLANE, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lorazepam": {
+  "cis": "67177709",
+  "date_source": "file mtime",
+  "denomination": "TEMESTA 2,5 mg, comprimé sécable",
+  "fetched": "2026-07-22",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lormetazepam": {
+  "cis": "60186584",
+  "date_source": "file mtime",
+  "denomination": "LORMETAZEPAM ARROW 2 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "loxapine": {
+  "cis": "64162292",
+  "date_source": "file mtime",
+  "denomination": "LOXAPAC 25 mg, comprimé pelliculé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "maprotiline": {
+  "cis": "63912862",
+  "date_source": "file mtime",
+  "denomination": "LUDIOMIL 25 mg, comprimé pelliculé",
+  "fetched": "2026-07-29",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "meclizine": {
+  "cis": "60456535",
+  "date_source": "file mtime",
+  "denomination": "AGYRAX, comprimé sécable",
+  "fetched": "2026-07-26",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "melatonin": {
+  "cis": "63820563",
+  "date_source": "file mtime",
+  "denomination": "ADAFLEX 2 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "memantine": {
+  "cis": "60151124",
+  "date_source": "file mtime",
+  "denomination": "MEMANTINE ARROW LAB 10 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-29",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "methadone": {
+  "cis": "60998856",
+  "date_source": "file mtime",
+  "denomination": "METHADONE AP-HP 10 mg, gélule",
+  "fetched": "2026-07-20",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "methylphenidate_dl": {
+  "cis": "60047182",
+  "date_source": "file mtime",
+  "denomination": "CONCERTA LP 54 mg, comprimé à libération prolongée",
+  "fetched": "2026-07-18",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "metoclopramide": {
+  "cis": "61729093",
+  "date_source": "file mtime",
+  "denomination": "PRIMPERAN 10 mg/2 ml, solution injectable en ampoule",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "mianserin": {
+  "cis": "60854845",
+  "date_source": "file mtime",
+  "denomination": "MIANSERINE ARROW 30 mg, comprimé pelliculé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "midazolam": {
+  "cis": "62149015",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "OZALIN 2 mg/mL, solution buvable en récipient unidose",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "milnacipran": {
+  "cis": "60068034",
+  "date_source": "file mtime",
+  "denomination": "MILNACIPRAN EG 25 mg, gélule",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "mirtazapine": {
+  "cis": "65124914",
+  "date_source": "file mtime",
+  "denomination": "NORSET 15 mg, comprimé pelliculé",
+  "fetched": "2026-07-20",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "moclobemide": {
+  "cis": "62439997",
+  "date_source": "file mtime",
+  "denomination": "MOCLAMINE 150 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "modafinil": {
+  "cis": "66805883",
+  "date_source": "file mtime",
+  "denomination": "MODIODAL 100 mg, comprimé",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "morphine": {
+  "cis": "60328261",
+  "date_source": "file mtime",
+  "denomination": "ACTISKENAN 5 mg, comprimé orodispersible",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "naloxone": {
+  "cis": "62968616",
+  "date_source": "file mtime",
+  "denomination": "PRENOXAD 0,91 mg/ml, solution injectable en seringue préremplie",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "naltrexone": {
+  "cis": "60370919",
+  "date_source": "file mtime",
+  "denomination": "NALTREXONE VIATRIS 50 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-27",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "nicotine": {
+  "cis": "60052222",
+  "date_source": "file mtime",
+  "denomination": "NICOTINELL 1 mg/dose, solution pour pulvérisation buccale",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "nitrazepam": {
+  "cis": "66205536",
+  "date_source": "file mtime",
+  "denomination": "MOGADON 5 mg, comprimé sécable",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "olanzapine": {
+  "cis": "60126594",
+  "date_source": "file mtime",
+  "denomination": "OLANZAPINE VIATRIS 5 mg, comprimé orodispersible",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "ondansetron": {
+  "cis": "60530882",
+  "date_source": "file mtime",
+  "denomination": "ZOPHREN 4 mg, comprimé pelliculé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "oxazepam": {
+  "cis": "60351986",
+  "date_source": "file mtime",
+  "denomination": "SERESTA 50 mg, comprimé sécable",
+  "fetched": "2026-07-21",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "oxcarbazepine": {
+  "cis": "61556061",
+  "date_source": "file mtime",
+  "denomination": "TRILEPTAL 300 mg, comprimé pelliculé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "oxycodone": {
+  "cis": "60629186",
+  "date_source": "file mtime",
+  "denomination": "OXYNORM 20 mg, gélule",
+  "fetched": "2026-07-20",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "paroxetine": {
+  "cis": "60160707",
+  "date_source": "file mtime",
+  "denomination": "DEROXAT 20 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-18",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "phenobarbital": {
+  "cis": "61475588",
+  "date_source": "file mtime",
+  "denomination": "GARDENAL 100 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "phenytoin": {
+  "cis": "62436200",
+  "date_source": "file mtime",
+  "denomination": "DILANTIN 250 mg/5 ml, solution injectable",
+  "fetched": "2026-07-29",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "pimozide": {
+  "cis": "60625647",
+  "date_source": "file mtime",
+  "denomination": "ORAP 4 mg, comprimé",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "pipamperone": {
+  "cis": "64210075",
+  "date_source": "file mtime",
+  "denomination": "DIPIPERON 40 mg/ml, solution buvable en gouttes",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "pipothiazine": {
+  "cis": "62000861",
+  "date_source": "file mtime",
+  "denomination": "PIPORTIL L4 25 mg/ml, solution injectable en ampoule (I.M.)",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "pizotifen": {
+  "cis": "65458611",
+  "date_source": "file mtime",
+  "denomination": "SANMIGRAN 0,50 mg, comprimé enrobé",
+  "fetched": "2026-07-28",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "pramipexole": {
+  "cis": "61129497",
+  "date_source": "file mtime",
+  "denomination": "PRAMIPEXOLE ARROW LAB 0,18 mg, comprimé sécable",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "prazepam": {
+  "cis": "60534076",
+  "date_source": "file mtime",
+  "denomination": "LYSANXIA 15 mg/ml, solution buvable en gouttes",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "pregabalin": {
+  "cis": "60061602",
+  "date_source": "file mtime",
+  "denomination": "PREGABALINE TEVA SANTE 200 mg, gélule",
+  "fetched": "2026-07-21",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "primidone": {
+  "cis": "65201684",
+  "date_source": "file mtime",
+  "denomination": "MYSOLINE 250 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "promethazine": {
+  "cis": "69646945",
+  "date_source": "file mtime",
+  "denomination": "PHENERGAN 2,5 POUR CENT, solution injectable",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "propofol": {
+  "cis": "60616445",
+  "date_source": "file mtime",
+  "denomination": "DIPRIVAN 10 mg/mL, émulsion injectable en seringue pré-remplie",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "propranolol": {
+  "cis": "62914611",
+  "date_source": "file mtime",
+  "denomination": "KARNODYL 5 mg/5 ml, solution injectable en ampoule",
+  "fetched": "2026-07-19",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "quetiapine": {
+  "cis": "60078765",
+  "date_source": "file mtime",
+  "denomination": "QUETIAPINE ACCORD HEALTHCARE LP 400 mg, comprimé à libération prolongée",
+  "fetched": "2026-07-17",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "rasagiline": {
+  "cis": "60203418",
+  "date_source": "file mtime",
+  "denomination": "RASAGILINE ARROW 1 mg, comprimé",
+  "fetched": "2026-07-28",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "risperidone": {
+  "cis": "60260497",
+  "date_source": "file mtime",
+  "denomination": "RISPERDAL 2 mg, comprimé pelliculé",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "rivastigmine": {
+  "cis": "60557826",
+  "date_source": "file mtime",
+  "denomination": "RIVASTIGMINE VIATRIS 3 mg, gélule",
+  "fetched": "2026-08-01",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "ropinirole": {
+  "cis": "61497951",
+  "date_source": "file mtime",
+  "denomination": "REQUIP 0,25 mg, comprimé pelliculé",
+  "fetched": "2026-07-25",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "rotigotine": {
+  "cis": "63205730",
+  "date_source": "file mtime",
+  "denomination": "ROTIGOTINE ARROW 8 mg/24 heures, dispositif transdermique",
+  "fetched": "2026-10-11",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "scopolamine": {
+  "cis": "63958849",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "SCOPODERM TTS 1 mg/72 heures, dispositif transdermique",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "selegiline": {
+  "cis": "60498751",
+  "date_source": "file mtime",
+  "denomination": "DEPRENYL 5 mg, comprimé sécable",
+  "fetched": "2026-07-31",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "sertraline": {
+  "cis": "60155788",
+  "date_source": "file mtime",
+  "denomination": "ZOLOFT 25 mg, gélule",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "sevoflurane": {
+  "cis": "67329056",
+  "date_source": "file mtime",
+  "denomination": "SEVOFLURANE BAXTER 1 ml/ml, liquide pour inhalation par vapeur",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "sildenafil": {
+  "cis": "61021436",
+  "date_source": "file mtime",
+  "denomination": "SILANDYLTEC 25 mg, film orodispersible",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "sodium_oxybate": {
+  "cis": "67300599",
+  "date_source": "file mtime",
+  "denomination": "OXYBATE DE SODIUM KALCEKS 500 mg/mL, solution buvable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "sulpiride": {
+  "cis": "62344129",
+  "date_source": "file mtime",
+  "denomination": "DOGMATIL 50 mg, gélule",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "sumatriptan": {
+  "cis": "64676030",
+  "date_source": "file mtime",
+  "denomination": "IMIGRANE 50 mg, comprimé pelliculé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tetrabenazine": {
+  "cis": "62463044",
+  "date_source": "file mtime",
+  "denomination": "XENAZINE 25 mg, comprimé sécable",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tiagabine": {
+  "cis": "60058517",
+  "date_source": "file mtime",
+  "denomination": "GABITRIL 10 mg, comprimé pelliculé",
+  "fetched": "2026-07-31",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tianeptine": {
+  "cis": "65411280",
+  "date_source": "file mtime",
+  "denomination": "STABLON 12,5 mg, comprimé enrobé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tiapride": {
+  "cis": "67890598",
+  "date_source": "file mtime",
+  "denomination": "TIAPRIDAL 100 mg, comprimé sécable",
+  "fetched": "2026-07-26",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "topiramate": {
+  "cis": "61913385",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "EPITOMAX 100 mg, comprimé pelliculé",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tramadol": {
+  "cis": "60344529",
+  "date_source": "file mtime",
+  "denomination": "MONOCRIXO L.P. 150 mg, gélule à libération prolongée (UNE PRISE QUOTIDIENNE)",
+  "fetched": "2026-07-20",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "trihexyphenidyl": {
+  "cis": "60379544",
+  "date_source": "file mtime",
+  "denomination": "ARTANE 2 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "trimipramine": {
+  "cis": "63344192",
+  "date_source": "file mtime",
+  "denomination": "SURMONTIL 25 mg, comprimé",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tropatepine": {
+  "cis": "63531498",
+  "date_source": "file mtime",
+  "denomination": "LEPTICUR 10 mg/2 ml, solution injectable",
+  "fetched": "2026-07-24",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "valproate": {
+  "cis": "60184188",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "DEPAKINE 500 mg, comprimé gastro-résistant",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "venlafaxine": {
+  "cis": "61403425",
+  "date_source": "file mtime",
+  "denomination": "EFFEXOR L.P. 75 mg, gélule à libération prolongée",
+  "fetched": "2026-07-18",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "vigabatrin": {
+  "cis": "61139833",
+  "date_source": "file mtime",
+  "denomination": "SABRIL 500 mg, comprimé pelliculé",
+  "fetched": "2026-07-30",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "yohimbine": {
+  "cis": "69816276",
+  "date_source": "file mtime",
+  "denomination": "YOCORAL 5 mg, comprimé",
+  "fetched": "2026-10-10",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "zolpidem": {
+  "cis": "63179285",
+  "date_source": "file mtime",
+  "denomination": "STILNOX 10 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-21",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "zonisamide": {
+  "cis": "62741554",
+  "date_source": "file mtime",
+  "denomination": "ZONISAMIDE SANDOZ 100 mg, gélule",
+  "fetched": "2026-07-28",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "zopiclone": {
+  "cis": "68508795",
+  "date_source": "file mtime",
+  "denomination": "IMOVANE 7,5 mg, comprimé pelliculé sécable",
+  "fetched": "2026-07-19",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "zuclopenthixol": {
+  "cis": "60209937",
+  "date_source": "justelesRCP scrape manifest last_fetch",
+  "denomination": "CLOPIXOL 2 POUR CENT, solution buvable en gouttes",
+  "fetched": "2026-10-15",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ }
+}

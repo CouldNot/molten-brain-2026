@@ -259,6 +259,32 @@
     "commercial": "commercial reasons",
     "unstated": "reason not stated"
   },
+  "workup_tests": {
+    "ecg": "ECG (QT interval)",
+    "echocardiography": "echocardiography",
+    "blood_pressure": "blood pressure",
+    "heart_rate": "heart rate",
+    "blood_count": "blood count",
+    "electrolytes": "electrolytes (sodium, potassium, calcium)",
+    "renal_function": "kidney function",
+    "liver_function": "liver tests",
+    "thyroid_function": "thyroid function",
+    "glycaemia": "blood glucose",
+    "lipids": "blood lipids",
+    "weight": "weight",
+    "prolactin": "prolactin",
+    "drug_level": "blood level of the drug",
+    "ammonia": "blood ammonia",
+    "coagulation": "clotting tests",
+    "pregnancy_test": "pregnancy test",
+    "hla_genotype": "HLA genotype",
+    "eeg": "EEG",
+    "eye_exam": "eye examination"
+  },
+  "workup_timings": {
+    "before": "before starting",
+    "during": "during treatment"
+  },
   "drug_targets": {
     "sert": {
       "name": "Serotonin transporter (SERT)",
@@ -11220,6 +11246,15 @@
       "page_kind": "cis",
       "page_url": "https://base-donnees-publique.medicaments.gouv.fr/extrait.php?specid={page}"
     },
+    "bdpm_rcp": {
+      "ref": "Base de données publique des médicaments (ANSM), RCP sections 4.2-4.4",
+      "citation": "ANSM / Ministère de la Santé. Base de données publique des médicaments, résumé des caractéristiques du produit (RCP) of the cited product, sections 4.2, 4.3 and 4.4. base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS code pinned per citation).",
+      "url": "https://base-donnees-publique.medicaments.gouv.fr/",
+      "pages_dir": "data_sources/bdpm/pages_rcp4",
+      "editable": true,
+      "page_kind": "cis",
+      "page_url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/{page}/extrait"
+    },
     "cpic": {
       "ref": "CPIC, clinical pharmacogenetics dosing guideline",
       "citation": "Clinical Pharmacogenetics Implementation Consortium (CPIC®). Gene-drug recommendation, cited guideline. clinpgx.org (CC0 1.0); guideline content is subject to update, so the export is dated.",
@@ -11875,6 +11910,16 @@
         "missing": 0,
         "unknown": 0
       },
+      "drug_workup": {
+        "total": 146,
+        "verified": 146,
+        "uncertain": 0,
+        "sourced": 0,
+        "llm": 0,
+        "nosource": 0,
+        "missing": 0,
+        "unknown": 0
+      },
       "drug_enzymes": {
         "total": 573,
         "verified": 570,
@@ -12147,15 +12192,15 @@
       }
     },
     "nodes": {
-      "total": 9800,
-      "verified": 9066,
+      "total": 9946,
+      "verified": 9212,
       "uncertain": 428,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 9494,
+      "backed": 9640,
       "pct_backed": 97
     },
     "ki_coverage": {
