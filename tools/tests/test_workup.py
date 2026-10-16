@@ -223,6 +223,29 @@ class ApplierGateTest(unittest.TestCase):
         self.assertIn("not verbatim", rej[0])
 
 
+    def test_conditional_pick_keeps_its_span_and_loses_to_a_plain_one(self):
+        """A condition must be a span of its quote; an unconditional ask for the same
+        (test, timing) wins, else the node carries each condition once."""
+        out, rej = self.gate({"lithium": [
+            {"index": 0, "test": "blood_count", "timing": "before",
+             "condition": "numération et formule"},
+            {"index": 1, "test": "drug_level", "timing": "during",
+             "condition": "chaque semaine"},
+            {"index": 1, "test": "drug_level", "timing": "during"},
+            {"index": 0, "test": "electrolytes", "timing": "before",
+             "condition": "chez le sujet âgé"}]})
+        self.assertEqual(len(rej), 1)
+        self.assertIn("condition is not a span", rej[0])
+        nodes = {n["test"]: n for n in out["lithium"]}
+        self.assertEqual(nodes["blood_count"]["conditions"], ["numération et formule"])
+        self.assertNotIn("conditions", nodes["drug_level"])
+        self.assertEqual(len(nodes["drug_level"]["sources"]), 1)
+
+    def test_undecided_lists_offered_drugs_with_no_key(self):
+        self.assertEqual(A.undecided({}, self.OFFERED), ["lithium"])
+        self.assertEqual(A.undecided({"lithium": []}, self.OFFERED), [])
+
+
 class GeneratorTest(unittest.TestCase):
     SRC = [{"corpus": "bdpm_rcp", "page": "1", "quote": "Un ECG avant.", "provenance": "verified"}]
 
@@ -245,6 +268,13 @@ class GeneratorTest(unittest.TestCase):
         dup = [{"test": "ecg", "timing": "before", "sources": self.SRC}] * 2
         with self.assertRaises(ValueError):
             W.drug_workup("x", _quote_sources, {"drugs": {"x": dup}})
+
+    def test_condition_must_be_a_span_of_its_quotes(self):
+        row = {"test": "ecg", "timing": "before", "sources": self.SRC}
+        ok = W.drug_workup("x", _quote_sources, {"drugs": {"x": [dict(row, conditions=["ecg  AVANT"])]}})
+        self.assertEqual(ok["workup"][0]["conditions"], ["ecg  AVANT"])
+        with self.assertRaises(ValueError):
+            W.drug_workup("x", _quote_sources, {"drugs": {"x": [dict(row, conditions=["chez l'âgé"])]}})
 
     def test_cache_is_valid(self):
         data = json.loads(W.CACHE.read_text(encoding="utf-8"))

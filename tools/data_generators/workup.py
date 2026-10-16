@@ -127,10 +127,17 @@ def _load() -> dict[str, Any]:
 _DATA = _load()
 
 
+def _fold(text: str) -> str:
+    """Case, whitespace and apostrophe folding, for the condition-span check."""
+    return " ".join(text.replace("\u2019", "'").casefold().split())
+
+
 def drug_workup(drug_id: str, quote_sources: Callable, data: dict | None = None
                 ) -> dict[str, Any]:
-    """The emitted ``workup`` field of one drug: ``[{test, timing, sources}]``
-    in vocabulary order, or ``{}``. ``quote_sources`` is ``provenance._quote_sources``
+    """The emitted ``workup`` field of one drug: ``[{test, timing, conditions?,
+    sources}]`` in vocabulary order, or ``{}``. ``conditions`` (a conditional row:
+    the label asks for the check only in some patients) holds verbatim French spans
+    of the row's own quotes, each checked to be one. ``quote_sources`` is ``provenance._quote_sources``
     (passed in, as for physchem.py). Validates against the vocabularies so a hand edit
     of the cache fails the build instead of shipping an unlabelled row."""
     rows = ((data if data is not None else _DATA).get("drugs") or {}).get(drug_id) or []
@@ -147,8 +154,14 @@ def drug_workup(drug_id: str, quote_sources: Callable, data: dict | None = None
         seen.add(key)
         if not r.get("sources"):
             raise ValueError(f"{what}: no source")
-        out.append({"test": r["test"], "timing": r["timing"],
-                    "sources": quote_sources(r["sources"], what)})
+        row = {"test": r["test"], "timing": r["timing"]}
+        for cond in r.get("conditions") or []:
+            if not any(_fold(cond) in _fold(s.get("quote") or "") for s in r["sources"]):
+                raise ValueError(f"{what}: condition {cond!r} is not a span of its quotes")
+        if r.get("conditions"):
+            row["conditions"] = list(r["conditions"])
+        row["sources"] = quote_sources(r["sources"], what)
+        out.append(row)
     order = {k: i for i, k in enumerate(TESTS)}
     tord = {k: i for i, k in enumerate(TIMINGS)}
     out.sort(key=lambda r: (tord[r["timing"]], order[r["test"]]))

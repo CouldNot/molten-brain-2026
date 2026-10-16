@@ -17,10 +17,17 @@ re-gated here rather than trusted from the judged file:
    under (re-read off the page by the fetcher, not taken from the judged file), carries
    that timing's wording;
 6. the quote is verbatim, under ``check_data.normalize_for_match``, on the corpus #24
-   page it cites (``data_sources/bdpm/pages_rcp4/<cis>.md``).
+   page it cites (``data_sources/bdpm/pages_rcp4/<cis>.md``);
+7. an optional ``condition`` (the label asks for the check only in some patients:
+   "chez les patients diabétiques") is a verbatim span of that same quote.
+
+The judged file holds a key for **every** offered drug, ``[]`` meaning "judged, the
+label asks for nothing the vocabulary covers", so an undecided drug (absent) is told
+apart from a judged one: :func:`undecided` lists them and the run reports them.
 
 One node per (drug, test, timing): a second accepted quote for the same node is
-appended to its sources, never a second node. Idempotent: the output is rebuilt from
+appended to its sources, never a second node. An unconditional pick outranks a
+conditional one for the same node (``_merge``). Idempotent: the output is rebuilt from
 the judged file on every run. It writes no ``llm`` stamp, so
 ``tools/sourcing/recheck_quotes.py`` (``--kinds drug_workup``) must run afterwards or
 ``check_data.py`` family 5 flags the citations as extracted-but-unjudged.
@@ -97,15 +104,43 @@ def gate(judged: dict, offered: dict, drug_ids: set[str], page_text
             if normalize_for_match(cand["quote"]) not in page_text(entry["cis"]):
                 rejected.append(f"{what}: the quote is not verbatim on its page")
                 continue
+            cond = " ".join((p.get("condition") or "").split())
+            if p.get("condition") is not None and (
+                    len(cond) < 4 or normalize_for_match(cond) not in normalize_for_match(cand["quote"])):
+                rejected.append(f"{what}: condition is not a span of the quote")
+                continue
             src = {"corpus": CORPUS, "page": entry["cis"], "quote": cand["quote"],
                    "provenance": "verified"}
             node = nodes.setdefault((test, timing), {"test": test, "timing": timing,
-                                                     "sources": []})
-            if src not in node["sources"]:
-                node["sources"].append(src)
+                                                     "plain": [], "conditional": []})
+            if cond:
+                node["conditional"].append((cond, src))
+            elif src not in node["plain"]:
+                node["plain"].append(src)
         if nodes:
-            out[did] = list(nodes.values())
+            out[did] = [_merge(n) for n in nodes.values()]
     return out, rejected
+
+
+def undecided(judged: dict, offered: dict) -> list[str]:
+    """The offered drugs the judged file holds no decision for (not even ``[]``)."""
+    return sorted(set(offered) - set(judged))
+
+
+def _merge(node: dict) -> dict:
+    """One (test, timing) node: an unconditional ask outranks a conditional one (the
+    check applies to everyone, so its conditional quotes add nothing); otherwise the
+    node is conditional, carrying each distinct condition once."""
+    row = {"test": node["test"], "timing": node["timing"]}
+    if node["plain"]:
+        return {**row, "sources": node["plain"]}
+    conds, srcs = [], []
+    for cond, src in node["conditional"]:
+        if cond not in conds:
+            conds.append(cond)
+        if src not in srcs:
+            srcs.append(src)
+    return {**row, "conditions": conds, "sources": srcs}
 
 
 def main() -> int:
@@ -129,9 +164,13 @@ def main() -> int:
         return cache[cis]
 
     drug_ids = {d["id"] for d in drugs_io.load_drugs()}
-    out, rejected = gate(judged, fetch_workup.build(), drug_ids, page_text)
+    offered = fetch_workup.build()
+    out, rejected = gate(judged, offered, drug_ids, page_text)
     for r in rejected:
         print(f"[reject] {r}")
+    pending = undecided(judged, offered)
+    if pending:
+        print(f"[warn] {len(pending)} offered drug(s) never judged: {', '.join(pending)}")
     n = sum(len(v) for v in out.values())
     print(f"[ok] {n} workup node(s) over {len(out)} drug(s); {len(rejected)} rejected")
     if not args.dry_run:

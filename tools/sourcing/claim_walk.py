@@ -361,8 +361,10 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
             test = WORKUP.TESTS[w["test"]]["en"]
             when = WORKUP.TIMINGS[w["timing"]]["en"]
             for q in _qids(w.get("sources", [])):
+                only = (f", only if: {'; '.join(w['conditions'])}" if w.get("conditions")
+                        else "")
                 add(q, f"The French label (RCP) of drug {nm} asks for a check of {test} "
-                       f"{when}.", CS.site("drug", d["id"], f"workup[{CS.workup_key(w)}]"))
+                       f"{when}{only}.", CS.site("drug", d["id"], f"workup[{CS.workup_key(w)}]"))
         kind["now"] = "drug_holders"
         for h in d.get("holders", []):
             where = HIST.COUNTRIES[h["market"]]["en"]

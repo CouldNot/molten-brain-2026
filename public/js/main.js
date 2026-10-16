@@ -44,7 +44,7 @@ import {
 } from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
 import { appendPhyschemChips, formatBbb, formatLogP, formatTpsa, hasPhyschem } from "./physchem.js";
-import { formatWorkup, groupWorkup } from "./workup.js";
+import { formatConditions, formatWorkup, groupWorkup } from "./workup.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -2597,6 +2597,8 @@ function createInfoPanel(data, sourcingModal) {
       for (const n of g.rows) {
         const li = el("li", "eff-row");
         li.appendChild(el("span", "loc-name", n.testLabel));
+        const cond = formatConditions(n, t("drug.workupOnlyIf"));
+        if (cond) li.appendChild(el("span", "workup-cond", cond));
         li.appendChild(sourceBackedPill(n.provenance, n));
         list.appendChild(li);
       }
@@ -6981,7 +6983,7 @@ function buildKindExample(kind, data, nav) {
     case "drug_workup": {
       // e.g. Lithium "Pre-treatment checks: blood count, before starting".
       const d = drugWith("lithium", (x) => x.workup.length);
-      return d ? line(d.name, `${t("drug.workupShort")} ${formatWorkup(d.workup[0])}`,
+      return d ? line(d.name, `${t("drug.workupShort")} ${formatWorkup(d.workup[0], t("drug.workupOnlyIf"))}`,
         () => nav.drug(d)) : null;
     }
     case "drug_withdrawals": {

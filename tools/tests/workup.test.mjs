@@ -2,7 +2,7 @@
 // run by tools/tests/test_js_units.py via `node --test`.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { formatWorkup, groupWorkup } from "../../public/js/workup.js";
+import { formatConditions, formatWorkup, groupWorkup } from "../../public/js/workup.js";
 
 test("rows group before then during, empty groups dropped", () => {
   const rows = [
@@ -20,4 +20,13 @@ test("rows group before then during, empty groups dropped", () => {
 test("one node reads as test then timing", () => {
   assert.equal(formatWorkup({ testLabel: "ECG (QT interval)", timingLabel: "before starting" }),
     "ECG (QT interval), before starting");
+});
+
+test("a conditional node carries its verbatim French condition", () => {
+  const n = { testLabel: "ECG", timingLabel: "before starting",
+    conditions: ["chez le sujet âgé", "en cas de cardiopathie"] };
+  assert.equal(formatConditions(n, "seulement si :"),
+    "seulement si : chez le sujet âgé; en cas de cardiopathie");
+  assert.equal(formatWorkup(n), "ECG, before starting, only if: chez le sujet âgé; en cas de cardiopathie");
+  assert.equal(formatConditions({ conditions: [] }), "");
 });

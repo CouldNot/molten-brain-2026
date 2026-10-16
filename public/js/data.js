@@ -1136,6 +1136,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       test: w.test, timing: w.timing,
       testLabel: workupTests[w.test] || w.test,
       timingLabel: workupTimings[w.timing] || w.timing,
+      conditions: w.conditions || [],   // verbatim French spans: a conditional ask
       sources: mapSources(w.sources),
       provenance: strongestGrade(w.sources),
     }));

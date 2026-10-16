@@ -23,6 +23,18 @@ export function groupWorkup(rows) {
  * One node as a single line, for the node browser and the Sources popup:
  * "ECG (QT interval), before starting".
  */
-export function formatWorkup(n) {
-  return `${n.testLabel}, ${n.timingLabel}`;
+export function formatWorkup(n, onlyIf = "only if:") {
+  const base = `${n.testLabel}, ${n.timingLabel}`;
+  const cond = formatConditions(n, onlyIf);
+  return cond ? `${base}, ${cond}` : base;
+}
+
+/**
+ * The "only if" clause of a conditional node (the label asks for the check only in
+ * some patients), its verbatim French spans joined: "only if: chez le sujet âgé".
+ * Empty for an unconditional node.
+ */
+export function formatConditions(n, onlyIf = "only if:") {
+  const c = (n && n.conditions) || [];
+  return c.length ? `${onlyIf} ${c.join("; ")}` : "";
 }
