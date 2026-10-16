@@ -68,6 +68,15 @@ class RenderApiTest(unittest.TestCase):
         self.assertRegex("".join(self.pages.values()),
                          r"\[verified q_[0-9a-f]+\] \([^)]*reference: https://")
 
+    def test_effect_page_lists_owners_and_derived_drugs(self):
+        page = self.pages["effect/nausea.md"]
+        self.assertIn("Kind: effect (BETA)", page)
+        self.assertIn("#tabs=effect:nausea", page)
+        self.assertIn("(/api/receptor/5ht3)", page)
+        self.assertIn("## Drugs that could cause it (derived, ", page)
+        self.assertIn("(/api/drug/ondansetron)", self.pages["effect/antiemetic.md"])
+        self.assertIn("(/api/effect/nausea)", self.pages["effect/index.md"])
+
     def test_presentation_fields_skipped(self):
         self.assertNotIn("shape_file", self.pages["structure/putamen_R.md"])
 

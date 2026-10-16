@@ -5,7 +5,10 @@ WebGL: ``/api/`` lists every page, ``/api/drug/sertraline`` holds that drug's
 stored fields, each claim tagged with its grade + quote id and the verbatim quotes listed once
 at the end of the page.
 
-**Stored fields only.** What the viewer derives in the browser (possible effects, release
+**Stored fields only**, with one exception: the BETA ``/api/effect/<id>`` pages (an effect
+-> the receptors whose stored nodes carry it -> the drugs whose bindings could reach it),
+the viewer's Effects panel derived by ``data_generators/effect_index.py`` and labelled as
+derived on the page. Everything else the viewer derives in the browser (possible effects, release
 changes, neurotransmitter tone, drug-drug interactions, the simulation) is not here, so
 nothing duplicates the JS that computes it. The rendering is generic (a record's keys in
 order, nested values as bullets), so a new data field shows up with no edit here.
@@ -25,6 +28,7 @@ from typing import Any
 from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "data_generators"))
+import effect_index  # noqa: E402 (the effect -> receptors -> drugs join, BETA)
 import llms_txt  # noqa: E402 (SITE_URL + the version, defined once there)
 
 PUBLIC = Path(__file__).resolve().parent.parent / "public"
@@ -36,7 +40,7 @@ SKIP = {"id", "name", "color", "position", "shape_file", "shape", "focusable", "
         "structure_image", "structure_image_gallery"}
 # The viewer's `#tabs=<kind>:<id>` opener for each page kind, where one exists.
 TAB_KIND = {"drug": "drug", "receptor": "target", "target": "target", "structure": "structure",
-            "circuit": "circuit", "group": "group"}
+            "circuit": "circuit", "group": "group", "effect": "effect"}
 # What JS encodeURIComponent leaves unescaped, so a page URL matches the viewer's byte for byte.
 URI_SAFE = "-_.!~*'()"
 API = "/api"  # absolute links, so a page reads the same served at any address (the 404)
@@ -46,7 +50,8 @@ NOT_FOUND = ("**No page at this address.** Page paths are `/api/<kind>/<id>` wit
              "`<from>--<to>`. Every valid page is listed below with its id.")
 KIND_TITLES = {"drug": "Drugs", "metabolite": "Active metabolites", "receptor": "Receptors",
                "target": "Other drug targets", "structure": "Brain regions",
-               "projection": "Pathways", "circuit": "Circuits", "group": "Projection groups"}
+               "projection": "Pathways", "circuit": "Circuits", "group": "Projection groups",
+               "effect": "Clinical effects (BETA, derived)"}
 
 
 def load(data_dir: Path) -> dict[str, Any]:
@@ -82,6 +87,10 @@ class Renderer:
             "circuit": {r["id"]: r for r in data["circuits"]},
             "group": {r["id"]: r for r in data["projection_groups"]},
         }
+        self.modes = data["meta"].get("receptor_effect_modes") or {}
+        self.effects = {e["id"]: e for e in effect_index.build(
+            data["receptors"], data["drugs"], data["metabolites"], data["meta"])}
+        self.pages["effect"] = {eid: {"name": e["label"]} for eid, e in self.effects.items()}
         # A receptor/target region list names the hemisphere-less base ("frontal"), the
         # structures list the emitted right-hand id ("frontal_R").
         self.base_to_structure = {}
@@ -213,8 +222,39 @@ class Renderer:
             lines.append(f"- `{qid}` ({where}{page}){link}: \"{q['quote']}\"")
         return lines
 
+    def effect_page(self, ident: str) -> str:
+        """An effect's page (BETA): its stored owners by mode, then the derived drugs."""
+        e = self.effects[ident]
+        lines = [f"# {e['label']}", "", f"Kind: effect (BETA). Id: `{ident}`.",
+                 f"Open in the viewer: {llms_txt.SITE_URL}/#tabs=effect:{ident}",
+                 "Derived, not medical advice. The receptors and targets below carry a sourced "
+                 "receptor_effect node for this effect (a statement about acting on the receptor "
+                 "in that mode). The drugs are derived, never stored: one of their directional "
+                 "bindings acts on such a receptor in a direction the mode covers, so each COULD "
+                 "cause it; a drug listed here does not necessarily cause it. "
+                 f"Index: [all pages]({API}/)."]
+        lines += ["", f"## Receptors and targets ({len(e['owners'])})"]
+        for mode, spec in self.modes.items():
+            owners = [o for o in e["owners"] if o["node"]["mode"] == mode]
+            if not owners:
+                continue
+            lines += ["", f"### {effect_index._en(spec.get('label', mode))}", ""]
+            for o in sorted(owners, key=lambda o: o["id"]):
+                srcs = " ".join(self.source(s) for s in o["node"].get("sources") or [])
+                lines.append(f"- {self.link(o['kind'], o['id'])} {srcs}".rstrip())
+        lines += ["", f"## Drugs that could cause it (derived, {len(e['drugs'])})", ""]
+        for d in sorted(e["drugs"], key=lambda d: str(d["drug"].get("name") or d["drug"]["id"]).lower()):
+            via = ", ".join(f"{self.link('target', b['target'])} {b['action']}"
+                            + (f" via {b['via_metabolite']}" if b.get("via_metabolite") else "")
+                            for b, _ in d["via"])
+            lines.append(f"- {self.link('drug', d['drug']['id'])}: {via}")
+        lines += self.sources_section()
+        return "\n".join(lines) + "\n"
+
     def page(self, kind: str, ident: str, rec: dict[str, Any]) -> str:
         self.cited: dict[str, dict[str, Any]] = {}
+        if kind == "effect":
+            return self.effect_page(ident)
         title = rec.get("name") or rec.get("label") or ident
         lines = [f"# {title}", "", f"Kind: {kind}. Id: `{ident}`."]
         if kind in TAB_KIND:
@@ -256,9 +296,10 @@ class Renderer:
             lines += [lead, ""]
         lines.append("One Markdown page per node of the dataset: stored fields only, each claim tagged "
                      "[grade quote_id], the verbatim quotes listed under Sources at the end of each "
-                     "page. The human version (the 3D viewer) shows slightly more: what it computes in "
-                     "the browser from these facts (possible effects, release changes, "
-                     "neurotransmitter tone, drug interactions, simulation) is not included. "
+                     "page, except the BETA effect pages, a derived effect -> receptors -> drugs "
+                     "index. The human version (the 3D viewer) shows slightly more: what else it "
+                     "computes in the browser from these facts (a drug's possible effects, release "
+                     "changes, neurotransmitter tone, drug interactions, simulation) is not included. "
                      f"Every page: [{API}/]({API}/). Overview and raw data: {llms_txt.SITE_URL}/llms.txt")
         for kind in kinds or self.pages:
             lines += self.listing(kind)

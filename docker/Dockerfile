@@ -12,6 +12,7 @@ RUN xcaddy build --with github.com/mholt/caddy-ratelimit
 FROM python:3.13-alpine AS api
 COPY tools/render_api.py /src/tools/render_api.py
 COPY tools/data_generators/llms_txt.py /src/tools/data_generators/llms_txt.py
+COPY tools/data_generators/effect_index.py /src/tools/data_generators/effect_index.py
 COPY public/version.js /src/public/version.js
 COPY public/data /src/public/data
 RUN python -I /src/tools/render_api.py --public /src/public --out /api
