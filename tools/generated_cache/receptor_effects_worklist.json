@@ -5653,6 +5653,22 @@
       "psychosis",
       "antipsychotic"
      ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "39511179",
+     "line": "Aripiprazole's intervention in hyperprolactinemia primarily targets the following core proteins: Solute Carrier Family 6 Member 3 (SLC6A3), monoamine oxidase (MAO-B), Dopamine D2 receptor (DRD2), 5-hydroxytryptamine (serotonin) receptor 2A (HTR2A), 5-hydroxytryptamine (serotonin) receptor 2C (HTR2C), cytochrome P450 2D6 (CYP2D6), Dopamine D1 receptor (DRD1), Dopamine D4 receptor (DRD4).",
+     "effects": [
+      "prolactin_elevation"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41710756",
+     "line": "Dopamine D4 receptor (D 4 R) signaling affects decision-making, memory formation, cognition, and attention.",
+     "effects": [
+      "pro_cognitive"
+     ]
     }
    ]
   },
@@ -5763,6 +5779,25 @@
      "line": "D5 receptor (DRD5), GtoPdb target 218 | pathophysiology: Cervical dystonia | comments: Microsatellite polymorphism may increase incidence of cervical dystonia.",
      "effects": [
       "extrapyramidal_symptoms"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41519104",
+     "line": "While D1/D5 receptor (D1R/D5R) agonism has been extensively studied in neuroscience, its therapeutic potential for cognitive impairment in schizophrenia remains untapped.",
+     "effects": [
+      "anticholinergic_cognitive",
+      "antipsychotic",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "37497384",
+     "line": "Recent preclinical and clinical studies suggest that a D1/D5 receptor-selective partial agonist may hold promise for providing sustained, predictable, and robust motor control, while reducing risk for motor complications (e.g., levodopa-induced dyskinesia) and nonmotor AEs (e.g., impulse control disorders and excessive daytime sleepiness).",
+     "effects": [
+      "sedation",
+      "sleep_promotion"
      ]
     }
    ]
@@ -6238,6 +6273,17 @@
      "line": "caution with, 378 insomnia treatment, 421–2 benzodiazepine-sensitive GABAA",
      "effects": [
       "insomnia",
+      "sleep_promotion"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "24900684",
+     "line": "The ρ1 GABAC receptor is a ligand-gated chloride ion channel that shows promise as a therapeutic target for myopia, sleep disorders, memory and learning facilitation, and anxiety-related disorders.",
+     "effects": [
+      "anxiety",
+      "anxiolytic",
+      "pro_cognitive",
       "sleep_promotion"
      ]
     }
@@ -7279,6 +7325,38 @@
       "antidepressant",
       "antipsychotic"
      ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "40650226",
+     "line": "Ionotropic glutamate receptors-including N -methyl-d-aspartate (NMDA), α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA), and kainate receptors-play a pivotal role in excitatory signaling in the central nervous system (CNS), which is particularly important for learning and memory processes.",
+     "effects": [
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "40650226",
+     "line": "Among them, AMPA and kainate receptors (known as 'non-NMDA' receptors) have gained increasing attention as therapeutic targets for various CNS disorders.",
+     "effects": [
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "35912516",
+     "line": "This study aims to systematically review clinical trials investigating the antidepressant effects of kainate receptor antagonists.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "35912516",
+     "line": "Conclusion Regarding the glutamatergic hypothesis of depression and obtained promising results, further studies of kainate receptor antagonists in high-quality trials are recommended.",
+     "effects": [
+      "antidepressant"
+     ]
     }
    ]
   },
@@ -7345,6 +7423,22 @@
      "line": "The drug LY354740 (also known as Eglumegad , an mGlu 2 / 3 agonist ) was shown to attenuate physiologic and cognitive abnormalities in animal and human studies of NMDA receptor antagonist and serotonergic hallucinogen effects, supporting the subsequent clinical evidence of efficacy for an mGluR 2/3 agonist in the treatment of schizophrenia.",
      "effects": [
       "antipsychotic",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42763428",
+     "line": "The mechanism relies on MT1/MT2 as core targets, which mediate the regulation of sleep-related molecules (CLOCK, PER1, CaMKII, p-CREB/CREB, GABARAP, and mGluR1), as well as the membrane protein shedding-related molecule ADAM10.",
+     "effects": [
+      "sleep_promotion"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42512469",
+     "line": "We also summarize the biochemical pathways supporting these learning processes, including glutamatergic LTP-like cortical plasticity, cerebellar mGluR1-PKC-LTD signaling, dopaminergic corticostriatal plasticity, BDNF-TrkB-dependent neurotrophic mechanisms, growth-factor signaling, and exercise-induced muscle-brain communication.",
+     "effects": [
       "pro_cognitive"
      ]
     }
@@ -7551,6 +7645,23 @@
       "antipsychotic",
       "pro_cognitive"
      ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "39948693",
+     "line": "Expert opinion The mGluR4 receptor serves as a novel target for the treatment of neurodegenerative disorders (namely Parkinson's disease), multiple sclerosis, and chronic pain along with other brain disorders.",
+     "effects": [
+      "antiparkinsonian",
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "31210112",
+     "line": "The role of mGluR4, whose antiparkinsonian activity is widely reported, will also be addressed.",
+     "effects": [
+      "antiparkinsonian"
+     ]
     }
    ]
   },
@@ -7617,6 +7728,136 @@
      "line": "The drug LY354740 (also known as Eglumegad , an mGlu 2 / 3 agonist ) was shown to attenuate physiologic and cognitive abnormalities in animal and human studies of NMDA receptor antagonist and serotonergic hallucinogen effects, supporting the subsequent clinical evidence of efficacy for an mGluR 2/3 agonist in the treatment of schizophrenia.",
      "effects": [
       "antipsychotic",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42102389",
+     "line": "Dysregulation of metabotropic glutamate receptor 5 (mGluR5) and cholecystokinin (CCK) signaling has been implicated in major depressive disorder (MDD), but the underlying circuit mechanisms remain unclear.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42102389",
+     "line": "Here, we define how mGluR5 regulates depressive-like behaviors through CCK signaling in the entorhinal cortex (EC) to basolateral amygdala (BLA) pathway.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42102389",
+     "line": "Pharmacologically, mGluR5 antagonism phenocopies CCK-driven pro-depressive effects, whereas CCK knockout mice resist behavioral consequences of mGluR5 inhibition.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42066082",
+     "line": "Here, we find that the antidepressant action of ketamine is dependent on both the receptor tyrosine kinase, tropomyosin-related kinase B (TrkB), and the G protein-coupled receptor, metabotropic glutamate receptor 5 (mGluR5). mGluR5 amplifies brain-derived neurotrophic factor (BDNF)-driven signaling of TrkB, enabling synaptic potentiation via \"signaling cross-talk,\" while BDNF activation of TrkB drives mGluR5 endocytosis via \"trafficking cross-talk,\" impairing synaptic depression.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42292372",
+     "line": "Among the anti-mGluR5 AE patients, common manifestations included cognitive deficits, behavioral and mood disturbances, sleep disturbances, seizures, movement disorders and decreased level of consciousness (dLOC).",
+     "effects": [
+      "anticholinergic_cognitive",
+      "seizures",
+      "anticonvulsant",
+      "pro_cognitive",
+      "sleep_promotion"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "40964490",
+     "line": "Dysregulation of astrocytic mGluR5 is increasingly implicated in the pathophysiology of neurodegenerative and psychiatric disorders including Alzheimer's disease (AD), Parkinson's disease (PD), depression, anxiety, and schizophrenia (SCZ) by promoting neuroinflammation, excitotoxicity, and synaptic dysfunction.",
+     "effects": [
+      "anxiety",
+      "anxiolytic",
+      "antidepressant",
+      "antipsychotic",
+      "antiparkinsonian"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41154684",
+     "line": "Among these, the serotonin 2A receptor (5-HT2AR) and metabotropic glutamate receptor 5 (mGluR5) are recognized as key mediators of neuropathic pain.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41154684",
+     "line": "In this study, we evaluated the efficacy of dual antagonism of 5-HT2AR and mGluR5 using spinal nerve ligation (SNL) and formalin-induced pain models in male Sprague-Dawley rats.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41154684",
+     "line": "Additionally, novel small molecules designed to concurrently inhibit 5-HT2AR and mGluR5 exerted dose-dependent anti-nociceptive effects by suppressing excitatory postsynaptic responses and inhibiting the phosphorylation of ERK and AKT signaling molecules.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41154684",
+     "line": "These findings may indicate the promise of simultaneous 5-HT2AR and mGluR5 antagonism as a novel and potentially safer strategy for managing chronic neuropathic pain.",
+     "effects": [
+      "analgesia"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41929374",
+     "line": "The antidepressant mechanism of ketamine has also been intensively studied, involving glutamate receptors such as NMDAR, AMPAR, mGluR5, molecular pathways such as mTOR, ERK-CREB, PI3K/Akt, metabolites, and other related pathways such as opioid receptors, inflammation, and monoamines.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42483533",
+     "line": "Second, siRNA-mediated knockdown of circHomer1 in the ventral CA1 (vCA1) region significantly alleviated surgery-induced cognitive deficits, increased Homer1b mRNA expression, and upregulated mGluR5 and PSD-95 protein levels.",
+     "effects": [
+      "anticholinergic_cognitive",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42483533",
+     "line": "Conversely, siRNA-mediated knockdown of Homer1b exacerbated cognitive impairment and reduced mGluR5 and PSD-95 expression, while lentivirus-mediated overexpression of Homer1b rescued both protein levels and cognitive function.",
+     "effects": [
+      "anticholinergic_cognitive",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42483533",
+     "line": "Third, pharmacological activation of mGluR5 with the agonist CHPG improved cognitive performance and increased PSD-95 expression, whereas inhibition of mGluR5 with MPEP produced opposite effects.",
+     "effects": [
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42483533",
+     "line": "Conclusions This study suggests that circHomer1 in the vCA1 region may influence the cognitive function of elderly mice following tibial fracture surgery, potentially involving the Homer1b/mGluR5 signaling pathway, offering preliminary mechanistic insights into the role of circRNAs in brain function and disease.",
+     "effects": [
       "pro_cognitive"
      ]
     }
@@ -7686,6 +7927,15 @@
      "effects": [
       "antipsychotic",
       "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "31573889",
+     "line": "The pharmacological activation of mGluR6 in the hippocampus produced an anxiolytic-like effect and in the periaqueductal gray analgesic potential.",
+     "effects": [
+      "anxiolytic",
+      "analgesia"
      ]
     }
    ]
@@ -7775,6 +8025,14 @@
      "corpus": "stahl_essential",
      "page": 253,
      "line": "A glutamate modulator D-cycloserine combined with lurasidone, called NRX101 (Cyclurad), combines antagonism of the glycine site of the NMDA receptor (see Figures 4-21, 4-22, 4-26, 4-27) with lurasidone, for the potential treatment of acute suicidal ideation and behavior, as well as for bipolar depression, with early positive findings.",
+     "effects": [
+      "antidepressant"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41588006",
+     "line": "We develop highly selective nanobodies for a recently discovered glycine receptor mGlyR crucially linked to pathophysiology of depression.",
      "effects": [
       "antidepressant"
      ]
@@ -8408,6 +8666,14 @@
      "line": "Frizzled and Smoothened Category Commons Category Commons - Frizzled 1 2 3 4 5 6 7 8 9 10 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - Smoothened - Category - Commons v t e Histamine receptor modulators See also Receptor/signaling modulators Monoamine metabolism modulators Monoamine reuptake inhibitors - v - t - e - 2-Pyridylethylamine - Betahistine - Histamine - HTMT - L -Histidine - UR-AK49 - First-generation (sedating):",
      "effects": [
       "sedation"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41134085",
+     "line": "Collectively, these findings reveal a H 4 R/cAMP/TGF-β1/Smad3 signaling axis involved in microglial phagocytosis and cognitive function, serving as a novel therapeutic target for AD.",
+     "effects": [
+      "pro_cognitive"
      ]
     }
    ]
@@ -10896,6 +11162,63 @@
      "line": "8-OH-DPAT - AS-19 - Bifeprunox - E-55888 - Ergolines (e.g., LSD ) - LP-12 - LP-44 - LP-211 - RU-24969 - Sarizotan - Serotonin (5-HT) - Triptans (e.g., frovatriptan ) - Tryptamines (e.g., 5-CT , 5-MT , bufotenin , N-Me-5-HT ) - Antagonists:",
      "effects": [
       "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "39133210",
+     "line": "Calcitonin gene-related peptide (CGRP) and its relation to migraine pathophysiology and the therapies that target the CGRP pathway, as well as a 5HT1F receptor agonist and neuromodulation devices used to treat migraine are briefly discussed as they may potentially prove to be useful in the future treatment of CVS.",
+     "effects": [
+      "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "36879707",
+     "line": "Understanding the biology of migraine through careful research has resulted in the identification of major therapeutic classes: (i) triptans, serotonin 5-HT1B/1D receptor agonists, (ii) gepants, calcitonin gene-related peptide (CGRP) receptor antagonists, (iii) ditans, 5-HT1F receptor agonists, (iv) CGRP monoclonal antibodies, and (v) glurants, mGlu5 modulators, with further targets being explored.",
+     "effects": [
+      "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41270648",
+     "line": "This approach enhances anti-migraine efficacy through peripheral restriction while circumventing central adverse effects (e.g., somnolence) mediated by 5-HT1F activation in the CNS.",
+     "effects": [
+      "sedation",
+      "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41270648",
+     "line": "By integrating computational modeling and pharmacological screening, we designed compounds that simultaneously inhibit CGRP receptors and activate 5-HT1F receptors, demonstrating potent anti-migraine potential.",
+     "effects": [
+      "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41270648",
+     "line": "Collectively, these findings establish a preclinical foundation for elucidating dual-target CGRP antagonists/5-HT1F agonists with synergistic therapeutic strategies against migraine.",
+     "effects": [
+      "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "40992411",
+     "line": "This review offers an in-depth evaluation of Lasmiditan, a novel and selective 5-HT1F receptor agonist, representing a significant breakthrough in migraine pharmacotherapy.",
+     "effects": [
+      "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "37426628",
+     "line": "Lasmiditan is a first-in-class agonist at the 5-HT1F serotonin receptor that does not appear to generate vasoconstriction.",
+     "effects": [
+      "vasoconstriction"
      ]
     }
    ]
@@ -13837,6 +14160,24 @@
      "effects": [
       "antimigraine"
      ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "37333908",
+     "line": "There has also been a strong resurgence in interest in psychedelic compounds that impact a range of receptor sites including D1, 5-HT7, KOR, 5-HT5A, Sigma-1, NMDA, and BDNF.",
+     "effects": [
+      "hallucinations"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "25108314",
+     "line": "These results collectively suggest that ASP5736 is a novel and potent 5-HT5A receptor antagonist that not only ameliorates positive-like symptoms but also cognitive impairments in animal models of schizophrenia, without adverse effects.",
+     "effects": [
+      "anticholinergic_cognitive",
+      "antipsychotic",
+      "pro_cognitive"
+     ]
     }
    ]
   },
@@ -14032,6 +14373,105 @@
      "line": "8-OH-DPAT - AS-19 - Bifeprunox - E-55888 - Ergolines (e.g., LSD ) - LP-12 - LP-44 - LP-211 - RU-24969 - Sarizotan - Serotonin (5-HT) - Triptans (e.g., frovatriptan ) - Tryptamines (e.g., 5-CT , 5-MT , bufotenin , N-Me-5-HT ) - Antagonists:",
      "effects": [
       "antimigraine"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "40347153",
+     "line": "The 5-HT6 receptor (5-HT6R), mainly found in brain regions involved in cognition, is a promising therapeutic target for cognitive deficits in neuropsychiatric disorders, particularly AD and schizophrenia.",
+     "effects": [
+      "anticholinergic_cognitive",
+      "antipsychotic",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "35565976",
+     "line": "One of the targets that attract the most attention for the potential therapy of AD is the serotonin 5HT6 receptor, which is the receptor situated exclusively in CNS on glutamatergic and GABAergic neurons.",
+     "effects": [
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "35621169",
+     "line": "On the contrary, it is known that the 5-HT6 receptor agonist and antagonist drugs induce procognitive, anxiolytic and antidepressant effects in different preclinical models.",
+     "effects": [
+      "anxiolytic",
+      "antidepressant",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "35621169",
+     "line": "The acute administration of both 5-HT6 agents reversed the memory deficit and induced a decrease in anxiety, whereas SB-271046 administration produced a decrease in climbing behavior.",
+     "effects": [
+      "anticholinergic_cognitive",
+      "anxiety",
+      "anxiolytic",
+      "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "35621169",
+     "line": "Current findings suggest that both agonist and antagonist 5-HT6 drugs play an important role in modulating psychotic-like symptoms induced by the subchronic blockade of NMDAR.",
+     "effects": [
+      "psychosis",
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "37259305",
+     "line": "A promising supplement to antipsychotic therapy appears to be ligands of the serotonin 6 (5-HT 6 ) receptor.",
+     "effects": [
+      "psychosis",
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "37259305",
+     "line": "The present study aimed to examine the chronic effects of the selected APDs (haloperidol, risperidone, olanzapine), administered alone and in combination with a selective 5-HT 6 agonist (WAY-181187) or antagonist (SB-742457), on weight gain, food intake, serum lipid profile, glucose level, and a spectrum of hormones derived from adipose (leptin, adiponectin) and gastrointestinal (insulin, ghrelin) tissue in rats.",
+     "effects": [
+      "weight_gain",
+      "appetite_increase",
+      "appetite_decrease"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "33149591",
+     "line": "The role of serotonin 6 and 7 receptors in schizophrenia, interaction with neurotransmitters and the effect of drugs on those receptors in schizophrenia are the goal of this review.",
+     "effects": [
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "33149591",
+     "line": "The serotonin 6 and 7 receptors are associated with schizophrenia via modulating cyclic adenosine monophosphate, regulation of Fyn kinase and induction of structural plasticity.",
+     "effects": [
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "33149591",
+     "line": "SGS-518, ABT-354, Lu AE58054, SB-742,457, S-518, AVN-211, AVN-322, SYN-114 and SYN-120 are serotonin 6 receptor antagonists and aripiprazole-controlled release serotonin 7 receptor agonists under clinical trial for schizophrenia.",
+     "effects": [
+      "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "33149591",
+     "line": "Thus, research on novel drugs that act on serotonin 6 and 7 receptors likely facilitates the intervention into schizophrenia patients seeking better quality of life in the future.",
+     "effects": [
+      "antipsychotic"
      ]
     }
    ]

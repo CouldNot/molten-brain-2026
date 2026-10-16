@@ -13,7 +13,10 @@ indexed, every sentence that names the owner AND hits an effect keyword
   ``fetch_gtopdb_function.py``): every statement line hitting a keyword, a row whose
   species GtoPdb states offered only when human (``fetch_gtopdb_function.offerable``),
   the species carried onto the candidate. Appended last, so adding the corpus never
-  shifts an index the judged file already answers by.
+  shifts an index the judged file already answers by;
+* the abstracts the owner's Europe PMC effect search read (corpus #17 ``europepmc``,
+  ``fetch_europepmc.py --effect-search``, only for an owner with no effect node yet):
+  each sentence naming the owner and hitting a keyword. Appended after GtoPdb.
 
 Each candidate carries the effect ids its keywords hit, so the LLM pass (answering by
 index into ``tools/generated_cache/receptor_effects_judged.json``) and the applier
@@ -44,9 +47,12 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import fetch_classification_worklist as cls  # noqa: E402 (sentences, stahl_sentences, aliases)
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402 (slug_of)
+import fetch_demographics as demog  # noqa: E402 (abstract_lines)
+import fetch_europepmc as epmc  # noqa: E402 (EFFECT_SEARCH_LEDGER)
 import fetch_gtopdb_function as gfunc  # noqa: E402 (RAW, offerable)
 import target_aliases  # noqa: E402
 from data_generators.receptor_effects import RECEPTOR_EFFECTS  # noqa: E402
+from data_generators.unknown import effects_site  # noqa: E402
 from worklist_io import merge_scoped  # noqa: E402
 
 OUT_PATH = ROOT / "tools" / "generated_cache" / "receptor_effects_worklist.json"
@@ -161,9 +167,24 @@ def gtopdb_candidates(oid: str, hits, key: str) -> list[dict]:
     return out
 
 
+def europepmc_candidates(pmids, rx, hits, key: str) -> list[dict]:
+    """The abstract sentences of the papers the owner's Europe PMC effect search read
+    (``fetch_europepmc.py --effect-search``) that name the owner AND hit a cue. An
+    abstract is about many things, so unlike the owner's own GtoPdb page its sentence
+    must name the owner. Appended last, so the corpus never shifts an answered index."""
+    out = []
+    for pmid in pmids if rx else ():
+        for line in demog.abstract_lines(pmid):
+            hit = hits(line) if rx.search(target_aliases.fold(line)) else None
+            if hit:
+                out.append({"corpus": "europepmc", "page": pmid, "line": line, key: hit})
+    return out
+
+
 def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
                aliases: dict[str, list[str]], hits=None, key: str = "effects",
-               family: dict[str, list[str]] | None = None) -> list[dict]:
+               family: dict[str, list[str]] | None = None,
+               epmc_read: list[str] = ()) -> list[dict]:
     """Indexed candidate sentences for one owner: Stahl Essential first, then its article.
     ``hits(line)`` returns the cue ids a sentence carries (stored under ``key``)."""
     hits = hits or effect_hits
@@ -187,6 +208,7 @@ def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
                 out.append({"corpus": "wikipedia_pharm", "page": slug, "line": line,
                             key: hit})
     out += gtopdb_candidates(oid, hits, key)
+    out += europepmc_candidates(epmc_read, rx, hits, key)
     seen: set[tuple] = set()
     return [c for c in out if not ((c["corpus"], c["line"]) in seen
                                    or seen.add((c["corpus"], c["line"])))]
@@ -201,11 +223,16 @@ def build(only: set[str] | None = None, hits=None, key: str = "effects",
     ``effects``); ``fetch_release_modulation`` reuses this with its own cues."""
     stahl = cls.stahl_sentences()
     aliases = target_aliases.aliases_by_target()
+    # The Europe PMC effect search (an owner-level UNKNOWN leg) is about effects only.
+    ledger = (json.loads(epmc.EFFECT_SEARCH_LEDGER.read_text("utf-8"))
+              if hits is None and epmc.EFFECT_SEARCH_LEDGER.exists() else {})
     work = {}
     for oid, owner in owners().items():
         if (only and oid not in only) or oid in SKIP_OWNERS or owner["kind"] not in owner_kinds:
             continue
-        cands = candidates(oid, owner, stahl, aliases, hits or effect_hits, key, family)
+        read = (ledger.get(effects_site(owner["kind"], oid)) or {}).get("read", [])
+        cands = candidates(oid, owner, stahl, aliases, hits or effect_hits, key, family,
+                           read)
         if cands:
             work[oid] = {**owner, "candidates": cands}
     return {"owners": work}

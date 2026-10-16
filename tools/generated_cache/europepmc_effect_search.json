@@ -1,0 +1,274 @@
+{
+ "receptor:5ht1e/effects": {
+  "hits": 32,
+  "query": "(ABSTRACT:\"5-HT1E receptor\" OR ABSTRACT:\"5-HT1E\" OR ABSTRACT:\"5ht1e receptor\" OR ABSTRACT:\"5ht1e\" OR ABSTRACT:\"serotonin 1E receptor\" OR ABSTRACT:\"serotonin 1E\" OR ABSTRACT:\"HTR1E\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41183202",
+   "41488142",
+   "39940809",
+   "37723479",
+   "37078547",
+   "34207786",
+   "39371976",
+   "34093864",
+   "35711734",
+   "34966948"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:5ht1f/effects": {
+  "hits": 110,
+  "query": "(ABSTRACT:\"5-HT1F receptor\" OR ABSTRACT:\"5-HT1F\" OR ABSTRACT:\"5ht1f receptor\" OR ABSTRACT:\"5ht1f\" OR ABSTRACT:\"serotonin 1F receptor\" OR ABSTRACT:\"serotonin 1F\" OR ABSTRACT:\"HTR1F\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "39133210",
+   "36879707",
+   "41270648",
+   "40992411",
+   "41060776",
+   "40571323",
+   "37426628",
+   "41507153",
+   "41007799",
+   "37943442"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:5ht5a/effects": {
+  "hits": 32,
+  "query": "(ABSTRACT:\"5-HT5A receptor\" OR ABSTRACT:\"5-HT5A\" OR ABSTRACT:\"5ht5a receptor\" OR ABSTRACT:\"5ht5a\" OR ABSTRACT:\"serotonin 5A receptor\" OR ABSTRACT:\"serotonin 5A\" OR ABSTRACT:\"HTR5A\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41488142",
+   "41511349",
+   "39458974",
+   "37333908",
+   "28322152",
+   "39955314",
+   "22505971",
+   "27897266",
+   "38590690",
+   "25108314"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:5ht6/effects": {
+  "hits": 197,
+  "query": "(ABSTRACT:\"5-HT6 receptor\" OR ABSTRACT:\"5-HT6\" OR ABSTRACT:\"5ht6 receptor\" OR ABSTRACT:\"5ht6\" OR ABSTRACT:\"serotonin 6 receptor\" OR ABSTRACT:\"serotonin 6\" OR ABSTRACT:\"HTR6\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "40347153",
+   "42179638",
+   "42231312",
+   "35565976",
+   "35621169",
+   "36551993",
+   "37259305",
+   "41118084",
+   "33149591",
+   "36620862"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:d4/effects": {
+  "hits": 465,
+  "query": "(ABSTRACT:\"D4 receptor\" OR ABSTRACT:\"DRD4\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "42741356",
+   "40365131",
+   "41983191",
+   "39511179",
+   "41694461",
+   "42540671",
+   "38059339",
+   "41710756",
+   "42172180",
+   "38255820"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:d5/effects": {
+  "hits": 150,
+  "query": "(ABSTRACT:\"D5 receptor\" OR ABSTRACT:\"DRD5\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "42162439",
+   "42694316",
+   "42378568",
+   "41519104",
+   "41694461",
+   "41963084",
+   "37497384",
+   "42433357",
+   "39980081",
+   "41751528"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:gaba_a_rho/effects": {
+  "hits": 31,
+  "query": "(ABSTRACT:\"GABRR1\" OR ABSTRACT:\"GABRR2\" OR ABSTRACT:\"GABAC receptor\" OR ABSTRACT:\"GABA-C receptor\" OR ABSTRACT:\"GABAA-rho receptor\" OR ABSTRACT:\"GABA rho receptor\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41023051",
+   "32917921",
+   "24460753",
+   "29445327",
+   "22860195",
+   "23626481",
+   "27959334",
+   "35798032",
+   "24900684",
+   "24900248"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:glycine/effects": {
+  "hits": 349,
+  "query": "(ABSTRACT:\"Glycine receptor\" OR ABSTRACT:\"GLRA1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41928088",
+   "41226576",
+   "42162244",
+   "40206345",
+   "42045869",
+   "42524505",
+   "41588006",
+   "42626357",
+   "40205369",
+   "37238731"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:h4/effects": {
+  "hits": 169,
+  "query": "(ABSTRACT:\"H4 receptor\" OR ABSTRACT:\"HRH4\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "42515805",
+   "41017599",
+   "41516088",
+   "40864813",
+   "41599774",
+   "39432406",
+   "41134085",
+   "39462031",
+   "41946080",
+   "42782532"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:kainate/effects": {
+  "hits": 261,
+  "query": "(ABSTRACT:\"Kainate receptor\" OR ABSTRACT:\"GRIK1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "40650226",
+   "42027995",
+   "36768227",
+   "41177899",
+   "35912516",
+   "42656552",
+   "41583996",
+   "39439207",
+   "41391686",
+   "41079616"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:mglur1/effects": {
+  "hits": 461,
+  "query": "(ABSTRACT:\"mGluR1 receptor\" OR ABSTRACT:\"mGluR1\" OR ABSTRACT:\"GRM1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41750392",
+   "42763428",
+   "42756386",
+   "42750652",
+   "41525334",
+   "41580663",
+   "42509834",
+   "41639063",
+   "42512469",
+   "41424796"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:mglur4/effects": {
+  "hits": 105,
+  "query": "(ABSTRACT:\"mGluR4 receptor\" OR ABSTRACT:\"mGluR4\" OR ABSTRACT:\"GRM4\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41750392",
+   "39948693",
+   "41306018",
+   "41444258",
+   "40593670",
+   "41504861",
+   "41573636",
+   "39298028",
+   "42112340",
+   "31210112"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:mglur5/effects": {
+  "hits": 940,
+  "query": "(ABSTRACT:\"mGluR5 receptor\" OR ABSTRACT:\"mGluR5\" OR ABSTRACT:\"GRM5\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "42781272",
+   "41750392",
+   "42102389",
+   "42066082",
+   "42292372",
+   "40964490",
+   "41154684",
+   "41929374",
+   "41580663",
+   "42483533"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:mglur6/effects": {
+  "hits": 50,
+  "query": "(ABSTRACT:\"mGluR6 receptor\" OR ABSTRACT:\"mGluR6\" OR ABSTRACT:\"GRM6\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "41371955",
+   "41395268",
+   "39298028",
+   "39825567",
+   "41993637",
+   "41867370",
+   "40930976",
+   "31573889",
+   "33790745",
+   "38255972"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:mglur7/effects": {
+  "hits": 132,
+  "query": "(ABSTRACT:\"mGluR7 receptor\" OR ABSTRACT:\"mGluR7\" OR ABSTRACT:\"GRM7\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "40149928",
+   "40689847",
+   "40637957",
+   "37003303",
+   "40943499",
+   "38423750",
+   "39298028",
+   "38983774",
+   "42569468",
+   "41826372"
+  ],
+  "searched": "2026-10-16"
+ },
+ "receptor:nachr_muscle/effects": {
+  "hits": 86,
+  "query": "(ABSTRACT:\"Muscle nAChR receptor\" OR ABSTRACT:\"CHRNA1\" OR ABSTRACT:\"CHRNB1\" OR ABSTRACT:\"CHRND\" OR ABSTRACT:\"CHRNE\" OR ABSTRACT:\"muscle nicotinic receptor\" OR ABSTRACT:\"muscle-type nicotinic\" OR ABSTRACT:\"neuromuscular nicotinic\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
+  "read": [
+   "42536689",
+   "42509725",
+   "42643272",
+   "42657756",
+   "38715819",
+   "42536688",
+   "41097341",
+   "37458380",
+   "42347111",
+   "36835142"
+  ],
+  "searched": "2026-10-16"
+ }
+}

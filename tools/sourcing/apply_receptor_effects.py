@@ -46,8 +46,10 @@ from prose_gate import apply_picks, not_offered, run_applier  # noqa: E402
 from apply_classification_sources import PROSE_PAGES as _PROSE  # noqa: E402
 from data_generators.provenance import corpus_page_path  # noqa: E402
 
-# The two prose corpora plus GtoPdb's function pages (corpus #23).
-PROSE_PAGES = {**_PROSE, "gtopdb_function": corpus_page_path("gtopdb_function", 0).parent}
+# The two prose corpora plus GtoPdb's function pages (corpus #23) and the Europe PMC
+# abstracts the owner-level effect search read (corpus #17).
+PROSE_PAGES = {**_PROSE, "gtopdb_function": corpus_page_path("gtopdb_function", 0).parent,
+               "europepmc": corpus_page_path("europepmc", 0).parent}
 
 WORKLIST = TOOLS / "generated_cache" / "receptor_effects_worklist.json"
 JUDGED = TOOLS / "generated_cache" / "receptor_effects_judged.json"

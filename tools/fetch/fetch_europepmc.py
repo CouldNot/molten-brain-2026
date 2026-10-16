@@ -50,7 +50,7 @@ the record names none), which the generator reads for the ``animal_evidence`` fl
 Network (``www.ebi.ac.uk``), polite and resumable: a paper whose page is on disk is
 skipped unless ``--refresh``. Stdlib only.
 
-**The one search mode, ``--binding-search``**, is the Europe PMC leg of the UNKNOWN search
+**The binding search mode, ``--binding-search``**, is the Europe PMC leg of the UNKNOWN search
 (``tools/data_generators/unknown.py``): for every binding with no known direction it runs
 one query (:func:`direction_query`: the ligand and the target, both required in the
 abstract, plus a direction word), stores the top :data:`SEARCH_TOP` abstracts as pages
@@ -61,6 +61,15 @@ search log cites. Resumable: a binding already in the ledger is skipped unless
 ``--refresh``; ``--only <drug ids>`` scopes it::
 
     python tools/fetch/fetch_europepmc.py --binding-search
+
+**``--effect-search``** is the Europe PMC leg of the receptor-effect UNKNOWN search: one
+query per receptor with no ``receptor_effect`` node (:func:`effect_query`: the receptor
+named in the abstract, plus an action word, an effect word and a human-study word), the top
+:data:`EFFECT_SEARCH_TOP` abstracts stored, the query / hit count / PMIDs read recorded in
+``tools/generated_cache/europepmc_effect_search.json`` (keyed ``receptor:<id>/effects``).
+``tools/fetch/fetch_receptor_effects.py`` then offers their sentences as candidates::
+
+    python tools/fetch/fetch_europepmc.py --effect-search
 
 **The cited-paper mode, ``--ki-prose``**, follows a Wikipedia article's own citations to a
 measured affinity its prose states but no table or database carries (viloxazine's
@@ -165,6 +174,10 @@ PAPERS: dict[str, str] = {
     "10360121": "mu-opioid binding by age and sex (human PET)",
     "18077184": "CB1 binding increases with age, by sex (human PET)",
     "19728366": "NET availability with age (human PET)",
+    # Found by the receptor-effect search (--effect-search), kept for the effect they back.
+    "40992411": "5-HT1F agonism (lasmiditan) treats migraine (review)",
+    "36879707": "ditans, 5-HT1F agonists, a migraine therapeutic class (review)",
+    "41270648": "5-HT1F activation in the CNS mediates somnolence (dual-target design)",
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"
@@ -545,44 +558,140 @@ def ki_prose(only: set | None, refresh: bool) -> int:
     return 1 if failed else 0
 
 
-def binding_search(only: set | None, refresh: bool) -> int:
-    """The UNKNOWN search's Europe PMC leg (see the module docstring)."""
+def _alias_gene_maps() -> tuple[dict, dict]:
+    """``(aliases, genes)``: every target's prose aliases and its HGNC gene symbols."""
     sys.path.insert(0, str(ROOT / "tools"))
-    import drugs_io                                         # noqa: E402
     import target_aliases as ta                             # noqa: E402
-    from data_generators import unknown                     # noqa: E402
     from fetch_gtopdb_ki import owner_genes                 # noqa: E402 (gene map)
     aliases = ta.aliases_by_target()
     genes: dict[str, set] = {}
     for gene, owners in owner_genes(set(aliases)).items():
         for owner in owners:
             genes.setdefault(owner, set()).add(gene)
-    ledger = json.loads(SEARCH_LEDGER.read_text("utf-8")) if SEARCH_LEDGER.exists() else {}
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    PAGES_DIR.mkdir(parents=True, exist_ok=True)
-    rows = [r for r in unknown.affinity_only_bindings(drugs_io.load_drugs(),
+    return aliases, genes
+
+
+def binding_search(only: set | None, refresh: bool) -> int:
+    """The UNKNOWN search's Europe PMC leg (see the module docstring)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import drugs_io                                         # noqa: E402
+    from data_generators import unknown                     # noqa: E402
+    aliases, genes = _alias_gene_maps()
+    rows = [(r["site"], lambda r=r: direction_query(
+                 r["ligand"], target_terms(r["target"], aliases, genes)))
+            for r in unknown.affinity_only_bindings(drugs_io.load_drugs(),
                                                     drugs_io.load_metabolites())
             if only is None or r["drug"] in only]
+    return ledger_search(rows, SEARCH_LEDGER, refresh)
+
+
+def ledger_search(rows: list, ledger_path: Path, refresh: bool,
+                  size: int = SEARCH_TOP) -> int:
+    """Run one query per ``(site, make_query)`` row, store the top ``size`` abstracts
+    and record ``{query, hits, read, searched}`` per site in the ledger at
+    ``ledger_path``. Resumable: a site already in the ledger is skipped unless
+    ``refresh``. Shared by the two UNKNOWN search legs (bindings, receptor effects)."""
+    ledger = json.loads(ledger_path.read_text("utf-8")) if ledger_path.exists() else {}
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    PAGES_DIR.mkdir(parents=True, exist_ok=True)
     failed = 0
-    for i, row in enumerate(rows, 1):
-        if row["site"] in ledger and not refresh:
+    for i, (site, make_query) in enumerate(rows, 1):
+        if site in ledger and not refresh:
             continue
-        query = direction_query(row["ligand"], target_terms(row["target"], aliases, genes))
-        got = search(query)
+        query = make_query()
+        got = search(query, size)
         if got is None:
             failed += 1
             continue
         hits, recs = got
         pmids = [r["pmid"] for r in recs if store(r, refresh)]
-        ledger[row["site"]] = {"query": query, "hits": hits, "read": pmids,
-                               "searched": time.strftime("%Y-%m-%d")}
-        print(f"[{i}/{len(rows)}] {row['site']}: {hits} hit(s), read {len(pmids)}")
+        ledger[site] = {"query": query, "hits": hits, "read": pmids,
+                        "searched": time.strftime("%Y-%m-%d")}
+        print(f"[{i}/{len(rows)}] {site}: {hits} hit(s), read {len(pmids)}")
         if i % 25 == 0:
-            SEARCH_LEDGER.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n",
-                                     "utf-8")
-    SEARCH_LEDGER.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n", "utf-8")
-    print(f"ledger: {len(ledger)} binding(s); {failed} failed request(s)")
+            ledger_path.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n",
+                                   "utf-8")
+    ledger_path.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n", "utf-8")
+    print(f"ledger: {len(ledger)} site(s); {failed} failed request(s)")
     return 1 if failed else 0
+
+
+EFFECT_SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_effect_search.json"
+# Abstracts read per receptor: an effect search is one query per owner (a few dozen),
+# so it can afford more than a binding's five.
+EFFECT_SEARCH_TOP = 10
+# What an abstract stating a clinical / physiological effect of acting on a receptor
+# says, folded from the closed vocabulary (data_generators.receptor_effects) into the
+# stems Europe PMC's wildcard search takes. Recall over precision: the pick step
+# discards a weak hit.
+EFFECT_WORDS = ("sedat*", "somnolen*", '"weight gain"', "appetite", "hypotension",
+                "dizziness", "hallucinat*", "prolactin", "extrapyramidal", "dyskinesia",
+                "akathisia", "cognit*", "memory", "nausea", "vomiting", "sexual",
+                "insomnia", "anxi*", "euphori*", "dysphori*", '"respiratory depression"',
+                "seizure*", "convuls*", "psychosis", "psychotic", '"heart rate"',
+                '"blood pressure"', "valvulopath*", "antiemetic", "anticonvulsant",
+                "antidepressant", "antipsychotic", "parkinson*", "analges*", "pain",
+                "migraine", "sleep", "circadian", "wakefulness", "hypotherm*",
+                "bradycardia", "bronchodilat*", '"gastric acid"', "vasoconstrict*",
+                "vasodilat*", "bladder", "motility")
+HUMAN_WORDS = ("human", "humans", "patients", "volunteers", '"healthy subjects"')
+# An effect node is about ACTING on the receptor in a mode, so the abstract must name an
+# action too (a DRD4 repeat-polymorphism association study states none).
+MODE_WORDS = DIRECTION_WORDS + ("agonism", "antagonism", "blockade", "activation",
+                                "stimulation")
+# Names the alias table lacks because no drug-binding prose uses them, but a paper does.
+EFFECT_EXTRA_TERMS: dict[str, tuple[str, ...]] = {
+    "gaba_a_rho": ("GABAC receptor", "GABA-C receptor", "GABAA-rho receptor",
+                   "GABA rho receptor"),
+    "nachr_muscle": ("muscle nicotinic receptor", "muscle-type nicotinic",
+                     "neuromuscular nicotinic"),
+}
+
+
+def effect_terms(owner: str, aliases: dict, genes: dict) -> list[str]:
+    """The ASCII names a receptor goes by, made specific enough for a literature query:
+    its genes, then each alias as ``"<alias> receptor"`` (a bare "D4" or "glycine" is
+    a word in any abstract), plus the alias alone when it already names the receptor
+    (has a digit and is at least four characters: ``mGluR5``, ``5-HT1E``)."""
+    out: list[str] = []
+    for term in target_terms(owner, aliases, genes):
+        forms = [term] if term in genes.get(owner, set()) else (
+            [f"{term} receptor"] + ([term] if re.search(r"\d", term) and len(term) >= 4
+                                    else []))
+        for form in forms:
+            if "receptor receptor" not in form and form.lower() not in {
+                    o.lower() for o in out}:
+                out.append(form)
+    return out + list(EFFECT_EXTRA_TERMS.get(owner, ()))
+
+
+def effect_query(terms: list[str]) -> str:
+    """The Europe PMC query for one receptor: named in the abstract, plus an effect word
+    and a human-study word, so an abstract can state what acting on it does in people."""
+    names = " OR ".join(f'ABSTRACT:"{t}"' for t in terms)
+    return (f'({names}) AND ({" OR ".join(MODE_WORDS)}) AND ({" OR ".join(EFFECT_WORDS)}) '
+            f'AND ({" OR ".join(HUMAN_WORDS)}) AND SRC:MED AND HAS_ABSTRACT:y')
+
+
+def effect_search(only: set | None, refresh: bool) -> int:
+    """The receptor-effect UNKNOWN search's Europe PMC leg: one query per receptor with
+    no ``receptor_effect`` node (``--only`` names owners, a target included)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    sys.path.insert(0, str(HERE))
+    import fetch_receptor_effects as fre                    # noqa: E402 (owner roster)
+    from data_generators import receptor_effects, unknown  # noqa: E402
+    aliases, genes = _alias_gene_maps()
+    cache = receptor_effects.load_cache()
+    rows = []
+    for oid, owner in sorted(fre.owners().items()):
+        if oid in fre.SKIP_OWNERS:
+            continue
+        if (only is not None and oid not in only) or (
+                only is None and (owner["kind"] != "receptor" or cache.get(oid))):
+            continue
+        rows.append((unknown.effects_site(owner["kind"], oid),
+                     lambda oid=oid: effect_query(effect_terms(oid, aliases, genes))))
+    return ledger_search(rows, EFFECT_SEARCH_LEDGER, refresh, EFFECT_SEARCH_TOP)
 
 
 # A cited paper whose record carries no MeSH species (not yet indexed, or tagged only
@@ -622,6 +731,9 @@ def main() -> int:
     ap.add_argument("--refresh", action="store_true", help="re-download stored records")
     ap.add_argument("--binding-search", action="store_true",
                     help="search every direction-less binding (the UNKNOWN search)")
+    ap.add_argument("--effect-search", action="store_true",
+                    help="search every receptor with no receptor_effect node (the "
+                         "receptor-effect UNKNOWN search); --only names owner ids")
     ap.add_argument("--ki-prose", action="store_true",
                     help="store the papers Wikipedia cites for a Ki its prose states, "
                          "and write the ki_prose worklist")
@@ -630,9 +742,10 @@ def main() -> int:
     args = ap.parse_args()
     if args.species:
         return write_species_ledger()
-    if args.binding_search or args.ki_prose:
+    if args.binding_search or args.ki_prose or args.effect_search:
         only = {d.strip() for d in args.only.split(",")} if args.only else None
-        code = (binding_search if args.binding_search else ki_prose)(only, args.refresh)
+        code = (binding_search if args.binding_search else effect_search
+                if args.effect_search else ki_prose)(only, args.refresh)
         write_species_ledger()
         return code
     pmids = [p.strip() for p in args.only.split(",")] if args.only else list(PAPERS)
