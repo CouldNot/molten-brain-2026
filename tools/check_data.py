@@ -932,49 +932,12 @@ def check_provenance(report, meta, structures, projections, circuits,
     # Per-binding drug sources (the quote-level provenance) each carry a grade too,
     # as does a drug's nbn_sources (the NbN is quote-sourced the same way).
     for drug in drugs:
-        for binding in drug.get("bindings", []):
-            for i, src in enumerate(binding.get("sources", []) or []):
-                grade(src.get("provenance"),
-                      f"drug {drug.get('id')} binding {binding.get('target')} "
-                      f"sources[{i}]")
-        for i, src in enumerate(drug.get("nbn_sources", []) or []):
-            grade(src.get("provenance"), f"drug {drug.get('id')} nbn_sources[{i}]")
-        # The drug's class classification carries its own grade (default llm), plus
-        # any quote-level category_sources that upgrade it.
+        for ctx, src, _short, _facet, _owner in iter_drug_sources(drug):
+            grade(src.get("provenance"), ctx)
+        # A drug's class classification carries its own grade (default llm).
         if drug.get("category_provenance"):
             grade(drug.get("category_provenance"),
                   f"drug {drug.get('id')} category_provenance")
-        for i, src in enumerate(drug.get("category_sources", []) or []):
-            grade(src.get("provenance"), f"drug {drug.get('id')} category_sources[{i}]")
-        # Half-life (T½) node + each active-metabolite node (and a metabolite's own
-        # T½ / inline bindings) carry their own quote-level grades, same shape.
-        for hctx, h in _holder_ctxs(f"drug {drug.get('id')}", drug):
-            for f in ("half_life_sources", "tmax_sources", "release_sources"):
-                for i, src in enumerate(h.get(f, []) or []):
-                    grade(src.get("provenance"), f"{hctx} {f}[{i}]")
-            for br in h.get("brands", []) or []:
-                for i, src in enumerate(br.get("sources", []) or []):
-                    grade(src.get("provenance"), f"{hctx} brand {br.get('name')} sources[{i}]")
-        for i, src in enumerate(drug.get("first_approval_sources", []) or []):
-            grade(src.get("provenance"), f"drug {drug.get('id')} first_approval_sources[{i}]")
-        for f in ("prodrug_sources", "constituents_sources"):
-            for i, src in enumerate(drug.get(f, []) or []):
-                grade(src.get("provenance"), f"drug {drug.get('id')} {f}[{i}]")
-        for f in ("therapeutic_range_sources", "alert_level_sources") + PHYSCHEM_SOURCES:
-            for i, src in enumerate(drug.get(f, []) or []):
-                grade(src.get("provenance"), f"drug {drug.get('id')} {f}[{i}]")
-        for wi, w in enumerate(drug.get("withdrawals", []) or []):
-            for i, src in enumerate(w.get("sources", []) or []):
-                grade(src.get("provenance"), f"drug {drug.get('id')} withdrawals[{wi}] sources[{i}]")
-        for wi, w in enumerate(drug.get("workup", []) or []):
-            for i, src in enumerate(w.get("sources", []) or []):
-                grade(src.get("provenance"), f"drug {drug.get('id')} workup[{wi}] sources[{i}]")
-        for _ctx, src in _origin_sources(drug):
-            grade(src.get("provenance"), f"drug {drug.get('id')} {_ctx}")
-        for m in drug.get("metabolites", []) or []:
-            for i, src in enumerate(m.get("sources", []) or []):
-                grade(src.get("provenance"),
-                      f"drug {drug.get('id')} metabolite {m.get('id')} sources[{i}]")
         # A drug's description carries its own grade (llm synthesis vs sourced WP lead).
         if drug.get("description"):
             grade(drug.get("description_provenance"),
@@ -1424,22 +1387,21 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
 
     for drug in drugs:
         did = drug.get("id")
-        for binding in drug.get("bindings", []):
+        for ctx, src, short_ok, facet, owner in iter_drug_sources(drug):
+            check_one(ctx, src, short_ok=short_ok)
             # A binding that DECLARES the problem (the orange "uncertain" badge, whose
             # own bullets say the sentence attributes nothing) is not silently passing
-            # a subject-less quote off as a green check, so the gate below stands down.
-            declared = bool(binding.get("uncertainty"))
-            for i, src in enumerate(binding.get("sources", []) or []):
-                ctx = f"drug {did} binding {binding.get('target')} sources[{i}]"
-                check_one(ctx, src)
-                if not declared and _NO_SUBJECT_QUOTE.match(src.get("quote") or ""):
-                    report.error(
-                        f"{ctx}: quote is a subject-less mechanism -> side-effect rule "
-                        f"({src.get('quote')!r}). Stahl's 'How Drug Causes Side Effects' "
-                        f"block prints the same lines on every monograph in the class, so "
-                        f"such a sentence never says THIS drug has the action: it cannot "
-                        f"source a binding (an attributed one, 'By blocking X, IT can "
-                        f"cause Y', can)")
+            # a subject-less quote off as a green check, so the gate stands down.
+            if (facet == "binding" and not owner.get("uncertainty")
+                    and _NO_SUBJECT_QUOTE.match(src.get("quote") or "")):
+                report.error(
+                    f"{ctx}: quote is a subject-less mechanism -> side-effect rule "
+                    f"({src.get('quote')!r}). Stahl's 'How Drug Causes Side Effects' "
+                    f"block prints the same lines on every monograph in the class, so "
+                    f"such a sentence never says THIS drug has the action: it cannot "
+                    f"source a binding (an attributed one, 'By blocking X, IT can "
+                    f"cause Y', can)")
+        for binding in drug.get("bindings", []):
             # A quote-carrying Ki source (corpus #9 wikipedia_pharm cites the verbatim
             # affinity-table row) is gated here like any other quote. A PDSP Ki cites a
             # CSV row (ki_id, no quote) and is verified by the CSV gate below instead, so
@@ -1451,73 +1413,16 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                 check_one(f"drug {did} binding {binding.get('target')} ki.source", ki_src,
                           short_ok=True)
             check_uncertainty(f"drug {did} binding {binding.get('target')}", binding)
-        for i, src in enumerate(drug.get("nbn_sources", []) or []):
-            check_one(f"drug {did} nbn_sources[{i}]", src)
-        for i, src in enumerate(drug.get("category_sources", []) or []):
-            # A class quote is the class label itself ("Stimulant"): short by design.
-            check_one(f"drug {did} category_sources[{i}]", src, short_ok=True)
-        # Half-life quote + each metabolite's identity/T½/binding quotes are gated the
-        # same way (verbatim substring on the cited corpus page).
-        # ... as are the brands, and each formulation's release type, brands, T½, Tmax.
-        for hctx, h in _holder_ctxs(f"drug {did}", drug):
-            for f in ("half_life_sources", "tmax_sources", "release_sources"):
-                for i, src in enumerate(h.get(f, []) or []):
-                    # A release read off a brand's own suffix cites that brand name
-                    # ("Seroquel XR"), and a duration is one labelled cell of the
-                    # drug's own monograph ("Half-life 10 hours"): short by design.
-                    check_one(f"{hctx} {f}[{i}]", src, short_ok=True)
-            for br in h.get("brands", []) or []:
-                for i, src in enumerate(br.get("sources", []) or []):
-                    check_one(f"{hctx} brand {br.get('name')} sources[{i}]", src,
-                              short_ok=True)
-        for i, src in enumerate(drug.get("first_approval_sources", []) or []):
-            check_one(f"drug {did} first_approval_sources[{i}]", src)
-        for f in ("prodrug_sources", "constituents_sources"):
-            for i, src in enumerate(drug.get(f, []) or []):
-                check_one(f"drug {did} {f}[{i}]", src)
-        for f in ("therapeutic_range_sources", "alert_level_sources"):
-            for i, src in enumerate(drug.get(f, []) or []):
-                check_one(f"drug {did} {f}[{i}]", src)
-        # A PubChem quote is one short `Label: value` line by design ("XLogP3: 3.2").
-        for f in PHYSCHEM_SOURCES:
-            for i, src in enumerate(drug.get(f, []) or []):
-                check_one(f"drug {did} {f}[{i}]", src, short_ok=True)
-        for wi, w in enumerate(drug.get("withdrawals", []) or []):
-            for i, src in enumerate(w.get("sources", []) or []):
-                check_one(f"drug {did} withdrawals[{wi}] sources[{i}]", src)
-        # A workup quote can be one RCP bullet under its heading ("Ionogramme sanguin,
-        # numeration et formule sanguine."), so it may be short by design.
-        for wi, w in enumerate(drug.get("workup", []) or []):
-            for i, src in enumerate(w.get("sources", []) or []):
-                check_one(f"drug {did} workup[{wi}] sources[{i}]", src, short_ok=True)
-        # Holder names are short register strings ("holder: UCB PHARMA"), by design.
-        for ctx, src in _origin_sources(drug):
-            check_one(f"drug {did} {ctx}", src, short_ok=ctx.startswith("holders"))
-        # Metabolism rows (fetch_cyp.py already gates these on the way in, but that
-        # is the author-side pass; this is the backstop that also catches a later
-        # hand-edit of the emitted data).
         for e in drug.get("enzymes", []) or []:
-            for i, src in enumerate(e.get("sources", []) or []):
-                # One cell of the drug's own metabolism table ("Inhibits CYP2D6").
-                check_one(f"drug {did} enzyme {e.get('enzyme')} sources[{i}]", src,
-                          short_ok=True)
             # The denial quote of a contradicted row is gated exactly like the claim it
             # doubts: both sides of a corpus disagreement earn their grade the same way.
             check_uncertainty(f"drug {did} enzyme {e.get('enzyme')} ({e.get('role')})", e)
             # HOW MUCH of the clearing the row claims: its own node, so its own gate.
             check_claims(f"drug {did} enzyme {e.get('enzyme')}", e,
                          {"strength": e.get("strength")})
-        # The per-parent half of a metabolite: "X is a metabolite of <did>" + the
-        # enzymes making it from <did>. Its molecule facts are walked once below.
+        # A denial of a metabolite link (CONTRADICTIONS), gated like the link.
         for m in drug.get("metabolites", []) or []:
-            mid = f"drug {did} metabolite {m.get('id')}"
-            for i, src in enumerate(m.get("sources", []) or []):
-                check_one(f"{mid} sources[{i}]", src)
-            for f in m.get("formed_by", []) or []:
-                for i, src in enumerate(f.get("sources", []) or []):
-                    check_one(f"{mid} formed_by {f.get('enzyme')} sources[{i}]", src)
-            # A denial of the link (CONTRADICTIONS), gated like the link.
-            check_uncertainty(mid, m)
+            check_uncertainty(f"drug {did} metabolite {m.get('id')}", m)
 
     for m in metabolites:
         mid = f"metabolite {m.get('id')}"
@@ -2198,15 +2103,66 @@ def _holder_ctxs(ctx, drug):
             for h in product_holders(drug)]
 
 
-def _origin_sources(drug):
-    """``(context label, source)`` for every originator / holder citation of a drug
-    (kinds drug_holders / drug_originator / drug_originator_country)."""
-    out = [(f"holders[{h.get('market')}] sources[{i}]", src)
-           for h in drug.get("holders", []) or []
-           for i, src in enumerate(h.get("sources", []) or [])]
+def _listed(ctx, sources, short_ok, facet, owner):
+    for i, src in enumerate(sources or []):
+        yield f"{ctx}[{i}]", src, short_ok, facet, owner
+
+
+def iter_drug_sources(drug):
+    """THE walk over every quote-level citation a drug record carries, shared by the
+    grade family (4) and the quote family (5) so a facet added here is both graded and
+    quote-gated. Yields ``(ctx, source, short_ok, facet, owner)``: ``short_ok`` when the
+    quote is short by design (a class label, one table cell, a brand name, a
+    ``Label: value`` line), ``facet`` names the collection and ``owner`` is the record
+    holding the list (a binding, an enzyme row, a withdrawal, ...)."""
+    did = f"drug {drug.get('id')}"
+    for b in drug.get("bindings", []) or []:
+        yield from _listed(f"{did} binding {b.get('target')} sources", b.get("sources"),
+                           False, "binding", b)
+    yield from _listed(f"{did} nbn_sources", drug.get("nbn_sources"), False, "nbn", drug)
+    # A class quote is the class label itself ("Stimulant"): short by design.
+    yield from _listed(f"{did} category_sources", drug.get("category_sources"), True,
+                       "category", drug)
+    # The molecule and each formulation: a release read off a brand's own suffix cites
+    # that brand ("Seroquel XR"), a duration is one labelled cell ("Half-life 10 hours").
+    for hctx, h in _holder_ctxs(did, drug):
+        for f in ("half_life_sources", "tmax_sources", "release_sources"):
+            yield from _listed(f"{hctx} {f}", h.get(f), True, f, h)
+        for br in h.get("brands", []) or []:
+            yield from _listed(f"{hctx} brand {br.get('name')} sources", br.get("sources"),
+                               True, "brand", br)
+    for f in ("first_approval_sources", "prodrug_sources", "constituents_sources",
+              "therapeutic_range_sources", "alert_level_sources"):
+        yield from _listed(f"{did} {f}", drug.get(f), False, f, drug)
+    # A PubChem quote is one short `Label: value` line by design ("XLogP3: 3.2").
+    for f in PHYSCHEM_SOURCES:
+        yield from _listed(f"{did} {f}", drug.get(f), True, f, drug)
+    for wi, w in enumerate(drug.get("withdrawals", []) or []):
+        yield from _listed(f"{did} withdrawals[{wi}] sources", w.get("sources"), False,
+                           "withdrawal", w)
+    # A workup quote can be one RCP bullet under its heading ("Ionogramme sanguin,
+    # numeration et formule sanguine."), so it may be short by design.
+    for wi, w in enumerate(drug.get("workup", []) or []):
+        yield from _listed(f"{did} workup[{wi}] sources", w.get("sources"), True,
+                           "workup", w)
+    # Holder names are short register strings ("holder: UCB PHARMA"), by design.
+    for h in drug.get("holders", []) or []:
+        yield from _listed(f"{did} holders[{h.get('market')}] sources", h.get("sources"),
+                           True, "holder", h)
     for f in ("originator_sources", "originator_now_sources", "originator_country_sources"):
-        out += [(f"{f}[{i}]", src) for i, src in enumerate(drug.get(f, []) or [])]
-    return out
+        yield from _listed(f"{did} {f}", drug.get(f), False, f, drug)
+    # One cell of the drug's own metabolism table ("Inhibits CYP2D6").
+    for e in drug.get("enzymes", []) or []:
+        yield from _listed(f"{did} enzyme {e.get('enzyme')} sources", e.get("sources"),
+                           True, "enzyme", e)
+    # The per-parent half of a metabolite: "X is a metabolite of <did>" + the enzymes
+    # making it from <did>. Its molecule facts are walked once, off metabolites.jsonl.
+    for m in drug.get("metabolites", []) or []:
+        mid = f"{did} metabolite {m.get('id')}"
+        yield from _listed(f"{mid} sources", m.get("sources"), False, "metabolite", m)
+        for fb in m.get("formed_by", []) or []:
+            yield from _listed(f"{mid} formed_by {fb.get('enzyme')} sources",
+                               fb.get("sources"), False, "formed_by", fb)
 
 
 def check_innervation(report, meta, structures, projections, receptors):

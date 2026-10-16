@@ -813,6 +813,52 @@ class ShortQuoteTest(unittest.TestCase):
         self.assertEqual(len(self._warns({"bindings": [binding]})), 1)
 
 
+class DrugSourceWalkTest(unittest.TestCase):
+    """``iter_drug_sources`` is THE walk the grade family (4) and the quote family (5)
+    share: every list of citations a shipped drug carries must be on it, or a new facet
+    is neither graded nor quote-gated. The only lists it leaves out are the uncertainty
+    bullets', gated per bullet by ``check_uncertainty``."""
+    LEFT_OUT = {"uncertainty"}
+
+    def test_every_citation_list_of_a_shipped_drug_is_walked(self):
+        path = Path(__file__).resolve().parents[2] / "public" / "data" / "drugs.jsonl"
+        missed = set()
+
+        def walk(node, key, seen):
+            if isinstance(node, dict):
+                for k, v in node.items():
+                    if k in self.LEFT_OUT:
+                        continue
+                    if (isinstance(v, list) and v
+                            and all(isinstance(x, dict) and "corpus" in x for x in v)):
+                        missed.update(f"{key}.{k}" for x in v if id(x) not in seen)
+                    walk(v, f"{key}.{k}", seen)
+            elif isinstance(node, list):
+                for x in node:
+                    walk(x, f"{key}[]", seen)
+
+        for line in path.read_text(encoding="utf-8").splitlines():
+            drug = json.loads(line)
+            walk(drug, "drug", {id(src) for _, src, *_ in check_data.iter_drug_sources(drug)})
+        self.assertEqual(missed, set())
+
+    def test_grade_family_grades_what_the_quote_family_gates(self):
+        """Enzyme and formed_by rows were quote-gated but never graded: a bad grade
+        there now fails family 4 too."""
+        bad = {"corpus": "nosuch", "page": 1, "quote": "x", "provenance": "bogus"}
+        drug = {"id": "d", "enzymes": [{"enzyme": "CYP2D6", "sources": [bad]}],
+                "metabolites": [{"id": "m", "formed_by": [{"enzyme": "CYP3A4",
+                                                            "sources": [bad]}]}]}
+        sites = [ctx for ctx, *_ in check_data.iter_drug_sources(drug)]
+        self.assertEqual(sites, ["drug d enzyme CYP2D6 sources[0]",
+                                 "drug d metabolite m formed_by CYP3A4 sources[0]"])
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            check_data.check_provenance(check_data.Report(), {}, [], [], [], [], [],
+                                        [drug], [])
+        self.assertEqual(sum("'bogus'" in ln for ln in buf.getvalue().splitlines()), 2)
+
+
 if __name__ == "__main__":
     unittest.main()
 
