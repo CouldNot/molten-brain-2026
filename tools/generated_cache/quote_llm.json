@@ -620,6 +620,10 @@
 "q_0f092dca8467": {
 "receptor:5ht7/release_modulation[heteroreceptor:raphe:gaba_interneuron:serotonin:decrease]": "opus"
 },
+"q_0f14f5ddef17": {
+"drug:pethidine/bindings[dat:reuptake_inhibitor]": "opus",
+"drug:pethidine/bindings[net:reuptake_inhibitor]": "opus"
+},
 "q_0f327d918905": {
 "drug:entacapone/formulations[ir]/tmax": "opus",
 "drug:entacapone/tmax": "opus"
@@ -1271,6 +1275,9 @@
 "q_1cd7b5ec923b": {
 "drug:safinamide/categories": "opus"
 },
+"q_1d103523ccb7": {
+"drug:methadone/bindings[nmda:antagonist]": "opus"
+},
 "q_1d11dabe77dc": {
 "drug:mianserin/bindings[h1:antagonist]": "sonnet"
 },
@@ -1448,6 +1455,9 @@
 "q_20d8d19c6319": {
 "drug:bremelanotide/bindings[melanocortin:agonist]": "sonnet"
 },
+"q_20dbd9d60c79": {
+"drug:rimonabant/bindings[mu:antagonist]": "opus"
+},
 "q_20e5d47a4966": {
 "drug:haloperidol/bindings[d2:antagonist]": "sonnet"
 },
@@ -1525,6 +1535,9 @@
 },
 "q_2266d5e9f5de": {
 "drug:alpidem/withdrawals[fr:1993]": "opus"
+},
+"q_2267ea037a33": {
+"drug:xenon/bindings[nmda:antagonist]": "opus"
 },
 "q_227a871d47a9": {
 "drug:solriamfetol/categories": "sonnet"
@@ -2055,6 +2068,10 @@
 "q_2f4c84049c66": {
 "drug:sildenafil/originator": "opus"
 },
+"q_2f5c44262e66": {
+"drug:methamphetamine/bindings[mao_a:enzyme_inhibitor]": "opus",
+"drug:methamphetamine/bindings[mao_b:enzyme_inhibitor]": "opus"
+},
 "q_2f7ea29cac64": {
 "drug:milnacipran/workup[blood_pressure:before]": "opus",
 "drug:milnacipran/workup[blood_pressure:during]": "opus",
@@ -2087,6 +2104,9 @@
 },
 "q_30b5d24d70a2": {
 "drug:zonisamide/categories": "sonnet"
+},
+"q_30d252aa1b57": {
+"drug:ropinirole/bindings[5ht2b:agonist]": "opus"
 },
 "q_30f0067c2de5": {
 "drug:paroxetine/first_approval": "opus"
@@ -2776,6 +2796,14 @@
 "projection:vta_R->parietal_R": "opus",
 "projection:vta_R->parietal_R/transmitter": "opus"
 },
+"q_409d122e9a2a": {
+"drug:nitrous_oxide/bindings[5ht3:antagonist]": "opus",
+"drug:nitrous_oxide/bindings[ampa:antagonist]": "opus",
+"drug:nitrous_oxide/bindings[gaba_a:pam]": "opus",
+"drug:nitrous_oxide/bindings[gaba_a_rho:antagonist]": "opus",
+"drug:nitrous_oxide/bindings[glycine:pam]": "opus",
+"drug:nitrous_oxide/bindings[kainate:antagonist]": "opus"
+},
 "q_40b8c2a37ef2": {
 "drug:meprobamate/categories": "opus"
 },
@@ -2811,6 +2839,9 @@
 },
 "q_414271e9140f": {
 "drug:mianserin/categories": "sonnet"
+},
+"q_41441c9dcd36": {
+"drug:fentanyl/bindings[kappa:agonist]": "opus"
 },
 "q_4149df36f754": {
 "receptor:5ht1a/demographics[sex:higher_in_female:-]": "opus"
@@ -3443,6 +3474,9 @@
 "q_4fda36420a37": {
 "target:alpha2/polarity_sources": "sonnet"
 },
+"q_4fdd1fda8ee5": {
+"drug:isoflurane/bindings[glycine:pam]": "opus"
+},
 "q_5000399d66c5": {
 "receptor:beta2/effects[agonism:bronchodilation]": "opus"
 },
@@ -4037,6 +4071,9 @@
 "q_5f00d915514f": {
 "drug:buprenorphine/formulations[sublingual]/release": "opus"
 },
+"q_5f03941a1709": {
+"drug:xenon/bindings[nachr_a4b2:antagonist]": "opus"
+},
 "q_5f057ed112f8": {
 "drug:duloxetine/formulations[dr]/release": "opus"
 },
@@ -4096,6 +4133,9 @@
 "q_6071655806db": {
 "drug:lorazepam/formulations[ir]/tmax": "opus",
 "drug:lorazepam/tmax": "sonnet"
+},
+"q_6076ce76318b": {
+"drug:safinamide/bindings[sert:reuptake_inhibitor]": "opus"
 },
 "q_6089f4cf8723": {
 "drug:clozapine/first_approval": "opus"
@@ -4754,6 +4794,9 @@
 },
 "q_6edf162b039a": {
 "drug:zaleplon/bindings[gaba_a:pam]": "sonnet"
+},
+"q_6f0ff7ed8785": {
+"drug:caffeine/bindings[glycine:antagonist]": "opus"
 },
 "q_6f174fe24ba3": {
 "drug:hydroxyzine/brands[Marax]": "sonnet"
@@ -5454,6 +5497,10 @@
 "q_7edc2f751c58": {
 "drug:lithium/workup[thyroid_function:before]": "opus"
 },
+"q_7ef18ae2da8c": {
+"drug:amantadine/bindings[nachr_a4b2:nam]": "opus",
+"drug:amantadine/bindings[nachr_a7:nam]": "opus"
+},
 "q_7efc4b3baeea": {
 "drug:atomoxetine/half_life": "sonnet"
 },
@@ -5759,6 +5806,9 @@
 },
 "q_85ddc3123edc": {
 "drug:carbidopa/categories": "sonnet"
+},
+"q_85e7acd2c154": {
+"drug:isoflurane/bindings[gaba_a:pam]": "opus"
 },
 "q_860ad3848b35": {
 "drug:reboxetine/first_approval": "opus"
@@ -6470,6 +6520,9 @@
 "q_96168d74dabf": {
 "receptor:gaba_a/classification[synaptic]": "opus"
 },
+"q_9654a40bfb4b": {
+"drug:isoflurane/bindings[nmda:antagonist]": "opus"
+},
 "q_96685000b46e": {
 "drug:brexanolone/bindings[gaba_a:pam]": "sonnet"
 },
@@ -6690,6 +6743,9 @@
 },
 "q_99e03cfab445": {
 "drug:lacosamide/categories": "opus"
+},
+"q_99ee7233aca3": {
+"drug:rasagiline/bindings[mao_a:enzyme_inhibitor]": "opus"
 },
 "q_9a18311cb1e2": {
 "drug:psilocybin/first_approval": "opus"
@@ -7222,6 +7278,9 @@
 "q_a49f7af9007d": {
 "drug:chlorpromazine/categories": "sonnet"
 },
+"q_a4a867049b7c": {
+"drug:salvinorin_a/bindings[d2:partial_agonist]": "opus"
+},
 "q_a4aaa290ae50": {
 "drug:domperidone/half_life": "opus"
 },
@@ -7749,6 +7808,9 @@
 "metabolite:desmethylsibutramine/bindings[dat:reuptake_inhibitor]": "opus",
 "metabolite:didesmethylsibutramine/bindings[dat:reuptake_inhibitor]": "opus"
 },
+"q_b1c73c1586b9": {
+"drug:tramadol/bindings[5ht2c:antagonist]": "opus"
+},
 "q_b21eda3c3caa": {
 "drug:lofexidine/tmax": "sonnet"
 },
@@ -7929,6 +7991,10 @@
 },
 "q_b59999cb5589": {
 "target:sert/demographics[age:decrease:-]": "opus"
+},
+"q_b5eedac721fc": {
+"drug:mdma/bindings[5ht1b:partial_agonist]": "opus",
+"drug:mdma/bindings[5ht1d:partial_agonist]": "opus"
 },
 "q_b5ffda82e0cc": {
 "receptor:5ht1b/classification[synaptic]": "sonnet",
@@ -8230,6 +8296,9 @@
 },
 "q_bc99a8b3fcfd": {
 "drug:modafinil/nbn": "sonnet"
+},
+"q_bca6dd4a69a9": {
+"drug:fenfluramine/bindings[sigma1:pam]": "opus"
 },
 "q_bcc02e4f3aab": {
 "projection:raphe->cerebellum": "opus",
@@ -9148,6 +9217,9 @@
 "projection:cerebellum->thalamus_R": "opus",
 "projection:cerebellum->thalamus_R/sign": "opus"
 },
+"q_d0d35aef12f1": {
+"drug:caffeine/bindings[ache:enzyme_inhibitor]": "opus"
+},
 "q_d12639d5147c": {
 "drug:mirtazapine/categories": "sonnet"
 },
@@ -9564,6 +9636,9 @@
 "receptor:alpha2a/release_modulation[autoreceptor:-:presynaptic_terminal:norepinephrine:decrease]": "opus",
 "receptor:alpha2b/release_modulation[autoreceptor:-:presynaptic_terminal:norepinephrine:decrease]": "opus",
 "receptor:alpha2c/release_modulation[autoreceptor:-:presynaptic_terminal:norepinephrine:decrease]": "opus"
+},
+"q_daf0d09f4db1": {
+"drug:methamphetamine/bindings[alpha2a:agonist]": "opus"
 },
 "q_dafc354a969b": {
 "drug:haloperidol/tmax": "sonnet"
@@ -10766,6 +10841,9 @@
 "q_f585ca79dcb1": {
 "drug:phenterminetopiramate/bindings[nav:modulator]": "sonnet"
 },
+"q_f597dea3075f": {
+"drug:amantadine/bindings[dat:reuptake_inhibitor]": "opus"
+},
 "q_f59cda2f6472": {
 "drug:rimonabant/originator": "opus"
 },
@@ -11063,6 +11141,7 @@
 "metabolite:n_desalkylflurazepam/half_life": "opus"
 },
 "q_fc5ed0f954df": {
+"drug:amantadine/bindings[sigma1:agonist]": "opus",
 "drug:amantadine/categories": "opus"
 },
 "q_fc6ed644a912": {

@@ -11744,8 +11744,8 @@
         "unknown": 0
       },
       "drug_bindings": {
-        "total": 1898,
-        "verified": 1665,
+        "total": 1931,
+        "verified": 1698,
         "uncertain": 215,
         "sourced": 0,
         "llm": 0,
@@ -11754,8 +11754,8 @@
         "unknown": 0
       },
       "drug_binding_action": {
-        "total": 1387,
-        "verified": 1104,
+        "total": 1420,
+        "verified": 1137,
         "uncertain": 114,
         "sourced": 0,
         "llm": 132,
@@ -12215,23 +12215,23 @@
       }
     },
     "nodes": {
-      "total": 10041,
-      "verified": 9300,
+      "total": 10107,
+      "verified": 9366,
       "uncertain": 435,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 667,
-      "backed": 9735,
+      "backed": 9801,
       "pct_backed": 97
     },
     "ki_coverage": {
-      "bindings_total": 1879,
+      "bindings_total": 1912,
       "bindings_with_ki": 1655,
-      "pct_bindings_with_ki": 88,
-      "drugs_total": 274,
-      "drugs_without_ki": 87,
+      "pct_bindings_with_ki": 87,
+      "drugs_total": 275,
+      "drugs_without_ki": 88,
       "drugs_without_ki_ids": [
         "acamprosate",
         "alimemazine",
@@ -12273,6 +12273,7 @@
         "galantamine",
         "glutethimide",
         "isocarboxazid",
+        "isoflurane",
         "lacosamide",
         "lamotrigine",
         "levodopa",
