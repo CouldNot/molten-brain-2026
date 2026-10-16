@@ -9,7 +9,7 @@ d'emploi) and sometimes 4.2 (posologie), never in 5.2, so the #16 pages (5.2 onl
 not hold them.
 
 A **corpus fetcher, offline**: it downloads nothing. The RCP HTML is already on disk
-in two places, and the freshest copy of each product wins:
+in three places, and the freshest copy of each product wins:
 
 * ``data_sources/bdpm/raw/<cis>.html``: the page ``fetch_bdpm.py`` downloaded (about
   116 products), dated by the file's mtime (the download time);
@@ -19,11 +19,15 @@ in two places, and the freshest copy of each product wins:
   the file's mtime, the same rule justelesRCP itself uses for its "checked on" date. A
   zero-byte file or a manifest status ``empty`` means "scraped, no RCP" and is skipped.
   Its frozen 2022 ``CIS_RCP.csv`` is never read (it would fail freshness).
+* ``../justelesRCP/data/eu/<cis>.html.gz``: only for a drug no ANSM text covers (its
+  products all centrally authorised: Briviact, Brintellix, Xeplion), EMA's French SmPC as justelesRCP
+  scraped it, dated by ``data/.scrape-ema-manifest.json``'s ``last_fetch`` (else the
+  page's ``data-ema-fetched``) and cited at its EMA PDF rather than the ANSM page.
 
 Which product: the drug's princeps (its brands' CIS from ``bdpm_labels.json``, the
 #16 join) first, then the #16 chosen product; the first that has an RCP with a 4.4
 section wins. The cited page is the official online one
-(``/medicament/<cis>/extrait``), whatever local copy it was read from; the header's
+(``/medicament/<cis>/extrait``, or the EMA PDF), whatever local copy it was read from; the header's
 ``copied_from`` says which, and ``date_source`` how its date was read.
 
 Writes ``data_sources/bdpm/pages_rcp4/<cis>.md`` (header, then each section as a
@@ -60,6 +64,12 @@ import fetch_bdpm  # noqa: E402 (section_body, html_lines, the product join, RCP
 PAGES_DIR = fetch_bdpm.BASE_DIR / "pages_rcp4"
 CACHE_PATH = ROOT / "tools" / "generated_cache" / "bdpm_rcp_labels.json"
 JUSTELESRCP = ROOT.parent / "justelesRCP"
+
+# Drug -> the molecules a combination may pair it with and still count as its RCP
+# (folded ``fetch_bdpm.molecule_key`` names). Levodopa is sold in France only with a
+# decarboxylase inhibitor, and Sinemet's / Modopar's 4.3 / 4.4 asks concern the
+# levodopa; the partners themselves get no page (no label speaks for them alone).
+COMBO_PARTNERS = {"levodopa": ("CARBIDOPA", "BENSERAZIDE")}
 
 # The sections read, in page order: (number, anchor name the RCP HTML carries).
 SECTIONS = (("4.2", "RcpPosoAdmin"), ("4.3", "RcpContreindications"),
@@ -113,8 +123,9 @@ def _mtime_date(path: Path) -> str:
     return dt.datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
 
 
-def load_manifest(repo: Path) -> dict:
-    path = repo / "data" / ".scrape-manifest.json"
+def load_manifest(repo: Path, name: str = ".scrape-manifest.json") -> dict:
+    """A justelesRCP scrape manifest: the ANSM one, or ``.scrape-ema-manifest.json``."""
+    path = repo / "data" / name
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -149,6 +160,38 @@ def copies(cis: str, repo: Path, manifest: dict) -> list[dict]:
     return out
 
 
+_EMA_ATTR = re.compile(r'data-ema-(fetched|pdf)="([^"]+)"')
+
+
+def ema_copies(cis: str, repo: Path, ema: dict) -> list[dict]:
+    """A centrally authorised product's RCP: EMA's French SmPC, which justelesRCP
+    stores under ``data/eu/<cis>.html.gz`` (ANSM publishes no text of its own for
+    it). Dated by the EMA scrape manifest's ``last_fetch``, else the page's own
+    ``data-ema-fetched``; cited at the EMA PDF it was read from."""
+    for name in (f"{cis}.html.gz", f"{cis}.html"):
+        path = repo / "data" / "eu" / name
+        if not path.exists() or not path.stat().st_size:
+            continue
+        raw = path.read_bytes()
+        text = (gzip.decompress(raw) if name.endswith(".gz") else raw).decode(
+            "utf-8", errors="replace")
+        attrs = dict(_EMA_ATTR.findall(text[:4000]))
+        entry = ema.get(cis) or {}
+        if entry.get("status") == "ok" and entry.get("last_fetch"):
+            fetched, how = entry["last_fetch"][:10], "justelesRCP EMA scrape manifest last_fetch"
+        elif attrs.get("fetched"):
+            fetched, how = attrs["fetched"][:10], "data-ema-fetched"
+        else:
+            fetched, how = _mtime_date(path), "file mtime"
+        copy = {"html": text, "fetched": fetched, "date_source": how,
+                "copied_from": f"justelesRCP data/eu/{name}"}
+        if entry.get("ema_pdf") or attrs.get("pdf"):
+            copy["source"] = entry.get("ema_pdf") or attrs["pdf"]
+        copy["licence"] = "European Medicines Agency, reproduction authorised, source acknowledged"
+        return [copy]
+    return []
+
+
 def freshest(found: list[dict]) -> dict | None:
     """The most recently fetched copy that has a section 4.4 (ties: first listed)."""
     best = None
@@ -176,10 +219,10 @@ def candidates(entry: dict, products: list[dict], keys: set[str]) -> list[str]:
 def page_text(product: dict, cis: str, copy: dict) -> str:
     """The stored quote-gate page: provenance header, then each section."""
     head = [f"# {product.get('denomination') or cis}", f"cis: {cis}",
-            f"source: {fetch_bdpm.RCP_URL.format(cis=cis)}",
+            f"source: {copy.get('source') or fetch_bdpm.RCP_URL.format(cis=cis)}",
             f"fetched: {copy['fetched']}", f"date_source: {copy['date_source']}",
             f"copied_from: {copy['copied_from']}",
-            "licence: Licence Ouverte / Open Licence (Etalab)", ""]
+            f"licence: {copy.get('licence') or 'Licence Ouverte / Open Licence (Etalab)'}", ""]
     body = []
     for number, _ in SECTIONS:
         if number in copy["sections"]:
@@ -203,6 +246,7 @@ def main() -> int:
         fetch_bdpm.BASE_DIR / fetch_bdpm.COMPO_FILE))
     titles = fetch_bdpm.fr_titles()
     manifest = load_manifest(args.justelesrcp)
+    ema = load_manifest(args.justelesrcp, ".scrape-ema-manifest.json")
     cache = json.loads(CACHE_PATH.read_text(encoding="utf-8")) if CACHE_PATH.exists() else {}
     PAGES_DIR.mkdir(parents=True, exist_ok=True)
     missing = []
@@ -211,13 +255,19 @@ def main() -> int:
         if (only and did not in only) or "+" in (drug.get("name") or ""):
             continue  # a combination's RCP is not this drug's
         keys = fetch_bdpm.drug_keys(drug, titles)
-        found = fetch_bdpm.products_for(drug, keys, products, compo)
+        found = fetch_bdpm.products_for(drug, keys, products, compo,
+                                        COMBO_PARTNERS.get(did, ()))
         entry = labels.get(did, {})
         chosen = None
-        for cis in candidates(entry, found, keys):
-            best = freshest(copies(cis, args.justelesrcp, manifest))
-            if best:
-                chosen = (cis, best)
+        # An ANSM text first; EMA's SmPC only for a drug no national RCP covers.
+        for read in (lambda c: copies(c, args.justelesrcp, manifest),
+                     lambda c: ema_copies(c, args.justelesrcp, ema)):
+            for cis in candidates(entry, found, keys):
+                best = freshest(read(cis))
+                if best:
+                    chosen = (cis, best)
+                    break
+            if chosen:
                 break
         if not chosen:
             cache.pop(did, None)

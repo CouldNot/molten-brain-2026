@@ -61,6 +61,25 @@ class JoinTest(unittest.TestCase):
         self.assertNotIn("3", self.join({"id": "citalopram", "name": "Citalopram"}))
         self.assertNotIn("4", self.join({"id": "citalopram", "name": "Citalopram"}))
 
+    def test_combination_with_listed_partner_only(self):
+        """levodopa + carbidopa joins when the partner is allowed; a third active does not."""
+        self.products.update({"5": product("5", "SINEMET 250 mg/25 mg, comprimé"),
+                              "6": product("6", "STALEVO, comprimé")})
+        self.compo.update({"5": [sa("LÉVODOPA", "1"), sa("CARBIDOPA MONOHYDRATÉE", "2")],
+                           "6": [sa("LÉVODOPA", "1"), sa("CARBIDOPA", "2"),
+                                 sa("ENTACAPONE", "3")]})
+        drug = {"id": "levodopa", "name": "Levodopa"}
+        keys = B.drug_keys(drug, {})
+        join = lambda partners: sorted(p["cis"] for p in B.products_for(
+            drug, keys, self.products, self.compo, partners))
+        self.assertEqual(join(()), [])
+        self.assertEqual(join(("CARBIDOPA", "BENSERAZIDE")), ["5"])
+
+    def test_benzoate_and_palmitate_are_salts(self):
+        """The salt words rizatriptan and paliperidone missed the join on."""
+        self.assertEqual(B.molecule_key("BENZOATE DE RIZATRIPTAN")[0], "RIZATRIPTAN")
+        self.assertEqual(B.molecule_key("PALMITATE DE PALIPÉRIDONE")[0], "PALIPERIDONE")
+
     def test_stereo_qualified_name_joins_only_by_alias(self):
         """"Methylphenidate (D)" must not reduce to METHYLPHENIDATE (the racemate)."""
         keys = B.drug_keys({"id": "methylphenidate_d", "name": "Methylphenidate (D)"}, {})

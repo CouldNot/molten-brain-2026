@@ -114,6 +114,44 @@ class CopyDatingTest(unittest.TestCase):
         self.assertIsNone(R.freshest([{"html": "<p>no sections</p>", "fetched": "9"}]))
 
 
+SMPC = ('<div id="textDocument" data-ema-fetched="2026-09-30" data-ema-pdf="https://ema/x.pdf">'
+        '<h2 class="AmmAnnexeTitre1">4. DONNÉES CLINIQUES</h2>'
+        '<h3 class="AmmAnnexeTitre2">4.3 Contre-indications</h3><p>Hypersensibilité.</p>'
+        '<h3 class="AmmAnnexeTitre2">4.4 Mises en garde</h3><p>Surveiller la natrémie.</p>'
+        '<h3 class="AmmAnnexeTitre2">4.5 Interactions</h3><p>Hors sujet.</p></div>')
+
+
+class EmaCopyTest(unittest.TestCase):
+    """A centrally authorised product's RCP is EMA's SmPC under justelesRCP data/eu/."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.repo = Path(self.tmp.name)
+        (self.repo / "data" / "eu").mkdir(parents=True)
+        (self.repo / "data" / "eu" / "9.html.gz").write_bytes(gzip.compress(SMPC.encode()))
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_smpc_sections_read_by_heading_text(self):
+        secs = R.rcp_sections(SMPC)
+        self.assertEqual(secs["4.4"], ["Surveiller la natrémie."])
+        self.assertEqual(secs["4.3"], ["Hypersensibilité."])
+
+    def test_dated_by_manifest_else_page_and_cited_at_the_pdf(self):
+        out = R.ema_copies("9", self.repo, {})
+        self.assertEqual((out[0]["fetched"], out[0]["date_source"]), ("2026-09-30", "data-ema-fetched"))
+        out = R.ema_copies("9", self.repo, {"9": {"status": "ok", "last_fetch": "2026-10-02T01:00",
+                                                  "ema_pdf": "https://ema/y.pdf"}})
+        self.assertEqual(out[0]["fetched"], "2026-10-02")
+        self.assertEqual(out[0]["source"], "https://ema/y.pdf")
+        out[0]["sections"] = R.rcp_sections(out[0]["html"])
+        text = R.page_text({}, "9", out[0])
+        self.assertIn("source: https://ema/y.pdf", text)
+        self.assertIn("licence: European Medicines Agency", text)
+        self.assertEqual(R.ema_copies("8", self.repo, {}), [])
+
+
 class VocabularyTest(unittest.TestCase):
     def test_tests_named(self):
         self.assertEqual(W.tests_named("Ionogramme sanguin, numération et formule sanguine."),

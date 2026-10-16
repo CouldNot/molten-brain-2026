@@ -110,12 +110,13 @@ FR_ALIASES: dict[str, tuple[str, ...]] = {
 
 # Salt / hydrate / counter-ion words a substance line wraps around its molecule.
 SALT_WORDS = {
-    "ACETATE", "ANHYDRE", "BASE", "BESILATE", "BITARTRATE", "BROMHYDRATE", "BROMURE",
+    "ACETATE", "ANHYDRE", "BASE", "BENZOATE", "BESILATE", "BITARTRATE", "BROMHYDRATE", "BROMURE",
     "CHLORHYDRATE", "CHLORURE", "CITRATE", "DIHYDRATE", "DICHLORHYDRATE", "EMBONATE",
     "FUMARATE", "GLUCONATE", "HEMIFUMARATE", "HEMIHYDRATE", "HEMISULFATE",
     "HEMITARTRATE", "HYDROGENOTARTRATE", "HYDROGENOFUMARATE", "HYDROGENOSUCCINATE",
     "IODURE", "LACTATE", "MALATE", "MALEATE", "MESILATE", "MESYLATE", "METHANESULFONATE",
-    "METHYLSULFATE", "MONOHYDRATE", "NAPADISILATE", "OXALATE", "PAMOATE", "PHOSPHATE",
+    "METHYLSULFATE", "MONOHYDRATE", "MONOHYDRATEE", "NAPADISILATE", "OXALATE", "PALMITATE",
+    "PAMOATE", "PHOSPHATE",
     "SESQUIHYDRATE", "SUCCINATE", "SULFATE", "TARTRATE", "TOSILATE", "TRIHYDRATE",
     "CARBONATE", "SODIQUE", "POTASSIQUE", "DIPOTASSIQUE", "DISODIQUE", "DIMESILATE",
     "MONOSODIQUE", "CALCIQUE", "DE", "D", "SODIUM", "POTASSIUM",
@@ -253,11 +254,23 @@ def matches(drug_id: str, keys: set[str], lines: list[dict]) -> bool:
     return False
 
 
-def products_for(drug: dict, keys: set[str], products: dict, compo: dict) -> list[dict]:
-    """Every single-active product whose substance is ``drug``."""
+def only_partners(lines: list[dict], keys: set[str], partners) -> bool:
+    """Whether a combination pairs the drug with nothing but ``partners`` (folded
+    molecule keys): levodopa + carbidopa yes, levodopa + carbidopa + entacapone no."""
+    others = {molecule_key(ln["name"])[0] for ln in lines if ln["nature"] == "SA"} - keys
+    return bool(others) and others <= set(partners)
+
+
+def products_for(drug: dict, keys: set[str], products: dict, compo: dict,
+                 partners=()) -> list[dict]:
+    """Every single-active product whose substance is ``drug``, plus, when
+    ``partners`` is given, its combinations with only those molecules (the RCP 4.x
+    workup join only, ``fetch_bdpm_rcp.COMBO_PARTNERS``: a combination's 5.2 states
+    the combination's kinetics, so this pass never asks for them)."""
     out = []
     for cis, lines in compo.items():
-        if cis in products and single_active(lines) and matches(drug["id"], keys, lines):
+        if cis in products and matches(drug["id"], keys, lines) and (
+                single_active(lines) or (partners and only_partners(lines, keys, partners))):
             out.append({**products[cis], "substances": [ln["name"] for ln in lines]})
     return out
 
@@ -354,14 +367,19 @@ def rank(products: list[dict], keys: set[str]) -> list[tuple[dict, str]]:
 def section_body(page_html: str, number: str, anchor: str) -> str | None:
     """The raw HTML of one RCP section (``number`` like ``"5.2"``, its ``anchor`` name
     like ``"RcpPropPharmacocinetiques"``), from just after its heading paragraph up to
-    the next level-1/2 heading, or None when the page lacks it. Shared by every
+    the next level-1/2 heading, or None when the page lacks it. An ANSM page marks the
+    heading with an id / anchor, an EMA SmPC only by its ``AmmAnnexeTitre2`` text. Shared by every
     section reader (5.2 here, 4.2 / 4.3 / 4.4 in ``fetch_bdpm_rcp.py``)."""
     m = re.search(r"id=['\"]" + re.escape(number + ".") + r"[^'\"]*['\"]", page_html)
     if not m:
         m = re.search(r"name=['\"]" + re.escape(anchor) + r"['\"]", page_html)
+    if not m:   # an EMA SmPC (justelesRCP data/eu/): a bare numbered heading, no anchor
+        m = re.search(r"<(?:p|h\d)[^>]*class=\"?AmmAnnexeTitre2\"?[^>]*>\s*"
+                      + re.escape(number) + r"\.?\s", page_html)
     if not m:
         return None
-    start = page_html.find("</p>", m.end())
+    close = re.compile(r"</(?:p|h\d)>", re.I).search(page_html, m.end())
+    start = close.end() if close else len(page_html)
     end_m = re.search(r"class=\"?AmmAnnexeTitre[12]\"?", page_html[start:])
     if end_m:
         stop = page_html.rfind("<", start, start + end_m.start())   # the heading's <p
