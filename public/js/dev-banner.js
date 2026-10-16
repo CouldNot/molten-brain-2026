@@ -52,13 +52,21 @@
   const version = window.__APP_VERSION__ ? ` (v${window.__APP_VERSION__})` : "";
 
   // Optional "source" link (config sourceUrl, e.g. the code repository). Only an
-  // http(s) URL is rendered, so a stray/empty value can't inject markup. The
+  // http(s) URL is rendered, and every piece of the banner is built as DOM nodes
+  // (never innerHTML), so neither the URL nor a translation can inject markup. The
   // anchor is excluded from the click-to-dismiss handler below.
   const sourceUrl = String(cfg.sourceUrl || "").trim();
   const validSource = /^https?:\/\//i.test(sourceUrl) ? sourceUrl : "";
-  const sourceLink = validSource
-    ? ` <a href="${validSource}" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline;">${t("dev.source")}</a>.`
-    : "";
+  const sourceLink = () => {
+    const a = document.createElement("a");
+    a.href = validSource;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.style.color = "#fff";
+    a.style.textDecoration = "underline";
+    a.textContent = t("dev.source");
+    return a;
+  };
 
   function render() {
     // Client clock vs container clock can differ slightly; close enough for a
@@ -67,8 +75,10 @@
     const when = hasStart
       ? t("dev.restarted", { ago: humanAgo(elapsed) })
       : t("dev.activelyDeveloped");
-    banner.innerHTML =
-      `<strong>${t("dev.wip")}${version}.</strong> ${when}${t("dev.stayTuned")}${sourceLink}`;
+    const head = document.createElement("strong");
+    head.textContent = `${t("dev.wip")}${version}.`;
+    banner.replaceChildren(head, ` ${when}${t("dev.stayTuned")}`);
+    if (validSource) banner.append(" ", sourceLink(), ".");
   }
 
   render();
