@@ -10,7 +10,7 @@
 // NOTE: because these are fetch()ed, the site must be served over http(s); see
 // CLAUDE.md ("Running"). Opening index.html via file:// will fail CORS.
 //
-import { resolveEffects } from "./receptor-effects.js";
+import { resolveEffects, indexEffects } from "./receptor-effects.js";
 import { resolveModulation } from "./release-modulation.js";
 import { resolveDemographics } from "./receptor-demographics.js";
 import { resolveVariants } from "./receptor-variants.js";
@@ -169,6 +169,9 @@ function localize(field) {
  *   keywords}` where `rows` are its `{drug, enzyme}` role pairs and `metabolites` its
  *   `{drug, metabolite, formedBy}` triples (the active metabolites it forms).
  *   Pharmacokinetics, so an entry has no anatomy and never lights the scene.
+ * @property {object[]} effects  The Effects browse list (BETA): one entry per
+ *   receptor_effect some target carries, `{id, label, owners, drugs, keywords}` from
+ *   `indexEffects` (js/receptor-effects.js); `drugs` is derived, never stored.
  * @property {Map<string, {drug: object, enzyme: object}[]>} drugsByEnzyme  Reverse
  *   index: enzyme id -> the drugs with a role at it, each paired with that role row.
  * @property {(drug: object) => {affects: object[], affectedBy: object[]}} pkInteractionsOf
@@ -1706,6 +1709,10 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     if (tgt.receptor) tgt.receptor.effectInfo = rows;
     if (rows.length) effectsByTarget.set(tgt.id, rows);
   }
+  // The effect-centred view of the same nodes (the Effects section + panel, BETA):
+  // effect -> owners carrying it + drugs whose derived possible effects reach it.
+  const effects = indexEffects(targets, (tid) => effectsByTarget.get(tid) || [], drugs, effectModes)
+    .map((e) => ({ ...e, keywords: e.id.replace(/_/g, " ") }));
 
   // receptor_release_modulation nodes (BETA): target id -> resolved rows, for the
   // receptor panel's Downstream section and the drug panel's derived release changes
@@ -1865,6 +1872,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     addons,
     addonsBySlot,
     effectsByTarget,
+    effects,
     modulationByTarget,
     byId,
     meta: {
