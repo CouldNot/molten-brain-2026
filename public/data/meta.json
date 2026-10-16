@@ -11749,8 +11749,8 @@
         "unknown": 0
       },
       "drug_bindings": {
-        "total": 1931,
-        "verified": 1698,
+        "total": 1970,
+        "verified": 1737,
         "uncertain": 215,
         "sourced": 0,
         "llm": 0,
@@ -11759,8 +11759,8 @@
         "unknown": 0
       },
       "drug_binding_action": {
-        "total": 1420,
-        "verified": 1137,
+        "total": 1459,
+        "verified": 1176,
         "uncertain": 114,
         "sourced": 0,
         "llm": 132,
@@ -12220,21 +12220,21 @@
       }
     },
     "nodes": {
-      "total": 10126,
-      "verified": 9385,
+      "total": 10204,
+      "verified": 9463,
       "uncertain": 435,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 667,
-      "backed": 9820,
+      "backed": 9898,
       "pct_backed": 97
     },
     "ki_coverage": {
-      "bindings_total": 1912,
+      "bindings_total": 1951,
       "bindings_with_ki": 1655,
-      "pct_bindings_with_ki": 87,
+      "pct_bindings_with_ki": 85,
       "drugs_total": 275,
       "drugs_without_ki": 88,
       "drugs_without_ki_ids": [

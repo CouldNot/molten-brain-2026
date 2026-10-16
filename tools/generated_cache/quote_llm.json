@@ -2395,6 +2395,9 @@
 "receptor:m1/effects[antagonism:constipation]": "opus",
 "receptor:m1/effects[antagonism:dry_mouth]": "opus"
 },
+"q_36cbf7f75392": {
+"drug:zuclopenthixol/bindings[h1:antagonist]": "opus"
+},
 "q_36d15c8b8463": {
 "drug:disulfiram/categories": "sonnet"
 },
@@ -2461,6 +2464,9 @@
 "drug:vigabatrin/workup[eye_exam:before]": "opus",
 "drug:vigabatrin/workup[eye_exam:during]": "opus"
 },
+"q_38d8b79dc065": {
+"drug:memantine/bindings[d2:agonist]": "opus"
+},
 "q_38eb28bfffaa": {
 "receptor:glycine/classification[sign]": "opus"
 },
@@ -2524,6 +2530,9 @@
 },
 "q_3a86dae6df37": {
 "drug:rotigotine/categories": "opus"
+},
+"q_3a8ac75000e4": {
+"drug:amphetamine_dl/bindings[5ht1a:agonist]": "opus"
 },
 "q_3a9ec195dbeb": {
 "drug:zaleplon/originator_country": "opus"
@@ -2971,6 +2980,9 @@
 "drug:sildenafil/formulations[odt]/tmax": "opus",
 "drug:sildenafil/tmax": "opus"
 },
+"q_4383e394cf8f": {
+"drug:iloperidone/bindings[h1:antagonist]": "opus"
+},
 "q_438b884b1b38": {
 "drug:naloxone/bindings[delta:antagonist]": "sonnet",
 "drug:naloxone/bindings[kappa:antagonist]": "sonnet",
@@ -3175,6 +3187,9 @@
 "q_477836fbe51b": {
 "drug:amphetamine_dl/brands[Dexedrine]": "sonnet"
 },
+"q_478af8796f93": {
+"drug:molindone/bindings[mao_a:enzyme_inhibitor]": "opus"
+},
 "q_47907ee5dba4": {
 "drug:lisdexamfetamine/brands[Elvanse]": "sonnet"
 },
@@ -3310,6 +3325,10 @@
 },
 "q_4a93b2a7db01": {
 "drug:phentermine/half_life": "sonnet"
+},
+"q_4ab15851571d": {
+"drug:flibanserin/bindings[5ht2b:antagonist]": "opus",
+"drug:flibanserin/bindings[5ht2c:antagonist]": "opus"
 },
 "q_4ad464fcfab1": {
 "drug:naltrexone/workup[liver_function:before]": "opus",
@@ -4065,6 +4084,10 @@
 "q_5e3d3a222cb0": {
 "drug:tizanidine/categories": "opus"
 },
+"q_5e86cc855c22": {
+"drug:naltrexone/bindings[delta:antagonist]": "opus",
+"drug:naltrexone/bindings[kappa:antagonist]": "opus"
+},
 "q_5e89b7e1fbb9": {
 "drug:selegiline/metabolites[desmethylselegiline]": "sonnet",
 "drug:selegiline/metabolites[l_amphetamine]": "sonnet",
@@ -4187,6 +4210,9 @@
 },
 "q_60e244d1a47d": {
 "drug:flupenthixol/bindings[h1:antagonist]": "sonnet"
+},
+"q_60faba97776d": {
+"drug:lurasidone/bindings[alpha1a:antagonist]": "opus"
 },
 "q_610b84399851": {
 "drug:ondansetron/bindings[5ht3:antagonist]": "sonnet"
@@ -4400,6 +4426,9 @@
 },
 "q_64da37974a32": {
 "drug:loflazepate/brands[Meilax]": "sonnet"
+},
+"q_64f23156af19": {
+"drug:brexanolone/bindings[gaba_a_rho:pam]": "opus"
 },
 "q_6507e74cca59": {
 "drug:lofepramine/half_life": "sonnet"
@@ -5722,6 +5751,9 @@
 "q_830b4ee728db": {
 "drug:duloxetine/brands[Yentreve]": "sonnet"
 },
+"q_832a90e4bb60": {
+"drug:lamotrigine/bindings[5ht3:antagonist]": "opus"
+},
 "q_833a308f522b": {
 "drug:amphetamine_d/workup[blood_pressure:during]": "opus",
 "drug:amphetamine_d/workup[heart_rate:during]": "opus"
@@ -5982,6 +6014,9 @@
 "drug:bumetanide/formulations[ir]/half_life": "opus",
 "drug:bumetanide/half_life": "opus"
 },
+"q_896d3f9e4362": {
+"drug:tianeptine/bindings[delta:agonist]": "opus"
+},
 "q_89878b67c9e1": {
 "drug:baclofen/brands[Liorésal]": "sonnet"
 },
@@ -6172,6 +6207,9 @@
 },
 "q_8ce7e12393fb": {
 "drug:zaleplon/tmax": "sonnet"
+},
+"q_8ce7ec221127": {
+"drug:amoxapine/bindings[delta:partial_agonist]": "opus"
 },
 "q_8d0f41b08c2e": {
 "drug:sertindole/originator": "opus"
@@ -6473,6 +6511,9 @@
 "q_9447609b3d80": {
 "drug:pargyline/first_approval": "opus"
 },
+"q_9466bcc20933": {
+"drug:guanfacine/bindings[5ht2b:agonist]": "opus"
+},
 "q_9469d8e5b069": {
 "drug:tiagabine/originator": "opus"
 },
@@ -6519,6 +6560,9 @@
 "q_9518f8721acf": {
 "drug:lamotrigine/brands[Lamictin]": "sonnet"
 },
+"q_952a42076feb": {
+"drug:mianserin/bindings[kappa:partial_agonist]": "opus"
+},
 "q_9533d7e20bb0": {
 "drug:trimipramine/bindings[sert:reuptake_inhibitor]": "sonnet"
 },
@@ -6540,6 +6584,9 @@
 },
 "q_95f56fe73bc8": {
 "drug:clobazam/half_life": "sonnet"
+},
+"q_95f7cef9838d": {
+"drug:amitriptyline/bindings[nmda:antagonist]": "opus"
 },
 "q_960499708acf": {
 "drug:nicotine/enzymes[cyp2a6:substrate]": "opus",
@@ -6879,6 +6926,10 @@
 },
 "q_9bacd4eb53ec": {
 "target:sv2a/classification": "sonnet"
+},
+"q_9bcf9bd95273": {
+"drug:amoxapine/bindings[5ht2b:antagonist]": "opus",
+"drug:amoxapine/bindings[5ht3:antagonist]": "opus"
 },
 "q_9bd6c1e3852f": {
 "drug:rotigotine/originator": "opus"
@@ -7246,6 +7297,14 @@
 "q_a2dfd48ca1fd": {
 "receptor:5ht2a/effects[antagonism:antidepressant]": "opus"
 },
+"q_a2ef507804e6": {
+"drug:clomipramine/bindings[5ht2c:antagonist]": "opus",
+"drug:clomipramine/bindings[5ht3:antagonist]": "opus",
+"drug:clomipramine/bindings[5ht6:antagonist]": "opus",
+"drug:clomipramine/bindings[5ht7:antagonist]": "opus",
+"drug:clomipramine/bindings[d1:antagonist]": "opus",
+"drug:clomipramine/bindings[d2:antagonist]": "opus"
+},
 "q_a301f47d59ff": {
 "drug:ramelteon/tmax": "sonnet"
 },
@@ -7310,6 +7369,9 @@
 },
 "q_a49f7af9007d": {
 "drug:chlorpromazine/categories": "sonnet"
+},
+"q_a4a25f3f5cd2": {
+"drug:trimipramine/bindings[h2:antagonist]": "opus"
 },
 "q_a4a867049b7c": {
 "drug:salvinorin_a/bindings[d2:partial_agonist]": "opus"
@@ -7833,6 +7895,9 @@
 },
 "q_b18b9373a3ee": {
 "drug:trimipramine/categories": "sonnet"
+},
+"q_b18daaae2d3e": {
+"drug:zuclopenthixol/bindings[d1:antagonist]": "opus"
 },
 "q_b1a4cffb90e9": {
 "drug:fluphenazine/bindings[h1:antagonist]": "sonnet"
@@ -8717,6 +8782,9 @@
 "q_c450b97db2a4": {
 "drug:modafinil/brands[Modiodal]": "sonnet"
 },
+"q_c4664ec983ea": {
+"drug:aripiprazole/bindings[vmat2:vesicular_inhibitor]": "opus"
+},
 "q_c476383a4e4c": {
 "drug:methylphenidate_dl/bindings[dat:reuptake_inhibitor]": "sonnet",
 "drug:methylphenidate_dl/bindings[net:reuptake_inhibitor]": "sonnet"
@@ -8984,6 +9052,10 @@
 },
 "q_cacfc9e5ec23": {
 "receptor:5ht2a/effects[antagonism:antipsychotic]": "opus"
+},
+"q_cadcc4dc8a27": {
+"drug:hydroxyzine/bindings[5ht2a:antagonist]": "opus",
+"drug:hydroxyzine/bindings[d2:antagonist]": "opus"
 },
 "q_cb0c96449c66": {
 "drug:2cb/bindings[5ht2b:agonist]": "sonnet"
@@ -9423,6 +9495,9 @@
 "q_d51193c89a5f": {
 "receptor:d2/demographics[age:decrease:-]": "opus"
 },
+"q_d5149c1c25d4": {
+"drug:donepezil/bindings[sigma1:agonist]": "opus"
+},
 "q_d51cefea1e16": {
 "drug:escitalopram/nbn": "sonnet"
 },
@@ -9484,6 +9559,9 @@
 "receptor:h1/effects[antagonism:sedation]": "opus",
 "receptor:h1/effects[antagonism:weight_gain]": "opus"
 },
+"q_d663d47f6116": {
+"drug:trimipramine/bindings[d1:antagonist]": "opus"
+},
 "q_d66572dd2fe3": {
 "drug:perphenazine/bindings[d2:antagonist]": "sonnet"
 },
@@ -9535,6 +9613,9 @@
 },
 "q_d7d4098977f6": {
 "receptor:nachr_muscle/effects[antagonism:muscle_weakness]": "opus"
+},
+"q_d7dea114c050": {
+"drug:benztropine/bindings[dat:reuptake_inhibitor]": "opus"
 },
 "q_d7df85b45db3": {
 "drug:risperidone/formulations[ir]/tmax": "opus",
@@ -10309,6 +10390,9 @@
 "q_e85ab5c5c968": {
 "drug:propofol/first_approval": "opus"
 },
+"q_e87b98d396b1": {
+"drug:memantine/bindings[nachr_a7:antagonist]": "opus"
+},
 "q_e87c368afebf": {
 "drug:serdexmethylphenidate/bindings[dat:reuptake_inhibitor]": "sonnet",
 "drug:serdexmethylphenidate/bindings[net:reuptake_inhibitor]": "sonnet"
@@ -10600,6 +10684,9 @@
 "q_ef4cfa1783a6": {
 "drug:metoclopramide/first_approval": "opus"
 },
+"q_ef67f40a99b1": {
+"drug:memantine/bindings[sigma1:agonist]": "opus"
+},
 "q_ef95258483bd": {
 "drug:amitriptyline/half_life": "sonnet"
 },
@@ -10770,6 +10857,11 @@
 },
 "q_f38d36f84dc1": {
 "drug:yohimbine/categories": "sonnet"
+},
+"q_f3b1eea42657": {
+"drug:viloxazine/bindings[5ht7:antagonist]": "opus",
+"drug:viloxazine/bindings[alpha1b:antagonist]": "opus",
+"drug:viloxazine/bindings[beta2:antagonist]": "opus"
 },
 "q_f3cbff6efbf8": {
 "drug:propofol/workup[lipids:during]": "opus"
@@ -11028,6 +11120,9 @@
 },
 "q_f8973c14bc97": {
 "drug:propranolol/categories": "sonnet"
+},
+"q_f8a42ef4464c": {
+"drug:fluoxetine/bindings[sigma1:agonist]": "opus"
 },
 "q_f8b867582def": {
 "metabolite:demoxepam/half_life": "opus"

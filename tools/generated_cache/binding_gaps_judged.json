@@ -892,8 +892,8 @@
   {
    "index": 0,
    "target": "net",
-   "pick": true,
-   "action": "reuptake_inhibitor"
+   "pick": false,
+   "reason": "the sentence is about loxapine's metabolite amoxapine, not loxapine (opus recheck)"
   }
  ],
  "lsd": [
@@ -1384,8 +1384,8 @@
   {
    "index": 4,
    "target": "gaba_t",
-   "pick": true,
-   "action": "enzyme_inhibitor"
+   "pick": false,
+   "reason": "GABA-T inhibition is the metabolite phenylethylidenehydrazine's, the article says not phenelzine's own (opus recheck)"
   }
  ],
  "phentermine": [
