@@ -1,6 +1,38 @@
 {
   "versions": [
     {
+      "version": "3.128.0",
+      "date": "2026-10-16",
+      "entries": [
+        {
+          "category": "added",
+          "text": "BETA: a new Effects section lists every clinical effect (nausea, sedation, weight gain, ...); opening one shows the receptors that carry it, each with its source, and the drugs that could cause it through their bindings, searchable in English and French and linkable",
+          "commits": [
+            "f8b951e",
+            "6f46e06",
+            "470678e",
+            "fb0ae1d"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "For AI agents: llms.txt and the /api/ pages now carry the effect to receptors to drugs index, one page per effect",
+          "commits": [
+            "08e84c7",
+            "a0d7a65",
+            "a1049a8"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "The Effects section and its agent twin are documented",
+          "commits": [
+            "648b82b"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.127.0",
       "date": "2026-10-16",
       "entries": [
