@@ -150,8 +150,10 @@ def fold(text: str) -> str:
     return " ".join(re.sub(r"[^A-Z0-9]+", " ", t).split())
 
 
-def molecule_key(substance: str) -> tuple[str, str | None]:
-    """A substance line reduced to ``(molecule, stereo tag)``.
+def molecule_key(substance: str, salt_words: frozenset[str] | set[str] = SALT_WORDS
+                 ) -> tuple[str, str | None]:
+    """A substance line reduced to ``(molecule, stereo tag)``. ``salt_words`` lets
+    another table (EMA's English substances) strip its own counter-ion words.
 
     >>> molecule_key("CHLORHYDRATE DE FLUOXÉTINE")
     ('FLUOXETINE', None)
@@ -166,9 +168,9 @@ def molecule_key(substance: str) -> tuple[str, str | None]:
     """
     stem, tag = chirality.split_stereo(substance)
     words = [w for w in fold(re.sub(r"\([^)]*\)", " ", stem)).split()
-             if w not in SALT_WORDS]
+             if w not in salt_words]
     if not words:      # an inverted line, "SODIUM (VALPROATE DE)": the molecule is inside
-        words = [w for w in fold(stem).split() if w not in SALT_WORDS]
+        words = [w for w in fold(stem).split() if w not in salt_words]
     return " ".join(words), tag
 
 
@@ -364,11 +366,17 @@ def rank(products: list[dict], keys: set[str]) -> list[tuple[dict, str]]:
             for p in pool]
 
 
+# A numbered sub-heading left as a plain paragraph ("<p>4.4. Mises en garde ...</p>"):
+# capitalised and short, so a body cross-reference ("(voir rubriques 4.4 et 5.3)") is not one.
+_PLAIN_HEAD = r"<p>\s*{num}\.?\s+[A-ZÀ-Ý][^<]{{2,110}}</p>"
+
+
 def section_body(page_html: str, number: str, anchor: str) -> str | None:
     """The raw HTML of one RCP section (``number`` like ``"5.2"``, its ``anchor`` name
     like ``"RcpPropPharmacocinetiques"``), from just after its heading paragraph up to
     the next level-1/2 heading, or None when the page lacks it. An ANSM page marks the
-    heading with an id / anchor, an EMA SmPC only by its ``AmmAnnexeTitre2`` text. Shared by every
+    heading with an id / anchor, an EMA SmPC only by its ``AmmAnnexeTitre2`` text (or, when
+    the converter missed it, a short bare numbered paragraph). Shared by every
     section reader (5.2 here, 4.2 / 4.3 / 4.4 in ``fetch_bdpm_rcp.py``)."""
     m = re.search(r"id=['\"]" + re.escape(number + ".") + r"[^'\"]*['\"]", page_html)
     if not m:
@@ -376,11 +384,17 @@ def section_body(page_html: str, number: str, anchor: str) -> str | None:
     if not m:   # an EMA SmPC (justelesRCP data/eu/): a bare numbered heading, no anchor
         m = re.search(r"<(?:p|h\d)[^>]*class=\"?AmmAnnexeTitre2\"?[^>]*>\s*"
                       + re.escape(number) + r"\.?\s", page_html)
+    plain = None
+    if not m:   # an SmPC whose PDF converter missed the heading: a short bare paragraph
+        plain = _PLAIN_HEAD.format(num=re.escape(number))
+        m = re.search(plain, page_html)
     if not m:
         return None
-    close = re.compile(r"</(?:p|h\d)>", re.I).search(page_html, m.end())
-    start = close.end() if close else len(page_html)
-    end_m = re.search(r"class=\"?AmmAnnexeTitre[12]\"?", page_html[start:])
+    close = None if plain else re.compile(r"</(?:p|h\d)>", re.I).search(page_html, m.end())
+    start = close.end() if close else m.end() if plain else len(page_html)
+    end_m = re.search(r"class=\"?AmmAnnexeTitre[12]\"?"
+                      + ("|" + _PLAIN_HEAD.format(num=r"\d+\.\d+") if plain else ""),
+                      page_html[start:])
     if end_m:
         stop = page_html.rfind("<", start, start + end_m.start())   # the heading's <p
         return page_html[start:stop if stop > start else start + end_m.start()]
