@@ -177,7 +177,7 @@ class VocabularyTest(unittest.TestCase):
 
 
 class ApplierGateTest(unittest.TestCase):
-    OFFERED = {"lithium": {"cis": "62124478", "candidates": [
+    OFFERED = {"lithium": {"page": "62124478", "candidates": [
         {"index": 0, "section": "4.4", "under": "Examens à pratiquer avant le traitement :",
          "quote": "Ionogramme sanguin, numération et formule sanguine."},
         {"index": 1, "section": "4.2", "under": "",

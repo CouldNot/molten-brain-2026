@@ -3,7 +3,7 @@
 
 First step of the ``drug_workup`` pass (``data_generators/workup.py``): for every drug
 with a corpus #24 page (``fetch_bdpm_rcp.py`` -> ``bdpm_rcp_labels.json`` +
-``data_sources/bdpm/pages_rcp4/<cis>.md``), every line of RCP sections 4.2 / 4.3 / 4.4
+``data_sources/bdpm/pages_rcp4/<page>.md``), every line of RCP sections 4.2 / 4.3 / 4.4
 that names a test in ``workup.TESTS`` AND reads like an ask (a check / measure /
 monitor verb, or a timing word, in the line or the sub-heading above it). Each
 candidate carries the section and that sub-heading for context, plus the test ids its
@@ -86,12 +86,13 @@ def offered(ln: dict) -> bool:
 
 
 def build(labels: dict | None = None) -> dict[str, dict]:
-    """``{drug_id: {cis, candidates: [{index, section, under, quote, tests}]}}``."""
+    """``{drug_id: {page, candidates: [{index, section, under, quote, tests}]}}``; ``page``
+    is the CIS, or the EMA product number of an EPAR found by name."""
     if labels is None:
         labels = json.loads(LABELS.read_text(encoding="utf-8")) if LABELS.exists() else {}
     out = {}
     for did, entry in sorted(labels.items()):
-        path = corpus_page_path(CORPUS, entry["cis"])
+        path = corpus_page_path(CORPUS, entry["page"])
         if not path or not path.exists():
             continue
         cands = []
@@ -101,7 +102,7 @@ def build(labels: dict | None = None) -> dict[str, dict]:
                               "under": ln["under"], "quote": ln["line"],
                               "tests": W.tests_named(ln["line"])})
         if cands:
-            out[did] = {"cis": entry["cis"], "denomination": entry.get("denomination"),
+            out[did] = {"page": entry["page"], "denomination": entry.get("denomination"),
                         "candidates": cands}
     return out
 

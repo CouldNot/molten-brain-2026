@@ -4,6 +4,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "AOTAL 333 mg, comprimé enrobé gastro-résistant",
   "fetched": "2026-07-22",
+  "page": "63759295",
   "sections": [
    "4.2",
    "4.3",
@@ -15,6 +16,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "AGOMELATINE ZENTIVA 25 mg, comprimé pelliculé",
   "fetched": "2026-10-15",
+  "page": "62525777",
   "sections": [
    "4.2",
    "4.3",
@@ -26,6 +28,7 @@
   "date_source": "file mtime",
   "denomination": "THERALENE 5 mg, comprimé pelliculé sécable",
   "fetched": "2026-10-10",
+  "page": "66801066",
   "sections": [
    "4.2",
    "4.3",
@@ -37,6 +40,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "XANAX 0,50 mg, comprimé sécable",
   "fetched": "2026-07-22",
+  "page": "60647049",
   "sections": [
    "4.2",
    "4.3",
@@ -48,6 +52,7 @@
   "date_source": "file mtime",
   "denomination": "MANTADIX 100 mg, capsule",
   "fetched": "2026-10-10",
+  "page": "67703803",
   "sections": [
    "4.2",
    "4.3",
@@ -59,6 +64,7 @@
   "date_source": "file mtime",
   "denomination": "SOLIAN 100 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "60019927",
   "sections": [
    "4.2",
    "4.3",
@@ -70,6 +76,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "LAROXYL 50 mg, comprimé pelliculé",
   "fetched": "2026-07-19",
+  "page": "62633436",
   "sections": [
    "4.2",
    "4.3",
@@ -81,6 +88,7 @@
   "date_source": "file mtime",
   "denomination": "TENTIN 10 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "61746712",
   "sections": [
    "4.2",
    "4.3",
@@ -92,6 +100,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "APOMORPHINE VIATRIS 5 mg/ml, solution injectable",
   "fetched": "2026-07-26",
+  "page": "63665248",
   "sections": [
    "4.2",
    "4.3",
@@ -103,6 +112,30 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ARIPIPRAZOLE SANDOZ 10 mg, comprimé orodispersible",
   "fetched": "2026-07-23",
+  "page": "60031071",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "asenapine": {
+  "date_source": "download date",
+  "denomination": "Sycrest (EMEA/H/C/001177)",
+  "ema": {
+   "authorised": "2010-09-01",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/sycrest",
+   "generic": false,
+   "holder": "Organon N.V.",
+   "language": "fr",
+   "number": "EMEA/H/C/001177",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/sycrest-epar-product-information_fr.pdf",
+   "pi_updated": "2026-02-25",
+   "product": "Sycrest",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-001177",
   "sections": [
    "4.2",
    "4.3",
@@ -114,6 +147,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ATROPINE SULFATE AGUETTANT 0,1 mg/mL, solution injectable en seringue préremplie",
   "fetched": "2026-10-15",
+  "page": "63358772",
   "sections": [
    "4.2",
    "4.3",
@@ -125,6 +159,7 @@
   "date_source": "file mtime",
   "denomination": "LIORESAL 10 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "60304050",
   "sections": [
    "4.2",
    "4.3",
@@ -136,6 +171,7 @@
   "date_source": "file mtime",
   "denomination": "LECTIL 16 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "62132998",
   "sections": [
    "4.2",
    "4.3",
@@ -147,6 +183,30 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "AKINETON L.P. 4 mg, comprimé enrobé à libération prolongée",
   "fetched": "2026-07-26",
+  "page": "66782153",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "brexpiprazole": {
+  "date_source": "download date",
+  "denomination": "Rxulti (EMEA/H/C/003841)",
+  "ema": {
+   "authorised": "2018-07-26",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/rxulti",
+   "generic": false,
+   "holder": "Otsuka Pharmaceutical Netherlands B.V.",
+   "language": "fr",
+   "number": "EMEA/H/C/003841",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/rxulti-epar-product-information_fr.pdf",
+   "pi_updated": "2026-03-12",
+   "product": "Rxulti",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-003841",
   "sections": [
    "4.2",
    "4.3",
@@ -158,6 +218,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "BRIVIACT 10 mg/ml, solution injectable/pour perfusion",
   "fetched": "2026-09-30",
+  "page": "60579228",
   "sections": [
    "4.2",
    "4.3",
@@ -169,6 +230,7 @@
   "date_source": "file mtime",
   "denomination": "LEXOMIL 6 mg, comprimé quadrisécable",
   "fetched": "2026-10-10",
+  "page": "66796142",
   "sections": [
    "4.2",
    "4.3",
@@ -180,6 +242,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PARLODEL 2,5 mg, comprimé sécable",
   "fetched": "2026-07-30",
+  "page": "63369053",
   "sections": [
    "4.2",
    "4.3",
@@ -191,6 +254,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "BURINEX 2 mg/4 ml IV, solution injectable en ampoule",
   "fetched": "2026-07-26",
+  "page": "61834055",
   "sections": [
    "4.2",
    "4.3",
@@ -202,6 +266,7 @@
   "date_source": "file mtime",
   "denomination": "TEMGESIC 0,2 mg, comprimé sublingual",
   "fetched": "2026-10-10",
+  "page": "60549391",
   "sections": [
    "4.2",
    "4.3",
@@ -213,6 +278,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ZYBAN L.P. 150 mg, comprimé à libération prolongée",
   "fetched": "2026-08-01",
+  "page": "64556383",
   "sections": [
    "4.2",
    "4.3",
@@ -224,6 +290,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "BUSPIRONE VIATRIS 10 mg, comprimé sécable",
   "fetched": "2026-07-23",
+  "page": "61964472",
   "sections": [
    "4.2",
    "4.3",
@@ -235,6 +302,7 @@
   "date_source": "file mtime",
   "denomination": "DOSTINEX 0,5 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "69671845",
   "sections": [
    "4.2",
    "4.3",
@@ -246,6 +314,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "CITRATE DE CAFEINE COOPER 25 mg/mL, solution injectable et buvable",
   "fetched": "2026-07-28",
+  "page": "65973294",
   "sections": [
    "4.2",
    "4.3",
@@ -257,6 +326,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "EPIDYOLEX 100 mg/mL, solution buvable",
   "fetched": "2026-09-30",
+  "page": "61680130",
   "sections": [
    "4.2",
    "4.3",
@@ -268,6 +338,30 @@
   "date_source": "file mtime",
   "denomination": "TEGRETOL 200 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "61009918",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "cariprazine": {
+  "date_source": "download date",
+  "denomination": "Reagila (EMEA/H/C/002770)",
+  "ema": {
+   "authorised": "2017-07-13",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/reagila",
+   "generic": false,
+   "holder": "Gedeon Richter",
+   "language": "fr",
+   "number": "EMEA/H/C/002770",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/reagila-epar-product-information_fr.pdf",
+   "pi_updated": "2026-01-08",
+   "product": "Reagila",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-002770",
   "sections": [
    "4.2",
    "4.3",
@@ -279,6 +373,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "LARGACTIL 25 mg/5 ml, solution injectable en ampoule",
   "fetched": "2026-07-27",
+  "page": "62184888",
   "sections": [
    "4.2",
    "4.3",
@@ -290,6 +385,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SEROPRAM 40 mg/ml, solution buvable",
   "fetched": "2026-10-15",
+  "page": "68231138",
   "sections": [
    "4.2",
    "4.3",
@@ -301,6 +397,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "URBANYL 10 mg, comprimé sécable",
   "fetched": "2026-07-26",
+  "page": "62905911",
   "sections": [
    "4.2",
    "4.3",
@@ -312,6 +409,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ANAFRANIL 75 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-22",
+  "page": "61426025",
   "sections": [
    "4.2",
    "4.3",
@@ -323,6 +421,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "RIVOTRIL 2,5 mg/ml, solution buvable en goutte",
   "fetched": "2026-07-25",
+  "page": "61496251",
   "sections": [
    "4.2",
    "4.3",
@@ -334,6 +433,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "CATAPRESSAN 0,15 mg/ml, solution injectable",
   "fetched": "2026-07-26",
+  "page": "64256681",
   "sections": [
    "4.2",
    "4.3",
@@ -345,6 +445,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "TRANXENE 20 mg/2 ml, lyophilisat et solution pour usage parentéral",
   "fetched": "2026-07-26",
+  "page": "62416105",
   "sections": [
    "4.2",
    "4.3",
@@ -356,6 +457,7 @@
   "date_source": "file mtime",
   "denomination": "VERATRAN 5 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "65558647",
   "sections": [
    "4.2",
    "4.3",
@@ -367,6 +469,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "LEPONEX 100 mg, comprimé sécable",
   "fetched": "2026-07-24",
+  "page": "62552920",
   "sections": [
    "4.2",
    "4.3",
@@ -378,6 +481,7 @@
   "date_source": "file mtime",
   "denomination": "PADERYL 19,5 mg, comprimé enrobé",
   "fetched": "2026-10-10",
+  "page": "60811833",
   "sections": [
    "4.2",
    "4.3",
@@ -389,6 +493,7 @@
   "date_source": "file mtime",
   "denomination": "TERCIAN 100 mg, comprimé pelliculé sécable",
   "fetched": "2026-10-10",
+  "page": "60271248",
   "sections": [
    "4.2",
    "4.3",
@@ -400,6 +505,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PERIACTINE 4 mg, comprimé",
   "fetched": "2026-07-30",
+  "page": "67231270",
   "sections": [
    "4.2",
    "4.3",
@@ -411,6 +517,30 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "QUVIVIQ 25 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "67801165",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "deutetrabenazine": {
+  "date_source": "download date",
+  "denomination": "Austedo (EMEA/H/C/006371)",
+  "ema": {
+   "authorised": "2026-01-08",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/austedo",
+   "generic": false,
+   "holder": "Teva GmbH",
+   "language": "fr",
+   "number": "EMEA/H/C/006371",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/austedo-epar-product-information_fr.pdf",
+   "pi_updated": "2026-01-23",
+   "product": "Austedo",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-006371",
   "sections": [
    "4.2",
    "4.3",
@@ -422,6 +552,7 @@
   "date_source": "file mtime",
   "denomination": "DEXMEDETOMIDINE EVER PHARMA 100 microgrammes/mL, solution à diluer pour perfusion",
   "fetched": "2026-10-10",
+  "page": "64729383",
   "sections": [
    "4.2",
    "4.3",
@@ -433,6 +564,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "VALIUM 10 mg, comprimé sécable",
   "fetched": "2026-07-22",
+  "page": "60290800",
   "sections": [
    "4.2",
    "4.3",
@@ -444,6 +576,7 @@
   "date_source": "file mtime",
   "denomination": "NAUSICALM ADULTES 50 mg, gélule",
   "fetched": "2026-10-10",
+  "page": "60173964",
   "sections": [
    "4.2",
    "4.3",
@@ -455,6 +588,7 @@
   "date_source": "file mtime",
   "denomination": "ESPERAL 500 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "61500746",
   "sections": [
    "4.2",
    "4.3",
@@ -466,6 +600,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DOMPERIDONE EG 10 mg, comprimé orodispersible",
   "fetched": "2026-07-23",
+  "page": "60764337",
   "sections": [
    "4.2",
    "4.3",
@@ -477,6 +612,7 @@
   "date_source": "file mtime",
   "denomination": "ARICEPT 5 mg, comprimé orodispersible",
   "fetched": "2026-10-10",
+  "page": "62262995",
   "sections": [
    "4.2",
    "4.3",
@@ -488,6 +624,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "QUITAXON 10 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-28",
+  "page": "63046819",
   "sections": [
    "4.2",
    "4.3",
@@ -499,6 +636,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DONORMYL 15 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-29",
+  "page": "62382724",
   "sections": [
    "4.2",
    "4.3",
@@ -510,6 +648,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DULOXETINE ALMUS 60 mg, gélule gastro-résistante",
   "fetched": "2026-07-18",
+  "page": "60299831",
   "sections": [
    "4.2",
    "4.3",
@@ -521,6 +660,7 @@
   "date_source": "file mtime",
   "denomination": "ENTACAPONE VIATRIS 200 mg, comprimé pelliculé",
   "fetched": "2026-10-10",
+  "page": "65562898",
   "sections": [
    "4.2",
    "4.3",
@@ -532,6 +672,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "EPHEDRINE AGUETTANT 3 mg/ml, solution injectable en seringue préremplie",
   "fetched": "2026-10-15",
+  "page": "60149276",
   "sections": [
    "4.2",
    "4.3",
@@ -543,6 +684,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "AIMOVIG 140 mg, solution injectable en stylo prérempli",
   "fetched": "2026-09-30",
+  "page": "63401330",
   "sections": [
    "4.2",
    "4.3",
@@ -554,6 +696,7 @@
   "date_source": "file mtime",
   "denomination": "SEROPLEX 15 mg, comprimé pelliculé sécable",
   "fetched": "2026-10-10",
+  "page": "60474889",
   "sections": [
    "4.2",
    "4.3",
@@ -565,6 +708,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ESKESIA 25 mg/mL, solution injectable/pour perfusion",
   "fetched": "2026-07-31",
+  "page": "60811559",
   "sections": [
    "4.2",
    "4.3",
@@ -576,6 +720,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "NUCTALON 2 mg, comprimé",
   "fetched": "2026-07-27",
+  "page": "69888457",
   "sections": [
    "4.2",
    "4.3",
@@ -587,6 +732,7 @@
   "date_source": "file mtime",
   "denomination": "ZARONTIN 250 mg/5 ml, sirop",
   "fetched": "2026-10-10",
+  "page": "68481191",
   "sections": [
    "4.2",
    "4.3",
@@ -598,6 +744,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "HYPNOMIDATE 2 mg/ml, solution injectable",
   "fetched": "2026-10-15",
+  "page": "63444171",
   "sections": [
    "4.2",
    "4.3",
@@ -609,6 +756,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "FINTEPLA 2,2 mg/mL, solution buvable",
   "fetched": "2026-09-30",
+  "page": "62154820",
   "sections": [
    "4.2",
    "4.3",
@@ -620,6 +768,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ABSTRAL 400 microgrammes, comprimé sublingual",
   "fetched": "2026-10-15",
+  "page": "60282999",
   "sections": [
    "4.2",
    "4.3",
@@ -631,6 +780,7 @@
   "date_source": "file mtime",
   "denomination": "FLUMAZENIL HIKMA 0,1 mg/mL, solution injectable/pour perfusion",
   "fetched": "2026-10-10",
+  "page": "67248985",
   "sections": [
    "4.2",
    "4.3",
@@ -642,6 +792,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "FLUOXETINE BIOGARAN 20 mg, comprimé dispersible sécable",
   "fetched": "2026-07-18",
+  "page": "60338857",
   "sections": [
    "4.2",
    "4.3",
@@ -653,6 +804,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "FLUANXOL 4 %, solution buvable",
   "fetched": "2026-10-15",
+  "page": "62571671",
   "sections": [
    "4.2",
    "4.3",
@@ -664,6 +816,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "FLOXYFRAL 100 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-27",
+  "page": "60439525",
   "sections": [
    "4.2",
    "4.3",
@@ -675,6 +828,7 @@
   "date_source": "file mtime",
   "denomination": "LASILIX SPECIAL 500 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "61547571",
   "sections": [
    "4.2",
    "4.3",
@@ -686,6 +840,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "NEURONTIN 400 mg, gélule",
   "fetched": "2026-07-20",
+  "page": "61022591",
   "sections": [
    "4.2",
    "4.3",
@@ -697,6 +852,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "GALANTAMINE BIOGARAN LP 8 mg, gélule à libération prolongée",
   "fetched": "2026-07-31",
+  "page": "63358402",
   "sections": [
    "4.2",
    "4.3",
@@ -708,6 +864,30 @@
   "date_source": "file mtime",
   "denomination": "KYTRIL 2 mg, comprimé pelliculé",
   "fetched": "2026-10-10",
+  "page": "63420868",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "guanfacine": {
+  "date_source": "download date",
+  "denomination": "Intuniv (EMEA/H/C/003759)",
+  "ema": {
+   "authorised": "2015-09-17",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/intuniv",
+   "generic": false,
+   "holder": "Takeda Pharmaceuticals International AG Ireland",
+   "language": "fr",
+   "number": "EMEA/H/C/003759",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/intuniv-epar-product-information_fr.pdf",
+   "pi_updated": "2026-10-13",
+   "product": "Intuniv",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-003759",
   "sections": [
    "4.2",
    "4.3",
@@ -719,6 +899,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "HALDOL 1 mg, comprimé",
   "fetched": "2026-07-24",
+  "page": "61490049",
   "sections": [
    "4.2",
    "4.3",
@@ -730,6 +911,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SOPHIDONE L.P. 8 mg, gélule à libération prolongée",
   "fetched": "2026-07-30",
+  "page": "63771924",
   "sections": [
    "4.2",
    "4.3",
@@ -741,6 +923,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ATARAX 2 mg/mL, sirop",
   "fetched": "2026-07-17",
+  "page": "61162294",
   "sections": [
    "4.2",
    "4.3",
@@ -752,6 +935,7 @@
   "date_source": "file mtime",
   "denomination": "TOFRANIL 25 mg, comprimé enrobé",
   "fetched": "2026-10-10",
+  "page": "67117128",
   "sections": [
    "4.2",
    "4.3",
@@ -763,6 +947,7 @@
   "date_source": "file mtime",
   "denomination": "AERRANE, liquide pour inhalation par vapeur",
   "fetched": "2026-10-10",
+  "page": "63498500",
   "sections": [
    "4.2",
    "4.3",
@@ -774,6 +959,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "KETAMINE PANPHARMA 10 mg/mL, solution injectable (I.V.-I.M.)",
   "fetched": "2026-10-15",
+  "page": "62768665",
   "sections": [
    "4.2",
    "4.3",
@@ -785,6 +971,7 @@
   "date_source": "file mtime",
   "denomination": "LACOSAMIDE EG 100 mg, comprimé pelliculé",
   "fetched": "2026-10-11",
+  "page": "60575525",
   "sections": [
    "4.2",
    "4.3",
@@ -796,6 +983,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "LAMICTAL 2 mg, comprimé dispersible ou à croquer",
   "fetched": "2026-07-19",
+  "page": "61043653",
   "sections": [
    "4.2",
    "4.3",
@@ -807,6 +995,7 @@
   "date_source": "file mtime",
   "denomination": "LEVIDCEN 1000 mg, granulés enrobés en sachet",
   "fetched": "2026-10-10",
+  "page": "60591091",
   "sections": [
    "4.2",
    "4.3",
@@ -818,6 +1007,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SINEMET 250 mg/25 mg, comprimé sécable",
   "fetched": "2026-07-28",
+  "page": "60092590",
   "sections": [
    "4.2",
    "4.3",
@@ -829,6 +1019,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "NOZINAN 25 mg/ml, solution injectable en ampoule (I.M.)",
   "fetched": "2026-07-25",
+  "page": "64026417",
   "sections": [
    "4.2",
    "4.3",
@@ -840,6 +1031,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "XURTA 50 mg, gélule",
   "fetched": "2026-07-18",
+  "page": "64274416",
   "sections": [
    "4.2",
    "4.3",
@@ -851,6 +1043,7 @@
   "date_source": "file mtime",
   "denomination": "TERALITHE 250 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "62124478",
   "sections": [
    "4.2",
    "4.3",
@@ -862,6 +1055,7 @@
   "date_source": "file mtime",
   "denomination": "VICTAN 2 mg, comprimé pelliculé sécable",
   "fetched": "2026-10-10",
+  "page": "68104411",
   "sections": [
    "4.2",
    "4.3",
@@ -873,6 +1067,7 @@
   "date_source": "file mtime",
   "denomination": "HAVLANE, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "69071035",
   "sections": [
    "4.2",
    "4.3",
@@ -884,6 +1079,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "TEMESTA 2,5 mg, comprimé sécable",
   "fetched": "2026-07-22",
+  "page": "67177709",
   "sections": [
    "4.2",
    "4.3",
@@ -895,6 +1091,7 @@
   "date_source": "file mtime",
   "denomination": "LORMETAZEPAM ARROW 2 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "60186584",
   "sections": [
    "4.2",
    "4.3",
@@ -906,6 +1103,30 @@
   "date_source": "file mtime",
   "denomination": "LOXAPAC 25 mg, comprimé pelliculé",
   "fetched": "2026-10-10",
+  "page": "64162292",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "lurasidone": {
+  "date_source": "download date",
+  "denomination": "Latuda (EMEA/H/C/002713)",
+  "ema": {
+   "authorised": "2014-03-21",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/latuda",
+   "generic": false,
+   "holder": "Aziende Chimiche Riunite Angelini Francesco S.p.A.",
+   "language": "fr",
+   "number": "EMEA/H/C/002713",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/latuda-epar-product-information_fr.pdf",
+   "pi_updated": "2026-05-08",
+   "product": "Latuda",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-002713",
   "sections": [
    "4.2",
    "4.3",
@@ -917,6 +1138,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "LUDIOMIL 25 mg, comprimé pelliculé",
   "fetched": "2026-07-29",
+  "page": "63912862",
   "sections": [
    "4.2",
    "4.3",
@@ -928,6 +1150,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "AGYRAX, comprimé sécable",
   "fetched": "2026-07-26",
+  "page": "60456535",
   "sections": [
    "4.2",
    "4.3",
@@ -939,6 +1162,7 @@
   "date_source": "file mtime",
   "denomination": "ADAFLEX 2 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "63820563",
   "sections": [
    "4.2",
    "4.3",
@@ -950,6 +1174,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MEMANTINE ARROW LAB 10 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-29",
+  "page": "60151124",
   "sections": [
    "4.2",
    "4.3",
@@ -961,6 +1186,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "METHADONE AP-HP 10 mg, gélule",
   "fetched": "2026-07-20",
+  "page": "60998856",
   "sections": [
    "4.2",
    "4.3",
@@ -972,6 +1198,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "CONCERTA LP 54 mg, comprimé à libération prolongée",
   "fetched": "2026-07-17",
+  "page": "60047182",
   "sections": [
    "4.2",
    "4.3",
@@ -983,6 +1210,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PRIMPERAN 10 mg/2 ml, solution injectable en ampoule",
   "fetched": "2026-07-25",
+  "page": "61729093",
   "sections": [
    "4.2",
    "4.3",
@@ -994,6 +1222,7 @@
   "date_source": "file mtime",
   "denomination": "MIANSERINE ARROW 30 mg, comprimé pelliculé sécable",
   "fetched": "2026-10-10",
+  "page": "60854845",
   "sections": [
    "4.2",
    "4.3",
@@ -1005,6 +1234,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "OZALIN 2 mg/mL, solution buvable en récipient unidose",
   "fetched": "2026-10-15",
+  "page": "62149015",
   "sections": [
    "4.2",
    "4.3",
@@ -1016,6 +1246,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MILNACIPRAN EG 25 mg, gélule",
   "fetched": "2026-07-27",
+  "page": "60068034",
   "sections": [
    "4.2",
    "4.3",
@@ -1027,6 +1258,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "NORSET 15 mg, comprimé pelliculé",
   "fetched": "2026-07-20",
+  "page": "65124914",
   "sections": [
    "4.2",
    "4.3",
@@ -1038,6 +1270,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MOCLAMINE 150 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-27",
+  "page": "62439997",
   "sections": [
    "4.2",
    "4.3",
@@ -1049,6 +1282,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MODIODAL 100 mg, comprimé",
   "fetched": "2026-07-27",
+  "page": "66805883",
   "sections": [
    "4.2",
    "4.3",
@@ -1060,6 +1294,7 @@
   "date_source": "file mtime",
   "denomination": "ACTISKENAN 5 mg, comprimé orodispersible",
   "fetched": "2026-10-10",
+  "page": "60328261",
   "sections": [
    "4.2",
    "4.3",
@@ -1071,6 +1306,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "SELINCRO 18 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "63957761",
   "sections": [
    "4.2",
    "4.3",
@@ -1082,6 +1318,7 @@
   "date_source": "file mtime",
   "denomination": "PRENOXAD 0,91 mg/ml, solution injectable en seringue préremplie",
   "fetched": "2026-10-10",
+  "page": "62968616",
   "sections": [
    "4.2",
    "4.3",
@@ -1093,6 +1330,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "NALTREXONE VIATRIS 50 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-27",
+  "page": "60370919",
   "sections": [
    "4.2",
    "4.3",
@@ -1104,6 +1342,7 @@
   "date_source": "file mtime",
   "denomination": "NICOTINELL 1 mg/dose, solution pour pulvérisation buccale",
   "fetched": "2026-10-10",
+  "page": "60052222",
   "sections": [
    "4.2",
    "4.3",
@@ -1115,6 +1354,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MOGADON 5 mg, comprimé sécable",
   "fetched": "2026-07-30",
+  "page": "66205536",
   "sections": [
    "4.2",
    "4.3",
@@ -1126,6 +1366,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "OLANZAPINE VIATRIS 5 mg, comprimé orodispersible",
   "fetched": "2026-07-25",
+  "page": "60126594",
   "sections": [
    "4.2",
    "4.3",
@@ -1137,6 +1378,7 @@
   "date_source": "file mtime",
   "denomination": "ZOPHREN 4 mg, comprimé pelliculé",
   "fetched": "2026-10-10",
+  "page": "60530882",
   "sections": [
    "4.2",
    "4.3",
@@ -1148,6 +1390,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SERESTA 50 mg, comprimé sécable",
   "fetched": "2026-07-21",
+  "page": "60351986",
   "sections": [
    "4.2",
    "4.3",
@@ -1159,6 +1402,7 @@
   "date_source": "file mtime",
   "denomination": "TRILEPTAL 300 mg, comprimé pelliculé",
   "fetched": "2026-10-10",
+  "page": "61556061",
   "sections": [
    "4.2",
    "4.3",
@@ -1170,6 +1414,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "OXYNORM 20 mg, gélule",
   "fetched": "2026-07-20",
+  "page": "60629186",
   "sections": [
    "4.2",
    "4.3",
@@ -1181,6 +1426,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PALIPERIDONE TEVA 75 mg, suspension injectable à libération prolongée",
   "fetched": "2026-10-15",
+  "page": "64582563",
   "sections": [
    "4.2",
    "4.3",
@@ -1192,6 +1438,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DEROXAT 20 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-18",
+  "page": "60160707",
   "sections": [
    "4.2",
    "4.3",
@@ -1203,6 +1450,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "FYCOMPA 12 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "61849146",
   "sections": [
    "4.2",
    "4.3",
@@ -1214,6 +1462,7 @@
   "date_source": "file mtime",
   "denomination": "GARDENAL 100 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "61475588",
   "sections": [
    "4.2",
    "4.3",
@@ -1225,6 +1474,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DILANTIN 250 mg/5 ml, solution injectable",
   "fetched": "2026-07-29",
+  "page": "62436200",
   "sections": [
    "4.2",
    "4.3",
@@ -1236,6 +1486,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ORAP 4 mg, comprimé",
   "fetched": "2026-07-30",
+  "page": "60625647",
   "sections": [
    "4.2",
    "4.3",
@@ -1247,6 +1498,7 @@
   "date_source": "file mtime",
   "denomination": "DIPIPERON 40 mg/ml, solution buvable en gouttes",
   "fetched": "2026-10-10",
+  "page": "64210075",
   "sections": [
    "4.2",
    "4.3",
@@ -1258,6 +1510,7 @@
   "date_source": "file mtime",
   "denomination": "PIPORTIL L4 25 mg/ml, solution injectable en ampoule (I.M.)",
   "fetched": "2026-10-10",
+  "page": "62000861",
   "sections": [
    "4.2",
    "4.3",
@@ -1269,6 +1522,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "OZAWADE 18 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "60227166",
   "sections": [
    "4.2",
    "4.3",
@@ -1280,6 +1534,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SANMIGRAN 0,50 mg, comprimé enrobé",
   "fetched": "2026-07-28",
+  "page": "65458611",
   "sections": [
    "4.2",
    "4.3",
@@ -1291,6 +1546,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PRAMIPEXOLE ARROW LAB 0,18 mg, comprimé sécable",
   "fetched": "2026-07-25",
+  "page": "61129497",
   "sections": [
    "4.2",
    "4.3",
@@ -1302,6 +1558,7 @@
   "date_source": "file mtime",
   "denomination": "LYSANXIA 15 mg/ml, solution buvable en gouttes",
   "fetched": "2026-10-10",
+  "page": "60534076",
   "sections": [
    "4.2",
    "4.3",
@@ -1313,6 +1570,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PREGABALINE TEVA SANTE 200 mg, gélule",
   "fetched": "2026-07-21",
+  "page": "60061602",
   "sections": [
    "4.2",
    "4.3",
@@ -1324,6 +1582,7 @@
   "date_source": "file mtime",
   "denomination": "MYSOLINE 250 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "65201684",
   "sections": [
    "4.2",
    "4.3",
@@ -1335,6 +1594,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "PHENERGAN 2,5 POUR CENT, solution injectable",
   "fetched": "2026-07-30",
+  "page": "69646945",
   "sections": [
    "4.2",
    "4.3",
@@ -1346,6 +1606,7 @@
   "date_source": "file mtime",
   "denomination": "DIPRIVAN 10 mg/mL, émulsion injectable en seringue pré-remplie",
   "fetched": "2026-10-10",
+  "page": "60616445",
   "sections": [
    "4.2",
    "4.3",
@@ -1357,6 +1618,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "KARNODYL 5 mg/5 ml, solution injectable en ampoule",
   "fetched": "2026-07-19",
+  "page": "62914611",
   "sections": [
    "4.2",
    "4.3",
@@ -1368,6 +1630,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "QUETIAPINE ACCORD HEALTHCARE LP 400 mg, comprimé à libération prolongée",
   "fetched": "2026-07-17",
+  "page": "60078765",
   "sections": [
    "4.2",
    "4.3",
@@ -1379,6 +1642,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "RASAGILINE ARROW 1 mg, comprimé",
   "fetched": "2026-07-28",
+  "page": "60203418",
   "sections": [
    "4.2",
    "4.3",
@@ -1390,6 +1654,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "VYDURA 75 mg, lyophilisat oral",
   "fetched": "2026-09-30",
+  "page": "65899221",
   "sections": [
    "4.2",
    "4.3",
@@ -1401,6 +1666,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "RISPERDAL 2 mg, comprimé pelliculé",
   "fetched": "2026-07-25",
+  "page": "60260497",
   "sections": [
    "4.2",
    "4.3",
@@ -1412,6 +1678,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "RIVASTIGMINE VIATRIS 3 mg, gélule",
   "fetched": "2026-07-31",
+  "page": "60557826",
   "sections": [
    "4.2",
    "4.3",
@@ -1423,6 +1690,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MAXALT 10 mg, comprimé",
   "fetched": "2026-07-27",
+  "page": "64983766",
   "sections": [
    "4.2",
    "4.3",
@@ -1434,6 +1702,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "REQUIP 0,25 mg, comprimé pelliculé",
   "fetched": "2026-07-25",
+  "page": "61497951",
   "sections": [
    "4.2",
    "4.3",
@@ -1445,6 +1714,19 @@
   "date_source": "file mtime",
   "denomination": "ROTIGOTINE ARROW 8 mg/24 heures, dispositif transdermique",
   "fetched": "2026-10-11",
+  "page": "63205730",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "safinamide": {
+  "cis": "61882445",
+  "date_source": "justelesRCP EMA scrape manifest last_fetch",
+  "denomination": "XADAGO 50 mg, comprimé pelliculé",
+  "fetched": "2026-09-30",
+  "page": "61882445",
   "sections": [
    "4.2",
    "4.3",
@@ -1456,6 +1738,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SCOPODERM TTS 1 mg/72 heures, dispositif transdermique",
   "fetched": "2026-10-15",
+  "page": "63958849",
   "sections": [
    "4.2",
    "4.3",
@@ -1467,6 +1750,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DEPRENYL 5 mg, comprimé sécable",
   "fetched": "2026-07-31",
+  "page": "60498751",
   "sections": [
    "4.2",
    "4.3",
@@ -1478,6 +1762,7 @@
   "date_source": "file mtime",
   "denomination": "ZOLOFT 25 mg, gélule",
   "fetched": "2026-10-10",
+  "page": "60155788",
   "sections": [
    "4.2",
    "4.3",
@@ -1489,6 +1774,7 @@
   "date_source": "file mtime",
   "denomination": "SEVOFLURANE BAXTER 1 ml/ml, liquide pour inhalation par vapeur",
   "fetched": "2026-10-10",
+  "page": "67329056",
   "sections": [
    "4.2",
    "4.3",
@@ -1500,6 +1786,7 @@
   "date_source": "file mtime",
   "denomination": "SILANDYLTEC 25 mg, film orodispersible",
   "fetched": "2026-10-10",
+  "page": "61021436",
   "sections": [
    "4.2",
    "4.3",
@@ -1511,6 +1798,7 @@
   "date_source": "file mtime",
   "denomination": "OXYBATE DE SODIUM KALCEKS 500 mg/mL, solution buvable",
   "fetched": "2026-10-10",
+  "page": "67300599",
   "sections": [
    "4.2",
    "4.3",
@@ -1522,6 +1810,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "SUNOSI 150 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "64617815",
   "sections": [
    "4.2",
    "4.3",
@@ -1533,6 +1822,7 @@
   "date_source": "file mtime",
   "denomination": "DOGMATIL 50 mg, gélule",
   "fetched": "2026-10-10",
+  "page": "62344129",
   "sections": [
    "4.2",
    "4.3",
@@ -1544,6 +1834,30 @@
   "date_source": "file mtime",
   "denomination": "IMIGRANE 50 mg, comprimé pelliculé",
   "fetched": "2026-10-10",
+  "page": "64676030",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "tasimelteon": {
+  "date_source": "download date",
+  "denomination": "Hetlioz (EMEA/H/C/003870)",
+  "ema": {
+   "authorised": "2015-07-03",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/hetlioz",
+   "generic": false,
+   "holder": "Vanda Pharmaceuticals Netherlands B.V.",
+   "language": "fr",
+   "number": "EMEA/H/C/003870",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/hetlioz-epar-product-information_fr.pdf",
+   "pi_updated": "2022-10-11",
+   "product": "Hetlioz",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-003870",
   "sections": [
    "4.2",
    "4.3",
@@ -1555,6 +1869,7 @@
   "date_source": "file mtime",
   "denomination": "XENAZINE 25 mg, comprimé sécable",
   "fetched": "2026-10-10",
+  "page": "62463044",
   "sections": [
    "4.2",
    "4.3",
@@ -1566,6 +1881,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "GABITRIL 10 mg, comprimé pelliculé",
   "fetched": "2026-07-31",
+  "page": "60058517",
   "sections": [
    "4.2",
    "4.3",
@@ -1577,6 +1893,7 @@
   "date_source": "file mtime",
   "denomination": "STABLON 12,5 mg, comprimé enrobé",
   "fetched": "2026-10-10",
+  "page": "65411280",
   "sections": [
    "4.2",
    "4.3",
@@ -1588,6 +1905,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "TIAPRIDAL 100 mg, comprimé sécable",
   "fetched": "2026-07-26",
+  "page": "67890598",
   "sections": [
    "4.2",
    "4.3",
@@ -1599,6 +1917,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "TASMAR 100 mg, comprimé pelliculé",
   "fetched": "2026-10-01",
+  "page": "67077388",
   "sections": [
    "4.2",
    "4.3",
@@ -1610,6 +1929,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "EPITOMAX 100 mg, comprimé pelliculé",
   "fetched": "2026-10-15",
+  "page": "61913385",
   "sections": [
    "4.2",
    "4.3",
@@ -1621,6 +1941,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "MONOCRIXO L.P. 150 mg, gélule à libération prolongée (UNE PRISE QUOTIDIENNE)",
   "fetched": "2026-07-20",
+  "page": "60344529",
   "sections": [
    "4.2",
    "4.3",
@@ -1632,6 +1953,7 @@
   "date_source": "file mtime",
   "denomination": "ARTANE 2 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "60379544",
   "sections": [
    "4.2",
    "4.3",
@@ -1643,6 +1965,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SURMONTIL 25 mg, comprimé",
   "fetched": "2026-07-30",
+  "page": "63344192",
   "sections": [
    "4.2",
    "4.3",
@@ -1654,6 +1977,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "LEPTICUR 10 mg/2 ml, solution injectable",
   "fetched": "2026-07-24",
+  "page": "63531498",
   "sections": [
    "4.2",
    "4.3",
@@ -1665,6 +1989,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "DEPAKINE 500 mg, comprimé gastro-résistant",
   "fetched": "2026-10-15",
+  "page": "60184188",
   "sections": [
    "4.2",
    "4.3",
@@ -1676,6 +2001,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "CHAMPIX 1 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "60442838",
   "sections": [
    "4.2",
    "4.3",
@@ -1687,6 +2013,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "EFFEXOR L.P. 75 mg, gélule à libération prolongée",
   "fetched": "2026-07-18",
+  "page": "61403425",
   "sections": [
    "4.2",
    "4.3",
@@ -1698,6 +2025,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "SABRIL 500 mg, comprimé pelliculé",
   "fetched": "2026-07-30",
+  "page": "61139833",
   "sections": [
    "4.2",
    "4.3",
@@ -1709,6 +2037,7 @@
   "date_source": "justelesRCP EMA scrape manifest last_fetch",
   "denomination": "BRINTELLIX 20 mg, comprimé pelliculé",
   "fetched": "2026-09-30",
+  "page": "60316362",
   "sections": [
    "4.2",
    "4.3",
@@ -1720,6 +2049,7 @@
   "date_source": "file mtime",
   "denomination": "YOCORAL 5 mg, comprimé",
   "fetched": "2026-10-10",
+  "page": "69816276",
   "sections": [
    "4.2",
    "4.3",
@@ -1731,6 +2061,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "STILNOX 10 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-21",
+  "page": "63179285",
   "sections": [
    "4.2",
    "4.3",
@@ -1742,6 +2073,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "ZONISAMIDE SANDOZ 100 mg, gélule",
   "fetched": "2026-07-28",
+  "page": "62741554",
   "sections": [
    "4.2",
    "4.3",
@@ -1753,6 +2085,7 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "IMOVANE 7,5 mg, comprimé pelliculé sécable",
   "fetched": "2026-07-19",
+  "page": "68508795",
   "sections": [
    "4.2",
    "4.3",
@@ -1764,6 +2097,30 @@
   "date_source": "justelesRCP scrape manifest last_fetch",
   "denomination": "CLOPIXOL 2 POUR CENT, solution buvable en gouttes",
   "fetched": "2026-10-15",
+  "page": "60209937",
+  "sections": [
+   "4.2",
+   "4.3",
+   "4.4"
+  ]
+ },
+ "zuranolone": {
+  "date_source": "download date",
+  "denomination": "Zurzuvae (EMEA/H/C/006488)",
+  "ema": {
+   "authorised": "",
+   "epar": "https://www.ema.europa.eu/en/medicines/human/EPAR/zurzuvae",
+   "generic": false,
+   "holder": "Biogen Netherlands B.V.",
+   "language": "fr",
+   "number": "EMEA/H/C/006488",
+   "pdf": "https://www.ema.europa.eu/fr/documents/product-information/zurzuvae-epar-product-information_fr.pdf",
+   "pi_updated": "2025-10-31",
+   "product": "Zurzuvae",
+   "status": "Authorised"
+  },
+  "fetched": "2026-10-16",
+  "page": "EMEA-H-C-006488",
   "sections": [
    "4.2",
    "4.3",

@@ -17,7 +17,7 @@ re-gated here rather than trusted from the judged file:
    under (re-read off the page by the fetcher, not taken from the judged file), carries
    that timing's wording;
 6. the quote is verbatim, under ``check_data.normalize_for_match``, on the corpus #24
-   page it cites (``data_sources/bdpm/pages_rcp4/<cis>.md``);
+   page it cites (``data_sources/bdpm/pages_rcp4/<page>.md``);
 7. an optional ``condition`` (the label asks for the check only in some patients:
    "chez les patients diabétiques") is a verbatim span of that same quote.
 
@@ -68,7 +68,7 @@ normalize_for_match = _cd.normalize_for_match
 
 def gate(judged: dict, offered: dict, drug_ids: set[str], page_text
          ) -> tuple[dict[str, list[dict]], list[str]]:
-    """Gate every judged pick. ``page_text(cis)`` returns the normalized page (or "").
+    """Gate every judged pick. ``page_text(page)`` returns the normalized page (or "").
 
     Returns ``({drug: [{test, timing, sources}]}, rejections)``.
     """
@@ -101,7 +101,7 @@ def gate(judged: dict, offered: dict, drug_ids: set[str], page_text
             if not W.attests(W.TIMINGS, timing, cand["quote"], cand["under"]):
                 rejected.append(f"{what}: neither the quote nor its heading states this timing")
                 continue
-            if normalize_for_match(cand["quote"]) not in page_text(entry["cis"]):
+            if normalize_for_match(cand["quote"]) not in page_text(entry["page"]):
                 rejected.append(f"{what}: the quote is not verbatim on its page")
                 continue
             cond = " ".join((p.get("condition") or "").split())
@@ -109,7 +109,7 @@ def gate(judged: dict, offered: dict, drug_ids: set[str], page_text
                     len(cond) < 4 or normalize_for_match(cond) not in normalize_for_match(cand["quote"])):
                 rejected.append(f"{what}: condition is not a span of the quote")
                 continue
-            src = {"corpus": CORPUS, "page": entry["cis"], "quote": cand["quote"],
+            src = {"corpus": CORPUS, "page": entry["page"], "quote": cand["quote"],
                    "provenance": "verified"}
             node = nodes.setdefault((test, timing), {"test": test, "timing": timing,
                                                      "plain": [], "conditional": []})
@@ -156,12 +156,12 @@ def main() -> int:
     judged = json.loads(JUDGED_PATH.read_text(encoding="utf-8"))
     cache: dict[str, str] = {}
 
-    def page_text(cis: str) -> str:
-        if cis not in cache:
-            path = corpus_page_path(CORPUS, cis)
-            cache[cis] = (normalize_for_match(path.read_text(encoding="utf-8"))
-                          if path and path.exists() else "")
-        return cache[cis]
+    def page_text(page: str) -> str:
+        if page not in cache:
+            path = corpus_page_path(CORPUS, page)
+            cache[page] = (normalize_for_match(path.read_text(encoding="utf-8"))
+                           if path and path.exists() else "")
+        return cache[page]
 
     drug_ids = {d["id"] for d in drugs_io.load_drugs()}
     offered = fetch_workup.build()

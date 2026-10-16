@@ -8,8 +8,8 @@ asks live in 4.3 (contre-indications), 4.4 (mises en garde speciales et precauti
 d'emploi) and sometimes 4.2 (posologie), never in 5.2, so the #16 pages (5.2 only) do
 not hold them.
 
-A **corpus fetcher, offline**: it downloads nothing. The RCP HTML is already on disk
-in three places, and the freshest copy of each product wins:
+A **corpus fetcher, offline for every drug with a French product**: the RCP HTML is
+already on disk in three places, and the freshest copy of each product wins:
 
 * ``data_sources/bdpm/raw/<cis>.html``: the page ``fetch_bdpm.py`` downloaded (about
   116 products), dated by the file's mtime (the download time);
@@ -24,6 +24,15 @@ in three places, and the freshest copy of each product wins:
   scraped it, dated by ``data/.scrape-ema-manifest.json``'s ``last_fetch`` (else the
   page's ``data-ema-fetched``) and cited at its EMA PDF rather than the ANSM page.
 
+A drug with no CIS product at all (EU-authorised, not marketed in France: Intuniv,
+Reagila, Latuda) falls back to its EU centralised authorisation found BY NAME in EMA's
+published EPAR tables (``fetch_ema_epar.py``, :func:`epar_copy`): justelesRCP's
+converted SmPC when it holds that PDF, else the French (else English) SmPC downloaded
+from EMA once and converted with justelesRCP's ``src/ema_pdf.py`` (needs ``pymupdf``).
+Its page is keyed by the EMA product number (``EMEA-H-C-003759``), its header names the
+EPAR, and the chosen EPAR (product, holder, number, status, dates) is recorded in the
+cache under ``ema``.
+
 Which product: the drug's princeps (its brands' CIS from ``bdpm_labels.json``, the
 #16 join) first, then the #16 chosen product; the first that has an RCP with a 4.4
 section wins. The cited page is the official online one
@@ -33,15 +42,17 @@ section wins. The cited page is the official online one
 Writes ``data_sources/bdpm/pages_rcp4/<cis>.md`` (header, then each section as a
 ``## `` heading, its sub-headings as ``### ``, list items as ``- `` lines, one paragraph
 per line) and ``tools/generated_cache/bdpm_rcp_labels.json`` (drug id -> chosen
-product), which ``fetch_workup.py`` reads.
+product, its ``page`` the CIS or the EMA product number), which ``fetch_workup.py`` reads.
 
 Usage (repo root)::
 
-    python tools/fetch/fetch_bdpm_rcp.py
+    uv run --with pymupdf python tools/fetch/fetch_bdpm_rcp.py   # pymupdf: a new SmPC
+    python tools/fetch/fetch_bdpm_rcp.py --offline                 # stored SmPCs only
+    uv run --with pymupdf python tools/fetch/fetch_bdpm_rcp.py --refresh-ema
     python tools/fetch/fetch_bdpm_rcp.py --only lithium,clozapine
     python tools/fetch/fetch_bdpm_rcp.py --justelesrcp /path/to/justelesRCP
 
-Stdlib only; author-side (``data_sources/`` is gitignored). Built with the help of
+Stdlib only (bar that PDF converter); author-side (``data_sources/`` is gitignored). Built with the help of
 Claude Code.
 """
 from __future__ import annotations
@@ -60,6 +71,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import drugs_io  # noqa: E402
 import fetch_bdpm  # noqa: E402 (section_body, html_lines, the product join, RCP_URL)
+import fetch_ema_epar  # noqa: E402 (the EPAR found by name, for a drug with no CIS)
 
 PAGES_DIR = fetch_bdpm.BASE_DIR / "pages_rcp4"
 CACHE_PATH = ROOT / "tools" / "generated_cache" / "bdpm_rcp_labels.json"
@@ -77,6 +89,9 @@ SECTIONS = (("4.2", "RcpPosoAdmin"), ("4.3", "RcpContreindications"),
 SECTION_TITLES = {"4.2": "4.2. Posologie et mode d'administration",
                   "4.3": "4.3. Contre-indications",
                   "4.4": "4.4. Mises en garde spéciales et précautions d'emploi"}
+SECTION_TITLES_EN = {"4.2": "4.2. Posology and method of administration",
+                     "4.3": "4.3. Contraindications",
+                     "4.4": "4.4. Special warnings and precautions for use"}
 
 _HEAD_MARK, _ITEM_MARK = "\x01", "\x02"
 _SUBHEAD_P = re.compile(r"<p[^>]*class=\"?AmmAnnexeTitre[3-9]\"?[^>]*>", re.I)
@@ -217,17 +232,47 @@ def candidates(entry: dict, products: list[dict], keys: set[str]) -> list[str]:
 
 
 def page_text(product: dict, cis: str, copy: dict) -> str:
-    """The stored quote-gate page: provenance header, then each section."""
-    head = [f"# {product.get('denomination') or cis}", f"cis: {cis}",
+    """The stored quote-gate page: provenance header, then each section. A copy that
+    is not a CIS product (an EPAR found by name) brings its own ``ids`` header lines."""
+    head = [f"# {product.get('denomination') or cis}", *(copy.get("ids") or [f"cis: {cis}"]),
             f"source: {copy.get('source') or fetch_bdpm.RCP_URL.format(cis=cis)}",
             f"fetched: {copy['fetched']}", f"date_source: {copy['date_source']}",
             f"copied_from: {copy['copied_from']}",
             f"licence: {copy.get('licence') or 'Licence Ouverte / Open Licence (Etalab)'}", ""]
+    titles = SECTION_TITLES_EN if copy.get("language") == "en" else SECTION_TITLES
     body = []
     for number, _ in SECTIONS:
         if number in copy["sections"]:
-            body += [f"## {SECTION_TITLES[number]}", *copy["sections"][number], ""]
+            body += [f"## {titles[number]}", *copy["sections"][number], ""]
     return "\n".join(head + body)
+
+
+def epar_copy(drug: dict, keys: set[str], epar: "fetch_ema_epar.Epar", repo: Path,
+              ema: dict, refresh: bool) -> tuple[str, dict, dict] | None:
+    """``(page, product, copy)`` for a drug no CIS product covers, from its EU
+    centralised authorisation found by name (``fetch_ema_epar``): justelesRCP's
+    converted copy when it holds that very PDF and reads a 4.4 out of it (page = its
+    CIS), else the SmPC downloaded from EMA (page = the EMA product number). None
+    without a 4.4."""
+    found = epar.lookup(drug, keys)
+    if not found:
+        return None
+    rec, doc, url, lang = found
+    info = fetch_ema_epar.describe(rec, doc, url, lang)
+    cis = epar.by_pdf.get(url)
+    best = freshest(ema_copies(cis, repo, ema)) if cis else None
+    page = cis
+    if not best:
+        cis, page = None, fetch_ema_epar.page_id(rec["ema_product_number"])
+        copy = epar.smpc(page, url, refresh)
+        best = freshest([copy]) if copy else None
+    if not best:
+        return None
+    best.update(source=url, licence=fetch_ema_epar.LICENCE, language=lang, ema=info)
+    if not cis:
+        best["ids"] = [f"ema_product: {info['number']}", f"epar: {info['epar']}",
+                       f"holder: {info['holder']}", f"language: {lang}"]
+    return page, {"denomination": f"{info['product']} ({info['number']})"}, best
 
 
 def main() -> int:
@@ -236,6 +281,10 @@ def main() -> int:
     ap.add_argument("--only", help="comma-separated drug ids")
     ap.add_argument("--justelesrcp", type=Path, default=JUSTELESRCP,
                     help="the justelesRCP checkout (default: a sibling of this repo)")
+    ap.add_argument("--refresh-ema", action="store_true",
+                    help="re-download EMA's EPAR tables and every SmPC found by name")
+    ap.add_argument("--offline", action="store_true",
+                    help="never download an SmPC; use only the ones already stored")
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",")} if args.only else None
     labels = json.loads((ROOT / "tools" / "generated_cache" / "bdpm_labels.json")
@@ -248,6 +297,8 @@ def main() -> int:
     manifest = load_manifest(args.justelesrcp)
     ema = load_manifest(args.justelesrcp, ".scrape-ema-manifest.json")
     cache = json.loads(CACHE_PATH.read_text(encoding="utf-8")) if CACHE_PATH.exists() else {}
+    epar = fetch_ema_epar.Epar(args.justelesrcp, ema, args.refresh_ema, args.offline)
+    by_name = []
     PAGES_DIR.mkdir(parents=True, exist_ok=True)
     missing = []
     for drug in drugs_io.load_drugs():
@@ -269,21 +320,31 @@ def main() -> int:
                     break
             if chosen:
                 break
-        if not chosen:
-            cache.pop(did, None)
-            missing.append(did)
-            continue
-        cis, best = chosen
-        product = products.get(cis, {})
+        if chosen:
+            cis, best = chosen
+            product = products.get(cis, {})
+        else:   # no CIS product at all: the EU authorisation, found by name
+            got = epar_copy(drug, keys, epar, args.justelesrcp, ema, args.refresh_ema)
+            if not got:
+                cache.pop(did, None)
+                missing.append(did)
+                continue
+            cis, product, best = got
+            by_name.append(f"{did} ({best['ema']['product']}, {best['ema']['language']})")
         (PAGES_DIR / f"{cis}.md").write_text(page_text(product, cis, best), encoding="utf-8")
-        cache[did] = {"cis": cis, "denomination": product.get("denomination"),
+        cache[did] = {"page": cis, "denomination": product.get("denomination"),
                       "fetched": best["fetched"], "date_source": best["date_source"],
                       "sections": sorted(best["sections"])}
+        if "ids" not in best:
+            cache[did]["cis"] = cis
+        if best.get("ema"):
+            cache[did]["ema"] = best["ema"]
     cache = dict(sorted(cache.items()))
     CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=1, sort_keys=True)
                           + "\n", encoding="utf-8")
     print(f"[ok] {len(cache)} drug(s) with an RCP 4.x page; {len(missing)} without: "
           f"{', '.join(missing)}")
+    print(f"[ok] {len(by_name)} through an EPAR found by name: {', '.join(by_name)}")
     return 0
 
 
