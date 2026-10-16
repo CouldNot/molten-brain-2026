@@ -209,4 +209,13 @@ CONTRADICTIONS: dict[str, dict[str, Any] | list[dict[str, Any]]] = {
     "drug:olanzapinesamidorphan/metabolites[samidorphan_n_oxide]": _dailymed(
         "32ffddd1-4e2b-45d9-9b36-bb730167ec80",
         "Neither metabolite contributes to the pharmacological effects of samidorphan"),
+    # Wikipedia (citing Seeman 2009, a D2High assay) states salvinorin A D2 partial
+    # agonism. Roth 2002 ran the PDSP screen, D2 included (PDSP row 22214, same paper:
+    # D2 at the 10000 nM inactive ceiling), and found nothing outside the kappa receptor.
+    # The abstract names the screen, not D2 itself; the full text is not open access.
+    "drug:salvinorin_a/bindings[d2:partial_agonist]": _europepmc(
+        "12192085",
+        "Salvinorin A had no significant activity against a battery of 50 receptors, "
+        "transporters, and ion channels and showed a distinctive profile compared with the "
+        "prototypic hallucinogen lysergic acid diethylamide."),
 }

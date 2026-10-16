@@ -178,6 +178,9 @@ PAPERS: dict[str, str] = {
     "40992411": "5-HT1F agonism (lasmiditan) treats migraine (review)",
     "36879707": "ditans, 5-HT1F agonists, a migraine therapeutic class (review)",
     "41270648": "5-HT1F activation in the CNS mediates somnolence (dual-target design)",
+    # Second source against a Wikipedia binding (CONTRADICTIONS).
+    "12192085": "salvinorin A: selective kappa agonist, inactive at a receptor screen incl. D2 "
+                "(Roth 2002, against the Wikipedia D2 partial agonism)",
 }
 
 SEARCH_LEDGER = ROOT / "tools" / "generated_cache" / "europepmc_binding_search.json"
