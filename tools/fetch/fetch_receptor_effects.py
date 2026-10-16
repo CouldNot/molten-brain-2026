@@ -181,6 +181,13 @@ def europepmc_candidates(pmids, rx, hits, key: str) -> list[dict]:
     return out
 
 
+def owner_names(oid: str, aliases: dict[str, list[str]],
+                family: dict[str, list[str]] | None = None) -> list[str]:
+    """The names a prose sentence must use for it to be about ``oid``."""
+    return ((aliases.get(oid) or []) + cls.PROSE_ALIASES.get(oid, [])
+            + (FAMILY_ALIASES if family is None else family).get(oid, []))
+
+
 def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
                aliases: dict[str, list[str]], hits=None, key: str = "effects",
                family: dict[str, list[str]] | None = None,
@@ -189,8 +196,7 @@ def candidates(oid: str, owner: dict, stahl: list[tuple[int, str]],
     ``hits(line)`` returns the cue ids a sentence carries (stored under ``key``)."""
     hits = hits or effect_hits
     out: list[dict] = []
-    names = ((aliases.get(oid) or []) + cls.PROSE_ALIASES.get(oid, [])
-             + (FAMILY_ALIASES if family is None else family).get(oid, []))
+    names = owner_names(oid, aliases, family)
     rx = target_aliases.alias_regex(names) if names else None
     for page, line in stahl:
         if rx and rx.search(target_aliases.fold(line)):

@@ -87,6 +87,37 @@ class ApplierGateTest(unittest.TestCase):
         self.assertIn("not a current", misses[0])
 
 
+class UnknownLogTest(unittest.TestCase):
+    """``--unknown-log``: one owner-level entry per searched, still effect-less owner."""
+    LEDGER = {"receptor:zz9/effects": {"query": "q", "hits": 4, "read": ["1", "2"],
+                                       "searched": "2026-10-16"},
+              "receptor:h1/effects": {"query": "q", "hits": 9, "read": [],
+                                      "searched": "2026-10-16"}}
+    WL = {"owners": {"zz9": {"wikipedia": "https://en.wikipedia.org/wiki/Zz9_receptor",
+                             "candidates": [{"corpus": "europepmc", "page": "1", "line": "x"},
+                                            {"corpus": "wikipedia_pharm", "page": "z",
+                                             "line": "y"}]}}}
+    BY = {"harness": "Claude Code", "model": "opus"}
+
+    def test_entry_covers_every_required_corpus(self):
+        from data_generators import unknown
+        log = A.unknown_log(self.WL, {}, {"zz9": "receptor"}, self.LEDGER, self.BY)
+        e = log["receptor:zz9/effects"]
+        self.assertEqual(e["kind"], "receptor_effect")
+        self.assertEqual(e["candidates_offered"], 2)
+        self.assertEqual(unknown.missing_required("receptor_effect", unknown.stamp(e)["corpora"]),
+                         [])
+        epmc = next(s for s in e["sources"] if s["corpus"] == "europepmc")
+        self.assertEqual((epmc["hits"], epmc["read"], epmc["offered"]), (4, ["1", "2"], 1))
+
+    def test_an_owner_with_an_effect_gets_no_entry_and_loses_a_stale_one(self):
+        prior = {"receptor:h1/effects": {"kind": "receptor_effect"},
+                 "drug:a/bindings[d2]": {"kind": "drug_binding_action"}}
+        log = A.unknown_log(self.WL, {"h1": {"antagonism:sedation": []}},
+                            {"h1": "receptor"}, self.LEDGER, self.BY, prior)
+        self.assertEqual(list(log), ["drug:a/bindings[d2]"])
+
+
 class EmitterTest(unittest.TestCase):
     def test_nodes_sorted_and_graded(self):
         cache = {"h1": {"antagonism:weight_gain": [

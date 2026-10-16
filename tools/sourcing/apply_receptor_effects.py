@@ -23,10 +23,17 @@ It writes no ``llm`` stamp, so ``tools/sourcing/recheck_quotes.py`` (``--kinds
 receptor_effect``) must judge the new citations afterwards, or ``check_data.py`` family 5
 fails them as extracted-but-unjudged.
 
+``--unknown-log --model <m>`` then writes, for every receptor the Europe PMC effect
+search covered (``fetch_europepmc.py --effect-search``) that still carries no effect
+node, its owner-level UNKNOWN entry (``receptor:<id>/effects``) into
+``tools/generated_cache/unknown_searches.json``: run it only after the picker has read
+every offered candidate and picked none.
+
 Usage (from the repo root)::
 
     python tools/sourcing/apply_receptor_effects.py --dry-run
     python tools/sourcing/apply_receptor_effects.py
+    python tools/sourcing/apply_receptor_effects.py --unknown-log --model opus
 
 Built with the help of Claude Code.
 """
@@ -85,7 +92,86 @@ def apply(worklist: dict, judged: dict, kinds: dict[str, str],
     return apply_picks(worklist, judged, kinds, check, pages)
 
 
+def unknown_log(worklist: dict, cache: dict, kinds: dict[str, str], ledger: dict,
+                by: dict, prior: dict | None = None) -> dict:
+    """The receptor-effect UNKNOWN entries (``data_generators/unknown.py``): one per
+    owner the Europe PMC effect search covered that still carries no effect node, its
+    four legs read off the worklist (what each corpus offered the picker, none of it
+    picked) and the search ledger. Other kinds' entries in ``prior`` are kept; an owner
+    that has since gained an effect loses its entry."""
+    sys.path.insert(0, str(TOOLS / "fetch"))
+    import fetch_gtopdb_function as gfunc                   # noqa: E402 (RAW, offerable)
+    import fetch_receptor_effects as fre                    # noqa: E402 (owner_names)
+    import target_aliases                                   # noqa: E402
+    from data_generators.unknown import effects_site       # noqa: E402
+    aliases = target_aliases.aliases_by_target()
+    log = dict(prior or {})
+    for oid, kind in sorted(kinds.items()):
+        site = effects_site(kind, oid)
+        hit = ledger.get(site)
+        if not hit or cache.get(oid):
+            if log.get(site, {}).get("kind") == "receptor_effect":
+                log.pop(site)
+            continue
+        owner = (worklist.get("owners") or {}).get(oid) or {}
+        cands = owner.get("candidates") or []
+        offered = {c: sum(1 for x in cands if x["corpus"] == c)
+                   for c in ("wikipedia_pharm", "gtopdb_function", "stahl_essential",
+                             "europepmc")}
+        none = "offered to the picker, none states an effect of acting on it in humans"
+        raw = gfunc.RAW / f"{oid}.json"
+        lines = (json.loads(raw.read_text("utf-8")).get("lines") or []) if raw.exists() else []
+        slug = (owner.get("wikipedia") or "").rstrip("/").rsplit("/", 1)[-1] or "none"
+        log[site] = {
+            "kind": "receptor_effect", "searched": hit["searched"],
+            "by": {"harness": by["harness"], "model": by["model"]},
+            "candidates_offered": len(cands),
+            "sources": [
+                {"corpus": "wikipedia_pharm", "hits": offered["wikipedia_pharm"],
+                 "lookup": f"article {slug}: every sentence with a closed-vocabulary "
+                           "effect keyword", "note": none},
+                {"corpus": "gtopdb_function", "hits": offered["gtopdb_function"],
+                 "lookup": f"function / pathophysiology / altered-expression rows of "
+                           f"{oid}: human or species-less lines with an effect keyword",
+                 "note": f"{len(lines)} line(s), "
+                         f"{sum(1 for x in lines if gfunc.offerable(x))} human or "
+                         f"species-less; {none}"},
+                {"corpus": "stahl_essential", "hits": offered["stahl_essential"],
+                 "lookup": "every page: sentences naming "
+                           f"{', '.join(fre.owner_names(oid, aliases)) or oid} with an "
+                           "effect keyword", "note": none},
+                {"corpus": "europepmc", "hits": hit["hits"], "query": hit["query"],
+                 "read": hit["read"], "offered": offered["europepmc"], "note": none}]}
+    return log
+
+
+def _main_unknown_log() -> int:
+    import argparse
+    sys.path.insert(0, str(TOOLS / "fetch"))
+    import fetch_europepmc as epmc                          # noqa: E402
+    from data_generators import unknown                     # noqa: E402
+    ap = argparse.ArgumentParser(description="write the receptor-effect UNKNOWN entries")
+    ap.add_argument("--unknown-log", action="store_true")
+    ap.add_argument("--model", required=True, choices=("sonnet", "opus"),
+                    help="the model that read the offered candidates and picked none")
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args()
+    log = unknown_log(json.loads(WORKLIST.read_text("utf-8")),
+                      json.loads(CACHE.read_text("utf-8")), current_kinds(),
+                      json.loads(epmc.EFFECT_SEARCH_LEDGER.read_text("utf-8")),
+                      {"harness": "Claude Code", "model": args.model}, unknown.load_log())
+    n = sum(1 for e in log.values() if e.get("kind") == "receptor_effect")
+    print(f"  UNKNOWN log: {n} receptor_effect owner(s)")
+    if not args.dry_run:   # entries keep their order (a small diff), fields sorted
+        Path(unknown.UNKNOWN_LOG_PATH).write_text(json.dumps(
+            {k: json.loads(json.dumps(v, sort_keys=True)) for k, v in log.items()},
+            ensure_ascii=False, indent=1) + "\n", "utf-8")
+    return 0
+
+
 def main() -> int:
+    if "--unknown-log" in sys.argv:
+        return _main_unknown_log()
     return run_applier(__doc__, WORKLIST, JUDGED, CACHE,
                        lambda w, j: apply(w, j, current_kinds()), "receptor_effect")
 
