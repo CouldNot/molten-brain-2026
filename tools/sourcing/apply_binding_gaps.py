@@ -25,8 +25,10 @@ counted and reported rather than silently dropped:
 7. the clause naming it is not negated or hedged (``binding_gaps.negated``);
 8. it names no stereo relative and carries no stereo tag (``binding_gaps.stereo_mixed``);
 9. the quote is verbatim on ``data_sources/wikipedia/pages/<slug>.md``;
-10. **Stahl drugs are reported, not written**: CLAUDE.md keeps their bindings strictly
-    dump-sourced, so a gap Wikipedia states for one is listed for a human to weigh.
+
+A Stahl drug takes a gap too: its Stahl (dump-sourced) bindings are never overwritten,
+since gate 5 only lets a Wikipedia binding add a target the drug does not list yet.
+Such additions are tallied apart (``added: on a Stahl drug``) and listed by ``--verbose``.
 
 Every candidate must carry a decision: an index the judged file skips is reported as
 **unjudged**, so a partial pass can never read as a complete one.
@@ -107,9 +109,8 @@ class _GapGate(_Gate):
             self.reject("quote not verbatim on the cited page", f"{label}: {quote[:80]}")
             return False
         if bg.is_stahl(drug):
-            self.stats["reported: Stahl drug (not written)"] += 1
+            self.stats["added: on a Stahl drug"] += 1
             self.stahl.append(f"{label}: {quote}")
-            return False
         drug.setdefault("bindings", []).append({
             "target": target, "action": action,
             "sources": [{"corpus": CORPUS, "page": slug, "quote": quote,
@@ -160,7 +161,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true", help="report without writing")
-    ap.add_argument("--verbose", action="store_true", help="list rejected + Stahl rows")
+    ap.add_argument("--verbose", action="store_true", help="list rejected rows + Stahl-drug additions")
     args = ap.parse_args()
     if not os.path.isdir(PAGES):
         print(f"missing the author-side corpus tree ({PAGES}); see CLAUDE.local.md",
@@ -179,7 +180,7 @@ def main() -> int:
         print(f"  {key:<48} {n}")
     if args.verbose:
         for title, lines in (("rejected rows", gate.rejected),
-                             ("Stahl-drug gaps (reported, not written)", gate.stahl)):
+                             ("added on Stahl drugs (their Stahl bindings untouched)", gate.stahl)):
             if lines:
                 print(f"\n{title}:")
                 for line in lines:

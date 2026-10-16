@@ -161,10 +161,12 @@ class GateTest(unittest.TestCase):
         _, rejected, _ = run([cand("sigma1", line)], [pick(0, "sigma1")])
         self.assertEqual(rejected, ["quote not verbatim on the cited page"])
 
-    def test_a_stahl_drug_is_reported_not_written(self):
+    def test_a_stahl_drug_takes_the_gap_and_keeps_its_own_bindings(self):
         data = drugs(half_life={"sources": [{"corpus": "stahl", "page": 3}]})
+        before = copy.deepcopy(data[0]["bindings"])
         drug, rejected, gate = run([cand("sigma1", GOOD)], [pick(0, "sigma1")], data)
-        self.assertEqual((len(drug["bindings"]), rejected, len(gate.stahl)), (1, [], 1))
+        self.assertEqual((len(drug["bindings"]), rejected, len(gate.stahl)), (2, [], 1))
+        self.assertEqual(drug["bindings"][:len(before)], before)
 
     def test_a_prodrug_is_rejected(self):
         data = drugs(prodrug={"to": "x"})
