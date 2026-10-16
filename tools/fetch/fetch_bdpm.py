@@ -511,7 +511,7 @@ def main() -> int:
     drugs = [d for d in drugs_io.load_drugs() if not only or d["id"] in only]
     for i, drug in enumerate(drugs, 1):
         did = drug["id"]
-        if "+" in (drug.get("name") or ""):
+        if drugs_io.is_combination(drug):
             outcome = "combo"                # a combination's RCP is not this drug's
             cache.pop(did, None)
         else:

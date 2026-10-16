@@ -28,6 +28,26 @@ DRUGS_PATH = Path(__file__).resolve().parent / "data" / "drugs_data.jsonl"
 METABOLITES_PATH = Path(__file__).resolve().parent / "data" / "metabolites_data.jsonl"
 
 
+# A combination product's name joins its parts with + or an en / em dash ("Naltrexone +
+# Bupropion", "Phentermine–Topiramate"), never a plain hyphen (real names carry those).
+_COMBO_SPLIT = re.compile(r"\s*[+–—]\s*")
+
+
+def combo_parts(name: str | None) -> list[str] | None:
+    """A combination's constituent names, split off its name, else None."""
+    if not name or not _COMBO_SPLIT.search(name):
+        return None
+    return [p.strip() for p in _COMBO_SPLIT.split(name) if p.strip()]
+
+
+def is_combination(drug: dict) -> bool:
+    """THE combination test: a +/–/— in the name, or a slash-titled Wikipedia article
+    ("Dextromethorphan/bupropion"). A salt with declared ``constituents``
+    (dimenhydrinate) is one product, not a combination."""
+    title = (drug.get("wikipedia") or "").rsplit("/wiki/", 1)[-1]
+    return bool(combo_parts(drug.get("name"))) or "/" in title
+
+
 def load_drugs(path=None) -> list[dict]:
     """Read the JSONL dataset, one ``json.loads`` per non-empty line, in order."""
     p = Path(path) if path is not None else DRUGS_PATH

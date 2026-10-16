@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
+import drugs_io  # noqa: E402
 import fetch_physchem as F  # noqa: E402
 from data_generators import physchem as P  # noqa: E402
 from data_generators.provenance import _quote_sources  # noqa: E402
@@ -63,6 +64,19 @@ class ParseTest(unittest.TestCase):
         self.assertTrue(F.is_combination({"wikipedia": "https://en.wikipedia.org/wiki/D",
                                           "constituents": ["A", "B"]}))
         self.assertFalse(F.is_combination({"wikipedia": "https://en.wikipedia.org/wiki/X"}))
+
+    def test_one_combination_test_for_every_corpus(self):
+        """``drugs_io.is_combination`` is the shared test: an en dash name with no "+"
+        (Phentermine–Topiramate) is a combination, a hyphenated name is not, and a salt
+        is one product there (physchem alone also refuses it: no single molecule)."""
+        self.assertTrue(drugs_io.is_combination({"name": "Phentermine–Topiramate"}))
+        self.assertTrue(drugs_io.is_combination({"name": "Naltrexone + Bupropion"}))
+        self.assertFalse(drugs_io.is_combination({"name": "N-desmethylclozapine"}))
+        salt = {"name": "Dimenhydrinate", "constituents": ["diphenhydramine"]}
+        self.assertFalse(drugs_io.is_combination(salt))
+        self.assertTrue(F.is_combination(salt))
+        self.assertEqual(drugs_io.combo_parts("Phentermine–Topiramate"),
+                         ["Phentermine", "Topiramate"])
 
 
 class MatchTest(unittest.TestCase):

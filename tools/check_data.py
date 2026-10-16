@@ -1842,8 +1842,7 @@ def check_ki_coverage(report, meta, drugs):
     the emitted drugs, then cross-checked against ``meta.provenance_stats.ki_coverage``
     so the shipped number can never silently drift."""
     report.header("7. Measured-affinity (Ki) coverage")
-    is_combo = lambda d: bool(re.search(r"[+–—]", d.get("name", "")))
-    ki_drugs = [d for d in drugs if d.get("bindings") and not is_combo(d)]
+    ki_drugs = [d for d in drugs if d.get("bindings") and not is_combination(d)]
     bindings = [b for d in ki_drugs for b in d["bindings"]]
     with_ki = [b for b in bindings if b.get("ki")]
     no_ki = sorted(d["id"] for d in ki_drugs
@@ -1984,11 +1983,10 @@ def check_flow_consistency(report, meta, drugs, projections, receptors):
 
     STRONG = 0.6   # per-binding engagement weight that counts as a "strong" block
     NET = 0.4      # net postsynaptic magnitude that counts as a real opposite lean
-    is_combo = lambda d: bool(re.search(r"[+–—]", d.get("name", "")))
 
     a_flags, b_flags = [], []
     for drug in drugs:
-        if is_combo(drug):
+        if is_combination(drug):
             continue  # a combo "A + B" has no unified flow (handled in the viewer)
         tone = defaultdict(float)          # system -> summed toneSign * affinity
         tone_drivers = defaultdict(list)   # system -> [(sign, driver_label)]
@@ -2077,6 +2075,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators import clinpgx, cpic, freshness, pharmfreq, unknown  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
+from drugs_io import is_combination  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402
 from data_generators import demographics as DEMOG  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the

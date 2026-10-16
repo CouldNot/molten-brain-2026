@@ -276,7 +276,7 @@ def fetch_drug(drug: dict, *, refresh: bool, cache: dict) -> str:
         if page.exists():
             return "cached"
     name = drug.get("name") or did
-    if "+" in name:
+    if drugs_io.is_combination(drug):
         return "combo"                 # a combination's label is not this drug's
     ranked = rank(search(name), name)
     if not ranked:

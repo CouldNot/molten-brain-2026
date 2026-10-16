@@ -303,7 +303,7 @@ def main() -> int:
     missing = []
     for drug in drugs_io.load_drugs():
         did = drug["id"]
-        if (only and did not in only) or "+" in (drug.get("name") or ""):
+        if (only and did not in only) or drugs_io.is_combination(drug):
             continue  # a combination's RCP is not this drug's
         keys = fetch_bdpm.drug_keys(drug, titles)
         found = fetch_bdpm.products_for(drug, keys, products, compo,

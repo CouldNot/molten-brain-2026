@@ -99,9 +99,9 @@ _CID_ROW = re.compile(r"^PubChem CID \| *(\d+)", re.M)
 # ---------------------------------------------------------------------------
 
 def is_combination(drug: dict) -> bool:
-    """A combination product: a slash-titled article or declared constituents."""
-    title = (drug.get("wikipedia") or "").rsplit("/wiki/", 1)[-1]
-    return "/" in title or bool(drug.get("constituents"))
+    """No single molecule to read: a combination (``drugs_io.is_combination``) or a salt
+    declaring its ``constituents``."""
+    return drugs_io.is_combination(drug) or bool(drug.get("constituents"))
 
 
 def drugbox_cid(text: str) -> int | None:

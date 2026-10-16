@@ -28,7 +28,8 @@ sys.path.insert(0, os.path.join(HERE, "fetch"))
 import chirality  # noqa: E402  (the optical-rotation tag grammar, read not re-invented)
 import target_aliases as ta  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402  (stored-page lookup, stdlib)
-from fetch_ki import COARSE_MEMBERS, combo_constituents  # noqa: E402  (stdlib module)
+from drugs_io import is_combination  # noqa: E402
+from fetch_ki import COARSE_MEMBERS  # noqa: E402  (stdlib module)
 
 # A cue that the clause holding the target mention denies the action rather than
 # claims it: "has no affinity for H1", "does not bind D2", "unlike clozapine, it lacks
@@ -102,7 +103,7 @@ def stereo_siblings(drug: dict, roster: list[dict]) -> list[str]:
     out: set[str] = set()
     for other in roster:
         it = fold(other)
-        if other["id"] == drug["id"] or combo_constituents(other.get("name") or ""):
+        if other["id"] == drug["id"] or is_combination(other):
             continue
         if min(len(it), len(me)) >= 6 and it != me and (me in it or it in me):
             out |= _names(other)[1] - own
@@ -154,5 +155,5 @@ def offerable(drug: dict) -> bool:
     """A combo's pharmacology is its constituents' (named "A + B", or a salt declaring
     ``constituents``), a prodrug's its metabolite's: neither carries own bindings, so
     neither can have a gap of its own."""
-    return not (combo_constituents(drug.get("name") or "") or drug.get("constituents")
+    return not (is_combination(drug) or drug.get("constituents")
                 or drug.get("prodrug"))

@@ -281,17 +281,6 @@ def all_rows():
     return _ALL_ROWS
 
 
-def combo_constituents(name):
-    """Combos ("A + B", "A-B" with an en/em dash) split into their parts, else None.
-    Only + and en/em dashes count, never a plain hyphen (which appears in real names)."""
-    if not name:
-        return None
-    if "+" in name or "–" in name or "—" in name:
-        parts = re.split(r"\s*[+–—]\s*", name)
-        return [p.strip() for p in parts if p.strip()]
-    return None
-
-
 def _ligand_is(raw, want, drug_id):
     """Whether one CSV row's ligand name is this drug's own measurement.
 
@@ -610,7 +599,7 @@ def apply_all(only=None):
             if _is_pdsp_ki(b) and not _is_curated_ki(b):
                 b.pop("ki", None)
 
-        if combo_constituents(d["name"]):     # combos handled in the viewer, not here
+        if drugs_io.combo_parts(d["name"]):     # combos handled in the viewer, not here
             continue
         if d.get("prodrug"):    # inactive itself: its metabolite carries the pharmacology
             continue
@@ -674,7 +663,7 @@ def main():
 
     # A combo drug is not in PDSP as a mixture: report its constituents (linked to our
     # standalone drugs where they exist) so the viewer can warn + link out.
-    combo = combo_constituents(rec["name"]) if rec else None
+    combo = drugs_io.combo_parts(rec["name"]) if rec else None
     if combo:
         ids = {d["id"] for d in data}
         by_name = {norm(d["name"]): d["id"] for d in data}

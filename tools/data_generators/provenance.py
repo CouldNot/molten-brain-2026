@@ -14,6 +14,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from drugs_io import is_combination
+
 from . import clinpgx, cpic, pharmfreq
 
 # ---------------------------------------------------------------------------
@@ -1482,10 +1484,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # instead tracks how much of the corpus carries a *measured* affinity and names the
     # drugs where one was never looked up (the "we didn't even bother to look" case the
     # % sourced can't see). Combo drugs ("A + B") are Ki-exempt by design, so they are
-    # excluded here, matching js/data.js's combo detection (a +/–/— in the name).
-    def _is_combo(d: dict[str, Any]) -> bool:
-        return bool(re.search(r"[+–—]", d.get("name", "")))
-    ki_drugs = [d for d in drugs if d.get("bindings") and not _is_combo(d)]
+    # excluded here (``drugs_io.is_combination``, which js/data.js's +/–/— test mirrors).
+    ki_drugs = [d for d in drugs if d.get("bindings") and not is_combination(d)]
     ki_bindings = [b for d in ki_drugs for b in d["bindings"]]
     with_ki = [b for b in ki_bindings if b.get("ki")]
     drugs_no_ki = [d for d in ki_drugs

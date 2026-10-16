@@ -637,7 +637,7 @@ def apply_all(only: str | None = None) -> None:
         if only and d["id"] != only:
             continue
         title = drug_title(d["id"])
-        if not title or fetch_ki.combo_constituents(d["name"]):
+        if not title or fetch_ki.drugs_io.is_combination(d):
             continue
         got = extract_stored(slugify(title), valid_ids)
         if got is None:
