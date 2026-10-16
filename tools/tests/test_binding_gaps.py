@@ -209,6 +209,16 @@ class CandidateTest(unittest.TestCase):
         cells = F.drugbox_cells("Biomolecular targets | VMAT2 | x\n")
         self.assertEqual(cells, ["Biomolecular targets | VMAT2"])
 
+    def test_an_only_build_keeps_every_other_drug(self):
+        """``--only`` once overwrote the whole worklist, orphaning every other drug's
+        committed judged picks (the applier then rejected them all)."""
+        def rec(drug, n):
+            return {"drug": drug, "candidates": [n]}
+        existing = [rec("a", 1), rec("b", 2), rec("c", 3)]
+        out = F.scoped(existing, [rec("b", 9), rec("d", 4)], {"b", "c", "d"})
+        self.assertEqual(out, [rec("a", 1), rec("b", 9), rec("d", 4)])
+        self.assertEqual(F.scoped(existing, [rec("b", 9)], None), [rec("b", 9)])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -76,6 +76,7 @@ import fetch_binding_directions as bd  # noqa: E402  (DIRECTION_RE: a stated dir
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402  (stored-page lookup + sentence split)
 import fetch_metabolite_bindings as mb  # noqa: E402  (prose action-line extractor)
 import target_aliases as ta  # noqa: E402
+from worklist_io import merge_scoped_list  # noqa: E402
 
 WORKLIST = os.path.join(REPO, "tools", "generated_cache", "binding_gaps_worklist.json")
 
@@ -164,6 +165,16 @@ def build(drugs: list[dict], only: set[str] | None = None) -> tuple[list[dict], 
     return records, warnings
 
 
+def scoped(existing: list[dict], records: list[dict], only: set[str] | None) -> list[dict]:
+    """The worklist to write: ``records`` as is on a full build; on an ``--only`` build,
+    ``records`` merged into ``existing`` (every other drug's entry kept, so its committed
+    judged picks stay answerable), a scoped drug with no candidate left dropped."""
+    if only is None:
+        return records
+    kept = [r for r in existing if r["drug"] not in only]
+    return sorted(merge_scoped_list(kept, records, "drug"), key=lambda r: r["drug"])
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -173,6 +184,9 @@ def main() -> int:
     records, warnings = build(drugs_io.load_drugs(), only)
     for line in warnings:
         print(f"  warn: {line}")
+    if only is not None and os.path.exists(WORKLIST):
+        with open(WORKLIST, encoding="utf-8") as f:
+            records = scoped(json.load(f), records, only)
     with open(WORKLIST, "w", encoding="utf-8") as f:
         json.dump(records, f, ensure_ascii=False, indent=1)
         f.write("\n")
