@@ -77,6 +77,11 @@ def withdrawal_key(row: dict) -> str:
     return f"{row.get('country')}:{row.get('year')}"
 
 
+def workup_key(row: dict) -> str:
+    """A workup row's key: the test AND the timing (an ECG before and during are two)."""
+    return f"{row.get('test')}:{row.get('timing')}"
+
+
 # ---------------------------------------------------------------------------
 # The authoring side: (file root, path) -> site.
 #
@@ -158,6 +163,13 @@ def _metabolite_site(path: list) -> str | None:
     return site("metabolite", path[0], facet) if facet else None
 
 
+def _workup_site(path: list) -> str | None:
+    """``workup.json``: ``drugs/<drug>/<test:timing>/sources``."""
+    if len(path) < 3 or path[0] != "drugs":
+        return None
+    return site("drug", path[1], f"workup[{path[2]}]")
+
+
 def _owner_kind(bucket: str) -> str:
     """``receptors``/``targets``, the two keys the owner-keyed caches split on."""
     return {"receptors": "receptor", "targets": "target"}.get(bucket, bucket)
@@ -218,6 +230,7 @@ RESOLVERS = {
     "expression_density.json": _density_site,
     "drug_enzymes.json": _drug_enzymes_site,
     "drug_enzymes_wikipedia.json": _drug_enzymes_site,
+    "workup.json": _workup_site,
     "receptor_effects.json": _owner_keyed("effects"),
     "receptor_demographics.json": _owner_keyed("demographics"),
     # ``release_modulation.json``: ``<receptor>/<node key>`` (one node per key).
@@ -248,6 +261,8 @@ def member_label(obj, index: int) -> str:
             return binding_key(obj)
         if "country" in obj and "year" in obj:
             return withdrawal_key(obj)
+        if "test" in obj and "timing" in obj:
+            return workup_key(obj)
         for k in ("target", "name", "id", "enzyme", "region", "brand", "release", "market"):
             if isinstance(obj.get(k), str):
                 return obj[k]

@@ -93,6 +93,7 @@ CORPUS_DESC = {
     "clinpgx":         ("Pharmacogenomic annotations (ClinPGx)", "Receptor & target gene variant associations"),
     "pubchem":         ("Chemistry database (PubChem computed properties)", "Drug lipophilicity (XLogP3), polar surface area"),
     "b3db":            ("Blood-brain barrier database (B3DB)", "Drug brain entry (BBB+ / BBB-, logBB)"),
+    "bdpm_rcp":        ("French drug database (BDPM, RCP sections 4.2-4.4)", "Drug pre-prescription workup (tests before and during treatment)"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
@@ -114,6 +115,7 @@ KIND_LABELS = {
     "drug_lipophilicity": "Drug lipophilicity (XLogP3)",
     "drug_polar_surface": "Drug polar surface area",
     "drug_bbb": "Drug blood-brain barrier label",
+    "drug_workup": "Drug pre-prescription workup (BETA)",
     "drug_enzymes": "Drug metabolising enzymes",
     "drug_enzyme_strength": "Drug metabolism strength tier",
     "drug_metabolites": "Drug active metabolites",

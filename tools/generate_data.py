@@ -213,6 +213,7 @@ from data_generators import llms_txt  # noqa: E402 (public/llms.txt for LLM agen
 from data_generators import cpic  # noqa: E402
 from data_generators import tdm  # noqa: E402 (AGNP TDM ranges, corpus #19)
 from data_generators import physchem  # noqa: E402 (PubChem #21 + B3DB #22)
+from data_generators import workup  # noqa: E402 (RCP 4.2-4.4 workup, BDPM #24)
 from data_generators import page_links as PAGE_LINKS  # noqa: E402 (per-page source urls)
 from data_generators.unknown import apply_unknown  # noqa: E402
 
@@ -1422,6 +1423,9 @@ def _drug_record(drug: dict[str, Any], valid_targets: set[str],
     # Lipophilicity, polar surface, blood-brain-barrier label (kinds drug_lipophilicity /
     # drug_polar_surface / drug_bbb). See data_generators/physchem.py.
     out.update(physchem.drug_physchem(drug["id"], _quote_sources))
+    # Pre-prescription workup (kind drug_workup, BETA): one node per (test, timing) the
+    # French RCP asks for. See data_generators/workup.py.
+    out.update(workup.drug_workup(drug["id"], _quote_sources))
     # Active metabolites named in the source (one graded node each, kind
     # `drug_metabolites`): references into the one-per-molecule store, see
     # _drug_metabolites + _metabolite_records.
@@ -1973,6 +1977,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         "drug_history_scopes": list(history.SCOPES),
         "drug_history_agencies": history.labels(history.AGENCIES),
         "drug_withdrawal_reasons": history.labels(history.WITHDRAWAL_REASONS),
+        # Pre-prescription workup vocabularies (BETA, data_generators/workup.py).
+        "workup_tests": workup.labels(workup.TESTS),
+        "workup_timings": workup.labels(workup.TIMINGS),
         # Merged binding-target map (DRUG_TARGETS + every receptor id), plus the
         # non-receptor target type -> {en,fr} tag and type -> swatch colour the
         # merged "Receptors & targets" legend reads (receptors keep their sign

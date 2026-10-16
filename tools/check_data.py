@@ -139,7 +139,7 @@ NODE_KINDS = ("addons", "drug_bindings", "drug_binding_action", "drug_nbn", "dru
               "drug_first_approval", "drug_withdrawals",
               "drug_holders", "drug_originator", "drug_originator_country",
               "drug_prodrug", "drug_therapeutic_range", "drug_alert_level",
-              "drug_lipophilicity", "drug_polar_surface", "drug_bbb",
+              "drug_lipophilicity", "drug_polar_surface", "drug_bbb", "drug_workup",
               "drug_enzymes", "drug_enzyme_strength",
               "enzyme_variability", "drug_pgx",
               "drug_metabolites",
@@ -965,6 +965,9 @@ def check_provenance(report, meta, structures, projections, circuits,
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 grade(src.get("provenance"), f"drug {drug.get('id')} withdrawals[{wi}] sources[{i}]")
+        for wi, w in enumerate(drug.get("workup", []) or []):
+            for i, src in enumerate(w.get("sources", []) or []):
+                grade(src.get("provenance"), f"drug {drug.get('id')} workup[{wi}] sources[{i}]")
         for _ctx, src in _origin_sources(drug):
             grade(src.get("provenance"), f"drug {drug.get('id')} {_ctx}")
         for m in drug.get("metabolites", []) or []:
@@ -1474,6 +1477,11 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         for wi, w in enumerate(drug.get("withdrawals", []) or []):
             for i, src in enumerate(w.get("sources", []) or []):
                 check_one(f"drug {did} withdrawals[{wi}] sources[{i}]", src)
+        # A workup quote can be one RCP bullet under its heading ("Ionogramme sanguin,
+        # numeration et formule sanguine."), so it may be short by design.
+        for wi, w in enumerate(drug.get("workup", []) or []):
+            for i, src in enumerate(w.get("sources", []) or []):
+                check_one(f"drug {did} workup[{wi}] sources[{i}]", src, short_ok=True)
         # Holder names are short register strings ("holder: UCB PHARMA"), by design.
         for ctx, src in _origin_sources(drug):
             check_one(f"drug {did} {ctx}", src, short_ok=ctx.startswith("holders"))

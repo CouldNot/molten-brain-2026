@@ -23,6 +23,7 @@ DATA = os.path.join(ROOT, "public", "data")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from data_generators import history as HIST  # noqa: E402
+from data_generators import workup as WORKUP  # noqa: E402
 from data_generators import formulations as FORM  # noqa: E402
 from data_generators import provenance as PROV  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402
@@ -355,6 +356,13 @@ def reconstruct_claims(quotes, data=None, on_cite=None):
                        f"({HIST.COUNTRIES[w['country']]['en']}) in {w['year']}, "
                        f"reason: {why}.",
                     CS.site("drug", d["id"], f"withdrawals[{CS.withdrawal_key(w)}]"))
+        kind["now"] = "drug_workup"
+        for w in d.get("workup", []):
+            test = WORKUP.TESTS[w["test"]]["en"]
+            when = WORKUP.TIMINGS[w["timing"]]["en"]
+            for q in _qids(w.get("sources", [])):
+                add(q, f"The French label (RCP) of drug {nm} asks for a check of {test} "
+                       f"{when}.", CS.site("drug", d["id"], f"workup[{CS.workup_key(w)}]"))
         kind["now"] = "drug_holders"
         for h in d.get("holders", []):
             where = HIST.COUNTRIES[h["market"]]["en"]

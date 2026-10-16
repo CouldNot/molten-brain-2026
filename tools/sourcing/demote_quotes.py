@@ -74,7 +74,7 @@ CACHE_FILES = ("location_sources.json", "classification_sources.json",
                "drug_enzymes.json", "drug_enzymes_wikipedia.json",
                "expression_density.json", "enzyme_variability.json",
                "receptor_effects.json", "release_modulation.json",
-               "receptor_demographics.json")
+               "receptor_demographics.json", "workup.json")
 
 
 def _is_source(obj) -> bool:

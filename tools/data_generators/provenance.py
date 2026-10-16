@@ -865,6 +865,33 @@ SOURCE_CORPORA: dict[str, dict] = {
         "page_kind": "cis",
         "page_url": "https://base-donnees-publique.medicaments.gouv.fr/extrait.php?specid={page}",
     },
+    "bdpm_rcp": {
+        # Workup corpus #24: the same official French RCPs as #16, read for sections
+        # 4.2 / 4.3 / 4.4 (posology, contraindications, warnings and precautions):
+        # the tests the label asks for before starting a drug and while it is taken
+        # (kind drug_workup, data_generators/workup.py). A sibling corpus rather than
+        # more lines on #16's pages because a corpus has ONE pages_dir keyed by `page`:
+        # the same CIS is cited by both (Teralithe's 5.2 half-life and its 4.4 workup)
+        # with different text and a different download date, and the quote gate and
+        # the freshness ledger both resolve `<pages_dir>/<page>.md`.
+        # tools/fetch/fetch_bdpm_rcp.py builds one page per chosen product (princeps
+        # first) from an RCP copy already on disk (#16's own download, or the
+        # justelesRCP re-scrape of the live ANSM site), the freshest copy winning; the
+        # page header names the copy and how its date was read. `page` = the CIS. An
+        # LLM picks the line (not `machine`), so a judge must follow.
+        # Licence: Licence Ouverte / Open Licence (Etalab), as #16.
+        "ref": "Base de données publique des médicaments (ANSM), RCP sections 4.2-4.4",
+        "citation": "ANSM / Ministère de la Santé. Base de données publique des "
+                    "médicaments, résumé des caractéristiques du produit (RCP) of the "
+                    "cited product, sections 4.2, 4.3 and 4.4. "
+                    "base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS "
+                    "code pinned per citation).",
+        "url": "https://base-donnees-publique.medicaments.gouv.fr/",
+        "pages_dir": "data_sources/bdpm/pages_rcp4",
+        "editable": True,
+        "page_kind": "cis",
+        "page_url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/{page}/extrait",
+    },
     "cpic": {
         # Pharmacogenomic guidance corpus #15: what a metabolizer phenotype *means* for
         # one prescription. The third layer over #13 (how common each clearance speed
@@ -1519,6 +1546,10 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # for each of its computed XLogP3, its computed polar surface and its B3DB label.
     physchem_grades = {f: [_strongest_grade(d.get(f"{f}_sources")) for d in drugs if f in d]
                        for f in ("xlogp", "tpsa", "bbb")}
+    # Pre-prescription workup (data_generators/workup.py, BETA): ONE node per (drug,
+    # test, timing) row the French RCP asks for.
+    workup_grades = [_strongest_grade(r.get("sources")) for d in drugs
+                     for r in d.get("workup", []) or []]
     # Drug-metabolism nodes ("<drug> is a substrate of / inhibits / induces <enzyme>"),
     # one per (drug, enzyme, role) row. A pharmacokinetic claim, independent of the
     # drug's receptor bindings: it is what the derived drug -> drug interaction edges
@@ -1738,6 +1769,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         "drug_lipophilicity": tally(physchem_grades["xlogp"]),
         "drug_polar_surface": tally(physchem_grades["tpsa"]),
         "drug_bbb": tally(physchem_grades["bbb"]),
+        "drug_workup": tally(workup_grades),
         "drug_enzymes": tally(enzyme_grades),
         "drug_enzyme_strength": tally(enzyme_strength_grades),
         "drug_pgx": tally(pgx_grades),
