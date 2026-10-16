@@ -2201,6 +2201,9 @@ function createInfoPanel(data, sourcingModal) {
   // record; the caller focuses it exactly like its Drugs legend row / search pick.
   let onDrugPick = () => {};
   let onEnzymePick = () => {};
+  // Set by the caller (onEffect): open an effect's panel (the Effects section, BETA),
+  // from a receptor panel's Effects row or a drug panel's derived "could cause" row.
+  let onEffectPick = () => {};
   // Set by the caller (onProjectionGroup): what to do when a projection-group row in
   // a drug panel's "Neurotransmitter tone" list is clicked. The panel hands back the
   // group record; the caller focuses it exactly like its Projections legend row.
@@ -2218,6 +2221,7 @@ function createInfoPanel(data, sourcingModal) {
   const targetById = new Map(data.targets.map((tg) => [tg.id, tg]));
   const drugById = new Map((data.drugs || []).map((d) => [d.id, d]));
   const enzymeById = new Map((data.enzymes || []).map((e) => [e.id, e]));
+  const effectById = new Map((data.effects || []).map((e) => [e.id, e]));
 
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -2340,18 +2344,18 @@ function createInfoPanel(data, sourcingModal) {
 
   // receptor_effect (BETA) section heading: the label plus the same quiet "beta"
   // qualifier the Simulation section wears (.beta-tag, i18n sim.beta).
-  const betaHeading = (key) => {
-    const h = el("h3", null, t(key));
+  const betaHeading = (key, vars) => {
+    const h = el("h3", null, t(key, vars));
     h.appendChild(el("span", "beta-tag", t("sim.beta")));
     return h;
   };
 
   // The shell every beta panel section shares (receptor_effect, release modulation):
   // the .info-effects block with its beta heading, its caption and an empty list.
-  const betaSection = (tourSec, headingKey, hintKey) => {
+  const betaSection = (tourSec, headingKey, hintKey, vars) => {
     const sec = el("div", "info-locations info-effects");
     sec.dataset.tourSec = tourSec;
-    sec.appendChild(betaHeading(headingKey));
+    sec.appendChild(betaHeading(headingKey, vars));
     sec.appendChild(el("p", "legend-caption", t(hintKey)));
     const ul = el("ul");
     sec.appendChild(ul);
@@ -2370,14 +2374,31 @@ function createInfoPanel(data, sourcingModal) {
     wrap.append(chip, sourceBackedPill(node.provenance, node));
     return wrap;
   };
-  // One derived drug-panel row: its conditional sentence, then one via chip each.
+  // One derived drug-panel row: its conditional sentence (or a ready head node, the
+  // effect panel's drug name), then one via chip each.
   const derivedRow = (text, via) => {
     const li = el("li", "eff-row");
-    li.appendChild(el("span", "loc-name", text));
+    li.appendChild(typeof text === "string" ? el("span", "loc-name", text) : text);
     const box = el("span", "eff-via");
     for (const { binding, node } of via) box.appendChild(viaChip(binding, node));
     li.appendChild(box);
     return li;
+  };
+
+  // A row head that opens a panel: the effect panel from a receptor / drug panel's
+  // effect row, a drug from the effect panel's drug list. A plain `.loc-name` when
+  // `onClick` is null (an effect absent from the index cannot happen, but stays inert).
+  const linkName = (text, onClick) => {
+    const span = el("span", "loc-name", text);
+    if (onClick) {
+      span.classList.add("eff-link");
+      span.addEventListener("click", onClick);
+    }
+    return span;
+  };
+  const effectLink = (effectId, text) => {
+    const effect = effectById.get(effectId);
+    return linkName(text, effect ? () => onEffectPick(effect) : null);
   };
 
   // A receptor / target panel's "Effects" section (BETA): one row per receptor_effect
@@ -2388,7 +2409,7 @@ function createInfoPanel(data, sourcingModal) {
     const { sec, ul } = betaSection("effects", "effects.heading", "effects.hint");
     for (const e of rows) {
       const li = el("li");
-      li.appendChild(el("span", "loc-name", e.label));
+      li.appendChild(effectLink(e.effect, e.label));
       li.appendChild(el("span", "eff-mode", e.modeLabel));
       li.appendChild(sourceBackedPill(e.provenance, e));
       ul.appendChild(li);
@@ -2407,7 +2428,8 @@ function createInfoPanel(data, sourcingModal) {
     if (!effects.length) return;
     const { sec, ul } = betaSection("effects", "effects.drugHeading", "effects.drugHint");
     for (const e of effects) {
-      ul.appendChild(derivedRow(t("effects.couldCause", { effect: e.label }), e.via));
+      ul.appendChild(derivedRow(effectLink(e.effect, t("effects.couldCause", { effect: e.label })),
+        e.via));
     }
     body.appendChild(sec);
   };
@@ -4476,6 +4498,53 @@ function createInfoPanel(data, sourcingModal) {
     },
 
     /**
+     * Populate the panel for one clinical *effect* (the Effects section, BETA): the
+     * receptors / targets whose stored receptor_effect nodes carry it, grouped by
+     * mode, each with that node's own pill; then the drugs whose bindings could reach
+     * it, the drug panel's own derived join (`data.effects`, js/receptor-effects.js)
+     * seen from the effect's end. Nothing here is stored per drug, said in the caption.
+     */
+    showEffect(effect) {
+      clearBody("effect");
+      body.appendChild(el("h2", "info-title", effect.label));
+      const kind = el("div", "info-group", t("effect.heading"));
+      kind.appendChild(el("span", "beta-tag", t("sim.beta")));
+      body.appendChild(kind);
+      body.appendChild(el("p", "legend-caption", t("effect.hint")));
+
+      const owners = betaSection("effectOwners", "effect.owners", "effects.hint",
+        { n: effect.owners.length });
+      owners.ul.remove();
+      for (const mode of Object.keys(data.meta.effectModes)) {
+        const group = effect.owners.filter((o) => o.node.mode === mode)
+          .sort((a, b) => a.target.name.localeCompare(b.target.name));
+        if (!group.length) continue;
+        owners.sec.appendChild(el("h4", "drug-cat", group[0].node.modeLabel));
+        const ul = el("ul");
+        for (const { target, node } of group) {
+          const li = el("li");
+          li.appendChild(linkName(target.name,
+            target.focusable ? () => onTargetPick(target) : null));
+          li.appendChild(sourceBackedPill(node.provenance, node));
+          ul.appendChild(li);
+        }
+        owners.sec.appendChild(ul);
+      }
+      body.appendChild(owners.sec);
+
+      const drugs = betaSection("effectDrugs", "effect.drugs", "effect.drugsHint",
+        { n: effect.drugs.length });
+      if (!effect.drugs.length) drugs.ul.appendChild(el("li", "info-desc", t("effect.noDrugs")));
+      const sorted = [...effect.drugs]
+        .sort((a, b) => a.drug.displayName.localeCompare(b.drug.displayName));
+      for (const { drug, via } of sorted) {
+        drugs.ul.appendChild(derivedRow(linkName(drug.displayName, () => onDrugPick(drug)), via));
+      }
+      body.appendChild(drugs.sec);
+      foldBody();
+    },
+
+    /**
      * Populate the panel for a *drug* (clicking a drug legend/list row or a drug
      * search result): its name, primary category, a Wikipedia link, a one-line
      * description, its class(es) + nomenclature, then the "Direct molecular targets" list of
@@ -5470,6 +5539,11 @@ function createInfoPanel(data, sourcingModal) {
       onEnzymePick = fn;
     },
 
+    /** Register the handler run when an effect row is clicked (see onEffectPick). */
+    onEffect(fn) {
+      onEffectPick = fn;
+    },
+
     /**
      * Register the handler run when a projection-group row in a drug panel's
      * "Neurotransmitter tone" list is clicked. Called with the group record; the
@@ -5695,6 +5769,45 @@ function buildEnzymeLegend(data, onPick) {
     row.dataset.tourId = `enzyme:${enz.id}`;
     row.addEventListener("click", () => onPick(enz));
     rows.push({ row, id: enz.id });
+  }
+  return function reflect(activeId) {
+    for (const { row, id } of rows) {
+      const selected = id === activeId;
+      row.classList.toggle("selected", selected);
+      row.classList.toggle("dimmed", activeId !== null && !selected);
+    }
+  };
+}
+
+/**
+ * Build the Effects section (#effects-body, BETA): one row per clinical effect some
+ * receptor / target carries a sourced receptor_effect node for, A->Z, its tag the
+ * number of drugs that could reach it. Like the Enzymes section it lights nothing in
+ * the scene (the caption says so): a pick opens the effect's panel.
+ * @param {import("./data.js").BrainData} data
+ * @param {(effect: object) => void} onPick
+ * @returns {(activeId: string|null) => void} reflect: lights the active row
+ */
+function buildEffectLegend(data, onPick) {
+  const container = document.getElementById("effects-body");
+  if (!container) return () => {};
+  container.replaceChildren();
+  const rows = [];
+  const caption = document.createElement("p");
+  caption.className = "legend-caption";
+  caption.textContent = t("effects.legendHint");
+  container.appendChild(caption);
+  for (const effect of data.effects || []) {
+    const row = addLegendItem(container, "#9aa0a6", effect.label);
+    const tag = document.createElement("span");
+    tag.className = "legend-tag";
+    tag.textContent = String(effect.drugs.length);
+    tag.title = t("effects.legendTag");
+    row.appendChild(tag);
+    row.classList.add("clickable");
+    row.dataset.tourId = `effect:${effect.id}`;
+    row.addEventListener("click", () => onPick(effect));
+    rows.push({ row, id: effect.id });
   }
   return function reflect(activeId) {
     for (const { row, id } of rows) {
@@ -7060,6 +7173,8 @@ function wireControls({ camera, controls, meshes, arrows, labels, focus, selecti
   const drugsBody = document.getElementById("drugs-body");
   const enzymesToggle = document.getElementById("enzymes-toggle");
   const enzymesBody = document.getElementById("enzymes-body");
+  const effectsToggle = document.getElementById("effects-toggle");
+  const effectsBody = document.getElementById("effects-body");
 
   // One collapse-header behaviour shared by the panel, the Controls section and
   // the accordion sections: toggle aria-expanded + the body's hidden flag. The
@@ -7149,6 +7264,7 @@ function wireControls({ camera, controls, meshes, arrows, labels, focus, selecti
     { toggle: drugsToggle, body: drugsBody },
     { toggle: receptorsToggle, body: receptorsBody },
     { toggle: enzymesToggle, body: enzymesBody },
+    { toggle: effectsToggle, body: effectsBody },
     { toggle: structuresToggle, body: structuresBody },
     { toggle: projectionsToggle, body: projectionsBody },
   ];
@@ -7508,7 +7624,7 @@ function connectionSideTag(proj) {
  *   selectStructure:Function, selectConnection:Function,
  *   selectTarget:Function}} deps
  */
-function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, expandPanel, selectStructure, selectConnection, focusTarget, focusDrug, focusEnzyme, focusCircuit, focusProjectionGroup }) {
+function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, expandPanel, selectStructure, selectConnection, focusTarget, focusDrug, focusEnzyme, focusEffect, focusCircuit, focusProjectionGroup }) {
   const resetBtn = document.getElementById("reset-view");
   const searchToggle = document.getElementById("search-toggle");
   const searchBox = document.getElementById("search");
@@ -7728,6 +7844,15 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
       // No preview: an enzyme focus is a panel, not a scene state, so there is
       // nothing for a hover to show and nothing for it to restore.
     })),
+    // Clinical effects (the Effects section, BETA): a pick opens the effect's panel,
+    // like its legend row; no scene state, so no preview (as for an enzyme).
+    ...(data.effects || []).map((effect) => ({
+      type: "effect",
+      label: `${effect.label} · ${t("search.tagEffect")}`,
+      names: [effect.label],
+      keywords: effect.keywords || "",
+      select: () => focusEffect(effect),
+    })),
     // Named circuits (the loops in the Projections section): a pick isolates the
     // loop, plays its traveling pulse and opens its panel, exactly like its legend
     // row, so search reaches them too (part of "anything from search == the panel").
@@ -7764,7 +7889,7 @@ function wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, e
     structure: "panel.structures", connection: "info.connections",
     target: "panel.receptors", drug: "panel.drugs",
     circuit: "legend.circuits", group: "legendKey.pathways",
-    enzyme: "panel.enzymes", command: "search.filterCommands",
+    enzyme: "panel.enzymes", effect: "panel.effects", command: "search.filterCommands",
   };
   let activeType = null;
   const filterChips = [];
@@ -8046,7 +8171,7 @@ function wireShortcuts(help, tabs, selection, lightbox, aboutModal, legendModal,
   const collapseOpen = () => {
     const search = document.getElementById("search");
     if (search && !search.hidden) click("search-toggle");
-    for (const id of ["drugs-toggle", "receptors-toggle", "enzymes-toggle",
+    for (const id of ["drugs-toggle", "receptors-toggle", "enzymes-toggle", "effects-toggle",
                       "structures-toggle", "projections-toggle"]) {
       const tg = document.getElementById(id);
       if (tg && tg.getAttribute("aria-expanded") === "true") tg.click();
@@ -8082,6 +8207,7 @@ function wireShortcuts(help, tabs, selection, lightbox, aboutModal, legendModal,
       ["drugs-toggle", "drugs-body"],
       ["receptors-toggle", "receptors-body"],
       ["enzymes-toggle", "enzymes-body"],
+      ["effects-toggle", "effects-body"],
       ["structures-toggle", "structures-body"],
       ["projections-toggle", "projections-body"],
     ];
@@ -8736,6 +8862,34 @@ async function main() {
   reflectEnzymes = buildEnzymeLegend(data, toggleEnzyme);
   info.onEnzyme(focusEnzyme);
 
+  // Effect focus (the Effects section, BETA): the enzyme focus's shape exactly, a
+  // panel + tab with no 3D state, so it drops the previous focus by hand first.
+  let activeEffectId = null;
+  let reflectEffects = () => {};
+  const focusEffect = (effect) => {
+    selection.clear();
+    info.showEffect(effect);
+    activeEffectId = effect.id;
+    reflectEffects(activeEffectId);
+    openDetailTab(`effect:${effect.id}`, effect.label, () => focusEffect(effect));
+  };
+  const toggleEffect = (effect) => {
+    if (activeEffectId === effect.id) {
+      activeEffectId = null;
+      reflectEffects(null);
+      tabs.close(`effect:${effect.id}`);
+    } else {
+      focusEffect(effect);
+    }
+  };
+  selection.onIsolate(() => {
+    if (activeEffectId === null) return;
+    activeEffectId = null;
+    reflectEffects(null);
+  });
+  reflectEffects = buildEffectLegend(data, toggleEffect);
+  info.onEffect(focusEffect);
+
   // Per-drug animation + focus (js/drug-anim.js), the same shape as the receptor
   // focus above. Clicking a drug row dims the brain to the union of regions its
   // targets sit in and animates each target's regions coloured by the binding's
@@ -9376,7 +9530,7 @@ async function main() {
   // Hold arrows a constant apparent width as the camera zooms (advanced by its
   // tick() in the render loop, like arrowRetrim).
   const arrowWidth = createArrowWidth({ arrows, camera, controls, focus });
-  const toolbar = wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, expandPanel, selectStructure, selectConnection, focusTarget, focusDrug, focusEnzyme, focusCircuit, focusProjectionGroup });
+  const toolbar = wireToolbar({ focus, meshes, arrows, data, selection, tabs, urlState, expandPanel, selectStructure, selectConnection, focusTarget, focusDrug, focusEnzyme, focusEffect, focusCircuit, focusProjectionGroup });
   // A drug panel's clickable Class / Nomenclature opens search with a structured
   // filter (class:"..." / nbn:"...") so you can pivot to the whole class.
   info.onSearch(toolbar.openSearchWithQuery);
@@ -9453,7 +9607,7 @@ async function main() {
   // names them in, so the ring and the sentence read as one list. Enzymes is in it
   // because it sits BETWEEN the others in the panel: the group ring spans them all
   // whether or not it is named, so leaving it out would ring an unnamed section.
-  const TOUR_SECTIONS = ["drugs", "receptors", "enzymes", "structures", "projections"];
+  const TOUR_SECTIONS = ["drugs", "receptors", "enzymes", "effects", "structures", "projections"];
   // Collapsing a list is only half of "put it back": a filter the visitor typed
   // survives the fold, so the next step's "tap Olanzapine" can ring a row that the
   // reopened list no longer contains. Cleared through the input's own event, which
@@ -9997,6 +10151,7 @@ async function main() {
     circuit: (v) => { const c = findByIdOrName(data.circuits, v); if (c) focusCircuit(c, { frame: true }); return !!c; },
     group: (v) => { const g = findByIdOrName(data.projectionGroups, v); if (g) focusProjectionGroup(g, { frame: true }); return !!g; },
     enzyme: (v) => { const e = findByIdOrName(data.enzymes || [], v); if (e) focusEnzyme(e); return !!e; },
+    effect: (v) => { const e = findByIdOrName(data.effects || [], v); if (e) focusEffect(e); return !!e; },
     structure: (v) => {
       // The exact (sided) id first, so a link round-trips the very mesh the tab named;
       // then the base, which is what a hand-written `#tabs=structure:hippocampus` says.
