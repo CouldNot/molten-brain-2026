@@ -1430,6 +1430,13 @@ def _provenance_stats(structures: list[dict[str, Any]],
                 "sourced" if rank == 2 else
                 "llm" if rank == 1 else "nosource")
 
+    def _node_grade(node: dict[str, Any], grade: Any = None) -> tuple[Any, bool]:
+        # A (grade, is_uncertain) pair for a node-shaped claim, so a bullet on it (a
+        # ``contradicted`` entry can name any node site, quotes/contradictions.py)
+        # buckets ``uncertain`` like a binding's. ``grade`` defaults to its sources'.
+        return (_strongest_grade(node.get("sources")) if grade is None else grade,
+                bool(node.get("uncertainty")))
+
     def tally(grades: list[Any]) -> dict[str, int]:
         # ``missing`` is kept as the llm+nosource sum (the headline / README / check_data
         # read it); ``llm`` and ``nosource`` are the finer split the sourcing bar renders
@@ -1452,7 +1459,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
 
     # (grade, is_uncertain) pairs: a flagged binding buckets as ``uncertain`` however
     # strong its quote is (see bucket()).
-    binding_grades = [(_binding_grade(b), bool(b.get("uncertainty")))
+    binding_grades = [_node_grade(b, _binding_grade(b))
                       for d in drugs for b in d.get("bindings", [])]
     # The binding's DIRECTION, split out as its own node (see _binding_action_grade):
     # "this drug binds this target" and "it does so as an agonist/antagonist" are two
@@ -1461,7 +1468,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # disappearing into a verified binding. It carries the SAME uncertainty flag as the
     # binding: those bullets are precisely about whether the quote attributes the
     # action to this drug, which is the direction claim and nothing else.
-    binding_action_grades = [(_binding_action_grade(b), bool(b.get("uncertainty")))
+    binding_action_grades = [_node_grade(b, _binding_action_grade(b))
                              for d in drugs for b in d.get("bindings", [])]
     # Measured-affinity (PDSP Ki) coverage: a SEPARATE data-quality signal from the
     # grade tally. A binding can be legitimately backed by a Stahl quote with no Ki
@@ -1495,8 +1502,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # to one release type, in the molecule's own shape: they are the same kinds,
     # tallied wherever they sit (see data_generators/formulations.py).
     holders = [h for d in drugs for h in product_holders(d)]
-    brand_grades = [_strongest_grade(br.get("sources"))
-                    for d in holders for br in d.get("brands", [])]
+    brand_grades = [_node_grade(br) for d in holders for br in d.get("brands", [])]
     # Drug class-classification nodes ("this drug is an SSRI/..."), one per drug that
     # has categories: the emitted category_provenance (llm unless overridden/sourced).
     category_grades = [d.get("category_provenance", DEFAULT_PROVENANCE)
@@ -1522,12 +1528,10 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # claim). Both graded by their own quotes; see apply_drug_history.py.
     first_approval_grades = [_strongest_grade(d.get("first_approval_sources"))
                              for d in drugs if d.get("first_approval")]
-    withdrawal_grades = [_strongest_grade(w.get("sources"))
-                         for d in drugs for w in d.get("withdrawals", [])]
+    withdrawal_grades = [_node_grade(w) for d in drugs for w in d.get("withdrawals", [])]
     # Who the drug comes from (data_generators/origin.py): ONE holder node per (drug,
     # market), ONE originator and ONE originator-country node per drug carrying one.
-    holder_grades = [_strongest_grade(h.get("sources"))
-                     for d in drugs for h in d.get("holders", [])]
+    holder_grades = [_node_grade(h) for d in drugs for h in d.get("holders", [])]
     originator_grades = [_strongest_grade(d.get("originator_sources"))
                          for d in drugs if d.get("originator")]
     originator_country_grades = [_strongest_grade(d.get("originator_country_sources"))
@@ -1548,8 +1552,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
                        for f in ("xlogp", "tpsa", "bbb")}
     # Pre-prescription workup (data_generators/workup.py, BETA): ONE node per (drug,
     # test, timing) row the French RCP asks for.
-    workup_grades = [_strongest_grade(r.get("sources")) for d in drugs
-                     for r in d.get("workup", []) or []]
+    workup_grades = [_node_grade(r) for d in drugs for r in d.get("workup", []) or []]
     # Drug-metabolism nodes ("<drug> is a substrate of / inhibits / induces <enzyme>"),
     # one per (drug, enzyme, role) row. A pharmacokinetic claim, independent of the
     # drug's receptor bindings: it is what the derived drug -> drug interaction edges
@@ -1557,13 +1560,13 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # with the class or half-life node.
     # A (grade, is_uncertain) pair like a binding's: a row another corpus denies buckets
     # as ``uncertain`` however strong its own quote is (quotes/contradictions.py).
-    enzyme_grades = [(_strongest_grade(e.get("sources")), bool(e.get("uncertainty")))
+    enzyme_grades = [_node_grade(e)
                      for d in drugs for e in d.get("enzymes", [])]
     # HOW MUCH of the clearing that isoform does (major/minor, strong/weak), split out of
     # the row for the same reason a pathway's transmitter is (quotes/attestation.py): the
     # CYP quote gate checks the isoform is named, never the tier. A row stating no tier
     # makes no claim and contributes no node.
-    enzyme_strength_grades = [(entry["grade"], bool(entry.get("uncertainty")))
+    enzyme_strength_grades = [_node_grade(entry, entry["grade"])
                               for d in drugs
                               for e in d.get("enzymes", [])
                               if (entry := (e.get("claims") or {}).get("strength"))]
@@ -1581,9 +1584,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # sourced fact shown in the panel; its receptor BINDINGS are their own tally kind
     # below (each a graded graph edge appearing on the receptor's Interacting drugs).
     # A (grade, is_uncertain) pair: a link another corpus denies is active buckets as
-    # ``uncertain`` however strong its own quote (METABOLITE_CONTRADICTIONS).
-    metabolite_grades = [(_strongest_grade(m.get("sources")), bool(m.get("uncertainty")))
-                         for d in drugs for m in d.get("metabolites", [])]
+    # ``uncertain`` however strong its own quote (CONTRADICTIONS).
+    metabolite_grades = [_node_grade(m) for d in drugs for m in d.get("metabolites", [])]
     # Which enzyme FORMS each active metabolite, one node per (parent, metabolite,
     # enzyme). The mirror of the enzyme nodes above (there the drug is the substrate,
     # here the metabolite is the product), and its own kind because it is separately
@@ -1591,8 +1593,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # names their forming enzyme. Counted per PARENT, unlike the bindings below: "CYP2D6
     # makes X out of A" and "... out of B" are two different reactions, not one fact
     # about the molecule.
-    metabolite_enzyme_grades = [_strongest_grade(f.get("sources"))
-                                for d in drugs for m in d.get("metabolites", [])
+    metabolite_enzyme_grades = [_node_grade(f) for d in drugs for m in d.get("metabolites", [])
                                 for f in m.get("formed_by", [])]
     # Non-modeled-metabolite receptor bindings, graded exactly like a drug binding
     # (quote source or measured Ki). A separate kind from drug_bindings so the drug Ki
@@ -1601,7 +1602,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # bindings are a property of the molecule, so nefazodone AND trazodone listing it
     # count them once. (The identity node above legitimately stays per-parent: "X is a
     # metabolite of A" and "X is a metabolite of B" are two separately sourced claims.)
-    metabolite_binding_grades = [(_binding_grade(b), bool(b.get("uncertainty")))
+    metabolite_binding_grades = [_node_grade(b, _binding_grade(b))
                                  for m in metabolites for b in m.get("bindings", [])]
     # A metabolite's binding direction is the same claim as a drug's, so it is counted
     # in the SAME drug_binding_action kind (a ligand's binding direction either way).
@@ -1609,7 +1610,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
                                  for b in m.get("bindings", []))
     # (grade, is_uncertain) pairs, like the bindings above: a pathway the book states
     # only as a blanket sweep buckets as ``uncertain`` however strong its quote is.
-    projection_grades = [(_strongest_grade(p.get("sources")), bool(p.get("uncertainty")))
+    projection_grades = [_node_grade(p)
                          for p in projections]
     # The two sub-claims split out of that same arrow (see quotes/attestation.py): what
     # transmitter it carries, and, for the glutamate/GABA ones, its excitatory/inhibitory
@@ -1620,7 +1621,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # one). The uncertainty flag stays on the pathway node: a blanket sweep is doubt about
     # which regions the arrow reaches, not about what it releases.
     def _claim_grades(name: str) -> list[tuple[str, bool]]:
-        return [(entry["grade"], bool(entry.get("uncertainty"))) for p in projections
+        return [_node_grade(entry, entry["grade"]) for p in projections
                 if (entry := (p.get("claims") or {}).get(name))]
     projection_transmitter_grades = _claim_grades("transmitter")
     projection_sign_grades = _claim_grades("sign")
@@ -1628,9 +1629,8 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # form a system" claim, graded by its own sources (rank 0 => missing when unsourced,
     # matching the viewer's NOSOURCE pill). All missing today (no circuit/group is
     # document-backed yet).
-    circuit_grades = [_strongest_grade(c.get("sources")) for c in circuits]
-    projection_group_grades = [_strongest_grade(g.get("sources"))
-                               for g in projection_groups]
+    circuit_grades = [_node_grade(c) for c in circuits]
+    projection_group_grades = [_node_grade(g) for g in projection_groups]
     # Receptor classification is FOUR independent nodes per receptor, one per
     # attribute (family / receptor_class / sign / synaptic), each graded on its own
     # so an unsourced GPCR/sign/site claim shows honestly instead of borrowing a
@@ -1648,7 +1648,7 @@ def _provenance_stats(structures: list[dict[str, Any]],
         entry = (r.get("classification") or {}).get(attr)
         if not entry:
             return (DEFAULT_PROVENANCE, False)
-        return (entry["grade"], bool(entry.get("uncertainty")))
+        return _node_grade(entry, entry["grade"])
     receptor_family_grades = [_attr_grade(r, "family") for r in scored_receptors]
     receptor_class_grades = [_attr_grade(r, "receptor_class") for r in scored_receptors]
     receptor_sign_grades = [_attr_grade(r, "sign") for r in scored_receptors]
@@ -1704,25 +1704,25 @@ def _provenance_stats(structures: list[dict[str, Any]],
                                    if t.get("type") != "receptor"))
     # A (grade, is_uncertain) pair: an effect backed by isolated tissue only buckets
     # ``uncertain`` however strong its quote (receptor_effects.EFFECT_EVIDENCE).
-    receptor_effect_grades = [(e["grade"], bool(e.get("uncertainty"))) for o in effect_owners
+    receptor_effect_grades = [_node_grade(e, e["grade"]) for o in effect_owners
                               for e in o.get("effects", [])] + [
         "unknown" for o in effect_owners if o.get("effects_unknown")]
     # Release-modulation nodes (kind receptor_release_modulation, BETA): one per (receptor,
     # kind, site, transmitter, direction); exists only once sourced, so in the headline.
-    release_modulation_grades = [n["grade"] for r in receptors
+    release_modulation_grades = [_node_grade(n, n["grade"]) for r in receptors
                                  for n in r.get("release_modulation", [])]
     # Availability-across-age/sex nodes (kind receptor_demographic, BETA): one per (owner,
     # factor, direction, structure), receptors and non-receptor targets alike.
     gene_owners = (*receptors, *(t for t in drug_targets.values()
                                  if t.get("type") != "receptor"))
-    demographic_grades = [n["grade"] for o in gene_owners
+    demographic_grades = [_node_grade(n, n["grade"]) for o in gene_owners
                           for n in o.get("demographics", [])]
     # Gene-variant associations (kind receptor_variant, ClinPGx #20): one per (owner,
     # clinical annotation), receptors and non-receptor targets alike.
     variant_grades = [n["grade"] for o in gene_owners for n in o.get("variants", [])]
     # Brain-region anatomy (existence / group / position), graded per emitted
     # structure record (both hemispheres of a pair count, one line each).
-    structure_grades = [s.get("classification_provenance", DEFAULT_PROVENANCE)
+    structure_grades = [_node_grade(s, s.get("classification_provenance", DEFAULT_PROVENANCE))
                         for s in structures]
     # Wikipedia reference links across every owner kind. Non-receptor targets only
     # (a receptor is already counted via the receptor records, not twice); a missing
