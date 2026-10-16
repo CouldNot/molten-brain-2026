@@ -4,8 +4,8 @@
 // bars and one example node per kind; this section answers the next question the
 // bars provoke, "which ones?", by listing every node behind them. Same nodes, same
 // grades, same navigation callbacks: only the presentation differs, so the two must
-// never drift apart (collectNodes below is the enumeration, buildKindExample in
-// main.js picks one representative from the same fields).
+// never drift apart (collectNodes below is the enumeration, kinds.js exampleRow
+// picks the Sources popup's representative from these very rows).
 //
 // It doubles as a sourcing workbench, which is why the default sort is weakest-grade
 // first: the unsourced claims surface on top rather than being buried under the
@@ -22,6 +22,7 @@ import { formatAlert, formatRange } from "./tdm.js";
 import { formatBbb, formatLogP, formatTpsa } from "./physchem.js";
 import { formatWorkup } from "./workup.js";
 import { transmitterVars } from "./release-modulation.js";
+import { KIND_ORDER } from "./kinds.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
 // sourced and verified for the same reason the Sources popup's bar does: the quote
@@ -29,57 +30,6 @@ import { transmitterVars } from "./release-modulation.js";
 // `unknown` (searched, nothing states it) sorts just above nosource: still no source,
 // but a finding rather than a to-do.
 const GRADE_RANK = { nosource: 0, unknown: 0.5, llm: 1, sourced: 2, uncertain: 3, verified: 4 };
-
-// Enumeration order, and therefore the kind <select>'s option order. Kinds absent
-// from the loaded dataset are dropped from the select, never from this list.
-const KIND_ORDER = [
-  "addons",
-  "structures",
-  "projections",
-  "projection_transmitter",
-  "projection_sign",
-  "circuits",
-  "projection_groups",
-  "receptors",
-  "receptor_class",
-  "receptor_sign",
-  "receptor_synaptic",
-  "receptor_locations",
-  "receptor_density",
-  "targets",
-  "target_polarity",
-  "target_locations",
-  "target_density",
-  "receptor_effect",
-  "receptor_release_modulation",
-  "receptor_demographic",
-  "drug_bindings",
-  "drug_binding_action",
-  "drug_nbn",
-  "drug_brands",
-  "drug_categories",
-  "drug_half_life",
-  "drug_tmax",
-  "drug_formulations",
-  "drug_first_approval",
-  "drug_withdrawals",
-  "drug_holders",
-  "drug_originator",
-  "drug_originator_country",
-  "drug_prodrug",
-  "drug_constituents",
-  "drug_therapeutic_range",
-  "drug_alert_level",
-  "drug_lipophilicity",
-  "drug_polar_surface",
-  "drug_bbb",
-  "drug_workup",
-  "drug_enzymes",
-  "drug_enzyme_strength",
-  "drug_metabolites",
-  "drug_metabolite_enzyme",
-  "drug_metabolite_bindings",
-];
 
 // How many rows render at once. The full list is several thousand nodes, so the
 // first paint is capped and each "show more" appends a bigger chunk (by then the
@@ -143,10 +93,14 @@ export function collectNodes(data, deps, opts = {}) {
   // lives here. `src` is the node's backing, `{sources, uncertainty, ki}` (any of
   // them optional); a binding object already has exactly those keys, so it is passed
   // through whole.
+  // `owner` is the id of the record whose rows are being pushed (set by each loop
+  // below), so a caller can pick a row by owner (kinds.js exampleRow).
+  let owner = null;
   const push = (kind, name, notion, grade, go, src) => {
     const uncertainty = (src && src.uncertainty) || [];
     rows.push({
       kind,
+      owner,
       name: name || "",
       notion: notion || "",
       grade: shownGrade(grade || "nosource", uncertainty),
@@ -203,6 +157,7 @@ export function collectNodes(data, deps, opts = {}) {
   for (const s of data.structures || []) {
     const twin = /_L$/.test(s.id) && byId.has(`${stripSide(s.id)}_R`);
     if (twin && !twins) continue;
+    owner = s.id;
     push("structures", twins ? s.name : (s.base_name || s.name),
       (meta.groupLabels || {})[s.group] || s.group,
       s.classification_provenance || "llm",
@@ -217,6 +172,7 @@ export function collectNodes(data, deps, opts = {}) {
     const key = `${stripSide(p.from)}|${stripSide(p.to)}|${p.label}`;
     if (seenProjection.has(key)) continue;
     seenProjection.add(key);
+    owner = p.from;
     push("projections", p.label, p.neurotransmitter || p.kind,
       p.provenance, () => nav.connection(p), p);
     // The two sub-claims split out of that arrow, each its own row with its own pill:
@@ -234,9 +190,11 @@ export function collectNodes(data, deps, opts = {}) {
   }
 
   for (const c of data.circuits || []) {
+    owner = c.id;
     push("circuits", c.name, "", c.provenance, () => nav.circuit(c), c);
   }
   for (const g of data.projectionGroups || []) {
+    owner = g.id;
     push("projection_groups", g.name, "", g.provenance, () => nav.group(g), g);
   }
 
@@ -256,6 +214,7 @@ export function collectNodes(data, deps, opts = {}) {
     ["receptor_synaptic", "synaptic", "synapticLabel"],
   ];
   for (const r of data.receptors || []) {
+    owner = r.id;
     const entry = targetByReceptor.get(r.id);
     const go = entry && entry.focusable ? () => nav.target(entry) : null;
     // A pure stub (a receptor with no CNS role: no locations, not ubiquitous, no
@@ -288,6 +247,7 @@ export function collectNodes(data, deps, opts = {}) {
 
   for (const tg of data.targets || []) {
     if (tg.kind === "receptor") continue; // covered above, from the raw record
+    owner = tg.id;
     const go = tg.focusable ? () => nav.target(tg) : null;
     push("targets", tg.name, tg.typeLabel, tg.classificationProvenance || "llm", go, tg);
     // The direction-flipping polarity flag is its own node, distinct from the
@@ -307,6 +267,7 @@ export function collectNodes(data, deps, opts = {}) {
   // receptor_effect (BETA): one row per (owner, mode, effect) node, receptors and
   // non-receptor targets alike (data.js resolves both onto the target list).
   for (const tg of data.targets || []) {
+    owner = tg.id;
     const go = tg.focusable ? () => nav.target(tg) : null;
     for (const e of tg.effectInfo || []) {
       push("receptor_effect", tg.name, `${e.label} (${e.modeLabel})`, e.provenance, go, e);
@@ -316,6 +277,7 @@ export function collectNodes(data, deps, opts = {}) {
   // receptor_release_modulation (BETA): one row per (receptor, kind, site, transmitter,
   // direction) node (data.js resolves them onto the receptor's target entry).
   for (const tg of data.targets || []) {
+    owner = tg.id;
     const go = tg.focusable ? () => nav.target(tg) : null;
     for (const n of tg.modulationInfo || []) {
       push("receptor_release_modulation", tg.name,
@@ -328,6 +290,7 @@ export function collectNodes(data, deps, opts = {}) {
   // receptor_demographic (BETA): one row per (owner, factor, direction, structure) node,
   // receptors and non-receptor targets alike (data.js resolves both onto the target list).
   for (const tg of data.targets || []) {
+    owner = tg.id;
     const go = tg.focusable ? () => nav.target(tg) : null;
     for (const n of tg.demographicInfo || []) {
       push("receptor_demographic", tg.name,
@@ -343,6 +306,7 @@ export function collectNodes(data, deps, opts = {}) {
   // make it by two reactions, so both stay per parent. Matches the tally's own split.
   const seenMetaboliteBinding = new Set();
   for (const d of data.drugs || []) {
+    owner = d.id;
     const go = d.focusable ? () => nav.drug(d) : null;
     for (const b of d.bindings || []) {
       if (b.viaMetabolite) continue;  // a prodrug's borrowed binding: the metabolite's node
@@ -481,6 +445,7 @@ export function collectNodes(data, deps, opts = {}) {
     // A statement about the dataset itself is not knowledge, so it is no node of the
     // tally (provenance.py) and no row here either: the counts must agree.
     if (a.basis === "dataset") continue;
+    owner = a.owner;
     const go = a.focus ? () => nav[a.focus.nav](a.focus.arg) : null;
     push("addons", a.ownerName, a.title || a.text, a.provenance, go, a);
   }

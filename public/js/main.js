@@ -31,19 +31,18 @@ import { DECOR_RENDER_ORDER } from "./render-order.js";
 import { fetchWikiLead, clipLead } from "./wiki.js";
 import { createTour } from "./tour.js";
 import { createChangelog } from "./changelog.js";
-import { createNodeBrowser, shownGrade } from "./node-browser.js";
+import { collectNodes, createNodeBrowser, shownGrade } from "./node-browser.js";
+import { KIND_LABELS, exampleRow } from "./kinds.js";
 import { createSimulation } from "./simulation.js";
 import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
 import { groupByVariant, variantsForDrug } from "./receptor-variants.js";
 import { deriveReleaseChanges, transmitterVars } from "./release-modulation.js";
-import {
-  appendDrugHistory, approvalLabel, formatApproval, formatHolder, formatOriginator, formatWithdrawal,
-} from "./drug-history.js";
-import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
-import { appendPhyschemChips, formatBbb, formatLogP, formatTpsa, hasPhyschem } from "./physchem.js";
-import { formatConditions, formatWorkup, groupWorkup } from "./workup.js";
+import { appendDrugHistory } from "./drug-history.js";
+import { appendTdmChips, formatDuration, valueChip } from "./tdm.js";
+import { appendPhyschemChips, hasPhyschem } from "./physchem.js";
+import { formatConditions, groupWorkup } from "./workup.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -6510,62 +6509,6 @@ function applyViewParams(bundle) {
   }
 }
 
-// Node kind -> its i18n label, shared by the Sources popup's coverage bars and the
-// Data browser's rows + kind filter, so the two views can never name a kind
-// differently. Wikipedia `references` are deliberately absent: a reference is a
-// pointer *at* a knowledge node, not itself a node (so it gets no bar and no row),
-// and every present link defaults to `sourced`, which read as uniformly yellow
-// noise. It stays in meta.provenance_stats.by_kind (data), just not rendered.
-const KIND_LABELS = {
-  addons: "about.kindAddons",
-  drug_bindings: "about.kindBindings",
-  drug_binding_action: "about.kindBindingAction",
-  drug_nbn: "about.kindNbn",
-  drug_brands: "about.kindDrugBrands",
-  drug_categories: "about.kindDrugCategories",
-  drug_half_life: "about.kindDrugHalfLife",
-  drug_tmax: "about.kindDrugTmax",
-  drug_formulations: "about.kindDrugFormulations",
-  drug_first_approval: "about.kindDrugFirstApproval",
-  drug_withdrawals: "about.kindDrugWithdrawals",
-  drug_holders: "about.kindDrugHolders",
-  drug_originator: "about.kindDrugOriginator",
-  drug_originator_country: "about.kindDrugOriginatorCountry",
-  drug_prodrug: "about.kindDrugProdrug",
-  drug_constituents: "about.kindDrugConstituents",
-  drug_therapeutic_range: "about.kindDrugTherapeuticRange",
-  drug_alert_level: "about.kindDrugAlertLevel",
-  drug_lipophilicity: "about.kindDrugLipophilicity",
-  drug_polar_surface: "about.kindDrugPolarSurface",
-  drug_bbb: "about.kindDrugBbb",
-  drug_workup: "about.kindDrugWorkup",
-  drug_enzymes: "about.kindDrugEnzymes",
-  drug_enzyme_strength: "about.kindDrugEnzymeStrength",
-  enzyme_variability: "about.kindEnzymeVariability",
-  drug_metabolites: "about.kindDrugMetabolites",
-  drug_metabolite_enzyme: "about.kindDrugMetaboliteEnzyme",
-  drug_metabolite_bindings: "about.kindDrugMetaboliteBindings",
-  projections: "about.kindProjections",
-  projection_transmitter: "about.kindProjectionTransmitter",
-  projection_sign: "about.kindProjectionSign",
-  circuits: "about.kindCircuits",
-  projection_groups: "about.kindProjectionGroups",
-  receptors: "about.kindReceptors",
-  receptor_class: "about.kindReceptorClass",
-  receptor_sign: "about.kindReceptorSign",
-  receptor_synaptic: "about.kindReceptorSynaptic",
-  receptor_locations: "about.kindReceptorLocations",
-  receptor_density: "about.kindReceptorDensity",
-  targets: "about.kindTargets",
-  target_polarity: "about.kindTargetPolarity",
-  target_locations: "about.kindTargetLocations",
-  target_density: "about.kindTargetDensity",
-  receptor_effect: "about.kindReceptorEffect",
-  receptor_release_modulation: "about.kindReleaseModulation",
-  receptor_demographic: "about.kindDemographic",
-  structures: "about.kindStructures",
-};
-
 // Display grade -> its short i18n label ("Verified", "No source", ...), shared by
 // the Sources popup's bar segments and the Data browser's grade filter.
 const GRADE_LABELS = {
@@ -6725,6 +6668,10 @@ function buildAboutSourcing(meta, opts = {}) {
   // loaded dataset when available, so it navigates to a real drug/receptor/structure).
   const kindsBox = h("div", "src-kinds");
   kindsBox.hidden = true;
+  let rowsCache = null;
+  const exampleRows = () => rowsCache
+    || (rowsCache = collectNodes(opts.data, { t, formatHalfLife, nav: opts.nav },
+      { twins: false }));
   for (const r of rows) {
     const row = h("div", "src-stat-row");
     const head = h("button", "src-stat-head");
@@ -6737,12 +6684,17 @@ function buildAboutSourcing(meta, opts = {}) {
     const detail = h("div", "src-ex-wrap");
     detail.hidden = true;
     detail.appendChild(h("div", "src-ex-counts", gradeCountsText(r)));
-    const example = (opts.data && opts.nav)
-      ? buildKindExample(r.kind, opts.data, opts.nav) : null;
-    if (example) detail.appendChild(example);
+    // The example is built on the first expand: it needs every node collected, and a
+    // visitor who never expands a bar should not pay for that walk.
+    let exampleBuilt = false;
 
     head.addEventListener("click", () => {
       const open = detail.hidden;
+      if (open && !exampleBuilt && opts.data && opts.nav) {
+        exampleBuilt = true;
+        const example = buildKindExample(r.kind, exampleRows());
+        if (example) detail.appendChild(example);
+      }
       detail.hidden = !open;
       head.setAttribute("aria-expanded", String(open));
     });
@@ -6808,14 +6760,17 @@ function buildAboutSourcing(meta, opts = {}) {
  * notion in quotation marks. Deliberately NOT an "A -> B" arrow: the quoted notion is
  * what makes each abstraction concrete ("Olanzapine" ... "Antagonist, 5-HT2A").
  *
+ * The node is a Data browser row (kinds.js exampleRow over collectNodes), so the
+ * popup example and the browser can never word the same node differently.
+ *
  * @param {string} kind    a provenance by_kind key (e.g. "drug_bindings")
- * @param {object} data    the normalized dataset (drugs / targets / structures / ...)
- * @param {object} nav     navigation callbacks, one per focusable entity kind; each
- *                         closes the popup and focuses the node (drug/target/structure/
- *                         circuit/group)
+ * @param {object[]} rows  collectNodes rows built with the popup's nav (each row's
+ *                         `go` closes the popup and focuses its owner)
  * @returns {HTMLElement|null} the example line, or null when this kind has no clean example
  */
-function buildKindExample(kind, data, nav) {
+function buildKindExample(kind, rows) {
+  const row = exampleRow(rows, kind);
+  if (!row) return null;
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -6824,314 +6779,17 @@ function buildKindExample(kind, data, nav) {
   };
   // Locale-aware quotation marks around the notion (French uses guillemets + NBSP).
   const fr = (document.documentElement.lang || "").startsWith("fr");
-  const quoted = (s) => (fr ? `« ${s} »` : `“${s}”`);
-
-  // Representative nodes: a recognizable one when present, else the first available, so
-  // the example is stable and never empty for a kind that has any data.
-  const pick = (arr, prefer) => (arr || []).find(prefer) || (arr || [])[0] || null;
-  const focusableDrugs = (data.drugs || []).filter((d) => d.focusable);
-  // The preferred example drug if it qualifies, else the first that does, else null.
-  // (`pick` falls back to the first drug whatever it carries, so it cannot be used
-  // when the example needs a field only some drugs have.)
-  const drugWith = (id, has) => focusableDrugs.find((x) => x.id === id && has(x))
-    || focusableDrugs.find(has) || null;
-  const drug = pick(focusableDrugs, (d) => d.id === "olanzapine");
-  const recTargets = (data.targets || []).filter((t) => t.kind === "receptor" && t.focusable);
-  const rec = pick(recTargets, (t) => t.id === "5ht2a");
-  const otherTargets = (data.targets || []).filter((t) => t.kind !== "receptor" && t.focusable);
-  const tgt = pick(otherTargets, (t) => t.id === "sert");
-  const structure = pick(data.structures, (s) => /hippocamp/i.test(s.id || ""));
-  const circuit = (data.circuits || [])[0] || null;
-  const group = pick(data.projectionGroups, (g) => g.mode === "kind");
-  const proj = pick(data.projections, (p) => data.byId && data.byId.get(p.from));
-
-  // Assemble "e.g. <subject-link> <quoted notion>". With quoteSubject, the subject name
-  // itself is the quoted notion (used for entity kinds like a circuit, where the node IS
-  // the named thing rather than a claim about another node).
-  const line = (subject, notion, onClick, quoteSubject) => {
-    const div = el("div", "src-ex");
-    div.appendChild(el("span", "src-ex-lead", `${t("about.exampleLead")} `));
-    const a = el("a", "src-ex-link", quoteSubject ? quoted(subject) : subject);
-    a.href = "#";
-    a.addEventListener("click", (e) => { e.preventDefault(); onClick && onClick(); });
-    div.appendChild(a);
-    if (notion) div.appendChild(el("span", "src-ex-notion", ` ${quoted(notion)}`));
-    return div;
-  };
-
-  const regionName = (id) => {
-    const s = id && data.byId && data.byId.get(id);
-    return s ? (s.base_name || s.name) : null;
-  };
-  // A density profile is keyed by structure *base*, which is only a byId key for a
-  // midline structure; a paired one resolves through its right hemisphere.
-  const baseLabel = (base) =>
-    regionName(base) || regionName(`${base}_R`) || base;
-  const firstAction = (d) => (d && d.bindings || []).find(
-    (b) => !b.affinity_only && b.actionLabel && b.targetName);
-
-  switch (kind) {
-    case "addons": {
-      // An addon names the node it annotates, so the example reads as that node
-      // saying the annotation: Paroxetine "Non-linear pharmacokinetics".
-      const a = (data.addons || []).find((x) => x.focus);
-      return a
-        ? line(a.ownerName, a.title || a.text,
-          () => nav[a.focus.nav](a.focus.arg))
-        : null;
-    }
-    case "drug_bindings": {
-      if (!drug) return null;
-      const b = firstAction(drug);
-      return b ? line(drug.name, `${b.actionLabel}, ${b.targetName}`, () => nav.drug(drug)) : null;
-    }
-    case "drug_binding_action": {
-      // The direction claim, so the example leads with the action a quote had to back:
-      // Olanzapine "Antagonist · D2".
-      const d = focusableDrugs.find((x) => {
-        const b = firstAction(x);
-        return b && (b.sources || []).length;
-      });
-      const b = d && firstAction(d);
-      return b
-        ? line(d.name, `${b.actionLabel} · ${b.targetName}`, () => nav.drug(d))
-        : null;
-    }
-    case "drug_nbn":
-      return drug && drug.nbn ? line(drug.name, drug.nbn, () => nav.drug(drug)) : null;
-    case "drug_brands": {
-      const brand = drug && (drug.brandNames || [])[0];
-      return brand ? line(drug.name, brand, () => nav.drug(drug)) : null;
-    }
-    case "drug_categories": {
-      const c = drug && (drug.categoryLabels || [])[0];
-      return c ? line(drug.name, c, () => nav.drug(drug)) : null;
-    }
-    case "drug_half_life": {
-      const d = drugWith("olanzapine", (x) => x.halfLife);
-      const s = d && d.halfLife && formatHalfLife(d.halfLife);
-      return s ? line(d.name, `T½ ${s}`, () => nav.drug(d)) : null;
-    }
-    case "drug_tmax": {
-      const d = drugWith("olanzapine", (x) => x.tmax);
-      const s = d && d.tmax && formatHalfLife(d.tmax);
-      return s ? line(d.name, `${t("drug.tmax")} ${s}`, () => nav.drug(d)) : null;
-    }
-    case "drug_formulations": {
-      const has = (x) => (x.formulations || []).length > 1;
-      const d = drugWith("quetiapine", has);
-      return d ? line(d.name, d.formulations.map((f) => f.label).join(", "),
-        () => nav.drug(d)) : null;
-    }
-    case "drug_first_approval": {
-      const d = drugWith("sertraline", (x) => x.firstApproval);
-      return d ? line(d.name, `${approvalLabel(d.firstApproval, t)} ${formatApproval(d.firstApproval)}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_prodrug": {
-      // e.g. Psilocybin "Prodrug: inactive itself, acts through its active metabolite".
-      const d = drugWith("psilocybin", (x) => x.prodrug);
-      return d ? line(d.name, t("drug.prodrug"), () => nav.drug(d)) : null;
-    }
-    case "drug_constituents": {
-      // e.g. Dimenhydrinate "Made of Diphenhydramine + 8-Chlorotheophylline".
-      const d = drugWith("dimenhydrinate", (x) => x.constituentsClaim);
-      return d ? line(d.name, t("drug.constituentsOf", { parts: d.constituents.join(" + ") }),
-        () => nav.drug(d)) : null;
-    }
-    case "drug_therapeutic_range": {
-      // e.g. Clozapine "Therapeutic range 350–600 ng/mL".
-      const d = drugWith("clozapine", (x) => x.therapeuticRange);
-      return d ? line(d.name, `${t("drug.therapeuticRange")} `
-        + formatRange(d.therapeuticRange, window.__I18N__.lang), () => nav.drug(d)) : null;
-    }
-    case "drug_alert_level": {
-      const d = drugWith("clozapine", (x) => x.alertLevel);
-      return d ? line(d.name, `${t("drug.alertLevel")} `
-        + formatAlert(d.alertLevel, window.__I18N__.lang), () => nav.drug(d)) : null;
-    }
-    case "drug_lipophilicity": {
-      // e.g. Citalopram "XLogP3 3.2".
-      const d = drugWith("citalopram", (x) => x.xlogp);
-      return d ? line(d.name, `${t("drug.xlogp")} `
-        + formatLogP(d.xlogp.value, window.__I18N__.lang), () => nav.drug(d)) : null;
-    }
-    case "drug_polar_surface": {
-      const d = drugWith("citalopram", (x) => x.tpsa);
-      return d ? line(d.name, `${t("drug.tpsa")} `
-        + formatTpsa(d.tpsa.value, window.__I18N__.lang), () => nav.drug(d)) : null;
-    }
-    case "drug_bbb": {
-      // e.g. Olanzapine "Brain entry BBB+ (logBB 0.78 to 0.8)".
-      const d = drugWith("olanzapine", (x) => x.bbb);
-      return d ? line(d.name, `${t("drug.bbb")} `
-        + formatBbb(d.bbb, t, window.__I18N__.lang), () => nav.drug(d)) : null;
-    }
-    case "drug_workup": {
-      // e.g. Lithium "Pre-treatment checks: blood count, before starting".
-      const d = drugWith("lithium", (x) => x.workup.length);
-      return d ? line(d.name, `${t("drug.workupShort")} ${formatWorkup(d.workup[0], t("drug.workupOnlyIf"))}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_withdrawals": {
-      const d = drugWith("nefazodone", (x) => x.withdrawals.length);
-      return d ? line(d.name, `${t("drug.withdrawn")} ${formatWithdrawal(d.withdrawals[0])}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_holders": {
-      const d = drugWith("quetiapine", (x) => x.holders.length);
-      return d ? line(d.name, `${t("drug.holders")} ${formatHolder(d.holders[0])}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_originator": {
-      const d = drugWith("haloperidol", (x) => x.originator);
-      return d ? line(d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_originator_country": {
-      const d = drugWith("citalopram", (x) => x.originator?.country);
-      return d ? line(d.name, `${t("drug.originator")} ${d.originator.country.label}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_enzymes": {
-      // A metabolism row: the drug is the clickable subject, the notion names the
-      // enzyme and the role, e.g. Fluoxetine "CYP2D6: Inhibitor".
-      const d = drugWith("fluoxetine", (x) => (x.enzymes || []).length);
-      const e = d && (d.enzymes || [])[0];
-      return e ? line(d.name, `${e.label}: ${e.roleLabel}`, () => nav.drug(d)) : null;
-    }
-    case "drug_enzyme_strength": {
-      // The tier that row states, which is the part the CYP quote gate never checked:
-      // e.g. Fluoxetine "CYP2D6: strong".
-      const d = pick(focusableDrugs,
-        (x) => (x.enzymes || []).some((e2) => e2.strengthLabel));
-      const e = d && (d.enzymes || []).find((e2) => e2.strengthLabel);
-      return e ? line(d.name, `${e.label}: ${e.strengthLabel}`,
-        () => nav.drug(d)) : null;
-    }
-    case "drug_metabolites": {
-      const d = drugWith("fluoxetine", (x) => (x.metabolites || []).length);
-      const m = d && (d.metabolites || [])[0];
-      return m ? line(d.name, m.name, () => nav.drug(d)) : null;
-    }
-    case "drug_metabolite_enzyme": {
-      // Which enzyme MAKES a metabolite: the parent drug is the clickable subject, the
-      // notion pairs the metabolite with its maker, e.g. Venlafaxine "O-desmethyl-
-      // venlafaxine: formed by CYP2D6".
-      let hit = null;
-      for (const d of focusableDrugs) {
-        for (const m of d.metabolites || []) {
-          const f = (m.formedBy || [])[0];
-          if (f) { hit = { d, m, f }; break; }
-        }
-        if (hit) break;
-      }
-      return hit
-        ? line(hit.d.name, `${hit.m.name}: ${t("drug.formedBy")} ${hit.f.label}`,
-          () => nav.drug(hit.d))
-        : null;
-    }
-    case "drug_metabolite_bindings": {
-      // A metabolite's own receptor binding: its parent drug is the clickable subject
-      // (the metabolite is listed under the drug's "Active metabolites"), the notion
-      // names the metabolite and its action, e.g. Nefazodone "mCPP: Agonist, 5-HT2C".
-      let hit = null;
-      for (const d of focusableDrugs) {
-        for (const m of d.metabolites || []) {
-          const b = (m.ownBindings || []).find(
-            (x) => !x.affinity_only && x.actionLabel && x.targetName);
-          if (b) { hit = { d, m, b }; break; }
-        }
-        if (hit) break;
-      }
-      return hit
-        ? line(hit.d.name, `${hit.m.name}: ${hit.b.actionLabel}, ${hit.b.targetName}`,
-          () => nav.drug(hit.d))
-        : null;
-    }
-    case "receptors":
-      return rec ? line(rec.name, rec.receptor.familyLabel, () => nav.target(rec)) : null;
-    case "receptor_class":
-      return rec ? line(rec.name, rec.receptor.classLabel, () => nav.target(rec)) : null;
-    case "receptor_sign":
-      return rec ? line(rec.name, rec.receptor.signLabel, () => nav.target(rec)) : null;
-    case "receptor_synaptic":
-      return rec ? line(rec.name, rec.receptor.synapticLabel, () => nav.target(rec)) : null;
-    case "receptor_locations": {
-      const rn = rec && regionName((rec.receptor.structureIds || [])[0]);
-      return rn ? line(rec.name, rn, () => nav.target(rec)) : null;
-    }
-    case "receptor_density": {
-      // Name the region the profile ranks highest: what a density node claims is *which*
-      // region stands out, so a bare receptor name would not show the claim.
-      const den = pick(recTargets, (t2) => t2.receptor && t2.receptor.densityInfo);
-      const top = den && den.receptor.densityInfo
-        && Object.keys(den.receptor.densityInfo.profile)[0];
-      return top ? line(den.name, baseLabel(top), () => nav.target(den)) : null;
-    }
-    case "targets":
-      return tgt ? line(tgt.name, tgt.typeLabel, () => nav.target(tgt)) : null;
-    case "target_locations": {
-      const rn = tgt && (tgt.locationNames || [])[0];
-      return rn ? line(tgt.name, rn, () => nav.target(tgt)) : null;
-    }
-    case "target_density": {
-      const den = pick(otherTargets, (t2) => t2.densityInfo);
-      const top = den && den.densityInfo && Object.keys(den.densityInfo.profile)[0];
-      return top ? line(den.name, baseLabel(top), () => nav.target(den)) : null;
-    }
-    case "receptor_effect": {
-      const eff = pick(recTargets, (t2) => (t2.effectInfo || []).length);
-      const e = eff && (eff.effectInfo || [])[0];
-      return e ? line(eff.name, `${e.label} (${e.modeLabel})`, () => nav.target(eff)) : null;
-    }
-    case "receptor_release_modulation": {
-      const rm = pick(recTargets, (t2) => (t2.modulationInfo || []).length);
-      const n = rm && (rm.modulationInfo || [])[0];
-      return n ? line(rm.name, t(`relmod.activation.${n.effect}`,
-        transmitterVars(n.transmitterLabel, ofNoun)), () => nav.target(rm)) : null;
-    }
-    case "receptor_demographic": {
-      const dt = pick(data.targets || [], (t2) => (t2.demographicInfo || []).length);
-      const n = dt && dt.demographicInfo[0];
-      return n ? line(dt.name, `${n.glyph} ${t(n.textKey, { where: "" })}`,
-        () => nav.target(dt)) : null;
-    }
-    case "target_polarity": {
-      const pol = pick(otherTargets, (t2) =>
-        t2.vesicular || t2.polaritySign || t2.polaritySynaptic || t2.polarityProvenance);
-      return pol ? line(pol.name, pol.typeLabel, () => nav.target(pol)) : null;
-    }
-    case "structures": {
-      if (!structure) return null;
-      const g = (data.meta.groupLabels || {})[structure.group] || structure.group;
-      return line(structure.base_name || structure.name, g, () => nav.structure(structure.id));
-    }
-    case "projections": {
-      if (!proj) return null;
-      const notion = (data.meta.signLabels || {})[proj.kind] || proj.neurotransmitter || proj.kind;
-      const subj = regionName(proj.from) || proj.from;
-      return line(subj, notion, () => nav.structure(proj.from));
-    }
-    // The two sub-claims of a pathway: the example names the arrow and then the one
-    // thing this node asserts about it, so a reader sees which part is being graded.
-    case "projection_transmitter": {
-      const p2 = pick(data.projections || [], (x) => (x.claims || {}).transmitter);
-      return p2 ? line(p2.label, p2.neurotransmitter || p2.kind,
-        () => nav.connection(p2)) : null;
-    }
-    case "projection_sign": {
-      const p2 = pick(data.projections || [], (x) => (x.claims || {}).sign);
-      return p2 ? line(p2.label, (data.meta.signLabels || {})[p2.sign] || p2.sign,
-        () => nav.connection(p2)) : null;
-    }
-    case "circuits":
-      return circuit ? line(circuit.name, null, () => nav.circuit(circuit), true) : null;
-    case "projection_groups":
-      return group ? line(group.name, null, () => nav.group(group), true) : null;
-    default:
-      return null;
-  }
+  const quoted = (s) => (fr ? `\u00ab\u00a0${s}\u00a0\u00bb` : `\u201c${s}\u201d`);
+  // A row with no notion is a node that IS the named thing (a circuit, a group), so
+  // its subject itself is quoted.
+  const div = el("div", "src-ex");
+  div.appendChild(el("span", "src-ex-lead", `${t("about.exampleLead")} `));
+  const a = el("a", "src-ex-link", row.notion ? row.name : quoted(row.name));
+  a.href = "#";
+  a.addEventListener("click", (e) => { e.preventDefault(); row.go(); });
+  div.appendChild(a);
+  if (row.notion) div.appendChild(el("span", "src-ex-notion", ` ${quoted(row.notion)}`));
+  return div;
 }
 
 /** Wire the DOM controls to the scene behaviors. */
@@ -9362,15 +9020,28 @@ async function main() {
   // coverage tally) from the dataset's meta. `nav` lets an expanded kind's example node
   // jump to the real entity: each callback closes the popup first so the focus is
   // visible behind it, then focuses the drug / target / structure / circuit / group.
-  const sourcingNav = {
-    drug: (d) => { sourcingModal.close(); focusDrug(d, { frame: true }); },
-    target: (tg) => { sourcingModal.close(); focusTarget(tg, { frame: true }); },
+  // One nav for every node row: the Data browser's rows, and (each wrapped to close
+  // the popup first, so the focus is visible behind it) the Sources popup's examples.
+  // A projection row isolates the arrow that carries it.
+  const nodeNav = {
+    drug: (d, opts) => focusDrug(d, { frame: true, ...opts }),
+    target: (tg) => focusTarget(tg, { frame: true }),
     structure: (id) => {
       const mesh = meshById.get(id);
-      if (mesh) { sourcingModal.close(); selectStructure(mesh, { frame: true }); }
+      if (mesh) selectStructure(mesh, { frame: true });
     },
-    circuit: (c) => { sourcingModal.close(); focusCircuit(c, { frame: true }); },
-    group: (g) => { sourcingModal.close(); focusProjectionGroup(g, { frame: true }); },
+    connection: (proj) => {
+      const arrow = arrows.find((a) => a.projection === proj);
+      if (arrow) selectConnection(arrow, { frame: true, isolate: true });
+    },
+    circuit: (c) => focusCircuit(c, { frame: true }),
+    group: (g) => focusProjectionGroup(g, { frame: true }),
+  };
+  const sourcingNav = {
+    ...Object.fromEntries(Object.entries(nodeNav).map(([k, go]) => [k, (...args) => {
+      sourcingModal.close();
+      go(...args);
+    }])),
     // Not an example node but the whole list: the popup's "Open the Data browser"
     // line. Reads `showNodeBrowser` at call time, since it is only assigned below.
     browser: () => { sourcingModal.close(); showNodeBrowser(); },
@@ -9382,9 +9053,8 @@ async function main() {
   // rows want the whole pane; its DOM is a detached container the browser owns, so
   // the filter text, the selects and the scroll position all survive a tab switch
   // (the panel only hosts it, see info.showNodeBrowser).
-  // Its nav is the sourcing one minus the popup closing (a browser row is already in
-  // the open panel), plus a connection callback the popup has no example for: a
-  // projection row isolates the arrow that carries it.
+  // Its nav is `nodeNav` above (a browser row is already in the open panel, so no
+  // popup to close).
   // Its tab key. Unlike every other detail tab this one identifies a *view*, not a
   // node, so it carries no id; the deep-link layer maps it to `#browser=1`.
   const NODES_TAB_KEY = "browser:1";
@@ -9401,20 +9071,7 @@ async function main() {
       deps: {
         t,
         formatHalfLife,
-        nav: {
-          drug: (d, opts) => focusDrug(d, { frame: true, ...opts }),
-          target: (tg) => focusTarget(tg, { frame: true }),
-          structure: (id) => {
-            const mesh = meshById.get(id);
-            if (mesh) selectStructure(mesh, { frame: true });
-          },
-          connection: (proj) => {
-            const arrow = arrows.find((a) => a.projection === proj);
-            if (arrow) selectConnection(arrow, { frame: true, isolate: true });
-          },
-          circuit: (c) => focusCircuit(c, { frame: true }),
-          group: (g) => focusProjectionGroup(g, { frame: true }),
-        },
+        nav: nodeNav,
       },
       ui: {
         pill: info.provenancePill,
