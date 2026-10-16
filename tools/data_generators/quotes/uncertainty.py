@@ -293,7 +293,8 @@ def _uncertainty_bullet(kind: str, *, what: str, node: dict[str, Any] | None = N
             f"{what} uncertainty bullet {kind!r} resolves to no source "
             f"(it cites {spec['source']!r}, which this node does not carry). "
             f"Every bullet must be sourced or declare absence=True.")
-    out["sources"] = [dict(src)]
+    # A list (``contradicted`` with several denials) cites them all in one bullet.
+    out["sources"] = [dict(x) for x in (src if isinstance(src, list) else [src])]
     return out
 
 
@@ -580,92 +581,39 @@ def _set_claim_candidates(p: dict[str, Any]):
         yield claim, entry.get("sources") or []
 
 
-def _flag_contradicted(table: dict[tuple, dict[str, Any]],
-                       nodes: dict[tuple, dict[str, Any] | None],
-                       label: str) -> None:
-    """Attach the ``contradicted`` bullet to every node a curated table names, in place.
+def contradicted_sources(entry: dict[str, Any] | list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """A :data:`~.contradictions.CONTRADICTIONS` value as a list (one source or several)."""
+    return [entry] if isinstance(entry, dict) else list(entry)
 
-    ``nodes`` maps each table key to the node it doubts (a metabolism row, a strength
-    sub-claim, a receptor classification sub-claim), or ``None`` when the dataset no
-    longer emits it. Raises on such a key, so a fetcher re-run cannot quietly drop the
+
+def apply_contradictions(nodes: dict[str, dict[str, Any]], ambiguous: set[str] = frozenset(),
+                         table: dict[str, Any] | None = None) -> None:
+    """Attach the ``contradicted`` bullet to every node the curated table names, in place.
+
+    The odd one out among the appliers here: the others *derive* their flags by looking
+    across siblings, while this one reads a hand-written table
+    (``quotes/contradictions.py``), because the derivation's false-positive rate makes it
+    worse than silence. See that module for the near misses that decided it.
+
+    ``nodes`` / ``ambiguous`` are ``citation_site.node_index`` over the records about to
+    be written, so one pass covers every node kind. Must run after every pass that
+    *assigns* ``uncertainty`` (the bullet is appended) and after
+    ``attestation.apply_enzyme_strength_claims`` (which creates ``claims.strength``).
+    Raises on a site naming no node, or two, so a fetcher re-run cannot quietly drop the
     doubted claim and leave the contradiction unrecorded.
     """
-    for key, source in table.items():
-        node = nodes.get(key)
+    if table is None:
+        from .contradictions import CONTRADICTIONS as table
+    for key, entry in table.items():
+        node = None if key in ambiguous else nodes.get(key)
         if node is None:
             raise KeyError(
-                f"{label} names {key}, which matches no emitted node. Either the claim "
-                f"it contradicts is gone (drop the entry) or a fetcher stopped emitting "
-                f"it (fix that first): a contradiction with nothing to contradict marks "
-                f"nothing.")
+                f"CONTRADICTIONS names {key!r}, which matches "
+                f"{'two emitted nodes' if key in ambiguous else 'no emitted node'}. Either "
+                f"the claim it contradicts is gone (drop the entry), a fetcher stopped "
+                f"emitting it (fix that first), or the site is a flat facet with no node "
+                f"of its own: a contradiction with nothing to contradict marks nothing.")
         # Appended, not assigned: a binding may already carry derived bullets.
         node["uncertainty"] = [*(node.get("uncertainty") or []), _uncertainty_bullet(
-            "contradicted", what=f"{label} {key}", node=node, source=source)]
-
-
-def apply_enzyme_uncertainty(drugs: list[dict[str, Any]]) -> None:
-    """Flag every metabolism row another corpus denies, in place.
-
-    The odd one out among the appliers here: the other three *derive* their flags by
-    looking across siblings, while this one reads a hand-written table
-    (``quotes/contradictions.py``), because the derivation's false-positive rate makes it
-    worse than silence. See that module for the three near misses that decided it.
-    """
-    from .contradictions import ENZYME_CONTRADICTIONS
-
-    rows = {(d["id"], e["enzyme"], e["role"]): e
-            for d in drugs for e in d.get("enzymes", []) or []}
-    _flag_contradicted(ENZYME_CONTRADICTIONS, rows, "ENZYME_CONTRADICTIONS")
-
-
-def apply_enzyme_strength_uncertainty(drugs: list[dict[str, Any]]) -> None:
-    """Flag every metabolism TIER sub-claim another corpus states otherwise, in place.
-
-    Must run after ``attestation.apply_enzyme_strength_claims``, which creates the
-    ``claims.strength`` entry the bullet rides on (the row's isoform claim is not the
-    one in doubt, so its own pill stays as graded).
-    """
-    from .contradictions import ENZYME_STRENGTH_CONTRADICTIONS
-
-    claims = {(d["id"], e["enzyme"], e["role"]): (e.get("claims") or {}).get("strength")
-              for d in drugs for e in d.get("enzymes", []) or []}
-    _flag_contradicted(ENZYME_STRENGTH_CONTRADICTIONS, claims,
-                       "ENZYME_STRENGTH_CONTRADICTIONS")
-
-
-def apply_binding_contradictions(drugs: list[dict[str, Any]]) -> None:
-    """Flag every drug binding another corpus describes otherwise, in place.
-
-    Must run after :func:`apply_binding_uncertainty`, which assigns the derived bullets
-    this one is appended to.
-    """
-    from .contradictions import BINDING_CONTRADICTIONS
-
-    bindings = {(d["id"], b["target"]): b for d in drugs for b in d.get("bindings", []) or []}
-    _flag_contradicted(BINDING_CONTRADICTIONS, bindings, "BINDING_CONTRADICTIONS")
-
-
-def apply_metabolite_contradictions(drugs: list[dict[str, Any]]) -> None:
-    """Flag every per-parent metabolite link another corpus denies is active, in place.
-
-    The bullet rides on the drug's ``metabolites[]`` entry (the "X is an active
-    metabolite of <drug>" claim), not on the shared metabolite record, so a metabolite
-    reached from two parents is doubted only where the denial applies.
-    """
-    from .contradictions import METABOLITE_CONTRADICTIONS
-
-    links = {(d["id"], m["id"]): m for d in drugs for m in d.get("metabolites", []) or []}
-    _flag_contradicted(METABOLITE_CONTRADICTIONS, links, "METABOLITE_CONTRADICTIONS")
-
-
-def apply_receptor_uncertainty(receptors: list[dict[str, Any]]) -> None:
-    """Flag every receptor classification sub-claim another corpus denies, in place.
-
-    The bullet rides on ``classification[attr]``, so only the doubted attribute's pill
-    turns orange (the four attributes are separate nodes).
-    """
-    from .contradictions import RECEPTOR_CONTRADICTIONS
-
-    entries = {(r["id"], attr): entry for r in receptors
-               for attr, entry in (r.get("classification") or {}).items()}
-    _flag_contradicted(RECEPTOR_CONTRADICTIONS, entries, "RECEPTOR_CONTRADICTIONS")
+            "contradicted", what=f"CONTRADICTIONS {key}", node=node,
+            source=contradicted_sources(entry))]

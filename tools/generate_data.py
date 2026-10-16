@@ -201,6 +201,7 @@ from data_generators.quote_table import (  # noqa: E402
 import sys  # noqa: E402
 sys.path.insert(0, str(Path(__file__).resolve().parent / "sourcing"))
 import claim_walk as CW  # noqa: E402
+import citation_site as CS  # noqa: E402
 
 # The per-version "what's new" bullets, authored under docs/changelog/ and emitted
 # to public/data/changelog.json (docs/ is not web-exposed, so the emit is what makes
@@ -261,12 +262,8 @@ from data_generators.quotes import (  # noqa: E402
     UNCERTAINTY_REASONS,
 )
 from data_generators.quotes.uncertainty import (  # noqa: E402
-    apply_binding_contradictions,
-    apply_metabolite_contradictions,
     apply_binding_uncertainty,
-    apply_enzyme_strength_uncertainty,
-    apply_enzyme_uncertainty,
-    apply_receptor_uncertainty,
+    apply_contradictions,
     apply_set_claim_uncertainty,
     apply_projection_uncertainty,
 )
@@ -1802,9 +1799,6 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
             raise KeyError(f"Duplicate receptor id {rec['id']!r}")
         seen_receptor_ids.add(rec["id"])
         receptors.append(_receptor_record(rec, receptor_bases))
-    # A classification attribute another corpus states otherwise keeps our value and
-    # wears the "contradicted" badge (quotes/contradictions.py).
-    apply_receptor_uncertainty(receptors)
 
     # Drugs: authored in tools/data/drugs_data.jsonl, validated against the drug
     # vocabularies + the merged target map (DRUG_TARGETS + receptor ids). Every
@@ -1846,24 +1840,22 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     # bullets look across bindings (how many monographs print the same sentence, and how
     # many subtypes one sentence covers). See the module.
     apply_binding_uncertainty(drugs)
-    # ... plus a binding another corpus describes otherwise (quotes/contradictions.py).
-    apply_binding_contradictions(drugs)
-    # ... and an active-metabolite link another corpus denies is active.
-    apply_metabolite_contradictions(drugs)
     # UNKNOWN: a binding direction (or a receptor's effects) every reachable source was
     # searched for, with no hit (a recorded search log, see data_generators/unknown.py).
     # After the uncertainty pass so it only ever stamps a still-affinity-only binding.
     apply_unknown(drugs, metabolites, receptors=receptors, targets=drug_targets)
-    # The same badge over the metabolism rows, from a hand-written table rather than a
-    # derivation (see quotes/contradictions.py): a corpus denying what another states is
-    # the one doubt this dataset cannot resolve, so both ship and the row says so.
-    apply_enzyme_uncertainty(drugs)
     # Split the metabolism row's compound claim the way the pathways' one is split: the
     # CYP quote gate only ever checked that the quote names the isoform, so the strength
     # tier (which the interaction reading leans on) rode a check nothing had given it.
     apply_enzyme_strength_claims(drugs)
-    # ... and a tier another corpus states otherwise is flagged on that sub-claim only.
-    apply_enzyme_strength_uncertainty(drugs)
+    # The "contradicted" badge, from a hand-written table keyed by citation site rather
+    # than a derivation (see quotes/contradictions.py): a corpus denying what another
+    # states is the one doubt this dataset cannot resolve, so both ship and the node says
+    # so. One pass over every node kind; after the strength split it may land on.
+    apply_contradictions(*CS.node_index(
+        drugs=drugs, metabolites=metabolites, receptors=receptors, targets=drug_targets,
+        projections=projections, circuits=circuits, groups=projection_groups,
+        structures=structures))
     # Last of the uncertainty passes (the others assign, this one appends): a claim whose
     # every species-recording source is a non-primate animal says so (rat, cat ...).
     flagged = apply_animal_evidence(drugs=drugs, metabolites=metabolites,

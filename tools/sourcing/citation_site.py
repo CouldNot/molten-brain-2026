@@ -254,6 +254,97 @@ def resolve(root: str, path: list) -> str | None:
     return fn(path) if fn else None
 
 
+# ---------------------------------------------------------------------------
+# The emitted side: site -> the node dict a claim lives on.
+#
+# The third reader of the grammar: a curated table keyed by site (the ``contradicted``
+# entries, ``data_generators/quotes/contradictions.py``) needs the very dict a bullet
+# can be attached to, in the generator's in-memory records or in the emitted data
+# (the shapes are the same, only the sources differ). Only node-shaped sites are
+# listed: a flat ``*_sources`` facet (``half_life``, ``tmax``, ``nbn`` ...) has no dict
+# of its own to carry an ``uncertainty`` list, so it is absent here and a table entry
+# naming one fails as unresolved rather than landing on the wrong owner.
+# ---------------------------------------------------------------------------
+
+def node_index(*, drugs=(), metabolites=(), receptors=(), targets=None,
+               projections=(), circuits=(), groups=(), structures=()):
+    """``(nodes, ambiguous)``: every node-shaped site -> its dict, plus the sites two
+    nodes share (a duplicated binding row), which no entry may name.
+
+    ``targets`` is the ``drug_targets`` map (id -> record). Keys mirror the claim walk
+    (``claim_walk.reconstruct_claims``) exactly; ``test_citation_site`` holds them to it.
+    """
+    # Lazily, like _owner_keyed: the authoring resolvers above need none of it.
+    from data_generators import demographics as DEMOG
+    from data_generators import release_modulation as RELMOD
+    nodes: dict[str, dict] = {}
+    ambiguous: set[str] = set()
+
+    def put(s: str, node) -> None:
+        if not isinstance(node, dict):
+            return
+        if s in nodes and nodes[s] is not node:
+            ambiguous.add(s)
+        nodes[s] = node
+
+    def owner_nodes(kind: str, oid: str, rec: dict) -> None:
+        # The facets receptors and non-receptor targets share.
+        for e in rec.get("effects") or []:
+            put(site(kind, oid, "effects", f"{e['mode']}:{e['effect']}"), e)
+        for n in rec.get("demographics") or []:
+            put(site(kind, oid, "demographics",
+                     DEMOG.node_key(n["factor"], n["direction"], n.get("structure"))), n)
+
+    for d in drugs:
+        did = d["id"]
+        for b in d.get("bindings") or []:
+            put(site("drug", did, f"bindings[{binding_key(b)}]"), b)
+        for e in d.get("enzymes") or []:
+            key = f"enzymes[{enzyme_key(e)}]"
+            put(site("drug", did, key), e)
+            put(site("drug", did, f"{key}/strength"), (e.get("claims") or {}).get("strength"))
+        for m in d.get("metabolites") or []:
+            put(site("drug", did, f"metabolites[{m['id']}]"), m)
+            for fb in m.get("formed_by") or []:
+                put(site("drug", did, f"metabolites[{m['id']}]/formed_by[{fb['enzyme']}]"), fb)
+        for holder in [d, *(d.get("formulations") or [])]:
+            fac = f"formulations[{holder['release']}]/" if holder.get("release") else ""
+            for br in holder.get("brands") or []:
+                put(site("drug", did, f"{fac}brands[{br['name']}]"), br)
+        for w in d.get("withdrawals") or []:
+            put(site("drug", did, f"withdrawals[{withdrawal_key(w)}]"), w)
+        for w in d.get("workup") or []:
+            put(site("drug", did, f"workup[{workup_key(w)}]"), w)
+        for h in d.get("holders") or []:
+            put(site("drug", did, f"holders[{h['market']}]"), h)
+    for m in metabolites:
+        for b in m.get("bindings") or []:
+            put(site("metabolite", m["id"], f"bindings[{binding_key(b)}]"), b)
+    for r in receptors:
+        for attr, entry in (r.get("classification") or {}).items():
+            put(site("receptor", r["id"], "classification", attr), entry)
+        owner_nodes("receptor", r["id"], r)
+        for n in r.get("release_modulation") or []:
+            where = n.get("site") or {}
+            put(site("receptor", r["id"], "release_modulation", RELMOD.node_key(
+                kind=n["kind"], structure=where.get("structure"), cell=where.get("cell"),
+                modulates=n["modulates"], effect=n["effect_of_activation"])), n)
+    for tid, t in (targets or {}).items():
+        owner_nodes("target", tid, t)
+    for p in projections:
+        pid = f"{p['from']}->{p['to']}"
+        put(site("projection", pid), p)
+        for facet, claim in (p.get("claims") or {}).items():
+            put(site("projection", pid, facet), claim)
+    for c in circuits:
+        put(site("circuit", c["id"]), c)
+    for g in groups:
+        put(site("group", f"{g['mode']}:{g['key']}"), g)
+    for s in structures:
+        put(site("structure", s["id"]), s)
+    return nodes, ambiguous
+
+
 def member_label(obj, index: int) -> str:
     """How a list member is named in a path: by what it *is*, not where it sits.
 

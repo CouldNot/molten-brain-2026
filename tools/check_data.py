@@ -1217,7 +1217,7 @@ def quote_pages(node, corpus, out):
 
 
 def check_sources(report, meta, drugs, projections, structures, receptors, addons,
-                  metabolites=()):
+                  metabolites=(), circuits=(), groups=(), contradictions=()):
     """The core of the sourcing system: confirm every quote-level source (a
     binding's ``sources``, a drug's ``nbn_sources``, an enzyme's ``variability``
     sources, and a projection's quote-level ``sources``) is actually present in the
@@ -1378,6 +1378,8 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                              f"no source (an unattested sub-claim is "
                              f"{CLAIM_BASE_GRADE!r})")
 
+    gated = set()              # id() of every node whose bullets were gated below
+
     def check_uncertainty(what, node):
         """Gate the "uncertain" badge's bullets on any node that carries them.
 
@@ -1387,6 +1389,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
         SAY it is an absence of evidence rather than leave a silent blank. Shared by the
         drug bindings and the projections, which carry the same bullet shape.
         """
+        gated.add(id(node))
         for j, u in enumerate(node.get("uncertainty", []) or []):
             uctx = f"{what} uncertainty[{j}] ({u.get('kind')})"
             if u.get("kind") not in reason_kinds:
@@ -1511,7 +1514,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             for f in m.get("formed_by", []) or []:
                 for i, src in enumerate(f.get("sources", []) or []):
                     check_one(f"{mid} formed_by {f.get('enzyme')} sources[{i}]", src)
-            # A denial of the link (METABOLITE_CONTRADICTIONS), gated like the link.
+            # A denial of the link (CONTRADICTIONS), gated like the link.
             check_uncertainty(mid, m)
 
     for m in metabolites:
@@ -1824,6 +1827,27 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
     if report.errors == ki_before:
         report.ok(f"every checkable Ki annotation ({n_ki}) cites a real CSV row"
                   if n_ki else "no Ki annotations to verify yet")
+
+    # The curated "contradicted" table, keyed by citation site (any node kind): every
+    # site must still name exactly one emitted node, that node must wear the badge, and
+    # its denial quotes are gated here when no per-kind walk above reached the node.
+    nodes, ambiguous = CS.node_index(
+        drugs=drugs, metabolites=metabolites, receptors=receptors,
+        targets=meta.get("drug_targets") or {}, projections=projections,
+        circuits=circuits, groups=groups, structures=structures)
+    for site in contradictions:
+        node = None if site in ambiguous else nodes.get(site)
+        if node is None:
+            report.error(f"CONTRADICTIONS[{site!r}]: names "
+                         f"{'two emitted nodes' if site in ambiguous else 'no emitted node'}"
+                         f" (gone, renamed, or a flat facet): the contradiction marks "
+                         f"nothing")
+            continue
+        if not any(u.get("kind") == "contradicted" for u in node.get("uncertainty") or []):
+            report.error(f"CONTRADICTIONS[{site!r}]: the node carries no contradicted "
+                         f"bullet (stale data/: rerun tools/generate_data.py)")
+        if id(node) not in gated:
+            check_uncertainty(site, node)
 
     if unjudged:
         report.error(f"{len(unjudged)} LLM-picked quote citation(s) were never judged "
@@ -2151,6 +2175,11 @@ from data_generators import demographics as DEMOG  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the
 # grade and quote walks cannot skip a formulation's claims).
 from data_generators.provenance import product_holders  # noqa: E402
+# The curated contradictions, keyed by citation site and resolved through the one site
+# grammar (tools/sourcing/citation_site.py), exactly as the generator applies them.
+from data_generators.quotes.contradictions import CONTRADICTIONS  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent / "sourcing"))
+import citation_site as CS  # noqa: E402
 
 # The pathway per-claim word tests, imported for the same reason: family 5 re-runs the
 # very test that graded a transmitter/sign sub-claim, so a hand-edited or stale ``claims``
@@ -2885,7 +2914,7 @@ def main():
     check_todos(*args)
     check_provenance(*args, addons, metabolites)
     check_sources(report, meta, drugs, projections, structures, receptors, addons,
-                  metabolites)
+                  metabolites, circuits, projection_groups, CONTRADICTIONS)
     check_connectivity(report, structures, projections)
     check_ki_coverage(report, meta, drugs)
     check_flow_consistency(report, meta, drugs, projections, receptors)

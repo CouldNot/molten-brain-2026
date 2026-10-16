@@ -168,5 +168,51 @@ class BothEndsAgreeTest(unittest.TestCase):
                             f"{shown}, so a verdict cannot reach that claim")
 
 
+class NodeIndexTest(unittest.TestCase):
+    """``CS.node_index`` (site -> node dict, what a ``contradicted`` entry is resolved
+    through) must spell every site the claim walk spells, or an entry copied off a judge
+    batch would resolve to nothing."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.quotes, cls.emitted = _emitted_sites()
+        data = {n: R._jsonl(f"{n}.jsonl") for n in
+                ("drugs", "metabolites", "receptors", "projections", "circuits",
+                 "projection_groups", "structures")}
+        with open(os.path.join(R.DATA, "meta.json"), encoding="utf-8") as fh:
+            targets = json.load(fh)["drug_targets"]
+        cls.nodes, cls.ambiguous = CS.node_index(
+            drugs=data["drugs"], metabolites=data["metabolites"],
+            receptors=data["receptors"], targets=targets,
+            projections=data["projections"], circuits=data["circuits"],
+            groups=data["projection_groups"], structures=data["structures"])
+
+    def test_it_reaches_every_node_kind_it_claims(self):
+        heads = {s.split("/", 1)[0].split(":", 1)[0] + "/" + s.split("/", 1)[1].split("[", 1)[0]
+                 for s in self.nodes if "/" in s}
+        for want in ("drug/bindings", "drug/enzymes", "drug/metabolites", "drug/workup",
+                     "drug/withdrawals", "drug/holders", "drug/brands",
+                     "metabolite/bindings", "receptor/classification", "receptor/effects",
+                     "receptor/release_modulation", "receptor/demographics"):
+            self.assertIn(want, heads)
+        self.assertIn("drug:amisulpride/bindings[d2:partial_agonist]", self.nodes)
+        self.assertIsNot(self.nodes["drug:amisulpride/bindings[d2:partial_agonist]"],
+                         self.nodes["drug:amisulpride/bindings[d2:antagonist]"])
+
+    def test_every_sourced_node_site_is_one_the_claim_walk_names(self):
+        walked = set().union(*self.emitted.values())
+        stray = [s for s, node in self.nodes.items()
+                 if any(isinstance(x, dict) and x.get("quote_id")
+                        and self.quotes.get(x["quote_id"], {}).get("corpus")
+                        not in UNJUDGED_CORPORA
+                        for x in node.get("sources") or [])
+                 and s not in walked]
+        self.assertEqual(stray, [], "node_index spells these sites differently from "
+                                    "the claim walk")
+
+    def test_no_emitted_site_is_ambiguous(self):
+        self.assertEqual(sorted(self.ambiguous), [])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

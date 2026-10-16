@@ -805,99 +805,79 @@ class AddonTest(unittest.TestCase):
                          c["total"])
 
 
-class EnzymeContradictionTest(unittest.TestCase):
-    """The ``contradicted`` badge (tools/data_generators/quotes/contradictions.py):
-    a metabolism row another corpus denies.
+class ContradictionTest(unittest.TestCase):
+    """The ``contradicted`` badge (tools/data_generators/quotes/contradictions.py): one
+    hand-written table keyed by citation site, one apply pass over every node kind.
 
-    Unlike the three derived uncertainty flags, this table is hand-written, so its
-    failure mode is a *stale* entry: a fetcher re-run drops the row the entry doubts
-    and the contradiction silently marks nothing. The applier raises instead, and
-    these tests hold it to that, plus the tally contract (a flagged row buckets as
-    uncertain however strong its own quote is)."""
+    Unlike the derived uncertainty flags its failure mode is a *stale* entry: a fetcher
+    re-run drops the node an entry doubts and the contradiction silently marks nothing.
+    The applier raises instead, and these tests hold it to that, to the precision of the
+    site (a sub-claim, one binding of two on a target), and to the tally contract."""
 
     @classmethod
     def setUpClass(cls):
         sys.path.insert(0, str(REPO_ROOT / "tools"))
+        sys.path.insert(0, str(REPO_ROOT / "tools" / "sourcing"))
+        sys.path.insert(0, str(REPO_ROOT / "tools" / "fetch"))
+        import citation_site as CS
         from data_generators.quotes import contradictions, uncertainty
-        cls.table = contradictions.ENZYME_CONTRADICTIONS
-        cls.apply = staticmethod(uncertainty.apply_enzyme_uncertainty)
+        cls.CS = CS
+        cls.table = contradictions.CONTRADICTIONS
+        cls.uncertainty = uncertainty
         cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
+        cls.receptors = {r["id"]: r for r in _load_jsonl(DATA_DIR / "receptors.jsonl")}
         cls.meta = json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8"))
+        cls.nodes, cls.ambiguous = CS.node_index(
+            drugs=cls.drugs, metabolites=_load_jsonl(DATA_DIR / "metabolites.jsonl"),
+            receptors=list(cls.receptors.values()), targets=cls.meta["drug_targets"],
+            projections=_load_jsonl(DATA_DIR / "projections.jsonl"))
+        cls.quotes = {q["id"]: q for q in _load_jsonl(DATA_DIR / "quotes.jsonl")}
 
-    def _rows(self):
-        return {(d["id"], e["enzyme"], e["role"]): e
-                for d in self.drugs for e in d.get("enzymes", []) or []}
+    def _sites(self, fragment):
+        return [k for k in self.table if fragment in k]
 
-    def test_every_curated_contradiction_lands_on_an_emitted_row(self):
-        rows = self._rows()
+    def test_every_entry_lands_on_its_node_citing_the_denial(self):
         self.assertTrue(self.table, "no contradictions curated at all")
-        for key in self.table:
-            self.assertIn(key, rows, f"{key} names no emitted enzyme row")
-            self.assertTrue(rows[key].get("uncertainty"),
-                            f"{key} is curated but its row carries no badge")
+        for key, entry in self.table.items():
+            self.assertNotIn(key, self.ambiguous, f"{key} names two nodes")
+            self.assertIn(key, self.nodes, f"{key} names no emitted node")
+            bullets = [b for b in self.nodes[key].get("uncertainty", [])
+                       if b["kind"] == "contradicted"]
+            self.assertEqual(len(bullets), 1, f"{key} carries no (or two) badges")
+            cited = [self.quotes[s["quote_id"]]["quote"] for s in bullets[0]["sources"]]
+            want = [s["quote"] for s in self.uncertainty.contradicted_sources(entry)]
+            self.assertEqual(cited, want, f"{key} bullet does not cite the denial")
 
-    def test_the_badge_cites_the_denial_not_the_claim(self):
-        rows = self._rows()
-        quotes = {q["id"]: q for q in _load_jsonl(DATA_DIR / "quotes.jsonl")}
-        for key, source in self.table.items():
-            bullets = rows[key]["uncertainty"]
-            self.assertEqual([b["kind"] for b in bullets], ["contradicted"])
-            cited = [quotes[s["quote_id"]]["quote"] for s in bullets[0]["sources"]]
-            self.assertEqual(cited, [source["quote"]],
-                             f"{key} bullet does not cite the denying sentence")
+    def test_the_migrated_entries_kept_their_sites(self):
+        # One per kind the five per-kind tables used to hold (binding, metabolite link,
+        # enzyme row, enzyme tier, receptor attribute).
+        for key in ("drug:etomidate/bindings[gaba_a:modulator]",
+                    "drug:olanzapinesamidorphan/metabolites[samidorphan_n_oxide]",
+                    "drug:fluoxetine/enzymes[cyp3a4:inhibitor]",
+                    "drug:sertraline/enzymes[cyp2d6:inhibitor]/strength",
+                    "receptor:5ht5a/classification[synaptic]"):
+            self.assertIn(key, self.table)
 
-    def test_a_contradiction_with_nothing_to_contradict_raises(self):
-        with self.assertRaises(KeyError):
-            self.apply([{"id": "fluoxetine", "enzymes": []}])
+    def test_receptor_bullet_rides_on_the_attribute_only(self):
+        for key in self._sites("/classification["):
+            rid = key.split(":", 1)[1].split("/", 1)[0]
+            attr = key.rsplit("[", 1)[1].rstrip("]")
+            for other, entry in self.receptors[rid]["classification"].items():
+                if other != attr and f"receptor:{rid}/classification[{other}]" not in self.table:
+                    self.assertFalse(entry.get("uncertainty"), f"{rid}/{other} leaked")
 
-    def test_a_flagged_row_buckets_as_uncertain(self):
+    def test_strength_bullet_rides_on_the_tier_not_the_row(self):
+        for key in self._sites("]/strength"):
+            self.assertFalse(self.nodes[key[:-len("/strength")]].get("uncertainty"),
+                             f"{key}: the row itself is flagged")
+
+    def test_a_flagged_enzyme_row_buckets_as_uncertain(self):
         c = self.meta["provenance_stats"]["by_kind"]["drug_enzymes"]
         flagged = sum(1 for d in self.drugs for e in d.get("enzymes", []) or []
                       if e.get("uncertainty"))
         self.assertEqual(c["uncertain"], flagged)
-        self.assertEqual(flagged, len(self.table))
-
-    def test_the_reason_kind_is_in_the_emitted_vocabulary(self):
-        self.assertIn("contradicted", self.meta["uncertainty_reasons"])
-
-
-class SubClaimContradictionTest(unittest.TestCase):
-    """The ``contradicted`` badge on a SUB-claim: a receptor classification attribute
-    (``RECEPTOR_CONTRADICTIONS``) or a metabolism row's tier
-    (``ENZYME_STRENGTH_CONTRADICTIONS``). The bullet must land on the doubted sub-claim
-    only (its owner's other claims keep their pills), and a doubted claim with no
-    document of its own must stay missing in the tally rather than be lifted into the
-    backed ``uncertain`` bucket by the denial."""
-
-    @classmethod
-    def setUpClass(cls):
-        sys.path.insert(0, str(REPO_ROOT / "tools"))
-        from data_generators.quotes import contradictions, uncertainty
-        cls.receptor_table = contradictions.RECEPTOR_CONTRADICTIONS
-        cls.strength_table = contradictions.ENZYME_STRENGTH_CONTRADICTIONS
-        cls.uncertainty = uncertainty
-        cls.receptors = {r["id"]: r for r in _load_jsonl(DATA_DIR / "receptors.jsonl")}
-        cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
-        cls.meta = json.loads((DATA_DIR / "meta.json").read_text(encoding="utf-8"))
-
-    def test_receptor_bullet_rides_on_the_attribute_only(self):
-        for (rid, attr) in self.receptor_table:
-            cls_ = self.receptors[rid]["classification"]
-            self.assertEqual([b["kind"] for b in cls_[attr].get("uncertainty", [])],
-                             ["contradicted"], f"{rid}/{attr} carries no badge")
-            for other, entry in cls_.items():
-                if other != attr and (rid, other) not in self.receptor_table:
-                    self.assertFalse(entry.get("uncertainty"), f"{rid}/{other} leaked")
-
-    def test_strength_bullet_rides_on_the_tier_not_the_row(self):
-        rows = {(d["id"], e["enzyme"], e["role"]): e
-                for d in self.drugs for e in d.get("enzymes", []) or []}
-        for key in self.strength_table:
-            row = rows[key]
-            self.assertEqual(
-                [b["kind"] for b in row["claims"]["strength"].get("uncertainty", [])],
-                ["contradicted"], f"{key} tier carries no badge")
-            self.assertFalse(row.get("uncertainty"), f"{key} row itself flagged")
+        rows = [k for k in self._sites("/enzymes[") if not k.endswith("/strength")]
+        self.assertEqual(flagged, len(rows))
 
     def test_an_llm_claim_denied_stays_missing(self):
         for kind, attr in (("receptor_sign", "sign"), ("receptor_synaptic", "synaptic")):
@@ -909,86 +889,68 @@ class SubClaimContradictionTest(unittest.TestCase):
             c = self.meta["provenance_stats"]["by_kind"][kind]
             self.assertEqual(c["uncertain"], backed_flagged, kind)
 
-    def test_a_stale_sub_claim_key_raises(self):
-        with self.assertRaises(KeyError):
-            self.uncertainty.apply_receptor_uncertainty([{"id": "a2a", "classification": {}}])
-        with self.assertRaises(KeyError):
-            self.uncertainty.apply_enzyme_strength_uncertainty([{"id": "sertraline",
-                                                                 "enzymes": []}])
+    def test_the_reason_kind_is_in_the_emitted_vocabulary(self):
+        self.assertIn("contradicted", self.meta["uncertainty_reasons"])
 
+    def _apply(self, table, **records):
+        self.uncertainty.apply_contradictions(*self.CS.node_index(**records), table=table)
 
-class BindingContradictionTest(unittest.TestCase):
-    """The ``contradicted`` badge on a drug binding (``BINDING_CONTRADICTIONS``): it must
-    land on the named binding, be APPENDED to any derived bullet the binding already
-    carries (never replace it), and a stale key must raise."""
-
-    @classmethod
-    def setUpClass(cls):
-        sys.path.insert(0, str(REPO_ROOT / "tools"))
-        from data_generators.quotes import contradictions, uncertainty
-        cls.table = contradictions.BINDING_CONTRADICTIONS
-        cls.uncertainty = uncertainty
-        cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
-
-    def test_every_entry_lands_on_its_binding(self):
-        bindings = {(d["id"], b["target"]): b for d in self.drugs
-                    for b in d.get("bindings", []) or []}
-        self.assertIn(("etomidate", "gaba_a"), self.table)
-        for key in self.table:
-            kinds = [b["kind"] for b in bindings[key].get("uncertainty", [])]
-            self.assertIn("contradicted", kinds, f"{key} carries no badge")
+    def test_any_node_kind_can_be_contradicted(self):
+        src = {"corpus": "wikipedia_pharm", "page": "x", "quote": "q", "provenance": "verified"}
+        drug = {"id": "x", "workup": [{"test": "ecg", "timing": "before", "sources": []}],
+                "bindings": [{"target": "d2", "action": "antagonist"},
+                             {"target": "d2", "action": "partial_agonist"}]}
+        rec = {"id": "h1", "classification": {},
+               "effects": [{"mode": "antagonism", "effect": "sedation", "sources": []}]}
+        met = {"id": "m", "bindings": [{"target": "h1", "action": "antagonist"}]}
+        self._apply({"drug:x/workup[ecg:before]": src,
+                     "drug:x/bindings[d2:partial_agonist]": [src, src],
+                     "receptor:h1/effects[antagonism:sedation]": src,
+                     "metabolite:m/bindings[h1:antagonist]": src},
+                    drugs=[drug], receptors=[rec], metabolites=[met])
+        self.assertEqual(drug["workup"][0]["uncertainty"][0]["kind"], "contradicted")
+        self.assertNotIn("uncertainty", drug["bindings"][0])
+        self.assertEqual(len(drug["bindings"][1]["uncertainty"][0]["sources"]), 2)
+        self.assertEqual(rec["effects"][0]["uncertainty"][0]["kind"], "contradicted")
+        self.assertEqual(met["bindings"][0]["uncertainty"][0]["kind"], "contradicted")
 
     def test_the_bullet_is_appended_not_assigned(self):
         derived = {"kind": "family_claim"}
-        drug = {"id": "etomidate", "bindings": [{"target": "gaba_a", "sources": [],
-                                                 "uncertainty": [derived]}]}
-        self.uncertainty.apply_binding_contradictions([drug])
+        drug = {"id": "etomidate", "bindings": [{"target": "gaba_a", "action": "modulator",
+                                                 "sources": [], "uncertainty": [derived]}]}
+        src = self.table["drug:etomidate/bindings[gaba_a:modulator]"]
+        self._apply({"drug:etomidate/bindings[gaba_a:modulator]": src}, drugs=[drug])
         kinds = [b["kind"] for b in drug["bindings"][0]["uncertainty"]]
         self.assertEqual(kinds, ["family_claim", "contradicted"])
 
-    def test_a_stale_binding_key_raises(self):
-        with self.assertRaises(KeyError):
-            self.uncertainty.apply_binding_contradictions([{"id": "etomidate",
-                                                            "bindings": []}])
-
-
-
-class MetaboliteContradictionTest(unittest.TestCase):
-    """The ``contradicted`` badge on a drug's active-metabolite link
-    (``METABOLITE_CONTRADICTIONS``): it lands on the per-parent link, the cited label is
-    never a Tmax source, and a stale key raises."""
-
-    @classmethod
-    def setUpClass(cls):
-        sys.path.insert(0, str(REPO_ROOT / "tools"))
-        sys.path.insert(0, str(REPO_ROOT / "tools" / "fetch"))
-        from data_generators.quotes import contradictions, uncertainty
-        cls.table = contradictions.METABOLITE_CONTRADICTIONS
-        cls.uncertainty = uncertainty
-        cls.drugs = _load_jsonl(DATA_DIR / "drugs.jsonl")
-
-    def test_every_entry_lands_on_its_link(self):
-        links = {(d["id"], m["id"]): m for d in self.drugs
-                 for m in d.get("metabolites", []) or []}
-        self.assertIn(("olanzapinesamidorphan", "samidorphan_n_oxide"), self.table)
-        for key in self.table:
-            kinds = [u["kind"] for u in links[key].get("uncertainty", [])]
-            self.assertEqual(kinds, ["contradicted"], f"{key} carries no badge")
-
-    def test_a_stale_link_key_raises(self):
-        with self.assertRaises(KeyError):
-            self.uncertainty.apply_metabolite_contradictions(
-                [{"id": "olanzapinesamidorphan", "metabolites": []}])
+    def test_a_site_with_nothing_to_contradict_raises(self):
+        src = {"corpus": "wikipedia_pharm", "page": "x", "quote": "q", "provenance": "verified"}
+        cases = [
+            # the node is gone (a fetcher re-run dropped the row)
+            ({"drug:fluoxetine/enzymes[cyp3a4:inhibitor]": src},
+             {"drugs": [{"id": "fluoxetine", "enzymes": []}]}),
+            # a flat *_sources facet has no node dict to carry the bullet
+            ({"drug:x/half_life": src},
+             {"drugs": [{"id": "x", "half_life": {"hours": 3}, "half_life_sources": []}]}),
+            # two rows at one site: the bullet would land on an arbitrary one
+            ({"drug:x/bindings[d2:antagonist]": src},
+             {"drugs": [{"id": "x", "bindings": [{"target": "d2", "action": "antagonist"},
+                                                 {"target": "d2", "action": "antagonist"}]}]}),
+        ]
+        for table, records in cases:
+            with self.subTest(next(iter(table))), self.assertRaises(KeyError):
+                self._apply(table, **records)
 
     def test_a_quote_label_is_never_a_tmax_source(self):
         # fetch_tmax reads only dailymed_labels.json: a combination label stored for one
         # quote must stay out of it, or its kinetics would be published as one drug's.
         import fetch_dailymed
         chosen = json.loads(fetch_dailymed.CACHE_PATH.read_text(encoding="utf-8"))
-        cited = {src["page"] for src in self.table.values() if src["corpus"] == "dailymed"}
+        cited = {src["page"] for entry in self.table.values()
+                 for src in self.uncertainty.contradicted_sources(entry)
+                 if src["corpus"] == "dailymed"}
         self.assertTrue(cited <= set(fetch_dailymed.QUOTE_LABELS))
         self.assertFalse({m["setid"] for m in chosen.values()} & set(fetch_dailymed.QUOTE_LABELS))
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

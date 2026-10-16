@@ -404,7 +404,8 @@ class UncertaintyBulletTest(unittest.TestCase):
                                "pdsp_ki": {"ref": "PDSP", "csv": "x.csv"}},
             "quote_pipelines": {"page_llm_judged": ["raw", "extract_llm",
                                                     "judge_llm", "neurarium"]},
-            "uncertainty_reasons": {"side_effect_rule": {}, "not_a_mechanism": {}}}
+            "uncertainty_reasons": {"side_effect_rule": {}, "not_a_mechanism": {},
+                                    "contradicted": {}}}
     # A subject-less side-effect rule: verbatim on the page, and it attributes
     # nothing. This is the shape the badge exists for.
     QUOTE = ("Blocking alpha 1 adrenergic receptors can cause dizziness, "
@@ -436,6 +437,29 @@ class UncertaintyBulletTest(unittest.TestCase):
             [{"kind": "not_a_mechanism", "absence": True,
               "sources": [{"corpus": "stahl", "page": 40, "quote": "x",
                        "pipeline": "page_llm_judged"}]}])), 1)
+
+    def _contradiction_errors(self, binding, site):
+        report = check_data.Report()
+        with redirect_stdout(io.StringIO()):
+            check_data.check_sources(report, self.META,
+                                     [{"id": "d", "bindings": [binding]}], [], [], [],
+                                     [], contradictions={site: {}})
+        return report.errors
+
+    def test_a_contradiction_site_must_name_a_flagged_node(self):
+        """CONTRADICTIONS is keyed by citation site: a site naming no emitted node
+        marks nothing, and a named node without its bullet means stale data/."""
+        flagged = self._binding([{"kind": "not_a_mechanism", "absence": True},
+                                 {"kind": "contradicted", "absence": True}])
+        flagged["action"] = "antagonist"
+        self.assertEqual(self._contradiction_errors(
+            flagged, "drug:d/bindings[alpha1a:antagonist]"), 0)
+        self.assertEqual(self._contradiction_errors(
+            flagged, "drug:d/bindings[alpha1a:agonist]"), 1)
+        bare = self._binding([{"kind": "not_a_mechanism", "absence": True}])
+        bare["action"] = "antagonist"
+        self.assertEqual(self._contradiction_errors(
+            bare, "drug:d/bindings[alpha1a:antagonist]"), 1)
 
     def test_kind_must_be_in_the_shipped_vocabulary(self):
         self.assertEqual(self._errors(self._binding(

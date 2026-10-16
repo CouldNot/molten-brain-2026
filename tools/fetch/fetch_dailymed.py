@@ -110,9 +110,9 @@ NON_PLAIN_ORAL = re.compile(
 QUOTE_LABELS: dict[str, str] = {
     # Lybalvi (olanzapine + samidorphan): its metabolism table states that neither
     # samidorphan metabolite contributes to the drug's effects, the denial
-    # METABOLITE_CONTRADICTIONS quotes against Stahl p.604's "active metabolites".
+    # CONTRADICTIONS quotes against Stahl p.604's "active metabolites".
     "32ffddd1-4e2b-45d9-9b36-bb730167ec80":
-        "Lybalvi: samidorphan's metabolites are inactive (METABOLITE_CONTRADICTIONS)",
+        "Lybalvi: samidorphan's metabolites are inactive (CONTRADICTIONS)",
 }
 
 _TAG = re.compile(r"<[^>]+>")
