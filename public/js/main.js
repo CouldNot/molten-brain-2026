@@ -2355,16 +2355,28 @@ function createInfoPanel(data, sourcingModal) {
     return h;
   };
 
-  // The shell every beta panel section shares (receptor_effect, release modulation):
-  // the .info-effects block with its beta heading, its caption and an empty list.
-  const betaSection = (tourSec, headingKey, hintKey, vars) => {
-    const sec = el("div", "info-locations info-effects");
+  // The shell every list section of a panel shares (effects, release modulation,
+  // demographics, variants, workup): a tour-anchored block, its heading (with the
+  // quiet "beta" tag unless `beta: false`), its caption, then either one list (`ul`)
+  // or, `grouped`, one sub-heading + list per `group(label)` call (a label string, or
+  // a ready heading node). `close()` appends the not-medical-advice style caveat
+  // (`caveatKey`) after the content and mounts the section on the panel.
+  const betaSection = (tourSec, headingKey, hintKey,
+    { vars, grouped = false, caveatKey = null, beta = true, cls = "info-effects" } = {}) => {
+    const sec = el("div", `info-locations ${cls}`);
     sec.dataset.tourSec = tourSec;
-    sec.appendChild(betaHeading(headingKey, vars));
+    sec.appendChild(beta ? betaHeading(headingKey, vars) : el("h3", null, t(headingKey, vars)));
     sec.appendChild(el("p", "legend-caption", t(hintKey)));
-    const ul = el("ul");
-    sec.appendChild(ul);
-    return { sec, ul };
+    const ul = grouped ? null : sec.appendChild(el("ul"));
+    const group = (label, headCls = "loc-group-label") => {
+      sec.appendChild(typeof label === "string" ? el("h4", headCls, label) : label);
+      return sec.appendChild(el("ul"));
+    };
+    const close = () => {
+      if (caveatKey) sec.appendChild(el("p", "var-caveat", t(caveatKey)));
+      body.appendChild(sec);
+    };
+    return { sec, ul, group, close };
   };
   // One derived "via" chip on a drug panel: the binding (jumps to its target) plus
   // the pill of the receptor-level node it was joined with.
@@ -2412,7 +2424,7 @@ function createInfoPanel(data, sourcingModal) {
   // pill naming that search; with neither, nothing.
   const appendEffects = (rows, unknown) => {
     if ((!rows || !rows.length) && !unknown) return;
-    const { sec, ul } = betaSection("effects", "effects.heading", "effects.hint");
+    const { ul, close } = betaSection("effects", "effects.heading", "effects.hint");
     if (!rows || !rows.length) {
       const li = el("li");
       li.appendChild(el("span", "loc-name", t("effects.unknown")));
@@ -2426,7 +2438,7 @@ function createInfoPanel(data, sourcingModal) {
       li.appendChild(nodePill(e));
       ul.appendChild(li);
     }
-    body.appendChild(sec);
+    close();
   };
 
   // The drug panel's derived "Possible effects via its bindings" (BETA): the drug's
@@ -2438,12 +2450,12 @@ function createInfoPanel(data, sourcingModal) {
   const appendPossibleEffects = (drug) => {
     const effects = data.possibleEffectsByDrug.get(drug.id) || [];
     if (!effects.length) return;
-    const { sec, ul } = betaSection("effects", "effects.drugHeading", "effects.drugHint");
+    const { ul, close } = betaSection("effects", "effects.drugHeading", "effects.drugHint");
     for (const e of effects) {
       ul.appendChild(derivedRow(effectLink(e.effect, t("effects.couldCause", { effect: e.label })),
         e.via));
     }
-    body.appendChild(sec);
+    close();
   };
 
   // " in <structure>" for a release-modulation line, or "" when the node names none.
@@ -2457,7 +2469,7 @@ function createInfoPanel(data, sourcingModal) {
   // + "heteroreceptor on GABA interneurons in VTA" with that node's own pill.
   const appendDownstream = (rows) => {
     if (!rows || !rows.length) return;
-    const { sec, ul } = betaSection("downstream", "relmod.heading", "relmod.hint");
+    const { ul, close } = betaSection("downstream", "relmod.heading", "relmod.hint");
     for (const n of rows) {
       const li = el("li", "eff-row");
       li.appendChild(el("span", "loc-name", t(`relmod.activation.${n.effect}`,
@@ -2467,7 +2479,7 @@ function createInfoPanel(data, sourcingModal) {
         { kind: n.kindLabel, cell: n.cellLabel, where: inStructure(n.structure) })));
       ul.appendChild(li);
     }
-    body.appendChild(sec);
+    close();
   };
 
   // A receptor / target panel's "Across age and sex" section (BETA): one row per
@@ -2476,7 +2488,7 @@ function createInfoPanel(data, sourcingModal) {
   // pill, and the paper's own magnitude wording under it when it states one.
   const appendDemographics = (rows) => {
     if (!rows || !rows.length) return;
-    const { sec, ul } = betaSection("demographics", "demog.heading", "demog.hint");
+    const { ul, close } = betaSection("demographics", "demog.heading", "demog.hint");
     for (const n of rows) {
       const li = el("li", "eff-row");
       li.appendChild(el("span", "demog-chip", `${n.glyph} ${n.factorLabel}`));
@@ -2487,7 +2499,7 @@ function createInfoPanel(data, sourcingModal) {
       }
       ul.appendChild(li);
     }
-    body.appendChild(sec);
+    close();
   };
 
   // One receptor_variant row: the evidence-level chip (its meaning on hover), the
@@ -2527,18 +2539,13 @@ function createInfoPanel(data, sourcingModal) {
   // with the not-medical-advice caveat once at the end.
   const appendVariants = (rows) => {
     if (!rows || !rows.length) return;
-    const sec = el("div", "info-locations info-variants");
-    sec.dataset.tourSec = "variants";
-    sec.appendChild(el("h3", null, t("variant.heading")));
-    sec.appendChild(el("p", "legend-caption", t("variant.hint")));
-    for (const group of groupByVariant(rows)) {
-      sec.appendChild(el("h4", "var-name", group.variant));
-      const ul = el("ul");
-      for (const row of group.rows) ul.appendChild(variantRow(row));
-      sec.appendChild(ul);
+    const { group, close } = betaSection("variants", "variant.heading", "variant.hint",
+      { beta: false, cls: "info-variants", grouped: true, caveatKey: "variant.caveat" });
+    for (const g of groupByVariant(rows)) {
+      const ul = group(g.variant, "var-name");
+      for (const row of g.rows) ul.appendChild(variantRow(row));
     }
-    sec.appendChild(el("p", "var-caveat", t("variant.caveat")));
-    body.appendChild(sec);
+    close();
   };
 
   // The drug panel's "Gene variants annotated for this drug": every receptor_variant
@@ -2547,10 +2554,8 @@ function createInfoPanel(data, sourcingModal) {
   const appendDrugVariants = (drug) => {
     const hits = variantsForDrug(drug.id, data.targets);
     if (!hits.length) return;
-    const sec = el("div", "info-locations info-variants");
-    sec.dataset.tourSec = "variants";
-    sec.appendChild(el("h3", null, t("variant.drugHeading")));
-    sec.appendChild(el("p", "legend-caption", t("variant.drugHint")));
+    const { group, close } = betaSection("variants", "variant.drugHeading", "variant.drugHint",
+      { beta: false, cls: "info-variants", grouped: true, caveatKey: "variant.caveat" });
     const byTarget = new Map();
     for (const { target, row } of hits) {
       if (!byTarget.has(target)) byTarget.set(target, []);
@@ -2563,13 +2568,10 @@ function createInfoPanel(data, sourcingModal) {
       if (target.focusable) chip.addEventListener("click", () => onTargetPick(target));
       else chip.disabled = true;
       head.appendChild(chip);
-      sec.appendChild(head);
-      const ul = el("ul");
+      const ul = group(head);
       for (const row of rows) ul.appendChild(variantRow(row, row.variant));
-      sec.appendChild(ul);
     }
-    sec.appendChild(el("p", "var-caveat", t("variant.caveat")));
-    body.appendChild(sec);
+    close();
   };
 
   // The drug panel's derived "Possible release changes" (BETA): its directional
@@ -2580,12 +2582,12 @@ function createInfoPanel(data, sourcingModal) {
     const changes = deriveReleaseChanges(
       drug.bindings, (tid) => data.modulationByTarget.get(tid) || [], data.meta.effectModes);
     if (!changes.length) return;
-    const { sec, ul } = betaSection("downstream", "relmod.drugHeading", "relmod.drugHint");
+    const { ul, close } = betaSection("downstream", "relmod.drugHeading", "relmod.drugHint");
     for (const c of changes) {
       ul.appendChild(derivedRow(t(`relmod.could.${c.direction}`,
         { ...transmitterVars(c.transmitterLabel, ofNoun), where: inStructure(c.structure) }), c.via));
     }
-    body.appendChild(sec);
+    close();
   };
 
   // A drug panel's "Checks before and during treatment" section (BETA): one row per
@@ -2594,11 +2596,10 @@ function createInfoPanel(data, sourcingModal) {
   // caveat, since a label's checklist is a regulatory text, not a care plan.
   const appendWorkup = (drug) => {
     if (!drug.workup || !drug.workup.length) return;
-    const { sec, ul } = betaSection("workup", "drug.workup", "drug.workupHint");
-    sec.removeChild(ul);
+    const { group, close } = betaSection("workup", "drug.workup", "drug.workupHint",
+      { grouped: true, caveatKey: "drug.workupCaveat" });
     for (const g of groupWorkup(drug.workup)) {
-      sec.appendChild(el("h4", "loc-group-label", t(`drug.workup.${g.timing}`)));
-      const list = el("ul");
+      const list = group(t(`drug.workup.${g.timing}`));
       for (const n of g.rows) {
         const li = el("li", "eff-row");
         li.appendChild(el("span", "loc-name", n.testLabel));
@@ -2607,10 +2608,8 @@ function createInfoPanel(data, sourcingModal) {
         li.appendChild(nodePill(n));
         list.appendChild(li);
       }
-      sec.appendChild(list);
     }
-    sec.appendChild(el("p", "var-caveat", t("drug.workupCaveat")));
-    body.appendChild(sec);
+    close();
   };
 
   // One route endpoint (a structure id) for the connection panel's route line: its
@@ -4519,14 +4518,12 @@ function createInfoPanel(data, sourcingModal) {
       body.appendChild(el("p", "legend-caption", t("effect.hint")));
 
       const owners = betaSection("effectOwners", "effect.owners", "effects.hint",
-        { n: effect.owners.length });
-      owners.ul.remove();
+        { vars: { n: effect.owners.length }, grouped: true });
       for (const mode of Object.keys(data.meta.effectModes)) {
         const group = effect.owners.filter((o) => o.node.mode === mode)
           .sort((a, b) => a.target.name.localeCompare(b.target.name));
         if (!group.length) continue;
-        owners.sec.appendChild(el("h4", "drug-cat", group[0].node.modeLabel));
-        const ul = el("ul");
+        const ul = owners.group(group[0].node.modeLabel, "drug-cat");
         for (const { target, node } of group) {
           const li = el("li");
           li.appendChild(linkName(target.name,
@@ -4534,19 +4531,18 @@ function createInfoPanel(data, sourcingModal) {
           li.appendChild(nodePill(node));
           ul.appendChild(li);
         }
-        owners.sec.appendChild(ul);
       }
-      body.appendChild(owners.sec);
+      owners.close();
 
       const drugs = betaSection("effectDrugs", "effect.drugs", "effect.drugsHint",
-        { n: effect.drugs.length });
+        { vars: { n: effect.drugs.length } });
       if (!effect.drugs.length) drugs.ul.appendChild(el("li", "info-desc", t("effect.noDrugs")));
       const sorted = [...effect.drugs]
         .sort((a, b) => a.drug.displayName.localeCompare(b.drug.displayName));
       for (const { drug, via } of sorted) {
         drugs.ul.appendChild(derivedRow(linkName(drug.displayName, () => onDrugPick(drug)), via));
       }
-      body.appendChild(drugs.sec);
+      drugs.close();
       foldBody();
     },
 
