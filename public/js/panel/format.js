@@ -34,26 +34,6 @@ export function formatHalfLife(hl) {
 export const bindingKi = (b) =>
   b.ki && typeof b.ki.median === "number" ? b.ki.median : Infinity;
 
-/**
- * Build the merged "Receptors & targets" legend section from the live dataset
- * (#receptors-body): the unified `data.targets` list (every modeled receptor plus
- * every non-receptor drug target: transporters, enzymes, channels, receptor
- * groups), grouped by neurotransmitter `system`, so a transporter like SERT sits
- * under "Serotonergic" beside the 5-HT receptors. System headings are ordered by
- * **total knowledge nodes** (biggest first: the sum over the system's targets of
- * each target's own node + its "Found in" regions + the drug bindings on it, so a
- * heavily-expressed, heavily-drugged system like dopaminergic leads), with the
- * system-less "Other" bucket pinned last; members within a system are ordered
- * **lexicographically** by name. Each row is coloured by its swatch (a receptor's
- * sign colour, a target's type colour) and, for a non-receptor target, tagged with
- * its type ("transporter", ...). A focusable row is clickable (dim the brain to the
- * regions it sits in + scatter glowing dots, handled by the caller's `onPick`); a
- * footprint-less one (a receptor stub, an unlocated enzyme) renders muted + inert.
- * Returns a `reflect(activeId)` callback that lights the active row and greys the rest.
- * @param {import("./data.js").BrainData} data
- * @param {(target: object) => void} onPick
- * @returns {(activeId: string|null) => void}
- */
 /** `accumbens_R` -> `accumbens`: the side-stripped base id. A hemisphere is a
  * rendering detail, so anything keyed by region (expression, search rows, deep
  * links) keys by the base. */
