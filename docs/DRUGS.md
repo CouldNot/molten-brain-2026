@@ -6,7 +6,8 @@ The drug dataset, drug metabolism and the Simulation (beta) tab, in full. Split 
 
 A focusable Drugs section showing, per drug, what it does to the brain. The psychiatric
 drugs come from **Stahl's Prescriber's Guide (8th ed.)**, extracted **strictly from the dump**
-(only interactions literally stated; gaps left as TODO / no binding); the `recreational`
+(only interactions literally stated; Stahl's bindings are never overwritten, and a target Stahl does not
+list is added only from a judged Wikipedia sentence, see Binding gaps); the `recreational`
 category (LSD, MDMA, ketamine, cocaine, nicotine, ...) and any future substance are **not**
 Stahl-bound, their bindings sourced from measured **PDSP Ki** instead. Adding a drug is just a
 new row in `drugs_data.jsonl` (see Changing the data), so the corpus is open-ended, not a
@@ -211,8 +212,8 @@ fixed Stahl list.
   `tools/sourcing/apply_binding_gaps.py` is the sole writer, gating index, target, action, not already
   bound, the shared matcher, a per-clause negation/hedge cue, stereo relatives (a racemate's article
   naming its enantiomer is another molecule), and the verbatim quote; `recheck_quotes.py` stamps the
-  judge. The predicates fetcher and applier share live in `tools/binding_gaps.py`. **Stahl drugs are
-  reported, never written** (their bindings stay dump-sourced), and an unjudged index is reported, so a
+  judge. The predicates fetcher and applier share live in `tools/binding_gaps.py`. A Stahl drug takes a gap too:
+  its dump-sourced bindings are never overwritten (a gap only adds a target it does not list), and an unjudged index is reported, so a
   partial pass cannot read as complete.
 - **Binding affinity (PDSP Ki).** A binding's `ki` (from `fetch_ki.py`) renders as a `kiChip`: the
   median + `[min-max]` + human/non-human counts + a **verified** badge (tooltip = the representative

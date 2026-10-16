@@ -138,8 +138,8 @@ def bound_targets(drug: dict) -> set[str]:
 def is_stahl(drug: dict) -> bool:
     """Whether the drug has a Stahl monograph (any field cites corpus #1).
 
-    CLAUDE.md: a Stahl drug's bindings are strictly dump-sourced, so the pass reports
-    its gaps instead of writing them.
+    CLAUDE.md: a Stahl drug's own bindings are strictly dump-sourced, so the applier
+    tallies a gap it adds there apart (it can only add a target Stahl does not list).
     """
     def cites(o) -> bool:
         if isinstance(o, dict):

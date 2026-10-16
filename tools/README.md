@@ -71,8 +71,8 @@ attribute a *different* quote than the main one, or several to back a compound v
      (above `llm`) by adding a `{target_id: {base: [quote-source]}}` entry to
      `TARGET_LOCATION_SOURCES` (mirror of `RECEPTOR_LOCATION_SOURCES`). The drug's class
      classification grade is overridable in `DRUG_CATEGORY_PROVENANCE` (or upgraded by a
-     quote-level `category_sources` on the authored drug). Keep extraction strictly
-     dump-sourced.
+     quote-level `category_sources` on the authored drug). Keep Stahl extraction strictly
+     dump-sourced (a Wikipedia binding only adds a target Stahl does not list).
    - **Panel annotations (addons)**: append to `ADDONS` in `tools/data_generators/addons.py`:
      `id`, `owner_kind` + `owner` (the node it annotates; a structure anchors its base, and
      `section` anchors a whole browse view via an `ADDON_SECTIONS` key instead of a node),
@@ -559,7 +559,7 @@ Screenshots).
   sentences naming an uncovered target) -> one LLM pass deciding every candidate by index into
   `binding_gaps_judged.json` (`{drug: [{index, target, pick, action | reason}]}`, `_`-prefixed keys are
   metadata) -> `python tools/sourcing/apply_binding_gaps.py --dry-run --verbose` then without
-  `--dry-run` (stdlib, sole writer, lists the Stahl-drug gaps it reports instead of writing) ->
+  `--dry-run` (stdlib, sole writer, `--verbose` lists the additions on Stahl drugs, whose own bindings stay untouched) ->
   `generate_data.py` -> `recheck_quotes.py build --kinds drug_bindings --unjudged` + judge +
   `apply --llm <model>` -> `generate_data.py`. `tools/binding_gaps.py` (stdlib library) holds the
   predicates both halves run (negation per clause, stereo relatives, covered targets, Stahl detection).
