@@ -81,6 +81,7 @@ Wikipedia reference. CLAUDE.md ("Nodes") keeps a one-line-per-kind summary; the 
 - drug current holder -> a drug's `holders[]` (`{market, names[], sources}`) -> `drug_holders` (ONE node per (drug, market): who holds the marketing authorisation TODAY, read by code off Drugs@FDA (us) / BDPM (fr), never the inventor)
 - drug originator -> a drug's `originator` (`{name, now?}`, + `originator_sources`, `originator_now_sources`) -> `drug_originator` (ONE node per drug: the company or lab its article says discovered / developed it; `now` is part of the node)
 - drug physicochemistry -> a drug's `xlogp` / `tpsa` (numbers, + `xlogp_sources` / `tpsa_sources`) -> `drug_lipophilicity` / `drug_polar_surface`, and its `bbb` (`{label: "BBB+"|"BBB-", logbb?, logbb_max?}`, + `bbb_sources`) -> `drug_bbb` (ONE node per drug each, code-read off PubChem #21 / B3DB #22, `tools/data_generators/physchem.py`)
+- drug workup (BETA) -> a drug's `workup[]` (`{test, timing, sources}`, ids from meta `workup_tests` / `workup_timings`) -> `drug_workup` (ONE node per (drug, test, timing), LLM-picked off the French RCP 4.2-4.4 #24 and judged, `tools/data_generators/workup.py`)
 - drug originator country -> a drug's `originator_country` (a `history.COUNTRIES` id, + `originator_country_sources`) -> `drug_originator_country` (ONE node per drug, from the originator company's own article)
 - drug therapeutic reference range -> a drug's `therapeutic_range` (`{low, high, unit, analyte?, tdm_level?}`, + `therapeutic_range_sources`) -> `drug_therapeutic_range` (ONE node per drug, AGNP Table 5)
 - drug laboratory alert level -> a drug's `alert_level` (`{value, unit, analyte?}`, + `alert_level_sources`) -> `drug_alert_level` (ONE node per drug, same table row as the range but a separate claim)
@@ -467,6 +468,7 @@ Viewer (`public/`):
   `window.__APP_VERSION__` (Versioning), `js/render-order.js` `DECOR_RENDER_ORDER`
   (Rendering / decoration draw order).
 - `js/physchem.js`: `appendPhyschemChips` (the drug panel's "Brain entry" section: XLogP3, TPSA and BBB chips on `tdm.js`'s `valueChip`) and the `formatLogP` / `formatTpsa` / `formatBbb` wording the node browser shares.
+- `js/workup.js`: `groupWorkup` (a drug's workup rows split before / during) and `formatWorkup` (one node as "test, timing"), shared by the drug panel's BETA "Checks the French label asks for" section in `main.js` and the node browser.
 - `js/drug-history.js`: `appendDrugHistory` (a drug's first-approval + withdrawal fact rows) and the `formatApproval` / `formatWithdrawal` wording the node browser shares.
 - `js/node-browser.js`: `collectNodes` + `createNodeBrowser`, the Data browser (`#nodes`): every
   graded knowledge node as one filterable/sortable list, opened as a **detail tab** (deep link
