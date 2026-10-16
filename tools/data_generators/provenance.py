@@ -877,19 +877,25 @@ SOURCE_CORPORA: dict[str, dict] = {
         # tools/fetch/fetch_bdpm_rcp.py builds one page per chosen product (princeps
         # first) from an RCP copy already on disk (#16's own download, or the
         # justelesRCP re-scrape of the live ANSM site), the freshest copy winning; the
-        # page header names the copy and how its date was read. `page` = the CIS. An
-        # LLM picks the line (not `machine`), so a judge must follow.
-        # Licence: Licence Ouverte / Open Licence (Etalab), as #16.
-        "ref": "Base de données publique des médicaments (ANSM), RCP sections 4.2-4.4",
+        # page header names the copy and how its date was read. `page` = the CIS, or
+        # for a drug with no French product at all the EMA product number of its EPAR
+        # found by name (`EMEA-H-C-003759`, fetch_ema_epar.py), linked at EMA's SmPC
+        # PDF through page_links. An LLM picks the line (not `machine`), so a judge
+        # must follow.
+        # Licence: Licence Ouverte / Open Licence (Etalab), as #16; an EMA SmPC is
+        # "reproduction authorised, source acknowledged".
+        "ref": "Base de données publique des médicaments (ANSM) or EMA EPAR, RCP sections 4.2-4.4",
         "citation": "ANSM / Ministère de la Santé. Base de données publique des "
                     "médicaments, résumé des caractéristiques du produit (RCP) of the "
                     "cited product, sections 4.2, 4.3 and 4.4. "
                     "base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS "
-                    "code pinned per citation).",
+                    "code pinned per citation). For a centrally authorised product, the "
+                    "European Medicines Agency's EPAR product information (SmPC, French "
+                    "version), ema.europa.eu (EMA product number pinned per citation).",
         "url": "https://base-donnees-publique.medicaments.gouv.fr/",
         "pages_dir": "data_sources/bdpm/pages_rcp4",
         "editable": True,
-        "page_kind": "cis",
+        "page_kind": "product",
         "page_url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/{page}/extrait",
     },
     "cpic": {

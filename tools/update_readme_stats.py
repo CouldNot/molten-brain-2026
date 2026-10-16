@@ -93,7 +93,7 @@ CORPUS_DESC = {
     "clinpgx":         ("Pharmacogenomic annotations (ClinPGx)", "Receptor & target gene variant associations"),
     "pubchem":         ("Chemistry database (PubChem computed properties)", "Drug lipophilicity (XLogP3), polar surface area"),
     "b3db":            ("Blood-brain barrier database (B3DB)", "Drug brain entry (BBB+ / BBB-, logBB)"),
-    "bdpm_rcp":        ("French drug database (BDPM, RCP sections 4.2-4.4)", "Drug pre-prescription workup (tests before and during treatment)"),
+    "bdpm_rcp":        ("French drug database (BDPM) or EMA EPAR, RCP sections 4.2-4.4", "Drug pre-prescription workup (tests before and during treatment)"),
 }
 
 # Per-node-kind display labels for the README table (English; the README is English).
