@@ -22,6 +22,7 @@ import apply_drug_history as H  # noqa: E402
 import apply_drugsfda as A  # noqa: E402
 import fetch_drugsfda as F  # noqa: E402
 from data_generators import history  # noqa: E402
+from judged_fixture import refs  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 
 
@@ -156,7 +157,8 @@ class CoexistTest(unittest.TestCase):
         gate.on_page = lambda corpus, page, quote: True
         offered = {"x": {"candidates": [{"corpus": "wikipedia_pharm", "page": "x",
                                          "line": line}]}}
-        H.apply({"x": {"approval": {"index": 0, "year": wiki_year}, "withdrawals": []}},
+        H.apply({"x": {"approval": refs(offered["x"]["candidates"], 0)[0] | {"year": wiki_year},
+                       "withdrawals": []}},
                 offered, drugs, gate)
         return drugs[0]["first_approval"]
 

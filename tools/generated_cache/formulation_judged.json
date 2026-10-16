@@ -2,33 +2,39 @@
  "acamprosate": {
   "brand:Campral": {
    "index": 0,
-   "release": "dr"
+   "release": "dr",
+   "qid": "7f1e40e3"
   }
  },
  "amisulpride": {
   "brand:Barhemsys": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "b28b3b13"
   }
  },
  "amphetamine_d": {
   "brand:Dexedrine Spansule": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "1e703341"
   },
   "brand:Zenzedi": {
    "index": 0,
-   "release": "ir"
+   "release": "ir",
+   "qid": "cbc3cbd9"
   },
   "brand:Xelstrym": {
    "index": 1,
-   "release": "transdermal"
+   "release": "transdermal",
+   "qid": "1effb061"
   }
  },
  "amphetamine_dl": {
   "brand:Mydayis": {
    "index": 1,
-   "release": "xr"
+   "release": "xr",
+   "qid": "eb71cff0"
   },
   "tmax": {
    "picks": [
@@ -46,7 +52,8 @@
  "aripiprazole": {
   "brand:Abilify Maintena": {
    "index": 0,
-   "release": "depot"
+   "release": "depot",
+   "qid": "e0d27501"
   }
  },
  "asenapine": {
@@ -82,23 +89,27 @@
  "bremelanotide": {
   "brand:Vyleesi": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "e8bb20ac"
   }
  },
  "brexanolone": {
   "brand:Zulresso": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "3c09c81c"
   }
  },
  "buprenorphine": {
   "brand:Temgésic": {
    "index": 0,
-   "release": "sublingual"
+   "release": "sublingual",
+   "qid": "ccb97ee8"
   },
   "brand:Subutex": {
    "index": 0,
-   "release": "sublingual"
+   "release": "sublingual",
+   "qid": "0e7e13c2"
   },
   "tmax": {
    "picks": [
@@ -121,15 +132,18 @@
  "bupropion": {
   "brand:Wellbutrin": {
    "index": 0,
-   "release": "ir"
+   "release": "ir",
+   "qid": "364845b0"
   },
   "brand:Zyban": {
    "index": 1,
-   "release": "xr"
+   "release": "xr",
+   "qid": "dd6ef0bc"
   },
   "brand:Aplenzin": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "58b67dd9"
   }
  },
  "carbamazepine": {
@@ -140,7 +154,8 @@
  "clonidine": {
   "brand:Kapvay": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "1e214936"
   },
   "tmax": {
    "picks": [
@@ -155,13 +170,15 @@
  "desvenlafaxine": {
   "brand:Pristiq": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "08e0ce82"
   }
  },
  "dexmedetomidine": {
   "brand:Dexdor": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "8cf20fb6"
   },
   "half_life": {
    "picks": [
@@ -175,13 +192,15 @@
  "dextromethorphanbupropion": {
   "brand:Auvelity": {
    "index": 1,
-   "release": "xr"
+   "release": "xr",
+   "qid": "4f6ce94b"
   }
  },
  "donepezil": {
   "brand:Adlarity": {
    "index": 0,
-   "release": "transdermal"
+   "release": "transdermal",
+   "qid": "f0adecdb"
   },
   "half_life": {
    "molecule": true
@@ -190,13 +209,15 @@
  "duloxetine": {
   "brand:Cymbalta": {
    "index": 0,
-   "release": "dr"
+   "release": "dr",
+   "qid": "502fc6a8"
   }
  },
  "esketamine": {
   "brand:Spravato": {
    "index": 0,
-   "release": "nasal"
+   "release": "nasal",
+   "qid": "de55a130"
   },
   "tmax": {
    "picks": [
@@ -211,17 +232,20 @@
  "flupenthixol": {
   "brand:Depixol": {
    "index": 0,
-   "release": "depot"
+   "release": "depot",
+   "qid": "27cd8ea6"
   }
  },
  "guanfacine": {
   "brand:Intuniv": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "2e33e754"
   },
   "brand:Tenex": {
    "index": 0,
-   "release": "ir"
+   "release": "ir",
+   "qid": "2e33e754"
   }
  },
  "ketamine": {
@@ -232,7 +256,8 @@
  "levomilnacipran": {
   "brand:Fetzima": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "9129028f"
   }
  },
  "lithium": {
@@ -254,7 +279,8 @@
  "melatonin": {
   "brand:Circadin": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "654df3d8"
   }
  },
  "melperone": {
@@ -265,75 +291,90 @@
  "methylphenidate_dl": {
   "brand:Ritalin": {
    "index": 1,
-   "release": "ir"
+   "release": "ir",
+   "qid": "4b310be6"
   },
   "brand:Concerta": {
    "index": 5,
-   "release": "xr"
+   "release": "xr",
+   "qid": "7e6c4733"
   },
   "brand:Daytrana": {
    "index": 0,
-   "release": "transdermal"
+   "release": "transdermal",
+   "qid": "fbd92987"
   },
   "brand:Jornay PM": {
    "index": 1,
-   "release": "dr"
+   "release": "dr",
+   "qid": "b8fb0729"
   }
  },
  "midazolam": {
   "brand:Hypnovel": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "6155c24d"
   }
  },
  "nalmefene": {
   "brand:Revex": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "30ca3e81"
   }
  },
  "naltrexone": {
   "brand:Vivitrol": {
    "index": 1,
-   "release": "depot"
+   "release": "depot",
+   "qid": "6972342f"
   }
  },
  "naltrexonebupropion": {
   "brand:Contrave": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "fed90076"
   }
  },
  "paliperidone": {
   "brand:Invega": {
    "index": 7,
-   "release": "xr"
+   "release": "xr",
+   "qid": "5d76d32e"
   },
   "brand:Invega Sustenna": {
    "index": 1,
-   "release": "depot"
+   "release": "depot",
+   "qid": "36b473a1"
   },
   "brand:Invega Trinza": {
    "index": 1,
-   "release": "depot"
+   "release": "depot",
+   "qid": "dad443a8"
   },
   "brand:Invega Hafyera": {
    "index": 1,
-   "release": "depot"
+   "release": "depot",
+   "qid": "d86ba9bd"
   },
   "brand:Xeplion": {
    "index": 0,
-   "release": "depot"
+   "release": "depot",
+   "qid": "36b473a1"
   },
   "brand:Trevicta": {
    "index": 0,
-   "release": "depot"
+   "release": "depot",
+   "qid": "0ddc0acb"
   }
  },
  "phenterminetopiramate": {
   "brand:Qsymia": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "330ecfd8"
   }
  },
  "pipothiazine": {
@@ -375,39 +416,46 @@
  "risperidone": {
   "brand:Risperdal Consta": {
    "index": 2,
-   "release": "depot"
+   "release": "depot",
+   "qid": "edff5d73"
   }
  },
  "selegiline": {
   "brand:Emsam": {
    "index": 0,
-   "release": "transdermal"
+   "release": "transdermal",
+   "qid": "ecacf181"
   },
   "brand:Eldepryl": {
    "index": 1,
-   "release": "ir"
+   "release": "ir",
+   "qid": "3a9afbd3"
   }
  },
  "thiopental": {
   "brand:Nesdonal": {
    "index": 1,
-   "release": "injection"
+   "release": "injection",
+   "qid": "b71dbf20"
   },
   "brand:Pentothal": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "b71dbf20"
   }
  },
  "trazodone": {
   "brand:Oleptro": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "221f1f95"
   }
  },
  "valproate": {
   "brand:Depacon": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "acdb7372"
   },
   "tmax": {
    "molecule": true
@@ -426,23 +474,27 @@
  "viloxazine": {
   "brand:Qelbree": {
    "index": 0,
-   "release": "xr"
+   "release": "xr",
+   "qid": "0fc3f588"
   }
  },
  "zolpidem": {
   "brand:Ambien": {
    "index": 0,
-   "release": "ir"
+   "release": "ir",
+   "qid": "29de1d31"
   },
   "brand:Intermezzo": {
    "index": 0,
-   "release": "sublingual"
+   "release": "sublingual",
+   "qid": "29de1d31"
   }
  },
  "zuclopenthixol": {
   "brand:Clopixol-Acuphase": {
    "index": 0,
-   "release": "injection"
+   "release": "injection",
+   "qid": "02e9f046"
   }
  },
  "apomorphine": {
@@ -453,7 +505,8 @@
  "oxycodone": {
   "brand:Oxynorm": {
    "index": 0,
-   "release": "ir"
+   "release": "ir",
+   "qid": "00526be2"
   },
   "tmax": {
    "picks": [

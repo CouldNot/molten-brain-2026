@@ -47,6 +47,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402
+from pipeline.judged import ECHO_QID  # noqa: E402
 from worklist_io import merge_scoped  # noqa: E402
 from data_generators import formulations as F  # noqa: E402
 from data_generators.provenance import corpus_page_path  # noqa: E402
@@ -237,7 +239,7 @@ def build(only: set[str] | None = None) -> dict:
         items = items_for(d)
         if items:
             drugs[d["id"]] = {"name": d["name"], "items": items}
-    return {"instructions": INSTRUCTIONS, "drugs": drugs}
+    return {"instructions": INSTRUCTIONS + ECHO_QID, "drugs": drugs}
 
 
 def main() -> int:
@@ -250,8 +252,7 @@ def main() -> int:
     wl = build(only)
     if only and args.out.exists():
         wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "drugs")
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(wl, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    worklist_io.write(args.out, wl)
     n = sum(len(v["items"]) for v in wl["drugs"].values())
     print(f"{len(wl['drugs'])} drugs, {n} undecided claims -> {args.out.relative_to(ROOT)}")
     return 0

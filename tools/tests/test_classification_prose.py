@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_classification_sources as A  # noqa: E402
+from judged_fixture import lift_owners  # noqa: E402
 
 PRE = "D2 receptors can be presynaptic autoreceptors on dopamine neurons."
 POST = "Postsynaptic D2 receptors are present in the striatum."
@@ -42,6 +43,7 @@ class ProseGateTest(unittest.TestCase):
 
     def run_(self, judged, receptors=None):
         rec_out, tgt_out = {}, {}
+        judged = lift_owners(judged, self.worklist["owners"])
         n, misses = A.apply_prose(self.worklist, {"receptors": judged},
                                   receptors or self.receptors, {}, rec_out, tgt_out,
                                   pages=self.pages)
@@ -77,7 +79,8 @@ class ProseGateTest(unittest.TestCase):
     def test_sign_pick_lands_and_is_idempotent(self):
         rec_out = {}
         for _ in range(2):
-            A.apply_prose(self.worklist, {"receptors": {"nmda": {"sign": [0]}}},
+            A.apply_prose(self.worklist, {"receptors": lift_owners({"nmda": {"sign": [0]}},
+                                                                   self.worklist["owners"])},
                           self.receptors, {}, rec_out, {}, pages=self.pages)
         self.assertEqual(len(rec_out["nmda"]["sign"]), 1)
 

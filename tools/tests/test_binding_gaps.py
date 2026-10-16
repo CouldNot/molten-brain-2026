@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import binding_gaps as bg  # noqa: E402
 import target_aliases as ta  # noqa: E402
 import apply_binding_gaps as G  # noqa: E402
+from judged_fixture import fill  # noqa: E402
 
 HAS_BS4 = importlib.util.find_spec("bs4") is not None
 if HAS_BS4:
@@ -63,7 +64,8 @@ def read_page(slug):
 
 def run(cands, rows, data=None):
     data = data if data is not None else drugs()
-    gate = G.apply(worklist(*cands), {"testdrug": rows}, data, read_page)
+    work = worklist(*cands)
+    gate = G.apply(work, {"testdrug": fill(rows, work[0]["candidates"])}, data, read_page)
     return data[0], [line.split("]")[0][1:] for line in gate.rejected], gate
 
 
@@ -183,8 +185,9 @@ class GateTest(unittest.TestCase):
 
     def test_metadata_keys_are_ignored(self):
         data = drugs()
-        gate = G.apply(worklist(cand("sigma1", GOOD)),
-                       {"_by": {"model": "opus"}, "testdrug": [pick(0, "sigma1")]},
+        work = worklist(cand("sigma1", GOOD))
+        gate = G.apply(work, {"_by": {"model": "opus"},
+                              "testdrug": fill([pick(0, "sigma1")], work[0]["candidates"])},
                        data, read_page)
         self.assertEqual(gate.rejected, [])
 

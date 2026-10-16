@@ -1,368 +1,644 @@
 {
  "globus_pallidus_R->subthalamic_nucleus_R": {
   "transmitter": [
-   2
+   {
+    "index": 2,
+    "qid": "5517c486"
+   }
   ]
  },
  "substantia_nigra_R->putamen_R": {
   "route": [
-   0
+   {
+    "index": 0,
+    "qid": "aea238bd"
+   }
   ]
  },
  "substantia_nigra_R->caudate_R": {
   "route": [
-   2
+   {
+    "index": 2,
+    "qid": "aea238bd"
+   }
   ]
  },
  "thalamus_R->frontal_R": {
   "transmitter": [
-   29
+   {
+    "index": 29,
+    "qid": "5d86ce0d"
+   }
   ],
   "sign": [
-   15
+   {
+    "index": 15,
+    "qid": "b62bbf12"
+   }
   ]
  },
  "thalamus_R->cingulate_R": {
   "sign": [
-   15
+   {
+    "index": 15,
+    "qid": "b62bbf12"
+   }
   ]
  },
  "occipital_R->thalamus_R": {
   "transmitter": [
-   59
+   {
+    "index": 59,
+    "qid": "281b4de5"
+   }
   ],
   "sign": [
-   28
+   {
+    "index": 28,
+    "qid": "b231949a"
+   }
   ]
  },
  "temporal_R->hippocampus_R": {
   "transmitter": [
-   23
+   {
+    "index": 23,
+    "qid": "2f04ab0a"
+   }
   ]
  },
  "hippocampus_R->fornix_R": {
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "3d9b7ce2"
+   }
   ]
  },
  "hippocampus_R->septal_nuclei_R": {
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "f04d3524"
+   }
   ]
  },
  "olfactory_bulb_R->insula_R": {
   "transmitter": [
-   5
+   {
+    "index": 5,
+    "qid": "c74beb37"
+   }
   ],
   "sign": [
-   10
+   {
+    "index": 10,
+    "qid": "1f264e44"
+   }
   ]
  },
  "amygdala_R->hypothalamus_R": {
   "route": [
-   29
+   {
+    "index": 29,
+    "qid": "d6a8efc1"
+   }
   ],
   "sign": [
-   7
+   {
+    "index": 7,
+    "qid": "39abd9c1"
+   }
   ]
  },
  "septal_nuclei_R->hippocampus_R": {
   "transmitter": [
-   0
+   {
+    "index": 0,
+    "qid": "103a9ae6"
+   }
   ],
   "route": [
-   0
+   {
+    "index": 0,
+    "qid": "103a9ae6"
+   }
   ]
  },
  "raphe->caudate_R": {
   "transmitter": [
-   5
+   {
+    "index": 5,
+    "qid": "39a782b1"
+   }
   ]
  },
  "raphe->putamen_R": {
   "transmitter": [
-   5
+   {
+    "index": 5,
+    "qid": "39a782b1"
+   }
   ]
  },
  "nucleus_basalis_R->amygdala_R": {
   "transmitter": [
-   1
+   {
+    "index": 1,
+    "qid": "2ec1a10b"
+   }
   ]
  },
  "nucleus_basalis_R->frontal_R": {
   "transmitter": [
-   8
+   {
+    "index": 8,
+    "qid": "2ec1a10b"
+   }
   ]
  },
  "nucleus_basalis_R->parietal_R": {
   "transmitter": [
-   7
+   {
+    "index": 7,
+    "qid": "2ec1a10b"
+   }
   ]
  },
  "nucleus_basalis_R->temporal_R": {
   "transmitter": [
-   9
+   {
+    "index": 9,
+    "qid": "2ec1a10b"
+   }
   ]
  },
  "nucleus_basalis_R->occipital_R": {
   "transmitter": [
-   8
+   {
+    "index": 8,
+    "qid": "2ec1a10b"
+   }
   ]
  },
  "nucleus_basalis_R->cingulate_R": {
   "transmitter": [
-   10
+   {
+    "index": 10,
+    "qid": "2ec1a10b"
+   }
   ]
  },
  "frontal_L->frontal_R": {
   "transmitter": [
-   26
+   {
+    "index": 26,
+    "qid": "09aa17d9"
+   }
   ]
  },
  "parietal_L->parietal_R": {
   "transmitter": [
-   2
+   {
+    "index": 2,
+    "qid": "3579c450"
+   }
   ]
  },
  "occipital_L->occipital_R": {
   "transmitter": [
-   0
+   {
+    "index": 0,
+    "qid": "3579c450"
+   }
   ]
  },
  "raphe->cerebellum": {
   "transmitter": [
-   3
+   {
+    "index": 3,
+    "qid": "fde6e5eb"
+   }
   ],
   "route": [
-   3
+   {
+    "index": 3,
+    "qid": "fde6e5eb"
+   }
   ]
  },
  "raphe->medulla": {
   "transmitter": [
-   38
+   {
+    "index": 38,
+    "qid": "c9b27cf0"
+   }
   ],
   "route": [
-   38
+   {
+    "index": 38,
+    "qid": "c9b27cf0"
+   }
   ]
  },
  "raphe->septal_nuclei_R": {
   "route": [
-   6
+   {
+    "index": 6,
+    "qid": "b4c9220e"
+   }
   ]
  },
  "raphe->olfactory_bulb_R": {
   "transmitter": [
-   3,
-   0
+   {
+    "index": 3,
+    "qid": "c6fa43dd"
+   },
+   {
+    "index": 0,
+    "qid": "13414269"
+   }
   ]
  },
  "locus_coeruleus_R->pons": {
   "route": [
-   50
+   {
+    "index": 50,
+    "qid": "4d380776"
+   }
   ]
  },
  "vta_R->temporal_R": {
   "route": [
-   89
+   {
+    "index": 89,
+    "qid": "dc2f918b"
+   }
   ]
  },
  "vta_R->cingulate_R": {
   "transmitter": [
-   0
+   {
+    "index": 0,
+    "qid": "f8f5fd32"
+   }
   ],
   "route": [
-   0
+   {
+    "index": 0,
+    "qid": "f8f5fd32"
+   }
   ]
  },
  "vta_R->thalamus_R": {
   "transmitter": [
-   4
+   {
+    "index": 4,
+    "qid": "43fd81c6"
+   }
   ],
   "route": [
-   4
+   {
+    "index": 4,
+    "qid": "43fd81c6"
+   }
   ]
  },
  "vta_R->hypothalamus_R": {
   "transmitter": [
-   0
+   {
+    "index": 0,
+    "qid": "43fd81c6"
+   }
   ],
   "route": [
-   0
+   {
+    "index": 0,
+    "qid": "43fd81c6"
+   }
   ]
  },
  "vta_R->raphe": {
   "transmitter": [
-   24
+   {
+    "index": 24,
+    "qid": "bb9f74f9"
+   }
   ],
   "route": [
-   84
+   {
+    "index": 84,
+    "qid": "e9b28081"
+   }
   ]
  },
  "vta_R->locus_coeruleus_R": {
   "transmitter": [
-   32
+   {
+    "index": 32,
+    "qid": "bb9f74f9"
+   }
   ],
   "route": [
-   68
+   {
+    "index": 68,
+    "qid": "e9b28081"
+   }
   ]
  },
  "pons->vta_R": {
   "transmitter": [
-   29
+   {
+    "index": 29,
+    "qid": "5b53a378"
+   }
   ],
   "route": [
-   29
+   {
+    "index": 29,
+    "qid": "5b53a378"
+   }
   ]
  },
  "pons->substantia_nigra_R": {
   "transmitter": [
-   1
+   {
+    "index": 1,
+    "qid": "98a4392f"
+   }
   ],
   "route": [
-   1
+   {
+    "index": 1,
+    "qid": "98a4392f"
+   }
   ]
  },
  "locus_coeruleus_R->midbrain": {
   "route": [
-   47
+   {
+    "index": 47,
+    "qid": "4d380776"
+   }
   ]
  },
  "locus_coeruleus_R->medulla": {
   "transmitter": [
-   5
+   {
+    "index": 5,
+    "qid": "bc70aec4"
+   }
   ],
   "route": [
-   5
+   {
+    "index": 5,
+    "qid": "bc70aec4"
+   }
   ]
  },
  "frontal_R->putamen_R": {
   "transmitter": [
-   0,
-   44
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   },
+   {
+    "index": 44,
+    "qid": "39a782b1"
+   }
   ],
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   }
   ]
  },
  "frontal_R->caudate_R": {
   "transmitter": [
-   0,
-   44
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   },
+   {
+    "index": 44,
+    "qid": "39a782b1"
+   }
   ],
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   }
   ]
  },
  "parietal_R->caudate_R": {
   "transmitter": [
-   0,
-   44
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   },
+   {
+    "index": 44,
+    "qid": "39a782b1"
+   }
   ],
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   }
   ]
  },
  "temporal_R->caudate_R": {
   "transmitter": [
-   0,
-   44
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   },
+   {
+    "index": 44,
+    "qid": "39a782b1"
+   }
   ],
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "a0f0fdc8"
+   }
   ]
  },
  "claustrum_R->frontal_R": {
   "transmitter": [
-   0,
-   14
+   {
+    "index": 0,
+    "qid": "3bb08573"
+   },
+   {
+    "index": 14,
+    "qid": "58237012"
+   }
   ],
   "route": [
-   0,
-   25,
-   30
+   {
+    "index": 0,
+    "qid": "3bb08573"
+   },
+   {
+    "index": 25,
+    "qid": "c37d12c4"
+   },
+   {
+    "index": 30,
+    "qid": "f071bedd"
+   }
   ]
  },
  "raphe->globus_pallidus_R": {
   "transmitter": [
-   14
+   {
+    "index": 14,
+    "qid": "0645103b"
+   }
   ],
   "route": [
-   14,
-   49
+   {
+    "index": 14,
+    "qid": "0645103b"
+   },
+   {
+    "index": 49,
+    "qid": "b22c15d8"
+   }
   ]
  },
  "locus_coeruleus_R->caudate_R": {
   "route": [
-   7
+   {
+    "index": 7,
+    "qid": "51e71f99"
+   }
   ]
  },
  "locus_coeruleus_R->putamen_R": {
   "route": [
-   7
+   {
+    "index": 7,
+    "qid": "51e71f99"
+   }
   ]
  },
  "locus_coeruleus_R->globus_pallidus_R": {
   "route": [
-   5
+   {
+    "index": 5,
+    "qid": "b22c15d8"
+   }
   ]
  },
  "locus_coeruleus_R->substantia_nigra_R": {
   "route": [
-   26
+   {
+    "index": 26,
+    "qid": "f1733fe4"
+   }
   ]
  },
  "vta_R->parietal_R": {
   "transmitter": [
-   0
+   {
+    "index": 0,
+    "qid": "9d4ce3ac"
+   }
   ],
   "route": [
-   0
+   {
+    "index": 0,
+    "qid": "9d4ce3ac"
+   }
   ]
  },
  "frontal_R->pons": {
   "transmitter": [
-   2
+   {
+    "index": 2,
+    "qid": "0c0f6fae"
+   }
   ]
  },
  "pons->cerebellum": {
   "transmitter": [
-   10
+   {
+    "index": 10,
+    "qid": "435e1f26"
+   }
   ],
   "sign": [
-   1
+   {
+    "index": 1,
+    "qid": "e8cc9914"
+   }
   ]
  },
  "cerebellum->thalamus_R": {
   "transmitter": [
-   1
+   {
+    "index": 1,
+    "qid": "84b03752"
+   }
   ],
   "sign": [
-   0,
-   2
+   {
+    "index": 0,
+    "qid": "37c2af7f"
+   },
+   {
+    "index": 2,
+    "qid": "0184120a"
+   }
   ]
  },
  "fornix_R->mammillary_R": {
   "transmitter": [
-   0
+   {
+    "index": 0,
+    "qid": "8ae1d290"
+   }
   ]
  },
  "mammillary_R->thalamus_R": {
   "transmitter": [
-   2
+   {
+    "index": 2,
+    "qid": "e025ff65"
+   }
   ],
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "3111b2f2"
+   }
   ]
  },
  "accumbens_R->globus_pallidus_R": {
   "sign": [
-   0,
-   1
+   {
+    "index": 0,
+    "qid": "fe2b5abf"
+   },
+   {
+    "index": 1,
+    "qid": "78f5d407"
+   }
   ]
  },
  "amygdala_R->accumbens_R": {
   "sign": [
-   0
+   {
+    "index": 0,
+    "qid": "1db28073"
+   }
   ]
  }
 }

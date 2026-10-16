@@ -554,8 +554,7 @@ def ki_prose(only: set | None, refresh: bool) -> int:
     if only is not None and KI_PROSE_WORKLIST.exists():
         built = worklist_io.merge_scoped(json.loads(KI_PROSE_WORKLIST.read_text("utf-8")),
                                          built, "drugs")
-    KI_PROSE_WORKLIST.write_text(json.dumps(built, ensure_ascii=False, indent=1) + "\n",
-                                 "utf-8")
+    worklist_io.write(KI_PROSE_WORKLIST, built)
     print(f"{len(drugs)} drug(s) with candidates -> "
           f"{KI_PROSE_WORKLIST.relative_to(ROOT)}; {failed} failed request(s)")
     return 1 if failed else 0

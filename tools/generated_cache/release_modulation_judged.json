@@ -8,8 +8,14 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     5,
-     3
+     {
+      "index": 5,
+      "qid": "2ffd9aa7"
+     },
+     {
+      "index": 3,
+      "qid": "53d766c2"
+     }
     ]
    },
    {
@@ -19,7 +25,10 @@
     "modulates": "serotonin",
     "effect": "increase",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "3b9905a5"
+     }
     ]
    }
   ],
@@ -31,8 +40,14 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     5,
-     3
+     {
+      "index": 5,
+      "qid": "2ffd9aa7"
+     },
+     {
+      "index": 3,
+      "qid": "53d766c2"
+     }
     ]
    },
    {
@@ -42,7 +57,10 @@
     "modulates": "serotonin",
     "effect": "increase",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "3b9905a5"
+     }
     ]
    }
   ],
@@ -54,8 +72,14 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     5,
-     3
+     {
+      "index": 5,
+      "qid": "2ffd9aa7"
+     },
+     {
+      "index": 3,
+      "qid": "53d766c2"
+     }
     ]
    },
    {
@@ -65,7 +89,10 @@
     "modulates": "serotonin",
     "effect": "increase",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "3b9905a5"
+     }
     ]
    }
   ],
@@ -77,9 +104,18 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     5,
-     13,
-     20
+     {
+      "index": 5,
+      "qid": "e37c7a7e"
+     },
+     {
+      "index": 13,
+      "qid": "d2274baa"
+     },
+     {
+      "index": 20,
+      "qid": "c5bfc32c"
+     }
     ]
    },
    {
@@ -89,7 +125,10 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "9dfc87d4"
+     }
     ]
    },
    {
@@ -99,9 +138,18 @@
     "modulates": "serotonin",
     "effect": "decrease",
     "picks": [
-     12,
-     19,
-     18
+     {
+      "index": 12,
+      "qid": "a073c8e1"
+     },
+     {
+      "index": 19,
+      "qid": "7889fac7"
+     },
+     {
+      "index": 18,
+      "qid": "8a0bcc5e"
+     }
     ]
    }
   ],
@@ -113,9 +161,18 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     5,
-     13,
-     20
+     {
+      "index": 5,
+      "qid": "e37c7a7e"
+     },
+     {
+      "index": 13,
+      "qid": "d2274baa"
+     },
+     {
+      "index": 20,
+      "qid": "c5bfc32c"
+     }
     ]
    },
    {
@@ -125,7 +182,10 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "9dfc87d4"
+     }
     ]
    },
    {
@@ -135,9 +195,18 @@
     "modulates": "serotonin",
     "effect": "decrease",
     "picks": [
-     12,
-     19,
-     18
+     {
+      "index": 12,
+      "qid": "a073c8e1"
+     },
+     {
+      "index": 19,
+      "qid": "7889fac7"
+     },
+     {
+      "index": 18,
+      "qid": "8a0bcc5e"
+     }
     ]
    }
   ],
@@ -149,9 +218,18 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     5,
-     13,
-     20
+     {
+      "index": 5,
+      "qid": "e37c7a7e"
+     },
+     {
+      "index": 13,
+      "qid": "d2274baa"
+     },
+     {
+      "index": 20,
+      "qid": "c5bfc32c"
+     }
     ]
    },
    {
@@ -161,7 +239,10 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "9dfc87d4"
+     }
     ]
    },
    {
@@ -171,9 +252,18 @@
     "modulates": "serotonin",
     "effect": "decrease",
     "picks": [
-     12,
-     19,
-     18
+     {
+      "index": 12,
+      "qid": "a073c8e1"
+     },
+     {
+      "index": 19,
+      "qid": "7889fac7"
+     },
+     {
+      "index": 18,
+      "qid": "8a0bcc5e"
+     }
     ]
    }
   ],
@@ -185,8 +275,14 @@
     "modulates": "acetylcholine",
     "effect": "decrease",
     "picks": [
-     0,
-     1
+     {
+      "index": 0,
+      "qid": "23fb2315"
+     },
+     {
+      "index": 1,
+      "qid": "1367cdb2"
+     }
     ]
    }
   ],
@@ -198,8 +294,14 @@
     "modulates": "acetylcholine",
     "effect": "decrease",
     "picks": [
-     0,
-     1
+     {
+      "index": 0,
+      "qid": "23fb2315"
+     },
+     {
+      "index": 1,
+      "qid": "1367cdb2"
+     }
     ]
    }
   ],
@@ -211,7 +313,10 @@
     "modulates": "dopamine",
     "effect": "increase",
     "picks": [
-     4
+     {
+      "index": 4,
+      "qid": "7e96c3c3"
+     }
     ]
    },
    {
@@ -221,8 +326,14 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     5,
-     2
+     {
+      "index": 5,
+      "qid": "2b10a7e2"
+     },
+     {
+      "index": 2,
+      "qid": "4c349ee7"
+     }
     ]
    }
   ],
@@ -234,8 +345,14 @@
     "modulates": "acetylcholine",
     "effect": "increase",
     "picks": [
-     3,
-     1
+     {
+      "index": 3,
+      "qid": "2b83d45b"
+     },
+     {
+      "index": 1,
+      "qid": "e6d79dc8"
+     }
     ]
    },
    {
@@ -245,7 +362,10 @@
     "modulates": "dopamine",
     "effect": "increase",
     "picks": [
-     2
+     {
+      "index": 2,
+      "qid": "00c18fa6"
+     }
     ]
    },
    {
@@ -255,7 +375,10 @@
     "modulates": "glutamate",
     "effect": "increase",
     "picks": [
-     2
+     {
+      "index": 2,
+      "qid": "00c18fa6"
+     }
     ]
    },
    {
@@ -265,7 +388,10 @@
     "modulates": "glutamate",
     "effect": "increase",
     "picks": [
-     5
+     {
+      "index": 5,
+      "qid": "1bed318c"
+     }
     ]
    }
   ],
@@ -277,7 +403,10 @@
     "modulates": "gaba",
     "effect": "decrease",
     "picks": [
-     0
+     {
+      "index": 0,
+      "qid": "7121d636"
+     }
     ]
    }
   ],
@@ -289,9 +418,18 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     2,
-     40,
-     7
+     {
+      "index": 2,
+      "qid": "4ba0860d"
+     },
+     {
+      "index": 40,
+      "qid": "49d7933e"
+     },
+     {
+      "index": 7,
+      "qid": "bb1ed03d"
+     }
     ]
    },
    {
@@ -301,8 +439,14 @@
     "modulates": "acetylcholine",
     "effect": "decrease",
     "picks": [
-     23,
-     20
+     {
+      "index": 23,
+      "qid": "d7fac98e"
+     },
+     {
+      "index": 20,
+      "qid": "e3b69c36"
+     }
     ]
    }
   ],
@@ -314,8 +458,14 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     1,
-     2
+     {
+      "index": 1,
+      "qid": "4ba0860d"
+     },
+     {
+      "index": 2,
+      "qid": "98dbd57c"
+     }
     ]
    },
    {
@@ -325,7 +475,10 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     16
+     {
+      "index": 16,
+      "qid": "9ce5a0ee"
+     }
     ]
    }
   ],
@@ -337,9 +490,18 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     11,
-     8,
-     4
+     {
+      "index": 11,
+      "qid": "3d0badd4"
+     },
+     {
+      "index": 8,
+      "qid": "425aa03c"
+     },
+     {
+      "index": 4,
+      "qid": "9a56ae36"
+     }
     ]
    },
    {
@@ -349,8 +511,14 @@
     "modulates": "gaba",
     "effect": "increase",
     "picks": [
-     4,
-     11
+     {
+      "index": 4,
+      "qid": "9a56ae36"
+     },
+     {
+      "index": 11,
+      "qid": "3d0badd4"
+     }
     ]
    },
    {
@@ -360,7 +528,10 @@
     "modulates": "gaba",
     "effect": "increase",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "769b1cff"
+     }
     ]
    },
    {
@@ -370,7 +541,10 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "21416674"
+     }
     ]
    }
   ],
@@ -382,8 +556,14 @@
     "modulates": "histamine",
     "effect": "decrease",
     "picks": [
-     6,
-     4
+     {
+      "index": 6,
+      "qid": "372808d7"
+     },
+     {
+      "index": 4,
+      "qid": "660b5455"
+     }
     ]
    }
   ],
@@ -395,7 +575,10 @@
     "modulates": "gaba",
     "effect": "decrease",
     "picks": [
-     2
+     {
+      "index": 2,
+      "qid": "2707764b"
+     }
     ]
    }
   ],
@@ -407,7 +590,10 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     6
+     {
+      "index": 6,
+      "qid": "e31ac22c"
+     }
     ]
    },
    {
@@ -417,7 +603,10 @@
     "modulates": "gaba",
     "effect": "decrease",
     "picks": [
-     14
+     {
+      "index": 14,
+      "qid": "16c10d8c"
+     }
     ]
    }
   ],
@@ -429,8 +618,14 @@
     "modulates": "serotonin",
     "effect": "decrease",
     "picks": [
-     2,
-     4
+     {
+      "index": 2,
+      "qid": "ebab6ba3"
+     },
+     {
+      "index": 4,
+      "qid": "dc8638e3"
+     }
     ]
    },
    {
@@ -440,7 +635,10 @@
     "modulates": "dopamine",
     "effect": "increase",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "b5bf9c2c"
+     }
     ]
    },
    {
@@ -450,7 +648,10 @@
     "modulates": "norepinephrine",
     "effect": "increase",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "b5bf9c2c"
+     }
     ]
    },
    {
@@ -460,7 +661,10 @@
     "modulates": "acetylcholine",
     "effect": "increase",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "b5bf9c2c"
+     }
     ]
    },
    {
@@ -470,7 +674,10 @@
     "modulates": "gaba",
     "effect": "decrease",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "b5bf9c2c"
+     }
     ]
    },
    {
@@ -480,7 +687,10 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     22
+     {
+      "index": 22,
+      "qid": "d7f54572"
+     }
     ]
    }
   ],
@@ -492,9 +702,18 @@
     "modulates": "serotonin",
     "effect": "decrease",
     "picks": [
-     3,
-     5,
-     21
+     {
+      "index": 3,
+      "qid": "2f6a6263"
+     },
+     {
+      "index": 5,
+      "qid": "94556d9a"
+     },
+     {
+      "index": 21,
+      "qid": "24c05a99"
+     }
     ]
    },
    {
@@ -504,9 +723,18 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     9,
-     8,
-     26
+     {
+      "index": 9,
+      "qid": "2ab138f9"
+     },
+     {
+      "index": 8,
+      "qid": "425c02aa"
+     },
+     {
+      "index": 26,
+      "qid": "9b467fd7"
+     }
     ]
    },
    {
@@ -516,9 +744,18 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     9,
-     8,
-     26
+     {
+      "index": 9,
+      "qid": "2ab138f9"
+     },
+     {
+      "index": 8,
+      "qid": "425c02aa"
+     },
+     {
+      "index": 26,
+      "qid": "9b467fd7"
+     }
     ]
    },
    {
@@ -528,9 +765,18 @@
     "modulates": "acetylcholine",
     "effect": "decrease",
     "picks": [
-     9,
-     8,
-     26
+     {
+      "index": 9,
+      "qid": "2ab138f9"
+     },
+     {
+      "index": 8,
+      "qid": "425c02aa"
+     },
+     {
+      "index": 26,
+      "qid": "9b467fd7"
+     }
     ]
    },
    {
@@ -540,9 +786,18 @@
     "modulates": "histamine",
     "effect": "decrease",
     "picks": [
-     9,
-     8,
-     26
+     {
+      "index": 9,
+      "qid": "2ab138f9"
+     },
+     {
+      "index": 8,
+      "qid": "425c02aa"
+     },
+     {
+      "index": 26,
+      "qid": "9b467fd7"
+     }
     ]
    }
   ],
@@ -554,8 +809,14 @@
     "modulates": "glutamate",
     "effect": "increase",
     "picks": [
-     5,
-     6
+     {
+      "index": 5,
+      "qid": "8bd45871"
+     },
+     {
+      "index": 6,
+      "qid": "fb665782"
+     }
     ]
    },
    {
@@ -565,7 +826,10 @@
     "modulates": "glutamate",
     "effect": "increase",
     "picks": [
-     9
+     {
+      "index": 9,
+      "qid": "781ce8e7"
+     }
     ]
    },
    {
@@ -575,7 +839,10 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     5
+     {
+      "index": 5,
+      "qid": "8bd45871"
+     }
     ]
    },
    {
@@ -585,8 +852,14 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     27,
-     28
+     {
+      "index": 27,
+      "qid": "dad3d7dd"
+     },
+     {
+      "index": 28,
+      "qid": "ea1ab950"
+     }
     ]
    }
   ],
@@ -598,7 +871,10 @@
     "modulates": "serotonin",
     "effect": "increase",
     "picks": [
-     2
+     {
+      "index": 2,
+      "qid": "f1d72e2a"
+     }
     ]
    }
   ],
@@ -610,9 +886,18 @@
     "modulates": "dopamine",
     "effect": "decrease",
     "picks": [
-     6,
-     13,
-     3
+     {
+      "index": 6,
+      "qid": "4801b116"
+     },
+     {
+      "index": 13,
+      "qid": "05a71f0f"
+     },
+     {
+      "index": 3,
+      "qid": "eb05a727"
+     }
     ]
    },
    {
@@ -622,9 +907,18 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     6,
-     13,
-     3
+     {
+      "index": 6,
+      "qid": "4801b116"
+     },
+     {
+      "index": 13,
+      "qid": "05a71f0f"
+     },
+     {
+      "index": 3,
+      "qid": "eb05a727"
+     }
     ]
    }
   ],
@@ -636,7 +930,10 @@
     "modulates": "norepinephrine",
     "effect": "decrease",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "7dd6459d"
+     }
     ]
    },
    {
@@ -646,7 +943,10 @@
     "modulates": "acetylcholine",
     "effect": "decrease",
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "7dd6459d"
+     }
     ]
    },
    {
@@ -656,7 +956,10 @@
     "modulates": "gaba",
     "effect": "increase",
     "picks": [
-     18
+     {
+      "index": 18,
+      "qid": "7ecce868"
+     }
     ]
    },
    {
@@ -666,7 +969,10 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     8
+     {
+      "index": 8,
+      "qid": "e6c77ce6"
+     }
     ]
    }
   ],
@@ -678,8 +984,14 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     11,
-     5
+     {
+      "index": 11,
+      "qid": "00e51200"
+     },
+     {
+      "index": 5,
+      "qid": "d59a1d54"
+     }
     ]
    },
    {
@@ -689,8 +1001,14 @@
     "modulates": "serotonin",
     "effect": "decrease",
     "picks": [
-     18,
-     22
+     {
+      "index": 18,
+      "qid": "9d30aaa7"
+     },
+     {
+      "index": 22,
+      "qid": "18f0fbaa"
+     }
     ]
    },
    {
@@ -700,8 +1018,14 @@
     "modulates": "gaba",
     "effect": "increase",
     "picks": [
-     29,
-     31
+     {
+      "index": 29,
+      "qid": "09ec496f"
+     },
+     {
+      "index": 31,
+      "qid": "5eeed531"
+     }
     ]
    },
    {
@@ -711,7 +1035,10 @@
     "modulates": "gaba",
     "effect": "increase",
     "picks": [
-     36
+     {
+      "index": 36,
+      "qid": "9fe26134"
+     }
     ]
    }
   ],
@@ -723,7 +1050,10 @@
     "modulates": "glutamate",
     "effect": "decrease",
     "picks": [
-     3
+     {
+      "index": 3,
+      "qid": "983307ba"
+     }
     ]
    },
    {
@@ -733,7 +1063,10 @@
     "modulates": "gaba",
     "effect": "decrease",
     "picks": [
-     3
+     {
+      "index": 3,
+      "qid": "983307ba"
+     }
     ]
    }
   ]

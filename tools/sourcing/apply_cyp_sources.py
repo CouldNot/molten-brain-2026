@@ -79,6 +79,7 @@ from data_generators.quotes.attestation import pattern_for  # noqa: E402  (the t
 # The shared prose gate re-finds a quote under check_data's own normalization, so a quote
 # accepted here is one check_data.py accepts too.
 from prose_gate import PageGate, add_source, normalize_for_match  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 
 CACHE = os.path.join(REPO, "tools", "generated_cache")
 WORKLIST = os.path.join(CACHE, "cyp_worklist.json")
@@ -121,8 +122,9 @@ def apply(work: dict, judged: dict, gate: PageGate, llm: str = "opus",
                 n, enzyme = row.get("n"), (row.get("enzyme") or "").lower()
                 role, strength = row.get("role"), row.get("strength")
                 label = f"{drug_id} {enzyme}/{role} n={n}"
-                if not isinstance(n, int) or not 0 <= n < len(cands):
-                    reject("candidate index out of range", label)
+                cand, why = resolve(cands, row, key="n")
+                if why:
+                    reject(why, label)
                     continue
                 if enzyme not in vocab["enzymes"]:
                     reject("enzyme not modeled", label)
@@ -133,7 +135,6 @@ def apply(work: dict, judged: dict, gate: PageGate, llm: str = "opus",
                 if strength is not None and strength not in vocab["strengths"][role]:
                     reject("strength not available to this role", f"{label} ({strength})")
                     continue
-                cand = cands[n]
                 corpus, page, quote = cand["corpus"], cand["page"], cand["quote"]
                 if enzyme not in isoforms(quote):
                     reject("quote does not name the claimed isoform", f"{label}: {quote[:80]}")

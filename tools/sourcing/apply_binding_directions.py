@@ -78,6 +78,7 @@ sys.path.insert(0, os.path.join(REPO, "tools"))
 import drugs_io  # noqa: E402
 import target_aliases as ta  # noqa: E402  (the same matcher the fetcher offered with)
 from check_data import normalize_for_match  # noqa: E402  (one canonical quote gate)
+from pipeline.judged import resolve  # noqa: E402
 from data_generators.drugs import DRUG_ACTIONS  # noqa: E402  (the live action vocabulary)
 
 CORPUS = "wikipedia_pharm"
@@ -151,13 +152,11 @@ def apply(worklist: list[dict], judged: dict, drugs: list[dict],
             index = row.get("index")
             label = f"{drug_id} {target}/{action} index={index}"
 
-            # `isinstance(True, int)` is True, so a boolean index is excluded explicitly
-            # rather than silently resolving to candidate 0 or 1.
-            if isinstance(index, bool) or not isinstance(index, int) \
-                    or not 0 <= index < len(cands):
-                reject("candidate index out of range", label)
+            cand, why = resolve(cands, row)
+            if why:
+                reject(why, label)
                 continue
-            quote = cands[index]
+            quote = cand["line"]
 
             gate.write(drug, target, action, quote, slug, label,
                        names_target=lambda: ta.mentions(quote, aliases.get(target, [])))
@@ -313,12 +312,11 @@ def apply_search(worklist: list[dict], judged: dict, drugs: list[dict], read_pag
         if rec is None:
             gate.reject("site not in the search worklist", site)
             continue
-        cands = rec["candidates"]
-        if isinstance(index, bool) or not isinstance(index, int) \
-                or not 0 <= index < len(cands):
-            gate.reject("candidate index out of range", label)
+        cand, why = resolve(rec["candidates"], row)
+        if why:
+            gate.reject(why, label)
             continue
-        cand, target = cands[index], rec["target"]
+        target = rec["target"]
         owners = _owners(drugs, rec, metabolites)
         if not owners:
             gate.reject("no record holds that binding", label)

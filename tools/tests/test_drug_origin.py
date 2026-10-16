@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_drug_holders as AH  # noqa: E402
 import apply_originator as AO  # noqa: E402
+from judged_fixture import fill_tree  # noqa: E402
 from data_generators import origin  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 
@@ -111,8 +112,14 @@ class OriginatorTest(unittest.TestCase):
 
     def run_apply(self, drug_pick, company_pick=None):
         drugs = [{"id": "x", "originator": {"name": "STALE"}}]
-        judged = {"drugs": {"x": drug_pick},
-                  "companies": {"lundbeck": company_pick or {}}}
+        company_pick = dict(company_pick or {})
+        now = company_pick.get("now")
+        if now and isinstance(now.get("index"), list):  # a chain: one ref per sentence
+            company_pick["now"] = {"picks": [{"index": i} for i in now["index"]],
+                                   "name": now["name"]}
+        judged = {"drugs": {"x": fill_tree(drug_pick, self.wl["drugs"]["x"]["candidates"])},
+                  "companies": {"lundbeck": fill_tree(
+                      company_pick, self.wl["companies"]["lundbeck"]["candidates"])}}
         AO.apply(self.wl, judged, drugs, self.pages, {"lundbeck": ["Lundbeck"]})
         return drugs[0]
 

@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 import apply_release_modulation as A  # noqa: E402
 import fetch_release_modulation as F  # noqa: E402
 from data_generators import release_modulation as RM  # noqa: E402
+from judged_fixture import lift_owners  # noqa: E402
 
 C2C = ("Excitatory 5HT2C receptors on GABA interneurons in the VTA inhibit dopamine "
        "release in the prefrontal cortex.")
@@ -48,7 +49,7 @@ class ApplierGateTest(unittest.TestCase):
         self.tmp.cleanup()
 
     def run_(self, owners):
-        return A.apply(self.worklist, {"owners": owners}, self.receptors, self.structures,
+        return A.apply(self.worklist, {"owners": lift_owners(owners, self.worklist["owners"])}, self.receptors, self.structures,
                        pages=self.pages)
 
     def test_good_pick_lands_verified(self):

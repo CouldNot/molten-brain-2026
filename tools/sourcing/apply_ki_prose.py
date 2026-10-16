@@ -53,6 +53,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS / "fetch"))
 
 from check_data import normalize_for_match                     # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 import drugs_io                                                # noqa: E402
 from fetch_europepmc import (ARTICLE_URL, FULL_TEXT_MARKER, KI_PROSE_WORKLIST,  # noqa: E402
                              PAGES_DIR)
@@ -141,8 +142,7 @@ def main() -> int:
         missing = {t for t in work.get("missing", {}) if t in bindings
                    and not bindings[t].get("ki")}
         for pick in picks:
-            i = pick.get("candidate")
-            cand = cands[i] if isinstance(i, int) and 0 <= i < len(cands) else None
+            cand = resolve(cands, pick, key="candidate")[0]
             path = PAGES_DIR / f"{cand['page']}.md" if cand else None
             page = path.read_text("utf-8") if path and path.exists() else ""
             why = check_pick(pick, cand, page, missing)

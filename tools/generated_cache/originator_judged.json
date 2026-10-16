@@ -3,579 +3,699 @@
   "acamprosate": {
    "index": 0,
    "name": "Lipha",
-   "company": null
+   "company": null,
+   "qid": "6154839d"
   },
   "agomelatine": {
    "index": 1,
    "name": "Servier Laboratories",
-   "company": "laboratoires_servier"
+   "company": "laboratoires_servier",
+   "qid": "22431c4f"
   },
   "alpidem": {
    "index": 2,
    "name": "Synthélabo Recherche",
-   "company": null
+   "company": null,
+   "qid": "fa358617"
   },
   "amitriptyline": {
    "index": 1,
    "name": "Merck",
-   "company": "merck_co"
+   "company": "merck_co",
+   "qid": "a77452de"
   },
   "aripiprazole": {
    "index": 1,
    "name": "Otsuka Pharmaceutical",
-   "company": "otsuka_pharmaceutical"
+   "company": "otsuka_pharmaceutical",
+   "qid": "bb3c2557"
   },
   "baclofen": {
    "index": 0,
    "name": "Ciba-Geigy",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "16365c84"
   },
   "benperidol": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "c43e32ce"
   },
   "bremelanotide": {
    "index": 0,
    "name": "Palatin Technologies",
-   "company": null
+   "company": null,
+   "qid": "0021a489"
   },
   "bromperidol": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "9a24718b"
   },
   "buprenorphine": {
    "index": 1,
    "name": "Reckitt and Colman",
-   "company": "reckitt"
+   "company": "reckitt",
+   "qid": "73faa88e"
   },
   "bupropion": {
    "index": 0,
    "name": "Burroughs Wellcome",
-   "company": null
+   "company": null,
+   "qid": "ad60596a"
   },
   "buspirone": {
    "index": 1,
    "name": "Mead Johnson",
-   "company": "mead_johnson"
+   "company": "mead_johnson",
+   "qid": "1ab15c21"
   },
   "butobarbital": {
    "index": 0,
    "name": "Poulenc Brothers",
-   "company": null
+   "company": null,
+   "qid": "b9ef1980"
   },
   "cariprazine": {
    "index": 0,
    "name": "Gedeon Richter",
-   "company": null
+   "company": null,
+   "qid": "31a70720"
   },
   "citalopram": {
    "index": 0,
    "name": "Lundbeck",
-   "company": "lundbeck"
+   "company": "lundbeck",
+   "qid": "ec4ae87c"
   },
   "clobazam": {
    "index": 1,
    "name": "Maestretti Research Laboratories",
-   "company": null
+   "company": null,
+   "qid": "1df5d4db"
   },
   "clomethiazole": {
    "index": 0,
    "name": "Hoffmann-La Roche",
-   "company": "roche"
+   "company": "roche",
+   "qid": "7a23970d"
   },
   "clomipramine": {
    "index": 0,
    "name": "Ciba-Geigy",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "553b1dd3"
   },
   "clozapine": {
    "index": 1,
    "name": "Wander AG",
-   "company": "wander_ag"
+   "company": "wander_ag",
+   "qid": "d04292b6"
   },
   "daridorexant": {
    "index": 0,
    "name": "Actelion Pharmaceuticals",
-   "company": "actelion"
+   "company": "actelion",
+   "qid": "4a52915a"
   },
   "desipramine": {
    "index": 0,
    "name": "Geigy",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "1f9426a3"
   },
   "dexmedetomidine": {
    "index": 0,
    "name": "Orion Pharma",
-   "company": null
+   "company": null,
+   "qid": "ad4e3d0d"
   },
   "dextromethorphanbupropion": {
    "index": 1,
    "name": "Axsome Therapeutics",
-   "company": null
+   "company": null,
+   "qid": "732795f8"
   },
   "diazepam": {
    "index": 0,
    "name": "Hoffmann-La Roche",
-   "company": "roche"
+   "company": "roche",
+   "qid": "f59210d9"
   },
   "domperidone": {
    "index": 3,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "ce970e08"
   },
   "donepezil": {
    "index": 0,
    "name": "Eisai",
-   "company": "eisai_company"
+   "company": "eisai_company",
+   "qid": "e2cab466"
   },
   "dothiepin": {
    "index": 0,
    "name": "SPOFA",
-   "company": null
+   "company": null,
+   "qid": "e750f163"
   },
   "flunitrazepam": {
    "index": 0,
    "name": "Roche",
-   "company": "roche"
+   "company": "roche",
+   "qid": "8f09b735"
   },
   "fluoxetine": {
    "index": 0,
    "name": "Eli Lilly and Company",
-   "company": "eli_lilly_and_company"
+   "company": "eli_lilly_and_company",
+   "qid": "f69974b8"
   },
   "flupenthixol": {
    "index": 0,
    "name": "Lundbeck",
-   "company": "lundbeck"
+   "company": "lundbeck",
+   "qid": "fbae7bc7"
   },
   "flurazepam": {
    "index": 0,
    "name": "Roche Pharmaceuticals",
-   "company": "roche"
+   "company": "roche",
+   "qid": "420e43fb"
   },
   "fluspirilene": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "7338d84a"
   },
   "fluvoxamine": {
    "index": 0,
    "name": "Kali-Duphar",
-   "company": null
+   "company": null,
+   "qid": "aa35b15a"
   },
   "gabapentin": {
    "index": 0,
    "name": "Goedecke AG",
-   "company": null
+   "company": null,
+   "qid": "9961b124"
   },
   "glutethimide": {
    "index": 0,
    "name": "Ciba Specialty Chemicals",
-   "company": null
+   "company": null,
+   "qid": "54a75370"
   },
   "haloperidol": {
    "index": 2,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "0ceb78d4"
   },
   "hydroxyzine": {
    "index": 0,
    "name": "Union Chimique Belge",
-   "company": "ucb_company"
+   "company": "ucb_company",
+   "qid": "6102aeee"
   },
   "imipramine": {
    "index": 5,
    "name": "Ciba",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "38b87dcf"
   },
   "indalpine": {
    "index": 2,
    "name": "Pharmuka",
-   "company": null
+   "company": null,
+   "qid": "13a0a009"
   },
   "ketanserin": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "0e5fda3e"
   },
   "lisdexamfetamine": {
    "index": 0,
    "name": "New River Pharmaceuticals",
-   "company": null
+   "company": null,
+   "qid": "67e019dd"
   },
   "lofepramine": {
    "index": 0,
    "name": "Leo Läkemedel AB",
-   "company": null
+   "company": null,
+   "qid": "547265e2"
   },
   "lsd": {
    "index": 1,
    "name": "Sandoz Laboratories",
-   "company": "sandoz"
+   "company": "sandoz",
+   "qid": "65c993fe"
   },
   "maprotiline": {
    "index": 0,
    "name": "Ciba",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "1c93a54f"
   },
   "mdma": {
    "index": 0,
    "name": "Merck",
-   "company": "merck_group"
+   "company": "merck_group",
+   "qid": "ecc4bf01"
   },
   "memantine": {
    "index": 1,
    "name": "Eli Lilly and Company",
-   "company": "eli_lilly_and_company"
+   "company": "eli_lilly_and_company",
+   "qid": "5807e783"
   },
   "meprobamate": {
    "index": 0,
    "name": "Carter Products",
-   "company": null
+   "company": null,
+   "qid": "adbaa730"
   },
   "methylphenidate_dl": {
    "index": 1,
    "name": "CIBA",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "6b21728c"
   },
   "midazolam": {
    "index": 0,
    "name": "Hoffmann-LaRoche",
-   "company": "roche"
+   "company": "roche",
+   "qid": "a76f3e09"
   },
   "mirtazapine": {
    "index": 0,
    "name": "Organon",
-   "company": "organon_co"
+   "company": "organon_co",
+   "qid": "f34066af"
   },
   "modafinil": {
    "index": 1,
    "name": "Lafon Laboratories",
-   "company": null
+   "company": null,
+   "qid": "3369101a"
   },
   "naltrexone": {
    "index": 1,
    "name": "Endo Laboratories",
-   "company": null
+   "company": null,
+   "qid": "124d3659"
   },
   "naltrexonebupropion": {
    "index": 0,
    "name": "Orexigen Therapeutics",
-   "company": "orexigen_therapeutics"
+   "company": "orexigen_therapeutics",
+   "qid": "e0460138"
   },
   "nefazodone": {
    "index": 0,
    "name": "Bristol-Myers Squibb",
-   "company": "bristol_myers_squibb"
+   "company": "bristol_myers_squibb",
+   "qid": "19c895de"
   },
   "nimetazepam": {
    "index": 0,
    "name": "Hoffmann-La Roche",
-   "company": "roche"
+   "company": "roche",
+   "qid": "8e6f91dc"
   },
   "nitrazepam": {
    "index": 0,
    "name": "Hoffmann-La Roche",
-   "company": "roche"
+   "company": "roche",
+   "qid": "cfde6e90"
   },
   "nortriptyline": {
    "index": 0,
    "name": "Geigy",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "efcd1e0f"
   },
   "ondansetron": {
    "index": 0,
    "name": "GlaxoSmithKline",
-   "company": "gsk_plc"
+   "company": "gsk_plc",
+   "qid": "f42720d2"
   },
   "pentobarbital": {
    "index": 1,
    "name": "Abbott Laboratories",
-   "company": "abbott_laboratories"
+   "company": "abbott_laboratories",
+   "qid": "ed59e39e"
   },
   "perampanel": {
    "index": 0,
    "name": "Eisai",
-   "company": "eisai_company"
+   "company": "eisai_company",
+   "qid": "b54bff17"
   },
   "phenterminetopiramate": {
    "index": 0,
    "name": "Vivus",
-   "company": null
+   "company": null,
+   "qid": "a03f0375"
   },
   "pimavanserin": {
    "index": 0,
    "name": "Acadia Pharmaceuticals",
-   "company": "acadia_pharmaceuticals"
+   "company": "acadia_pharmaceuticals",
+   "qid": "2c79207f"
   },
   "pimozide": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "7338d84a"
   },
   "pipamperone": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "1760e8f0"
   },
   "prazepam": {
    "index": 0,
    "name": "Warner-Lambert",
-   "company": "warner_lambert"
+   "company": "warner_lambert",
+   "qid": "116e3c42"
   },
   "pregabalin": {
    "index": 2,
    "name": "Northwestern University",
-   "company": null
+   "company": null,
+   "qid": "87f7946d"
   },
   "promethazine": {
    "index": 0,
    "name": "Rhone-Poulenc",
-   "company": "rh_ne_poulenc"
+   "company": "rh_ne_poulenc",
+   "qid": "261bc335"
   },
   "protriptyline": {
    "index": 0,
    "name": "Merck",
-   "company": "merck_co"
+   "company": "merck_co",
+   "qid": "68157f8d"
   },
   "quazepam": {
    "index": 0,
    "name": "Schering Corporation",
-   "company": "schering_plough"
+   "company": "schering_plough",
+   "qid": "82aab368"
   },
   "reboxetine": {
    "index": 0,
    "name": "Farmitalia-Carlo Erba",
-   "company": "farmitalia"
+   "company": "farmitalia",
+   "qid": "11c8c97f"
   },
   "rivastigmine": {
    "index": 0,
    "name": "Hebrew University of Jerusalem",
-   "company": null
+   "company": null,
+   "qid": "f4d3cb3e"
   },
   "rotigotine": {
    "index": 0,
    "name": "University of Groningen",
-   "company": null
+   "company": null,
+   "qid": "52ef43dd"
   },
   "selegiline": {
    "index": 4,
    "name": "Chinoin Pharmaceutical Company",
-   "company": null
+   "company": null,
+   "qid": "73667ea7"
   },
   "sertindole": {
    "index": 0,
    "name": "Lundbeck",
-   "company": "lundbeck"
+   "company": "lundbeck",
+   "qid": "a34f4d20"
   },
   "sertraline": {
    "index": 0,
    "name": "Pfizer",
-   "company": "pfizer"
+   "company": "pfizer",
+   "qid": "973e5e64"
   },
   "sildenafil": {
    "index": 0,
    "name": "Pfizer",
-   "company": "pfizer"
+   "company": "pfizer",
+   "qid": "871372b6"
   },
   "sodium_oxybate": {
    "index": 0,
    "name": "Orphan Medical",
-   "company": null
+   "company": null,
+   "qid": "cc0974ea"
   },
   "suvorexant": {
    "index": 2,
    "name": "Merck",
-   "company": "merck_co"
+   "company": "merck_co",
+   "qid": "ac507473"
   },
   "thioridazine": {
    "index": 0,
    "name": "Sandoz",
-   "company": "sandoz"
+   "company": "sandoz",
+   "qid": "c08e8734"
   },
   "thiothixene": {
    "index": 0,
    "name": "Pfizer",
-   "company": "pfizer"
+   "company": "pfizer",
+   "qid": "5593e761"
   },
   "tiagabine": {
    "index": 1,
    "name": "Novo",
-   "company": "novo_company"
+   "company": "novo_company",
+   "qid": "9b71f1ff"
   },
   "tianeptine": {
    "index": 0,
    "name": "French Society of Medical Research",
-   "company": null
+   "company": null,
+   "qid": "bd233b98"
   },
   "trazodone": {
    "index": 0,
    "name": "Angelini Research Laboratories",
-   "company": "angelini"
+   "company": "angelini",
+   "qid": "524a2930"
   },
   "trimipramine": {
    "index": 0,
    "name": "Rhône-Poulenc",
-   "company": "rh_ne_poulenc"
+   "company": "rh_ne_poulenc",
+   "qid": "b552a5b8"
   },
   "vilazodone": {
    "index": 0,
    "name": "Merck KGaA",
-   "company": "merck_group"
+   "company": "merck_group",
+   "qid": "252db243"
   },
   "viloxazine": {
    "index": 1,
    "name": "Imperial Chemical Industries",
-   "company": "imperial_chemical_industries"
+   "company": "imperial_chemical_industries",
+   "qid": "09739de2"
   },
   "vortioxetine": {
    "index": 0,
    "name": "Lundbeck",
-   "company": "lundbeck"
+   "company": "lundbeck",
+   "qid": "9f388bf4"
   },
   "zaleplon": {
    "index": 0,
    "name": "King Pharmaceuticals",
-   "company": "king_pharmaceuticals"
+   "company": "king_pharmaceuticals",
+   "qid": "24608339"
   },
   "zimelidine": {
    "index": 0,
    "name": "Astra AB",
-   "company": "astra_ab"
+   "company": "astra_ab",
+   "qid": "cc4bc772"
   },
   "ziprasidone": {
    "index": 0,
    "name": "Pfizer",
-   "company": "pfizer"
+   "company": "pfizer",
+   "qid": "ea537715"
   },
   "zopiclone": {
    "index": 1,
    "name": "Rhône-Poulenc S.A.",
-   "company": "rh_ne_poulenc"
+   "company": "rh_ne_poulenc",
+   "qid": "40447550"
   },
   "bromocriptine": {
    "index": 0,
    "name": "Sandoz",
-   "company": "sandoz"
+   "company": "sandoz",
+   "qid": "7d7c4ceb"
   },
   "cabergoline": {
    "index": 0,
    "name": "Farmitalia-Carlo Erba",
-   "company": "farmitalia"
+   "company": "farmitalia",
+   "qid": "85319cbd"
   },
   "rasagiline": {
    "index": 2,
    "name": "Aspro Nicholas",
-   "company": null
+   "company": null,
+   "qid": "01968ccb"
   },
   "safinamide": {
    "index": 0,
    "name": "Farmitalia-Carlo Erba",
-   "company": "farmitalia"
+   "company": "farmitalia",
+   "qid": "aa0df523"
   },
   "nabilone": {
    "index": 0,
    "name": "Eli Lilly and Company",
-   "company": "eli_lilly_and_company"
+   "company": "eli_lilly_and_company",
+   "qid": "da9284b9"
   },
   "rimonabant": {
    "index": 0,
    "name": "Sanofi-Aventis",
-   "company": "sanofi"
+   "company": "sanofi",
+   "qid": "c53b4360"
   },
   "fentanyl": {
    "index": 1,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "b4a18cf9"
   },
   "tapentadol": {
    "index": 1,
    "name": "Grünenthal",
-   "company": "gr_nenthal"
+   "company": "gr_nenthal",
+   "qid": "777fec48"
   },
   "pethidine": {
    "index": 0,
    "name": "IG Farben",
-   "company": "ig_farben"
+   "company": "ig_farben",
+   "qid": "d1bd38ca"
   },
   "pentazocine": {
    "index": 0,
    "name": "Sterling Drug Company",
-   "company": "sterling_drug"
+   "company": "sterling_drug",
+   "qid": "6faf7838"
   },
   "granisetron": {
    "index": 0,
    "name": "Beecham",
-   "company": "beecham_group"
+   "company": "beecham_group",
+   "qid": "a47a6c26"
   },
   "etomidate": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "0a1374d9"
   },
   "lacosamide": {
    "index": 0,
    "name": "University of Houston",
-   "company": null
+   "company": null,
+   "qid": "9e9f51e7"
   },
   "flunarizine": {
    "index": 0,
    "name": "Janssen Pharmaceutica",
-   "company": "janssen_pharmaceuticals"
+   "company": "janssen_pharmaceuticals",
+   "qid": "5a04aa72"
   },
   "erenumab": {
    "index": 1,
    "name": "Amgen Inc.",
-   "company": "amgen"
+   "company": "amgen",
+   "qid": "e5c57005"
   },
   "rimegepant": {
    "index": 0,
    "name": "Biohaven Pharmaceuticals",
-   "company": null
+   "company": null,
+   "qid": "f55c475f"
   },
   "sibutramine": {
    "index": 0,
    "name": "Boots",
-   "company": "boots_company"
+   "company": "boots_company",
+   "qid": "2fa4d894"
   },
   "opipramol": {
    "index": 1,
    "name": "Geigy",
-   "company": "novartis"
+   "company": "novartis",
+   "qid": "b9f46cef"
   },
   "propofol": {
    "index": 1,
    "name": "Imperial Chemical Industries",
-   "company": "imperial_chemical_industries"
+   "company": "imperial_chemical_industries",
+   "qid": "623a65c8"
   },
   "sevoflurane": {
    "index": 0,
    "name": "Airco Industrial Gases",
-   "company": null
+   "company": null,
+   "qid": "8ae8db3c"
   },
   "oxycodone": {
    "index": 0,
    "name": "University of Frankfurt",
-   "company": null
+   "company": null,
+   "qid": "b83eb5c1"
   },
   "solriamfetol": {
    "index": 0,
    "name": "SK Group",
-   "company": null
+   "company": null,
+   "qid": "6f44a70f"
   }
  },
  "companies": {
   "novartis": {
    "country": {
     "index": 11,
-    "country": "ch"
+    "country": "ch",
+    "qid": "be823ab5"
    },
    "now": {
-    "index": [
-     6,
-     14
+    "picks": [
+     {
+      "index": 6,
+      "qid": "04341228"
+     },
+     {
+      "index": 14,
+      "qid": "36e9c226"
+     }
     ],
     "name": "Novartis"
    }
@@ -583,76 +703,95 @@
   "sanofi": {
    "country": {
     "index": 1,
-    "country": "fr"
+    "country": "fr",
+    "qid": "e3fef18c"
    },
    "now": null
   },
   "reckitt": {
    "country": {
     "index": 5,
-    "country": "uk"
+    "country": "uk",
+    "qid": "bec5ed7d"
    },
    "now": null
   },
   "astra_ab": {
    "country": {
     "index": 0,
-    "country": "se"
+    "country": "se",
+    "qid": "35c3fd31"
    },
    "now": {
     "index": 1,
-    "name": "AstraZeneca"
+    "name": "AstraZeneca",
+    "qid": "9e2a2711"
    }
   },
   "farmitalia": {
    "country": {
     "index": 3,
-    "country": "it"
+    "country": "it",
+    "qid": "2f9d2497"
    },
    "now": {
     "index": 9,
-    "name": "Pfizer"
+    "name": "Pfizer",
+    "qid": "6f62d1c7"
    }
   },
   "beecham_group": {
    "country": {
     "index": 1,
-    "country": "uk"
+    "country": "uk",
+    "qid": "6939920d"
    },
    "now": {
     "index": 4,
-    "name": "GlaxoSmithKline"
+    "name": "GlaxoSmithKline",
+    "qid": "50660dde"
    }
   },
   "king_pharmaceuticals": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "f45e8df1"
    },
    "now": {
     "index": 3,
-    "name": "Pfizer"
+    "name": "Pfizer",
+    "qid": "f26f35bc"
    }
   },
   "warner_lambert": {
    "country": {
     "index": 2,
-    "country": "us"
+    "country": "us",
+    "qid": "5f1cf89d"
    },
    "now": {
     "index": 14,
-    "name": "Pfizer"
+    "name": "Pfizer",
+    "qid": "ddddfceb"
    }
   },
   "schering_plough": {
    "country": {
     "index": 2,
-    "country": "us"
+    "country": "us",
+    "qid": "3a627591"
    },
    "now": {
-    "index": [
-     5,
-     15
+    "picks": [
+     {
+      "index": 5,
+      "qid": "1432cb63"
+     },
+     {
+      "index": 15,
+      "qid": "cf09077e"
+     }
     ],
     "name": "Merck & Co."
    }
@@ -660,219 +799,252 @@
   "imperial_chemical_industries": {
    "country": {
     "index": 1,
-    "country": "uk"
+    "country": "uk",
+    "qid": "7643674a"
    },
    "now": {
     "index": 12,
-    "name": "AkzoNobel"
+    "name": "AkzoNobel",
+    "qid": "faf623ea"
    }
   },
   "novo_company": {
    "country": {
     "index": 1,
-    "country": "dk"
+    "country": "dk",
+    "qid": "b0d86f36"
    },
    "now": {
     "index": 10,
-    "name": "Novo Nordisk"
+    "name": "Novo Nordisk",
+    "qid": "ae4be167"
    }
   },
   "janssen_pharmaceuticals": {
    "country": {
     "index": 1,
-    "country": "be"
+    "country": "be",
+    "qid": "78186d9c"
    },
    "now": {
     "index": 2,
-    "name": "Johnson & Johnson Innovative Medicine"
+    "name": "Johnson & Johnson Innovative Medicine",
+    "qid": "f6887b31"
    }
   },
   "actelion": {
    "country": {
     "index": 1,
-    "country": "ch"
+    "country": "ch",
+    "qid": "67af9c10"
    },
    "now": null
   },
   "organon_co": {
    "country": {
     "index": 3,
-    "country": "nl"
+    "country": "nl",
+    "qid": "905431ff"
    },
    "now": null
   },
   "rh_ne_poulenc": {
    "country": {
     "index": 1,
-    "country": "fr"
+    "country": "fr",
+    "qid": "7b0ed211"
    },
    "now": null
   },
   "sterling_drug": {
    "country": {
     "index": 2,
-    "country": "us"
+    "country": "us",
+    "qid": "f2aa34cf"
    },
    "now": null
   },
   "mead_johnson": {
    "country": {
     "index": 2,
-    "country": "us"
+    "country": "us",
+    "qid": "bdae28e9"
    },
    "now": null
   },
   "gsk_plc": {
    "country": {
     "index": 1,
-    "country": "uk"
+    "country": "uk",
+    "qid": "7643674a"
    },
    "now": null
   },
   "abbott_laboratories": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "c41cee2a"
    },
    "now": null
   },
   "acadia_pharmaceuticals": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "4f66c41b"
    },
    "now": null
   },
   "amgen": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "ba6ad68c"
    },
    "now": null
   },
   "angelini": {
    "country": {
     "index": 1,
-    "country": "it"
+    "country": "it",
+    "qid": "8bd7fffe"
    },
    "now": null
   },
   "bristol_myers_squibb": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "fbc9d05d"
    },
    "now": null
   },
   "boots_company": {
    "country": {
     "index": 1,
-    "country": "uk"
+    "country": "uk",
+    "qid": "7cd788e2"
    },
    "now": null
   },
   "eisai_company": {
    "country": {
     "index": 1,
-    "country": "jp"
+    "country": "jp",
+    "qid": "1fdc2dfa"
    },
    "now": null
   },
   "eli_lilly_and_company": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "c6747aef"
    },
    "now": null
   },
   "gr_nenthal": {
    "country": {
     "index": 1,
-    "country": "de"
+    "country": "de",
+    "qid": "c8eb83a7"
    },
    "now": null
   },
   "ig_farben": {
    "country": {
     "index": 1,
-    "country": "de"
+    "country": "de",
+    "qid": "c4e903ce"
    },
    "now": null
   },
   "lundbeck": {
    "country": {
     "index": 1,
-    "country": "dk"
+    "country": "dk",
+    "qid": "ddab7e4d"
    },
    "now": null
   },
   "laboratoires_servier": {
    "country": {
     "index": 1,
-    "country": "fr"
+    "country": "fr",
+    "qid": "95b47d4d"
    },
    "now": null
   },
   "merck_co": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "d693091f"
    },
    "now": null
   },
   "merck_group": {
    "country": {
     "index": 1,
-    "country": "de"
+    "country": "de",
+    "qid": "31e7cbfd"
    },
    "now": null
   },
   "otsuka_pharmaceutical": {
    "country": {
     "index": 1,
-    "country": "jp"
+    "country": "jp",
+    "qid": "c5a0cb31"
    },
    "now": null
   },
   "orexigen_therapeutics": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "5d3af9a5"
    },
    "now": null
   },
   "pfizer": {
    "country": {
     "index": 1,
-    "country": "us"
+    "country": "us",
+    "qid": "f1cfb215"
    },
    "now": null
   },
   "roche": {
    "country": {
     "index": 1,
-    "country": "ch"
+    "country": "ch",
+    "qid": "1131c326"
    },
    "now": null
   },
   "sandoz": {
    "country": {
     "index": 1,
-    "country": "ch"
+    "country": "ch",
+    "qid": "1131c326"
    },
    "now": null
   },
   "ucb_company": {
    "country": {
     "index": 1,
-    "country": "be"
+    "country": "be",
+    "qid": "e7e667c5"
    },
    "now": null
   },
   "wander_ag": {
    "country": {
     "index": 1,
-    "country": "ch"
+    "country": "ch",
+    "qid": "943340de"
    },
    "now": null
   }

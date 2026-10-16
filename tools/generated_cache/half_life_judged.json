@@ -1,239 +1,290 @@
 {
  "alpidem": {
   "hours": 19.0,
-  "index": 0
+  "index": 0,
+  "qid": "0ceaf69f"
  },
  "amantadine": {
   "hours": 10.0,
   "hours_max": 31.0,
-  "index": 0
+  "index": 0,
+  "qid": "8de96f73"
  },
  "apomorphine": {
   "hours": 0.5,
   "hours_max": 1.0,
-  "index": 1
+  "index": 1,
+  "qid": "3b56316e"
  },
  "bromocriptine": {
   "hours": 12.0,
   "hours_max": 14.0,
-  "index": 0
+  "index": 0,
+  "qid": "6ee3cf85"
  },
  "cabergoline": {
   "hours": 63.0,
   "hours_max": 69.0,
-  "index": 0
+  "index": 0,
+  "qid": "c5d44c25"
  },
  "caffeine": {
   "hours": 3.0,
   "hours_max": 7.0,
-  "index": 0
+  "index": 0,
+  "qid": "0a59dabf"
  },
  "cannabidiol": {
   "hours": 56.0,
   "hours_max": 61.0,
-  "index": 3
+  "index": 3,
+  "qid": "3ef7c457"
  },
  "chloral_hydrate": {
   "hours": 8.0,
   "hours_max": 10.0,
-  "index": 0
+  "index": 0,
+  "qid": "332ae534"
  },
  "cocaine": {
   "hours": 0.7,
   "hours_max": 1.5,
-  "index": 2
+  "index": 2,
+  "qid": "55b97e2d"
  },
  "cyproheptadine": {
   "hours": 8.6,
-  "index": 1
+  "index": 1,
+  "qid": "9d75da5d"
  },
  "cytisine": {
   "hours": 4.8,
-  "index": 0
+  "index": 0,
+  "qid": "f4a21c6f"
  },
  "dimenhydrinate": {
   "hours": 5.0,
   "hours_max": 6.0,
-  "index": 1
+  "index": 1,
+  "qid": "9313c978"
  },
  "dmt": {
   "hours": 0.083,
   "hours_max": 0.317,
-  "index": 0
+  "index": 0,
+  "qid": "ac745764"
  },
  "domperidone": {
   "hours": 7.0,
   "hours_max": 9.0,
-  "index": 1
+  "index": 1,
+  "qid": "ca994c95"
  },
  "doxylamine": {
   "hours": 10.0,
   "hours_max": 12.0,
-  "index": 3
+  "index": 3,
+  "qid": "f4dfa462"
  },
  "fentanyl": {
   "index": 3,
   "hours": 3.0,
-  "hours_max": 12.5
+  "hours_max": 12.5,
+  "qid": "45588297"
  },
  "flupenthixol": {
   "hours": 35.0,
-  "index": 0
+  "index": 0,
+  "qid": "53b956bd"
  },
  "furosemide": {
   "hours": 2.0,
-  "index": 2
+  "index": 2,
+  "qid": "8e1d4b04"
  },
  "guanfacine": {
   "hours": 17.0,
-  "index": 1
+  "index": 1,
+  "qid": "84ee7019"
  },
  "imipramine": {
   "hours": 20.0,
-  "index": 0
+  "index": 0,
+  "qid": "80685047"
  },
  "isocarboxazid": {
   "hours": 1.5,
   "hours_max": 4.0,
-  "index": 0
+  "index": 0,
+  "qid": "3f35abf7"
  },
  "ketanserin": {
   "hours": 10.0,
   "hours_max": 29.0,
-  "index": 1
+  "index": 1,
+  "qid": "c5d94c83"
  },
  "lisdexamfetamine": {
   "hours": 1.0,
-  "index": 5
+  "index": 5,
+  "qid": "6325a60c"
  },
  "lsd": {
   "hours": 3.0,
   "hours_max": 4.3,
-  "index": 0
+  "index": 0,
+  "qid": "7071d9be"
  },
  "mdma": {
   "hours": 8.0,
   "hours_max": 9.0,
-  "index": 0
+  "index": 0,
+  "qid": "86086044"
  },
  "melatonin": {
   "hours": 0.333,
   "hours_max": 0.833,
-  "index": 0
+  "index": 0,
+  "qid": "04cd69e9"
  },
  "methadone": {
   "hours": 15.0,
   "hours_max": 60.0,
-  "index": 2
+  "index": 2,
+  "qid": "e3128548"
  },
  "methamphetamine": {
   "hours": 9.0,
   "hours_max": 12.0,
-  "index": 1
+  "index": 1,
+  "qid": "dacb9406"
  },
  "nicotine": {
   "hours": 1.0,
   "hours_max": 2.0,
-  "index": 0
+  "index": 0,
+  "qid": "b315369a"
  },
  "perospirone": {
   "hours": 1.9,
   "hours_max": 2.5,
-  "index": 0
+  "index": 0,
+  "qid": "d8c9caa1"
  },
  "phencyclidine": {
   "hours": 7.0,
   "hours_max": 46.0,
-  "index": 0
+  "index": 0,
+  "qid": "132ea7a4"
  },
  "phenelzine": {
   "hours": 11.6,
-  "index": 1
+  "index": 1,
+  "qid": "1d04c192"
  },
  "pipothiazine": {
   "hours": 360.0,
-  "index": 0
+  "index": 0,
+  "qid": "a5b13030"
  },
  "pramipexole": {
   "hours": 8.0,
   "hours_max": 12.0,
-  "index": 0
+  "index": 0,
+  "qid": "a9545a50"
  },
  "rasagiline": {
   "hours": 3.0,
-  "index": 0
+  "index": 0,
+  "qid": "204b2716"
  },
  "ropinirole": {
   "hours": 5.0,
   "hours_max": 6.0,
-  "index": 0
+  "index": 0,
+  "qid": "94e053eb"
  },
  "rotigotine": {
   "hours": 5.0,
   "hours_max": 7.0,
-  "index": 0
+  "index": 0,
+  "qid": "3973df2a"
  },
  "safinamide": {
   "hours": 20.0,
   "hours_max": 30.0,
-  "index": 1
+  "index": 1,
+  "qid": "7c17b604"
  },
  "salvinorin_a": {
   "hours": 0.833,
-  "index": 0
+  "index": 0,
+  "qid": "d51b0c26"
  },
  "tetrabenazine": {
   "hours": 10.0,
-  "index": 0
+  "index": 0,
+  "qid": "25ffe828"
  },
  "thc": {
   "hours": 20.0,
   "hours_max": 30.0,
-  "index": 3
+  "index": 3,
+  "qid": "0459693f"
  },
  "thioridazine": {
   "hours": 21.0,
   "hours_max": 24.0,
-  "index": 0
+  "index": 0,
+  "qid": "bf45266a"
  },
  "tranylcypromine": {
   "hours": 2.5,
-  "index": 0
+  "index": 0,
+  "qid": "55064ee2"
  },
  "valbenazine": {
   "hours": 15.0,
   "hours_max": 22.0,
-  "index": 1
+  "index": 1,
+  "qid": "918f83e3"
  },
  "zotepine": {
   "hours": 13.7,
   "hours_max": 15.9,
-  "index": 0
+  "index": 0,
+  "qid": "8f21ee73"
  },
  "zuranolone": {
   "hours": 16.0,
   "hours_max": 23.0,
-  "index": 1
+  "index": 1,
+  "qid": "966cfda6"
  },
  "bumetanide": {
   "index": 1,
-  "hours": 1.5
+  "hours": 1.5,
+  "qid": "fd2b6098"
  },
  "tizanidine": {
   "index": 2,
-  "hours": 2.5
+  "hours": 2.5,
+  "qid": "0dbe57e9"
  },
  "flurazepam": {
   "index": 0,
-  "hours": 2.3
+  "hours": 2.3,
+  "qid": "217004f5"
  },
  "lumateperone": {
   "index": 0,
-  "hours": 18.0
+  "hours": 18.0,
+  "qid": "7130ada7"
  },
  "oxycodone": {
   "index": 0,
   "hours": 2.0,
-  "hours_max": 3.0
+  "hours_max": 3.0,
+  "qid": "1800a711"
  }
 }

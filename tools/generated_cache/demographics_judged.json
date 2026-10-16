@@ -6,8 +6,14 @@
     "direction": "decrease",
     "structure": null,
     "picks": [
-     3,
-     2
+     {
+      "index": 3,
+      "qid": "7a265407"
+     },
+     {
+      "index": 2,
+      "qid": "671708e1"
+     }
     ]
    }
   ],
@@ -18,10 +24,22 @@
     "structure": null,
     "magnitude": "loss per decade corresponded to 7.9%",
     "picks": [
-     19,
-     18,
-     22,
-     32
+     {
+      "index": 19,
+      "qid": "cc44adfe"
+     },
+     {
+      "index": 18,
+      "qid": "5a7e8ad4"
+     },
+     {
+      "index": 22,
+      "qid": "7bd18a55"
+     },
+     {
+      "index": 32,
+      "qid": "9cd9b242"
+     }
     ]
    },
    {
@@ -30,8 +48,14 @@
     "structure": "caudate",
     "magnitude": "6.6% per decade in caudate",
     "picks": [
-     12,
-     11
+     {
+      "index": 12,
+      "qid": "454a22ec"
+     },
+     {
+      "index": 11,
+      "qid": "1fa7ac90"
+     }
     ]
    },
    {
@@ -40,8 +64,14 @@
     "structure": "putamen",
     "magnitude": "8.2% in putamen",
     "picks": [
-     12,
-     11
+     {
+      "index": 12,
+      "qid": "454a22ec"
+     },
+     {
+      "index": 11,
+      "qid": "1fa7ac90"
+     }
     ]
    },
    {
@@ -50,8 +80,14 @@
     "structure": "thalamus",
     "magnitude": "7.6% in thalamus",
     "picks": [
-     12,
-     13
+     {
+      "index": 12,
+      "qid": "454a22ec"
+     },
+     {
+      "index": 13,
+      "qid": "8152d9ec"
+     }
     ]
    },
    {
@@ -60,7 +96,10 @@
     "structure": "cingulate",
     "magnitude": "decline of 13% per increase of a decade in age",
     "picks": [
-     26
+     {
+      "index": 26,
+      "qid": "9284e310"
+     }
     ]
    }
   ],
@@ -70,10 +109,22 @@
     "direction": "decrease",
     "structure": null,
     "picks": [
-     11,
-     23,
-     14,
-     2
+     {
+      "index": 11,
+      "qid": "54a8045f"
+     },
+     {
+      "index": 23,
+      "qid": "fb2e0255"
+     },
+     {
+      "index": 14,
+      "qid": "cc9eae1a"
+     },
+     {
+      "index": 2,
+      "qid": "671708e1"
+     }
     ]
    },
    {
@@ -81,8 +132,14 @@
     "direction": "higher_in_female",
     "structure": null,
     "picks": [
-     24,
-     21
+     {
+      "index": 24,
+      "qid": "14d5fe5a"
+     },
+     {
+      "index": 21,
+      "qid": "301d51f0"
+     }
     ]
    }
   ],
@@ -93,8 +150,14 @@
     "structure": null,
     "magnitude": "approximately 10% per decade",
     "picks": [
-     16,
-     14
+     {
+      "index": 16,
+      "qid": "7b5c4104"
+     },
+     {
+      "index": 14,
+      "qid": "dc1bc1e1"
+     }
     ]
    },
    {
@@ -103,7 +166,10 @@
     "structure": "raphe",
     "magnitude": "4.5% per decade of age",
     "picks": [
-     4
+     {
+      "index": 4,
+      "qid": "d8fc1462"
+     }
     ]
    },
    {
@@ -111,8 +177,14 @@
     "direction": "no_difference",
     "structure": null,
     "picks": [
-     20,
-     25
+     {
+      "index": 20,
+      "qid": "78e7b7a3"
+     },
+     {
+      "index": 25,
+      "qid": "c8c2870f"
+     }
     ]
    },
    {
@@ -120,9 +192,18 @@
     "direction": "higher_in_female",
     "structure": null,
     "picks": [
-     30,
-     21,
-     24
+     {
+      "index": 30,
+      "qid": "75edf03e"
+     },
+     {
+      "index": 21,
+      "qid": "f37aad1d"
+     },
+     {
+      "index": 24,
+      "qid": "44f4f2a8"
+     }
     ]
    }
   ],
@@ -133,8 +214,14 @@
     "structure": null,
     "magnitude": "8% per decade",
     "picks": [
-     10,
-     1
+     {
+      "index": 10,
+      "qid": "272c3915"
+     },
+     {
+      "index": 1,
+      "qid": "2b4161a0"
+     }
     ]
    }
   ],
@@ -145,8 +232,14 @@
     "structure": null,
     "magnitude": "approximately 4.2% per decade",
     "picks": [
-     5,
-     4
+     {
+      "index": 5,
+      "qid": "93af7ae5"
+     },
+     {
+      "index": 4,
+      "qid": "c22453a6"
+     }
     ]
    },
    {
@@ -154,7 +247,10 @@
     "direction": "higher_in_male",
     "structure": null,
     "picks": [
-     10
+     {
+      "index": 10,
+      "qid": "75edf03e"
+     }
     ]
    }
   ],
@@ -164,7 +260,10 @@
     "direction": "decrease",
     "structure": null,
     "picks": [
-     1
+     {
+      "index": 1,
+      "qid": "9cde6df3"
+     }
     ]
    },
    {
@@ -172,7 +271,10 @@
     "direction": "decrease",
     "structure": "locus_coeruleus",
     "picks": [
-     0
+     {
+      "index": 0,
+      "qid": "d1284d91"
+     }
     ]
    }
   ],
@@ -182,8 +284,14 @@
     "direction": "increase",
     "structure": null,
     "picks": [
-     3,
-     0
+     {
+      "index": 3,
+      "qid": "ffeadd74"
+     },
+     {
+      "index": 0,
+      "qid": "034372a8"
+     }
     ]
    }
   ],
@@ -193,7 +301,10 @@
     "direction": "increase",
     "structure": null,
     "picks": [
-     5
+     {
+      "index": 5,
+      "qid": "f5664a7b"
+     }
     ]
    },
    {
@@ -201,7 +312,10 @@
     "direction": "higher_in_female",
     "structure": null,
     "picks": [
-     6
+     {
+      "index": 6,
+      "qid": "529664c1"
+     }
     ]
    }
   ],
@@ -211,7 +325,10 @@
     "direction": "higher_in_male",
     "structure": null,
     "picks": [
-     3
+     {
+      "index": 3,
+      "qid": "35214b34"
+     }
     ]
    }
   ]

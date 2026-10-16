@@ -9,67 +9,78 @@
    "index": 0,
    "target": "gaba_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ethanol)"
+   "reason": "the sentence's subject is another drug (ethanol)",
+   "qid": "528f486d"
   },
   {
    "index": 1,
    "target": "gaba_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ethanol)"
+   "reason": "the sentence's subject is another drug (ethanol)",
+   "qid": "4b1e64f6"
   },
   {
    "index": 2,
    "target": "nmda",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ethanol)"
+   "reason": "the sentence's subject is another drug (ethanol)",
+   "qid": "f1f73665"
   },
   {
    "index": 3,
    "target": "gaba_a",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "ad635972"
   },
   {
    "index": 4,
    "target": "nmda",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "ad635972"
   },
   {
    "index": 5,
    "target": "gaba_a",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "6cbd6356"
   },
   {
    "index": 6,
    "target": "gaba_b",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "6cbd6356"
   },
   {
    "index": 7,
    "target": "nmda",
    "pick": false,
-   "reason": "mixed enhance/inhibit, concentration dependent"
+   "reason": "mixed enhance/inhibit, concentration dependent",
+   "qid": "437a969b"
   },
   {
    "index": 8,
    "target": "nmda",
    "pick": false,
-   "reason": "supraclinical concentrations only"
+   "reason": "supraclinical concentrations only",
+   "qid": "d119c3b3"
   },
   {
    "index": 9,
    "target": "nmda",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "c0f29634"
   },
   {
    "index": 10,
    "target": "mglur5",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "6f22ef72"
   }
  ],
  "alpidem": [
@@ -77,7 +88,8 @@
    "index": 0,
    "target": "alpha2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "ddcb8224"
   }
  ],
  "amantadine": [
@@ -85,67 +97,78 @@
    "index": 0,
    "target": "sigma1",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "95ec3ee8"
   },
   {
    "index": 1,
    "target": "m2",
    "pick": false,
-   "reason": "influenza M2 proton channel, not the muscarinic M2 receptor"
+   "reason": "influenza M2 proton channel, not the muscarinic M2 receptor",
+   "qid": "d5e4cea8"
   },
   {
    "index": 2,
    "target": "dat",
    "pick": true,
-   "action": "reuptake_inhibitor"
+   "action": "reuptake_inhibitor",
+   "qid": "3961bd26"
   },
   {
    "index": 3,
    "target": "glutamate",
    "pick": false,
-   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing"
+   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing",
+   "qid": "3961bd26"
   },
   {
    "index": 4,
    "target": "beta2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "bd20b609"
   },
   {
    "index": 5,
    "target": "nachr_a4b2",
    "pick": true,
-   "action": "nam"
+   "action": "nam",
+   "qid": "bd20b609"
   },
   {
    "index": 6,
    "target": "nachr_a7",
    "pick": true,
-   "action": "nam"
+   "action": "nam",
+   "qid": "bd20b609"
   },
   {
    "index": 7,
    "target": "dat",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "fe822d2e"
   },
   {
    "index": 8,
    "target": "sigma1",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "fe822d2e"
   },
   {
    "index": 9,
    "target": "d2",
    "pick": false,
-   "reason": "states binding or affinity only, no direction"
+   "reason": "states binding or affinity only, no direction",
+   "qid": "d1324fc7"
   },
   {
    "index": 10,
    "target": "dat",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "d1324fc7"
   }
  ],
  "amitriptyline": [
@@ -153,7 +176,8 @@
    "index": 0,
    "target": "nmda",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "27c38846"
   }
  ],
  "amoxapine": [
@@ -161,19 +185,22 @@
    "index": 0,
    "target": "5ht2b",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "fe2725fc"
   },
   {
    "index": 1,
    "target": "5ht3",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "fe2725fc"
   },
   {
    "index": 2,
    "target": "delta",
    "pick": true,
-   "action": "partial_agonist"
+   "action": "partial_agonist",
+   "qid": "d3014abc"
   }
  ],
  "amphetamine_d": [
@@ -181,13 +208,15 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "amphetamine pharmacology navbox, no per-target direction"
+   "reason": "amphetamine pharmacology navbox, no per-target direction",
+   "qid": "2b785248"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target (via TAAR1)"
+   "reason": "indirect or downstream effect, not a direct action on the target (via TAAR1)",
+   "qid": "f2b8b730"
   }
  ],
  "amphetamine_dl": [
@@ -195,49 +224,57 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "amphetamine pharmacology navbox, no per-target direction"
+   "reason": "amphetamine pharmacology navbox, no per-target direction",
+   "qid": "2b785248"
   },
   {
    "index": 1,
    "target": "nmda",
    "pick": false,
-   "reason": "the sentence's subject is another drug (magnesium)"
+   "reason": "the sentence's subject is another drug (magnesium)",
+   "qid": "8b2155ff"
   },
   {
    "index": 2,
    "target": "sert",
    "pick": false,
-   "reason": "substrate transport, no direction"
+   "reason": "substrate transport, no direction",
+   "qid": "ecb30d6a"
   },
   {
    "index": 3,
    "target": "5ht1a",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "ef6b8680"
   },
   {
    "index": 4,
    "target": "glutamate",
    "pick": false,
-   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT3)"
+   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT3)",
+   "qid": "0707d4ce"
   },
   {
    "index": 5,
    "target": "glutamate",
    "pick": false,
-   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT3)"
+   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT3)",
+   "qid": "13600f82"
   },
   {
    "index": 6,
    "target": "sert",
    "pick": false,
-   "reason": "vague mechanism (phosphorylation), no direction"
+   "reason": "vague mechanism (phosphorylation), no direction",
+   "qid": "038c68c6"
   },
   {
    "index": 7,
    "target": "glutamate",
    "pick": false,
-   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT3)"
+   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT3)",
+   "qid": "271f7dc8"
   }
  ],
  "aripiprazole": [
@@ -245,7 +282,8 @@
    "index": 0,
    "target": "vmat2",
    "pick": true,
-   "action": "vesicular_inhibitor"
+   "action": "vesicular_inhibitor",
+   "qid": "4fa0d165"
   }
  ],
  "atomoxetine": [
@@ -253,61 +291,71 @@
    "index": 0,
    "target": "dat",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "17b46460"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears) (uncertain)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears) (uncertain)",
+   "qid": "b81b3552"
   },
   {
    "index": 2,
    "target": "sert",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "63cd61ef"
   },
   {
    "index": 3,
    "target": "alpha2",
    "pick": false,
-   "reason": "general receptor physiology"
+   "reason": "general receptor physiology",
+   "qid": "30eb0be5"
   },
   {
    "index": 4,
    "target": "d2",
    "pick": false,
-   "reason": "general receptor physiology"
+   "reason": "general receptor physiology",
+   "qid": "30eb0be5"
   },
   {
    "index": 5,
    "target": "m2",
    "pick": false,
-   "reason": "general receptor physiology"
+   "reason": "general receptor physiology",
+   "qid": "30eb0be5"
   },
   {
    "index": 6,
    "target": "kappa",
    "pick": false,
-   "reason": "about a metabolite, not this drug"
+   "reason": "about a metabolite, not this drug",
+   "qid": "3a9194dc"
   },
   {
    "index": 7,
    "target": "mu",
    "pick": false,
-   "reason": "about a metabolite, not this drug"
+   "reason": "about a metabolite, not this drug",
+   "qid": "3a9194dc"
   },
   {
    "index": 8,
    "target": "delta",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "aaee8eae"
   },
   {
    "index": 9,
    "target": "orexin",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "aaee8eae"
   }
  ],
  "benztropine": [
@@ -315,7 +363,8 @@
    "index": 0,
    "target": "dat",
    "pick": true,
-   "action": "reuptake_inhibitor"
+   "action": "reuptake_inhibitor",
+   "qid": "6801ee53"
   }
  ],
  "brexanolone": [
@@ -323,19 +372,22 @@
    "index": 0,
    "target": "delta",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "ffedc820"
   },
   {
    "index": 1,
    "target": "gaba_a_rho",
    "pick": true,
-   "action": "pam"
+   "action": "pam",
+   "qid": "d8a3b667"
   },
   {
    "index": 2,
    "target": "5ht3",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "0c3a313c"
   }
  ],
  "bromocriptine": [
@@ -343,7 +395,8 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (GLT-1)"
+   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (GLT-1)",
+   "qid": "cfdfbc90"
   }
  ],
  "buprenorphine": [
@@ -351,7 +404,8 @@
    "index": 0,
    "target": "alpha2",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "b627e0fd"
   }
  ],
  "bupropion": [
@@ -359,37 +413,43 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "3b46ca62"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "ebaddfcb"
   },
   {
    "index": 2,
    "target": "vmat2",
    "pick": false,
-   "reason": "enhances VMAT2 uptake, no action in the vocabulary"
+   "reason": "enhances VMAT2 uptake, no action in the vocabulary",
+   "qid": "5110f01e"
   },
   {
    "index": 3,
    "target": "sigma1",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "87dd3e46"
   },
   {
    "index": 4,
    "target": "sigma1",
    "pick": false,
-   "reason": "animal or non-human material only"
+   "reason": "animal or non-human material only",
+   "qid": "1bbcc628"
   },
   {
    "index": 5,
    "target": "sigma1",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "21f62c4b"
   }
  ],
  "caffeine": [
@@ -397,13 +457,15 @@
    "index": 0,
    "target": "glycine",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "fd9442fd"
   },
   {
    "index": 1,
    "target": "ache",
    "pick": true,
-   "action": "enzyme_inhibitor"
+   "action": "enzyme_inhibitor",
+   "qid": "0e4d83e5"
   }
  ],
  "cannabinol": [
@@ -411,7 +473,8 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "'net effect', not the transporter"
+   "reason": "'net effect', not the transporter",
+   "qid": "36adf381"
   }
  ],
  "clomipramine": [
@@ -419,49 +482,57 @@
    "index": 0,
    "target": "5ht2c",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "46305064"
   },
   {
    "index": 1,
    "target": "5ht3",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "46305064"
   },
   {
    "index": 2,
    "target": "5ht6",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "46305064"
   },
   {
    "index": 3,
    "target": "5ht7",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "46305064"
   },
   {
    "index": 4,
    "target": "d1",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "46305064"
   },
   {
    "index": 5,
    "target": "d2",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "46305064"
   },
   {
    "index": 6,
    "target": "d1",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "6d2b9684"
   },
   {
    "index": 7,
    "target": "d2",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "6d2b9684"
   }
  ],
  "clonidine": [
@@ -469,7 +540,8 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "general receptor physiology"
+   "reason": "general receptor physiology",
+   "qid": "879a9b23"
   }
  ],
  "clozapine": [
@@ -477,25 +549,29 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "4fe9099d"
   },
   {
    "index": 1,
    "target": "glycine",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "4fe9099d"
   },
   {
    "index": 2,
    "target": "nmda",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "4fe9099d"
   },
   {
    "index": 3,
    "target": "nmda",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "a0870809"
   }
  ],
  "dimenhydrinate": [
@@ -503,7 +579,8 @@
    "index": 0,
    "target": "h1",
    "pick": false,
-   "reason": "the sentence's subject is another drug (diphenhydramine, its constituent: model dimenhydrinate as a combo instead)"
+   "reason": "the sentence's subject is another drug (diphenhydramine, its constituent: model dimenhydrinate as a combo instead)",
+   "qid": "5410df3c"
   }
  ],
  "diphenhydramine": [
@@ -511,13 +588,15 @@
    "index": 0,
    "target": "5ht2a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (hydroxyzine)"
+   "reason": "the sentence's subject is another drug (hydroxyzine)",
+   "qid": "72b4bc1c"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "the sentence's subject is another drug (fluoxetine)"
+   "reason": "the sentence's subject is another drug (fluoxetine)",
+   "qid": "1b9a1afb"
   }
  ],
  "dmt": [
@@ -525,19 +604,22 @@
    "index": 0,
    "target": "mao_a",
    "pick": false,
-   "reason": "MAO-A metabolises DMT, DMT does not inhibit it"
+   "reason": "MAO-A metabolises DMT, DMT does not inhibit it",
+   "qid": "81a54862"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "uptake competition by a substrate, release vs inhibition not stated"
+   "reason": "uptake competition by a substrate, release vs inhibition not stated",
+   "qid": "9812ece8"
   },
   {
    "index": 2,
    "target": "vmat2",
    "pick": false,
-   "reason": "animal or non-human material only (rat VMAT2)"
+   "reason": "animal or non-human material only (rat VMAT2)",
+   "qid": "9812ece8"
   }
  ],
  "donepezil": [
@@ -545,7 +627,8 @@
    "index": 0,
    "target": "sigma1",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "cdd955f0"
   }
  ],
  "ethosuximide": [
@@ -553,7 +636,8 @@
    "index": 0,
    "target": "cav",
    "pick": false,
-   "reason": "the T-type channel it already binds (cav_t); also hedged"
+   "reason": "the T-type channel it already binds (cav_t); also hedged",
+   "qid": "f0d95a40"
   }
  ],
  "fenfluramine": [
@@ -561,7 +645,8 @@
    "index": 0,
    "target": "sigma1",
    "pick": true,
-   "action": "pam"
+   "action": "pam",
+   "qid": "d68d8b7b"
   }
  ],
  "fentanyl": [
@@ -569,31 +654,36 @@
    "index": 0,
    "target": "kappa",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "067ef1cc"
   },
   {
    "index": 1,
    "target": "kappa",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "ac276fa3"
   },
   {
    "index": 2,
    "target": "kappa",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "34a91d7e"
   },
   {
    "index": 3,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "7aad6128"
   },
   {
    "index": 4,
    "target": "kappa",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "edba34ff"
   }
  ],
  "flibanserin": [
@@ -601,19 +691,22 @@
    "index": 0,
    "target": "d4",
    "pick": false,
-   "reason": "direction ambiguous (antagonist or weak partial agonist)"
+   "reason": "direction ambiguous (antagonist or weak partial agonist)",
+   "qid": "ab1e5027"
   },
   {
    "index": 1,
    "target": "5ht2b",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "60369a8f"
   },
   {
    "index": 2,
    "target": "5ht2c",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "60369a8f"
   }
  ],
  "fluoxetine": [
@@ -621,19 +714,22 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "0704fab0"
   },
   {
    "index": 1,
    "target": "sigma1",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "0a88d02a"
   },
   {
    "index": 2,
    "target": "5ht3",
    "pick": false,
-   "reason": "sentence does not name the drug"
+   "reason": "sentence does not name the drug",
+   "qid": "608f3c5a"
   }
  ],
  "gabapentin": [
@@ -641,31 +737,36 @@
    "index": 0,
    "target": "alpha2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "65414266"
   },
   {
    "index": 1,
    "target": "delta",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "65414266"
   },
   {
    "index": 2,
    "target": "nmda",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "65414266"
   },
   {
    "index": 3,
    "target": "gaba_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (baclofen, history)"
+   "reason": "the sentence's subject is another drug (baclofen, history)",
+   "qid": "68e78bb7"
   },
   {
    "index": 4,
    "target": "gaba_b",
    "pick": false,
-   "reason": "the sentence's subject is another drug (baclofen, history)"
+   "reason": "the sentence's subject is another drug (baclofen, history)",
+   "qid": "68e78bb7"
   }
  ],
  "galantamine": [
@@ -673,13 +774,15 @@
    "index": 0,
    "target": "5ht3",
    "pick": false,
-   "reason": "animal or non-human material only (chicken/mouse chimera)"
+   "reason": "animal or non-human material only (chicken/mouse chimera)",
+   "qid": "7a393c78"
   },
   {
    "index": 1,
    "target": "beta2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "7a393c78"
   }
  ],
  "guanfacine": [
@@ -687,19 +790,22 @@
    "index": 0,
    "target": "5ht2b",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "9600bd5d"
   },
   {
    "index": 1,
    "target": "5ht2b",
    "pick": false,
-   "reason": "general receptor statement"
+   "reason": "general receptor statement",
+   "qid": "a6f63628"
   },
   {
    "index": 2,
    "target": "5ht2b",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "edecd121"
   }
  ],
  "hydroxyzine": [
@@ -707,13 +813,15 @@
    "index": 0,
    "target": "5ht2a",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "0b843e30"
   },
   {
    "index": 1,
    "target": "d2",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "0b843e30"
   }
  ],
  "ibogaine": [
@@ -721,43 +829,50 @@
    "index": 0,
    "target": "5ht2a",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "d7660c18"
   },
   {
    "index": 1,
    "target": "5ht2c",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "1ea05555"
   },
   {
    "index": 2,
    "target": "5ht2a",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears) (suggest, animal)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears) (suggest, animal)",
+   "qid": "0990d85c"
   },
   {
    "index": 3,
    "target": "5ht2c",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears) (suggest, animal)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears) (suggest, animal)",
+   "qid": "0990d85c"
   },
   {
    "index": 4,
    "target": "5ht2a",
    "pick": false,
-   "reason": "animal or non-human material only"
+   "reason": "animal or non-human material only",
+   "qid": "44cafa98"
   },
   {
    "index": 5,
    "target": "5ht2a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (harmaline)"
+   "reason": "the sentence's subject is another drug (harmaline)",
+   "qid": "e55b8906"
   },
   {
    "index": 6,
    "target": "5ht2a",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "6f5f993b"
   }
  ],
  "iloperidone": [
@@ -765,7 +880,8 @@
    "index": 0,
    "target": "h1",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "930ea381"
   }
  ],
  "indalpine": [
@@ -773,7 +889,8 @@
    "index": 0,
    "target": "gaba_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (pipequaline)"
+   "reason": "the sentence's subject is another drug (pipequaline)",
+   "qid": "9a5b19c0"
   }
  ],
  "isocarboxazid": [
@@ -781,7 +898,8 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "3efa6021"
   }
  ],
  "isoflurane": [
@@ -789,25 +907,29 @@
    "index": 0,
    "target": "gaba_a",
    "pick": true,
-   "action": "pam"
+   "action": "pam",
+   "qid": "4a6f24bf"
   },
   {
    "index": 1,
    "target": "glycine",
    "pick": true,
-   "action": "pam"
+   "action": "pam",
+   "qid": "9cbe093e"
   },
   {
    "index": 2,
    "target": "glutamate",
    "pick": false,
-   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing"
+   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing",
+   "qid": "f449dd4c"
   },
   {
    "index": 3,
    "target": "nmda",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "f449dd4c"
   }
  ],
  "ketamine": [
@@ -815,43 +937,50 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "95e4f743"
   },
   {
    "index": 1,
    "target": "ampa",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "ef638276"
   },
   {
    "index": 2,
    "target": "ampa",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "f0093a1e"
   },
   {
    "index": 3,
    "target": "glutamate",
    "pick": false,
-   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing"
+   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing",
+   "qid": "a891c47a"
   },
   {
    "index": 4,
    "target": "d2",
    "pick": false,
-   "reason": "contradicted in the same article"
+   "reason": "contradicted in the same article",
+   "qid": "b8574805"
   },
   {
    "index": 5,
    "target": "d2",
    "pick": false,
-   "reason": "contradicted in the same article"
+   "reason": "contradicted in the same article",
+   "qid": "ee9cfe5b"
   },
   {
    "index": 6,
    "target": "d2",
    "pick": false,
-   "reason": "contradicted in the same article"
+   "reason": "contradicted in the same article",
+   "qid": "4615bb65"
   }
  ],
  "lamotrigine": [
@@ -859,25 +988,29 @@
    "index": 0,
    "target": "5ht3",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "ed63c13e"
   },
   {
    "index": 1,
    "target": "glutamate",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "220c8bda"
   },
   {
    "index": 2,
    "target": "nmda",
    "pick": false,
-   "reason": "animal or non-human material only (rat brain signalling)"
+   "reason": "animal or non-human material only (rat brain signalling)",
+   "qid": "d9c0df00"
   },
   {
    "index": 3,
    "target": "glutamate",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "de547069"
   }
  ],
  "lithium": [
@@ -885,7 +1018,8 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "general physiology"
+   "reason": "general physiology",
+   "qid": "29b885ca"
   }
  ],
  "loxapine": [
@@ -893,7 +1027,8 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "the sentence is about loxapine's metabolite amoxapine, not loxapine (opus recheck)"
+   "reason": "the sentence is about loxapine's metabolite amoxapine, not loxapine (opus recheck)",
+   "qid": "c52c12a0"
   }
  ],
  "lsd": [
@@ -901,7 +1036,8 @@
    "index": 0,
    "target": "d4",
    "pick": false,
-   "reason": "about a metabolite, not this drug (13-hydroxy-LSD)"
+   "reason": "about a metabolite, not this drug (13-hydroxy-LSD)",
+   "qid": "9d6a80d8"
   }
  ],
  "lumateperone": [
@@ -909,7 +1045,8 @@
    "index": 0,
    "target": "d4",
    "pick": false,
-   "reason": "states binding or affinity only, no direction"
+   "reason": "states binding or affinity only, no direction",
+   "qid": "b5d3ce47"
   }
  ],
  "lurasidone": [
@@ -917,7 +1054,8 @@
    "index": 0,
    "target": "alpha1a",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "6f268858"
   }
  ],
  "mdma": [
@@ -925,19 +1063,22 @@
    "index": 0,
    "target": "5ht1b",
    "pick": true,
-   "action": "partial_agonist"
+   "action": "partial_agonist",
+   "qid": "2b676e80"
   },
   {
    "index": 1,
    "target": "5ht1d",
    "pick": true,
-   "action": "partial_agonist"
+   "action": "partial_agonist",
+   "qid": "2b676e80"
   },
   {
    "index": 2,
    "target": "5ht1b",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "647a497e"
   }
  ],
  "meclizine": [
@@ -945,13 +1086,15 @@
    "index": 0,
    "target": "d1",
    "pick": false,
-   "reason": "D1-like family and hedged ('reported'), not the subtype"
+   "reason": "D1-like family and hedged ('reported'), not the subtype",
+   "qid": "731e7f97"
   },
   {
    "index": 1,
    "target": "d2",
    "pick": false,
-   "reason": "D2-like family and hedged ('reported'), not the subtype"
+   "reason": "D2-like family and hedged ('reported'), not the subtype",
+   "qid": "731e7f97"
   }
  ],
  "memantine": [
@@ -959,25 +1102,29 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "physiology of the receptor, not an action"
+   "reason": "physiology of the receptor, not an action",
+   "qid": "18eca370"
   },
   {
    "index": 1,
    "target": "nachr_a7",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "28bf278b"
   },
   {
    "index": 2,
    "target": "d2",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "7d8126f3"
   },
   {
    "index": 3,
    "target": "sigma1",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "2e8987e2"
   }
  ],
  "mescaline": [
@@ -985,19 +1132,22 @@
    "index": 0,
    "target": "d2",
    "pick": false,
-   "reason": "the sentence's subject is another drug (chlorpromazine)"
+   "reason": "the sentence's subject is another drug (chlorpromazine)",
+   "qid": "08dc2f46"
   },
   {
    "index": 1,
    "target": "gaba_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (barbiturates)"
+   "reason": "the sentence's subject is another drug (barbiturates)",
+   "qid": "73529748"
   },
   {
    "index": 2,
    "target": "mao_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (clorgiline)"
+   "reason": "the sentence's subject is another drug (clorgiline)",
+   "qid": "2858d883"
   }
  ],
  "methadone": [
@@ -1005,13 +1155,15 @@
    "index": 0,
    "target": "nmda",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "9a99d1c0"
   },
   {
    "index": 1,
    "target": "nmda",
    "pick": false,
-   "reason": "animal or non-human material only (rat), duplicate"
+   "reason": "animal or non-human material only (rat), duplicate",
+   "qid": "4638ad1a"
   }
  ],
  "methamphetamine": [
@@ -1019,25 +1171,29 @@
    "index": 0,
    "target": "alpha2a",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "5fbf01e8"
   },
   {
    "index": 1,
    "target": "glutamate",
    "pick": false,
-   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT2)"
+   "reason": "names an unmodeled protein (transporter / enzyme / unit) that only shares an alias (EAAT2)",
+   "qid": "b2cb0e0b"
   },
   {
    "index": 2,
    "target": "mao_a",
    "pick": true,
-   "action": "enzyme_inhibitor"
+   "action": "enzyme_inhibitor",
+   "qid": "1a38eef9"
   },
   {
    "index": 3,
    "target": "mao_b",
    "pick": true,
-   "action": "enzyme_inhibitor"
+   "action": "enzyme_inhibitor",
+   "qid": "1a38eef9"
   }
  ],
  "mianserin": [
@@ -1045,7 +1201,8 @@
    "index": 0,
    "target": "kappa",
    "pick": true,
-   "action": "partial_agonist"
+   "action": "partial_agonist",
+   "qid": "fd401a95"
   }
  ],
  "mirtazapine": [
@@ -1053,67 +1210,78 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "55154da9"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "c1696aed"
   },
   {
    "index": 2,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "362e0b3f"
   },
   {
    "index": 3,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "d06bd9fd"
   },
   {
    "index": 4,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "76122585"
   },
   {
    "index": 5,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "b5bfa93d"
   },
   {
    "index": 6,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "5c8ead6d"
   },
   {
    "index": 7,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "0b4b7695"
   },
   {
    "index": 8,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "b3de1c5d"
   },
   {
    "index": 9,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "bfc80298"
   },
   {
    "index": 10,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "86cc41a9"
   }
  ],
  "moclobemide": [
@@ -1121,43 +1289,50 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "aa94be33"
   },
   {
    "index": 1,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "eaa57bc4"
   },
   {
    "index": 2,
    "target": "mao_b",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "7fee75f1"
   },
   {
    "index": 3,
    "target": "beta3",
    "pick": false,
-   "reason": "no beta3 receptor named"
+   "reason": "no beta3 receptor named",
+   "qid": "1e8e0e38"
   },
   {
    "index": 4,
    "target": "mao_b",
    "pick": false,
-   "reason": "contradicted in the same article (MAO-B via metabolites, pure MAO-A in man)"
+   "reason": "contradicted in the same article (MAO-B via metabolites, pure MAO-A in man)",
+   "qid": "c07a2508"
   },
   {
    "index": 5,
    "target": "mao_b",
    "pick": false,
-   "reason": "about a metabolite, not this drug"
+   "reason": "about a metabolite, not this drug",
+   "qid": "5cf989b8"
   },
   {
    "index": 6,
    "target": "mao_b",
    "pick": false,
-   "reason": "contradicted in the same article"
+   "reason": "contradicted in the same article",
+   "qid": "ed93c42c"
   }
  ],
  "molindone": [
@@ -1165,7 +1340,8 @@
    "index": 0,
    "target": "mao_a",
    "pick": true,
-   "action": "enzyme_inhibitor"
+   "action": "enzyme_inhibitor",
+   "qid": "e591bdfc"
   }
  ],
  "morphine": [
@@ -1173,7 +1349,8 @@
    "index": 0,
    "target": "nmda",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "64e17d0c"
   }
  ],
  "nabilone": [
@@ -1181,7 +1358,8 @@
    "index": 0,
    "target": "5ht3",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ondansetron class)"
+   "reason": "the sentence's subject is another drug (ondansetron class)",
+   "qid": "e6869456"
   }
  ],
  "naltrexone": [
@@ -1189,49 +1367,57 @@
    "index": 0,
    "target": "delta",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "3721ab96"
   },
   {
    "index": 1,
    "target": "kappa",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "3721ab96"
   },
   {
    "index": 2,
    "target": "delta",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "dcd0957c"
   },
   {
    "index": 3,
    "target": "kappa",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "dcd0957c"
   },
   {
    "index": 4,
    "target": "delta",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "d040a157"
   },
   {
    "index": 5,
    "target": "kappa",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "d040a157"
   },
   {
    "index": 6,
    "target": "delta",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "5fa5c5f3"
   },
   {
    "index": 7,
    "target": "kappa",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "5fa5c5f3"
   }
  ],
  "nitrous_oxide": [
@@ -1239,43 +1425,50 @@
    "index": 0,
    "target": "5ht3",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "015de4fa"
   },
   {
    "index": 1,
    "target": "ampa",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "015de4fa"
   },
   {
    "index": 2,
    "target": "beta2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "015de4fa"
   },
   {
    "index": 3,
    "target": "gaba_a",
    "pick": true,
-   "action": "pam"
+   "action": "pam",
+   "qid": "015de4fa"
   },
   {
    "index": 4,
    "target": "gaba_a_rho",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "015de4fa"
   },
   {
    "index": 5,
    "target": "glycine",
    "pick": true,
-   "action": "pam"
+   "action": "pam",
+   "qid": "015de4fa"
   },
   {
    "index": 6,
    "target": "kainate",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "015de4fa"
   }
  ],
  "perampanel": [
@@ -1283,13 +1476,15 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing"
+   "reason": "names the NMDA/AMPA subtype the drug already binds; the coarse glutamate row adds nothing",
+   "qid": "6e203cb9"
   },
   {
    "index": 1,
    "target": "m1",
    "pick": false,
-   "reason": "a rate unit (M-1), not the M1 receptor"
+   "reason": "a rate unit (M-1), not the M1 receptor",
+   "qid": "a1e83055"
   }
  ],
  "pethidine": [
@@ -1297,37 +1492,43 @@
    "index": 0,
    "target": "dat",
    "pick": true,
-   "action": "reuptake_inhibitor"
+   "action": "reuptake_inhibitor",
+   "qid": "380315ba"
   },
   {
    "index": 1,
    "target": "net",
    "pick": true,
-   "action": "reuptake_inhibitor"
+   "action": "reuptake_inhibitor",
+   "qid": "380315ba"
   },
   {
    "index": 2,
    "target": "dat",
    "pick": false,
-   "reason": "animal or non-human material only"
+   "reason": "animal or non-human material only",
+   "qid": "cbea885c"
   },
   {
    "index": 3,
    "target": "net",
    "pick": false,
-   "reason": "animal or non-human material only"
+   "reason": "animal or non-human material only",
+   "qid": "cbea885c"
   },
   {
    "index": 4,
    "target": "dat",
    "pick": false,
-   "reason": "the sentence's subject is another drug (analogs)"
+   "reason": "the sentence's subject is another drug (analogs)",
+   "qid": "986a08fb"
   },
   {
    "index": 5,
    "target": "net",
    "pick": false,
-   "reason": "the sentence's subject is another drug (analogs)"
+   "reason": "the sentence's subject is another drug (analogs)",
+   "qid": "986a08fb"
   }
  ],
  "phencyclidine": [
@@ -1335,25 +1536,29 @@
    "index": 0,
    "target": "glutamate",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "e54e8310"
   },
   {
    "index": 1,
    "target": "d2",
    "pick": false,
-   "reason": "animal or non-human material only (rat brain homogenate), contradicted by the Ki screen"
+   "reason": "animal or non-human material only (rat brain homogenate), contradicted by the Ki screen",
+   "qid": "75963f2d"
   },
   {
    "index": 2,
    "target": "dat",
    "pick": false,
-   "reason": "contradicted in the same article (little affinity for DAT)"
+   "reason": "contradicted in the same article (little affinity for DAT)",
+   "qid": "22e3f06d"
   },
   {
    "index": 3,
    "target": "glycine",
    "pick": false,
-   "reason": "coagonist of the NMDA site, not the glycine receptor"
+   "reason": "coagonist of the NMDA site, not the glycine receptor",
+   "qid": "b9c11089"
   }
  ],
  "phenelzine": [
@@ -1361,31 +1566,36 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "df2cc798"
   },
   {
    "index": 1,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "1488fab6"
   },
   {
    "index": 2,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "1488fab6"
   },
   {
    "index": 3,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "5eb6ad2f"
   },
   {
    "index": 4,
    "target": "gaba_t",
    "pick": false,
-   "reason": "GABA-T inhibition is the metabolite phenylethylidenehydrazine's, the article says not phenelzine's own (opus recheck)"
+   "reason": "GABA-T inhibition is the metabolite phenylethylidenehydrazine's, the article says not phenelzine's own (opus recheck)",
+   "qid": "d0762fa3"
   }
  ],
  "phentermine": [
@@ -1393,25 +1603,29 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "amphetamine pharmacology navbox; the article says phentermine is inactive at VMAT2"
+   "reason": "amphetamine pharmacology navbox; the article says phentermine is inactive at VMAT2",
+   "qid": "2b785248"
   },
   {
    "index": 1,
    "target": "vmat2",
    "pick": false,
-   "reason": "amphetamine pharmacology navbox; the article says phentermine is inactive at VMAT2"
+   "reason": "amphetamine pharmacology navbox; the article says phentermine is inactive at VMAT2",
+   "qid": "2b785248"
   },
   {
    "index": 2,
    "target": "5ht2c",
    "pick": false,
-   "reason": "contradicted in the same article"
+   "reason": "contradicted in the same article",
+   "qid": "9d869f28"
   },
   {
    "index": 3,
    "target": "mao_a",
    "pick": false,
-   "reason": "in vitro only, pharmacologically negligible potency"
+   "reason": "in vitro only, pharmacologically negligible potency",
+   "qid": "aae1505b"
   }
  ],
  "pimozide": [
@@ -1419,7 +1633,8 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "8094718f"
   }
  ],
  "pramipexole": [
@@ -1427,7 +1642,8 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "90628648"
   }
  ],
  "pregabalin": [
@@ -1435,31 +1651,36 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "cb1998ca"
   },
   {
    "index": 1,
    "target": "alpha2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "4710bb32"
   },
   {
    "index": 2,
    "target": "delta",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "4710bb32"
   },
   {
    "index": 3,
    "target": "alpha2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "c34d115c"
   },
   {
    "index": 4,
    "target": "delta",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "c34d115c"
   }
  ],
  "propranolol": [
@@ -1467,7 +1688,8 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "direction ambiguous (weak inhibition and/or release)"
+   "reason": "direction ambiguous (weak inhibition and/or release)",
+   "qid": "5c218a04"
   }
  ],
  "pseudoephedrine": [
@@ -1475,13 +1697,15 @@
    "index": 0,
    "target": "mao_a",
    "pick": false,
-   "reason": "in vitro only, pharmacologically negligible potency (Ki in the millimolar range)"
+   "reason": "in vitro only, pharmacologically negligible potency (Ki in the millimolar range)",
+   "qid": "135da94d"
   },
   {
    "index": 1,
    "target": "mao_b",
    "pick": false,
-   "reason": "in vitro only, pharmacologically negligible potency (Ki in the millimolar range)"
+   "reason": "in vitro only, pharmacologically negligible potency (Ki in the millimolar range)",
+   "qid": "135da94d"
   }
  ],
  "rasagiline": [
@@ -1489,61 +1713,71 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "e541ca61"
   },
   {
    "index": 1,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "b54cb0a3"
   },
   {
    "index": 2,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "b54cb0a3"
   },
   {
    "index": 3,
    "target": "mao_a",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "11335ee3"
   },
   {
    "index": 4,
    "target": "mao_a",
    "pick": true,
-   "action": "enzyme_inhibitor"
+   "action": "enzyme_inhibitor",
+   "qid": "263ed531"
   },
   {
    "index": 5,
    "target": "mao_a",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "3ec9b072"
   },
   {
    "index": 6,
    "target": "mao_a",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "82d34a60"
   },
   {
    "index": 7,
    "target": "mao_a",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "6b5c27d3"
   },
   {
    "index": 8,
    "target": "mao_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (selegiline)"
+   "reason": "the sentence's subject is another drug (selegiline)",
+   "qid": "cd0b58d4"
   },
   {
    "index": 9,
    "target": "ache",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ladostigil)"
+   "reason": "the sentence's subject is another drug (ladostigil)",
+   "qid": "5f8f4588"
   }
  ],
  "rimonabant": [
@@ -1551,7 +1785,8 @@
    "index": 0,
    "target": "mu",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "928c8f8f"
   }
  ],
  "ropinirole": [
@@ -1559,13 +1794,15 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "a524430f"
   },
   {
    "index": 1,
    "target": "5ht2b",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "da7f15af"
   }
  ],
  "safinamide": [
@@ -1573,31 +1810,36 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "ca6ef548"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "ca6ef548"
   },
   {
    "index": 2,
    "target": "glutamate",
    "pick": false,
-   "reason": "inhibits glutamate release, not a receptor action"
+   "reason": "inhibits glutamate release, not a receptor action",
+   "qid": "ebba7c28"
   },
   {
    "index": 3,
    "target": "sert",
    "pick": true,
-   "action": "reuptake_inhibitor"
+   "action": "reuptake_inhibitor",
+   "qid": "ebba7c28"
   },
   {
    "index": 4,
    "target": "sigma1",
    "pick": false,
-   "reason": "states binding or affinity only, no direction"
+   "reason": "states binding or affinity only, no direction",
+   "qid": "45ae9119"
   }
  ],
  "salvinorin_a": [
@@ -1605,19 +1847,22 @@
    "index": 0,
    "target": "5ht2a",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ketanserin)"
+   "reason": "the sentence's subject is another drug (ketanserin)",
+   "qid": "8897f1f3"
   },
   {
    "index": 1,
    "target": "d2",
    "pick": true,
-   "action": "partial_agonist"
+   "action": "partial_agonist",
+   "qid": "d559cdc5"
   },
   {
    "index": 2,
    "target": "mu",
    "pick": false,
-   "reason": "the sentence's subject is another drug (herkinorin)"
+   "reason": "the sentence's subject is another drug (herkinorin)",
+   "qid": "312d1fcf"
   }
  ],
  "selegiline": [
@@ -1625,31 +1870,36 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "c8d3a65a"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "c8d3a65a"
   },
   {
    "index": 2,
    "target": "net",
    "pick": false,
-   "reason": "subject unclear (tyramine interaction mechanism)"
+   "reason": "subject unclear (tyramine interaction mechanism)",
+   "qid": "e4f3cc02"
   },
   {
    "index": 3,
    "target": "dat",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "dba74bfb"
   },
   {
    "index": 4,
    "target": "ache",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ladostigil)"
+   "reason": "the sentence's subject is another drug (ladostigil)",
+   "qid": "c17a542f"
   }
  ],
  "sumatriptan": [
@@ -1657,13 +1907,15 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "e1ed7994"
   },
   {
    "index": 1,
    "target": "cgrp",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target (CGRP release via 5-HT1B/1D)"
+   "reason": "indirect or downstream effect, not a direct action on the target (CGRP release via 5-HT1B/1D)",
+   "qid": "54ef5a1f"
   }
  ],
  "tetrabenazine": [
@@ -1671,31 +1923,36 @@
    "index": 0,
    "target": "dat",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "bd5c62db"
   },
   {
    "index": 1,
    "target": "mao_b",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "bd5c62db"
   },
   {
    "index": 2,
    "target": "mao_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "1a5a24b5"
   },
   {
    "index": 3,
    "target": "net",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "1a5a24b5"
   },
   {
    "index": 4,
    "target": "sert",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "1a5a24b5"
   }
  ],
  "thc": [
@@ -1703,7 +1960,8 @@
    "index": 0,
    "target": "delta",
    "pick": false,
-   "reason": "the Delta-9 of THC, not the delta-opioid receptor"
+   "reason": "the Delta-9 of THC, not the delta-opioid receptor",
+   "qid": "76490d3a"
   }
  ],
  "tiagabine": [
@@ -1711,19 +1969,22 @@
    "index": 0,
    "target": "gaba_a",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "38288d98"
   },
   {
    "index": 1,
    "target": "gaba_a",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "45c952f3"
   },
   {
    "index": 2,
    "target": "gaba_b",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "45c952f3"
   }
  ],
  "tianeptine": [
@@ -1731,55 +1992,64 @@
    "index": 0,
    "target": "delta",
    "pick": true,
-   "action": "agonist"
+   "action": "agonist",
+   "qid": "88501c37"
   },
   {
    "index": 1,
    "target": "sert",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "13c6c3b2"
   },
   {
    "index": 2,
    "target": "sert",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "766d13e1"
   },
   {
    "index": 3,
    "target": "sert",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "a8c27530"
   },
   {
    "index": 4,
    "target": "sert",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "e5b7994b"
   },
   {
    "index": 5,
    "target": "sert",
    "pick": false,
-   "reason": "the sentence's subject is another drug (fluoxetine)"
+   "reason": "the sentence's subject is another drug (fluoxetine)",
+   "qid": "210130b2"
   },
   {
    "index": 6,
    "target": "d2",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "05bbfec8"
   },
   {
    "index": 7,
    "target": "d3",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "05bbfec8"
   },
   {
    "index": 8,
    "target": "delta",
    "pick": false,
-   "reason": "PPAR-delta, not the delta-opioid receptor"
+   "reason": "PPAR-delta, not the delta-opioid receptor",
+   "qid": "8dab787f"
   }
  ],
  "tiapride": [
@@ -1787,19 +2057,22 @@
    "index": 0,
    "target": "5ht2a",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "c030b92a"
   },
   {
    "index": 1,
    "target": "alpha2",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "c030b92a"
   },
   {
    "index": 2,
    "target": "h1",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "c030b92a"
   }
  ],
  "tolcapone": [
@@ -1807,13 +2080,15 @@
    "index": 0,
    "target": "aadc",
    "pick": false,
-   "reason": "the sentence's subject is another drug"
+   "reason": "the sentence's subject is another drug",
+   "qid": "4b996db7"
   },
   {
    "index": 1,
    "target": "net",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "9f8571aa"
   }
  ],
  "topiramate": [
@@ -1821,13 +2096,15 @@
    "index": 0,
    "target": "ampa",
    "pick": false,
-   "reason": "states binding or affinity only, no direction"
+   "reason": "states binding or affinity only, no direction",
+   "qid": "e59136bf"
   },
   {
    "index": 1,
    "target": "kainate",
    "pick": false,
-   "reason": "states binding or affinity only, no direction"
+   "reason": "states binding or affinity only, no direction",
+   "qid": "e59136bf"
   }
  ],
  "tramadol": [
@@ -1835,43 +2112,50 @@
    "index": 0,
    "target": "m1",
    "pick": false,
-   "reason": "about a metabolite, not this drug (M1 = O-desmetramadol, not the M1 receptor)"
+   "reason": "about a metabolite, not this drug (M1 = O-desmetramadol, not the M1 receptor)",
+   "qid": "718f2448"
   },
   {
    "index": 1,
    "target": "5ht3",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "cb1c9b36"
   },
   {
    "index": 2,
    "target": "5ht7",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "cb1c9b36"
   },
   {
    "index": 3,
    "target": "alpha2",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "cb1c9b36"
   },
   {
    "index": 4,
    "target": "5ht2c",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "165dbdaf"
   },
   {
    "index": 5,
    "target": "5ht3",
    "pick": false,
-   "reason": "indirect or downstream effect, not a direct action on the target"
+   "reason": "indirect or downstream effect, not a direct action on the target",
+   "qid": "a64dbbb4"
   },
   {
    "index": 6,
    "target": "5ht3",
    "pick": false,
-   "reason": "the sentence's subject is another drug (ondansetron)"
+   "reason": "the sentence's subject is another drug (ondansetron)",
+   "qid": "b31f8224"
   }
  ],
  "tranylcypromine": [
@@ -1879,7 +2163,8 @@
    "index": 0,
    "target": "sert",
    "pick": false,
-   "reason": "class-wide or co-prescription statement, not this drug's action"
+   "reason": "class-wide or co-prescription statement, not this drug's action",
+   "qid": "9fbaf477"
   }
  ],
  "trazodone": [
@@ -1887,7 +2172,8 @@
    "index": 0,
    "target": "d2",
    "pick": false,
-   "reason": "animal or non-human material only"
+   "reason": "animal or non-human material only",
+   "qid": "c4296ec1"
   }
  ],
  "trimipramine": [
@@ -1895,31 +2181,36 @@
    "index": 0,
    "target": "5ht2a",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "546a5988"
   },
   {
    "index": 1,
    "target": "5ht2c",
    "pick": false,
-   "reason": "hedged or historical claim (believed, thought, claimed, appears)"
+   "reason": "hedged or historical claim (believed, thought, claimed, appears)",
+   "qid": "546a5988"
   },
   {
    "index": 2,
    "target": "h2",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "ceaf8157"
   },
   {
    "index": 3,
    "target": "d1",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "61b3df16"
   },
   {
    "index": 4,
    "target": "d4",
    "pick": false,
-   "reason": "states binding or affinity only, no direction"
+   "reason": "states binding or affinity only, no direction",
+   "qid": "61b3df16"
   }
  ],
  "varenicline": [
@@ -1927,19 +2218,22 @@
    "index": 0,
    "target": "beta2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "d2840015"
   },
   {
    "index": 1,
    "target": "beta2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "2684af7c"
   },
   {
    "index": 2,
    "target": "beta2",
    "pick": false,
-   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target"
+   "reason": "names a receptor subunit (GABA-A / nAChR / alpha2-delta), not this modeled target",
+   "qid": "3b58dbe7"
   }
  ],
  "viloxazine": [
@@ -1947,25 +2241,29 @@
    "index": 0,
    "target": "5ht7",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "be7adf77"
   },
   {
    "index": 1,
    "target": "alpha1b",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "be7adf77"
   },
   {
    "index": 2,
    "target": "beta2",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "be7adf77"
   },
   {
    "index": 3,
    "target": "sert",
    "pick": false,
-   "reason": "the sentence's subject is another drug (beta blockers)"
+   "reason": "the sentence's subject is another drug (beta blockers)",
+   "qid": "09739de2"
   }
  ],
  "xenon": [
@@ -1973,37 +2271,43 @@
    "index": 0,
    "target": "glycine",
    "pick": false,
-   "reason": "glycine site of NMDA, not the glycine receptor"
+   "reason": "glycine site of NMDA, not the glycine receptor",
+   "qid": "f62f124e"
   },
   {
    "index": 1,
    "target": "nmda",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "f62f124e"
   },
   {
    "index": 2,
    "target": "nachr_a4b2",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "1aaa49d3"
   },
   {
    "index": 3,
    "target": "nmda",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "ec698a95"
   },
   {
    "index": 4,
    "target": "glycine",
    "pick": false,
-   "reason": "glycine site of NMDA, not the glycine receptor"
+   "reason": "glycine site of NMDA, not the glycine receptor",
+   "qid": "9fc9b33e"
   },
   {
    "index": 5,
    "target": "nmda",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "9fc9b33e"
   }
  ],
  "zimelidine": [
@@ -2011,7 +2315,8 @@
    "index": 0,
    "target": "net",
    "pick": false,
-   "reason": "the sentence's subject is another drug (brompheniramine)"
+   "reason": "the sentence's subject is another drug (brompheniramine)",
+   "qid": "e08437d1"
   }
  ],
  "zuclopenthixol": [
@@ -2019,19 +2324,22 @@
    "index": 0,
    "target": "d1",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "c5a9b7a8"
   },
   {
    "index": 1,
    "target": "d1",
    "pick": false,
-   "reason": "same target already picked from another candidate"
+   "reason": "same target already picked from another candidate",
+   "qid": "cda13bef"
   },
   {
    "index": 2,
    "target": "h1",
    "pick": true,
-   "action": "antagonist"
+   "action": "antagonist",
+   "qid": "67725573"
   }
  ]
 }

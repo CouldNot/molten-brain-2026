@@ -53,6 +53,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 
 import drugs_io  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 import fetch_workup  # noqa: E402
 from data_generators import workup as W  # noqa: E402
 from data_generators.provenance import SOURCE_CORPORA, corpus_page_path  # noqa: E402
@@ -85,15 +86,10 @@ def gate(judged: dict, offered: dict, drug_ids: set[str], page_text
         nodes: dict[tuple[str, str], dict] = {}
         for p in picks:
             what = f"{did}[{p.get('index')}] {p.get('test')}/{p.get('timing')}"
-            try:
-                idx = int(p.get("index"))
-            except (TypeError, ValueError):
-                rejected.append(f"{what}: index is not a number")
+            cand, why = resolve(entry["candidates"], p)
+            if why:
+                rejected.append(f"{what}: {why}")
                 continue
-            if not 0 <= idx < len(entry["candidates"]):
-                rejected.append(f"{what}: index outside the {len(entry['candidates'])} offered")
-                continue
-            cand = entry["candidates"][idx]
             test, timing = p.get("test"), p.get("timing")
             if not W.attests(W.TESTS, test, cand["quote"]):
                 rejected.append(f"{what}: the quote does not name this test")

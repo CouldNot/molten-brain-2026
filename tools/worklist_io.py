@@ -4,8 +4,17 @@ Every worklist under ``tools/generated_cache/`` is answered **by index** into a 
 ``*_judged.json``. A scoped (``--only``) rebuild that overwrote the whole file would orphan
 every other entry's already-applied picks (it once dropped 5600 lines of candidates), so a
 scoped build is **merged** into the existing worklist instead.
+
+:func:`write` is the one way a fetcher saves a worklist: it stamps every candidate's
+``qid`` fingerprint first (``pipeline.judged``), so the judge can echo it and the applier
+can refuse a pick whose index has since shifted onto another sentence.
 """
 from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from pipeline.judged import stamp
 
 
 def merge_scoped(existing: dict, scoped: dict, key: str) -> dict:
@@ -31,3 +40,11 @@ def merge_scoped_list(existing: list, scoped: list, key: str) -> list:
     fresh = {e[key]: e for e in scoped}
     out = [fresh.pop(e[key], e) for e in existing]
     return out + list(fresh.values())
+
+
+def write(path, worklist, indent: int = 1, sort_keys: bool = False) -> None:
+    """Stamp ``qid`` on every candidate of ``worklist`` and write it as UTF-8 JSON."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(stamp(worklist), ensure_ascii=False, indent=indent,
+                               sort_keys=sort_keys) + "\n", encoding="utf-8")

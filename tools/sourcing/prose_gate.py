@@ -19,6 +19,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
+from pipeline.judged import resolve, resolve_all  # noqa: E402
 
 
 class PageGate:
@@ -47,17 +48,18 @@ class PageGate:
 
     def sources(self, cands: list[dict], picks, what: str,
                 misses: list[str]) -> list[dict] | None:
-        """The ``{corpus, page, quote, provenance}`` sources for ``picks``, else None.
+        """The ``{corpus, page, quote, provenance}`` sources for ``picks`` (``{index, qid}``
+        refs, see ``pipeline.judged``), else None.
 
-        All or nothing: one bad index or one quote missing from its page drops every pick
-        for ``what`` (and records why in ``misses``), so a half-checked set never lands.
+        All or nothing: one unresolvable pick or one quote missing from its page drops every
+        pick for ``what`` (and records why in ``misses``), so a half-checked set never lands.
         """
+        picked, why = resolve_all(cands, picks)
+        if why:
+            misses.append(f"{what}: {why}")
+            return None
         out = []
-        for i in picks or []:
-            if not isinstance(i, int) or not 0 <= i < len(cands):
-                misses.append(f"{what}: index {i!r} out of range")
-                return None
-            c = cands[i]
+        for c in picked:
             if not self.on_page(c["corpus"], c["page"], c["line"]):
                 misses.append(f"{what}: quote not on {c['corpus']}/{c['page']}: "
                               f"{c['line'][:80]!r}")
@@ -122,9 +124,14 @@ def apply_picks(worklist: dict, judged: dict, owners_ok, check, pages: dict,
 
 
 def not_offered(cands: list[dict], picks, field: str, value: str) -> list[int]:
-    """The in-range picks whose candidate was never offered ``value`` under ``field``."""
-    return [i for i in picks or [] if isinstance(i, int) and 0 <= i < len(cands)
-            and value not in cands[i].get(field, [])]
+    """The indices of the resolvable picks whose candidate was never offered ``value``
+    under ``field``."""
+    out = []
+    for p in picks or []:
+        cand, _ = resolve(cands, p)
+        if cand is not None and value not in cand.get(field, []):
+            out.append(p["index"])
+    return out
 
 
 def run_applier(doc: str, worklist_path: Path, judged_path: Path, cache_path: Path,

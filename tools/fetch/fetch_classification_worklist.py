@@ -46,6 +46,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402 (slug_of, SENTENCE_SPLIT, REFERENCE_RE)
 import target_aliases  # noqa: E402
+import worklist_io  # noqa: E402
 
 OUT_PATH = ROOT / "tools" / "generated_cache" / "classification_worklist.json"
 WIKI_PAGES = ROOT / "data_sources" / "wikipedia" / "pages"
@@ -190,8 +191,7 @@ def main() -> int:
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
     wl = build(only)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    worklist_io.write(args.out, wl)
     n = sum(len(v["candidates"]) for v in wl["owners"].values())
     print(f"[ok] wrote {args.out}: {len(wl['owners'])} owners, {n} candidates")
     return 0

@@ -28,6 +28,7 @@ import fetch_bdpm  # noqa: E402
 import fetch_bdpm_rcp as R  # noqa: E402
 import fetch_workup as FW  # noqa: E402
 import apply_workup as A  # noqa: E402
+from judged_fixture import fill  # noqa: E402
 from data_generators import workup as W  # noqa: E402
 from data_generators.provenance import _quote_sources  # noqa: E402
 
@@ -187,6 +188,8 @@ class ApplierGateTest(unittest.TestCase):
         text = A.normalize_for_match(page if page is not None else
                                      "Ionogramme sanguin, numération et formule sanguine.\n"
                                      "Une lithiémie est contrôlée chaque semaine.")
+        judged = {d: [fill(dict(p), self.OFFERED.get(d, {}).get("candidates", [])) for p in ps]
+                  for d, ps in judged.items()}
         return A.gate(judged, self.OFFERED, {"lithium", "clozapine"}, lambda cis: text)
 
     def test_accepts_and_merges_one_node_per_test_timing(self):
@@ -212,8 +215,8 @@ class ApplierGateTest(unittest.TestCase):
         self.assertEqual(out, {})
         self.assertEqual(len(rej), 7)
         joined = "\n".join(rej)
-        for why in ("not a dataset drug", "offers no candidate", "outside",
-                    "not a number", "does not name this test", "timing"):
+        for why in ("not a dataset drug", "offers no candidate", "out of range",
+                    "does not name this test", "timing"):
             self.assertIn(why, joined)
 
     def test_quote_must_be_on_the_page(self):

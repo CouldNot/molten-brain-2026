@@ -57,6 +57,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators import history  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 import fetch_drug_history  # noqa: E402
 import fetch_category_worklist as catwl  # noqa: E402 (PAGES_FR)
 
@@ -74,9 +75,8 @@ def _year(rec: dict, quote: str) -> int | None:
 
 
 def _cand(rec: dict, cands: list[dict]) -> dict | None:
-    """The candidate the judged index names, or None (a negative index never wraps)."""
-    idx = rec.get("index")
-    return cands[idx] if isinstance(idx, int) and 0 <= idx < len(cands) else None
+    """The candidate the judged pick names (index + qid, see ``pipeline.judged``), or None."""
+    return resolve(cands, rec)[0]
 
 
 def _source(cand: dict) -> dict:

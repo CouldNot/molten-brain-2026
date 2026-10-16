@@ -12,12 +12,14 @@
     {
      "corpus": "europepmc",
      "page": "8309617",
-     "line": "The Ki values ranged from 0.237 +/- 0.019 microM for 1-N-dimethyl-amino-3,5-dimethyl-adamantane to 20.25 +/- 16.48 microM for amantadine."
+     "line": "The Ki values ranged from 0.237 +/- 0.019 microM for 1-N-dimethyl-amino-3,5-dimethyl-adamantane to 20.25 +/- 16.48 microM for amantadine.",
+     "qid": "02639044"
     },
     {
      "corpus": "europepmc",
      "page": "8309617",
-     "line": "The Ki value of memantine was 19.98 +/- 3.08 microM and was thus very similar to that of amantadine."
+     "line": "The Ki value of memantine was 19.98 +/- 3.08 microM and was thus very similar to that of amantadine.",
+     "qid": "83cd498b"
     }
    ]
   },
@@ -34,32 +36,38 @@
     {
      "corpus": "europepmc",
      "page": "6086881",
-     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively.",
+     "qid": "1675b8b7"
     },
     {
      "corpus": "europepmc",
      "page": "7908055",
-     "line": "Several dopamine-selective antipsychotic agents (raclopride, rimcazole and penfluridol) had essentially no affinity for either the 5-HT6 or 5-HT7 receptors (Ki values > 5000 nM).(ABSTRACT TRUNCATED AT 250 WORDS)"
+     "line": "Several dopamine-selective antipsychotic agents (raclopride, rimcazole and penfluridol) had essentially no affinity for either the 5-HT6 or 5-HT7 receptors (Ki values > 5000 nM).(ABSTRACT TRUNCATED AT 250 WORDS)",
+     "qid": "20a5a914"
     },
     {
      "corpus": "europepmc",
      "page": "8876023",
-     "line": "Fluoxetine displayed relatively high affinity for the 5-HT2C receptor in the choroid plexus, with a Ki value for inhibition of [3H]mesulergine binding of 55.4 nM."
+     "line": "Fluoxetine displayed relatively high affinity for the 5-HT2C receptor in the choroid plexus, with a Ki value for inhibition of [3H]mesulergine binding of 55.4 nM.",
+     "qid": "34985ebb"
     },
     {
      "corpus": "europepmc",
      "page": "8876023",
-     "line": "The Ki values for imipramine, norfluoxetine and citalopram were 136 nM, 203 nM, and 298 nM, respectively."
+     "line": "The Ki values for imipramine, norfluoxetine and citalopram were 136 nM, 203 nM, and 298 nM, respectively.",
+     "qid": "59dbbb21"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively.",
+     "qid": "fc2f121a"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter.",
+     "qid": "6698fd2f"
     }
    ]
   },
@@ -77,7 +85,8 @@
     {
      "corpus": "europepmc",
      "page": "6086881",
-     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively.",
+     "qid": "1675b8b7"
     }
    ]
   },
@@ -95,12 +104,14 @@
     {
      "corpus": "europepmc",
      "page": "8584042",
-     "line": "In the search for antidepressant agents with a rapid onset of action, we have found that compound BIMT 17 (1-[2-[4-(3-trifluoromethylphenyl)piperazin-1- yl]ethyl]benzimidazol-[1H]-2-one) shows a good affinity for cerebral cortical 5-HT1A (pKi = 7.72) and 5-HT2A (pKi = 6.90) receptors, with no appreciable affinity for the other 5-HT receptor subtypes, including 5-HT2C."
+     "line": "In the search for antidepressant agents with a rapid onset of action, we have found that compound BIMT 17 (1-[2-[4-(3-trifluoromethylphenyl)piperazin-1- yl]ethyl]benzimidazol-[1H]-2-one) shows a good affinity for cerebral cortical 5-HT1A (pKi = 7.72) and 5-HT2A (pKi = 6.90) receptors, with no appreciable affinity for the other 5-HT receptor subtypes, including 5-HT2C.",
+     "qid": "bdb62219"
     },
     {
      "corpus": "europepmc",
      "page": "8584042",
-     "line": "BIMT 17 reduced forskolin-stimulated cAMP accumulation in the cerebral cortex (pEC50 = 6.09) and in the hippocampus (pEC50 = 6.50), and antagonized 5-HT-induced phosphatidylinositol turnover (pKi = 6.96) in the cerebral cortex."
+     "line": "BIMT 17 reduced forskolin-stimulated cAMP accumulation in the cerebral cortex (pEC50 = 6.09) and in the hippocampus (pEC50 = 6.50), and antagonized 5-HT-induced phosphatidylinositol turnover (pKi = 6.96) in the cerebral cortex.",
+     "qid": "f0774ac8"
     }
    ]
   },
@@ -119,7 +130,8 @@
     {
      "corpus": "europepmc",
      "page": "2853885",
-     "line": "Niaprazine, particularly the (+)stereoisomer, has a higher affinity for alpha 1 (Ki = 77 nM) and 5-HT2 (Ki = 25 nM) binding sites, but is poorly recognized by 5-HT1A and 5-HT1B binding sites (Ki sigma mciroM)."
+     "line": "Niaprazine, particularly the (+)stereoisomer, has a higher affinity for alpha 1 (Ki = 77 nM) and 5-HT2 (Ki = 25 nM) binding sites, but is poorly recognized by 5-HT1A and 5-HT1B binding sites (Ki sigma mciroM).",
+     "qid": "98f08077"
     }
    ]
   },
@@ -136,12 +148,14 @@
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively.",
+     "qid": "fc2f121a"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter.",
+     "qid": "6698fd2f"
     }
    ]
   },
@@ -158,12 +172,14 @@
     {
      "corpus": "europepmc",
      "page": "1387963",
-     "line": "The Ki values for etoperidone, trazodone and MCPP (m-chlorophenylpiperazine dihydrochloride) at 5-HT1A sites (using rat cerebral cortical synaptosomes and [3H]8-OH-DPAT) were determined to be 20.2, 23.6 and 18.9 nM, respectively."
+     "line": "The Ki values for etoperidone, trazodone and MCPP (m-chlorophenylpiperazine dihydrochloride) at 5-HT1A sites (using rat cerebral cortical synaptosomes and [3H]8-OH-DPAT) were determined to be 20.2, 23.6 and 18.9 nM, respectively.",
+     "qid": "e38f6eae"
     },
     {
      "corpus": "europepmc",
      "page": "6086881",
-     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively.",
+     "qid": "1675b8b7"
     }
    ]
   },
@@ -188,22 +204,26 @@
     {
      "corpus": "europepmc",
      "page": "1663593",
-     "line": "In radioligand binding studies, D,L-trimipramine showed fairly high affinities (KI 10-60 nM) for some dopamine (DA), noradrenaline and 5-hydroxytryptamine (5-HT) receptor subtypes (5-HT2 receptors = alpha 1A/B-adrenoceptors greater than or equal to D2 receptors), intermediate affinities (300-550 nM) for D1 receptors, alpha 2B-adrenoceptors and 5-HT1C receptors but only low affinities (greater than 1000 nM) for alpha 2A-adrenoceptors, 5-HT1A, 5-HT1D and 5-HT3 receptors."
+     "line": "In radioligand binding studies, D,L-trimipramine showed fairly high affinities (KI 10-60 nM) for some dopamine (DA), noradrenaline and 5-hydroxytryptamine (5-HT) receptor subtypes (5-HT2 receptors = alpha 1A/B-adrenoceptors greater than or equal to D2 receptors), intermediate affinities (300-550 nM) for D1 receptors, alpha 2B-adrenoceptors and 5-HT1C receptors but only low affinities (greater than 1000 nM) for alpha 2A-adrenoceptors, 5-HT1A, 5-HT1D and 5-HT3 receptors.",
+     "qid": "f932a213"
     },
     {
      "corpus": "europepmc",
      "page": "6086881",
-     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively.",
+     "qid": "1675b8b7"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively.",
+     "qid": "fc2f121a"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter.",
+     "qid": "6698fd2f"
     }
    ]
   },
@@ -221,130 +241,153 @@
     {
      "corpus": "europepmc",
      "page": "32943948",
-     "line": "In addition to its clinical profile, historical in vitro pharmacology data indicate that the inhibitory potency of viloxazine for NE and 5-HT uptake is different from that of other known NRIs, such as atomoxetine and reboxetine. Previous data have demonstrated that viloxazine exhibits a more moderate inhibitory effect on NE uptake, with an inhibitory constant (Ki) of 2300 nM, compared to the Ki of 3.4 and 8.2 nM for atomoxetine and reboxetine, respectively (Table 1).15–18 Viloxazine is almost devoid of any 5-HT uptake inhibitory activity (Ki > 10,000 nM), while atomoxetine and reboxetine have a moderate potency for 5-HT uptake inhibition (Ki = 390 and 1070 nM, respectively). Likewise, viloxazine has consistently demonstrated a relatively low affinity towards the NE transporter (NET) in in vitro binding competition assays. Still, viloxazine exhibits higher selectivity towards NET over the 5-HT transporter (SERT) (dissociation constant KD ratio = 110) and almost negligible affinity for the dopamine (DA) transporter (DAT) (KD > 100,000 nM; Table 1)."
+     "line": "In addition to its clinical profile, historical in vitro pharmacology data indicate that the inhibitory potency of viloxazine for NE and 5-HT uptake is different from that of other known NRIs, such as atomoxetine and reboxetine. Previous data have demonstrated that viloxazine exhibits a more moderate inhibitory effect on NE uptake, with an inhibitory constant (Ki) of 2300 nM, compared to the Ki of 3.4 and 8.2 nM for atomoxetine and reboxetine, respectively (Table 1).15–18 Viloxazine is almost devoid of any 5-HT uptake inhibitory activity (Ki > 10,000 nM), while atomoxetine and reboxetine have a moderate potency for 5-HT uptake inhibition (Ki = 390 and 1070 nM, respectively). Likewise, viloxazine has consistently demonstrated a relatively low affinity towards the NE transporter (NET) in in vitro binding competition assays. Still, viloxazine exhibits higher selectivity towards NET over the 5-HT transporter (SERT) (dissociation constant KD ratio = 110) and almost negligible affinity for the dopamine (DA) transporter (DAT) (KD > 100,000 nM; Table 1).",
+     "qid": "784d2262"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "[3H]-NE uptake | 2300a | 3.4b | 8.2c",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "a2e758e3"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "[3H]-5-HT uptake | >10,000a | 390b | 1070c",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "a402e8fd"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "[3H]-DA uptake | NCa | 1750b | NCc",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "da603c01"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "NET binding | 155d | 2d–5e | 1.1e–11f",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "afbb5324"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "SERT binding | 17,300d | 9d–77e | 129e–440f",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "0dd4d0b5"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "DAT binding | >100,000d | 1080d–1451e | >10,000f",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "852c0989"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "KD (SERT)/KD (NET) | 111 | 4 | ",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "51d86f55"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "Ki (SERT)/Ki (NET) |  | 15 | 40–117",
-     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine"
+     "table": "Table 1: Monoamine Uptake Inhibition, Transporter Binding Affinity, and Selectivity for Viloxazine, Atomoxetine, and Reboxetine. ||  | Viloxazine | Atomoxetine | Reboxetine",
+     "qid": "0ae1e95b"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
-     "line": "The receptor occupancies at clinical doses of 100, 200, 400, and 600 mg/day were calculated based on the Ki values of 630, 3900, and 6400 nM for NET, 5-HT2C, and 5-HT2B, respectively (Table 3). The dose and calculated receptor occupancy relationship is depicted in Figure 4."
+     "line": "The receptor occupancies at clinical doses of 100, 200, 400, and 600 mg/day were calculated based on the Ki values of 630, 3900, and 6400 nM for NET, 5-HT2C, and 5-HT2B, respectively (Table 3). The dose and calculated receptor occupancy relationship is depicted in Figure 4.",
+     "qid": "70ec8868"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
-     "line": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively"
+     "line": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively",
+     "qid": "92a29ac1"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "NET | 5-HT2B | 5-HT2C",
-     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)",
+     "qid": "d5c2f84a"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "100 | 96.5 | 81.4 | 72.8",
-     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)",
+     "qid": "4f2cffaf"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "200 | 98.6 | 91.7 | 87.1",
-     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)",
+     "qid": "8fce2770"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "400 | 99.3 | 95.7 | 93.2",
-     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)",
+     "qid": "7cbf8dda"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
      "line": "600 | 99.3 | 96.1 | 93.7",
-     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)"
+     "table": "Table 3: Receptor Occupancy Calculated Based on Obtained Cunbound Brain Concentration Estimated from Cmax Plasma After 100, 200, 400 and 600 mg/day Doses in Pediatric ADHD Patients and Ki Values of 630, 3900 and 6400 nM for NET, 5-HT2B and 5-HT2C, Respectively || Dose (mg/kg) | Estimated Receptor Occupancy (%)",
+     "qid": "29860830"
     },
     {
      "corpus": "europepmc",
      "page": "32943948",
-     "line": "As mentioned above, administration of viloxazine demonstrated a minimal increase of DA in the Acb to approximately 180% in freely moving rats. Vehicle-treated rats demonstrated an increase in DA of approximately 120%. These results are likely due to the lack of binding affinity of viloxazine at the DAT (KD >100 µM).18 In addition, viloxazine does not directly interact with the dopaminergic receptors D1 and D2S. Based on the minimal effect on DA in the Acb, viloxazine is expected to have low substance abuse liability."
+     "line": "As mentioned above, administration of viloxazine demonstrated a minimal increase of DA in the Acb to approximately 180% in freely moving rats. Vehicle-treated rats demonstrated an increase in DA of approximately 120%. These results are likely due to the lack of binding affinity of viloxazine at the DAT (KD >100 µM).18 In addition, viloxazine does not directly interact with the dopaminergic receptors D1 and D2S. Based on the minimal effect on DA in the Acb, viloxazine is expected to have low substance abuse liability.",
+     "qid": "83496f78"
     },
     {
      "corpus": "europepmc",
      "page": "3816971",
-     "line": "At the serotonin S1 receptor, the most and least potent antidepressants were trazodone (KD = 60 nM) and bupropion (KD = 170 microM), respectively."
+     "line": "At the serotonin S1 receptor, the most and least potent antidepressants were trazodone (KD = 60 nM) and bupropion (KD = 170 microM), respectively.",
+     "qid": "93b8819c"
     },
     {
      "corpus": "europepmc",
      "page": "3816971",
-     "line": "At the serotonin S2 receptor, the most and least potent antidepressants were amoxapine (KD = 0.6 nM) and bupropion (KD = 90 microM), respectively."
+     "line": "At the serotonin S2 receptor, the most and least potent antidepressants were amoxapine (KD = 0.6 nM) and bupropion (KD = 90 microM), respectively.",
+     "qid": "a25cf993"
     },
     {
      "corpus": "europepmc",
      "page": "3816971",
-     "line": "Buspirone, a new anxiolytic agent, possessed high affinity for the serotonin S1 receptor (KD = 3.8 nM)."
+     "line": "Buspirone, a new anxiolytic agent, possessed high affinity for the serotonin S1 receptor (KD = 3.8 nM).",
+     "qid": "4996d861"
     },
     {
      "corpus": "europepmc",
      "page": "6086881",
-     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively."
+     "line": "The most potent and the least potent compounds at the receptors were doxepin (KD = 0.24 nM) and fluvoxamine (KD = 109 microM) at the histamine H1 receptor, amitriptyline (KD = 18 nM) and trazodone (KD = 324 microM) at the muscarinic receptor, doxepin (KD = 24 nM) and viloxazine (KD = 14 microM) at the alpha-1 receptor, mianserin (KD = 73 nM) and bupropion (KD = 81 microM) at the alpha-2 receptor and amoxapine (KD = 160 nM) and trazodone (KD = 3800 nM) at the D-2 receptor, respectively.",
+     "qid": "1675b8b7"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively."
+     "line": "Among the compounds that we tested, mazindol was the most potent at the human norepinephrine and dopamine transporters with KD's of 0.45 +/- 0.03 nM and 8.1 +/- 0.4 nM, respectively.",
+     "qid": "fc2f121a"
     },
     {
      "corpus": "europepmc",
      "page": "9537821",
-     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter."
+     "line": "Sertraline (KD = 25 +/- 2 nM) and nomifensine (56 +/- 3 nM) were the two most potent antidepressants at the human dopamine transporter.",
+     "qid": "6698fd2f"
     }
    ]
   }

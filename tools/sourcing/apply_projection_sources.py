@@ -44,6 +44,7 @@ ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "tools"))
 from prose_gate import PageGate, add_source  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 from data_generators.quotes.attestation import pattern_for  # noqa: E402
 from data_generators.presentation import KIND_TO_SIGN  # noqa: E402
 
@@ -101,9 +102,9 @@ def apply(worklist: dict, judged: dict, current: dict, out: dict,
                 misses.append(f"{key}/{attr}: not an open claim in the worklist")
                 continue
             pat = (pattern_for(attr, own[attr]) if attr != "route" else None)
-            bad = [i for i in picks if isinstance(i, int) and 0 <= i < len(cands) and (
-                attr not in cands[i].get("attrs", [])
-                or (pat is not None and not pat.search(cands[i]["line"])))]
+            bad = [p["index"] for p, c in ((p, resolve(cands, p)[0]) for p in picks)
+                   if c is not None and (attr not in c.get("attrs", [])
+                                         or (pat is not None and not pat.search(c["line"])))]
             if bad:
                 misses.append(f"{key}/{attr}: candidate(s) {bad} not offered for {attr}")
                 continue

@@ -53,6 +53,7 @@ import fetch_gtopdb_function as gfunc  # noqa: E402 (RAW, offerable)
 import target_aliases  # noqa: E402
 from data_generators.receptor_effects import RECEPTOR_EFFECTS  # noqa: E402
 from data_generators.unknown import effects_site  # noqa: E402
+import worklist_io  # noqa: E402
 from worklist_io import merge_scoped  # noqa: E402
 
 OUT_PATH = ROOT / "tools" / "generated_cache" / "receptor_effects_worklist.json"
@@ -264,8 +265,7 @@ def run_cli(doc: str, out_path: Path, builder=build) -> int:
     wl = builder(only)
     if only and args.out.exists():
         wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "owners")
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    worklist_io.write(args.out, wl)
     n = sum(len(v["candidates"]) for v in wl["owners"].values())
     print(f"[ok] wrote {args.out}: {len(wl['owners'])} owners, {n} candidates")
     return 0

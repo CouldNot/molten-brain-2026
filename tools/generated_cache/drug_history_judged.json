@@ -8,7 +8,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1989
+   "year": 1989,
+   "qid": "1877f8c6"
   },
   "withdrawals": []
  },
@@ -17,7 +18,8 @@
    "agency": null,
    "country": "eu",
    "index": 0,
-   "year": 2009
+   "year": 2009,
+   "qid": "859b27c8"
   },
   "withdrawals": []
  },
@@ -30,14 +32,16 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1991
+   "year": 1991,
+   "qid": "ca42dd3b"
   },
   "withdrawals": [
    {
     "country": "fr",
     "index": 1,
     "reason": "liver",
-    "year": 1993
+    "year": 1993,
+    "qid": "7b6f915c"
    }
   ]
  },
@@ -46,7 +50,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1981
+   "year": 1981,
+   "qid": "2e72fcdf"
   },
   "withdrawals": []
  },
@@ -55,7 +60,8 @@
    "agency": "fda",
    "country": "us",
    "index": 5,
-   "year": 1966
+   "year": 1966,
+   "qid": "990a3e42"
   },
   "withdrawals": []
  },
@@ -68,7 +74,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1961
+   "year": 1961,
+   "qid": "c6089a3e"
   },
   "withdrawals": []
  },
@@ -77,7 +84,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1923
+   "year": 1923,
+   "qid": "ed8f1ede"
   },
   "withdrawals": []
  },
@@ -86,7 +94,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1980
+   "year": 1980,
+   "qid": "2ab156ea"
   },
   "withdrawals": []
  },
@@ -95,7 +104,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1932
+   "year": 1932,
+   "qid": "83df2aaa"
   },
   "withdrawals": []
  },
@@ -104,7 +114,8 @@
    "agency": "fda",
    "country": "us",
    "index": 2,
-   "year": 2002
+   "year": 2002,
+   "qid": "dd872ab4"
   },
   "withdrawals": []
  },
@@ -113,7 +124,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2007
+   "year": 2007,
+   "qid": "9b08f3d0"
   },
   "withdrawals": []
  },
@@ -122,7 +134,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2009
+   "year": 2009,
+   "qid": "7cf85e2e"
   },
   "withdrawals": []
  },
@@ -131,14 +144,16 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2002
+   "year": 2002,
+   "qid": "1a7445a9"
   },
   "withdrawals": [
    {
     "country": "fr",
     "index": 4,
     "reason": "unstated",
-    "year": 2012
+    "year": 2012,
+    "qid": "40b0354c"
    }
   ]
  },
@@ -151,7 +166,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1971
+   "year": 1971,
+   "qid": "9f7f5826"
   },
   "withdrawals": []
  },
@@ -160,7 +176,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1966
+   "year": 1966,
+   "qid": "c43e32ce"
   },
   "withdrawals": []
  },
@@ -169,7 +186,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1954
+   "year": 1954,
+   "qid": "b506266a"
   },
   "withdrawals": []
  },
@@ -178,7 +196,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1966
+   "year": 1966,
+   "qid": "7255afa4"
   },
   "withdrawals": []
  },
@@ -187,7 +206,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1959
+   "year": 1959,
+   "qid": "b7ad0181"
   },
   "withdrawals": []
  },
@@ -196,7 +216,8 @@
    "agency": null,
    "country": "jp",
    "index": 0,
-   "year": 2008
+   "year": 2008,
+   "qid": "bf377e27"
   },
   "withdrawals": []
  },
@@ -205,7 +226,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2019
+   "year": 2019,
+   "qid": "5b4b3243"
   },
   "withdrawals": []
  },
@@ -214,14 +236,16 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2019
+   "year": 2019,
+   "qid": "f588ab99"
   },
   "withdrawals": [
    {
     "country": "us",
     "index": 0,
     "reason": "unstated",
-    "year": 2025
+    "year": 2025,
+    "qid": "f588ab99"
    }
   ]
  },
@@ -230,7 +254,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2015
+   "year": 2015,
+   "qid": "1cc8542d"
   },
   "withdrawals": []
  },
@@ -239,7 +264,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 2016
+   "year": 2016,
+   "qid": "44471ae8"
   },
   "withdrawals": []
  },
@@ -248,7 +274,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1974
+   "year": 1974,
+   "qid": "18d3ae09"
   },
   "withdrawals": []
  },
@@ -257,7 +284,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1975
+   "year": 1975,
+   "qid": "d025da91"
   },
   "withdrawals": []
  },
@@ -274,7 +302,8 @@
    "agency": null,
    "country": "uk",
    "index": 1,
-   "year": 1977
+   "year": 1977,
+   "qid": "c6670747"
   },
   "withdrawals": []
  },
@@ -283,7 +312,8 @@
    "agency": "fda",
    "country": "us",
    "index": 2,
-   "year": 1985
+   "year": 1985,
+   "qid": "9cfc99c5"
   },
   "withdrawals": []
  },
@@ -292,7 +322,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1986
+   "year": 1986,
+   "qid": "0d8df5bd"
   },
   "withdrawals": []
  },
@@ -301,7 +332,8 @@
    "agency": null,
    "country": "nl",
    "index": 1,
-   "year": 1992
+   "year": 1992,
+   "qid": "e3005931"
   },
   "withdrawals": []
  },
@@ -314,7 +346,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2018
+   "year": 2018,
+   "qid": "cfdcd730"
   },
   "withdrawals": []
  },
@@ -327,7 +360,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1962
+   "year": 1962,
+   "qid": "0717c139"
   },
   "withdrawals": []
  },
@@ -336,7 +370,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2015
+   "year": 2015,
+   "qid": "6e586059"
   },
   "withdrawals": []
  },
@@ -349,7 +384,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1960
+   "year": 1960,
+   "qid": "f5a53040"
   },
   "withdrawals": []
  },
@@ -358,7 +394,8 @@
    "agency": null,
    "country": null,
    "index": 3,
-   "year": 1952
+   "year": 1952,
+   "qid": "48d19a06"
   },
   "withdrawals": []
  },
@@ -367,7 +404,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1959
+   "year": 1959,
+   "qid": "b158de01"
   },
   "withdrawals": []
  },
@@ -376,7 +414,8 @@
    "agency": null,
    "country": "dk",
    "index": 1,
-   "year": 1989
+   "year": 1989,
+   "qid": "ec4ae87c"
   },
   "withdrawals": []
  },
@@ -385,7 +424,8 @@
    "agency": null,
    "country": "au",
    "index": 0,
-   "year": 1970
+   "year": 1970,
+   "qid": "432cebd1"
   },
   "withdrawals": []
  },
@@ -394,7 +434,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1970
+   "year": 1970,
+   "qid": "35b9ea8e"
   },
   "withdrawals": []
  },
@@ -403,7 +444,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1975
+   "year": 1975,
+   "qid": "fb1a8336"
   },
   "withdrawals": []
  },
@@ -412,7 +454,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1966
+   "year": 1966,
+   "qid": "1cd40e09"
   },
   "withdrawals": []
  },
@@ -421,7 +464,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1967
+   "year": 1967,
+   "qid": "5976ebc5"
   },
   "withdrawals": []
  },
@@ -430,7 +474,8 @@
    "agency": null,
    "country": null,
    "index": 3,
-   "year": 1971
+   "year": 1971,
+   "qid": "4e279aed"
   },
   "withdrawals": []
  },
@@ -447,7 +492,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1972
+   "year": 1972,
+   "qid": "0f67afdf"
   },
   "withdrawals": []
  },
@@ -460,7 +506,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1961
+   "year": 1961,
+   "qid": "b8068a26"
   },
   "withdrawals": []
  },
@@ -469,7 +516,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2022
+   "year": 2022,
+   "qid": "337a60c2"
   },
   "withdrawals": []
  },
@@ -482,7 +530,8 @@
    "agency": "fda",
    "country": "us",
    "index": 3,
-   "year": 2008
+   "year": 2008,
+   "qid": "eb6b316c"
   },
   "withdrawals": []
  },
@@ -491,7 +540,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2017
+   "year": 2017,
+   "qid": "00d2f760"
   },
   "withdrawals": []
  },
@@ -500,7 +550,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1999
+   "year": 1999,
+   "qid": "8e447f67"
   },
   "withdrawals": []
  },
@@ -509,7 +560,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2022
+   "year": 2022,
+   "qid": "454e00d4"
   },
   "withdrawals": []
  },
@@ -518,7 +570,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2010
+   "year": 2010,
+   "qid": "de7a70ed"
   },
   "withdrawals": []
  },
@@ -527,7 +580,8 @@
    "agency": null,
    "country": null,
    "index": 3,
-   "year": 1963
+   "year": 1963,
+   "qid": "813a4b0b"
   },
   "withdrawals": []
  },
@@ -536,7 +590,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1946
+   "year": 1946,
+   "qid": "5d17a090"
   },
   "withdrawals": []
  },
@@ -553,7 +608,8 @@
    "agency": null,
    "country": "ch",
    "index": 1,
-   "year": 1979
+   "year": 1979,
+   "qid": "08afc14f"
   },
   "withdrawals": []
  },
@@ -562,7 +618,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 1996
+   "year": 1996,
+   "qid": "e2cab466"
   },
   "withdrawals": []
  },
@@ -571,7 +628,8 @@
    "agency": null,
    "country": "uk",
    "index": 0,
-   "year": 1969
+   "year": 1969,
+   "qid": "5b823e44"
   },
   "withdrawals": []
  },
@@ -580,7 +638,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1969
+   "year": 1969,
+   "qid": "77741f2d"
   },
   "withdrawals": []
  },
@@ -593,7 +652,8 @@
    "agency": "fda",
    "country": "us",
    "index": 2,
-   "year": 2004
+   "year": 2004,
+   "qid": "f1165a7f"
   },
   "withdrawals": []
  },
@@ -602,7 +662,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1926
+   "year": 1926,
+   "qid": "c49c4ff5"
   },
   "withdrawals": []
  },
@@ -611,7 +672,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2018
+   "year": 2018,
+   "qid": "8971d297"
   },
   "withdrawals": []
  },
@@ -620,7 +682,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2002
+   "year": 2002,
+   "qid": "c23d7c1e"
   },
   "withdrawals": []
  },
@@ -629,7 +692,8 @@
    "agency": null,
    "country": "de",
    "index": 2,
-   "year": 1997
+   "year": 1997,
+   "qid": "bb4b14b7"
   },
   "withdrawals": []
  },
@@ -638,7 +702,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2004
+   "year": 2004,
+   "qid": "bf07ee42"
   },
   "withdrawals": []
  },
@@ -651,7 +716,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1960
+   "year": 1960,
+   "qid": "7f062631"
   },
   "withdrawals": []
  },
@@ -660,7 +726,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1972
+   "year": 1972,
+   "qid": "0a1374d9"
   },
   "withdrawals": []
  },
@@ -669,26 +736,30 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1963
+   "year": 1963,
+   "qid": "7777b553"
   },
   "withdrawals": [
    {
     "country": "us",
     "index": 1,
     "reason": "cardiac",
-    "year": 1997
+    "year": 1997,
+    "qid": "fa8f434c"
    },
    {
     "country": "fr",
     "index": 9,
     "reason": "cardiac",
-    "year": 1997
+    "year": 1997,
+    "qid": "97b1a5bb"
    },
    {
     "country": "in",
     "index": 4,
     "reason": "unstated",
-    "year": 1998
+    "year": 1998,
+    "qid": "244b5749"
    }
   ]
  },
@@ -697,7 +768,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1968
+   "year": 1968,
+   "qid": "c486ccc1"
   },
   "withdrawals": []
  },
@@ -706,7 +778,8 @@
    "agency": "fda",
    "country": "us",
    "index": 5,
-   "year": 2015
+   "year": 2015,
+   "qid": "9173af8f"
   },
   "withdrawals": []
  },
@@ -715,7 +788,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1987
+   "year": 1987,
+   "qid": "b0524e39"
   },
   "withdrawals": []
  },
@@ -728,7 +802,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1972
+   "year": 1972,
+   "qid": "839d92a4"
   },
   "withdrawals": []
  },
@@ -737,7 +812,8 @@
    "agency": null,
    "country": null,
    "index": 4,
-   "year": 1986
+   "year": 1986,
+   "qid": "b92548d5"
   },
   "withdrawals": []
  },
@@ -746,7 +822,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1965
+   "year": 1965,
+   "qid": "9562321b"
   },
   "withdrawals": []
  },
@@ -755,7 +832,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1959
+   "year": 1959,
+   "qid": "e1716124"
   },
   "withdrawals": []
  },
@@ -764,7 +842,8 @@
    "agency": null,
    "country": "ch",
    "index": 0,
-   "year": 1983
+   "year": 1983,
+   "qid": "aa35b15a"
   },
   "withdrawals": []
  },
@@ -773,7 +852,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1964
+   "year": 1964,
+   "qid": "36727043"
   },
   "withdrawals": []
  },
@@ -782,7 +862,8 @@
    "agency": null,
    "country": "uk",
    "index": 0,
-   "year": 1993
+   "year": 1993,
+   "qid": "fca7991b"
   },
   "withdrawals": []
  },
@@ -795,7 +876,8 @@
    "agency": null,
    "country": "uk",
    "index": 0,
-   "year": 1991
+   "year": 1991,
+   "qid": "820967b2"
   },
   "withdrawals": []
  },
@@ -804,7 +886,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 1986
+   "year": 1986,
+   "qid": "b675f059"
   },
   "withdrawals": []
  },
@@ -813,7 +896,8 @@
    "agency": null,
    "country": "be",
    "index": 0,
-   "year": 1959
+   "year": 1959,
+   "qid": "1d1368c7"
   },
   "withdrawals": []
  },
@@ -822,14 +906,16 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1898
+   "year": 1898,
+   "qid": "881bdc9c"
   },
   "withdrawals": [
    {
     "country": "us",
     "index": 1,
     "reason": "unstated",
-    "year": 1924
+    "year": 1924,
+    "qid": "ba265ecd"
    }
   ]
  },
@@ -838,7 +924,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1926
+   "year": 1926,
+   "qid": "7cb01f73"
   },
   "withdrawals": []
  },
@@ -847,7 +934,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1956
+   "year": 1956,
+   "qid": "6102aeee"
   },
   "withdrawals": []
  },
@@ -858,7 +946,8 @@
     "country": "fr",
     "index": 1,
     "reason": "unstated",
-    "year": 1966
+    "year": 1966,
+    "qid": "58952762"
    }
   ]
  },
@@ -867,7 +956,8 @@
    "agency": "fda",
    "country": "us",
    "index": 2,
-   "year": 2009
+   "year": 2009,
+   "qid": "b8aa2c8c"
   },
   "withdrawals": []
  },
@@ -876,7 +966,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1957
+   "year": 1957,
+   "qid": "69311b92"
   },
   "withdrawals": []
  },
@@ -885,7 +976,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1983
+   "year": 1983,
+   "qid": "9e8acb2d"
   },
   "withdrawals": []
  },
@@ -894,7 +986,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1979
+   "year": 1979,
+   "qid": "570b7797"
   },
   "withdrawals": []
  },
@@ -903,7 +996,8 @@
    "agency": null,
    "country": "jp",
    "index": 0,
-   "year": 2013
+   "year": 2013,
+   "qid": "7a7d4839"
   },
   "withdrawals": []
  },
@@ -912,7 +1006,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1970
+   "year": 1970,
+   "qid": "5e78fc16"
   },
   "withdrawals": []
  },
@@ -921,7 +1016,8 @@
    "agency": null,
    "country": "eu",
    "index": 2,
-   "year": 2008
+   "year": 2008,
+   "qid": "d8d7cf07"
   },
   "withdrawals": []
  },
@@ -930,7 +1026,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1990
+   "year": 1990,
+   "qid": "dc52fa61"
   },
   "withdrawals": []
  },
@@ -939,7 +1036,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2019
+   "year": 2019,
+   "qid": "1489b388"
   },
   "withdrawals": []
  },
@@ -948,7 +1046,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1999
+   "year": 1999,
+   "qid": "e8414d64"
   },
   "withdrawals": []
  },
@@ -957,7 +1056,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1970
+   "year": 1970,
+   "qid": "f4ebe1b8"
   },
   "withdrawals": []
  },
@@ -966,7 +1066,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1957
+   "year": 1957,
+   "qid": "eed467ac"
   },
   "withdrawals": []
  },
@@ -975,7 +1076,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2013
+   "year": 2013,
+   "qid": "59b14057"
   },
   "withdrawals": []
  },
@@ -984,7 +1086,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2007
+   "year": 2007,
+   "qid": "7afb1a49"
   },
   "withdrawals": []
  },
@@ -1001,7 +1104,8 @@
    "agency": null,
    "country": "uk",
    "index": 1,
-   "year": 1992
+   "year": 1992,
+   "qid": "8ce1aec1"
   },
   "withdrawals": []
  },
@@ -1014,7 +1118,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1977
+   "year": 1977,
+   "qid": "f28187c6"
   },
   "withdrawals": []
  },
@@ -1027,7 +1132,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1978
+   "year": 1978,
+   "qid": "5adcf3ab"
   },
   "withdrawals": []
  },
@@ -1036,7 +1142,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1947
+   "year": 1947,
+   "qid": "03b3e360"
   },
   "withdrawals": []
  },
@@ -1045,7 +1152,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2019
+   "year": 2019,
+   "qid": "df1f6396"
   },
   "withdrawals": []
  },
@@ -1054,7 +1162,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2010
+   "year": 2010,
+   "qid": "3547a2ee"
   },
   "withdrawals": []
  },
@@ -1063,7 +1172,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1974
+   "year": 1974,
+   "qid": "59d0a668"
   },
   "withdrawals": []
  },
@@ -1076,7 +1186,8 @@
    "agency": null,
    "country": "de",
    "index": 0,
-   "year": 1989
+   "year": 1989,
+   "qid": "bcd109e5"
   },
   "withdrawals": []
  },
@@ -1085,20 +1196,23 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1955
+   "year": 1955,
+   "qid": "fbf8320f"
   },
   "withdrawals": [
    {
     "country": "eu",
     "index": 1,
     "reason": "safety",
-    "year": 2012
+    "year": 2012,
+    "qid": "939a62bb"
    },
    {
     "country": "ca",
     "index": 1,
     "reason": "unstated",
-    "year": 2013
+    "year": 2013,
+    "qid": "939a62bb"
    }
   ]
  },
@@ -1109,7 +1223,8 @@
     "country": "us",
     "index": 0,
     "reason": "cardiac",
-    "year": 2004
+    "year": 2004,
+    "qid": "4e45ec18"
    }
   ]
  },
@@ -1122,7 +1237,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1938
+   "year": 1938,
+   "qid": "95f1aa62"
   },
   "withdrawals": []
  },
@@ -1133,7 +1249,8 @@
     "country": "us",
     "index": 1,
     "reason": "unstated",
-    "year": 1983
+    "year": 1983,
+    "qid": "715d44bd"
    }
   ]
  },
@@ -1142,7 +1259,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2001
+   "year": 2001,
+   "qid": "c09982e2"
   },
   "withdrawals": []
  },
@@ -1151,7 +1269,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1955
+   "year": 1955,
+   "qid": "017a658b"
   },
   "withdrawals": []
  },
@@ -1160,7 +1279,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1964
+   "year": 1964,
+   "qid": "d5f54bae"
   },
   "withdrawals": []
  },
@@ -1169,7 +1289,8 @@
    "agency": null,
    "country": "de",
    "index": 0,
-   "year": 1975
+   "year": 1975,
+   "qid": "38bc2e42"
   },
   "withdrawals": []
  },
@@ -1178,7 +1299,8 @@
    "agency": null,
    "country": "fr",
    "index": 1,
-   "year": 1986
+   "year": 1986,
+   "qid": "84bd88e1"
   },
   "withdrawals": []
  },
@@ -1187,7 +1309,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1996
+   "year": 1996,
+   "qid": "c6f4dbeb"
   },
   "withdrawals": []
  },
@@ -1196,7 +1319,8 @@
    "agency": null,
    "country": "nl",
    "index": 0,
-   "year": 1994
+   "year": 1994,
+   "qid": "f34066af"
   },
   "withdrawals": []
  },
@@ -1205,7 +1329,8 @@
    "agency": null,
    "country": "se",
    "index": 3,
-   "year": 1989
+   "year": 1989,
+   "qid": "99da293a"
   },
   "withdrawals": []
  },
@@ -1214,7 +1339,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1994
+   "year": 1994,
+   "qid": "f8680c0b"
   },
   "withdrawals": []
  },
@@ -1223,7 +1349,8 @@
    "agency": null,
    "country": "us",
    "index": 1,
-   "year": 1974
+   "year": 1974,
+   "qid": "ee2eeb1d"
   },
   "withdrawals": []
  },
@@ -1232,7 +1359,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1817
+   "year": 1817,
+   "qid": "4c1e730a"
   },
   "withdrawals": []
  },
@@ -1241,14 +1369,16 @@
    "agency": "health_canada",
    "country": "ca",
    "index": 0,
-   "year": 1981
+   "year": 1981,
+   "qid": "4599d3ec"
   },
   "withdrawals": [
    {
     "country": "us",
     "index": 1,
     "reason": "commercial",
-    "year": 1989
+    "year": 1989,
+    "qid": "069c1c02"
    }
   ]
  },
@@ -1257,7 +1387,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1995
+   "year": 1995,
+   "qid": "9d0810b4"
   },
   "withdrawals": []
  },
@@ -1266,7 +1397,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1971
+   "year": 1971,
+   "qid": "85951234"
   },
   "withdrawals": []
  },
@@ -1275,7 +1407,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 1984
+   "year": 1984,
+   "qid": "266ce96c"
   },
   "withdrawals": []
  },
@@ -1284,7 +1417,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2014
+   "year": 2014,
+   "qid": "fed90076"
   },
   "withdrawals": []
  },
@@ -1293,20 +1427,23 @@
    "agency": null,
    "country": "us",
    "index": 4,
-   "year": 1994
+   "year": 1994,
+   "qid": "7de5efc6"
   },
   "withdrawals": [
    {
     "country": "most_markets",
     "index": 0,
     "reason": "liver",
-    "year": 2004
+    "year": 2004,
+    "qid": "d6bf7d93"
    },
    {
     "country": "ca",
     "index": 7,
     "reason": "unstated",
-    "year": 2003
+    "year": 2003,
+    "qid": "70e2cdaa"
    }
   ]
  },
@@ -1315,7 +1452,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1965
+   "year": 1965,
+   "qid": "5ad2cfdf"
   },
   "withdrawals": []
  },
@@ -1328,7 +1466,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1963
+   "year": 1963,
+   "qid": "96d50795"
   },
   "withdrawals": []
  },
@@ -1337,7 +1476,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1996
+   "year": 1996,
+   "qid": "e52dfc03"
   },
   "withdrawals": []
  },
@@ -1346,7 +1486,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2021
+   "year": 2021,
+   "qid": "5db7f94b"
   },
   "withdrawals": []
  },
@@ -1355,7 +1496,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1990
+   "year": 1990,
+   "qid": "edb3ba40"
   },
   "withdrawals": []
  },
@@ -1364,7 +1506,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1961
+   "year": 1961,
+   "qid": "6d851353"
   },
   "withdrawals": []
  },
@@ -1373,7 +1516,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1964
+   "year": 1964,
+   "qid": "b29309ce"
   },
   "withdrawals": []
  },
@@ -1382,7 +1526,8 @@
    "agency": null,
    "country": "dk",
    "index": 0,
-   "year": 1990
+   "year": 1990,
+   "qid": "42ab4bb2"
   },
   "withdrawals": []
  },
@@ -1395,7 +1540,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2006
+   "year": 2006,
+   "qid": "b6513457"
   },
   "withdrawals": []
  },
@@ -1404,7 +1550,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1963
+   "year": 1963,
+   "qid": "272a3a1a"
   },
   "withdrawals": []
  },
@@ -1413,7 +1560,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1992
+   "year": 1992,
+   "qid": "c9089286"
   },
   "withdrawals": []
  },
@@ -1422,7 +1570,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1964
+   "year": 1964,
+   "qid": "51163017"
   },
   "withdrawals": []
  },
@@ -1435,7 +1584,8 @@
    "agency": null,
    "country": "eu",
    "index": 1,
-   "year": 2012
+   "year": 2012,
+   "qid": "b2388828"
   },
   "withdrawals": []
  },
@@ -1444,7 +1594,8 @@
    "agency": null,
    "country": "jp",
    "index": 0,
-   "year": 2001
+   "year": 2001,
+   "qid": "7ace7384"
   },
   "withdrawals": []
  },
@@ -1453,7 +1604,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1943
+   "year": 1943,
+   "qid": "61e098b0"
   },
   "withdrawals": []
  },
@@ -1474,14 +1626,16 @@
    "agency": "fda",
    "country": "us",
    "index": 2,
-   "year": 1959
+   "year": 1959,
+   "qid": "01d8e382"
   },
   "withdrawals": [
    {
     "country": "uk",
     "index": 1,
     "reason": "unstated",
-    "year": 2000
+    "year": 2000,
+    "qid": "f70e92d9"
    }
   ]
  },
@@ -1490,7 +1644,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2012
+   "year": 2012,
+   "qid": "110d1933"
   },
   "withdrawals": []
  },
@@ -1499,7 +1654,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1953
+   "year": 1953,
+   "qid": "f9193ab7"
   },
   "withdrawals": []
  },
@@ -1508,7 +1664,8 @@
    "agency": "fda",
    "country": "us",
    "index": 2,
-   "year": 2016
+   "year": 2016,
+   "qid": "0c74ff6c"
   },
   "withdrawals": []
  },
@@ -1517,7 +1674,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1985
+   "year": 1985,
+   "qid": "6974543d"
   },
   "withdrawals": []
  },
@@ -1526,7 +1684,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1980
+   "year": 1980,
+   "qid": "7141c833"
   },
   "withdrawals": []
  },
@@ -1535,7 +1694,8 @@
    "agency": "ema",
    "country": "eu",
    "index": 1,
-   "year": 2016
+   "year": 2016,
+   "qid": "1ebbf668"
   },
   "withdrawals": []
  },
@@ -1544,7 +1704,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1997
+   "year": 1997,
+   "qid": "6a98dde5"
   },
   "withdrawals": []
  },
@@ -1553,7 +1714,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2004
+   "year": 2004,
+   "qid": "5feca1fb"
   },
   "withdrawals": []
  },
@@ -1566,7 +1728,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1956
+   "year": 1956,
+   "qid": "153d7b80"
   },
   "withdrawals": []
  },
@@ -1575,7 +1738,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1951
+   "year": 1951,
+   "qid": "ff36e76b"
   },
   "withdrawals": []
  },
@@ -1584,7 +1748,8 @@
    "agency": null,
    "country": "uk",
    "index": 0,
-   "year": 1986
+   "year": 1986,
+   "qid": "e7f81416"
   },
   "withdrawals": []
  },
@@ -1593,7 +1758,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1964
+   "year": 1964,
+   "qid": "4310494e"
   },
   "withdrawals": []
  },
@@ -1602,7 +1768,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1966
+   "year": 1966,
+   "qid": "3eb86ec2"
   },
   "withdrawals": []
  },
@@ -1615,7 +1782,8 @@
    "agency": null,
    "country": "au",
    "index": 0,
-   "year": 2023
+   "year": 2023,
+   "qid": "29458f98"
   },
   "withdrawals": []
  },
@@ -1624,7 +1792,8 @@
    "agency": "fda",
    "country": "us",
    "index": 6,
-   "year": 1997
+   "year": 1997,
+   "qid": "9482023f"
   },
   "withdrawals": []
  },
@@ -1633,7 +1802,8 @@
    "agency": null,
    "country": "us",
    "index": 1,
-   "year": 2005
+   "year": 2005,
+   "qid": "3b7e0a27"
   },
   "withdrawals": []
  },
@@ -1642,7 +1812,8 @@
    "agency": "ema",
    "country": "eu",
    "index": 1,
-   "year": 2005
+   "year": 2005,
+   "qid": "eca64018"
   },
   "withdrawals": []
  },
@@ -1651,7 +1822,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1997
+   "year": 1997,
+   "qid": "b5aa3dee"
   },
   "withdrawals": []
  },
@@ -1660,7 +1832,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1954
+   "year": 1954,
+   "qid": "249c4c9d"
   },
   "withdrawals": []
  },
@@ -1669,7 +1842,8 @@
    "agency": "fda",
    "country": "us",
    "index": 3,
-   "year": 2020
+   "year": 2020,
+   "qid": "f55c475f"
   },
   "withdrawals": []
  },
@@ -1678,20 +1852,23 @@
    "agency": null,
    "country": "eu",
    "index": 1,
-   "year": 2006
+   "year": 2006,
+   "qid": "ff472f09"
   },
   "withdrawals": [
    {
     "country": "worldwide",
     "index": 0,
     "reason": "psychiatric",
-    "year": 2008
+    "year": 2008,
+    "qid": "606e4392"
    },
    {
     "country": "eu",
     "index": 9,
     "reason": "safety",
-    "year": 2008
+    "year": 2008,
+    "qid": "fbcdb1de"
    }
   ]
  },
@@ -1700,7 +1877,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 1993
+   "year": 1993,
+   "qid": "4c49b0b1"
   },
   "withdrawals": []
  },
@@ -1709,7 +1887,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1998
+   "year": 1998,
+   "qid": "926d82f5"
   },
   "withdrawals": []
  },
@@ -1718,7 +1897,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1997
+   "year": 1997,
+   "qid": "d6ec4130"
   },
   "withdrawals": []
  },
@@ -1727,7 +1907,8 @@
    "agency": "ema",
    "country": "eu",
    "index": 1,
-   "year": 2006
+   "year": 2006,
+   "qid": "513c7fc4"
   },
   "withdrawals": []
  },
@@ -1736,7 +1917,8 @@
    "agency": null,
    "country": "eu",
    "index": 0,
-   "year": 2015
+   "year": 2015,
+   "qid": "6b0956c4"
   },
   "withdrawals": []
  },
@@ -1753,7 +1935,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1977
+   "year": 1977,
+   "qid": "ad4f1040"
   },
   "withdrawals": []
  },
@@ -1762,7 +1945,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2021
+   "year": 2021,
+   "qid": "63df2f02"
   },
   "withdrawals": []
  },
@@ -1779,62 +1963,72 @@
    "agency": "fda",
    "country": "us",
    "index": 4,
-   "year": 1997
+   "year": 1997,
+   "qid": "1a25d65a"
   },
   "withdrawals": [
    {
     "country": "most_markets",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "us",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "eu",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "uk",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "ca",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "au",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "nz",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "cn",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    },
    {
     "country": "in",
     "index": 2,
     "reason": "cardiac",
-    "year": 2010
+    "year": 2010,
+    "qid": "b4a62355"
    }
   ]
  },
@@ -1843,7 +2037,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 1998
+   "year": 1998,
+   "qid": "baac1bca"
   },
   "withdrawals": []
  },
@@ -1852,7 +2047,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1964
+   "year": 1964,
+   "qid": "1fe8fbb2"
   },
   "withdrawals": []
  },
@@ -1861,7 +2057,8 @@
    "agency": null,
    "country": "us",
    "index": 2,
-   "year": 2019
+   "year": 2019,
+   "qid": "ca56289f"
   },
   "withdrawals": []
  },
@@ -1874,7 +2071,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1991
+   "year": 1991,
+   "qid": "9a57d59f"
   },
   "withdrawals": []
  },
@@ -1883,7 +2081,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2014
+   "year": 2014,
+   "qid": "05940947"
   },
   "withdrawals": []
  },
@@ -1892,7 +2091,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2008
+   "year": 2008,
+   "qid": "80d8382f"
   },
   "withdrawals": []
  },
@@ -1901,7 +2101,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2014
+   "year": 2014,
+   "qid": "cd7ef28f"
   },
   "withdrawals": []
  },
@@ -1914,7 +2115,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2008
+   "year": 2008,
+   "qid": "bda829dc"
   },
   "withdrawals": []
  },
@@ -1935,7 +2137,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1967
+   "year": 1967,
+   "qid": "5593e761"
   },
   "withdrawals": []
  },
@@ -1944,7 +2147,8 @@
    "agency": null,
    "country": "us",
    "index": 1,
-   "year": 1997
+   "year": 1997,
+   "qid": "b61cef23"
   },
   "withdrawals": []
  },
@@ -1953,7 +2157,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1983
+   "year": 1983,
+   "qid": "871e3a85"
   },
   "withdrawals": []
  },
@@ -1962,7 +2167,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1996
+   "year": 1996,
+   "qid": "824809fa"
   },
   "withdrawals": []
  },
@@ -1971,7 +2177,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1997
+   "year": 1997,
+   "qid": "30c41376"
   },
   "withdrawals": []
  },
@@ -1980,7 +2187,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1996
+   "year": 1996,
+   "qid": "f93ee4be"
   },
   "withdrawals": []
  },
@@ -1989,7 +2197,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1977
+   "year": 1977,
+   "qid": "ae105f3b"
   },
   "withdrawals": []
  },
@@ -1998,7 +2207,8 @@
    "agency": null,
    "country": "uk",
    "index": 0,
-   "year": 1960
+   "year": 1960,
+   "qid": "ba213fb9"
   },
   "withdrawals": []
  },
@@ -2007,7 +2217,8 @@
    "agency": null,
    "country": "it",
    "index": 1,
-   "year": 1972
+   "year": 1972,
+   "qid": "9b7fdd69"
   },
   "withdrawals": []
  },
@@ -2016,7 +2227,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1959
+   "year": 1959,
+   "qid": "c268c75a"
   },
   "withdrawals": []
  },
@@ -2025,7 +2237,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 1949
+   "year": 1949,
+   "qid": "091544c7"
   },
   "withdrawals": []
  },
@@ -2038,7 +2251,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1966
+   "year": 1966,
+   "qid": "5b59349e"
   },
   "withdrawals": []
  },
@@ -2047,7 +2261,8 @@
    "agency": "fda",
    "country": "us",
    "index": 0,
-   "year": 2017
+   "year": 2017,
+   "qid": "a2acf082"
   },
   "withdrawals": []
  },
@@ -2056,7 +2271,8 @@
    "agency": null,
    "country": "fr",
    "index": 0,
-   "year": 1967
+   "year": 1967,
+   "qid": "6d05fee7"
   },
   "withdrawals": []
  },
@@ -2065,7 +2281,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 2006
+   "year": 2006,
+   "qid": "11b950f9"
   },
   "withdrawals": []
  },
@@ -2074,7 +2291,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1993
+   "year": 1993,
+   "qid": "43e5560c"
   },
   "withdrawals": []
  },
@@ -2083,7 +2301,8 @@
    "agency": null,
    "country": "uk",
    "index": 0,
-   "year": 1989
+   "year": 1989,
+   "qid": "fd1f3de4"
   },
   "withdrawals": []
  },
@@ -2092,7 +2311,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2011
+   "year": 2011,
+   "qid": "aae987bd"
   },
   "withdrawals": []
  },
@@ -2101,14 +2321,16 @@
    "agency": null,
    "country": "uk",
    "index": 5,
-   "year": 1974
+   "year": 1974,
+   "qid": "57b8c187"
   },
   "withdrawals": [
    {
     "country": "worldwide",
     "index": 3,
     "reason": "commercial",
-    "year": 2002
+    "year": 2002,
+    "qid": "f792b459"
    }
   ]
  },
@@ -2117,7 +2339,8 @@
    "agency": "fda",
    "country": "us",
    "index": 1,
-   "year": 2013
+   "year": 2013,
+   "qid": "e0dcd77b"
   },
   "withdrawals": []
  },
@@ -2126,7 +2349,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 1999
+   "year": 1999,
+   "qid": "24608339"
   },
   "withdrawals": []
  },
@@ -2135,7 +2359,8 @@
    "agency": null,
    "country": "se",
    "index": 1,
-   "year": 1998
+   "year": 1998,
+   "qid": "595ade3e"
   },
   "withdrawals": []
  },
@@ -2148,7 +2373,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1989
+   "year": 1989,
+   "qid": "2bb9b913"
   },
   "withdrawals": []
  },
@@ -2157,7 +2383,8 @@
    "agency": null,
    "country": null,
    "index": 0,
-   "year": 1986
+   "year": 1986,
+   "qid": "40447550"
   },
   "withdrawals": []
  },
@@ -2170,7 +2397,8 @@
    "agency": null,
    "country": null,
    "index": 1,
-   "year": 1978
+   "year": 1978,
+   "qid": "a2ebb934"
   },
   "withdrawals": []
  },
@@ -2179,7 +2407,8 @@
    "agency": null,
    "country": "us",
    "index": 0,
-   "year": 2023
+   "year": 2023,
+   "qid": "c7d99bf6"
   },
   "withdrawals": []
  }

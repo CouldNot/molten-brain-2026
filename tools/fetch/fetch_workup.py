@@ -32,6 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent  # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 from data_generators import workup as W  # noqa: E402
+import worklist_io  # noqa: E402
 from data_generators.provenance import corpus_page_path  # noqa: E402
 
 CORPUS = "bdpm_rcp"
@@ -109,8 +110,7 @@ def build(labels: dict | None = None) -> dict[str, dict]:
 
 def main() -> int:
     wl = build()
-    WORKLIST.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n",
-                        encoding="utf-8")
+    worklist_io.write(WORKLIST, wl)
     n = sum(len(v["candidates"]) for v in wl.values())
     print(f"[ok] {n} candidate line(s) over {len(wl)} drug(s) -> "
           f"{WORKLIST.relative_to(ROOT)}")

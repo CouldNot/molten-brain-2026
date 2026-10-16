@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 import apply_demographics as A  # noqa: E402
 import fetch_demographics as F  # noqa: E402
 from data_generators import demographics as DM  # noqa: E402
+from judged_fixture import lift  # noqa: E402
 
 AGE = "The decrease in DA D2 receptor availability was 6.6% per decade in caudate."
 SEX = "Females were found to have significantly higher binding ratios than males."
@@ -42,6 +43,8 @@ class ApplierGateTest(unittest.TestCase):
         self.tmp.cleanup()
 
     def run_(self, nodes):
+        cands = self.worklist["owners"]["d2"]["candidates"]
+        nodes = [{**n, "picks": lift(n["picks"], cands)} if "picks" in n else n for n in nodes]
         return A.apply(self.worklist, {"owners": {"d2": nodes}}, self.kinds, {"caudate"},
                        self.species, pages=self.pages)
 

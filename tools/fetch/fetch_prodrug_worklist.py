@@ -34,6 +34,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402
+from pipeline.judged import ECHO_QID  # noqa: E402
 from worklist_io import merge_scoped  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402
 import fetch_tmax  # noqa: E402  (sentences(): the shared page splitter)
@@ -83,7 +85,7 @@ def build(only: set[str] | None = None) -> dict:
         "that is active itself AND has an active metabolite is NOT a prodrug; a sentence "
         "about a different prodrug (an ester of this drug, another molecule) does not "
         "count. Answer {drug_id: {index, metabolite, drug_id|null}} with the metabolite "
-        "named in that very sentence; omit a drug that is not a prodrug."),
+        "named in that very sentence; omit a drug that is not a prodrug.") + ECHO_QID,
         "drugs": drugs}
 
 
@@ -97,8 +99,7 @@ def main() -> int:
     wl = build(only)
     if only and args.out.exists():
         wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "drugs")
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(wl, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    worklist_io.write(args.out, wl)
     print(f"{len(wl['drugs'])} drugs with candidates -> {args.out.relative_to(ROOT)}")
     return 0
 

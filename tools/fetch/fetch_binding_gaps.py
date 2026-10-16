@@ -76,6 +76,7 @@ import fetch_binding_directions as bd  # noqa: E402  (DIRECTION_RE: a stated dir
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402  (stored-page lookup + sentence split)
 import fetch_metabolite_bindings as mb  # noqa: E402  (prose action-line extractor)
 import target_aliases as ta  # noqa: E402
+import worklist_io  # noqa: E402
 from worklist_io import merge_scoped_list  # noqa: E402
 
 WORKLIST = os.path.join(REPO, "tools", "generated_cache", "binding_gaps_worklist.json")
@@ -187,9 +188,7 @@ def main() -> int:
     if only is not None and os.path.exists(WORKLIST):
         with open(WORKLIST, encoding="utf-8") as f:
             records = scoped(json.load(f), records, only)
-    with open(WORKLIST, "w", encoding="utf-8") as f:
-        json.dump(records, f, ensure_ascii=False, indent=1)
-        f.write("\n")
+    worklist_io.write(WORKLIST, records)
     n = sum(len(r["candidates"]) for r in records)
     print(f"wrote {os.path.relpath(WORKLIST, REPO)}: {n} candidate(s) over {len(records)} "
           f"drug(s), {sum(len(r['candidates']) for r in records if r['stahl'])} on Stahl drugs")

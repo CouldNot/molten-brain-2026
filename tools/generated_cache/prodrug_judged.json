@@ -1,13 +1,68 @@
 {
- "psilocybin": {"index": 1, "metabolite": "Psilocin", "drug_id": null},
- "lisdexamfetamine": {"index": 2, "metabolite": "Dextroamphetamine", "drug_id": "amphetamine_d"},
- "serdexmethylphenidate": {"index": 0, "metabolite": "Dexmethylphenidate", "drug_id": "methylphenidate_d"},
- "clorazepate": {"index": 0, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null},
- "prazepam": {"index": 1, "metabolite": "Desmethyldiazepam (nordazepam)", "drug_id": null},
- "codeine": {"index": 1, "metabolite": "Morphine", "drug_id": "morphine"},
- "heroin": {"index": 0, "metabolite": "Morphine", "drug_id": "morphine"},
- "levodopa": {"index": 2, "metabolite": "Dopamine", "drug_id": null},
- "oxcarbazepine": {"index": 0, "metabolite": "Licarbazepine", "drug_id": null},
- "loflazepate": {"index": 0, "metabolite": "N-desalkylflurazepam (descarboxyloflazepate)", "drug_id": null},
- "sibutramine": {"index": 0, "metabolite": "Desmethylsibutramine", "drug_id": null}
+ "psilocybin": {
+  "index": 1,
+  "metabolite": "Psilocin",
+  "drug_id": null,
+  "qid": "0cc4d484"
+ },
+ "lisdexamfetamine": {
+  "index": 2,
+  "metabolite": "Dextroamphetamine",
+  "drug_id": "amphetamine_d",
+  "qid": "dd448256"
+ },
+ "serdexmethylphenidate": {
+  "index": 0,
+  "metabolite": "Dexmethylphenidate",
+  "drug_id": "methylphenidate_d",
+  "qid": "a977c0d0"
+ },
+ "clorazepate": {
+  "index": 0,
+  "metabolite": "Desmethyldiazepam (nordazepam)",
+  "drug_id": null,
+  "qid": "3baa6922"
+ },
+ "prazepam": {
+  "index": 1,
+  "metabolite": "Desmethyldiazepam (nordazepam)",
+  "drug_id": null,
+  "qid": "2917ed67"
+ },
+ "codeine": {
+  "index": 1,
+  "metabolite": "Morphine",
+  "drug_id": "morphine",
+  "qid": "96d8d28c"
+ },
+ "heroin": {
+  "index": 0,
+  "metabolite": "Morphine",
+  "drug_id": "morphine",
+  "qid": "eeff46bc"
+ },
+ "levodopa": {
+  "index": 2,
+  "metabolite": "Dopamine",
+  "drug_id": null,
+  "qid": "d6623974"
+ },
+ "oxcarbazepine": {
+  "index": 0,
+  "metabolite": "Licarbazepine",
+  "drug_id": null,
+  "qid": "98e134ec"
+ },
+ "loflazepate": {
+  "index": 0,
+  "metabolite": "N-desalkylflurazepam (descarboxyloflazepate)",
+  "drug_id": null,
+  "qid": "58a44231"
+ },
+ "sibutramine": {
+  "index": 0,
+  "metabolite": "Desmethylsibutramine",
+  "drug_id": null,
+  "qid": "2bada7fb"
+ }
 }

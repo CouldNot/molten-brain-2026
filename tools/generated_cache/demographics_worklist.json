@@ -11,7 +11,8 @@
      "line": "Many theories of cognitive aging are based on evidence that dopamine (DA) declines with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "75245e57"
     },
     {
      "corpus": "europepmc",
@@ -19,7 +20,8 @@
      "line": "Here, we performed a systematic meta-analysis of cross-sectional positron emission tomography and single-photon emission-computed tomography studies on the average effects of age on distinct DA targets (receptors, transporters, or relevant enzymes) in healthy adults (N = 95 studies including 2611 participants).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "4e0d3712"
     },
     {
      "corpus": "europepmc",
@@ -27,7 +29,8 @@
      "line": "Results revealed significant moderate to large, negative effects of age on DA transporters and receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "671708e1"
     },
     {
      "corpus": "europepmc",
@@ -35,7 +38,8 @@
      "line": "Age had a significantly larger effect on D1- than D2-like receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "7a265407"
     },
     {
      "corpus": "europepmc",
@@ -43,7 +47,8 @@
      "line": "In contrast, there was no significant effect of age on DA synthesis capacity.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "6743e959"
     },
     {
      "corpus": "europepmc",
@@ -51,7 +56,8 @@
      "line": "The average age reductions across the DA system were 3.7%-14.0% per decade.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "bd06a88a"
     },
     {
      "corpus": "europepmc",
@@ -59,7 +65,8 @@
      "line": "A meta-regression found only DA target as a significant moderator of the age effect.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "bba91a75"
     },
     {
      "corpus": "europepmc",
@@ -67,7 +74,8 @@
      "line": "This study precisely quantifies prior claims of reduced DA functionality with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "6a0ce284"
     },
     {
      "corpus": "europepmc",
@@ -75,7 +83,8 @@
      "line": "It also identifies presynaptic mechanisms (spared synthesis capacity and reduced DA transporters) that may partially account for previously unexplained phenomena whereby older adults appear to use dopaminergic resources effectively.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "c707406c"
     }
    ]
   },
@@ -90,7 +99,8 @@
      "line": "Many theories of cognitive aging are based on evidence that dopamine (DA) declines with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "75245e57"
     },
     {
      "corpus": "europepmc",
@@ -98,7 +108,8 @@
      "line": "Here, we performed a systematic meta-analysis of cross-sectional positron emission tomography and single-photon emission-computed tomography studies on the average effects of age on distinct DA targets (receptors, transporters, or relevant enzymes) in healthy adults (N = 95 studies including 2611 participants).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "4e0d3712"
     },
     {
      "corpus": "europepmc",
@@ -106,7 +117,8 @@
      "line": "Results revealed significant moderate to large, negative effects of age on DA transporters and receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "671708e1"
     },
     {
      "corpus": "europepmc",
@@ -114,7 +126,8 @@
      "line": "Age had a significantly larger effect on D1- than D2-like receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "7a265407"
     },
     {
      "corpus": "europepmc",
@@ -122,7 +135,8 @@
      "line": "In contrast, there was no significant effect of age on DA synthesis capacity.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "6743e959"
     },
     {
      "corpus": "europepmc",
@@ -130,7 +144,8 @@
      "line": "The average age reductions across the DA system were 3.7%-14.0% per decade.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "bd06a88a"
     },
     {
      "corpus": "europepmc",
@@ -138,7 +153,8 @@
      "line": "A meta-regression found only DA target as a significant moderator of the age effect.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "bba91a75"
     },
     {
      "corpus": "europepmc",
@@ -146,7 +162,8 @@
      "line": "This study precisely quantifies prior claims of reduced DA functionality with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "6a0ce284"
     },
     {
      "corpus": "europepmc",
@@ -154,7 +171,8 @@
      "line": "It also identifies presynaptic mechanisms (spared synthesis capacity and reduced DA transporters) that may partially account for previously unexplained phenomena whereby older adults appear to use dopaminergic resources effectively.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "c707406c"
     },
     {
      "corpus": "europepmc",
@@ -162,7 +180,8 @@
      "line": "This study evaluates the effects of age on DA D2 receptors in extrastriatal regions.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "62876605"
     },
     {
      "corpus": "europepmc",
@@ -171,7 +190,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "a1e13058"
     },
     {
      "corpus": "europepmc",
@@ -179,7 +199,8 @@
      "line": "Correlations between age and D2 receptors were significant in putamen (r = -0.58, p < or = 0.0001), caudate (r = -0.54, p < or = 0.0002), thalamus (r = -0.33, p < or = 0.03) and temporal insula (r = -0.39, p < or = 0.01) but not in any of the frontal regions.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "1fa7ac90"
     },
     {
      "corpus": "europepmc",
@@ -187,7 +208,8 @@
      "line": "The decrease in DA D2 receptor availability was 6.6% per decade in caudate, 8.2% in putamen, 7.6% in thalamus and 13% in temporal insula.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "454a22ec"
     },
     {
      "corpus": "europepmc",
@@ -195,7 +217,8 @@
      "line": "This study indicates that D2 losses with age are not limited to striatum and involve also thalamic as well as temporal cortical regions.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "8152d9ec"
     },
     {
      "corpus": "europepmc",
@@ -203,7 +226,8 @@
      "line": "This study investigates the rate of age-related dopamine D2 receptor loss as determined by positron emission tomography (PET) and 11C-raclopride and compares it with D2 loss previously estimated with 18F-N-methylspiroperidol (NMS).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "e278938a"
     },
     {
      "corpus": "europepmc",
@@ -211,7 +235,8 @@
      "line": "Dopamine D2 receptors were measured with 11C-raclopride in 24 healthy volunteers (24-73 years of age) using the ratio of the distribution volume in striatum to that in cerebellum (Bmax/Kd + 1).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "343a9a01"
     },
     {
      "corpus": "europepmc",
@@ -220,7 +245,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "d740637e"
     },
     {
      "corpus": "europepmc",
@@ -228,7 +254,8 @@
      "line": "Findings of correlational analysis between age and dopamine D2 receptor availability were significant for both ligands.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "c09ed257"
     },
     {
      "corpus": "europepmc",
@@ -236,7 +263,8 @@
      "line": "Estimates of dopamine D2 receptor loss per decade corresponded to 7.9% for the 11C-raclopride study and 7.8% for the NMS study.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "5a7e8ad4"
     },
     {
      "corpus": "europepmc",
@@ -244,7 +272,8 @@
      "line": "Both ligands documented significant age-related decreases in dopamine D2 receptors that occurred relatively early in life (40 years of age).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "cc44adfe"
     },
     {
      "corpus": "europepmc",
@@ -253,7 +282,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "5a20701a"
     },
     {
      "corpus": "europepmc",
@@ -261,7 +291,8 @@
      "line": "5-HT2 Receptor availability decreased significantly with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "2b4161a0"
     },
     {
      "corpus": "europepmc",
@@ -269,7 +300,8 @@
      "line": "Dopamine D2 receptors were also found to decrease significantly with age (r = 0.63, p < or = 0.007).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "7bd18a55"
     },
     {
      "corpus": "europepmc",
@@ -277,7 +309,8 @@
      "line": "These results document a decline in 5-HT2 and D2 receptor availability with age and showed an association between frontal 5-HT2 and striatal D2 receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "9753e052"
     },
     {
      "corpus": "europepmc",
@@ -285,7 +318,8 @@
      "line": "Loss of dopamine D2-like receptors in the striatum has been associated with both normal human aging and impairment of cognitive and motor functions in the elderly.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "3ebbfe79"
     },
     {
      "corpus": "europepmc",
@@ -294,7 +328,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "eeea108d"
     },
     {
      "corpus": "europepmc",
@@ -302,7 +337,8 @@
      "line": "Significant age-related declines of D2/3Rs were detected in all the brain regions studied: the anterior cingulate cortex (decline of 13% per increase of a decade in age, P < 0.001). the frontal cortex (11%, P < 0.001), the lateral temporal cortex (10%, P < 0.001), the hippocampus (10%, P < 0.01), the medial temporal cortex (9%, P < 0.001), the amygdala (7%, P < 0.01), the medial thalamus (6%, P < 0.001) and the lateral thalamus (5%, P < 0.01).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "9284e310"
     },
     {
      "corpus": "europepmc",
@@ -311,7 +347,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "2d6f1947"
     },
     {
      "corpus": "europepmc",
@@ -320,7 +357,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "641a09f1"
     },
     {
      "corpus": "europepmc",
@@ -328,7 +366,8 @@
      "line": "Method Striatal D2 receptor density (Bmax), affinity (Kd), and binding potential (Bmax/Kd) were measured with positron emission tomography and [11C]raclopride in 54 healthy subjects (33 men and 21 women).",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "2069a63d"
     },
     {
      "corpus": "europepmc",
@@ -336,7 +375,8 @@
      "line": "Results Women had generally lower D2 receptor affinity than men, and this difference was statistically significant in the left striatum.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "3ff6c63b"
     },
     {
      "corpus": "europepmc",
@@ -345,7 +385,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "cadf10c9"
     },
     {
      "corpus": "europepmc",
@@ -354,7 +395,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "9cd9b242"
     },
     {
      "corpus": "europepmc",
@@ -362,7 +404,8 @@
      "line": "The lower D2 receptor affinity suggests an increased endogenous striatal dopamine concentration in women.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "46c38d99"
     },
     {
      "corpus": "europepmc",
@@ -370,7 +413,8 @@
      "line": "This may have implications for the differential vulnerability of men and women to psychiatric disorders like schizophrenia and alcohol and substance dependence.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "ab11ff9c"
     }
    ]
   },
@@ -385,7 +429,8 @@
      "line": "Loss of dopamine D2-like receptors in the striatum has been associated with both normal human aging and impairment of cognitive and motor functions in the elderly.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "3ebbfe79"
     },
     {
      "corpus": "europepmc",
@@ -394,7 +439,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "eeea108d"
     },
     {
      "corpus": "europepmc",
@@ -402,7 +448,8 @@
      "line": "Significant age-related declines of D2/3Rs were detected in all the brain regions studied: the anterior cingulate cortex (decline of 13% per increase of a decade in age, P < 0.001). the frontal cortex (11%, P < 0.001), the lateral temporal cortex (10%, P < 0.001), the hippocampus (10%, P < 0.01), the medial temporal cortex (9%, P < 0.001), the amygdala (7%, P < 0.01), the medial thalamus (6%, P < 0.001) and the lateral thalamus (5%, P < 0.01).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "9284e310"
     },
     {
      "corpus": "europepmc",
@@ -411,7 +458,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "2d6f1947"
     }
    ]
   },
@@ -427,7 +475,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "a10a336d"
     },
     {
      "corpus": "europepmc",
@@ -436,7 +485,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "9374977f"
     },
     {
      "corpus": "europepmc",
@@ -444,7 +494,8 @@
      "line": "One of the central neurotransmitter systems for which sex differences have been suggested by animal models and clinical human data is the opioid.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "aff3584f"
     },
     {
      "corpus": "europepmc",
@@ -453,7 +504,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "3e11ff94"
     },
     {
      "corpus": "europepmc",
@@ -461,7 +513,8 @@
      "line": "Two separate subject groups were examined: one group of 24 men and 12 women was studied in a retrospective analysis of data, and a second group of 12 men and 18 women was recruited prospectively and studied with a higher-resolution scanner.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "75aed2c1"
     },
     {
      "corpus": "europepmc",
@@ -469,7 +522,8 @@
      "line": "Results Mu-opioid receptor binding potential (Bmax/Kd) was found to increase with age in neocortical areas and the putamen.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "f5664a7b"
     },
     {
      "corpus": "europepmc",
@@ -477,7 +531,8 @@
      "line": "Sex differences, with higher mu-opioid binding in women, were observed in a number of cortical and subcortical areas.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "529664c1"
     },
     {
      "corpus": "europepmc",
@@ -486,7 +541,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "ba82853f"
     },
     {
      "corpus": "europepmc",
@@ -495,7 +551,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "58259d5a"
     },
     {
      "corpus": "europepmc",
@@ -504,7 +561,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "e1601860"
     }
    ]
   },
@@ -520,7 +578,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "9dfb7a21"
     },
     {
      "corpus": "europepmc",
@@ -528,7 +587,8 @@
      "line": "Healthy subjects (n=71), aged 20-80 years, underwent 5HT1A and 2A receptor imaging using consecutive 90-min PET acquisitions with [(11)C]WAY100635 and [(18)F]altanserin.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "db3a2fe4"
     },
     {
      "corpus": "europepmc",
@@ -537,7 +597,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "ce5dff80"
     },
     {
      "corpus": "europepmc",
@@ -546,7 +607,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "b7a9a6c7"
     },
     {
      "corpus": "europepmc",
@@ -555,7 +617,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "d8fc1462"
     },
     {
      "corpus": "europepmc",
@@ -563,7 +626,8 @@
      "line": "There was a trend for 15% receptor reductions in prefrontal cortical regions in women relative to men (post hoc p=0.03-0.10).",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "9f2a6e01"
     },
     {
      "corpus": "europepmc",
@@ -572,7 +636,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "272c3915"
     },
     {
      "corpus": "europepmc",
@@ -581,7 +646,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "290e2ead"
     },
     {
      "corpus": "europepmc",
@@ -590,7 +656,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "0294bf6b"
     },
     {
      "corpus": "europepmc",
@@ -599,7 +666,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "4d361a4a"
     },
     {
      "corpus": "europepmc",
@@ -607,7 +675,8 @@
      "line": "Low hormone concentrations in adults <50 years of age may be associated with more extreme 5HT1A receptor BP values, but remains to be studied further.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "60ef2e13"
     },
     {
      "corpus": "europepmc",
@@ -616,7 +685,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "232f125c"
     },
     {
      "corpus": "europepmc",
@@ -624,7 +694,8 @@
      "line": "Additional study in clinical populations is needed to further examine the affective role of sex-hormone-serotonin receptor relationships.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "c25c68d3"
     },
     {
      "corpus": "europepmc",
@@ -632,7 +703,8 @@
      "line": "Positron emission tomography (PET) and [11C]WAY-100635 were used to examine the effect of age on serotonin-1A (5-HT1A) receptor binding potential (BP) in 19 healthy subjects.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "1c41a500"
     },
     {
      "corpus": "europepmc",
@@ -640,7 +712,8 @@
      "line": "Voxelwise analysis revealed a significant global decrease of 5-HT(1A) BP with age (set level <.001).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "dc1bc1e1"
     },
     {
      "corpus": "europepmc",
@@ -648,7 +721,8 @@
      "line": "ROI analysis revealed significant age-related 5-HT(1A) BP decreases in DLPFC (r = -0.56), ACC (r = -0.44), OFC (r = -0.42), LTC (r = -0.40), parietal (r = -0.65), and occipital cortex (r = -0.43), but not in MTC or raphe nuclei.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "67a89f3d"
     },
     {
      "corpus": "europepmc",
@@ -656,7 +730,8 @@
      "line": "Overall, cortical 5-HT(1A) BP declined by approximately 10% per decade, except for the MTC, where we did not find a significant age effect.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "7b5c4104"
     },
     {
      "corpus": "europepmc",
@@ -664,7 +739,8 @@
      "line": "Hence, careful age matching may be recommended for future studies using PET and [11C]WAY-100635 to examine 5-HT1A receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "b53acf52"
     },
     {
      "corpus": "europepmc",
@@ -673,7 +749,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "dadd3846"
     },
     {
      "corpus": "europepmc",
@@ -682,7 +759,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "4880a137"
     },
     {
      "corpus": "europepmc",
@@ -690,7 +768,8 @@
      "line": "No significant correlation between age and BP was detected in any brain region.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "78e7b7a3"
     },
     {
      "corpus": "europepmc",
@@ -698,7 +777,8 @@
      "line": "MANOVA of the first three principle components demonstrated a significantly higher BP in females compared with males (P=0.0127).",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "f37aad1d"
     },
     {
      "corpus": "europepmc",
@@ -706,7 +786,8 @@
      "line": "Post-hoc tests confirmed sex differences (P<0.05) in the following regions: dorsal raphe, amygdala, anterior cingulate, cingulate body, medial PFC, and orbital PFC.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "db510ccb"
     },
     {
      "corpus": "europepmc",
@@ -714,7 +795,8 @@
      "line": "The cerebellar volume of distribution was also significantly higher in females.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "48ac567f"
     },
     {
      "corpus": "europepmc",
@@ -722,7 +804,8 @@
      "line": "We have replicated our post-mortem finding of higher 5-HT(1A) binding in females compared to males.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "44f4f2a8"
     },
     {
      "corpus": "europepmc",
@@ -731,7 +814,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "c8c2870f"
     },
     {
      "corpus": "europepmc",
@@ -739,7 +823,8 @@
      "line": "Women and men differ in serotonin associated psychiatric conditions, such as depression, anxiety and suicide.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "8db056ad"
     },
     {
      "corpus": "europepmc",
@@ -747,7 +832,8 @@
      "line": "Despite this, very few studies focus on sex differences in the serotonin system.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "e75df7b5"
     },
     {
      "corpus": "europepmc",
@@ -755,7 +841,8 @@
      "line": "The objective of the present study was to study sex related differences in the 5-HT(1A) receptor and 5-HTT binding potentials (BP(ND)s) in healthy humans, in vivo.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "db85a4ee"
     },
     {
      "corpus": "europepmc",
@@ -763,7 +850,8 @@
      "line": "Positron emission tomography and selective radioligands [(11)C]WAY100635 and [(11)C]MADAM were used to evaluate binding potentials for 5-HT(1A) receptors (14 women and 14 men) and 5-HTT (8 women and 10 men).",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "f1ab3571"
     },
     {
      "corpus": "europepmc",
@@ -771,7 +859,8 @@
      "line": "Compared to men, women had significantly higher 5-HT(1A) receptor and lower 5-HTT binding potentials in a wide array of cortical and subcortical brain regions.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "75edf03e"
     },
     {
      "corpus": "europepmc",
@@ -779,7 +868,8 @@
      "line": "In women, there was a positive correlation between 5-HT(1A) receptor and 5-HTT binding potentials for the region of hippocampus.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "135566aa"
     },
     {
      "corpus": "europepmc",
@@ -787,7 +877,8 @@
      "line": "Sex differences in 5-HT(1A) receptor and 5-HTT BP(ND) may reflect biological distinctions in the serotonin system contributing to sex differences in the prevalence of psychiatric disorders such as depression and anxiety.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "64d6276a"
     },
     {
      "corpus": "europepmc",
@@ -795,7 +886,8 @@
      "line": "The result of the present study may help in understanding sex differences in drug treatment responses to drugs affecting the serotonin system.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "ae47ca7b"
     }
    ]
   },
@@ -811,7 +903,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "5a20701a"
     },
     {
      "corpus": "europepmc",
@@ -819,7 +912,8 @@
      "line": "5-HT2 Receptor availability decreased significantly with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "2b4161a0"
     },
     {
      "corpus": "europepmc",
@@ -827,7 +921,8 @@
      "line": "Dopamine D2 receptors were also found to decrease significantly with age (r = 0.63, p < or = 0.007).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "7bd18a55"
     },
     {
      "corpus": "europepmc",
@@ -835,7 +930,8 @@
      "line": "These results document a decline in 5-HT2 and D2 receptor availability with age and showed an association between frontal 5-HT2 and striatal D2 receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "9753e052"
     },
     {
      "corpus": "europepmc",
@@ -844,7 +940,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "9dfb7a21"
     },
     {
      "corpus": "europepmc",
@@ -852,7 +949,8 @@
      "line": "Healthy subjects (n=71), aged 20-80 years, underwent 5HT1A and 2A receptor imaging using consecutive 90-min PET acquisitions with [(11)C]WAY100635 and [(18)F]altanserin.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "db3a2fe4"
     },
     {
      "corpus": "europepmc",
@@ -861,7 +959,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "ce5dff80"
     },
     {
      "corpus": "europepmc",
@@ -870,7 +969,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "b7a9a6c7"
     },
     {
      "corpus": "europepmc",
@@ -879,7 +979,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "d8fc1462"
     },
     {
      "corpus": "europepmc",
@@ -887,7 +988,8 @@
      "line": "There was a trend for 15% receptor reductions in prefrontal cortical regions in women relative to men (post hoc p=0.03-0.10).",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "9f2a6e01"
     },
     {
      "corpus": "europepmc",
@@ -896,7 +998,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "272c3915"
     },
     {
      "corpus": "europepmc",
@@ -905,7 +1008,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "290e2ead"
     },
     {
      "corpus": "europepmc",
@@ -914,7 +1018,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "0294bf6b"
     },
     {
      "corpus": "europepmc",
@@ -923,7 +1028,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "4d361a4a"
     },
     {
      "corpus": "europepmc",
@@ -931,7 +1037,8 @@
      "line": "Low hormone concentrations in adults <50 years of age may be associated with more extreme 5HT1A receptor BP values, but remains to be studied further.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "60ef2e13"
     },
     {
      "corpus": "europepmc",
@@ -940,7 +1047,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "232f125c"
     },
     {
      "corpus": "europepmc",
@@ -948,7 +1056,8 @@
      "line": "Additional study in clinical populations is needed to further examine the affective role of sex-hormone-serotonin receptor relationships.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "c25c68d3"
     }
    ]
   },
@@ -964,7 +1073,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "9fc7194c"
     },
     {
      "corpus": "europepmc",
@@ -973,7 +1083,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "61136551"
     },
     {
      "corpus": "europepmc",
@@ -982,7 +1093,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "1b740856"
     },
     {
      "corpus": "europepmc",
@@ -990,7 +1102,8 @@
      "line": "Men showed higher [(18)F]MK-9470 binding then women (p<0.001, uncorrected), in clusters of the limbic system and cortico-striato-thalamic-cortical circuit.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "35214b34"
     },
     {
      "corpus": "europepmc",
@@ -999,7 +1112,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "887ba41f"
     }
    ]
   },
@@ -1014,7 +1128,8 @@
      "line": "Postmortem studies have provided limited and conflicting data regarding aging effects on the central serotonin transporter (SERT).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "63d74991"
     },
     {
      "corpus": "europepmc",
@@ -1022,7 +1137,8 @@
      "line": "The present study investigated the effect of age on SERT availability in the human brainstem and diencephalon with single photon emission computed tomography (SPECT) using the ligand [(123)I]2 beta-carbomethoxy-3 beta-(4-iodophenyl)tropane ([(123)I]beta-CIT).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "2eab4055"
     },
     {
      "corpus": "europepmc",
@@ -1030,7 +1146,8 @@
      "line": "Healthy control subjects (n = 126) who ranged in age from 18 to 88 were injected with 6.0 +/- 0.8 (mean +/- SD) mCi [(123)I]beta-CIT and imaged 23.1 +/- 1.9 h later under equilibrium conditions.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "38ee4efc"
     },
     {
      "corpus": "europepmc",
@@ -1038,7 +1155,8 @@
      "line": "SERT availability (V(3)\") showed a significant inverse correlation with age (r = -0.40, P < 0.0001).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "a072e517"
     },
     {
      "corpus": "europepmc",
@@ -1046,7 +1164,8 @@
      "line": "Linear regression analysis revealed that V(3)\" declined by 29.5% over the age range 18 to 88, or approximately 4.2% per decade.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "c22453a6"
     },
     {
      "corpus": "europepmc",
@@ -1054,7 +1173,8 @@
      "line": "These results demonstrate reductions in the availability of central SERT binding sites with age in living human subjects.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "93af7ae5"
     },
     {
      "corpus": "europepmc",
@@ -1062,7 +1182,8 @@
      "line": "Women and men differ in serotonin associated psychiatric conditions, such as depression, anxiety and suicide.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "8db056ad"
     },
     {
      "corpus": "europepmc",
@@ -1070,7 +1191,8 @@
      "line": "Despite this, very few studies focus on sex differences in the serotonin system.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "e75df7b5"
     },
     {
      "corpus": "europepmc",
@@ -1078,7 +1200,8 @@
      "line": "The objective of the present study was to study sex related differences in the 5-HT(1A) receptor and 5-HTT binding potentials (BP(ND)s) in healthy humans, in vivo.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "db85a4ee"
     },
     {
      "corpus": "europepmc",
@@ -1086,7 +1209,8 @@
      "line": "Positron emission tomography and selective radioligands [(11)C]WAY100635 and [(11)C]MADAM were used to evaluate binding potentials for 5-HT(1A) receptors (14 women and 14 men) and 5-HTT (8 women and 10 men).",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "f1ab3571"
     },
     {
      "corpus": "europepmc",
@@ -1094,7 +1218,8 @@
      "line": "Compared to men, women had significantly higher 5-HT(1A) receptor and lower 5-HTT binding potentials in a wide array of cortical and subcortical brain regions.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "75edf03e"
     },
     {
      "corpus": "europepmc",
@@ -1102,7 +1227,8 @@
      "line": "In women, there was a positive correlation between 5-HT(1A) receptor and 5-HTT binding potentials for the region of hippocampus.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "135566aa"
     },
     {
      "corpus": "europepmc",
@@ -1110,7 +1236,8 @@
      "line": "Sex differences in 5-HT(1A) receptor and 5-HTT BP(ND) may reflect biological distinctions in the serotonin system contributing to sex differences in the prevalence of psychiatric disorders such as depression and anxiety.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "64d6276a"
     },
     {
      "corpus": "europepmc",
@@ -1118,7 +1245,8 @@
      "line": "The result of the present study may help in understanding sex differences in drug treatment responses to drugs affecting the serotonin system.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "ae47ca7b"
     }
    ]
   },
@@ -1133,7 +1261,8 @@
      "line": "Results Locus coeruleus (LC), hypothalamus, and pulvinar showed a significant inverse correlation with age among HC (age range = 25-54 years; P = 0.04, 0.009, 0.03 respectively).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "d1284d91"
     },
     {
      "corpus": "europepmc",
@@ -1141,7 +1270,8 @@
      "line": "The BP(ND) was significantly increased in thalamus (27%; P Conclusion Our results suggest that (a) brain NET concentration declines with age in HC, and (b) there is a significant upregulation of NET in thalamus and dorsomedial thalamic nucleus in COC as compared to HC.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "9cde6df3"
     }
    ]
   },
@@ -1156,7 +1286,8 @@
      "line": "Many theories of cognitive aging are based on evidence that dopamine (DA) declines with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "75245e57"
     },
     {
      "corpus": "europepmc",
@@ -1164,7 +1295,8 @@
      "line": "Here, we performed a systematic meta-analysis of cross-sectional positron emission tomography and single-photon emission-computed tomography studies on the average effects of age on distinct DA targets (receptors, transporters, or relevant enzymes) in healthy adults (N = 95 studies including 2611 participants).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "4e0d3712"
     },
     {
      "corpus": "europepmc",
@@ -1172,7 +1304,8 @@
      "line": "Results revealed significant moderate to large, negative effects of age on DA transporters and receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "671708e1"
     },
     {
      "corpus": "europepmc",
@@ -1180,7 +1313,8 @@
      "line": "Age had a significantly larger effect on D1- than D2-like receptors.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "7a265407"
     },
     {
      "corpus": "europepmc",
@@ -1188,7 +1322,8 @@
      "line": "In contrast, there was no significant effect of age on DA synthesis capacity.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "6743e959"
     },
     {
      "corpus": "europepmc",
@@ -1196,7 +1331,8 @@
      "line": "The average age reductions across the DA system were 3.7%-14.0% per decade.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "bd06a88a"
     },
     {
      "corpus": "europepmc",
@@ -1204,7 +1340,8 @@
      "line": "A meta-regression found only DA target as a significant moderator of the age effect.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "bba91a75"
     },
     {
      "corpus": "europepmc",
@@ -1212,7 +1349,8 @@
      "line": "This study precisely quantifies prior claims of reduced DA functionality with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "6a0ce284"
     },
     {
      "corpus": "europepmc",
@@ -1220,7 +1358,8 @@
      "line": "It also identifies presynaptic mechanisms (spared synthesis capacity and reduced DA transporters) that may partially account for previously unexplained phenomena whereby older adults appear to use dopaminergic resources effectively.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "c707406c"
     },
     {
      "corpus": "europepmc",
@@ -1229,7 +1368,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "e590970f"
     },
     {
      "corpus": "europepmc",
@@ -1237,7 +1377,8 @@
      "line": "The ratio of the distribution volume for [11C]cocaine in basal ganglia to that in cerebellum was used as a model parameter for dopamine transporter availability and showed a significant negative correlation with age (r = 0.65, p < 0.0005).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "22580168"
     },
     {
      "corpus": "europepmc",
@@ -1245,7 +1386,8 @@
      "line": "This results document an age-related decline in dopamine transporters in healthy individuals.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "54a8045f"
     },
     {
      "corpus": "europepmc",
@@ -1253,7 +1395,8 @@
      "line": "Unlabelled The effect of age on human striatal dopamine (DA) transporters was investigated with SPECT using the ligand [123I]2 beta-carbomethoxy-3 beta-(4-iodophenyl)tropane ([123I]beta-CIT).",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "caea9ab9"
     },
     {
      "corpus": "europepmc",
@@ -1262,7 +1405,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "4f373fab"
     },
     {
      "corpus": "europepmc",
@@ -1270,7 +1414,8 @@
      "line": "V3\" showed a significant inverse correlation with age (r = -0.73, n = 28, p Conclusion These findings confirm postmortem reports of dopamine transporter loss with aging.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "cc9eae1a"
     },
     {
      "corpus": "europepmc",
@@ -1278,7 +1423,8 @@
      "line": "In vivo methodologies may permit the age-related degeneration of dopamine nerve terminals to be studied in relation to the cognitive and motor deficits that occur in normal aging.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "9f5027a8"
     },
     {
      "corpus": "europepmc",
@@ -1286,7 +1432,8 @@
      "line": "To date, several reports have shown an age-associated decline in dopamine transporters in healthy volunteers.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "0aab8da6"
     },
     {
      "corpus": "europepmc",
@@ -1294,7 +1441,8 @@
      "line": "Although animal studies suggest an effect of gender on dopamine transporter density, this gender effect has not yet been confirmed in human studies.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "899553bf"
     },
     {
      "corpus": "europepmc",
@@ -1303,7 +1451,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "135573bf"
     },
     {
      "corpus": "europepmc",
@@ -1312,7 +1461,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "c88acbbb"
     },
     {
      "corpus": "europepmc",
@@ -1320,7 +1470,8 @@
      "line": "The ratio of specific striatal to non-specific [123I]FP-CIT binding was found to decrease significantly with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "43282a53"
     },
     {
      "corpus": "europepmc",
@@ -1328,7 +1479,8 @@
      "line": "Finally, females were found to have significantly higher [123I]FP-CIT binding ratios than males.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "301d51f0"
     },
     {
      "corpus": "europepmc",
@@ -1337,7 +1489,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "3b489fb0"
     },
     {
      "corpus": "europepmc",
@@ -1345,7 +1498,8 @@
      "line": "The results of this study are consistent with findings from previous studies, which showed that dopamine transporter density declines with age.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "fb2e0255"
     },
     {
      "corpus": "europepmc",
@@ -1353,7 +1507,8 @@
      "line": "The intriguing finding of a higher dopamine transporter density in females than in males is in line with findings from animal studies.",
      "factors": [
       "sex"
-     ]
+     ],
+     "qid": "14d5fe5a"
     }
    ]
   },
@@ -1368,7 +1523,8 @@
      "line": "Several studies of human brain postmortem report that monoamine oxidase B (MAO B) increases with age and it has been proposed that this increase reflects age-associated increases in glial cells.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "034372a8"
     },
     {
      "corpus": "europepmc",
@@ -1377,7 +1533,8 @@
      "factors": [
       "age",
       "sex"
-     ]
+     ],
+     "qid": "120d434a"
     },
     {
      "corpus": "europepmc",
@@ -1385,7 +1542,8 @@
      "line": "In contrast, subjects showed the expected regional age-related decreases in blood flow and metabolism.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "25a11013"
     },
     {
      "corpus": "europepmc",
@@ -1393,7 +1551,8 @@
      "line": "Although the age-related increase in brain MAO B in living subjects is consistent with postmortem reports, the degree of increase is generally lower.",
      "factors": [
       "age"
-     ]
+     ],
+     "qid": "ffeadd74"
     }
    ]
   }

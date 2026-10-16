@@ -58,6 +58,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 
 import drugs_io                                                 # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 from data_generators.provenance import corpus_page_path         # noqa: E402
 import fetch_tmax                                               # noqa: E402
 
@@ -166,15 +167,10 @@ def apply_judged(judged: dict, offered: dict, drugs: list[dict], field: str,
         if not entry:
             reject(did, "the fetcher offers no candidate for this drug")
             continue
-        try:
-            idx = int(rec.get("index"))
-        except (TypeError, ValueError):
-            reject(did, f"index {rec.get('index')!r} is not a number")
+        cand, why = resolve(entry["candidates"], rec)
+        if why:
+            reject(did, f"index {rec.get('index')!r}: {why}")
             continue
-        if not (0 <= idx < len(entry["candidates"])):
-            reject(did, f"index {idx} is outside the {len(entry['candidates'])} offered")
-            continue
-        cand = entry["candidates"][idx]
         value = clean_value(rec)
         if not value:
             reject(did, "no usable hours in the judged record")

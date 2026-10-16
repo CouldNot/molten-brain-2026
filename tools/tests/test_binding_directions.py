@@ -34,6 +34,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 import target_aliases as ta  # noqa: E402
 import apply_binding_directions as A  # noqa: E402
+from judged_fixture import fill  # noqa: E402
 
 # The table fetcher imports bs4 at module level, which a plain clone need not have; the
 # applier half it feeds is tested regardless, the resolver being injected.
@@ -60,8 +61,16 @@ WORKLIST = [{
     "slug": "testdrug",
     "targets": [{"target": t, "name": t, "aliases": ta.aliases_by_target()[t]}
                 for t in ("5ht2c", "h1", "alpha2a")],
-    "candidates": CANDIDATES,
+    "candidates": [{"line": c} for c in CANDIDATES],
 }]
+
+
+def judge(judged, work=None):
+    """``judged`` with each row echoing its candidate's qid, as a judge writes it."""
+    by = {r["drug"]: r["candidates"] for r in work or WORKLIST}
+    for drug, rows in judged.items():
+        fill(rows, by.get(drug, []))
+    return judged
 
 
 def drugs():
@@ -86,7 +95,7 @@ def read_page(slug):
 def run(judged, data=None):
     """Apply one judged file; returns the mutated drug record and the rejection reasons."""
     data = data if data is not None else drugs()
-    stats, rejected = A.apply(WORKLIST, judged, data, read_page)
+    stats, rejected = A.apply(WORKLIST, judge(judged), data, read_page)
     return data[0], [line.split("]")[0][1:] for line in rejected], stats
 
 
@@ -162,6 +171,19 @@ class GateTest(unittest.TestCase):
         self.assertEqual(why, ["candidate index out of range"])
         self.assertTrue(binding(drug, "5ht2c")["affinity_only"])
 
+    def test_a_pick_whose_worklist_shifted_is_rejected(self):
+        """A rebuilt worklist that moved the judged sentence must not land another one:
+        the pick was judged on candidate 0, the rebuild put candidate 1 at index 0."""
+        work = copy.deepcopy(WORKLIST)
+        judged = judge({"testdrug": [{"target": "5ht2c", "action": "antagonist",
+                                      "index": 0}]}, work)
+        work[0]["candidates"].reverse()
+        data = drugs()
+        _stats, rejected = A.apply(work, judged, data, read_page)
+        self.assertEqual([line.split("]")[0][1:] for line in rejected],
+                         ["qid mismatch: the worklist changed since this pick was judged"])
+        self.assertTrue(binding(data[0], "5ht2c")["affinity_only"])
+
     def test_a_target_the_drug_does_not_bind_is_rejected(self):
         _drug, why, _ = run({"testdrug": [{"target": "d2", "action": "antagonist",
                                            "index": 0}]})
@@ -192,11 +214,13 @@ class GateTest(unittest.TestCase):
 
     def test_a_quote_that_is_not_on_the_page_fails_the_verbatim_gate(self):
         work = copy.deepcopy(WORKLIST)
-        work[0]["candidates"] = ["Quetiapine is a potent agonist of the 5-HT 2C receptor ."]
+        work[0]["candidates"] = [
+            {"line": "Quetiapine is a potent agonist of the 5-HT 2C receptor ."}]
         data = drugs()
-        _stats, rejected = A.apply(work, {"testdrug": [{"target": "5ht2c",
-                                                        "action": "agonist",
-                                                        "index": 0}]}, data, read_page)
+        _stats, rejected = A.apply(work, judge({"testdrug": [{"target": "5ht2c",
+                                                              "action": "agonist",
+                                                              "index": 0}]}, work),
+                                   data, read_page)
         self.assertEqual([line.split("]")[0][1:] for line in rejected],
                          ["quote not verbatim on the cited page"])
         self.assertTrue(binding(data[0], "5ht2c")["affinity_only"])
@@ -205,9 +229,10 @@ class GateTest(unittest.TestCase):
         work = copy.deepcopy(WORKLIST)
         work[0]["slug"] = "never_fetched"
         data = drugs()
-        _stats, rejected = A.apply(work, {"testdrug": [{"target": "5ht2c",
-                                                        "action": "antagonist",
-                                                        "index": 0}]}, data, read_page)
+        _stats, rejected = A.apply(work, judge({"testdrug": [{"target": "5ht2c",
+                                                              "action": "antagonist",
+                                                              "index": 0}]}, work),
+                                   data, read_page)
         self.assertEqual([line.split("]")[0][1:] for line in rejected],
                          ["no stored page for the citation"])
 
@@ -215,7 +240,7 @@ class GateTest(unittest.TestCase):
 class IdempotencyTest(unittest.TestCase):
     """A second run with the same judged file must be a no-op, not a pile of rejections."""
 
-    JUDGED = {"testdrug": [{"target": "5ht2c", "action": "antagonist", "index": 0}]}
+    JUDGED = judge({"testdrug": [{"target": "5ht2c", "action": "antagonist", "index": 0}]})
 
     def test_second_run_changes_nothing_and_reports_no_rejection(self):
         data = drugs()
@@ -443,8 +468,9 @@ class SearchTest(unittest.TestCase):
         def other(c, pg):
             seen.append((c, pg))
             return A.normalize_for_match(self.LINE) if (c, pg) == (corpus, page) else None
-        stats, _ = A.apply_search(self.worklist(corpus, page),
-                                  {self.SITE: {"index": 0, "action": "antagonist"}},
+        work = self.worklist(corpus, page)
+        stats, _ = A.apply_search(work, {self.SITE: fill({"index": 0, "action": "antagonist"},
+                                                         work[0]["candidates"])},
                                   drugs, lambda slug: None, other,
                                   self.metabs() if metabs is None else metabs)
         return stats, seen

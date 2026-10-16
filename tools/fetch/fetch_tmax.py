@@ -65,6 +65,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 
 import drugs_io                                                 # noqa: E402
+import worklist_io  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki                            # noqa: E402 (page_for)
 import fetch_pharmacokinetics as pk                              # noqa: E402 (spans, units)
 
@@ -312,9 +313,7 @@ def build(only: set[str] | None = None, pattern=PEAK_RE, skip=None) -> dict[str,
 
 def write_worklist(worklist: dict, out: Path, what: str) -> None:
     """Write a worklist and print its per-corpus candidate counts."""
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(worklist, ensure_ascii=False, indent=1) + "\n",
-                   encoding="utf-8")
+    worklist_io.write(out, worklist)
     n_cand = sum(len(v["candidates"]) for v in worklist.values())
     by_corpus: dict[str, int] = {}
     for v in worklist.values():

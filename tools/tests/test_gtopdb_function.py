@@ -19,6 +19,7 @@ sys.path.insert(0, str(TOOLS / "sourcing"))
 sys.path.insert(0, str(TOOLS))
 import fetch_gtopdb_function as gf  # noqa: E402
 import fetch_receptor_effects as fre  # noqa: E402
+from judged_fixture import refs  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 
 PAYLOAD = {
@@ -119,7 +120,7 @@ class CandidateTest(unittest.TestCase):
     def test_gate_carries_species_onto_the_source(self):
         cands = fre.gtopdb_candidates("beta3", fre.effect_hits, "effects")
         misses = []
-        srcs = PageGate({"gtopdb_function": self.tmp}).sources(cands, [0], "beta3", misses)
+        srcs = PageGate({"gtopdb_function": self.tmp}).sources(cands, refs(cands, 0), "beta3", misses)
         self.assertEqual(misses, [])
         self.assertEqual(srcs[0]["species"], "Human")
         self.assertEqual(srcs[0]["quote"], cands[0]["line"])

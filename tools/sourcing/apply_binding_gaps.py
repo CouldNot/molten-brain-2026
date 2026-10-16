@@ -64,6 +64,7 @@ import drugs_io  # noqa: E402
 import target_aliases as ta  # noqa: E402
 from apply_binding_directions import CORPUS, PAGES, _Gate, page_text  # noqa: E402
 from check_data import normalize_for_match  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 from data_generators.drugs import DRUG_ACTIONS  # noqa: E402
 
 CACHE = os.path.join(REPO, "tools", "generated_cache")
@@ -146,14 +147,14 @@ def apply(worklist: list[dict], judged: dict, drugs: list[dict], read_page) -> _
             if not row.get("pick"):
                 gate.stats["judged: rejected"] += 1
                 continue
-            if isinstance(index, bool) or not isinstance(index, int) \
-                    or not 0 <= index < len(cands):
-                gate.reject("candidate index out of range", label)
+            cand, why = resolve(cands, row)
+            if why:
+                gate.reject(why, label)
                 continue
-            if row.get("target") != cands[index]["target"]:
+            if row.get("target") != cand["target"]:
                 gate.reject("target is not the candidate's", label)
                 continue
-            gate.add(drug, drugs, cands[index], row.get("action"), rec["slug"], label)
+            gate.add(drug, drugs, cand, row.get("action"), rec["slug"], label)
     return gate
 
 

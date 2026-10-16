@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_drug_history as A  # noqa: E402
+from judged_fixture import fill_tree  # noqa: E402
 import fetch_drug_history as F  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 from data_generators import history as H  # noqa: E402
@@ -46,7 +47,8 @@ class GateTest(unittest.TestCase):
         self.tmp.cleanup()
 
     def run_apply(self, rec, did="nefazodone"):
-        return A.apply({did: rec}, self.offered, self.drugs, self.gate)
+        cands = self.offered.get(did, {}).get("candidates", [])
+        return A.apply({did: fill_tree(rec, cands)}, self.offered, self.drugs, self.gate)
 
     def test_good_picks_land(self):
         _, rej = self.run_apply({

@@ -1,172 +1,349 @@
 {
  "amantadine": [
-  8
+  {
+   "index": 8,
+   "qid": "95ec3ee8"
+  }
  ],
  "amobarbital": [
-  19
+  {
+   "index": 19,
+   "qid": "9d444d3b"
+  }
  ],
  "azacyclonol": [
-  1
+  {
+   "index": 1,
+   "qid": "0f71f5f0"
+  }
  ],
  "baclofen": [
-  6
+  {
+   "index": 6,
+   "qid": "d29a1f8c"
+  }
  ],
  "caffeine": [
-  2,
-  3
+  {
+   "index": 2,
+   "qid": "0d9b16b0"
+  },
+  {
+   "index": 3,
+   "qid": "31b76942"
+  }
  ],
  "calcium_carbimide": [
-  4
+  {
+   "index": 4,
+   "qid": "5d4255ef"
+  }
  ],
  "cocaine": [
-  8,
-  40
+  {
+   "index": 8,
+   "qid": "0b299139"
+  },
+  {
+   "index": 40,
+   "qid": "bc4bca0b"
+  }
  ],
  "cyclobarbital": null,
  "dmt": [
-  3
+  {
+   "index": 3,
+   "qid": "2d33b64b"
+  }
  ],
  "domperidone": [
-  2
+  {
+   "index": 2,
+   "qid": "71a7235d"
+  }
  ],
  "doxylamine": [
-  1,
-  8
+  {
+   "index": 1,
+   "qid": "5330339f"
+  },
+  {
+   "index": 8,
+   "qid": "9d55a333"
+  }
  ],
  "glutethimide": [
-  0
+  {
+   "index": 0,
+   "qid": "1ee7b313"
+  }
  ],
  "ketamine": [
-  8
+  {
+   "index": 8,
+   "qid": "8b86a34b"
+  }
  ],
  "ketanserin": [
-  0
+  {
+   "index": 0,
+   "qid": "679c8fb8"
+  }
  ],
  "lsd": [
-  7
+  {
+   "index": 7,
+   "qid": "67409673"
+  }
  ],
  "mdma": [
-  5
+  {
+   "index": 5,
+   "qid": "5b5ab03e"
+  }
  ],
  "melatonin": [
-  16
+  {
+   "index": 16,
+   "qid": "cf99bdf6"
+  }
  ],
  "mesoridazine": [
-  0
+  {
+   "index": 0,
+   "qid": "e647e62a"
+  }
  ],
  "methamphetamine": [
-  4
+  {
+   "index": 4,
+   "qid": "692fd418"
+  }
  ],
  "methaqualone": [
-  0,
-  11
+  {
+   "index": 0,
+   "qid": "fd63a9e8"
+  },
+  {
+   "index": 11,
+   "qid": "a3fb6c93"
+  }
  ],
  "naloxone": [
-  2,
-  3
+  {
+   "index": 2,
+   "qid": "224be189"
+  },
+  {
+   "index": 3,
+   "qid": "7b639b83"
+  }
  ],
  "naltrexonebupropion": null,
  "nicotine": [
-  5
+  {
+   "index": 5,
+   "qid": "473d1efb"
+  }
  ],
  "ondansetron": [
-  0
+  {
+   "index": 0,
+   "qid": "5c020aae"
+  }
  ],
  "perampanel": [
-  0
+  {
+   "index": 0,
+   "qid": "86d2a52e"
+  }
  ],
  "phenazepam": [
-  2,
-  3
+  {
+   "index": 2,
+   "qid": "d15c8954"
+  },
+  {
+   "index": 3,
+   "qid": "c7322415"
+  }
  ],
  "phenobarbital": [
-  0,
-  9
+  {
+   "index": 0,
+   "qid": "18d1b767"
+  },
+  {
+   "index": 9,
+   "qid": "cc0d372e"
+  }
  ],
  "pramipexole": [
-  0
+  {
+   "index": 0,
+   "qid": "eb9e9abd"
+  }
  ],
  "pregabalin": [
-  2
+  {
+   "index": 2,
+   "qid": "ed4c3a6c"
+  }
  ],
  "prochlorperazine": [
-  0
+  {
+   "index": 0,
+   "qid": "e647e62a"
+  }
  ],
  "prothipendyl": [
-  3
+  {
+   "index": 3,
+   "qid": "fa55fd67"
+  }
  ],
  "ramelteon": [
-  2
+  {
+   "index": 2,
+   "qid": "a982728f"
+  }
  ],
  "reboxetine": [
-  4
+  {
+   "index": 4,
+   "qid": "2f143591"
+  }
  ],
  "ropinirole": [
-  5
+  {
+   "index": 5,
+   "qid": "bdbef0c9"
+  }
  ],
  "rotigotine": [
-  1
+  {
+   "index": 1,
+   "qid": "cbe88ed5"
+  }
  ],
  "rubidium_chloride": null,
  "serdexmethylphenidate": null,
  "tasimelteon": null,
  "thc": [
-  3
+  {
+   "index": 3,
+   "qid": "48adda33"
+  }
  ],
  "tizanidine": [
-  0
+  {
+   "index": 0,
+   "qid": "600cb121"
+  }
  ],
  "topiramate": [
-  1
+  {
+   "index": 1,
+   "qid": "070da5a3"
+  }
  ],
  "tropatepine": [
-  1
+  {
+   "index": 1,
+   "qid": "6f6fd4c8"
+  }
  ],
  "xanomeline": null,
  "reserpine": [
-  0
+  {
+   "index": 0,
+   "qid": "9f4e5e3d"
+  }
  ],
  "ethanol": [
-  13
+  {
+   "index": 13,
+   "qid": "56d69940"
+  }
  ],
  "apomorphine": [
-  1
+  {
+   "index": 1,
+   "qid": "c91b0704"
+  }
  ],
  "bromocriptine": [
-  0
+  {
+   "index": 0,
+   "qid": "c51263c9"
+  }
  ],
  "cabergoline": [
-  6
+  {
+   "index": 6,
+   "qid": "c4264fa5"
+  }
  ],
  "rasagiline": [
-  0
+  {
+   "index": 0,
+   "qid": "72734e26"
+  }
  ],
  "safinamide": [
-  0
+  {
+   "index": 0,
+   "qid": "67dadcb9"
+  }
  ],
  "sevoflurane": [
-  0
+  {
+   "index": 0,
+   "qid": "8a8058c2"
+  }
  ],
  "ethosuximide": [
-  2
+  {
+   "index": 2,
+   "qid": "49a3f36f"
+  }
  ],
  "lacosamide": [
-  1
+  {
+   "index": 1,
+   "qid": "d7cd3b48"
+  }
  ],
  "brivaracetam": [
-  1
+  {
+   "index": 1,
+   "qid": "93fe84a4"
+  }
  ],
  "pizotifen": [
-  1
+  {
+   "index": 1,
+   "qid": "d74562d1"
+  }
  ],
  "tiapride": null,
  "meprobamate": [
-  0
+  {
+   "index": 0,
+   "qid": "655f7134"
+  }
  ],
  "pentobarbital": [
-  4
+  {
+   "index": 4,
+   "qid": "d388dcf9"
+  }
  ],
  "tofisopam": [
-  1
+  {
+   "index": 1,
+   "qid": "1b036df2"
+  }
  ]
 }

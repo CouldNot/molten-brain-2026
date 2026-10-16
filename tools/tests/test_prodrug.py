@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_prodrug as A  # noqa: E402
+from judged_fixture import fill  # noqa: E402
 import generate_data as G  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
 
@@ -47,6 +48,7 @@ class GateTest(unittest.TestCase):
         self.tmp.cleanup()
 
     def run_apply(self, rec):
+        rec = fill(dict(rec), self.offered["psilocybin"]["candidates"])
         return A.apply({"psilocybin": rec}, self.offered, self.drugs, self.gate, self.store)
 
     def test_good_pick_flags_drops_bindings_adds_metabolite(self):

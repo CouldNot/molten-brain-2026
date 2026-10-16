@@ -69,6 +69,7 @@ sys.path.insert(0, HERE)
 
 import check_data  # noqa: E402  (reuse the quote gate's normalizer, one definition)
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402
 from fetch_cyp import (  # noqa: E402  (one definition of each shared rule)
     ENZYME_RE,
     gate,
@@ -214,10 +215,7 @@ def main() -> int:
                        "enzymes": sorted(KNOWN_ENZYMES)},
         "drugs": worklist,
     }
-    os.makedirs(os.path.dirname(args.out), exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=1, sort_keys=True)
-        f.write("\n")
+    worklist_io.write(args.out, payload, sort_keys=True)
     print(f"{stats['drug: queued']} drugs, {stats['candidates']} candidate sentences")
     for key, n in sorted(stats.items()):
         if key != "candidates":

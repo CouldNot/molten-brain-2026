@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_projection_sources as A  # noqa: E402
+from judged_fixture import lift_owners  # noqa: E402
 
 TX = "The thalamocortical projections are glutamatergic and activate cortical neurons."
 SIGN = "The thalamocortical fibres form excitatory synapses with pyramidal cells."
@@ -46,15 +47,19 @@ class ProjectionGateTest(unittest.TestCase):
 
     def run_(self, judged, current=None):
         out = {}
-        n, misses = A.apply(self.worklist, judged, current or self.current, out, self.pages)
+        n, misses = A.apply(self.worklist, self.lift(judged), current or self.current, out,
+                            self.pages)
         return n, misses, out
+
+    def lift(self, judged):
+        return lift_owners(judged, self.worklist["projections"])
 
     def test_picks_land_and_are_idempotent(self):
         judged = {KEY: {"transmitter": [0], "sign": [1]}, NIGRA: {"route": [0]}}
         n, misses, out = self.run_(judged)
         self.assertEqual((n, misses), (3, []))
         self.assertEqual(sorted(s["quote"] for s in out[KEY]), sorted([TX, SIGN]))
-        n2, _ = A.apply(self.worklist, judged, self.current, out, self.pages)
+        n2, _ = A.apply(self.worklist, self.lift(judged), self.current, out, self.pages)
         self.assertEqual(n2, 0)
 
     def test_quote_not_on_page_is_rejected(self):

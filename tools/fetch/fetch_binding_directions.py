@@ -34,15 +34,17 @@ gate can never accept what the worklist could not have offered.
 The contract for the LLM pass
 -----------------------------
 Read ``tools/generated_cache/binding_directions_worklist.json``: a list of records
-``{drug, name, slug, targets: [{target, name, aliases}], candidates: [sentence, ...]}``.
+``{drug, name, slug, targets: [{target, name, aliases}], candidates: [{line, qid}, ...]}``.
 Write ``tools/generated_cache/binding_directions_judged.json``::
 
-    {"<drug id>": [{"target": "<target id>", "action": "<action key>",
-                    "index": <int>, "note": "<optional, free text>"}, ...], ...}
+    {"<drug id>": [{"target": "<target id>", "action": "<action key>", "index": <int>,
+                    "qid": "<the candidate's qid>", "note": "<optional>"}, ...], ...}
 
-* ``index`` is the position of the sentence in that drug's ``candidates`` list. Answer
-  with an index, **never** a rewritten or trimmed quote string: the applier resolves the
-  quote itself, so a paraphrase is not expressible and cannot reach the dataset.
+* ``index`` is the position of the sentence in that drug's ``candidates`` list, and
+  ``qid`` echoes that candidate's fingerprint (``pipeline.judged``: a rebuilt worklist
+  that shifted the list makes the applier refuse the pick). Answer with an index,
+  **never** a rewritten or trimmed quote string: the applier resolves the quote itself,
+  so a paraphrase is not expressible and cannot reach the dataset.
 * ``target`` must be one of that record's ``targets`` (those are the drug's
   affinity-only bindings, the only ones this pass may fill in).
 * ``action`` is one of the ``DRUG_ACTIONS`` keys: ``agonist``, ``antagonist``,
@@ -82,6 +84,7 @@ sys.path.insert(0, HERE)                              # sibling fetch_* modules
 sys.path.insert(0, os.path.join(REPO, "tools"))       # drugs_io, target_aliases
 
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402
 import target_aliases as ta  # noqa: E402  (the shared "quote names the target" test)
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402  (stored-page lookup + PAGE_ALIASES)
 # Imported for `action_lines` only. It pulls in BeautifulSoup at import time, which is
@@ -184,7 +187,7 @@ def build(drugs: list[dict], only: set[str] | None = None) -> tuple[list[dict], 
             "slug": os.path.splitext(os.path.basename(path))[0],
             "targets": [{"target": t, "name": names[t], "aliases": aliases[t]}
                         for t in targets],
-            "candidates": candidates_for(page_text, aliases),
+            "candidates": [{"line": c} for c in candidates_for(page_text, aliases)],
         })
     return records, warnings
 
@@ -257,7 +260,7 @@ def build_search(drugs: list[dict], metabolites: list[dict] = ()) -> list[dict]:
               encoding="utf-8") as f:
         brand = json.load(f)
     with open(WORKLIST, encoding="utf-8") as f:       # what the prose pass already showed
-        shown = {r["drug"]: set(r["candidates"]) for r in json.load(f)}
+        shown = {r["drug"]: {c["line"] for c in r["candidates"]} for r in json.load(f)}
     with open(os.path.join(REPO, "tools", "generated_cache",
                            "binding_directions_tables.json"), encoding="utf-8") as f:
         tables = json.load(f)
@@ -357,9 +360,7 @@ def main() -> int:
     args = ap.parse_args()
     if args.search:
         records = build_search(drugs_io.load_drugs(), drugs_io.load_metabolites())
-        with open(SEARCH_WORKLIST, "w", encoding="utf-8") as f:
-            json.dump(records, f, ensure_ascii=False, indent=1)
-            f.write("\n")
+        worklist_io.write(SEARCH_WORKLIST, records)
         n_c = sum(1 for r in records if r["candidates"])
         print(f"wrote {os.path.relpath(SEARCH_WORKLIST, REPO)}: {len(records)} binding(s), "
               f"{n_c} with candidates ({sum(len(r['candidates']) for r in records)} "
@@ -384,7 +385,7 @@ def main() -> int:
                      if b.get("affinity_only"))
     n_reachable = 0
     for rec in records:
-        folded = [ta.fold(c) for c in rec["candidates"]]
+        folded = [ta.fold(c["line"]) for c in rec["candidates"]]
         reachable = {t["target"] for t in rec["targets"]
                      if (rx := ta.alias_regex(t["aliases"]))
                      and any(rx.search(f) for f in folded)}
@@ -392,10 +393,7 @@ def main() -> int:
                            .get("bindings", [])
                            if b.get("affinity_only") and b["target"] in reachable)
 
-    os.makedirs(os.path.dirname(WORKLIST), exist_ok=True)
-    with open(WORKLIST, "w", encoding="utf-8") as f:
-        json.dump(records, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+    worklist_io.write(WORKLIST, records, indent=2)
     n_cand = sum(len(r["candidates"]) for r in records)
     print(f"\nwrote {os.path.relpath(WORKLIST, REPO)}")
     print(f"  {n_drugs} drug(s) with an affinity-only binding, "

@@ -54,6 +54,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in tools/sourcing/)
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
 DRUGS_JSON = drugs_io.DRUGS_PATH
 PAGES = ROOT / "data_sources" / "books" / "stahl" / "pages"
@@ -137,11 +138,11 @@ def apply_wikipedia(drugs, worklist, judged, pages=WIKI_PAGES):
             continue
         cands = (worklist.get(did) or {}).get("candidates", [])
         sources = []
-        for idx in picks:
-            if not isinstance(idx, int) or not 0 <= idx < len(cands):
-                misses.append(f"{did}: index {idx!r} out of range")
+        for pick in picks:
+            c, why = resolve(cands, pick)
+            if why:
+                misses.append(f"{did}: {why}")
                 continue
-            c = cands[idx]
             root = pages.get(c["corpus"])
             path = root / f"{c['page']}.md" if root else None
             needle = normalize_for_match(c["line"])

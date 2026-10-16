@@ -42,6 +42,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402
+from pipeline.judged import ECHO_QID  # noqa: E402
 from worklist_io import merge_scoped  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402 (page_for, PAGES)
 import fetch_drug_history  # noqa: E402 (section_sentences)
@@ -119,7 +121,8 @@ INSTRUCTIONS = (
     "companies: per slug answer {country: {index, country} | null, now: {index, name} | "
     "null}: `country` is the vocabulary id of where the company is based, from a "
     "Headquarters row or a sentence naming it; `now` is the company's current name ONLY "
-    "when a candidate says it was acquired / merged / renamed into it (`name` verbatim).")
+    "when a candidate says it was acquired / merged / renamed into it (`name` verbatim); "
+    "a chain over several sentences is {picks: [{index, qid}, ...], name}.") + ECHO_QID
 
 
 def page_path(slug: str) -> Path:
@@ -190,8 +193,7 @@ def main() -> int:
     wl = build(only)
     if only and args.out.exists():
         wl = merge_scoped(json.loads(args.out.read_text("utf-8")), wl, "drugs")
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(wl, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    worklist_io.write(args.out, wl)
     n = sum(len(v["candidates"]) for v in wl["drugs"].values())
     missing = [s for s, c in wl["companies"].items() if not c["candidates"]]
     print(f"[ok] wrote {args.out}: {len(wl['drugs'])} drugs, {n} candidates, "

@@ -3,341 +3,542 @@
   "alpha1a": {
    "synaptic": {
     "postsynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "5fa661e8"
+     }
     ]
    }
   },
   "alpha1b": {
    "synaptic": {
     "postsynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "5fa661e8"
+     }
     ]
    }
   },
   "alpha1d": {
    "synaptic": {
     "postsynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "5fa661e8"
+     }
     ]
    }
   },
   "alpha2a": {
    "synaptic": {
     "presynaptic": [
-     9
+     {
+      "index": 9,
+      "qid": "5fa661e8"
+     }
     ],
     "postsynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "a713e768"
+     }
     ]
    }
   },
   "alpha2b": {
    "synaptic": {
     "postsynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "5fa661e8"
+     }
     ]
    }
   },
   "alpha2d": {
    "receptor_class": [
-    0
+    {
+     "index": 0,
+     "qid": "504f0624"
+    }
    ],
    "sign": [
-    0
+    {
+     "index": 0,
+     "qid": "504f0624"
+    }
    ]
   },
   "beta1": {
    "synaptic": {
     "postsynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "a29c9054"
+     }
     ]
    }
   },
   "m1": {
    "synaptic": {
     "postsynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "d6585cd2"
+     }
     ]
    }
   },
   "m2": {
    "synaptic": {
     "presynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "23fb2315"
+     }
     ]
    }
   },
   "m3": {
    "synaptic": {
     "postsynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "d6585cd2"
+     }
     ]
    }
   },
   "m4": {
    "synaptic": {
     "presynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "23fb2315"
+     }
     ]
    }
   },
   "m5": {
    "synaptic": {
     "postsynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "d6585cd2"
+     }
     ]
    }
   },
   "nachr_muscle": {
    "sign": [
-    3
+    {
+     "index": 3,
+     "qid": "07cf845c"
+    }
    ],
    "synaptic": {
     "postsynaptic": [
-     10
+     {
+      "index": 10,
+      "qid": "326a45a7"
+     }
     ]
    }
   },
   "nachr_a4b2": {
    "sign": [
-    3
+    {
+     "index": 3,
+     "qid": "07cf845c"
+    }
    ]
   },
   "nachr_a7": {
    "sign": [
-    3
+    {
+     "index": 3,
+     "qid": "07cf845c"
+    }
    ],
    "synaptic": {
     "presynaptic": [
-     15
+     {
+      "index": 15,
+      "qid": "00c18fa6"
+     }
     ],
     "postsynaptic": [
-     17
+     {
+      "index": 17,
+      "qid": "7282f683"
+     }
     ]
    }
   },
   "d1": {
    "synaptic": {
     "postsynaptic": [
-     7
+     {
+      "index": 7,
+      "qid": "19817070"
+     }
     ]
    }
   },
   "d2": {
    "synaptic": {
     "presynaptic": [
-     6
+     {
+      "index": 6,
+      "qid": "4ba0860d"
+     }
     ],
     "postsynaptic": [
-     25
+     {
+      "index": 25,
+      "qid": "05cf0f81"
+     }
     ]
    }
   },
   "d3": {
    "synaptic": {
     "presynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "4ba0860d"
+     }
     ],
     "postsynaptic": [
-     21
+     {
+      "index": 21,
+      "qid": "05cf0f81"
+     }
     ]
    }
   },
   "d4": {
    "synaptic": {
     "postsynaptic": [
-     0
+     {
+      "index": 0,
+      "qid": "d8fa3203"
+     }
     ]
    }
   },
   "d5": {
    "synaptic": {
     "postsynaptic": [
-     0
+     {
+      "index": 0,
+      "qid": "ad1f27e7"
+     }
     ]
    }
   },
   "gaba_a": {
    "synaptic": {
     "postsynaptic": [
-     3
+     {
+      "index": 3,
+      "qid": "373d3976"
+     }
     ]
    }
   },
   "gaba_b": {
    "sign": [
-    0
+    {
+     "index": 0,
+     "qid": "3de0a004"
+    }
    ]
   },
   "nmda": {
    "sign": [
-    35,
-    36
+    {
+     "index": 35,
+     "qid": "74262e64"
+    },
+    {
+     "index": 36,
+     "qid": "77834d55"
+    }
    ],
    "synaptic": {
     "postsynaptic": [
-     49
+     {
+      "index": 49,
+      "qid": "76ace2f0"
+     }
     ]
    }
   },
   "ampa": {
    "sign": [
-    0,
-    21
+    {
+     "index": 0,
+     "qid": "b9f6833c"
+    },
+    {
+     "index": 21,
+     "qid": "537becb0"
+    }
    ],
    "synaptic": {
     "postsynaptic": [
-     20,
-     55
+     {
+      "index": 20,
+      "qid": "22af0ff9"
+     },
+     {
+      "index": 55,
+      "qid": "76ace2f0"
+     }
     ]
    }
   },
   "kainate": {
    "sign": [
-    12,
-    3
+    {
+     "index": 12,
+     "qid": "6e01bb31"
+    },
+    {
+     "index": 3,
+     "qid": "4e827acc"
+    }
    ],
    "synaptic": {
     "presynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "e7f202a4"
+     }
     ],
     "postsynaptic": [
-     0
+     {
+      "index": 0,
+      "qid": "40a08309"
+     }
     ]
    }
   },
   "mglur1": {
    "synaptic": {
     "postsynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "1271baa1"
+     }
     ]
    }
   },
   "mglur2": {
    "synaptic": {
     "presynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "1271baa1"
+     }
     ]
    }
   },
   "mglur3": {
    "synaptic": {
     "presynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "1271baa1"
+     }
     ]
    }
   },
   "mglur4": {
    "synaptic": {
     "presynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "1271baa1"
+     }
     ]
    }
   },
   "mglur5": {
    "synaptic": {
     "postsynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "1271baa1"
+     }
     ]
    }
   },
   "mglur7": {
    "synaptic": {
     "presynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "1271baa1"
+     }
     ]
    }
   },
   "glycine": {
    "sign": [
-    0,
-    1
+    {
+     "index": 0,
+     "qid": "e5495d04"
+    },
+    {
+     "index": 1,
+     "qid": "c74df298"
+    }
    ]
   },
   "mu": {
    "synaptic": {
     "presynaptic": [
-     1
+     {
+      "index": 1,
+      "qid": "bd6dc0c8"
+     }
     ],
     "postsynaptic": [
-     5
+     {
+      "index": 5,
+      "qid": "9d6ae2d7"
+     }
     ]
    }
   },
   "kappa": {
    "synaptic": {
     "presynaptic": [
-     0
+     {
+      "index": 0,
+      "qid": "0984c76a"
+     }
     ],
     "postsynaptic": [
-     7
+     {
+      "index": 7,
+      "qid": "9d6ae2d7"
+     }
     ]
    }
   },
   "5ht1a": {
    "synaptic": {
     "presynaptic": [
-     20
+     {
+      "index": 20,
+      "qid": "d9a51b15"
+     }
     ],
     "postsynaptic": [
-     32
+     {
+      "index": 32,
+      "qid": "43e5be3b"
+     }
     ]
    }
   },
   "5ht2a": {
    "synaptic": {
     "postsynaptic": [
-     3
+     {
+      "index": 3,
+      "qid": "cd62657a"
+     }
     ]
    }
   },
   "5ht2c": {
    "synaptic": {
     "postsynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "fd1bd2d1"
+     }
     ]
    }
   },
   "5ht3": {
    "sign": [
-    0,
-    24
+    {
+     "index": 0,
+     "qid": "5b484e8b"
+    },
+    {
+     "index": 24,
+     "qid": "afe53842"
+    }
    ],
    "synaptic": {
     "postsynaptic": [
-     4
+     {
+      "index": 4,
+      "qid": "75ddb30b"
+     }
     ]
    }
   },
   "5ht6": {
    "synaptic": {
     "postsynaptic": [
-     2
+     {
+      "index": 2,
+      "qid": "2d7859ea"
+     }
     ]
    }
   },
   "sigma1": {
    "receptor_class": [
-    1
+    {
+     "index": 1,
+     "qid": "b6795791"
+    }
    ]
   }
  },
  "targets": {
   "nkcc1": [
-   3
+   {
+    "index": 3,
+    "qid": "7cdac51e"
+   }
   ],
   "aadc": [
-   9
+   {
+    "index": 9,
+    "qid": "985a8355"
+   }
   ],
   "comt": [
-   12
+   {
+    "index": 12,
+    "qid": "8ea8eed3"
+   }
   ],
   "gaba_t": [
-   19
+   {
+    "index": 19,
+    "qid": "986a2f29"
+   }
   ],
   "cgrp": [
-   4,
-   11
+   {
+    "index": 4,
+    "qid": "6b27719e"
+   },
+   {
+    "index": 11,
+    "qid": "a38ae093"
+   }
   ]
  }
 }

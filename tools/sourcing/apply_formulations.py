@@ -57,6 +57,7 @@ import drugs_io  # noqa: E402
 from data_generators import formulations as F  # noqa: E402
 from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 from apply_tmax import clean_value, same_duration  # noqa: E402
 import fetch_formulation_worklist as W  # noqa: E402
 
@@ -79,10 +80,9 @@ def judged_brand(item: dict | None, pick: dict | None, gate: PageGate,
     """``(release, release source)`` of a gated brand pick, or None."""
     if not (item and pick) or pick.get("molecule"):
         return None
-    try:
-        cand = item["candidates"][int(pick.get("index"))]
-    except (TypeError, ValueError, IndexError):
-        return reject(f"index {pick.get('index')!r} does not resolve")
+    cand, why = resolve(item["candidates"], pick)
+    if why:
+        return reject(f"index {pick.get('index')!r}: {why}")
     rel = pick.get("release")
     if rel not in F.RELEASES or not F.attests(rel, cand["line"]):
         return reject(f"release {rel!r} is not named by the sentence")

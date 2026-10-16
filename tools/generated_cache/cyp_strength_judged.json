@@ -4,7 +4,8 @@
    "enzyme": "cyp2d6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "1e03d13b"
   }
  ],
  "zaleplon": [
@@ -12,7 +13,8 @@
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "658c9e90"
   }
  ]
 }

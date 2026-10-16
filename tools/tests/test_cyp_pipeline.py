@@ -24,6 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_cyp_sources as A  # noqa: E402
+from judged_fixture import fill  # noqa: E402
 
 CACHE = ROOT / "tools" / "generated_cache"
 
@@ -60,9 +61,16 @@ class StubGate(A.PageGate):
         return A.normalize_for_match(PAGE)
 
 
+def judge(work, judged):
+    """``judged`` with each row echoing its candidate's qid (rows name it by ``n``)."""
+    for drug, rows in judged.items():
+        fill(rows, (work["drugs"].get(drug) or {}).get("candidates", []), key="n")
+    return judged
+
+
 def run(work, judged):
     """The gates' verdict: the emitted rows for the one drug, plus the rejection reasons."""
-    out, _stats, rejected = A.apply(work, judged, StubGate())
+    out, _stats, rejected = A.apply(work, judge(work, judged), StubGate())
     rows = out["stahl"].get("testdrug", [])
     return rows, [line.split("]")[0][1:] for line in rejected]
 
@@ -137,8 +145,9 @@ class StrengthPassTest(unittest.TestCase):
                           "strength": "major"}]}
 
     def tier(self, picks):
-        out, _stats, rejected = A.apply(worklist(*self.WORK), self.ROLE, StubGate(),
-                                        strength_judged={"testdrug": picks})
+        work = worklist(*self.WORK)
+        out, _stats, rejected = A.apply(work, judge(work, self.ROLE), StubGate(),
+                                        strength_judged=judge(work, {"testdrug": picks}))
         rows = out["stahl"]["testdrug"]
         return rows, [line.split("]")[0][1:] for line in rejected]
 

@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_formulations as A  # noqa: E402
+from pipeline.judged import qid  # noqa: E402
 
 
 class _Gate:
@@ -38,6 +39,7 @@ def _brand(name, quote=None):
 
 
 WIKI = "Concerta is an extended-release tablet; Ritalin is the immediate-release one."
+QID = qid(WIKI)  # what a judge echoes beside index 0
 
 
 def _offered(**items):
@@ -74,7 +76,7 @@ class JudgedPickTest(unittest.TestCase):
     def test_gated_brand_pick_moves_the_brand(self):
         d = {"id": "drug", "brands": [_brand("Concerta")]}
         offered = _offered(**{"brand:Concerta": self._brand_item("Concerta")})
-        judged = {"drug": {"brand:Concerta": {"index": 0, "release": "xr"}}}
+        judged = {"drug": {"brand:Concerta": {"index": 0, "qid": QID, "release": "xr"}}}
         stats = A.apply([d], judged, offered, _Gate())
         self.assertEqual((stats["brands"], stats["rejected"]), (1, []))
         self.assertNotIn("brands", d)
@@ -83,7 +85,7 @@ class JudgedPickTest(unittest.TestCase):
     def test_rejects(self):
         cases = {
             "bad index": {"index": 3, "release": "xr"},
-            "release the sentence never names": {"index": 0, "release": "depot"},
+            "release the sentence never names": {"index": 0, "qid": QID, "release": "depot"},
         }
         for why, pick in cases.items():
             with self.subTest(why):
@@ -95,7 +97,7 @@ class JudgedPickTest(unittest.TestCase):
         # Off its page: rejected too.
         d = {"id": "drug", "brands": [_brand("Concerta")]}
         offered = _offered(**{"brand:Concerta": self._brand_item("Concerta")})
-        stats = A.apply([d], {"drug": {"brand:Concerta": {"index": 0, "release": "xr"}}},
+        stats = A.apply([d], {"drug": {"brand:Concerta": {"index": 0, "qid": QID, "release": "xr"}}},
                         offered, _Gate(missing={WIKI}))
         self.assertEqual(len(stats["rejected"]), 1)
 

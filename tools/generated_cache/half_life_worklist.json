@@ -10,7 +10,8 @@
      {
       "hours": 0.59
      }
-    ]
+    ],
+    "qid": "010d6b78"
    }
   ]
  },
@@ -35,7 +36,8 @@
      {
       "hours": 1.9
      }
-    ]
+    ],
+    "qid": "0ceaf69f"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -49,7 +51,8 @@
       "hours": 7.0,
       "hours_max": 44.0
      }
-    ]
+    ],
+    "qid": "7862e8c6"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -59,7 +62,8 @@
      {
       "hours": 2.3
      }
-    ]
+    ],
+    "qid": "ec5e3603"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -69,7 +73,8 @@
      {
       "hours": 1.9
      }
-    ]
+    ],
+    "qid": "e66ac53b"
    }
   ]
  },
@@ -85,7 +90,8 @@
       "hours": 10.0,
       "hours_max": 31.0
      }
-    ]
+    ],
+    "qid": "8de96f73"
    },
    {
     "corpus": "dailymed",
@@ -99,7 +105,8 @@
       "hours": 10.0,
       "hours_max": 25.0
      }
-    ]
+    ],
+    "qid": "aa37d394"
    },
    {
     "corpus": "dailymed",
@@ -113,7 +120,8 @@
       "hours": 9.0,
       "hours_max": 31.0
      }
-    ]
+    ],
+    "qid": "c8365933"
    },
    {
     "corpus": "dailymed",
@@ -127,7 +135,8 @@
       "hours": 20.0,
       "hours_max": 41.0
      }
-    ]
+    ],
+    "qid": "0c8df250"
    },
    {
     "corpus": "bdpm",
@@ -137,7 +146,8 @@
      {
       "hours": 15.0
      }
-    ]
+    ],
+    "qid": "a9843433"
    },
    {
     "corpus": "bdpm",
@@ -147,7 +157,8 @@
      {
       "hours": 28.0
      }
-    ]
+    ],
+    "qid": "7f39d702"
    },
    {
     "corpus": "bdpm",
@@ -160,7 +171,8 @@
      {
       "hours": 168.0
      }
-    ]
+    ],
+    "qid": "9c7c1f8f"
    }
   ]
  },
@@ -176,7 +188,8 @@
       "hours": 8.0,
       "hours_max": 42.0
      }
-    ]
+    ],
+    "qid": "ca714c2a"
    }
   ]
  },
@@ -192,7 +205,8 @@
       "hours": 2.5,
       "hours_max": 7.0
      }
-    ]
+    ],
+    "qid": "80813b87"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -203,7 +217,8 @@
       "hours": 2.0,
       "hours_max": 4.0
      }
-    ]
+    ],
+    "qid": "3d7ed8bf"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -213,7 +228,8 @@
      {
       "hours": 6.8
      }
-    ]
+    ],
+    "qid": "536b0fa6"
    },
    {
     "corpus": "bdpm",
@@ -224,7 +240,8 @@
       "hours": 3.0,
       "hours_max": 4.0
      }
-    ]
+    ],
+    "qid": "f0fd59a2"
    },
    {
     "corpus": "bdpm",
@@ -235,7 +252,8 @@
       "hours": 3.0,
       "hours_max": 4.0
      }
-    ]
+    ],
+    "qid": "b7700e9d"
    },
    {
     "corpus": "bdpm",
@@ -245,7 +263,8 @@
      {
       "hours": 5.1
      }
-    ]
+    ],
+    "qid": "b35c8f89"
    }
   ]
  },
@@ -260,7 +279,8 @@
      {
       "hours": 8.0
      }
-    ]
+    ],
+    "qid": "06b2c846"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -270,7 +290,8 @@
      {
       "hours": 8.0
      }
-    ]
+    ],
+    "qid": "a77828ef"
    }
   ]
  },
@@ -286,7 +307,8 @@
       "hours": 18.0,
       "hours_max": 24.0
      }
-    ]
+    ],
+    "qid": "28cd0f2c"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -296,7 +318,8 @@
      {
       "hours": 18.4
      }
-    ]
+    ],
+    "qid": "0d05f3ed"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -306,7 +329,8 @@
      {
       "hours": 24.0
      }
-    ]
+    ],
+    "qid": "503f876f"
    }
   ]
  },
@@ -322,7 +346,8 @@
       "hours": 12.0,
       "hours_max": 20.0
      }
-    ]
+    ],
+    "qid": "0fb978dc"
    },
    {
     "corpus": "bdpm",
@@ -332,7 +357,8 @@
      {
       "hours": 20.0
      }
-    ]
+    ],
+    "qid": "31043f80"
    }
   ]
  },
@@ -347,7 +373,8 @@
      {
       "hours": 4.4
      }
-    ]
+    ],
+    "qid": "fae43451"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -361,7 +388,8 @@
       "hours": 3.6,
       "hours_max": 7.9
      }
-    ]
+    ],
+    "qid": "a229e726"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -372,7 +400,8 @@
       "hours": 3.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "a94889e4"
    }
   ]
  },
@@ -394,7 +423,8 @@
      {
       "hours": 100.0
      }
-    ]
+    ],
+    "qid": "0a59dabf"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -408,7 +438,8 @@
       "hours": 2.5,
       "hours_max": 4.5
      }
-    ]
+    ],
+    "qid": "ab62afbf"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -418,7 +449,8 @@
      {
       "hours": 7.0
      }
-    ]
+    ],
+    "qid": "dd010e31"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -428,7 +460,8 @@
      {
       "hours": 80.0
      }
-    ]
+    ],
+    "qid": "f107f6cd"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -441,7 +474,8 @@
      {
       "hours": 56.0
      }
-    ]
+    ],
+    "qid": "69737dc2"
    }
   ]
  },
@@ -457,7 +491,8 @@
       "hours": 8.0,
       "hours_max": 10.0
      }
-    ]
+    ],
+    "qid": "332ae534"
    }
   ]
  },
@@ -473,7 +508,8 @@
       "hours": 8.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "a9545a50"
    }
   ]
  },
@@ -493,7 +529,8 @@
       "hours": 71.0,
       "hours_max": 82.0
      }
-    ]
+    ],
+    "qid": "ce6ee682"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -504,7 +541,8 @@
       "hours": 36.0,
       "hours_max": 42.0
      }
-    ]
+    ],
+    "qid": "a8eaae97"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -519,7 +557,8 @@
       "hours": 71.0,
       "hours_max": 82.0
      }
-    ]
+    ],
+    "qid": "0df4e65d"
    },
    {
     "corpus": "dailymed",
@@ -534,7 +573,8 @@
       "hours": 71.0,
       "hours_max": 82.0
      }
-    ]
+    ],
+    "qid": "4f7d15a3"
    }
   ]
  },
@@ -550,7 +590,8 @@
       "hours": 3.6,
       "hours_max": 5.0
      }
-    ]
+    ],
+    "qid": "ef95d150"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -561,7 +602,8 @@
       "hours": 50.0,
       "hours_max": 100.0
      }
-    ]
+    ],
+    "qid": "aa68b186"
    }
   ]
  },
@@ -576,7 +618,8 @@
      {
       "hours": 48.0
      }
-    ]
+    ],
+    "qid": "741c83c0"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -587,7 +630,8 @@
       "hours": 20.0,
       "hours_max": 179.0
      }
-    ]
+    ],
+    "qid": "14bcbf9d"
    },
    {
     "corpus": "stahl",
@@ -598,7 +642,8 @@
       "hours": 40.0,
       "hours_max": 50.0
      }
-    ]
+    ],
+    "qid": "c966f88b"
    },
    {
     "corpus": "bdpm",
@@ -609,7 +654,8 @@
       "hours": 30.0,
       "hours_max": 150.0
      }
-    ]
+    ],
+    "qid": "4c4cd937"
    }
   ]
  },
@@ -624,7 +670,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "f68a9835"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -637,7 +684,8 @@
      {
       "hours": 18.0
      }
-    ]
+    ],
+    "qid": "1e49434b"
    },
    {
     "corpus": "bdpm",
@@ -647,7 +695,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "e0a2afe5"
    }
   ]
  },
@@ -662,7 +711,8 @@
      {
       "hours": 1.0
      }
-    ]
+    ],
+    "qid": "52c250bc"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -677,7 +727,8 @@
       "hours": 0.7,
       "hours_max": 1.5
      }
-    ]
+    ],
+    "qid": "d2fd0779"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -688,7 +739,8 @@
       "hours": 0.7,
       "hours_max": 1.5
      }
-    ]
+    ],
+    "qid": "55b97e2d"
    },
    {
     "corpus": "dailymed",
@@ -698,7 +750,8 @@
      {
       "hours": 1.54
      }
-    ]
+    ],
+    "qid": "ca9f7e68"
    }
   ]
  },
@@ -713,7 +766,8 @@
      {
       "hours": 8.6
      }
-    ]
+    ],
+    "qid": "60f73742"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -723,7 +777,8 @@
      {
       "hours": 8.6
      }
-    ]
+    ],
+    "qid": "9d75da5d"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -733,7 +788,8 @@
      {
       "hours": 12.0
      }
-    ]
+    ],
+    "qid": "60a64a07"
    }
   ]
  },
@@ -748,7 +804,8 @@
      {
       "hours": 4.8
      }
-    ]
+    ],
+    "qid": "f4a21c6f"
    }
   ]
  },
@@ -764,7 +821,8 @@
       "hours": 9.0,
       "hours_max": 10.0
      }
-    ]
+    ],
+    "qid": "5b3b7d70"
    },
    {
     "corpus": "dailymed",
@@ -781,7 +839,8 @@
       "hours": 9.0,
       "hours_max": 11.0
      }
-    ]
+    ],
+    "qid": "1ef5229a"
    }
   ]
  },
@@ -799,7 +858,8 @@
      {
       "hours": 15.0
      }
-    ]
+    ],
+    "qid": "01a3c9fd"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -815,7 +875,8 @@
      {
       "hours": 33.0
      }
-    ]
+    ],
+    "qid": "56639a54"
    },
    {
     "corpus": "stahl",
@@ -828,7 +889,8 @@
      {
       "hours": 15.0
      }
-    ]
+    ],
+    "qid": "39b0b260"
    },
    {
     "corpus": "stahl",
@@ -839,7 +901,8 @@
       "hours": 120.0,
       "hours_max": 168.0
      }
-    ]
+    ],
+    "qid": "6815c6ac"
    }
   ]
  },
@@ -854,7 +917,8 @@
      {
       "hours": 13.0
      }
-    ]
+    ],
+    "qid": "19f577f6"
    },
    {
     "corpus": "stahl",
@@ -864,7 +928,8 @@
      {
       "hours": 7.0
      }
-    ]
+    ],
+    "qid": "b9c34008"
    },
    {
     "corpus": "stahl",
@@ -875,7 +940,8 @@
       "hours": 120.0,
       "hours_max": 168.0
      }
-    ]
+    ],
+    "qid": "c2c832d5"
    }
   ]
  },
@@ -891,7 +957,8 @@
       "hours": 0.083,
       "hours_max": 0.317
      }
-    ]
+    ],
+    "qid": "ac745764"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -902,7 +969,8 @@
       "hours": 0.1,
       "hours_max": 0.2
      }
-    ]
+    ],
+    "qid": "5a42a9b2"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -915,7 +983,8 @@
      {
       "hours": 0.267
      }
-    ]
+    ],
+    "qid": "860d2134"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -925,7 +994,8 @@
      {
       "hours": 0.217
      }
-    ]
+    ],
+    "qid": "2794c057"
    }
   ]
  },
@@ -941,7 +1011,8 @@
       "hours": 7.0,
       "hours_max": 9.0
      }
-    ]
+    ],
+    "qid": "85d034d0"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -952,7 +1023,8 @@
       "hours": 7.0,
       "hours_max": 9.0
      }
-    ]
+    ],
+    "qid": "ca994c95"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -962,7 +1034,8 @@
      {
       "hours": 20.0
      }
-    ]
+    ],
+    "qid": "b3dc69b8"
    }
   ]
  },
@@ -982,7 +1055,8 @@
       "hours": 7.0,
       "hours_max": 15.0
      }
-    ]
+    ],
+    "qid": "a3ef5e5e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -993,7 +1067,8 @@
       "hours": 10.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "1493cbd9"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1004,7 +1079,8 @@
       "hours": 4.0,
       "hours_max": 8.0
      }
-    ]
+    ],
+    "qid": "977b10bb"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1019,7 +1095,8 @@
       "hours": 7.0,
       "hours_max": 15.0
      }
-    ]
+    ],
+    "qid": "f4dfa462"
    }
   ]
  },
@@ -1034,7 +1111,8 @@
      {
       "hours": 35.0
      }
-    ]
+    ],
+    "qid": "53b956bd"
    },
    {
     "corpus": "stahl",
@@ -1047,7 +1125,8 @@
      {
       "hours": 408.0
      }
-    ]
+    ],
+    "qid": "7a010608"
    }
   ]
  },
@@ -1066,7 +1145,8 @@
       "hours": 47.0,
       "hours_max": 100.0
      }
-    ]
+    ],
+    "qid": "217004f5"
    },
    {
     "corpus": "stahl",
@@ -1077,7 +1157,8 @@
       "hours": 24.0,
       "hours_max": 100.0
      }
-    ]
+    ],
+    "qid": "0635b69f"
    }
   ]
  },
@@ -1092,7 +1173,8 @@
      {
       "hours": 1.667
      }
-    ]
+    ],
+    "qid": "a3b53ce0"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1110,7 +1192,8 @@
       "hours": 1.5,
       "hours_max": 9.0
      }
-    ]
+    ],
+    "qid": "82dd0198"
    },
    {
     "corpus": "dailymed",
@@ -1120,7 +1203,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "8e1d4b04"
    },
    {
     "corpus": "bdpm",
@@ -1130,7 +1214,8 @@
      {
       "hours": 0.833
      }
-    ]
+    ],
+    "qid": "a4e2de0d"
    }
   ]
  },
@@ -1146,7 +1231,8 @@
       "hours": 8.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "a9545a50"
    }
   ]
  },
@@ -1162,7 +1248,8 @@
       "hours": 10.0,
       "hours_max": 17.0
      }
-    ]
+    ],
+    "qid": "a60fc9d4"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1172,7 +1259,8 @@
      {
       "hours": 17.0
      }
-    ]
+    ],
+    "qid": "84ee7019"
    },
    {
     "corpus": "dailymed",
@@ -1188,7 +1276,8 @@
      {
       "hours": 30.0
      }
-    ]
+    ],
+    "qid": "fdeaa490"
    },
    {
     "corpus": "dailymed",
@@ -1201,7 +1290,8 @@
      {
       "hours": 14.0
      }
-    ]
+    ],
+    "qid": "7fbca393"
    }
   ]
  },
@@ -1216,7 +1306,8 @@
      {
       "hours": 20.0
      }
-    ]
+    ],
+    "qid": "80685047"
    },
    {
     "corpus": "stahl",
@@ -1227,7 +1318,8 @@
       "hours": 120.0,
       "hours_max": 168.0
      }
-    ]
+    ],
+    "qid": "1212fc1b"
    },
    {
     "corpus": "bdpm",
@@ -1238,7 +1330,8 @@
       "hours": 9.0,
       "hours_max": 20.0
      }
-    ]
+    ],
+    "qid": "a52bb052"
    },
    {
     "corpus": "bdpm",
@@ -1248,7 +1341,8 @@
      {
       "hours": 19.0
      }
-    ]
+    ],
+    "qid": "2c64fd89"
    }
   ]
  },
@@ -1268,7 +1362,8 @@
       "hours": 1.5,
       "hours_max": 4.0
      }
-    ]
+    ],
+    "qid": "3f35abf7"
    }
   ]
  },
@@ -1284,7 +1379,8 @@
       "hours": 3.5,
       "hours_max": 29.0
      }
-    ]
+    ],
+    "qid": "5b723204"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1295,7 +1391,8 @@
       "hours": 10.0,
       "hours_max": 29.0
      }
-    ]
+    ],
+    "qid": "c5d94c83"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1305,7 +1402,8 @@
      {
       "hours": 3.5
      }
-    ]
+    ],
+    "qid": "b2892f3c"
    }
   ]
  },
@@ -1320,7 +1418,8 @@
      {
       "hours": 20.0
      }
-    ]
+    ],
+    "qid": "59d17511"
    },
    {
     "corpus": "bdpm",
@@ -1331,7 +1430,8 @@
       "hours": 15.0,
       "hours_max": 80.0
      }
-    ]
+    ],
+    "qid": "3fbbda31"
    }
   ]
  },
@@ -1346,7 +1446,8 @@
      {
       "hours": 1.0
      }
-    ]
+    ],
+    "qid": "8a7b0127"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1356,7 +1457,8 @@
      {
       "hours": 1.0
      }
-    ]
+    ],
+    "qid": "3acb1e7f"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1371,7 +1473,8 @@
       "hours": 11.0,
       "hours_max": 14.0
      }
-    ]
+    ],
+    "qid": "3fe51c0a"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1381,7 +1484,8 @@
      {
       "hours": 7.0
      }
-    ]
+    ],
+    "qid": "50196ec3"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1391,7 +1495,8 @@
      {
       "hours": 34.0
      }
-    ]
+    ],
+    "qid": "58c3bb37"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1401,7 +1506,8 @@
      {
       "hours": 1.0
      }
-    ]
+    ],
+    "qid": "6325a60c"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1412,7 +1518,8 @@
       "hours": 7.0,
       "hours_max": 34.0
      }
-    ]
+    ],
+    "qid": "2b5cb2a1"
    }
   ]
  },
@@ -1428,7 +1535,8 @@
       "hours": 6.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "f2bd7762"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1438,7 +1546,8 @@
      {
       "hours": 19.8
      }
-    ]
+    ],
+    "qid": "044188f5"
    },
    {
     "corpus": "bdpm",
@@ -1448,7 +1557,8 @@
      {
       "hours": 8.0
      }
-    ]
+    ],
+    "qid": "292ffc3f"
    }
   ]
  },
@@ -1464,7 +1574,8 @@
       "hours": 10.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "b831040b"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1475,7 +1586,8 @@
       "hours": 10.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "f1362b62"
    },
    {
     "corpus": "bdpm",
@@ -1486,7 +1598,8 @@
       "hours": 0.5,
       "hours_max": 0.9
      }
-    ]
+    ],
+    "qid": "76b0f076"
    },
    {
     "corpus": "bdpm",
@@ -1500,7 +1613,8 @@
      {
       "hours": 10.0
      }
-    ]
+    ],
+    "qid": "c6dcc841"
    },
    {
     "corpus": "bdpm",
@@ -1510,7 +1624,8 @@
      {
       "hours": 13.6
      }
-    ]
+    ],
+    "qid": "193bdf6a"
    },
    {
     "corpus": "bdpm",
@@ -1523,7 +1638,8 @@
      {
       "hours": 12.0
      }
-    ]
+    ],
+    "qid": "41fe028a"
    }
   ]
  },
@@ -1539,7 +1655,8 @@
       "hours": 3.0,
       "hours_max": 4.3
      }
-    ]
+    ],
+    "qid": "7071d9be"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1549,7 +1666,8 @@
      {
       "hours": 2.917
      }
-    ]
+    ],
+    "qid": "32c6d559"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1562,7 +1680,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "c0dc60b4"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1575,7 +1694,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "14a552c5"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1588,7 +1708,8 @@
      {
       "hours": 5.9
      }
-    ]
+    ],
+    "qid": "faae1d32"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1599,7 +1720,8 @@
       "hours": 3.0,
       "hours_max": 4.3
      }
-    ]
+    ],
+    "qid": "ddbf4990"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1609,7 +1731,8 @@
      {
       "hours": 8.0
      }
-    ]
+    ],
+    "qid": "4035633e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1627,7 +1750,8 @@
       "hours": 2.2,
       "hours_max": 3.4
      }
-    ]
+    ],
+    "qid": "1fdaa7cc"
    }
   ]
  },
@@ -1646,7 +1770,8 @@
      {
       "hours": 18.0
      }
-    ]
+    ],
+    "qid": "7130ada7"
    },
    {
     "corpus": "stahl",
@@ -1656,7 +1781,8 @@
      {
       "hours": 18.0
      }
-    ]
+    ],
+    "qid": "bf6d9126"
    }
   ]
  },
@@ -1676,7 +1802,8 @@
       "hours": 8.0,
       "hours_max": 9.0
      }
-    ]
+    ],
+    "qid": "86086044"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1689,7 +1816,8 @@
      {
       "hours": 0.9
      }
-    ]
+    ],
+    "qid": "4a585332"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1699,7 +1827,8 @@
      {
       "hours": 10.0
      }
-    ]
+    ],
+    "qid": "8604a72d"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1709,7 +1838,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "7c45d12a"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1725,7 +1855,8 @@
      {
       "hours": 8.0
      }
-    ]
+    ],
+    "qid": "e0b3f4a0"
    }
   ]
  },
@@ -1741,7 +1872,8 @@
       "hours": 0.333,
       "hours_max": 0.833
      }
-    ]
+    ],
+    "qid": "04cd69e9"
    },
    {
     "corpus": "bdpm",
@@ -1755,7 +1887,8 @@
       "hours": 0.5,
       "hours_max": 1.0
      }
-    ]
+    ],
+    "qid": "898482e3"
    },
    {
     "corpus": "bdpm",
@@ -1771,7 +1904,8 @@
      {
       "hours": 0.1
      }
-    ]
+    ],
+    "qid": "2c92300a"
    }
   ]
  },
@@ -1790,7 +1924,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "0daea9c9"
    }
   ]
  },
@@ -1805,7 +1940,8 @@
      {
       "hours": 10.0
      }
-    ]
+    ],
+    "qid": "3f82d037"
    }
   ]
  },
@@ -1821,7 +1957,8 @@
       "hours": 24.0,
       "hours_max": 48.0
      }
-    ]
+    ],
+    "qid": "a5b7fd48"
    }
   ]
  },
@@ -1837,7 +1974,8 @@
       "hours": 15.0,
       "hours_max": 55.0
      }
-    ]
+    ],
+    "qid": "1c25c754"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1858,7 +1996,8 @@
       "hours": 1.0,
       "hours_max": 5.0
      }
-    ]
+    ],
+    "qid": "01c6a212"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1869,7 +2008,8 @@
       "hours": 15.0,
       "hours_max": 60.0
      }
-    ]
+    ],
+    "qid": "e3128548"
    }
   ]
  },
@@ -1889,7 +2029,8 @@
       "hours": 5.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "835c5973"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1904,7 +2045,8 @@
       "hours": 9.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "dacb9406"
    }
   ]
  },
@@ -1919,7 +2061,8 @@
      {
       "hours": 60.0
      }
-    ]
+    ],
+    "qid": "37558901"
    }
   ]
  },
@@ -1934,7 +2077,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "fdfbaff8"
    }
   ]
  },
@@ -1955,7 +2099,8 @@
      {
       "hours": 1.67
      }
-    ]
+    ],
+    "qid": "50d935bb"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -1966,7 +2111,8 @@
       "hours": 0.5,
       "hours_max": 1.35
      }
-    ]
+    ],
+    "qid": "204771d2"
    },
    {
     "corpus": "bdpm",
@@ -1977,7 +2123,8 @@
       "hours": 1.0,
       "hours_max": 2.0
      }
-    ]
+    ],
+    "qid": "979aa522"
    }
   ]
  },
@@ -1992,7 +2139,8 @@
      {
       "hours": 4.5
      }
-    ]
+    ],
+    "qid": "258de573"
    }
   ]
  },
@@ -2008,7 +2156,8 @@
       "hours": 1.0,
       "hours_max": 2.0
      }
-    ]
+    ],
+    "qid": "b315369a"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2019,7 +2168,8 @@
       "hours": 18.0,
       "hours_max": 20.0
      }
-    ]
+    ],
+    "qid": "452aa038"
    },
    {
     "corpus": "bdpm",
@@ -2030,7 +2180,8 @@
       "hours": 15.0,
       "hours_max": 20.0
      }
-    ]
+    ],
+    "qid": "c101e4f7"
    },
    {
     "corpus": "bdpm",
@@ -2041,7 +2192,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "59357758"
    }
   ]
  },
@@ -2057,7 +2209,8 @@
       "hours": 14.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "726ab982"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2075,7 +2228,8 @@
      {
       "hours": 17.25
      }
-    ]
+    ],
+    "qid": "ede1750e"
    }
   ]
  },
@@ -2091,7 +2245,8 @@
       "hours": 16.0,
       "hours_max": 38.0
      }
-    ]
+    ],
+    "qid": "c5a17b46"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2105,7 +2260,8 @@
      {
       "hours": 26.0
      }
-    ]
+    ],
+    "qid": "2d6b9fb2"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2118,7 +2274,8 @@
      {
       "hours": 29.0
      }
-    ]
+    ],
+    "qid": "b9290949"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2128,7 +2285,8 @@
      {
       "hours": 48.3
      }
-    ]
+    ],
+    "qid": "37097f65"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2141,7 +2299,8 @@
      {
       "hours": 40.0
      }
-    ]
+    ],
+    "qid": "eab84f0b"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2151,7 +2310,8 @@
      {
       "hours": 68.0
      }
-    ]
+    ],
+    "qid": "012673ce"
    }
   ]
  },
@@ -2166,7 +2326,8 @@
      {
       "hours": 5.7
      }
-    ]
+    ],
+    "qid": "9eee1b18"
    },
    {
     "corpus": "bdpm",
@@ -2176,7 +2337,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "f0de8513"
    },
    {
     "corpus": "bdpm",
@@ -2186,7 +2348,8 @@
      {
       "hours": 5.0
      }
-    ]
+    ],
+    "qid": "f698656b"
    },
    {
     "corpus": "bdpm",
@@ -2199,7 +2362,8 @@
      {
       "hours": 2.9
      }
-    ]
+    ],
+    "qid": "268db0e3"
    }
   ]
  },
@@ -2215,7 +2379,8 @@
       "hours": 15.0,
       "hours_max": 48.0
      }
-    ]
+    ],
+    "qid": "026da459"
    }
   ]
  },
@@ -2233,7 +2398,8 @@
      {
       "hours": 295.0
      }
-    ]
+    ],
+    "qid": "8185cd94"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2243,7 +2409,8 @@
      {
       "hours": 105.0
      }
-    ]
+    ],
+    "qid": "924dfe4c"
    },
    {
     "corpus": "dailymed",
@@ -2257,7 +2424,8 @@
       "hours": 336.0,
       "hours_max": 504.0
      }
-    ]
+    ],
+    "qid": "be56bb8b"
    },
    {
     "corpus": "dailymed",
@@ -2267,7 +2435,8 @@
      {
       "hours": 105.0
      }
-    ]
+    ],
+    "qid": "f125a673"
    },
    {
     "corpus": "dailymed",
@@ -2280,7 +2449,8 @@
      {
       "hours": 25.0
      }
-    ]
+    ],
+    "qid": "18bb123e"
    },
    {
     "corpus": "dailymed",
@@ -2290,7 +2460,8 @@
      {
       "hours": 192.0
      }
-    ]
+    ],
+    "qid": "2c95ee0e"
    }
   ]
  },
@@ -2306,7 +2477,8 @@
       "hours": 1.9,
       "hours_max": 2.5
      }
-    ]
+    ],
+    "qid": "d8c9caa1"
    },
    {
     "corpus": "stahl",
@@ -2316,7 +2488,8 @@
      {
       "hours": 24.0
      }
-    ]
+    ],
+    "qid": "9095f212"
    }
   ]
  },
@@ -2332,7 +2505,8 @@
       "hours": 6.0,
       "hours_max": 18.0
      }
-    ]
+    ],
+    "qid": "2d6fc94f"
    }
   ]
  },
@@ -2347,7 +2521,8 @@
      {
       "hours": 11.6
      }
-    ]
+    ],
+    "qid": "0fa7b129"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2360,7 +2535,8 @@
      {
       "hours": 11.6
      }
-    ]
+    ],
+    "qid": "1d04c192"
    }
   ]
  },
@@ -2376,7 +2552,8 @@
       "hours": 53.0,
       "hours_max": 118.0
      }
-    ]
+    ],
+    "qid": "88cc6668"
    },
    {
     "corpus": "bdpm",
@@ -2391,7 +2568,8 @@
       "hours": 40.0,
       "hours_max": 70.0
      }
-    ]
+    ],
+    "qid": "d52f0dfd"
    }
   ]
  },
@@ -2406,7 +2584,8 @@
      {
       "hours": 20.0
      }
-    ]
+    ],
+    "qid": "1448f2d9"
    },
    {
     "corpus": "stahl",
@@ -2416,7 +2595,8 @@
      {
       "hours": 65.0
      }
-    ]
+    ],
+    "qid": "b73b1568"
    }
   ]
  },
@@ -2432,7 +2612,8 @@
       "hours": 10.0,
       "hours_max": 22.0
      }
-    ]
+    ],
+    "qid": "c5cf12af"
    },
    {
     "corpus": "dailymed",
@@ -2443,7 +2624,8 @@
       "hours": 168.0,
       "hours_max": 240.0
      }
-    ]
+    ],
+    "qid": "ff793075"
    },
    {
     "corpus": "dailymed",
@@ -2457,7 +2639,8 @@
       "hours": 7.0,
       "hours_max": 42.0
      }
-    ]
+    ],
+    "qid": "65d50dbc"
    }
   ]
  },
@@ -2473,7 +2656,8 @@
       "hours": 17.0,
       "hours_max": 22.0
      }
-    ]
+    ],
+    "qid": "a7f6c4bf"
    },
    {
     "corpus": "bdpm",
@@ -2483,7 +2667,8 @@
      {
       "hours": 22.0
      }
-    ]
+    ],
+    "qid": "498c8f87"
    }
   ]
  },
@@ -2505,7 +2690,8 @@
      {
       "hours": 672.0
      }
-    ]
+    ],
+    "qid": "a5b13030"
    }
   ]
  },
@@ -2521,7 +2707,8 @@
       "hours": 8.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "a9545a50"
    }
   ]
  },
@@ -2537,7 +2724,8 @@
       "hours": 36.0,
       "hours_max": 200.0
      }
-    ]
+    ],
+    "qid": "40009649"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2548,7 +2736,8 @@
       "hours": 36.0,
       "hours_max": 200.0
      }
-    ]
+    ],
+    "qid": "705f47b2"
    },
    {
     "corpus": "bdpm",
@@ -2562,7 +2751,8 @@
      {
       "hours": 65.0
      }
-    ]
+    ],
+    "qid": "aa158293"
    }
   ]
  },
@@ -2582,7 +2772,8 @@
       "hours": 168.0,
       "hours_max": 672.0
      }
-    ]
+    ],
+    "qid": "36d1614c"
    },
    {
     "corpus": "bdpm",
@@ -2596,7 +2787,8 @@
       "hours": 4.0,
       "hours_max": 22.0
      }
-    ]
+    ],
+    "qid": "bc7e5feb"
    },
    {
     "corpus": "bdpm",
@@ -2611,7 +2803,8 @@
       "hours": 17.0,
       "hours_max": 36.0
      }
-    ]
+    ],
+    "qid": "c83c407d"
    }
   ]
  },
@@ -2627,7 +2820,8 @@
       "hours": 4.0,
       "hours_max": 8.0
      }
-    ]
+    ],
+    "qid": "36359b5a"
    }
   ]
  },
@@ -2643,7 +2837,8 @@
       "hours": 10.0,
       "hours_max": 19.0
      }
-    ]
+    ],
+    "qid": "a5abdcde"
    },
    {
     "corpus": "bdpm",
@@ -2654,7 +2849,8 @@
       "hours": 10.0,
       "hours_max": 15.0
      }
-    ]
+    ],
+    "qid": "e8f5b0c1"
    }
   ]
  },
@@ -2670,7 +2866,8 @@
       "hours": 5.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "94e053eb"
    },
    {
     "corpus": "dailymed",
@@ -2680,7 +2877,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "dc849601"
    }
   ]
  },
@@ -2696,7 +2894,8 @@
       "hours": 5.0,
       "hours_max": 7.0
      }
-    ]
+    ],
+    "qid": "3973df2a"
    },
    {
     "corpus": "dailymed",
@@ -2707,7 +2906,8 @@
       "hours": 5.0,
       "hours_max": 7.0
      }
-    ]
+    ],
+    "qid": "62cd50aa"
    },
    {
     "corpus": "dailymed",
@@ -2717,7 +2917,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "23b71a2a"
    }
   ]
  },
@@ -2732,7 +2933,8 @@
      {
       "hours": 5.0
      }
-    ]
+    ],
+    "qid": "dcf029c0"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2749,7 +2951,8 @@
       "hours": 2.0,
       "hours_max": 10.0
      }
-    ]
+    ],
+    "qid": "4f8ba44f"
    }
   ]
  },
@@ -2765,7 +2968,8 @@
       "hours": 15.0,
       "hours_max": 40.0
      }
-    ]
+    ],
+    "qid": "b0a78027"
    }
   ]
  },
@@ -2784,7 +2988,8 @@
       "hours": 2.0,
       "hours_max": 8.0
      }
-    ]
+    ],
+    "qid": "25ffe828"
    },
    {
     "corpus": "bdpm",
@@ -2799,7 +3004,8 @@
       "hours": 2.0,
       "hours_max": 4.0
      }
-    ]
+    ],
+    "qid": "14c86c9f"
    }
   ]
  },
@@ -2819,7 +3025,8 @@
       "hours": 25.0,
       "hours_max": 36.0
      }
-    ]
+    ],
+    "qid": "dad19778"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2832,7 +3039,8 @@
      {
       "hours": 22.0
      }
-    ]
+    ],
+    "qid": "82e5426f"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2846,7 +3054,8 @@
       "hours": 25.0,
       "hours_max": 36.0
      }
-    ]
+    ],
+    "qid": "4d9fe82e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2857,7 +3066,8 @@
       "hours": 20.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "0459693f"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2872,7 +3082,8 @@
       "hours": 25.0,
       "hours_max": 36.0
      }
-    ]
+    ],
+    "qid": "0314c9d3"
    }
   ]
  },
@@ -2888,7 +3099,8 @@
       "hours": 5.5,
       "hours_max": 26.0
      }
-    ]
+    ],
+    "qid": "da91cbe0"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2899,7 +3111,8 @@
       "hours": 5.5,
       "hours_max": 26.0
      }
-    ]
+    ],
+    "qid": "69ffd1d5"
    }
   ]
  },
@@ -2915,7 +3128,8 @@
       "hours": 21.0,
       "hours_max": 24.0
      }
-    ]
+    ],
+    "qid": "bf45266a"
    }
   ]
  },
@@ -2934,7 +3148,8 @@
       "hours": 20.0,
       "hours_max": 40.0
      }
-    ]
+    ],
+    "qid": "eb98c47e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2948,7 +3163,8 @@
      {
       "hours": 24.0
      }
-    ]
+    ],
+    "qid": "2f0813d7"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2958,7 +3174,8 @@
      {
       "hours": 2.5
      }
-    ]
+    ],
+    "qid": "0dbe57e9"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -2969,7 +3186,8 @@
       "hours": 20.0,
       "hours_max": 40.0
      }
-    ]
+    ],
+    "qid": "909f3cda"
    },
    {
     "corpus": "dailymed",
@@ -2979,7 +3197,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "b5695d6c"
    },
    {
     "corpus": "dailymed",
@@ -2989,7 +3208,8 @@
      {
       "hours": 2.5
      }
-    ]
+    ],
+    "qid": "bf6ec651"
    },
    {
     "corpus": "dailymed",
@@ -3000,7 +3220,8 @@
       "hours": 20.0,
       "hours_max": 40.0
      }
-    ]
+    ],
+    "qid": "ad800213"
    }
   ]
  },
@@ -3015,7 +3236,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "204b2716"
    }
   ]
  },
@@ -3030,7 +3252,8 @@
      {
       "hours": 2.5
      }
-    ]
+    ],
+    "qid": "55064ee2"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3040,7 +3263,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "51b8e54d"
    }
   ]
  },
@@ -3056,7 +3280,8 @@
       "hours": 15.0,
       "hours_max": 22.0
      }
-    ]
+    ],
+    "qid": "e864eb7f"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3067,7 +3292,8 @@
       "hours": 15.0,
       "hours_max": 22.0
      }
-    ]
+    ],
+    "qid": "918f83e3"
    },
    {
     "corpus": "stahl",
@@ -3078,7 +3304,8 @@
       "hours": 15.0,
       "hours_max": 22.0
      }
-    ]
+    ],
+    "qid": "aa795053"
    }
   ]
  },
@@ -3096,7 +3323,8 @@
      {
       "hours": 3.6
      }
-    ]
+    ],
+    "qid": "5a2d1323"
    }
   ]
  },
@@ -3115,7 +3343,8 @@
      {
       "hours": 12.0
      }
-    ]
+    ],
+    "qid": "8f21ee73"
    }
   ]
  },
@@ -3131,7 +3360,8 @@
       "hours": 16.0,
       "hours_max": 23.0
      }
-    ]
+    ],
+    "qid": "8f23a37e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3145,7 +3375,8 @@
      {
       "hours": 9.0
      }
-    ]
+    ],
+    "qid": "966cfda6"
    }
   ]
  },
@@ -3161,7 +3392,8 @@
       "hours": 4.0,
       "hours_max": 4.5
      }
-    ]
+    ],
+    "qid": "c8bdbcaf"
    }
   ]
  },
@@ -3176,7 +3408,8 @@
      {
       "hours": 0.667
      }
-    ]
+    ],
+    "qid": "9996fe66"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3190,7 +3423,8 @@
      {
       "hours": 1.5
      }
-    ]
+    ],
+    "qid": "3b56316e"
    }
   ]
  },
@@ -3206,7 +3440,8 @@
       "hours": 12.0,
       "hours_max": 14.0
      }
-    ]
+    ],
+    "qid": "6ee3cf85"
    },
    {
     "corpus": "dailymed",
@@ -3219,7 +3454,8 @@
      {
       "hours": 4.9
      }
-    ]
+    ],
+    "qid": "7f317324"
    }
   ]
  },
@@ -3235,7 +3471,8 @@
       "hours": 63.0,
       "hours_max": 69.0
      }
-    ]
+    ],
+    "qid": "c5d44c25"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3250,7 +3487,8 @@
       "hours": 79.0,
       "hours_max": 115.0
      }
-    ]
+    ],
+    "qid": "25f214ab"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3260,7 +3498,8 @@
      {
       "hours": 80.0
      }
-    ]
+    ],
+    "qid": "29e59587"
    },
    {
     "corpus": "bdpm",
@@ -3275,7 +3514,8 @@
       "hours": 79.0,
       "hours_max": 115.0
      }
-    ]
+    ],
+    "qid": "02ad74b0"
    },
    {
     "corpus": "bdpm",
@@ -3288,7 +3528,8 @@
      {
       "hours": 672.0
      }
-    ]
+    ],
+    "qid": "beb2b77e"
    }
   ]
  },
@@ -3303,7 +3544,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "204b2716"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3313,7 +3555,8 @@
      {
       "hours": 1.34
      }
-    ]
+    ],
+    "qid": "0fad156e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3323,7 +3566,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "863a3cfb"
    }
   ]
  },
@@ -3339,7 +3583,8 @@
       "hours": 20.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "c684a29c"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3350,7 +3595,8 @@
       "hours": 20.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "7c17b604"
    }
   ]
  },
@@ -3365,7 +3611,8 @@
      {
       "hours": 0.8
      }
-    ]
+    ],
+    "qid": "07fe9434"
    },
    {
     "corpus": "bdpm",
@@ -3375,7 +3622,8 @@
      {
       "hours": 1.5
      }
-    ]
+    ],
+    "qid": "fd2b6098"
    },
    {
     "corpus": "bdpm",
@@ -3388,7 +3636,8 @@
      {
       "hours": 2.4
      }
-    ]
+    ],
+    "qid": "e7f8bbb2"
    },
    {
     "corpus": "bdpm",
@@ -3401,7 +3650,8 @@
      {
       "hours": 1.5
      }
-    ]
+    ],
+    "qid": "456cac4a"
    },
    {
     "corpus": "bdpm",
@@ -3414,7 +3664,8 @@
      {
       "hours": 15.0
      }
-    ]
+    ],
+    "qid": "39c20814"
    }
   ]
  },
@@ -3430,7 +3681,8 @@
       "hours": 18.0,
       "hours_max": 32.0
      }
-    ]
+    ],
+    "qid": "b9d70296"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3444,7 +3696,8 @@
      {
       "hours": 168.0
      }
-    ]
+    ],
+    "qid": "d3bcbdd8"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3454,7 +3707,8 @@
      {
       "hours": 134.0
      }
-    ]
+    ],
+    "qid": "593845fa"
    },
    {
     "corpus": "dailymed",
@@ -3468,7 +3722,8 @@
      {
       "hours": 168.0
      }
-    ]
+    ],
+    "qid": "3ef7c457"
    }
   ]
  },
@@ -3483,7 +3738,8 @@
      {
       "hours": 17.0
      }
-    ]
+    ],
+    "qid": "96de087b"
    }
   ]
  },
@@ -3501,7 +3757,8 @@
      {
       "hours": 35.0
      }
-    ]
+    ],
+    "qid": "e86616b5"
    },
    {
     "corpus": "dailymed",
@@ -3511,7 +3768,8 @@
      {
       "hours": 35.0
      }
-    ]
+    ],
+    "qid": "11e401a9"
    }
   ]
  },
@@ -3530,7 +3788,8 @@
      {
       "hours": 384.0
      }
-    ]
+    ],
+    "qid": "f4b74336"
    }
   ]
  },
@@ -3546,7 +3805,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "4fecc6ca"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3556,7 +3816,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "99eab7cc"
    },
    {
     "corpus": "dailymed",
@@ -3566,7 +3827,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "832bb427"
    },
    {
     "corpus": "dailymed",
@@ -3576,7 +3838,8 @@
      {
       "hours": 15.0
      }
-    ]
+    ],
+    "qid": "9511f920"
    },
    {
     "corpus": "dailymed",
@@ -3586,7 +3849,8 @@
      {
       "hours": 1.8
      }
-    ]
+    ],
+    "qid": "14425135"
    },
    {
     "corpus": "dailymed",
@@ -3596,7 +3860,8 @@
      {
       "hours": 18.6
      }
-    ]
+    ],
+    "qid": "fda70f2c"
    }
   ]
  },
@@ -3614,7 +3879,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "25fca8ab"
    },
    {
     "corpus": "dailymed",
@@ -3624,7 +3890,8 @@
      {
       "hours": 1.4
      }
-    ]
+    ],
+    "qid": "317d6471"
    },
    {
     "corpus": "dailymed",
@@ -3634,7 +3901,8 @@
      {
       "hours": 13.0
      }
-    ]
+    ],
+    "qid": "bd6a2b33"
    },
    {
     "corpus": "bdpm",
@@ -3645,7 +3913,8 @@
       "hours": 5.0,
       "hours_max": 7.0
      }
-    ]
+    ],
+    "qid": "58ee861a"
    },
    {
     "corpus": "bdpm",
@@ -3655,7 +3924,8 @@
      {
       "hours": 12.0
      }
-    ]
+    ],
+    "qid": "fa33ad4b"
    }
   ]
  },
@@ -3671,7 +3941,8 @@
       "hours": 2.5,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "065942a7"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3681,7 +3952,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "3fa7da50"
    },
    {
     "corpus": "bdpm",
@@ -3691,7 +3963,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "1496632a"
    }
   ]
  },
@@ -3710,7 +3983,8 @@
      {
       "hours": 4.5
      }
-    ]
+    ],
+    "qid": "1800a711"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3720,7 +3994,8 @@
      {
       "hours": 4.5
      }
-    ]
+    ],
+    "qid": "702e54fd"
    }
   ]
  },
@@ -3757,7 +4032,8 @@
       "hours": 3.2,
       "hours_max": 6.4
      }
-    ]
+    ],
+    "qid": "6c8e6ecc"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3768,7 +4044,8 @@
       "hours": 2.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "ac0e681d"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3778,7 +4055,8 @@
      {
       "hours": 2.5
      }
-    ]
+    ],
+    "qid": "4fb0b32c"
    },
    {
     "corpus": "bdpm",
@@ -3799,7 +4077,8 @@
       "hours": 11.5,
       "hours_max": 25.0
      }
-    ]
+    ],
+    "qid": "45588297"
    }
   ]
  },
@@ -3815,7 +4094,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "4fecc6ca"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3825,7 +4105,8 @@
      {
       "hours": 40.0
      }
-    ]
+    ],
+    "qid": "278f2f0e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3835,7 +4116,8 @@
      {
       "hours": 2.3
      }
-    ]
+    ],
+    "qid": "750e24df"
    },
    {
     "corpus": "dailymed",
@@ -3845,7 +4127,8 @@
      {
       "hours": 2.3
      }
-    ]
+    ],
+    "qid": "6ce74c14"
    },
    {
     "corpus": "dailymed",
@@ -3858,7 +4141,8 @@
      {
       "hours": 15.0
      }
-    ]
+    ],
+    "qid": "189ec198"
    }
   ]
  },
@@ -3873,7 +4157,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "f68a9835"
    },
    {
     "corpus": "dailymed",
@@ -3883,7 +4168,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "d9c5f26e"
    },
    {
     "corpus": "dailymed",
@@ -3893,7 +4179,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "1a9987ae"
    }
   ]
  },
@@ -3913,7 +4200,8 @@
       "hours": 7.0,
       "hours_max": 11.0
      }
-    ]
+    ],
+    "qid": "b3ec4514"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -3924,7 +4212,8 @@
       "hours": 8.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "f73a977e"
    }
   ]
  },
@@ -3940,7 +4229,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "2a67b365"
    },
    {
     "corpus": "dailymed",
@@ -3961,7 +4251,8 @@
       "hours": 1.5,
       "hours_max": 10.0
      }
-    ]
+    ],
+    "qid": "e06ae257"
    }
   ]
  },
@@ -3977,7 +4268,8 @@
       "hours": 0.033,
       "hours_max": 0.05
      }
-    ]
+    ],
+    "qid": "16936afd"
    }
   ]
  },
@@ -3993,7 +4285,8 @@
       "hours": 5.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "c1e57880"
    },
    {
     "corpus": "dailymed",
@@ -4004,7 +4297,8 @@
       "hours": 5.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "cfa20331"
    }
   ]
  },
@@ -4020,7 +4314,8 @@
       "hours": 3.0,
       "hours_max": 14.0
      }
-    ]
+    ],
+    "qid": "54e8f60e"
    },
    {
     "corpus": "bdpm",
@@ -4030,7 +4325,8 @@
      {
       "hours": 9.0
      }
-    ]
+    ],
+    "qid": "eb13bcec"
    }
   ]
  },
@@ -4046,7 +4342,8 @@
       "hours": 5.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "94e053eb"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4060,7 +4357,8 @@
       "hours": 5.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "941172ff"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4071,7 +4369,8 @@
       "hours": 12.0,
       "hours_max": 24.0
      }
-    ]
+    ],
+    "qid": "3037525e"
    }
   ]
  },
@@ -4086,7 +4385,8 @@
      {
       "hours": 5.5
      }
-    ]
+    ],
+    "qid": "3a03a9ae"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4100,7 +4400,8 @@
       "hours": 5.0,
       "hours_max": 6.0
      }
-    ]
+    ],
+    "qid": "9313c978"
    }
   ]
  },
@@ -4127,7 +4428,8 @@
       "hours": 1.8,
       "hours_max": 4.5
      }
-    ]
+    ],
+    "qid": "8662e917"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4137,7 +4439,8 @@
      {
       "hours": 0.9
      }
-    ]
+    ],
+    "qid": "f21cddf6"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4147,7 +4450,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "26d71094"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4157,7 +4461,8 @@
      {
       "hours": 0.327
      }
-    ]
+    ],
+    "qid": "e37b85a3"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4171,7 +4476,8 @@
       "hours": 3.0,
       "hours_max": 12.0
      }
-    ]
+    ],
+    "qid": "c7c660a4"
    }
   ]
  },
@@ -4190,7 +4496,8 @@
       "hours": 2.6,
       "hours_max": 5.3
      }
-    ]
+    ],
+    "qid": "7cbe5d0f"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4200,7 +4507,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "c593bac1"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4214,7 +4522,8 @@
       "hours": 2.6,
       "hours_max": 5.3
      }
-    ]
+    ],
+    "qid": "577e7bf3"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4225,7 +4534,8 @@
       "hours": 3.7,
       "hours_max": 4.1
      }
-    ]
+    ],
+    "qid": "be682e64"
    }
   ]
  },
@@ -4244,7 +4554,8 @@
       "hours": 24.0,
       "hours_max": 50.0
      }
-    ]
+    ],
+    "qid": "bd940cc1"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4254,7 +4565,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "546ddb72"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4268,7 +4580,8 @@
       "hours": 24.0,
       "hours_max": 50.0
      }
-    ]
+    ],
+    "qid": "5e88fa73"
    }
   ]
  },
@@ -4283,7 +4596,8 @@
      {
       "hours": 0.833
      }
-    ]
+    ],
+    "qid": "d51b0c26"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4293,7 +4607,8 @@
      {
       "hours": 0.133
      }
-    ]
+    ],
+    "qid": "cb0803a4"
    }
   ]
  },
@@ -4309,7 +4624,8 @@
       "hours": 1.2,
       "hours_max": 2.5
      }
-    ]
+    ],
+    "qid": "e4802fe0"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4320,7 +4636,8 @@
       "hours": 1.2,
       "hours_max": 2.5
      }
-    ]
+    ],
+    "qid": "bb1a912c"
    }
   ]
  },
@@ -4336,7 +4653,8 @@
       "hours": 7.0,
       "hours_max": 46.0
      }
-    ]
+    ],
+    "qid": "132ea7a4"
    }
   ]
  },
@@ -4352,7 +4670,8 @@
       "hours": 1.5,
       "hours_max": 31.0
      }
-    ]
+    ],
+    "qid": "9e678908"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4362,7 +4681,8 @@
      {
       "hours": 24.0
      }
-    ]
+    ],
+    "qid": "50edde8a"
    },
    {
     "corpus": "bdpm",
@@ -4373,7 +4693,8 @@
       "hours": 0.033,
       "hours_max": 0.067
      }
-    ]
+    ],
+    "qid": "84c42699"
    },
    {
     "corpus": "bdpm",
@@ -4384,7 +4705,8 @@
       "hours": 0.5,
       "hours_max": 1.0
      }
-    ]
+    ],
+    "qid": "eb4c666b"
    }
   ]
  },
@@ -4400,7 +4722,8 @@
       "hours": 15.0,
       "hours_max": 23.0
      }
-    ]
+    ],
+    "qid": "b02409de"
    }
   ]
  },
@@ -4415,7 +4738,8 @@
      {
       "hours": 1.25
      }
-    ]
+    ],
+    "qid": "ef2bfdbe"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4429,7 +4753,8 @@
      {
       "hours": 1.25
      }
-    ]
+    ],
+    "qid": "9b0382de"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4439,7 +4764,8 @@
      {
       "hours": 0.045
      }
-    ]
+    ],
+    "qid": "1536a0d9"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4449,7 +4775,8 @@
      {
       "hours": 0.483
      }
-    ]
+    ],
+    "qid": "89c16429"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4460,7 +4787,8 @@
       "hours": 2.9,
       "hours_max": 5.3
      }
-    ]
+    ],
+    "qid": "2287b027"
    },
    {
     "corpus": "bdpm",
@@ -4471,7 +4799,8 @@
       "hours": 3.0,
       "hours_max": 5.0
      }
-    ]
+    ],
+    "qid": "cfa05c6a"
    }
   ]
  },
@@ -4486,7 +4815,8 @@
      {
       "hours": 0.167
      }
-    ]
+    ],
+    "qid": "095aa75a"
    }
   ]
  },
@@ -4506,7 +4836,8 @@
       "hours": 12.0,
       "hours_max": 13.0
      }
-    ]
+    ],
+    "qid": "70f850ac"
    },
    {
     "corpus": "dailymed",
@@ -4525,7 +4856,8 @@
      {
       "hours": 10.5
      }
-    ]
+    ],
+    "qid": "878edac4"
    },
    {
     "corpus": "dailymed",
@@ -4538,7 +4870,8 @@
      {
       "hours": 12.5
      }
-    ]
+    ],
+    "qid": "4b731a30"
    }
   ]
  },
@@ -4553,7 +4886,8 @@
      {
       "hours": 53.0
      }
-    ]
+    ],
+    "qid": "1d6b9560"
    },
    {
     "corpus": "bdpm",
@@ -4566,7 +4900,8 @@
      {
       "hours": 30.0
      }
-    ]
+    ],
+    "qid": "16a950af"
    }
   ]
  },
@@ -4581,7 +4916,8 @@
      {
       "hours": 13.0
      }
-    ]
+    ],
+    "qid": "a8e19789"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4592,7 +4928,8 @@
       "hours": 12.0,
       "hours_max": 16.0
      }
-    ]
+    ],
+    "qid": "5f1ff41a"
    },
    {
     "corpus": "dailymed",
@@ -4605,7 +4942,8 @@
      {
       "hours": 13.0
      }
-    ]
+    ],
+    "qid": "c931e452"
    },
    {
     "corpus": "dailymed",
@@ -4620,7 +4958,8 @@
       "hours": 15.0,
       "hours_max": 23.0
      }
-    ]
+    ],
+    "qid": "baa647f1"
    },
    {
     "corpus": "dailymed",
@@ -4630,7 +4969,8 @@
      {
       "hours": 13.0
      }
-    ]
+    ],
+    "qid": "d888f5e6"
    },
    {
     "corpus": "dailymed",
@@ -4646,7 +4986,8 @@
      {
       "hours": 14.8
      }
-    ]
+    ],
+    "qid": "6300a7db"
    },
    {
     "corpus": "bdpm",
@@ -4656,7 +4997,8 @@
      {
       "hours": 13.0
      }
-    ]
+    ],
+    "qid": "9b08f18a"
    }
   ]
  },
@@ -4671,7 +5013,8 @@
      {
       "hours": 9.0
      }
-    ]
+    ],
+    "qid": "5fdf01d4"
    },
    {
     "corpus": "dailymed",
@@ -4681,7 +5024,8 @@
      {
       "hours": 9.0
      }
-    ]
+    ],
+    "qid": "956f20fb"
    },
    {
     "corpus": "dailymed",
@@ -4694,7 +5038,8 @@
      {
       "hours": 9.3
      }
-    ]
+    ],
+    "qid": "0e03cec5"
    }
   ]
  },
@@ -4710,7 +5055,8 @@
       "hours": 0.75,
       "hours_max": 1.5
      }
-    ]
+    ],
+    "qid": "c9451602"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4721,7 +5067,8 @@
       "hours": 0.75,
       "hours_max": 1.5
      }
-    ]
+    ],
+    "qid": "2f8c6dd3"
    }
   ]
  },
@@ -4736,7 +5083,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "6ef88f81"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4749,7 +5097,8 @@
      {
       "hours": 1.5
      }
-    ]
+    ],
+    "qid": "6b064934"
    },
    {
     "corpus": "dailymed",
@@ -4765,7 +5114,8 @@
      {
       "hours": 3.2
      }
-    ]
+    ],
+    "qid": "ae34b41a"
    },
    {
     "corpus": "dailymed",
@@ -4784,7 +5134,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "620189e2"
    },
    {
     "corpus": "dailymed",
@@ -4803,7 +5154,8 @@
      {
       "hours": 4.5
      }
-    ]
+    ],
+    "qid": "15cb5764"
    }
   ]
  },
@@ -4819,7 +5171,8 @@
       "hours": 0.4,
       "hours_max": 0.7
      }
-    ]
+    ],
+    "qid": "9eb617f3"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4830,7 +5183,8 @@
       "hours": 0.3,
       "hours_max": 0.7
      }
-    ]
+    ],
+    "qid": "8e8add1d"
    },
    {
     "corpus": "dailymed",
@@ -4846,7 +5200,8 @@
      {
       "hours": 3.2
      }
-    ]
+    ],
+    "qid": "ae34b41a"
    },
    {
     "corpus": "dailymed",
@@ -4865,7 +5220,8 @@
      {
       "hours": 4.0
      }
-    ]
+    ],
+    "qid": "620189e2"
    },
    {
     "corpus": "dailymed",
@@ -4884,7 +5240,8 @@
      {
       "hours": 4.5
      }
-    ]
+    ],
+    "qid": "15cb5764"
    },
    {
     "corpus": "bdpm",
@@ -4894,7 +5251,8 @@
      {
       "hours": 0.5
      }
-    ]
+    ],
+    "qid": "6618386d"
    }
   ]
  },
@@ -4910,7 +5268,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "4fecc6ca"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4920,7 +5279,8 @@
      {
       "hours": 2.9
      }
-    ]
+    ],
+    "qid": "cf9dd31a"
    },
    {
     "corpus": "dailymed",
@@ -4933,7 +5293,8 @@
      {
       "hours": 3.5
      }
-    ]
+    ],
+    "qid": "cb882aa1"
    },
    {
     "corpus": "dailymed",
@@ -4944,7 +5305,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "1b08d192"
    }
   ]
  },
@@ -4960,7 +5322,8 @@
       "hours": 64.0,
       "hours_max": 69.0
      }
-    ]
+    ],
+    "qid": "9bf7e3d5"
    }
   ]
  },
@@ -4975,7 +5338,8 @@
      {
       "hours": 2.5
      }
-    ]
+    ],
+    "qid": "55064ee2"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -4985,7 +5349,8 @@
      {
       "hours": 2.5
      }
-    ]
+    ],
+    "qid": "40fb51ca"
    }
   ]
  },
@@ -5001,7 +5366,8 @@
       "hours": 2.0,
       "hours_max": 3.0
      }
-    ]
+    ],
+    "qid": "4fecc6ca"
    }
   ]
  },
@@ -5021,7 +5387,8 @@
       "hours": 432.0,
       "hours_max": 456.0
      }
-    ]
+    ],
+    "qid": "ed55bdda"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5036,7 +5403,8 @@
       "hours": 432.0,
       "hours_max": 456.0
      }
-    ]
+    ],
+    "qid": "bbd45912"
    }
   ]
  },
@@ -5051,7 +5419,8 @@
      {
       "hours": 23.0
      }
-    ]
+    ],
+    "qid": "333df441"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5061,7 +5430,8 @@
      {
       "hours": 23.0
      }
-    ]
+    ],
+    "qid": "ea153a27"
    }
   ]
  },
@@ -5076,7 +5446,8 @@
      {
       "hours": 672.0
      }
-    ]
+    ],
+    "qid": "06f00bba"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5086,7 +5457,8 @@
      {
       "hours": 672.0
      }
-    ]
+    ],
+    "qid": "251ef13e"
    }
   ]
  },
@@ -5102,7 +5474,8 @@
       "hours": 20.0,
       "hours_max": 25.0
      }
-    ]
+    ],
+    "qid": "5ce61034"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5113,7 +5486,8 @@
       "hours": 20.0,
       "hours_max": 25.0
      }
-    ]
+    ],
+    "qid": "76aed980"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5124,7 +5498,8 @@
       "hours": 7.0,
       "hours_max": 8.0
      }
-    ]
+    ],
+    "qid": "94611f3f"
    }
   ]
  },
@@ -5140,7 +5515,8 @@
       "hours": 13.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "94fdfc1e"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5151,7 +5527,8 @@
       "hours": 13.0,
       "hours_max": 30.0
      }
-    ]
+    ],
+    "qid": "292b0443"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5164,7 +5541,8 @@
      {
       "hours": 25.0
      }
-    ]
+    ],
+    "qid": "3d135cd6"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5177,7 +5555,8 @@
      {
       "hours": 50.0
      }
-    ]
+    ],
+    "qid": "9a8fdfb8"
    }
   ]
  },
@@ -5192,7 +5571,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "0456e83b"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5202,7 +5582,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "3615999f"
    },
    {
     "corpus": "bdpm",
@@ -5215,7 +5596,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "2d45c5f5"
    }
   ]
  },
@@ -5234,7 +5616,8 @@
       "hours": 3.0,
       "hours_max": 16.0
      }
-    ]
+    ],
+    "qid": "500ba2a6"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5248,7 +5631,8 @@
       "hours": 3.0,
       "hours_max": 16.0
      }
-    ]
+    ],
+    "qid": "5509c527"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5259,7 +5643,8 @@
       "hours": 5.2,
       "hours_max": 8.0
      }
-    ]
+    ],
+    "qid": "27db2db2"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5274,7 +5659,8 @@
       "hours": 9.2,
       "hours_max": 16.0
      }
-    ]
+    ],
+    "qid": "05bf2b25"
    }
   ]
  },
@@ -5295,7 +5681,8 @@
      {
       "hours": 16.0
      }
-    ]
+    ],
+    "qid": "1055f261"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5308,7 +5695,8 @@
      {
       "hours": 1.0
      }
-    ]
+    ],
+    "qid": "d7930d9b"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5318,7 +5706,8 @@
      {
       "hours": 16.0
      }
-    ]
+    ],
+    "qid": "3c77b6d7"
    }
   ]
  },
@@ -5334,7 +5723,8 @@
       "hours": 0.25,
       "hours_max": 2.5
      }
-    ]
+    ],
+    "qid": "6e35ccfb"
    },
    {
     "corpus": "bdpm",
@@ -5345,7 +5735,8 @@
       "hours": 0.25,
       "hours_max": 2.5
      }
-    ]
+    ],
+    "qid": "ab8cab8f"
    },
    {
     "corpus": "bdpm",
@@ -5355,7 +5746,8 @@
      {
       "hours": 6.0
      }
-    ]
+    ],
+    "qid": "1f3dfe11"
    }
   ]
  },
@@ -5371,7 +5763,8 @@
       "hours": 2.9,
       "hours_max": 3.6
      }
-    ]
+    ],
+    "qid": "36565838"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5382,7 +5775,8 @@
       "hours": 3.0,
       "hours_max": 4.0
      }
-    ]
+    ],
+    "qid": "47d08a1b"
    }
   ]
  },
@@ -5398,7 +5792,8 @@
       "hours": 6.0,
       "hours_max": 11.0
      }
-    ]
+    ],
+    "qid": "1294c9e3"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5409,7 +5804,8 @@
       "hours": 6.0,
       "hours_max": 11.0
      }
-    ]
+    ],
+    "qid": "45377536"
    }
   ]
  },
@@ -5424,7 +5820,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "6ef88f81"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5440,7 +5837,8 @@
      {
       "hours": 2.0
      }
-    ]
+    ],
+    "qid": "33e9235e"
    },
    {
     "corpus": "dailymed",
@@ -5453,7 +5851,8 @@
      {
       "hours": 0.8
      }
-    ]
+    ],
+    "qid": "972fddaf"
    },
    {
     "corpus": "dailymed",
@@ -5472,7 +5871,8 @@
      {
       "hours": 0.9
      }
-    ]
+    ],
+    "qid": "b5bdc0d1"
    },
    {
     "corpus": "bdpm",
@@ -5483,7 +5883,8 @@
       "hours": 2.0,
       "hours_max": 5.0
      }
-    ]
+    ],
+    "qid": "f58c772c"
    }
   ]
  },
@@ -5498,7 +5899,8 @@
      {
       "hours": 3.5
      }
-    ]
+    ],
+    "qid": "efafe2d2"
    },
    {
     "corpus": "wikipedia_pharm",
@@ -5512,7 +5914,8 @@
      {
       "hours": 24.0
      }
-    ]
+    ],
+    "qid": "5d30bd3b"
    },
    {
     "corpus": "bdpm",
@@ -5522,7 +5925,8 @@
      {
       "hours": 3.0
      }
-    ]
+    ],
+    "qid": "5418a8e9"
    }
   ]
  }

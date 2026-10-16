@@ -46,6 +46,7 @@ sys.path.insert(0, str(TOOLS / "fetch"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators.demographics import CACHE, node_key, vocab_error  # noqa: E402
 from prose_gate import apply_picks, not_offered, run_applier  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 from apply_receptor_effects import current_kinds  # noqa: E402 (receptors + targets)
 from apply_release_modulation import current_structures  # noqa: E402
 from check_data import normalize_for_match  # noqa: E402
@@ -71,7 +72,7 @@ def apply(worklist: dict, judged: dict, kinds: dict[str, str], structures: set[s
         off = not_offered(cands, picks, "factors", f["factor"])
         if off:
             return key, f"candidate(s) {off} were not offered for {f['factor']!r}"
-        picked = [cands[i] for i in picks if isinstance(i, int) and 0 <= i < len(cands)]
+        picked = [c for c in (resolve(cands, p)[0] for p in picks) if c is not None]
         animal = sorted({c["page"] for c in picked
                          if "human" not in species.get(str(c["page"]), [])})
         if animal:

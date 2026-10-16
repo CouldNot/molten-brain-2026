@@ -5,11 +5,13 @@ Step three of the usual pipeline: ``tools/fetch/fetch_originator.py`` offered in
 candidates with no verdict, an LLM answered by index into
 ``tools/generated_cache/originator_judged.json``::
 
-    {"drugs":     {"<drug id>": {"index": 0, "name": "Lundbeck", "company": "lundbeck"}},
-     "companies": {"<slug>": {"country": {"index": 2, "country": "dk"} | null,
-                              "now": {"index": 5, "name": "Novartis"} | null}}}
+    {"drugs":     {"<drug id>": {"index": 0, "qid": "...", "name": "Lundbeck",
+                                 "company": "lundbeck"}},
+     "companies": {"<slug>": {"country": {"index": 2, "qid": "...", "country": "dk"} | null,
+                              "now": {"index": 5, "qid": "...", "name": "Novartis"} | null}}}
 
-``now.index`` may be a list when the chain takes two sentences (CIBA merged into
+Every ``index`` echoes its candidate's ``qid`` (``pipeline.judged.resolve``). ``now``
+may instead be ``{"picks": [{index, qid}, ...], "name": ...}`` when the chain takes two sentences (CIBA merged into
 Ciba-Geigy, which merged into Novartis): every one must be a successor sentence and
 one must carry the name; all are cited.
 
@@ -53,16 +55,16 @@ import fetch_cyp_wikipedia as cypwiki  # noqa: E402
 import fetch_originator as fo  # noqa: E402
 from data_generators import history, origin  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "originator_judged.json"
 FIELDS = ("originator", "originator_sources", "originator_now_sources",
           "originator_country", "originator_country_sources")
 
 
-def _pick(cands: list[dict], index) -> dict | None:
-    if not isinstance(index, int) or not 0 <= index < len(cands):
-        return None
-    return cands[index]
+def _pick(cands: list[dict], pick) -> dict | None:
+    """The candidate a judged ``{index, qid}`` pick names, or None."""
+    return resolve(cands, pick)[0]
 
 
 def _source(cand: dict, pages: PageGate) -> dict | None:
@@ -77,7 +79,7 @@ def company_facts(slug: str, offered: dict, judged: dict, pages: PageGate) -> di
     cands = (offered.get(slug) or {}).get("candidates") or []
     out: dict = {}
     c = judged.get("country") or {}
-    cand = _pick(cands, c.get("index"))
+    cand = _pick(cands, c)
     country = c.get("country")
     if (cand and country in history.COUNTRIES and country not in history.SCOPES
             and history.attests(history.COUNTRIES, country, cand["line"])):
@@ -85,8 +87,8 @@ def company_facts(slug: str, offered: dict, judged: dict, pages: PageGate) -> di
         if src:
             out["country"], out["country_sources"] = country, [src]
     n = judged.get("now") or {}
-    idx = n.get("index")
-    picks = [_pick(cands, i) for i in (idx if isinstance(idx, list) else [idx])]
+    # one successor sentence, or several (``picks``) when it takes two to name it
+    picks = [_pick(cands, p) for p in n.get("picks") or [n]]
     name = n.get("name")
     if (picks and all(picks) and isinstance(name, str) and name
             and any(name in c["line"] for c in picks)
@@ -111,7 +113,7 @@ def apply(worklist: dict, judged: dict, drugs: list[dict], pages: PageGate,
         j = (judged.get("drugs") or {}).get(drug["id"])
         if not j:
             continue
-        cand = _pick((offered.get(drug["id"]) or {}).get("candidates") or [], j.get("index"))
+        cand = _pick((offered.get(drug["id"]) or {}).get("candidates") or [], j)
         name = j.get("name")
         if not (cand and isinstance(name, str) and name and name in cand["line"]
                 and origin.ORIGINATOR_RE.search(cand["line"])):

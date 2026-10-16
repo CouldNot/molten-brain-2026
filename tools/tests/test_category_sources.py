@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_category_sources as A  # noqa: E402
+from judged_fixture import refs  # noqa: E402
 
 PAGE = "Header\nRopinirole is a dopamine agonist and works by triggering D2 receptors.\n"
 
@@ -39,9 +40,12 @@ class WikipediaGateTest(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
+    def cands(self):
+        return self.worklist["ropinirole"]["candidates"]
+
     def test_writes_a_quote_found_on_its_page(self):
         drugs = [{"id": "ropinirole", "categories": ["other"]}]
-        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": [0]}, self.pages)
+        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": refs(self.cands(), 0)}, self.pages)
         self.assertEqual((n, misses), (1, []))
         self.assertEqual(drugs[0]["category_sources"], [{
             "corpus": "wikipedia_pharm", "page": "ropinirole",
@@ -50,7 +54,7 @@ class WikipediaGateTest(unittest.TestCase):
 
     def test_rejects_a_quote_not_on_the_page(self):
         drugs = [{"id": "ropinirole", "categories": ["other"]}]
-        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": [1]}, self.pages)
+        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": refs(self.cands(), 1)}, self.pages)
         self.assertEqual(n, 0)
         self.assertNotIn("category_sources", drugs[0])
         self.assertIn("quote not on", misses[0])
@@ -60,7 +64,7 @@ class WikipediaGateTest(unittest.TestCase):
                   "provenance": "verified"}]
         drugs = [{"id": "ropinirole", "categories": ["other"],
                   "category_sources": list(stahl)}]
-        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": [0]}, self.pages)
+        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": refs(self.cands(), 0)}, self.pages)
         self.assertEqual(n, 0)
         self.assertEqual(drugs[0]["category_sources"], stahl)
         self.assertIn("already carries", misses[0])
@@ -69,7 +73,7 @@ class WikipediaGateTest(unittest.TestCase):
         drugs = [{"id": "ropinirole", "categories": ["other"]}]
         self.assertEqual(A.apply_wikipedia(drugs, self.worklist, {"ropinirole": None},
                                            self.pages), (0, []))
-        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": [9]}, self.pages)
+        n, misses = A.apply_wikipedia(drugs, self.worklist, {"ropinirole": refs(self.cands(), 9)}, self.pages)
         self.assertEqual(n, 0)
         self.assertIn("out of range", misses[0])
 

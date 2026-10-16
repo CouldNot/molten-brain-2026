@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_receptor_effects as A  # noqa: E402
 from data_generators import receptor_effects as RE  # noqa: E402
+from judged_fixture import lift_owners  # noqa: E402
 
 SED = "Blockade of H1 receptors causes sedation and weight gain."
 HYPO = "Potent α1 antagonism may be responsible for orthostatic hypotension."
@@ -43,7 +44,7 @@ class ApplierGateTest(unittest.TestCase):
         self.tmp.cleanup()
 
     def run_(self, owners):
-        return A.apply(self.worklist, {"owners": owners}, self.kinds, pages=self.pages)
+        return A.apply(self.worklist, {"owners": lift_owners(owners, self.worklist["owners"])}, self.kinds, pages=self.pages)
 
     def test_good_pick_lands_verified(self):
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",

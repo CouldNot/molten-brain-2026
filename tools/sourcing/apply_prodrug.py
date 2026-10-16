@@ -46,6 +46,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators.drugs import PRODRUG_OWN_ACTIONS  # noqa: E402
 from prose_gate import PageGate  # noqa: E402
+from pipeline.judged import resolve  # noqa: E402
 import fetch_prodrug_worklist as wl  # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "prodrug_judged.json"
@@ -59,10 +60,9 @@ _fold = drugs_io._fold
 def gate(did: str, rec: dict, cands: list[dict], ids: set[str],
          pages: PageGate) -> tuple[dict | None, str]:
     """``(source, "")`` or ``(None, why)`` for one judged drug."""
-    idx = rec.get("index")
-    if not (isinstance(idx, int) and 0 <= idx < len(cands)):
-        return None, f"index {idx!r} out of range"
-    cand = cands[idx]
+    cand, why = resolve(cands, rec)
+    if why:
+        return None, f"index {rec.get('index')!r}: {why}"
     quote = cand["line"]
     if not wl.PRODRUG_RE.search(quote):
         return None, "the quote does not say prodrug / inactive"

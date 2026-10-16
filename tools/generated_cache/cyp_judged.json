@@ -4,96 +4,112 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4d419e62"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2a7e3080"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2a7e3080"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2a7e3080"
   }
  ],
  "alprazolam": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "e0b3773c"
   }
  ],
  "amitriptyline": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d4b447e4"
   },
   {
    "enzyme": "cyp2c19",
    "n": 4,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d4b447e4"
   },
   {
    "enzyme": "cyp3a4",
    "n": 11,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "2859aa09"
   }
  ],
  "amoxapine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "996fd66a"
   }
  ],
  "amphetamine_d": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0fa6e1a"
   },
   {
    "enzyme": "fmo3",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0fa6e1a"
   }
  ],
  "amphetamine_dl": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0fa6e1a"
   },
   {
    "enzyme": "fmo3",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0fa6e1a"
   }
  ],
  "aripiprazole": [
@@ -101,136 +117,160 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "301f507c"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "301f507c"
   },
   {
    "enzyme": "cyp2d6",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "33b68e45"
   },
   {
    "enzyme": "cyp3a4",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "33b68e45"
   }
  ],
  "armodafinil": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c437b96a"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "b33ed066"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "b33ed066"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "inducer",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "e5b7f9cc"
   },
   {
    "enzyme": "cyp2c19",
    "n": 3,
    "role": "inhibitor",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "e5b7f9cc"
   },
   {
    "enzyme": "cyp3a4",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "6c7ecadc"
   },
   {
    "enzyme": "cyp3a5",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "6c7ecadc"
   },
   {
    "enzyme": "cyp2c9",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "6c7ecadc"
   }
  ],
  "asenapine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "996b85a0"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4f742c6e"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b5082d8d"
   },
   {
    "enzyme": "ugt1a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b5082d8d"
   }
  ],
  "atomoxetine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9ed49b8f"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8412e884"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fb400753"
   },
   {
    "enzyme": "cyp2d6",
    "n": 19,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "0296cc9a"
   },
   {
    "enzyme": "cyp2c19",
    "n": 19,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0296cc9a"
   }
  ],
  "blonanserin": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "dbafe4a0"
   }
  ],
  "brexanolone": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c3cf3f39"
   }
  ],
  "brexpiprazole": [
@@ -238,93 +278,109 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "301f507c"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "301f507c"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "785b0d8a"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "785b0d8a"
   }
  ],
  "brivaracetam": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "31d5840b"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "00f9af8f"
   }
  ],
  "buprenorphine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "16b1289e"
   },
   {
    "enzyme": "cyp2c8",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "16b1289e"
   },
   {
    "enzyme": "ugt2b7",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "571646b3"
   },
   {
    "enzyme": "ugt1a1",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "571646b3"
   }
  ],
  "bupropion": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "996b85a0"
   },
   {
    "enzyme": "cyp2b6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "a1d50721"
   },
   {
    "enzyme": "cyp2d6",
    "n": 5,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "e075c680"
   },
   {
    "enzyme": "cyp2b6",
    "n": 11,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "6e3f353e"
   },
   {
    "enzyme": "cyp2c19",
    "n": 11,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "6e3f353e"
   }
  ],
  "buspirone": [
@@ -332,13 +388,15 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "348fec32"
   },
   {
    "enzyme": "cyp3a4",
    "n": 4,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "9988b581"
   }
  ],
  "caffeine": [
@@ -346,31 +404,36 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d46e5ca9"
   },
   {
    "enzyme": "cyp2e1",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "d46e5ca9"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "d46e5ca9"
   },
   {
    "enzyme": "cyp2c8",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "d46e5ca9"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "d46e5ca9"
   }
  ],
  "carbamazepine": [
@@ -378,78 +441,91 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a54b5206"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "0fec5267"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "266825e1"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
    "role": "inducer",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "266825e1"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
    "role": "inducer",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "266825e1"
   },
   {
    "enzyme": "cyp3a4",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a146495d"
   }
  ],
  "cariprazine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a1bfad59"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "a1bfad59"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "9858c0d6"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "9858c0d6"
   }
  ],
  "chloral_hydrate": [
   {
    "enzyme": "adh",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "47e31d92"
   },
   {
    "enzyme": "adh",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c0f264d2"
   }
  ],
  "chlorpromazine": [
@@ -457,18 +533,21 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "189dccbe"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "inhibitor",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "d933bc47"
   },
   {
    "enzyme": "cyp1a2",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9a5f03ee"
   }
  ],
  "citalopram": [
@@ -476,50 +555,59 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "7f9d189c"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8ed9dd76"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8ed9dd76"
   },
   {
    "enzyme": "cyp2c19",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "f2335616"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f2335616"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f2335616"
   }
  ],
  "clobazam": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55c33e3e"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55c33e3e"
   },
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55c33e3e"
   }
  ],
  "clomethiazole": [
@@ -527,47 +615,55 @@
    "enzyme": "cyp2e1",
    "n": 0,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "4aa1ed14"
   },
   {
    "enzyme": "cyp2b6",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "39618372"
   }
  ],
  "clomipramine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "996b85a0"
   },
   {
    "enzyme": "cyp2d6",
    "n": 6,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "053cbec3"
   }
  ],
  "clonazepam": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fc9a852d"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "deacd9e1"
   }
  ],
  "clonidine": [
@@ -575,13 +671,15 @@
    "enzyme": "cyp2d6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "8adab473"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "8adab473"
   }
  ],
  "clozapine": [
@@ -589,67 +687,78 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "fb8d3791"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "fb8d3791"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "fb8d3791"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4dba0285"
   },
   {
    "enzyme": "cyp1a2",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "c2fc846a"
   },
   {
    "enzyme": "cyp1a1",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fdde35e7"
   }
  ],
  "cocaine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4e0bbe2b"
   }
  ],
  "codeine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "92f760cc"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "92f760cc"
   },
   {
    "enzyme": "ugt2b7",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "92f760cc"
   }
  ],
  "cyproheptadine": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "23e50e76"
   }
  ],
  "daridorexant": [
@@ -657,30 +766,35 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "348fec32"
   },
   {
    "enzyme": "cyp3a4",
    "n": 9,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "0f8c153e"
   }
  ],
  "desipramine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "bd7f6f66"
   }
  ],
  "desvenlafaxine": [
@@ -688,102 +802,119 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "a7e83344"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "76da587e"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "76da587e"
   }
  ],
  "deutetrabenazine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ea427070"
   }
  ],
  "dexmedetomidine": [
   {
    "enzyme": "cyp2a6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b9c2fac9"
   },
   {
    "enzyme": "ugt",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "b9c2fac9"
   }
  ],
  "dextromethorphanbupropion": [
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "69a5274e"
   },
   {
    "enzyme": "cyp2d6",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "00a773dd"
   }
  ],
  "dextromethorphanquinidine": [
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1e30f28f"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1e30f28f"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "1e30f28f"
   }
  ],
  "diazepam": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55941d24"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55941d24"
   },
   {
    "enzyme": "cyp2b6",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "a92c51c6"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a92c51c6"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a92c51c6"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "a4d7a2ab"
   }
  ],
  "diphenhydramine": [
@@ -791,39 +922,46 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "1cab7fb5"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "39082a44"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "39082a44"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "39082a44"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "39082a44"
   }
  ],
  "disulfiram": [
   {
    "enzyme": "cyp2e1",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "baf73570"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "baf73570"
   }
  ],
  "dmt": [
@@ -831,13 +969,15 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "85ea3893"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "85ea3893"
   }
  ],
  "domperidone": [
@@ -845,124 +985,145 @@
    "enzyme": "cyp3a4",
    "n": 4,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "ea9d26ae"
   },
   {
    "enzyme": "cyp3a5",
    "n": 4,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "ea9d26ae"
   },
   {
    "enzyme": "cyp1a2",
    "n": 4,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "ea9d26ae"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "ea9d26ae"
   },
   {
    "enzyme": "cyp2c8",
    "n": 4,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "ea9d26ae"
   }
  ],
  "donepezil": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "834df1ef"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "834df1ef"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "834df1ef"
   }
  ],
  "dothiepin": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "996fd66a"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f7b71e7a"
   }
  ],
  "doxepin": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "996fd66a"
   },
   {
    "enzyme": "cyp2d6",
    "n": 8,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "5388a4f2"
   },
   {
    "enzyme": "cyp2c19",
    "n": 8,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "5388a4f2"
   },
   {
    "enzyme": "cyp1a2",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5388a4f2"
   },
   {
    "enzyme": "cyp2c9",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5388a4f2"
   },
   {
    "enzyme": "cyp3a4",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5388a4f2"
   }
  ],
  "doxylamine": [
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ca5f1779"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ca5f1779"
   },
   {
    "enzyme": "cyp2c9",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ca5f1779"
   }
  ],
  "duloxetine": [
@@ -970,66 +1131,78 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4fead1f3"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4fead1f3"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "2c7c4961"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "2c7c4961"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c737b265"
   },
   {
    "enzyme": "cyp1a2",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c737b265"
   }
  ],
  "escitalopram": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55941d24"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55941d24"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9e087442"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9e087442"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9e087442"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "b700f88c"
   }
  ],
  "esketamine": [
@@ -1037,71 +1210,83 @@
    "enzyme": "cyp2b6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4237691d"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4237691d"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "4237691d"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "4237691d"
   }
  ],
  "eszopiclone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0bb3015e"
   },
   {
    "enzyme": "cyp2e1",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0bb3015e"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "189c3534"
   },
   {
    "enzyme": "cyp2e1",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "189c3534"
   }
  ],
  "ethanol": [
   {
    "enzyme": "adh",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8477c72b"
   },
   {
    "enzyme": "cyp2e1",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8477c72b"
   }
  ],
  "ethosuximide": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8a014725"
   },
   {
    "enzyme": "cyp2e1",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8a014725"
   }
  ],
  "fentanyl": [
@@ -1109,7 +1294,8 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "60b504da"
   }
  ],
  "flibanserin": [
@@ -1117,30 +1303,35 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "55d89f10"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "55d89f10"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "07baa507"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "07baa507"
   }
  ],
  "flumazenil": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "61d2f8cf"
   }
  ],
  "flunarizine": [
@@ -1148,7 +1339,8 @@
    "enzyme": "cyp2d6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "62389d2b"
   }
  ],
  "flunitrazepam": [
@@ -1156,141 +1348,165 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "5cd41c08"
   }
  ],
  "fluoxetine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "996b85a0"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "381db7fd"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "56965b01"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "6c353c4d"
   },
   {
    "enzyme": "cyp2c19",
    "n": 4,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "6c353c4d"
   },
   {
    "enzyme": "cyp2b6",
    "n": 4,
    "role": "inhibitor",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "6c353c4d"
   },
   {
    "enzyme": "cyp2c9",
    "n": 4,
    "role": "inhibitor",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "6c353c4d"
   }
  ],
  "fluvoxamine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "381db7fd"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "2da3fb33"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "09319e77"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "09319e77"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "2120e504"
   },
   {
    "enzyme": "cyp1a2",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "2120e504"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "2120e504"
   },
   {
    "enzyme": "cyp2c19",
    "n": 3,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "2120e504"
   }
  ],
  "galantamine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "201735ad"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "201735ad"
   }
  ],
  "glutethimide": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "7c649e69"
   }
  ],
  "guanfacine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8da72b7a"
   },
   {
    "enzyme": "cyp3a5",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8da72b7a"
   }
  ],
  "haloperidol": [
@@ -1298,75 +1514,88 @@
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "2d2b0463"
   }
  ],
  "hydroxyzine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "982d80b4"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "982d80b4"
   }
  ],
  "ibogaine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "55a31bff"
   }
  ],
  "iloperidone": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e5c4a077"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e5c4a077"
   }
  ],
  "imipramine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fa974247"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "85c7317f"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "85c7317f"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "85c7317f"
   }
  ],
  "istradefylline": [
@@ -1374,60 +1603,70 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d56a506a"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d56a506a"
   },
   {
    "enzyme": "cyp1a1",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d56a506a"
   }
  ],
  "ketamine": [
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "19cc6f89"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "19cc6f89"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "19cc6f89"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "e9db5405"
   },
   {
    "enzyme": "cyp2b6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "e9db5405"
   }
  ],
  "lacosamide": [
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0dc49179"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0dc49179"
   }
  ],
  "lamotrigine": [
@@ -1435,7 +1674,8 @@
    "enzyme": "ugt1a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "f8a3e2ae"
   }
  ],
  "lemborexant": [
@@ -1443,50 +1683,58 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "c57b0b4f"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "c57b0b4f"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "58cb1dd6"
   },
   {
    "enzyme": "cyp3a5",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "58cb1dd6"
   }
  ],
  "levomilnacipran": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2bba9768"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "56c78205"
   }
  ],
  "lofepramine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "996fd66a"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "59150a6e"
   }
  ],
  "lofexidine": [
@@ -1494,24 +1742,28 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "808f052a"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "808f052a"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "808f052a"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "64e0ecc3"
   }
  ],
  "lorazepam": [
@@ -1519,102 +1771,119 @@
    "enzyme": "ugt",
    "n": 2,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "2eac7953"
   }
  ],
  "loxapine": [
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0339c2c"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0339c2c"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0339c2c"
   }
  ],
  "lsd": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1fd310d5"
   }
  ],
  "lumateperone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "5164d232"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "5164d232"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "36a56a7c"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c5af60a2"
   },
   {
    "enzyme": "ugt1a1",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "36a56a7c"
   }
  ],
  "lurasidone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 6,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "3344c22c"
   }
  ],
  "maprotiline": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "996fd66a"
   }
  ],
  "mdma": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "af9a8328"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0e4ec273"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "272871e4"
   }
  ],
  "meclizine": [
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9265dd94"
   }
  ],
  "melatonin": [
@@ -1622,60 +1891,70 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4867f46e"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "4867f46e"
   },
   {
    "enzyme": "cyp1a1",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "4867f46e"
   }
  ],
  "melperone": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c673a225"
   }
  ],
  "methadone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c82d9711"
   },
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c82d9711"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c82d9711"
   }
  ],
  "methamphetamine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "15c6f963"
   },
   {
    "enzyme": "fmo3",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "15c6f963"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "81b9199a"
   }
  ],
  "methylphenidate_d": [
@@ -1683,28 +1962,33 @@
    "enzyme": "ces1",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "969f20dc"
   },
   {
    "enzyme": "cyp2b6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4adc3303"
   },
   {
    "enzyme": "cyp2e1",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4adc3303"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4adc3303"
   },
   {
    "enzyme": "cyp2b6",
    "n": 8,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "32aa6b50"
   }
  ],
  "methylphenidate_dl": [
@@ -1712,219 +1996,258 @@
    "enzyme": "ces1",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "1a0f0652"
   }
  ],
  "metoclopramide": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "964af792"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "964af792"
   }
  ],
  "mianserin": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "5c88833d"
   }
  ],
  "midazolam": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2233d1a5"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2233d1a5"
   }
  ],
  "mirtazapine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "007dd88a"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "007dd88a"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "007dd88a"
   },
   {
    "enzyme": "cyp1a2",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "87516304"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "87516304"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "87516304"
   }
  ],
  "moclobemide": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e4e8e296"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e4e8e296"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c125bcb1"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c125bcb1"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c125bcb1"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c125bcb1"
   }
  ],
  "modafinil": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "77ebdbce"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "77ebdbce"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "cbdf5d0c"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "inducer",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "cbdf5d0c"
   },
   {
    "enzyme": "cyp2b6",
    "n": 1,
    "role": "inducer",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "cbdf5d0c"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b64b72b9"
   },
   {
    "enzyme": "cyp2b6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b64b72b9"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b64b72b9"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b64b72b9"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b64b72b9"
   },
   {
    "enzyme": "cyp3a5",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b64b72b9"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "inducer",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "47d74701"
   },
   {
    "enzyme": "cyp2c19",
    "n": 3,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "47d74701"
   },
   {
    "enzyme": "cyp1a2",
    "n": 4,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "6ebc65e9"
   },
   {
    "enzyme": "cyp2b6",
    "n": 4,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "6ebc65e9"
   }
  ],
  "morphine": [
   {
    "enzyme": "ugt2b7",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1c8a212e"
   },
   {
    "enzyme": "ugt2b7",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "d3f90cb9"
   }
  ],
  "nefazodone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "381db7fd"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9491c134"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9491c134"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "e7c2a037"
   }
  ],
  "nicotine": [
@@ -1932,95 +2255,111 @@
    "enzyme": "cyp2a6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "1566c158"
   },
   {
    "enzyme": "cyp2b6",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "1566c158"
   },
   {
    "enzyme": "fmo3",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1566c158"
   }
  ],
  "nitrazepam": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f0d9f8f9"
   }
  ],
  "nortriptyline": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2868bcfa"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2868bcfa"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad6ec2d3"
   }
  ],
  "olanzapine": [
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "501675bd"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "501675bd"
   },
   {
    "enzyme": "cyp1a2",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "52f07027"
   },
   {
    "enzyme": "cyp2d6",
    "n": 5,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "52f07027"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "eae1a6b2"
   }
  ],
  "ondansetron": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "09762bca"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "09762bca"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "09762bca"
   }
  ],
  "opipramol": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "5c8fd1fa"
   }
  ],
  "oxazepam": [
@@ -2028,139 +2367,162 @@
    "enzyme": "ugt",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "96cbdc41"
   }
  ],
  "oxcarbazepine": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c437b96a"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "inducer",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "1cf5a79d"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "c385458d"
   },
   {
    "enzyme": "cyp3a4",
    "n": 4,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "fa1593b5"
   },
   {
    "enzyme": "cyp3a5",
    "n": 4,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "fa1593b5"
   }
  ],
  "oxycodone": [
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1de4eff2"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1de4eff2"
   },
   {
    "enzyme": "cyp3a4",
    "n": 9,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "17cf3d7c"
   },
   {
    "enzyme": "cyp2d6",
    "n": 9,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "17cf3d7c"
   }
  ],
  "pargyline": [
   {
    "enzyme": "cyp2e1",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fd7c0a5d"
   }
  ],
  "paroxetine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "996b85a0"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "67bed3c8"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9c6d9b9e"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "9c6d9b9e"
   },
   {
    "enzyme": "cyp2b6",
    "n": 3,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "312a2b5d"
   },
   {
    "enzyme": "cyp3a4",
    "n": 4,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "77db1301"
   },
   {
    "enzyme": "cyp1a2",
    "n": 5,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "c37aab9c"
   },
   {
    "enzyme": "cyp2c9",
    "n": 6,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "1706ff52"
   },
   {
    "enzyme": "cyp2c19",
    "n": 7,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "76d02378"
   }
  ],
  "perampanel": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "613abdcd"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "613abdcd"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "fb2b11f0"
   }
  ],
  "perospirone": [
@@ -2168,36 +2530,42 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "348fec32"
   }
  ],
  "pethidine": [
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35369272"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35369272"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35369272"
   },
   {
    "enzyme": "ces1",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35369272"
   }
  ],
  "phencyclidine": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "323178dd"
   }
  ],
  "phenobarbital": [
@@ -2205,12 +2573,14 @@
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "55b29059"
   },
   {
    "enzyme": "cyp2b6",
    "n": 2,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "143d6ca5"
   }
  ],
  "phenytoin": [
@@ -2218,17 +2588,20 @@
    "enzyme": "cyp2c9",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "dc55c5ed"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "c527ab6a"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "c527ab6a"
   }
  ],
  "pimavanserin": [
@@ -2236,23 +2609,27 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "1765ebd3"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "1765ebd3"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "092018a6"
   },
   {
    "enzyme": "cyp3a5",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "092018a6"
   }
  ],
  "pimozide": [
@@ -2260,22 +2637,26 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "087c04db"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "855bfd99"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "855bfd99"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "855bfd99"
   }
  ],
  "pitolisant": [
@@ -2283,68 +2664,79 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "4ca63fe0"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "4ca63fe0"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c99e95b0"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c99e95b0"
   }
  ],
  "pizotifen": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "72154e04"
   }
  ],
  "primidone": [
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "49ca8e81"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "49ca8e81"
   }
  ],
  "prochlorperazine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35605861"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35605861"
   }
  ],
  "promethazine": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "815fc7ed"
   }
  ],
  "propofol": [
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "2ac6268d"
   }
  ],
  "propranolol": [
@@ -2352,56 +2744,65 @@
    "enzyme": "cyp1a2",
    "n": 9,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "bfba8469"
   },
   {
    "enzyme": "cyp2d6",
    "n": 9,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "bfba8469"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "1ccdd4a1"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "1ccdd4a1"
   },
   {
    "enzyme": "ugt",
    "n": 7,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "60391ced"
   }
  ],
  "protriptyline": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "996fd66a"
   }
  ],
  "quazepam": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4a4ef769"
   }
  ],
  "quetiapine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fc9a852d"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f841b6cf"
   }
  ],
  "ramelteon": [
@@ -2409,24 +2810,28 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "b564d5d0"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "35964624"
   },
   {
    "enzyme": "cyp1a2",
    "n": 2,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "10dec92f"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "10dec92f"
   }
  ],
  "rasagiline": [
@@ -2434,49 +2839,57 @@
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "2b77101f"
   }
  ],
  "reboxetine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "56f99b45"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "56f99b45"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "ff7d0488"
   },
   {
    "enzyme": "cyp3a4",
    "n": 4,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "ff7d0488"
   },
   {
    "enzyme": "cyp3a4",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a2525f38"
   }
  ],
  "risperidone": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9ed49b8f"
   }
  ],
  "ropinirole": [
@@ -2484,26 +2897,30 @@
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "3b3f3e19"
   }
  ],
  "safinamide": [
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "88ead4ae"
   },
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "12d06bf5"
   }
  ],
  "salvinorin_a": [
   {
    "enzyme": "ugt2b7",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "d1f281f8"
   }
  ],
  "scopolamine": [
@@ -2511,47 +2928,55 @@
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "104bbdbe"
   }
  ],
  "selegiline": [
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "05cda753"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "05cda753"
   },
   {
    "enzyme": "cyp2b6",
    "n": 4,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "1a141035"
   },
   {
    "enzyme": "cyp2a6",
    "n": 6,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "6f88142b"
   },
   {
    "enzyme": "cyp2a6",
    "n": 14,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "bb550f5d"
   },
   {
    "enzyme": "cyp2b6",
    "n": 15,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "b5e66e4e"
   },
   {
    "enzyme": "cyp1a2",
    "n": 15,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "b5e66e4e"
   }
  ],
  "sertindole": [
@@ -2559,17 +2984,20 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "8f013aac"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1e03d13b"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1e03d13b"
   }
  ],
  "sertraline": [
@@ -2577,71 +3005,83 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "38633ca5"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "38633ca5"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "20b168ef"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "c437b96a"
   },
   {
    "enzyme": "cyp2b6",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "bbd963f7"
   },
   {
    "enzyme": "cyp2c19",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "bbd963f7"
   },
   {
    "enzyme": "cyp2d6",
    "n": 4,
    "role": "inhibitor",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "29732f22"
   },
   {
    "enzyme": "cyp2b6",
    "n": 4,
    "role": "inhibitor",
-   "strength": "moderate"
+   "strength": "moderate",
+   "qid": "29732f22"
   },
   {
    "enzyme": "cyp2c19",
    "n": 13,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "cb5e0316"
   }
  ],
  "sevoflurane": [
   {
    "enzyme": "cyp2e1",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fcc9634f"
   }
  ],
  "sibutramine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "508c3dab"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "3c77b6d7"
   }
  ],
  "sildenafil": [
@@ -2649,133 +3089,155 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "ec3277e3"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "ec3277e3"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "9c9ebde3"
   },
   {
    "enzyme": "cyp2c9",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "9c9ebde3"
   }
  ],
  "suvorexant": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp2c19",
    "n": 10,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "f1dfba8f"
   }
  ],
  "tapentadol": [
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "80f3ddea"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "80f3ddea"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "80f3ddea"
   },
   {
    "enzyme": "ugt",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "80f3ddea"
   }
  ],
  "tasimelteon": [
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c01ab4f2"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c01ab4f2"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "01955aba"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "01955aba"
   }
  ],
  "tetrabenazine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "bd7bd349"
   }
  ],
  "thc": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0ce5b592"
   },
   {
    "enzyme": "cyp2c9",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "c30c17cf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "c30c17cf"
   }
  ],
  "thioridazine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9ed49b8f"
   },
   {
    "enzyme": "cyp2d6",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c772c3e5"
   },
   {
    "enzyme": "cyp1a2",
    "n": 3,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "688487a2"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "688487a2"
   }
  ],
  "tiagabine": [
@@ -2783,18 +3245,21 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "59b462ee"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "3c953643"
   },
   {
    "enzyme": "ugt",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "cf58862d"
   }
  ],
  "tizanidine": [
@@ -2802,247 +3267,292 @@
    "enzyme": "cyp1a2",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "43c597f2"
   }
  ],
  "tofisopam": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "970e5cd0"
   }
  ],
  "tolcapone": [
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "19fbb34d"
   },
   {
    "enzyme": "cyp2a6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "19fbb34d"
   },
   {
    "enzyme": "ugt",
    "n": 2,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "19fbb34d"
   }
  ],
  "topiramate": [
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "8a656aab"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "8a656aab"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "85bb0fc9"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "inducer"
+   "role": "inducer",
+   "qid": "85bb0fc9"
   }
  ],
  "tramadol": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1a6b139a"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1a6b139a"
   },
   {
    "enzyme": "cyp2b6",
    "n": 6,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "0182971e"
   },
   {
    "enzyme": "ugt",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "1a6b139a"
   }
  ],
  "tranylcypromine": [
   {
    "enzyme": "cyp2a6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "9243c615"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "9243c615"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "9243c615"
   },
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "9243c615"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "9243c615"
   },
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "9243c615"
   }
  ],
  "trazodone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4da09282"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4da09282"
   },
   {
    "enzyme": "cyp1a2",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4da09282"
   }
  ],
  "trimipramine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "cc61787e"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "cc61787e"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "cc61787e"
   },
   {
    "enzyme": "cyp2c19",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c9e86ce0"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "40733744"
   }
  ],
  "valbenazine": [
   {
    "enzyme": "cyp3a4",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "412ee039"
   },
   {
    "enzyme": "cyp3a5",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "412ee039"
   },
   {
    "enzyme": "cyp2d6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "412ee039"
   }
  ],
  "valproate": [
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c9b21052"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "c9b21052"
   },
   {
    "enzyme": "cyp2c9",
    "n": 1,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "b2aa8912"
   },
   {
    "enzyme": "cyp2c9",
    "n": 2,
-   "role": "inhibitor"
+   "role": "inhibitor",
+   "qid": "936ad528"
   },
   {
    "enzyme": "cyp2a6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e4f64392"
   },
   {
    "enzyme": "cyp2b6",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e4f64392"
   },
   {
    "enzyme": "cyp2c9",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e4f64392"
   },
   {
    "enzyme": "cyp3a5",
    "n": 3,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "e4f64392"
   },
   {
    "enzyme": "ugt1a4",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "43164cc3"
   },
   {
    "enzyme": "ugt1a9",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "43164cc3"
   },
   {
    "enzyme": "ugt2b7",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "43164cc3"
   },
   {
    "enzyme": "ugt2b15",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "43164cc3"
   },
   {
    "enzyme": "ugt1a3",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "43164cc3"
   },
   {
    "enzyme": "ugt1a6",
    "n": 4,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "43164cc3"
   }
  ],
  "venlafaxine": [
@@ -3050,24 +3560,28 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "ecfd05f7"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad84559c"
   }
  ],
  "vilazodone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "afb6c0a7"
   }
  ],
  "viloxazine": [
@@ -3075,145 +3589,170 @@
    "enzyme": "cyp2d6",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "8500ecaf"
   },
   {
    "enzyme": "ugt1a9",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "8500ecaf"
   },
   {
    "enzyme": "ugt2b15",
    "n": 0,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "8500ecaf"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "inhibitor",
-   "strength": "strong"
+   "strength": "strong",
+   "qid": "dccbc97e"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "4a37d656"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "inhibitor",
-   "strength": "weak"
+   "strength": "weak",
+   "qid": "4a2afa64"
   },
   {
    "enzyme": "cyp2d6",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a6c3f133"
   },
   {
    "enzyme": "ugt1a9",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a6c3f133"
   },
   {
    "enzyme": "ugt2b15",
    "n": 5,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "a6c3f133"
   }
  ],
  "vortioxetine": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp3a5",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp2c19",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp2c9",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp2a6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp2c8",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp2b6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "f97fc859"
   },
   {
    "enzyme": "cyp2d6",
    "n": 8,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp2a6",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp2b6",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp2c8",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp2c9",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp2c19",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp3a4",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   },
   {
    "enzyme": "cyp3a5",
    "n": 8,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "5482a530"
   }
  ],
  "xanomeline": [
@@ -3221,7 +3760,8 @@
    "enzyme": "cyp2d6",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "ae484753"
   }
  ],
  "zaleplon": [
@@ -3229,140 +3769,163 @@
    "enzyme": "cyp3a4",
    "n": 0,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "d2c34680"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "658c9e90"
   }
  ],
  "ziprasidone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "c7322f12"
   }
  ],
  "zolpidem": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "fc9a852d"
   },
   {
    "enzyme": "cyp3a4",
    "n": 1,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "c9724632"
   },
   {
    "enzyme": "cyp2c9",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "c9724632"
   },
   {
    "enzyme": "cyp1a2",
    "n": 1,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "c9724632"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "bd2b4b66"
   },
   {
    "enzyme": "cyp2c19",
    "n": 2,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "bd2b4b66"
   }
  ],
  "zonisamide": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "4a4ef769"
   },
   {
    "enzyme": "cyp3a4",
    "n": 3,
    "role": "substrate",
-   "strength": "major"
+   "strength": "major",
+   "qid": "b96d168a"
   },
   {
    "enzyme": "cyp3a5",
    "n": 3,
    "role": "substrate",
-   "strength": "minor"
+   "strength": "minor",
+   "qid": "b96d168a"
   }
  ],
  "zopiclone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "8b851daf"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9099d22e"
   },
   {
    "enzyme": "cyp2e1",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "9099d22e"
   }
  ],
  "zotepine": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b72e0b7c"
   },
   {
    "enzyme": "cyp1a2",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b72e0b7c"
   }
  ],
  "zuclopenthixol": [
   {
    "enzyme": "cyp2d6",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "ad017495"
   },
   {
    "enzyme": "cyp2d6",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b8fa2d81"
   },
   {
    "enzyme": "cyp3a4",
    "n": 2,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "b8fa2d81"
   }
  ],
  "zuranolone": [
   {
    "enzyme": "cyp3a4",
    "n": 0,
-   "role": "substrate"
+   "role": "substrate",
+   "qid": "dbafe4a0"
   }
  ]
 }
