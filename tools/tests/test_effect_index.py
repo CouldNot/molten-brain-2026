@@ -61,7 +61,7 @@ class JoinTest(unittest.TestCase):
 class EmittedTest(unittest.TestCase):
     def test_matches_the_viewer_counts(self):
         """Counts read off the viewer's Effects panel (headless, 2026-10-16): nausea
-        lists 4 receptors and 28 drugs, sedation 13 and 143. A drift means the two
+        lists 4 receptors and 28 drugs, sedation 14 and 146. A drift means the two
         joins disagree (or the data changed: re-read the panel, then update)."""
         load = lambda n: [json.loads(line) for line in  # noqa: E731
                           (DATA / f"{n}.jsonl").read_text(encoding="utf-8").splitlines() if line]
@@ -69,7 +69,7 @@ class EmittedTest(unittest.TestCase):
         idx = {e["id"]: e for e in effect_index.build(
             load("receptors"), load("drugs"), load("metabolites"), meta)}
         self.assertEqual((len(idx["nausea"]["owners"]), len(idx["nausea"]["drugs"])), (4, 28))
-        self.assertEqual((len(idx["sedation"]["owners"]), len(idx["sedation"]["drugs"])), (13, 143))
+        self.assertEqual((len(idx["sedation"]["owners"]), len(idx["sedation"]["drugs"])), (14, 146))
 
 
 if __name__ == "__main__":
