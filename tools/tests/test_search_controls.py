@@ -18,10 +18,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from test_i18n import catalogues  # noqa: E402  the one parser of js/i18n.js
+from viewer_source import viewer_js  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 HTML = ROOT / "public" / "index.html"
-MAIN = ROOT / "public" / "js" / "main.js"
 HTML_TEXT = HTML.read_text(encoding="utf-8")
 
 # Every element carrying the mark. A void <input> has no inner content; a <button> or
@@ -54,7 +54,7 @@ def fold(s):
 def section(text, opening, closing):
     """The slice of `text` from `opening` up to the next `closing`.
 
-    Every wiring assertion below reads one stretch of js/main.js rather than the whole
+    Every wiring assertion below reads one stretch of the viewer JS rather than the whole
     file, so each needs two landmarks to survive in it. A bare ``str.index`` answers a
     moved landmark with a ValueError, which reaches the runner as an *error* carrying
     nothing about the rule that was being checked; this fails instead, naming the
@@ -62,11 +62,11 @@ def section(text, opening, closing):
     """
     start = text.find(opening)
     if start < 0:
-        raise AssertionError(f"js/main.js no longer contains {opening!r}, so the rule "
+        raise AssertionError(f"the viewer JS no longer contains {opening!r}, so the rule "
                              f"this landmark delimits cannot be checked")
     end = text.find(closing, start)
     if end < 0:
-        raise AssertionError(f"js/main.js no longer contains {closing!r} after "
+        raise AssertionError(f"the viewer JS no longer contains {closing!r} after "
                              f"{opening!r}, so the stretch to check is unbounded")
     return text[start:end]
 
@@ -270,7 +270,7 @@ class FoldTest(unittest.TestCase):
     """
 
     def test_the_steps_mirror_foldtext(self):
-        js = (ROOT / "public" / "js" / "main.js").read_text(encoding="utf-8")
+        js = viewer_js()
         body = section(js, "function foldText(", "const SEARCH_FIELDS")
         for step, why in (
                 ('normalize("NFD")', "accents no longer decompose"),
@@ -293,7 +293,7 @@ class WiringTest(unittest.TestCase):
     """The three ends that have to agree: the query, the chip, the strings."""
 
     def test_main_js_builds_the_index_from_the_attribute(self):
-        js = MAIN.read_text(encoding="utf-8")
+        js = viewer_js()
         self.assertIn('querySelectorAll("[data-search]")', js,
                       "the search index no longer reads the markup, so the attribute "
                       "is decoration and a new marked control does nothing")
@@ -307,7 +307,7 @@ class WiringTest(unittest.TestCase):
         # browse headers listed as "Drugs \u25b8". Two ends have to hold for that to
         # stay fixed: visibleText still skips an aria-hidden subtree, and the naming
         # path still reads through it instead of going back to textContent.
-        js = MAIN.read_text(encoding="utf-8")
+        js = viewer_js()
         self.assertTrue('getAttribute("aria-hidden") === "true"' in js,
                         "visibleText no longer drops aria-hidden chrome, so a "
                         "decorative glyph is part of a control's name again")
@@ -327,7 +327,7 @@ class WiringTest(unittest.TestCase):
         # collapsed body has a collapse-header right before that body. This is the
         # half that uses it. Without the reveal, picking "Show active metabolites"
         # from search flips a persisted preference with nothing on screen to show it.
-        js = MAIN.read_text(encoding="utf-8")
+        js = viewer_js()
         block = section(js, 'querySelectorAll("[data-search]")', "const items = [")
         self.assertIn('closest("[hidden]")', block,
                       "a picked option no longer looks for the collapsed section "

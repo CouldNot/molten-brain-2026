@@ -20,11 +20,14 @@ Built with the help of Claude Code.
 """
 
 import re
+import sys
 import unittest
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from viewer_source import viewer_js  # noqa: E402
+
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-MAIN_JS = REPO_ROOT / "public" / "js" / "main.js"
 
 
 def _function_body(source: str, header: str) -> str:
@@ -51,7 +54,7 @@ class ChangelogLaunchTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.js = MAIN_JS.read_text(encoding="utf-8")
+        cls.js = viewer_js()
 
     def test_the_notes_open_from_the_overlay_click(self):
         # waitForStart() resolves on the "Start exploring" click, so a trigger inside
@@ -67,8 +70,10 @@ class ChangelogLaunchTest(unittest.TestCase):
         self.assertNotIn("changelog", body)
 
     def test_the_trigger_is_one_shot_and_fires_from_one_place(self):
-        self.assertEqual(len(re.findall(r"\bshowIfUnseen\(\)", self.js)), 1)
-        self.assertEqual(len(re.findall(r"\bshowChangelogOnce\(\)", self.js)), 1)
+        # Call sites only: the definitions (`function showIfUnseen()`) are not calls.
+        calls = lambda name: re.findall(r"(?<!function )\b" + name + r"\(\)", self.js)
+        self.assertEqual(len(calls("showIfUnseen")), 1)
+        self.assertEqual(len(calls("showChangelogOnce")), 1)
 
     def test_the_tour_gates_on_the_notes_popup(self):
         # The two open from different events now, so the tour must decline to stack on

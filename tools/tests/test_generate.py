@@ -754,11 +754,12 @@ class AddonTest(unittest.TestCase):
         # The rule the whole kind rests on: a slot the viewer never asks for swallows
         # its node silently (well-formed, graded, counted, never drawn). Nothing at
         # runtime can notice that, so it is checked here, by looking for the slot's
-        # literal in the one file that fills slots.
-        js = (REPO_ROOT / "public" / "js" / "main.js").read_text(encoding="utf-8")
+        # literal in the viewer's modules.
+        js = "\n".join(p.read_text(encoding="utf-8")
+                       for p in sorted((REPO_ROOT / "public" / "js").rglob("*.js")))
         for slot in self.meta["addon_slots"]:
             self.assertIn(f'"{slot}"', js,
-                          f"slot {slot!r} has no appendAddons() call site in main.js")
+                          f"slot {slot!r} has no appendAddons() call site in the viewer")
 
     def test_a_section_addon_anchors_a_registered_section(self):
         # A section anchor is the one owner kind with no node behind it (the claim is
