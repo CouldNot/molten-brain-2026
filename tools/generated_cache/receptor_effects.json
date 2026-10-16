@@ -3,18 +3,21 @@
   "agonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 211,
     "provenance": "verified",
     "quote": "So, how do they work in depression? 5HT2A antagonism and 5HT1A partial agonism, and the resultant increase in dopamine release in the prefrontal cortex, are thought to be potentially key antidepressant mechanisms."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 342,
     "provenance": "verified",
     "quote": "It likely acts in schizophrenia and bipolar mania as a D2 partial agonist, whereas its prominent 5HT1A partial agonist actions (Chapter 5 and Figure 5-22) likely contribute to its antidepressant actions."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "5-HT 1A receptor agonists like buspirone and flesinoxan show efficacy in relieving anxiety and depression ."
@@ -23,6 +26,7 @@
   "agonism:antipsychotic": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "As mentioned above, some of the atypical antipsychotics are 5-HT 1A receptor partial agonists, and this property has been shown to enhance their clinical efficacy."
@@ -31,12 +35,14 @@
   "agonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 386,
     "provenance": "verified",
     "quote": "A serotonin 1A (5HT1A) partial agonist, buspirone, is recognized as a drug for generalized anxiety disorder, but not for treatment of the other anxiety/trauma disorder subtypes."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "5-HT 1A receptor agonists like buspirone and flesinoxan show efficacy in relieving anxiety and depression ."
@@ -45,6 +51,7 @@
   "agonism:bradycardia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "They decrease blood pressure and heart rate via a central mechanism, by inducing peripheral vasodilation , and by stimulating the vagus nerve ."
@@ -53,6 +60,7 @@
   "agonism:hypothermia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "Vasodilation of the blood vessels in the skin via central 5-HT 1A activation increases heat dissipation from the organism out into the environment, causing a decrease in body temperature ."
@@ -61,12 +69,14 @@
   "agonism:pro_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 249,
     "provenance": "verified",
     "quote": "5HT1A partial agonist actions may contribute to efficacy for mood and cognitive symptoms."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "5-HT 1A activation is known to improve cognitive functions associated with the prefrontal cortex, possibly via inducing prefrontal cortex dopamine and acetylcholine release."
@@ -75,6 +85,7 @@
   "agonism:vasodilation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1a_receptor",
     "provenance": "verified",
     "quote": "Vasodilation of the blood vessels in the skin via central 5-HT 1A activation increases heat dissipation from the organism out into the environment, causing a decrease in body temperature ."
@@ -85,12 +96,14 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1b_receptor",
     "provenance": "verified",
     "quote": "Activation of these receptors results in vasoconstriction ."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 2,
     "provenance": "verified",
     "quote": "5-HT1B receptor (HTR1B), GtoPdb target 2 | physiological function (Human): Vasoconstriction. | tissue: Coronary artery.",
@@ -100,6 +113,7 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 141,
     "provenance": "verified",
     "quote": "A few agents known to be 5HT1B antagonists that may thus enhance the release of these four neurotransmitters are used to treat depression and are discussed in Chapter 7 on drug treatments for mood disorders."
@@ -110,6 +124,7 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht1d_receptor",
     "provenance": "verified",
     "quote": "It also induces vasoconstriction in the brain."
@@ -120,12 +135,14 @@
   "agonism:antimigraine": [
    {
     "corpus": "europepmc",
+    "evidence": "in_vivo",
     "page": "40992411",
     "provenance": "verified",
     "quote": "This review offers an in-depth evaluation of Lasmiditan, a novel and selective 5-HT1F receptor agonist, representing a significant breakthrough in migraine pharmacotherapy."
    },
    {
     "corpus": "europepmc",
+    "evidence": "in_vivo",
     "page": "36879707",
     "provenance": "verified",
     "quote": "Understanding the biology of migraine through careful research has resulted in the identification of major therapeutic classes: (i) triptans, serotonin 5-HT1B/1D receptor agonists, (ii) gepants, calcitonin gene-related peptide (CGRP) receptor antagonists, (iii) ditans, 5-HT1F receptor agonists, (iv) CGRP monoclonal antibodies, and (v) glurants, mGlu5 modulators, with further targets being explored."
@@ -134,6 +151,7 @@
   "agonism:sedation": [
    {
     "corpus": "europepmc",
+    "evidence": "in_vivo",
     "page": "41270648",
     "provenance": "verified",
     "quote": "This approach enhances anti-migraine efficacy through peripheral restriction while circumventing central adverse effects (e.g., somnolence) mediated by 5-HT1F activation in the CNS."
@@ -144,12 +162,14 @@
   "agonism:anxiety": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 332,
     "provenance": "verified",
     "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 330,
     "provenance": "verified",
     "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
@@ -158,18 +178,21 @@
   "agonism:hallucinations": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 148,
     "provenance": "verified",
     "quote": "have long been known to induce psychosis, dissociative experiences, and especially visual hallucinations by overstimulating prefrontal and visual cortex 5HT2A receptors (compare Figure 4-52A and 4-52B; see also Figure 4-53)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 151,
     "provenance": "verified",
     "quote": "Hallucinogens such as LSD, psilocybin, and mescaline are 5HT2A agonists. (1) When these agents stimulate 5HT2A receptors on glutamatergic pyramidal neurons in the prefrontal cortex (PFC), this causes overactivation of the glutamate neuron. (2) The resultant release of glutamate into the ventral tegmental area (VTA) causes hyperactivity of the mesolimbic dopamine (DA) pathway, resulting in delusions and auditory hallucinations."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht2a_receptor",
     "provenance": "verified",
     "quote": "Primarily responsible for the psychedelic effects associated with 5-HT 2A receptor agonists such as LSD , DMT , etc. - Activation of the 5-HT 2A receptor with 2,5-dimethoxy-4-iodoamphetamine (DOI) produces potent anti-inflammatory effects in several tissues including cardiovascular and gut."
@@ -178,12 +201,14 @@
   "agonism:insomnia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 332,
     "provenance": "verified",
     "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 330,
     "provenance": "verified",
     "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
@@ -192,6 +217,7 @@
   "agonism:prolactin_elevation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht2a_receptor",
     "provenance": "verified",
     "quote": "Other 5-HT 2A agonists like LSD also have potent anti-inflammatory effects against TNF-alpha -induced inflammation . - Activation of the 5-HT 2A receptor in hypothalamus causes increases in hormonal levels of oxytocin , prolactin , ACTH , corticosterone , and renin . - Role in memory and learning. - Role in arthralgia . - Role in Alzheimer's disease . - Smooth muscle contraction in the gut. - Probable role in sleep paralysis . - Probable role in aging ."
@@ -200,12 +226,14 @@
   "agonism:psychosis": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 148,
     "provenance": "verified",
     "quote": "have long been known to induce psychosis, dissociative experiences, and especially visual hallucinations by overstimulating prefrontal and visual cortex 5HT2A receptors (compare Figure 4-52A and 4-52B; see also Figure 4-53)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 148,
     "provenance": "verified",
     "quote": "These symptoms can be blocked by 5HT2A antagonists, demonstrating that hallucinogens cause psychosis by 5HT2A stimulation."
@@ -214,12 +242,14 @@
   "agonism:sexual_dysfunction": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 332,
     "provenance": "verified",
     "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 330,
     "provenance": "verified",
     "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
@@ -228,12 +258,14 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 211,
     "provenance": "verified",
     "quote": "So, how do they work in depression? 5HT2A antagonism and 5HT1A partial agonism, and the resultant increase in dopamine release in the prefrontal cortex, are thought to be potentially key antidepressant mechanisms."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht2a_receptor",
     "provenance": "verified",
     "quote": "Activation of the 5-HT2A receptor by agonists is associated with enhanced cognition and hallucinogenic effects, while antagonists have antipsychotic and antidepressant properties."
@@ -242,12 +274,14 @@
   "antagonism:antipsychotic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 199,
     "provenance": "verified",
     "quote": "**related psychosis** _._ Antagonism of serotonin 5HT2A receptors alone appears to provide sufficient antipsychotic action to be useful as monotherapy for other causes of psychosis, such as Parkinson’s disease psychosis and dementia-related psychosis, allowing D2 antagonism and its side effects to be avoided entirely."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 203,
     "provenance": "verified",
     "quote": "In the case of psychosis in dementia or in Parkinson’s disease, where D2 antagonism can cause problematic side effects or even be dangerous, 5HT2A antagonist action alone can produce a sufficiently robust antipsychotic effect even in the absence of any D2 antagonism."
@@ -256,12 +290,14 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 325,
     "provenance": "verified",
     "quote": "5HT2A antagonism also improves sleep, especially slow-wave sleep, which can be helpful in many depressed patients."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 327,
     "provenance": "verified",
     "quote": "Blocking 5HT2A receptors enhances slow-wave sleep, and blocking α1 subtypes and H1 receptors interferes with monoamine arousal mechanisms (discussed in Chapter 5 and illustrated in Figures 5-13 and 5-14)."
@@ -272,6 +308,7 @@
   "agonism:cardiac_valvulopathy": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht2b_receptor",
     "provenance": "verified",
     "quote": "Excessive stimulation of this receptor causes pathological proliferation of cardiac valve fibroblasts, with chronic overstimulation leading to valvulopathy."
@@ -282,12 +319,14 @@
   "agonism:anxiety": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 330,
     "provenance": "verified",
     "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht2c_receptor",
     "provenance": "verified",
     "quote": "Some of the initial anxiety caused by SSRIs is due to excessive signalling at 5-HT 2C receptors."
@@ -296,6 +335,7 @@
   "agonism:insomnia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 330,
     "provenance": "verified",
     "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
@@ -304,6 +344,7 @@
   "agonism:sexual_dysfunction": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 330,
     "provenance": "verified",
     "quote": "levels to act at all serotonin receptors, stimulating 5HT1A receptors for therapeutic actions while concomitantly stimulating 5HT2A receptors and 5HT2C receptors that theoretically cause the side effects of SSRIs including sexual dysfunction, insomnia, and activation/anxiety (Figure 7-48A)."
@@ -312,12 +353,14 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 309,
     "provenance": "verified",
     "quote": "5HT2C antagonism may contribute to its antidepressant actions and also to its efficacy in other disorders, especially in eating disorders."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht2c_receptor",
     "provenance": "verified",
     "quote": "Several tetracyclic antidepressants , including mirtazapine and mianserin , as well as certain tricyclic antidepressants such as amitriptyline and clomipramine are potent 5-HT 2C antagonists; this action may contribute to their efficacy."
@@ -326,6 +369,7 @@
   "antagonism:anxiety": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 309,
     "provenance": "verified",
     "quote": "The bad news could be that 5HT2C antagonist actions of fluoxetine may contribute to this agent being sometimes less well matched to patients with agitation, insomnia, and anxiety, who may experience unwanted activation and even a panic attack if given an agent that further activates them."
@@ -334,18 +378,21 @@
   "antagonism:weight_gain": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 234,
     "provenance": "verified",
     "quote": "Olanzapine’s 5HT2C antagonist properties may contribute to its efficacy for mood and cognitive symptoms, although together with its H1 antihistamine properties they could also contribute to its propensity to cause weight gain."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 235,
     "provenance": "verified",
     "quote": "However, 5HT2C antagonist actions combined with H1 antagonist actions may contribute to weight gain."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 241,
     "provenance": "verified",
     "quote": "The mechanisms of clozapine’s ability to cause neutropenia and myocarditis are entirely unknown; its weight gain may be partially associated with its potent blockade of both H1 histamine and 5HT2C receptors (Figure 5-43)."
@@ -356,6 +403,7 @@
   "agonism:anxiety": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht3_receptor",
     "provenance": "verified",
     "quote": "When the receptor is activated to open the ion channel by agonists , the following effects are observed: - CNS : nausea and vomiting center in brain stem , anxiety, as well as anticonvulsant and pro- nociceptive activity. - PNS : neuronal excitation (in autonomic, nociceptive neurons), emesis ."
@@ -364,12 +412,14 @@
   "agonism:nausea": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 325,
     "provenance": "verified",
     "quote": "_**5HT3 Antagonist Action**_ The 5HT3 receptors best known to clinicians are perhaps those localized in the chemoreceptor trigger zone of the brainstem, where they mediate nausea and vomiting, especially in response to cancer chemotherapy, and"
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht3_receptor",
     "provenance": "verified",
     "quote": "When the receptor is activated to open the ion channel by agonists , the following effects are observed: - CNS : nausea and vomiting center in brain stem , anxiety, as well as anticonvulsant and pro- nociceptive activity. - PNS : neuronal excitation (in autonomic, nociceptive neurons), emesis ."
@@ -378,6 +428,7 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 327,
     "provenance": "verified",
     "quote": "5HT3 antagonism is a powerful disinhibitor of glutamate release (Figure 7-42) and of acetylcholine and norepinephrine (Figure 7-43), actions that theoretically release neurotransmitters downstream to have antidepressant action."
@@ -386,18 +437,21 @@
   "antagonism:antiemetic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 71,
     "provenance": "verified",
     "quote": "5HT3 Antagonist Anti-emetic Reduce chemotherapyinduced emesis"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 327,
     "provenance": "verified",
     "quote": "Blocking these 5HT3 receptors can therefore protect against chemotherapy-induced nausea and vomiting as well as against serotonin-induced gastrointestinal side effects that can accompany agents that increase serotonin."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "5_ht3_receptor",
     "provenance": "verified",
     "quote": "However, with the discovery that the 5-HT 3 receptor plays a prominent role in chemotherapy - and radiotherapy -induced vomiting , and the concomitant development of selective 5-HT 3 receptor antagonists to suppress these side effects aroused intense interest from the pharmaceutical industry and therefore the identification of 5-HT 3 receptors in cell lines and native tissues quickly followed."
@@ -408,6 +462,7 @@
   "agonism:gi_motility": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 9,
     "provenance": "verified",
     "quote": "5-HT4 receptor (HTR4), GtoPdb target 9 | physiological function (Human): Stimulation of gastric emptying. | tissue: In vivo.",
@@ -415,6 +470,7 @@
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 9,
     "provenance": "verified",
     "quote": "5-HT4 receptor (HTR4), GtoPdb target 9 | physiological function (Human): Stimulation of peristaltic reflex (ascending contraction and descending relaxation). | tissue: Jejunum.",
@@ -426,12 +482,14 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 335,
     "provenance": "verified",
     "quote": "5HT7 antagonism are effective drugs for depression and possibly for improving cognition, including not only vortioxetine, but also trazodone (Figures 7-44 and 7-45), quetiapine, brexpiprazole, aripiprazole, and lurasidone (see Chapter 5 and Figure 5-39)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 334,
     "provenance": "verified",
     "quote": "Blocking these 5HT7 receptors on GABA interneurons enhances the release of glutamate and of downstream monoamine neurotransmitters (compare Figures 7-54A and 7-54B), which may have both antidepressant and pro-cognitive actions."
@@ -440,6 +498,7 @@
   "antagonism:pro_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 334,
     "provenance": "verified",
     "quote": "Blocking these 5HT7 receptors on GABA interneurons enhances the release of glutamate and of downstream monoamine neurotransmitters (compare Figures 7-54A and 7-54B), which may have both antidepressant and pro-cognitive actions."
@@ -448,6 +507,7 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 236,
     "provenance": "verified",
     "quote": "In particular, 5HT2C antagonist properties may contribute to its efficacy for mood and cognitive symptoms, while 5HT7 antagonist properties may contribute to its efficacy for mood, cognitive, and sleep symptoms."
@@ -458,6 +518,7 @@
   "agonism:vasodilation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "adenosine_a2a_receptor",
     "provenance": "verified",
     "quote": "A 1 and A 2A receptors are believed to regulate myocardial oxygen demand and to increase coronary circulation by vasodilation ."
@@ -466,6 +527,7 @@
   "antagonism:antiparkinsonian": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "adenosine_a2a_receptor",
     "provenance": "verified",
     "quote": "However the development of more highly selective A 2A ligands has led towards other applications, with the most significant focus of research currently being the potential therapeutic role for A 2A antagonists in the treatment of Parkinson's disease ."
@@ -476,6 +538,7 @@
   "inhibition:pro_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 530,
     "provenance": "verified",
     "quote": "Central cholinergic neurons are important for regulation of memory; thus, in the CNS, the boost of acetylcholine caused by AChE blockade contributes to improved cognitive functioning."
@@ -486,12 +549,14 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_1_adrenergic_receptor",
     "provenance": "verified",
     "quote": "In smooth muscle cells of blood vessels the principal effect of activation of these receptors is vasoconstriction ."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 22,
     "provenance": "verified",
     "quote": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | physiological function (Human): Contraction of skeletal muscle resistance arteries. | tissue: Vasculature.",
@@ -499,6 +564,7 @@
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 22,
     "provenance": "verified",
     "quote": "α1A-adrenoceptor (ADRA1A), GtoPdb target 22 | physiological function (Human): Contraction of right gastroepiploic artery. | tissue: Artery.",
@@ -508,6 +574,7 @@
   "antagonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 387,
     "provenance": "verified",
     "quote": "Alpha-1 and β1-adrenergic receptors may be specifically involved in these reactions. (B) Noradrenergic hyperactivity may be blocked by the administration of α1-adrenergic antagonists, which can lead to the alleviation of anxiety and other stress-related symptoms. (C) Noradrenergic hyperactivity may also be blocked by the administration of a norepinephrine transporter (NET) inhibitor, which can have the downstream effect of downregulating β1-adrenergic receptors."
@@ -516,12 +583,14 @@
   "antagonism:dizziness": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
@@ -530,18 +599,21 @@
   "antagonism:orthostatic_hypotension": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 241,
     "provenance": "verified",
     "quote": "Its other prominent pharmacological property is potent α1 antagonism, which may be responsible for the risk of orthostatic hypotension but also may contribute to its low risk of drug-induced parkinsonism (DIP)."
@@ -550,18 +622,21 @@
   "antagonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 238,
     "provenance": "verified",
     "quote": "Alpha-2 antagonist properties may contribute to efficacy for depression, but this can be diminished by simultaneous α1 antagonist properties, which can also contribute to orthostatic hypotension and sedation."
@@ -570,6 +645,7 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "Alpha 1 Antagonist Improved sleep (nightmares)"
@@ -580,12 +656,14 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_1_adrenergic_receptor",
     "provenance": "verified",
     "quote": "In smooth muscle cells of blood vessels the principal effect of activation of these receptors is vasoconstriction ."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 23,
     "provenance": "verified",
     "quote": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | physiological function (Human): Contraction of umbilical vein. | tissue: Vasculature.",
@@ -593,6 +671,7 @@
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 23,
     "provenance": "verified",
     "quote": "α1B-adrenoceptor (ADRA1B), GtoPdb target 23 | physiological function (Human): Contraction of mammary artery and saphenous vein (with α1A). | tissue: Vasculature",
@@ -602,6 +681,7 @@
   "antagonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 387,
     "provenance": "verified",
     "quote": "Alpha-1 and β1-adrenergic receptors may be specifically involved in these reactions. (B) Noradrenergic hyperactivity may be blocked by the administration of α1-adrenergic antagonists, which can lead to the alleviation of anxiety and other stress-related symptoms. (C) Noradrenergic hyperactivity may also be blocked by the administration of a norepinephrine transporter (NET) inhibitor, which can have the downstream effect of downregulating β1-adrenergic receptors."
@@ -610,12 +690,14 @@
   "antagonism:dizziness": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
@@ -624,18 +706,21 @@
   "antagonism:orthostatic_hypotension": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 241,
     "provenance": "verified",
     "quote": "Its other prominent pharmacological property is potent α1 antagonism, which may be responsible for the risk of orthostatic hypotension but also may contribute to its low risk of drug-induced parkinsonism (DIP)."
@@ -644,18 +729,21 @@
   "antagonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 238,
     "provenance": "verified",
     "quote": "Alpha-2 antagonist properties may contribute to efficacy for depression, but this can be diminished by simultaneous α1 antagonist properties, which can also contribute to orthostatic hypotension and sedation."
@@ -664,6 +752,7 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "Alpha 1 Antagonist Improved sleep (nightmares)"
@@ -674,6 +763,7 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_1_adrenergic_receptor",
     "provenance": "verified",
     "quote": "In smooth muscle cells of blood vessels the principal effect of activation of these receptors is vasoconstriction ."
@@ -682,6 +772,7 @@
   "antagonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 387,
     "provenance": "verified",
     "quote": "Alpha-1 and β1-adrenergic receptors may be specifically involved in these reactions. (B) Noradrenergic hyperactivity may be blocked by the administration of α1-adrenergic antagonists, which can lead to the alleviation of anxiety and other stress-related symptoms. (C) Noradrenergic hyperactivity may also be blocked by the administration of a norepinephrine transporter (NET) inhibitor, which can have the downstream effect of downregulating β1-adrenergic receptors."
@@ -690,12 +781,14 @@
   "antagonism:dizziness": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
@@ -704,18 +797,21 @@
   "antagonism:orthostatic_hypotension": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "Blockade of α1-adrenergic receptors may be therapeutic but also causes orthostatic hypotension and dizziness (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 241,
     "provenance": "verified",
     "quote": "Its other prominent pharmacological property is potent α1 antagonism, which may be responsible for the risk of orthostatic hypotension but also may contribute to its low risk of drug-induced parkinsonism (DIP)."
@@ -724,18 +820,21 @@
   "antagonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "Many of the early D2 antagonists also block H1 receptors (A), which can contribute to weight gain and drowsiness, and/or α1-adrenergic receptors (B), which can contribute to dizziness, drowsiness, and decreased blood pressure."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 238,
     "provenance": "verified",
     "quote": "Alpha-2 antagonist properties may contribute to efficacy for depression, but this can be diminished by simultaneous α1 antagonist properties, which can also contribute to orthostatic hypotension and sedation."
@@ -744,6 +843,7 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "Alpha 1 Antagonist Improved sleep (nightmares)"
@@ -754,6 +854,7 @@
   "agonism:sedation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -764,12 +865,14 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 25,
     "provenance": "verified",
     "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Sedation and analgesia. | tissue: CNS.",
@@ -779,6 +882,7 @@
   "agonism:bradycardia": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 25,
     "provenance": "verified",
     "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Central cardiovascular regulation – hypotension and bradycardia. | tissue: CNS.",
@@ -788,6 +892,7 @@
   "agonism:pro_cognitive": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "The α 2A -adrenergic agonist, guanfacine , is now used to treat prefrontal cortical cognitive disorders such as attention deficit hyperactivity disorder (ADHD)."
@@ -796,12 +901,14 @@
   "agonism:sedation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 25,
     "provenance": "verified",
     "quote": "α2A-adrenoceptor (ADRA2A), GtoPdb target 25 | physiological function (Human): Sedation and analgesia. | tissue: CNS.",
@@ -813,6 +920,7 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -821,12 +929,14 @@
   "agonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 497,
     "provenance": "verified",
     "quote": "Alpha-2B receptors are in high concentrations in the thalamus and may be important in mediating sedating actions of NE, while α2C receptors are densest in striatum."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -837,6 +947,7 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -845,6 +956,7 @@
   "agonism:sedation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -853,6 +965,7 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 27,
     "provenance": "verified",
     "quote": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Human): Venous vasoconstriction. | tissue: Veins.",
@@ -864,6 +977,7 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -872,6 +986,7 @@
   "agonism:sedation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "alpha_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Agonists (activators) of the α 2 -adrenergic receptor are frequently used in anaesthesia where they affect sedation , muscle relaxation and analgesia through effects on the central nervous system (CNS)."
@@ -882,6 +997,7 @@
   "agonism:seizures": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "ampa_receptor",
     "provenance": "verified",
     "quote": "Activation of AMPARs by agonists such as kainic acid , a convulsant that is widely used in epilepsy research, has been shown to induce seizures in both animal models and humans, emphasizing their contribution to epileptogenesis ."
@@ -890,12 +1006,14 @@
   "antagonism:anticonvulsant": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "ampa_receptor",
     "provenance": "verified",
     "quote": "Conversely, antagonists targeting AMPARs have demonstrated efficacy in suppressing seizure activity, highlighting their potential as therapeutic agents in epilepsy management."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "ampa_receptor",
     "provenance": "verified",
     "quote": "The noncompetitive AMPA receptor antagonists talampanel and perampanel have been demonstrated to have activity in the treatment of adults with partial-onset seizures, indicating that AMPA receptor antagonists represent a potential target for the treatment of epilepsy ."
@@ -906,6 +1024,7 @@
   "antagonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 387,
     "provenance": "verified",
     "quote": "Reduced stimulation via β1-adrenergic receptors could therefore lead to the alleviation of anxiety and stress-related symptoms."
@@ -916,12 +1035,14 @@
   "agonism:bronchodilation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "beta_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Inhibit histamine -release from mast cells . - Increase protein content of secretions from lacrimal glands . - Receptor also present in cerebellum . - Bronchiole dilation (targeted while treating asthma attacks) - Involved in brain - immune - communication"
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 29,
     "provenance": "verified",
     "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Bronchodilation in human and other animals. | tissue: Lung.",
@@ -931,12 +1052,14 @@
   "agonism:cardiovascular": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "beta_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Increases heart rate in sinoatrial node (SA node) ( chronotropic effect)."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 29,
     "provenance": "verified",
     "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Positive inotropic, chronotropic and lusitropic effects in atria. | tissue: Right atrial appendage.",
@@ -946,6 +1069,7 @@
   "agonism:vasodilation": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 29,
     "provenance": "verified",
     "quote": "β2-adrenoceptor (ADRB2), GtoPdb target 29 | physiological function (Human): Coronary vasodilation. | tissue: Coronary blood vessels.",
@@ -953,6 +1077,7 @@
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "beta_2_adrenergic_receptor",
     "provenance": "verified",
     "quote": "Protein kinase A then goes on to phosphorylate (and thus inactivate) myosin light-chain kinase , which causes smooth muscle relaxation, accounting for the vasodilatory effects of beta 2 stimulation."
@@ -963,6 +1088,7 @@
   "agonism:bladder_relaxation": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 30,
     "provenance": "verified",
     "quote": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Bladder relaxation. | tissue: Urinary bladder.",
@@ -972,6 +1098,7 @@
   "agonism:vasodilation": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 30,
     "provenance": "verified",
     "quote": "β3-adrenoceptor (ADRB3), GtoPdb target 30 | physiological function (Human): Vasodilatation via nitric oxide and vessel hyperpolarisation. | tissue: Coronary resistance arteries.",
@@ -983,6 +1110,7 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "cannabinoid_receptor_1",
     "provenance": "verified",
     "quote": "The activation of CB 1 in the human body generally inhibits neurotransmitter release, controls pain, regulates metabolism, and monitors the cardiovascular system ."
@@ -993,6 +1121,7 @@
   "antagonism:antimigraine": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "calcrl",
     "provenance": "verified",
     "quote": "Calcitonin gene-related peptide receptor antagonists are FDA approved for the treatment of migraine ."
@@ -1003,6 +1132,7 @@
   "agonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 361,
     "provenance": "verified",
     "quote": "Dopamine is free to stimulate D1 receptors, hypothetically improving symptoms of depression."
@@ -1011,6 +1141,7 @@
   "agonism:antiparkinsonian": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "dopamine_receptor_d1",
     "provenance": "verified",
     "quote": "The selective D 1 agonists give profound antiparkinson effects in humans and primate models of PD, and yield cognitive enhancement in many preclinical models and a few clinical trials."
@@ -1019,6 +1150,7 @@
   "agonism:pro_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 478,
     "provenance": "verified",
     "quote": "When properly “tuned,” D1 receptor stimulation will reduce the noise while α2A receptor stimulation will increase the signal, resulting in appropriate prefrontal cortical functioning, guided attention, focus on a specific task, and control of"
@@ -1029,12 +1161,14 @@
   "agonism:antiparkinsonian": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 200,
     "provenance": "verified",
     "quote": "For dopamine 2 (D2) binding, agents with too much agonism may be psychotomimetic and thus not ideal for treating psychosis, but may be useful within Parkinson’s disease."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "dopamine_receptor_d2",
     "provenance": "verified",
     "quote": "In similar manner, older dopamine agonists used for Parkinson's disease such as bromocriptine and cabergoline are poorly selective for one dopamine receptor over another, and, although most of these agents do act as D 2 agonists, they affect other subtypes as well."
@@ -1043,6 +1177,7 @@
   "agonism:nausea": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 209,
     "provenance": "verified",
     "quote": "Another D2 partial agonist, bifeprunox, is less of an agonist than OPC4392 but turned out to be still too much of an agonist since it caused nausea and vomiting; although it did have some efficacy for positive symptoms and did not cause motor side effects, it was less robust in improving positive symptoms than other agents and also had more gastrointestinal side effects, so the US Food and Drug Administration (FDA) did not approve it."
@@ -1051,6 +1186,7 @@
   "agonism:psychosis": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 200,
     "provenance": "verified",
     "quote": "For dopamine 2 (D2) binding, agents with too much agonism may be psychotomimetic and thus not ideal for treating psychosis, but may be useful within Parkinson’s disease."
@@ -1059,18 +1195,21 @@
   "antagonism:akathisia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 181,
     "provenance": "verified",
     "quote": "**Figure 5-5** Nigrostriatal dopamine pathway and D2 antagonists. (A) The nigrostriatal dopamine pathway is theoretically unaffected in untreated schizophrenia. (B) Blockade of D2 receptors prevents dopamine from binding there and can cause motor side effects such as drug-induced parkinsonism (tremor, muscle rigidity, slowing or loss of movement), akathisia (motor restlessness), and dystonia (involuntary twisting and contractions)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 182,
     "provenance": "verified",
     "quote": "More precise terms than EPS include not only DIP but also akathisia (motor restlessness) and dystonia (involuntary twisting and contractions), which can also be caused by the acute administration of D2 antagonists/partial agonists and are discussed below."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 185,
     "provenance": "verified",
     "quote": "**Akathisia** Akathisia is a syndrome of motor restlessness seen commonly after treatment with D2 blockers."
@@ -1079,12 +1218,14 @@
   "antagonism:antipsychotic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 177,
     "provenance": "verified",
     "quote": "Once chlorpromazine was observed to be an effective drug for treating psychosis out of proportion to its ability to cause sedation, it was tested experimentally to uncover its mechanism of antipsychotic action, which was identified as dopamine D2 receptor antagonism (Figures 5-1 and 5-2)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 217,
     "provenance": "verified",
     "quote": "Dopamine 2 antagonists/partial agonists are generally dosed for antipsychotic action so that at least 60–80% of D2 receptors are occupied."
@@ -1093,18 +1234,21 @@
   "antagonism:extrapyramidal_symptoms": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 105,
     "provenance": "verified",
     "quote": "These same movement disorders can be replicated by drugs that block D2 DA receptors in this pathway, causing drug-induced parkinsonism (sometimes called by its better-known but much less accurate name extrapyramidal symptoms or EPS)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 181,
     "provenance": "verified",
     "quote": "When D2 receptors are blocked _acutely_ in the nigrostriatal pathway – the same pathway that degenerates in Parkinson’s disease – this can cause a condition known as drug-induced parkinsonism (DIP) because it looks similar to Parkinson’s disease with tremor, muscular rigidity, and slowing of movements (bradykinesia) or loss of movement (akinesia) (Figure 5-5B)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 185,
     "provenance": "verified",
     "quote": "**Drug-Induced Acute Dystonia** Occasionally, exposure to D2 blockers, especially those with neither serotonergic nor anticholinergic properties, can cause a condition called dystonia, often upon first exposure to the D2 blocker."
@@ -1113,12 +1257,14 @@
   "antagonism:prolactin_elevation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 180,
     "provenance": "verified",
     "quote": "Dopamine 2 receptors in the tuberoinfundibular dopamine pathway are also blocked when D2 antagonists are administered and this causes plasma prolactin concentrations to rise, a condition called"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 204,
     "provenance": "verified",
     "quote": "Thus, when D2 receptors alone are blocked by D2 antagonism, dopamine can no longer inhibit prolactin release, so prolactin levels rise (Figure 5-18C)."
@@ -1127,18 +1273,21 @@
   "antagonism:tardive_dyskinesia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 105,
     "provenance": "verified",
     "quote": "Chronic blockade of these same D2 DA receptors in the nigrostriatal pathway is hypothesized to cause another hyperkinetic movement disorder known as tardive dyskinesia."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 182,
     "provenance": "verified",
     "quote": "Yet another abnormal involuntary movement disorder can be caused by the _chronic_ blockade of D2 receptors in the nigrostriatal dopamine pathway, namely tardive dyskinesia (TD) (“tardive” because, unlike the other motor symptoms caused by D2 blockade, these abnormal involuntary movements are late and delayed in onset, often after months to years of treatment) (Figure 5-6)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 182,
     "provenance": "verified",
     "quote": "**Figure 5-6** Tardive dyskinesia. (A) Dopamine binds to D2 receptors in the nigrostriatal pathway. (B) Chronic blockade of D2 receptors in the nigrostriatal dopamine pathway can cause upregulation of those receptors, which can lead to a hyperkinetic motor condition known as tardive dyskinesia, characterized by facial and tongue movements (e.g., tongue protrusions, facial grimaces, chewing) as well as quick, jerky limb movements."
@@ -1149,6 +1298,7 @@
   "agonism:antiparkinsonian": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "dopamine_receptor_d3",
     "provenance": "verified",
     "quote": "Preclinical and clinical studies implicate it in: - Parkinson's disease – D 3 agonists such as pramipexole and rotigotine show neuroprotective effects, reduce alpha-synuclein aggregation, and improve motor and non-motor symptoms. - Neuropsychiatric disorders – Altered DRD3 signaling has been associated with schizophrenia , bipolar disorder , and major depression ."
@@ -1157,12 +1307,14 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 219,
     "provenance": "verified",
     "quote": "Antidepressant actions of D3 antagonism/partial agonism and 5HT7 antagonism are discussed in Chapter 7."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 360,
     "provenance": "verified",
     "quote": "Postsynaptic blockade of D3 receptors in limbic regions may contribute to antipsychotic actions but it is the presynaptic actions of D3 antagonism/partial agonism in the ventral tegmental area (VTA) that are of most interest for explaining cariprazine’s antidepressant actions (Figure 7-73)."
@@ -1171,6 +1323,7 @@
   "antagonism:antipsychotic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 360,
     "provenance": "verified",
     "quote": "Postsynaptic blockade of D3 receptors in limbic regions may contribute to antipsychotic actions but it is the presynaptic actions of D3 antagonism/partial agonism in the ventral tegmental area (VTA) that are of most interest for explaining cariprazine’s antidepressant actions (Figure 7-73)."
@@ -1181,6 +1334,7 @@
   "inhibition:appetite_decrease": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 501,
     "provenance": "verified",
     "quote": "The DAT inhibitor mazindol, once approved for appetite suppression, is in testing and so is a triple (5HT– NE–DA) reuptake inhibitor centanafadine."
@@ -1189,18 +1343,21 @@
   "inhibition:euphoria": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 561,
     "provenance": "verified",
     "quote": "He may have also exploited the second property of the drug, which is to produce euphoria, reduce fatigue, and create a sense of mental acuity due to inhibition of dopamine reuptake at the DAT, at least for a while, until drug-induced reward is replaced by drug-induced compulsivity."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 492,
     "provenance": "verified",
     "quote": "That is, rapid and high degrees of DAT occupancy cause euphoria and lead to abuse and addiction (Figure 11-35; see also Chapter 13"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 321,
     "provenance": "verified",
     "quote": "Furthermore, there appears to be such a thing as “too much DAT occupancy.” That is, when 50% or more of DATs are occupied rapidly and briefly, this can lead to unwanted clinical actions, such as euphoria and reinforcement (see discussion of the mysterious DATs in Chapter 11 on attention deficit hyperactivity disorder"
@@ -1211,6 +1368,7 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "delta_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of delta receptors produces analgesia , perhaps as significant potentiators of μ-opioid receptor agonists."
@@ -1219,12 +1377,14 @@
   "agonism:seizures": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "delta_opioid_receptor",
     "provenance": "verified",
     "quote": "Many delta agonists may also cause seizures at high doses, although not all delta agonists produce this effect."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "delta_opioid_receptor",
     "provenance": "verified",
     "quote": "However, there are now several selective δ-opioid receptor agonists available, including peptides such as DPDPE and deltorphin II, and non-peptide drugs such as SNC-80 , the more potent (+)- BW373U86 , a newer drug DPI-287 , which does not produce the problems with convulsions seen with the earlier agents, and the mixed μ/δ agonist DPI-3290 , which is a much more potent analgesic than the more highly selective δ agonists."
@@ -1235,12 +1395,14 @@
   "agonism:anticonvulsant": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "Anticonvulsant effects can be produced by agonists acting at any of the GABA A subtypes, but current research in this area is focused mainly on producing α 2 -selective agonists as anticonvulsants which lack the side effects of older drugs such as sedation and amnesia."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "Ligands which contribute to receptor activation typically have anxiolytic , anticonvulsant , amnesic , sedative , hypnotic , euphoriant , and muscle relaxant properties."
@@ -1249,12 +1411,14 @@
   "agonism:anxiolytic": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "This potentiates the inhibitory effect of the available GABA leading to sedative and anxiolytic effects."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 382,
     "provenance": "verified",
     "quote": "The anxiolytic actions of benzodiazepines are hypothetically at GABAA receptors localized within the amygdala, where"
@@ -1263,6 +1427,7 @@
   "agonism:ataxia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "For instance, benzodiazepine receptor ligands with high activity at the α1 and/or α5 tend to be more associated with sedation , ataxia and amnesia , whereas those with higher activity at GABA A receptors containing α2 and/or α3 subunits generally have greater anxiolytic activity."
@@ -1271,6 +1436,7 @@
   "agonism:euphoria": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "Ligands which contribute to receptor activation typically have anxiolytic , anticonvulsant , amnesic , sedative , hypnotic , euphoriant , and muscle relaxant properties."
@@ -1279,18 +1445,21 @@
   "agonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 438,
     "provenance": "verified",
     "quote": "The α1 subtype is known to be critical for producing sedation and thus is targeted by every effective GABAA PAM hypnotic, both benzodiazepines"
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "This potentiates the inhibitory effect of the available GABA leading to sedative and anxiolytic effects."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "Ligands which contribute to receptor activation typically have anxiolytic , anticonvulsant , amnesic , sedative , hypnotic , euphoriant , and muscle relaxant properties."
@@ -1299,12 +1468,14 @@
   "agonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 438,
     "provenance": "verified",
     "quote": "**Z Drugs (GABAA Positive Allosteric Modulators)** Another group of GABAA positive allosteric modulating drugs, sometimes called “Z drugs” (because they all start with the letter Z: zaleplon, zolpidem, zopiclone), are also prescribed for their hypnotic effects (Figure 1034)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 437,
     "provenance": "verified",
     "quote": "**Benzodiazepines (GABAA Positive Allosteric** **Modulators)** There are at least five benzodiazepines approved specifically for insomnia in the US (Figure 10-33), although there are several others approved in different countries."
@@ -1313,12 +1484,14 @@
   "antagonism:seizures": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "Ligands which decrease receptor activation usually have opposite effects, including anxiogenesis and convulsion ."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "gabaa_receptor",
     "provenance": "verified",
     "quote": "GABA A R is not just the target of agonist depressants and antagonist convulsants, but most GABA A R medicines also act at additional (allosteric) binding sites on GABA A R proteins."
@@ -1329,6 +1502,7 @@
   "agonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 463,
     "provenance": "verified",
     "quote": "Its actions at GABAB receptors are presumed to be responsible for its clinical effects of improving slow-wave sleep and reducing cataplexy."
@@ -1339,6 +1513,7 @@
   "antagonism:exaggerated_startle": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 423,
     "provenance": "verified",
     "quote": "glycine receptor α1 subunit (GLRA1), GtoPdb target 423 | pathophysiology: Hyperekplexia, hereditary 1; HKPX1 | comments: All mutations produce similar symptoms although the severity may vary. The main symptom in adults is an exaggerated and generalised startle reflex to unexpected and sometimes trivial stimuli. This is often accompanied by temporary but complete muscular rigidity, often resulting in unprotected falls. Neonates also usually display a severe muscular rigidity (hypertonia) that subsides throughout the first year of life."
@@ -1349,6 +1524,7 @@
   "agonism:bronchoconstriction": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 262,
     "provenance": "verified",
     "quote": "H1 receptor (HRH1), GtoPdb target 262 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
@@ -1358,6 +1534,7 @@
   "agonism:wakefulness": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 418,
     "provenance": "verified",
     "quote": "When histamine itself acts at H1 receptors, it activates a G-protein-linked second-messenger system that activates phosphatidylinositol, and the transcription factor cFOS, and results in wakefulness, normal alertness, and pro-cognitive actions (Figure 10-5)."
@@ -1366,6 +1543,7 @@
   "antagonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "Histamine H1 Antagonist Therapeutic effect for anxiety and insomnia Side effect of sedation and weight gain"
@@ -1374,18 +1552,21 @@
   "antagonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "As already discussed, blockade of H1 receptors causes sedation and may cause weight gain (see Chapter 5 and Figure 5-13A)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 418,
     "provenance": "verified",
     "quote": "When these H1 receptors are blocked in the brain, this interferes with the wake-promoting actions of histamine, and thus can cause sedation, drowsiness, or sleep (see below)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 325,
     "provenance": "verified",
     "quote": "Clinical consequences of blocking H1 receptors have been discussed in Chapter 5 and illustrated in Figure 5-13A, showing that H1 antagonist actions are associated with sedation and weight gain."
@@ -1394,12 +1575,14 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 442,
     "provenance": "verified",
     "quote": "Diphenhydramine is a histamine 1 (H1) receptor antagonist commonly used as a hypnotic."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 442,
     "provenance": "verified",
     "quote": "Blocking one of the most important arousal neurotransmitters histamine and its actions at H1 receptors is clearly an effective way to induce sleep."
@@ -1408,18 +1591,21 @@
   "antagonism:weight_gain": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 352,
     "provenance": "verified",
     "quote": "As already discussed, blockade of H1 receptors causes sedation and may cause weight gain (see Chapter 5 and Figure 5-13A)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 325,
     "provenance": "verified",
     "quote": "Clinical consequences of blocking H1 receptors have been discussed in Chapter 5 and illustrated in Figure 5-13A, showing that H1 antagonist actions are associated with sedation and weight gain."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 197,
     "provenance": "verified",
     "quote": "Blockade of muscarinic cholinergic receptors is associated with dry mouth, blurred vision, and risk of paralytic ileus as discussed earlier (Figure 5-8); blocking H1 histamine receptors is associated with weight gain and sedation (Figure 5-13A); and blockade of α1-adrenergic receptors is associated with sedation as well as cardiovascular side effects such as orthostatic hypotension (Figure 5-13B)."
@@ -1430,18 +1616,21 @@
   "agonism:gastric_acid_increase": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "histamine_h2_receptor",
     "provenance": "verified",
     "quote": "It is an integral membrane protein and stimulates gastric acid secretion."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "histamine_h2_receptor",
     "provenance": "verified",
     "quote": "Activation of the H 2 receptor results in the following physiological responses: - Stimulation of gastric acid secretion (Target of anti-histaminergics (H 2 receptors) for peptic ulcer disease and GERD ) - Smooth muscle relaxation (Experimental histamine H 2 receptor agonist used for asthma and COPD) - Inhibit antibody synthesis, T-cell proliferation and cytokine production - Vasodilation – PKA activity causes phosphorylation of MLCK , decreasing its activity, resulting in MLC of myosin being dephosphorylated by MLCP and thus inhibiting contraction."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 263,
     "provenance": "verified",
     "quote": "H2 receptor (HRH2), GtoPdb target 263 | physiological function (Human): Stimulation of gastric acid secretion. | tissue: In vivo.",
@@ -1451,6 +1640,7 @@
   "antagonism:gastric_acid_reduction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "histamine_h2_receptor",
     "provenance": "verified",
     "quote": "Activation of the H 2 receptor results in the following physiological responses: - Stimulation of gastric acid secretion (Target of anti-histaminergics (H 2 receptors) for peptic ulcer disease and GERD ) - Smooth muscle relaxation (Experimental histamine H 2 receptor agonist used for asthma and COPD) - Inhibit antibody synthesis, T-cell proliferation and cytokine production - Vasodilation – PKA activity causes phosphorylation of MLCK , decreasing its activity, resulting in MLC of myosin being dephosphorylated by MLCP and thus inhibiting contraction."
@@ -1461,6 +1651,7 @@
   "agonism:analgesia": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 264,
     "provenance": "verified",
     "quote": "H3 receptor (HRH3), GtoPdb target 264 | physiological function (Human): Activation of spinal H3 receptors inhibits mechanical nociception. | tissue: In vivo.",
@@ -1470,6 +1661,7 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 264,
     "provenance": "verified",
     "quote": "H3 receptor (HRH3), GtoPdb target 264 | physiological function (Human): Vasoconstriction. | tissue: Turbinate mucosa strips.",
@@ -1479,12 +1671,14 @@
   "antagonism:wakefulness": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 460,
     "provenance": "verified",
     "quote": "**Pitolisant, H3 Presynaptic Antagonist** Pitolisant (Figure 10-65) is a drug with a novel mechanism for improving wakefulness in narcolepsy by blocking the normal action of presynaptic H3 autoreceptors (Figure 10-66A,B) to inhibit histamine release."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 460,
     "provenance": "verified",
     "quote": "Pitolisant, a presynaptic H3 autoreceptor antagonist (Figures 10-65 and 10-66C), is approved for the treatment of narcolepsy, and there are anecdotal observations that it may be effective in cataplexy as well."
@@ -1495,18 +1689,21 @@
   "agonism:analgesia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "KOR agonists are potently analgesic and have been employed clinically for pain management , but they produce characteristic adverse effects which both limit their abuse potential and, unfortunately, their therapeutic utility."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Similarly to μ-opioid receptor (MOR), KOR activation produces antinociceptive effects."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Antinociception: systemic administration. | tissue: In vivo.",
@@ -1514,6 +1711,7 @@
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Stimulation of relief from abdominal pain and bloating. | tissue: In vivo.",
@@ -1521,6 +1719,7 @@
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "In the spinal cord , presynaptic activation suppresses nociceptive transmission through inhibition of calcium influx and reduction of neurotransmitter release from primary sensory neurons ."
@@ -1529,6 +1728,7 @@
   "agonism:antipruritic": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "KOR agonists suppress itching , and the selective KOR agonist nalfurafine is used clinically as an antipruritic ."
@@ -1537,24 +1737,28 @@
   "agonism:dysphoria": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of KOR by dynorphins during stress exposure has been shown to induce dysphoria , aversion , and negative affective states in both human and non-human subject."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Unlike MOR agonists, KOR agonists do not cause respiratory depression and have lower abuse potential , but centrally -mediated side effects such as dysphoria , hallucinations , and dissociation have limited their clinical utility."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "The KOR also mediates the dysphoria and hallucinations seen with opioids such as pentazocine . - Alazocine – partial agonist - BPHA - Bremazocine – highly selective - 8-Carboxamidocyclazocine - Cyclazocine – partial agonist - Ketazocine - MCBPHA - MCPPHA – moderately biased for G protein - Metazocine – partial agonist - MR-2034 - Pentazocine – partial agonist - Phenazocine – partial agonist - 6'-Guanidinonaltrindole (6'-GNTI) – biased ligand:"
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
@@ -1564,18 +1768,21 @@
   "agonism:hallucinations": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Unlike MOR agonists, KOR agonists do not cause respiratory depression and have lower abuse potential , but centrally -mediated side effects such as dysphoria , hallucinations , and dissociation have limited their clinical utility."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "The KOR also mediates the dysphoria and hallucinations seen with opioids such as pentazocine . - Alazocine – partial agonist - BPHA - Bremazocine – highly selective - 8-Carboxamidocyclazocine - Cyclazocine – partial agonist - Ketazocine - MCBPHA - MCPPHA – moderately biased for G protein - Metazocine – partial agonist - MR-2034 - Pentazocine – partial agonist - Phenazocine – partial agonist - 6'-Guanidinonaltrindole (6'-GNTI) – biased ligand:"
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
@@ -1585,18 +1792,21 @@
   "agonism:prolactin_elevation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "KOR agonists increase serum prolactin levels by tonic inhibition of hypothalamic dopaminergic systems."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Furthermore, while cocaine abuse is associated with lowered prolactin response, KOR activation causes a release of prolactin, a hormone known for its important role in learning, neuronal plasticity and myelination ."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Neuroendocrine effects: stimulation of prolactin release, probably by modulation of the tuberoinfundibular dopamine system. | tissue: In vivo.",
@@ -1606,12 +1816,14 @@
   "agonism:sedation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "Evidence suggests that G protein signaling primarily mediates the therapeutic analgesic and antipruritic effects of KOR agonists, whilst β-arrestin2 -dependent signaling through p38 MAPK activation mediates adverse dysphoric, sedative, and aversive effects."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "κ receptor (OPRK1), GtoPdb target 318 | physiological function (Human): Sedative and interoceptive effects in humans (such as psychotomimetic, dysphoric and potentially hallucinogenic). | tissue: In vivo.",
@@ -1623,6 +1835,7 @@
   "agonism:antipsychotic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "Acetylcholine M1 Agonist Procognitive and antipsychotic"
@@ -1631,6 +1844,7 @@
   "agonism:bronchoconstriction": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 13,
     "provenance": "verified",
     "quote": "M1 receptor (CHRM1), GtoPdb target 13 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
@@ -1638,6 +1852,7 @@
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m1",
     "provenance": "verified",
     "quote": "As of 2015, the M 1 receptor remains the only known muscarinic receptor to have this effect of hallucinogenic delirium when its functionality is inhibited or antagonized. - Cognitive flexibility - Synaptic plasticity modulation - Anxiety-like behavior and spontaneous working memory - Task switching - Vagally-induced bronchoconstriction - Mediating olfactory neural pathways which help regulate aggression , mating , and social behavior in rodents."
@@ -1646,6 +1861,7 @@
   "agonism:gastric_acid_increase": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m1",
     "provenance": "verified",
     "quote": "EPSP in autonomic ganglia - Secretion from salivary glands - Gastric acid secretion from stomach - Via the central nervous system (especially within the brain); mediating certain core aspects of perception , attention, cognitive functioning and likely; memory consolidation ."
@@ -1654,12 +1870,14 @@
   "agonism:pro_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "Acetylcholine M1 Agonist Procognitive and antipsychotic"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 258,
     "provenance": "verified",
     "quote": "M4 receptor agonism may reduce psychotic symptoms whereas M1 receptor agonism may be most relevant to improving the cognitive deficits of schizophrenia."
@@ -1668,18 +1886,21 @@
   "antagonism:anticholinergic_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 442,
     "provenance": "verified",
     "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m1",
     "provenance": "verified",
     "quote": "This is a notable component in regards to the M 1 receptor since it helps explain how pharmacological compounds which antagonize the receptor site can consistently produce mental states like delirium (a major disruption in attention and decrease in baseline-level cognitive functioning), as well as the unusual and often frightening states of consciousness induced by M 1 blocking recreational drugs such as Datura or diphenhydramine ."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m1",
     "provenance": "verified",
     "quote": "As of 2015, the M 1 receptor remains the only known muscarinic receptor to have this effect of hallucinogenic delirium when its functionality is inhibited or antagonized. - Cognitive flexibility - Synaptic plasticity modulation - Anxiety-like behavior and spontaneous working memory - Task switching - Vagally-induced bronchoconstriction - Mediating olfactory neural pathways which help regulate aggression , mating , and social behavior in rodents."
@@ -1688,6 +1909,7 @@
   "antagonism:blurred_vision": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 442,
     "provenance": "verified",
     "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
@@ -1696,6 +1918,7 @@
   "antagonism:constipation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 442,
     "provenance": "verified",
     "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
@@ -1704,6 +1927,7 @@
   "antagonism:dry_mouth": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 442,
     "provenance": "verified",
     "quote": "Specifically, diphenhydramine is also a muscarinic 1 (M1) receptor antagonist and thus can have anticholinergic effects (blurred vision, constipation, memory problems, dry mouth)."
@@ -1712,18 +1936,21 @@
   "antagonism:sedation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 198,
     "provenance": "verified",
     "quote": "In particular, antagonism of muscarinic M1, histamine H1, and α1-adrenergic receptors are all associated with sedating effects."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 241,
     "provenance": "verified",
     "quote": "Sedation is probably linked to clozapine’s potent antagonism of muscarinic M1, H1, and α1-adrenergic receptors (Figures 5-8, 5-14, and 5-43)."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 235,
     "provenance": "verified",
     "quote": "However, this property can also contribute to daytime sedation, especially combined with M1 antimuscarinic and α1-adrenergic antagonist properties."
@@ -1734,6 +1961,7 @@
   "agonism:bradycardia": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m2",
     "provenance": "verified",
     "quote": "The M 2 muscarinic receptors are located in the heart, where they act to slow the heart rate down to normal sinus rhythm after negative stimulatory actions of the parasympathetic nervous system , by slowing the speed of depolarization ."
@@ -1742,6 +1970,7 @@
   "antagonism:blurred_vision": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
@@ -1750,6 +1979,7 @@
   "antagonism:constipation": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
@@ -1758,6 +1988,7 @@
   "antagonism:dry_mouth": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
@@ -1766,6 +1997,7 @@
   "antagonism:urinary_retention": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "M2/3 Antagonist Dry mouth, blurred vision, constipation, urinary retention"
@@ -1776,6 +2008,7 @@
   "agonism:bronchoconstriction": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m3",
     "provenance": "verified",
     "quote": "Because the M 3 receptor is G q -coupled and mediates an increase in intracellular calcium , it typically causes constriction of smooth muscle, such as that observed during bronchoconstriction ."
@@ -1784,6 +2017,7 @@
   "agonism:nausea": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m3",
     "provenance": "verified",
     "quote": "In the CNS , they induce emesis ."
@@ -1792,6 +2026,7 @@
   "agonism:vasodilation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "muscarinic_acetylcholine_receptor_m3",
     "provenance": "verified",
     "quote": "However, with respect to vasculature, activation of M 3 on vascular endothelial cells causes increased synthesis of nitric oxide , which diffuses to adjacent vascular smooth muscle cells and causes their relaxation and vasodilation , thereby explaining the paradoxical effect of parasympathomimetics on vascular tone and bronchiolar tone."
@@ -1802,6 +2037,7 @@
   "agonism:antipsychotic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 258,
     "provenance": "verified",
     "quote": "M4 receptor agonism may reduce psychotic symptoms whereas M1 receptor agonism may be most relevant to improving the cognitive deficits of schizophrenia."
@@ -1812,6 +2048,7 @@
   "agonism:vasodilation": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 17,
     "provenance": "verified",
     "quote": "M5 receptor (CHRM5), GtoPdb target 17 | physiological function (Human): Vasodilation. | tissue: Intracortical arterioles.",
@@ -1823,6 +2060,7 @@
   "inhibition:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 354,
     "provenance": "verified",
     "quote": "Brain MAO-A must be substantially inhibited for antidepressant efficacy to occur (Figure 7-69)."
@@ -1831,6 +2069,7 @@
   "inhibition:cardiovascular": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 354,
     "provenance": "verified",
     "quote": "However, tyramine in the presence of MAO-A inhibition can elevate blood pressure because norepinephrine is not safely destroyed."
@@ -1841,6 +2080,7 @@
   "inhibition:antiparkinsonian": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 354,
     "provenance": "verified",
     "quote": "Three MAO-B inhibitors selegiline, rasagiline, and safinamide are approved for use in patients with Parkinson’s disease, but are not effective at selective MAO-B doses for the treatment of depression."
@@ -1851,18 +2091,21 @@
   "antagonism:ataxia": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 289,
     "provenance": "verified",
     "quote": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology comment: In patients with congenital cerebellar ataxia, the mutated receptor is predicted not to possess the 7 transmembrane domain and therefore to be nonfunctional."
    },
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 289,
     "provenance": "verified",
     "quote": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology comment: Besides mutation, autoantibodies against the mGlu1 receptor have been reported in patients with paraneoplastic cerebellar ataxia."
    },
    {
     "corpus": "europepmc",
+    "evidence": "in_vivo",
     "page": "41580663",
     "provenance": "verified",
     "quote": "Patients with anti-mGLUR1 and anti-mGLur2 mainly manifested ataxia, while those with anti-mGLUR5 antibodies manifested psychiatric symptoms."
@@ -1873,6 +2116,7 @@
   "agonism:anxiolytic": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "metabotropic_glutamate_receptor",
     "provenance": "verified",
     "quote": "For example, clinical trial suggested that an mGlu 2/3 agonist, LY354740, was effective in the treatment of generalized anxiety disorder ."
@@ -1883,6 +2127,7 @@
   "agonism:anxiolytic": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "metabotropic_glutamate_receptor",
     "provenance": "verified",
     "quote": "For example, clinical trial suggested that an mGlu 2/3 agonist, LY354740, was effective in the treatment of generalized anxiety disorder ."
@@ -1893,6 +2138,7 @@
   "antagonism:night_blindness": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "in_vivo",
     "page": 294,
     "provenance": "verified",
     "quote": "mGlu6 receptor (GRM6), GtoPdb target 294 | pathophysiology: Night blindness, congenital stationary, type 1B; CSNB1B | comments: Single nucleotide polymorphisms. Loss of function mutations in the human mGlu6 gene are associated with night blindness and abnormal cone electroretinogram ON responses."
@@ -1903,6 +2149,7 @@
   "agonism:circadian_shift": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "Melatonin MT1 Agonist Improvement of insomnia and circadian rhythms"
@@ -1911,18 +2158,21 @@
   "agonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "Melatonin MT1 Agonist Improvement of insomnia and circadian rhythms"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 455,
     "provenance": "verified",
     "quote": "Both ramelteon and tasimelteon are MT1 and MT2 receptor agonists and seem to provide sleep onset though not necessarily sleep maintenance."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 455,
     "provenance": "verified",
     "quote": "Ramelteon is a MT1/MT2 agonist marketed for insomnia, and tasimelteon, another MT1/MT2 agonist, is marketed for non-24-hour sleep–wake disorder (Figure 10-57)."
@@ -1931,6 +2181,7 @@
   "agonism:vasoconstriction": [
    {
     "corpus": "gtopdb_function",
+    "evidence": "isolated_tissue",
     "page": 287,
     "provenance": "verified",
     "quote": "MT1 receptor (MTNR1A), GtoPdb target 287 | physiological function (Human): Vasoconstriction. | tissue: Coronary artery.",
@@ -1942,12 +2193,14 @@
   "agonism:circadian_shift": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "MT2 Agonist Improvement of insomnia and circadian rhythms"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 456,
     "provenance": "verified",
     "quote": "The actions of tasimelteon at MT2 receptors are thought to underlie its effectiveness at retraining the circadian clock."
@@ -1956,12 +2209,14 @@
   "agonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 55,
     "provenance": "verified",
     "quote": "MT2 Agonist Improvement of insomnia and circadian rhythms"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 455,
     "provenance": "verified",
     "quote": "Both ramelteon and tasimelteon are MT1 and MT2 receptor agonists and seem to provide sleep onset though not necessarily sleep maintenance."
@@ -1972,18 +2227,21 @@
   "agonism:analgesia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 406,
     "provenance": "verified",
     "quote": "Spinal μ-opioid receptors are one target of opioid analgesics; so are μ-opioid receptors in the periaqueductal gray itself (Figure 9-11)."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Some of these effects, such as analgesia, sedation, euphoria, itching and decreased respiration, tend to lessen with continued use as tolerance develops."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 406,
     "provenance": "verified",
     "quote": "release endorphins, which act via mostly presynaptic μ-opioid receptors to inhibit neurotransmission from nociceptive primary afferent neurons (Figure 9-2)."
@@ -1992,12 +2250,14 @@
   "agonism:constipation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of these receptors inhibits peristaltic action which causes constipation, a major side effect of μ agonists."
    },
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
@@ -2006,6 +2266,7 @@
   "agonism:euphoria": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
@@ -2014,6 +2275,7 @@
   "agonism:itch": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
@@ -2022,6 +2284,7 @@
   "agonism:nausea": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
@@ -2030,6 +2293,7 @@
   "agonism:respiratory_depression": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
@@ -2038,6 +2302,7 @@
   "agonism:sedation": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "mu_opioid_receptor",
     "provenance": "verified",
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
@@ -2048,6 +2313,7 @@
   "agonism:euphoria": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 564,
     "provenance": "verified",
     "quote": "That is, nicotine’s actions at α4β2 nicotinic postsynaptic receptors directly on dopamine neurons in the ventral tegmental area (VTA) are those that are theoretically linked to addiction (Figure 13-9)."
@@ -2058,6 +2324,7 @@
   "agonism:pro_cognitive": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 564,
     "provenance": "verified",
     "quote": "The α7 nicotinic receptor on postsynaptic prefrontal cortex neurons may be linked to the pro-cognitive and mentally alerting actions of nicotine, but not to addictive actions."
@@ -2068,6 +2335,7 @@
   "antagonism:muscle_weakness": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "nicotinic_acetylcholine_receptor",
     "provenance": "verified",
     "quote": "These α- neurotoxins antagonistically bind tightly and noncovalently to nAChRs of skeletal muscles and in neurons, thereby blocking the action of ACh at the postsynaptic membrane, inhibiting ion flow and leading to paralysis and death."
@@ -2078,6 +2346,7 @@
   "inhibition:analgesia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 319,
     "provenance": "verified",
     "quote": "robust NET inhibition of milnacipran suggests that it may be particularly useful in chronic pain related conditions, not just fibromyalgia where it is approved, but possibly as well for the painful physical symptoms associated with unipolar depression and chronic neuropathic pain."
@@ -2086,6 +2355,7 @@
   "inhibition:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 311,
     "provenance": "verified",
     "quote": "It is possible that weak to moderate NET inhibition of paroxetine may contribute importantly to its antidepressant actions."
@@ -2094,6 +2364,7 @@
   "inhibition:anxiety": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 386,
     "provenance": "verified",
     "quote": "The clinical effects of NET inhibitors can be confusing because symptoms of anxiety can actually be made transiently worse immediately following initiation of an SNRI or selective NET inhibitor, when noradrenergic activity is initially increased but the postsynaptic receptors have not yet adapted."
@@ -2102,6 +2373,7 @@
   "inhibition:cardiovascular": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 318,
     "provenance": "verified",
     "quote": "Adding NET inhibition likely accounts for two side effects of venlafaxine in some patients: sweating and elevated blood pressure."
@@ -2112,6 +2384,7 @@
   "antagonism:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 371,
     "provenance": "verified",
     "quote": "This is the subject of much further research as the field attempts to clarify the mechanism of rapid antidepressant response associated with NMDA antagonism, and which portfolio of receptor actions is optimal."
@@ -2120,6 +2393,7 @@
   "antagonism:hallucinations": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "nmda_receptor",
     "provenance": "verified",
     "quote": "Complete blockade of all NMDA receptor activity results in side effects such as hallucinations , agitation and anesthesia ."
@@ -2128,12 +2402,14 @@
   "antagonism:psychosis": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 129,
     "provenance": "verified",
     "quote": "**Figure 4-33** NMDA receptor blockade and psychosis in ketamine abuse. (A) The cortical brainstem glutamate projection communicates with the mesolimbic dopamine pathway in the ventral tegmental area (VTA) to regulate dopamine release in the nucleus accumbens. (B) If ketamine blocks NMDA receptors on cortical GABA interneurons, then GABA release is inhibited and the cortical brainstem pathway to the VTA will be overactivated, leading to excessive release of glutamate in the VTA."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 125,
     "provenance": "verified",
     "quote": "input (Figure 4-29B, box 1A), whereas in ketamine/PCP psychosis, the NMDA hypofunction is hypothesized to be caused by acute and reversible pharmacological actions directly at NMDA receptors (Figure 4-29B, box 1B)."
@@ -2144,12 +2420,14 @@
   "antagonism:sleep_promotion": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 56,
     "provenance": "verified",
     "quote": "Orexin A, B Ox1,2 Antagonist Hypnotic for insomnia"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 439,
     "provenance": "verified",
     "quote": "Pharmacological blockade of orexin receptors has hypnotic actions but not by enhancing inhibitory GABA action in the sleep-promoting center (VLPO) as do the benzodiazepines and Z drugs (Figure 10-17)."
@@ -2160,12 +2438,14 @@
   "inhibition:antidepressant": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 333,
     "provenance": "verified",
     "quote": "These mechanisms alone are sufficient for antidepressant action since they raise both serotonin levels (SERT inhibition) and the pro"
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 135,
     "provenance": "verified",
     "quote": "Downregulation and desensitization of these presynaptic 5HT1A somatodendritic autoreceptors are thought to be critical to the antidepressant actions of drugs that block serotonin reuptake (discussed in Chapter 7 on treatments for mood disorders)."
@@ -2174,6 +2454,7 @@
   "inhibition:anxiety": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 332,
     "provenance": "verified",
     "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
@@ -2182,6 +2463,7 @@
   "inhibition:insomnia": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 332,
     "provenance": "verified",
     "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
@@ -2190,12 +2472,14 @@
   "inhibition:sexual_dysfunction": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 322,
     "provenance": "verified",
     "quote": "Bupropion does not appear to cause the bothersome sexual dysfunction that frequently occurs with many drugs for unipolar depression that act by SERT inhibition, probably because bupropion lacks a significant serotonergic component to its mechanism of action."
    },
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 332,
     "provenance": "verified",
     "quote": "SARI. (A) Inhibition of the serotonin transporter (SERT) by a selective serotonin reuptake inhibitor (SSRI) at the presynaptic neuron increases serotonin at all receptors, with 5HT1A-mediated antidepressant actions but also 5HT2A- and 5HT2Cmediated sexual dysfunction, insomnia, and anxiety. (B) SERT inhibition by a serotonin 2A antagonist/reuptake inhibitor (SARI) at the presynaptic neuron increases serotonin at 5HT1A receptors, where it leads to antidepressant actions."
@@ -2206,6 +2490,7 @@
   "agonism:antidepressant": [
    {
     "corpus": "wikipedia_pharm",
+    "evidence": "in_vivo",
     "page": "sigma_1_receptor",
     "provenance": "verified",
     "quote": "Antidepressants like fluvoxamine and Amitriptyline act partly through Sig-1R agonism, enhancing synaptic plasticity and restoring excitatory/inhibitory balance."
@@ -2214,6 +2499,7 @@
   "agonism:anxiolytic": [
    {
     "corpus": "stahl_essential",
+    "evidence": "in_vivo",
     "page": 311,
     "provenance": "verified",
     "quote": "may be an agonist at σ1 receptors, and that this property may contribute an additional pharmacological action to help explain fluvoxamine’s well-known anxiolytic properties."

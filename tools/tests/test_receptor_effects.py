@@ -16,6 +16,7 @@ from data_generators import receptor_effects as RE  # noqa: E402
 
 SED = "Blockade of H1 receptors causes sedation and weight gain."
 HYPO = "Potent α1 antagonism may be responsible for orthostatic hypotension."
+IV0 = {"0": "in_vivo"}
 
 
 class ApplierGateTest(unittest.TestCase):
@@ -46,7 +47,7 @@ class ApplierGateTest(unittest.TestCase):
 
     def test_good_pick_lands_verified(self):
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",
-                                           "picks": [0]}]})
+                                           "picks": [0], "evidence": IV0}]})
         self.assertEqual(misses, [])
         src = cache["h1"]["antagonism:sedation"][0]
         self.assertEqual((src["page"], src["quote"], src["provenance"]),
@@ -54,35 +55,46 @@ class ApplierGateTest(unittest.TestCase):
 
     def test_effect_not_offered_for_the_sentence_is_refused(self):
         cache, misses = self.run_({"h1": [{"effect": "constipation", "mode": "antagonism",
-                                           "picks": [0]}]})
+                                           "picks": [0], "evidence": IV0}]})
         self.assertEqual(cache, {})
         self.assertIn("not offered", misses[0])
 
     def test_quote_off_its_page_drops_the_whole_node(self):
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",
-                                           "picks": [0, 1]}]})
+                                           "picks": [0, 1], "evidence": {"0": "in_vivo", "1": "in_vivo"}}]})
         self.assertEqual(cache, {})
         self.assertIn("quote not on", misses[0])
 
     def test_unknown_vocabulary_is_refused(self):
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "tickling",
-                                           "picks": [0]}]})
+                                           "picks": [0], "evidence": IV0}]})
         self.assertEqual(cache, {})
         self.assertIn("closed vocabulary", misses[0])
 
     def test_inhibition_is_a_target_mode_only(self):
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "inhibition",
-                                           "picks": [0]}],
+                                           "picks": [0], "evidence": IV0}],
                                    "sert": [{"effect": "sedation", "mode": "inhibition",
-                                             "picks": [0]}]})
+                                             "picks": [0], "evidence": IV0}]})
         self.assertNotIn("h1", cache)
         self.assertIn("inhibition:sedation", cache["sert"])
         self.assertEqual(len(misses), 1)
 
+    def test_pick_without_an_evidence_reading_is_refused(self):
+        cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",
+                                           "picks": [0], "evidence": {"0": "in_dreams"}}]})
+        self.assertEqual(cache, {})
+        self.assertIn("evidence reading", misses[0])
+
+    def test_evidence_reading_rides_the_source(self):
+        cache, _ = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",
+                                      "picks": [0], "evidence": {"0": "isolated_tissue"}}]})
+        self.assertEqual(cache["h1"]["antagonism:sedation"][0]["evidence"], "isolated_tissue")
+
     def test_owner_no_longer_modeled_is_refused(self):
         self.kinds.pop("h1")
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",
-                                           "picks": [0]}]})
+                                           "picks": [0], "evidence": IV0}]})
         self.assertEqual(cache, {})
         self.assertIn("not a current", misses[0])
 
@@ -129,6 +141,20 @@ class EmitterTest(unittest.TestCase):
         self.assertTrue(all(n["grade"] == "verified" and n["mode"] == "antagonism"
                             for n in nodes))
         self.assertEqual(RE.effect_nodes("d2", cache, "receptor"), [])
+
+    def test_isolated_tissue_flag_only_when_every_source_is_isolated(self):
+        def src(quote, evidence):
+            return {"corpus": "stahl_essential", "page": 56, "quote": quote,
+                    "provenance": "verified", "evidence": evidence}
+        cache = {"h3": {"agonism:vasoconstriction": [src(SED, "isolated_tissue")],
+                        "agonism:vasodilation": [src(SED, "isolated_tissue"),
+                                                 src(HYPO, "in_vivo")]}}
+        nodes = {n["effect"]: n for n in RE.effect_nodes("h3", cache, "receptor")}
+        bullet = nodes["vasoconstriction"]["uncertainty"][0]
+        self.assertEqual(bullet["kind"], "isolated_tissue")
+        self.assertEqual(bullet["sources"][0]["quote"], SED)
+        self.assertNotIn("uncertainty", nodes["vasodilation"])
+        self.assertNotIn("evidence", nodes["vasoconstriction"]["sources"][0])
 
     def test_unknown_effect_in_cache_fails_the_build(self):
         with self.assertRaises(KeyError):

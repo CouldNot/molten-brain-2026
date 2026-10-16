@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Any
 
 from .provenance import _quote_sources
+from .quotes.uncertainty import _uncertainty_bullet
 
 CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "receptor_effects.json"
 
@@ -121,6 +122,14 @@ RECEPTOR_EFFECTS: dict[str, dict[str, str]] = {
 }
 
 
+# How a picked sentence's evidence was obtained, read by the picker at judge time and
+# stored per source by the applier: ``isolated_tissue`` = an isolated human tissue
+# preparation only (a vessel ring, a mucosa strip), ``in_vivo`` = anything stated of a
+# living person or clinical use. A node whose EVERY source is ``isolated_tissue`` wears
+# the derived ``isolated_tissue`` uncertainty bullet (:func:`effect_nodes`).
+EFFECT_EVIDENCE: tuple[str, ...] = ("in_vivo", "isolated_tissue")
+
+
 def _key(mode: str, effect: str) -> str:
     """The cache key of one node under its owner (``<mode>:<effect>``)."""
     return f"{mode}:{effect}"
@@ -136,7 +145,8 @@ def effect_nodes(owner: str, cache: dict[str, dict[str, list]],
                  owner_kind: str) -> list[dict[str, Any]]:
     """The ``effects`` list one receptor record / target entry carries, sorted.
 
-    Each item ``{mode, effect, sources, grade}`` is ONE node (kind ``receptor_effect``).
+    Each item ``{mode, effect, sources, grade, uncertainty?}`` is ONE node (kind
+    ``receptor_effect``); ``uncertainty`` holds the derived ``isolated_tissue`` bullet.
     An unknown mode or effect in the cache fails the build: the vocabularies are closed.
     """
     out: list[dict[str, Any]] = []
@@ -149,9 +159,13 @@ def effect_nodes(owner: str, cache: dict[str, dict[str, list]],
         sources = _quote_sources(srcs, what)
         if not sources:
             continue
-        out.append({"mode": mode, "effect": effect, "sources": sources,
-                    "grade": "verified" if any(s["provenance"] == "verified"
-                                               for s in sources) else "sourced"})
+        node = {"mode": mode, "effect": effect, "sources": sources,
+                "grade": "verified" if any(s["provenance"] == "verified"
+                                           for s in sources) else "sourced"}
+        if all(s.get("evidence") == "isolated_tissue" for s in srcs):
+            node["uncertainty"] = [_uncertainty_bullet("isolated_tissue", what=what,
+                                                       node=node, source=sources[0])]
+        out.append(node)
     return out
 
 

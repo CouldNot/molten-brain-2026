@@ -143,6 +143,10 @@ UNCERTAINTY_REASONS: dict[str, dict[str, Any]] = {
     # row); ``species`` is a list of tools/species.py keys the viewer localizes.
     # Derived in quotes/animal_evidence.py.
     "animal_evidence": {"source": "own_quote", "absence": False, "args": ("species",)},
+    # "Every source reports an isolated human tissue preparation (a vessel ring, a mucosa
+    # strip), not a living person." Read per quote at judge time (``evidence`` in
+    # receptor_effects_judged.json); derived in data_generators/receptor_effects.py.
+    "isolated_tissue": {"source": "own_quote", "absence": False, "args": ()},
 }
 
 

@@ -12,11 +12,11 @@
 
 /**
  * Resolve one owner's emitted `effects` list into display rows.
- * @param {object[]} raw  `[{mode, effect, sources, grade}]` from the record.
+ * @param {object[]} raw  `[{mode, effect, sources, grade, uncertainty?}]` from the record.
  * @param {Object<string,{label:string}>} modes  meta.receptor_effect_modes (localized labels).
  * @param {Object<string,string>} labels  meta.receptor_effect_labels (localized).
  * @returns {{mode:string, effect:string, label:string, modeLabel:string,
- *            sources:object[], provenance:string}[]}
+ *            sources:object[], uncertainty:object[], provenance:string}[]}
  */
 export function resolveEffects(raw, modes, labels) {
   return (raw || []).map((e) => ({
@@ -25,6 +25,9 @@ export function resolveEffects(raw, modes, labels) {
     label: labels[e.effect] || e.effect,
     modeLabel: (modes[e.mode] && modes[e.mode].label) || e.mode,
     sources: e.sources || [],
+    // Derived reasons to doubt (an isolated-tissue-only effect, quotes/uncertainty.py):
+    // the row's pill reads orange and its tooltip leads with them.
+    uncertainty: e.uncertainty || [],
     provenance: e.grade || "llm",
   }));
 }

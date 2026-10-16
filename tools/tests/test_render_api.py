@@ -77,6 +77,10 @@ class RenderApiTest(unittest.TestCase):
         self.assertIn("(/api/drug/ondansetron)", self.pages["effect/antiemetic.md"])
         self.assertIn("(/api/effect/nausea)", self.pages["effect/index.md"])
 
+    def test_effect_page_flags_an_isolated_tissue_owner(self):
+        self.assertIn("(/api/receptor/h3) (uncertain: isolated_tissue)",
+                      self.pages["effect/vasoconstriction.md"])
+
     def test_presentation_fields_skipped(self):
         self.assertNotIn("shape_file", self.pages["structure/putamen_R.md"])
 

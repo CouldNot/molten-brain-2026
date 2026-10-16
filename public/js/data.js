@@ -1705,7 +1705,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   for (const tgt of targets) {
     const raw = tgt.receptor ? tgt.receptor.effects : (drugTargets[tgt.id] || {}).effects;
     const rows = resolveEffects(raw, effectModes, effectLabels)
-      .map((e) => ({ ...e, sources: mapSources(e.sources) }));
+      .map((e) => ({ ...e, sources: mapSources(e.sources), uncertainty: mapUncertainty(e.uncertainty) }));
     tgt.effectInfo = rows;
     // {searched, corpora} when every required corpus was searched and none states an
     // effect (tools/data_generators/unknown.py): the panel's blue UNKNOWN row. Never an

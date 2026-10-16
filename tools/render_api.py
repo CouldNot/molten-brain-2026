@@ -241,7 +241,9 @@ class Renderer:
             lines += ["", f"### {effect_index._en(spec.get('label', mode))}", ""]
             for o in sorted(owners, key=lambda o: o["id"]):
                 srcs = " ".join(self.source(s) for s in o["node"].get("sources") or [])
-                lines.append(f"- {self.link(o['kind'], o['id'])} {srcs}".rstrip())
+                doubt = ", ".join(u["kind"] for u in o["node"].get("uncertainty") or [])
+                note = f" (uncertain: {doubt})" if doubt else ""
+                lines.append(f"- {self.link(o['kind'], o['id'])}{note} {srcs}".rstrip())
         lines += ["", f"## Drugs that could cause it (derived, {len(e['drugs'])})", ""]
         for d in sorted(e["drugs"], key=lambda d: str(d["drug"].get("name") or d["drug"]["id"]).lower()):
             via = ", ".join(f"{self.link('target', b['target'])} {b['action']}"

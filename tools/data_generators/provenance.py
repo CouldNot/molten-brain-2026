@@ -1702,7 +1702,9 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # data_generators/unknown.py) adds one UNKNOWN, outside the denominator.
     effect_owners = (*receptors, *(t for t in drug_targets.values()
                                    if t.get("type") != "receptor"))
-    receptor_effect_grades = [e["grade"] for o in effect_owners
+    # A (grade, is_uncertain) pair: an effect backed by isolated tissue only buckets
+    # ``uncertain`` however strong its quote (receptor_effects.EFFECT_EVIDENCE).
+    receptor_effect_grades = [(e["grade"], bool(e.get("uncertainty"))) for o in effect_owners
                               for e in o.get("effects", [])] + [
         "unknown" for o in effect_owners if o.get("effects_unknown")]
     # Release-modulation nodes (kind receptor_release_modulation, BETA): one per (receptor,

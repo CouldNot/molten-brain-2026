@@ -7,7 +7,11 @@
     "picks": [
      49,
      61
-    ]
+    ],
+    "evidence": {
+     "49": "in_vivo",
+     "61": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
@@ -16,21 +20,32 @@
      12,
      40,
      61
-    ]
+    ],
+    "evidence": {
+     "12": "in_vivo",
+     "40": "in_vivo",
+     "61": "in_vivo"
+    }
    },
    {
     "effect": "hypothermia",
     "mode": "agonism",
     "picks": [
      60
-    ]
+    ],
+    "evidence": {
+     "60": "in_vivo"
+    }
    },
    {
     "effect": "bradycardia",
     "mode": "agonism",
     "picks": [
      59
-    ]
+    ],
+    "evidence": {
+     "59": "in_vivo"
+    }
    },
    {
     "effect": "pro_cognitive",
@@ -38,21 +53,31 @@
     "picks": [
      20,
      70
-    ]
+    ],
+    "evidence": {
+     "20": "in_vivo",
+     "70": "in_vivo"
+    }
    },
    {
     "effect": "antipsychotic",
     "mode": "agonism",
     "picks": [
      67
-    ]
+    ],
+    "evidence": {
+     "67": "in_vivo"
+    }
    },
    {
     "effect": "vasodilation",
     "mode": "agonism",
     "picks": [
      60
-    ]
+    ],
+    "evidence": {
+     "60": "in_vivo"
+    }
    }
   ],
   "5ht1b": [
@@ -62,14 +87,21 @@
     "picks": [
      8,
      23
-    ]
+    ],
+    "evidence": {
+     "8": "in_vivo",
+     "23": "isolated_tissue"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    }
   ],
   "5ht1d": [
@@ -78,7 +110,10 @@
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "5ht1f": [
@@ -88,14 +123,21 @@
     "picks": [
      16,
      12
-    ]
+    ],
+    "evidence": {
+     "16": "in_vivo",
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "sedation",
     "mode": "agonism",
     "picks": [
      13
-    ]
+    ],
+    "evidence": {
+     "13": "in_vivo"
+    }
    }
   ],
   "5ht2a": [
@@ -106,7 +148,12 @@
      6,
      16,
      140
-    ]
+    ],
+    "evidence": {
+     "6": "in_vivo",
+     "16": "in_vivo",
+     "140": "in_vivo"
+    }
    },
    {
     "effect": "psychosis",
@@ -114,7 +161,11 @@
     "picks": [
      6,
      7
-    ]
+    ],
+    "evidence": {
+     "6": "in_vivo",
+     "7": "in_vivo"
+    }
    },
    {
     "effect": "sexual_dysfunction",
@@ -122,7 +173,11 @@
     "picks": [
      92,
      89
-    ]
+    ],
+    "evidence": {
+     "92": "in_vivo",
+     "89": "in_vivo"
+    }
    },
    {
     "effect": "insomnia",
@@ -130,7 +185,11 @@
     "picks": [
      92,
      89
-    ]
+    ],
+    "evidence": {
+     "92": "in_vivo",
+     "89": "in_vivo"
+    }
    },
    {
     "effect": "anxiety",
@@ -138,14 +197,21 @@
     "picks": [
      92,
      89
-    ]
+    ],
+    "evidence": {
+     "92": "in_vivo",
+     "89": "in_vivo"
+    }
    },
    {
     "effect": "prolactin_elevation",
     "mode": "agonism",
     "picks": [
      141
-    ]
+    ],
+    "evidence": {
+     "141": "in_vivo"
+    }
    },
    {
     "effect": "antipsychotic",
@@ -153,7 +219,11 @@
     "picks": [
      33,
      50
-    ]
+    ],
+    "evidence": {
+     "33": "in_vivo",
+     "50": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
@@ -161,7 +231,11 @@
     "picks": [
      62,
      137
-    ]
+    ],
+    "evidence": {
+     "62": "in_vivo",
+     "137": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
@@ -169,7 +243,11 @@
     "picks": [
      86,
      88
-    ]
+    ],
+    "evidence": {
+     "86": "in_vivo",
+     "88": "in_vivo"
+    }
    }
   ],
   "5ht2b": [
@@ -178,7 +256,10 @@
     "mode": "agonism",
     "picks": [
      3
-    ]
+    ],
+    "evidence": {
+     "3": "in_vivo"
+    }
    }
   ],
   "5ht2c": [
@@ -189,21 +270,32 @@
      5,
      6,
      10
-    ]
+    ],
+    "evidence": {
+     "5": "in_vivo",
+     "6": "in_vivo",
+     "10": "in_vivo"
+    }
    },
    {
     "effect": "sexual_dysfunction",
     "mode": "agonism",
     "picks": [
      29
-    ]
+    ],
+    "evidence": {
+     "29": "in_vivo"
+    }
    },
    {
     "effect": "insomnia",
     "mode": "agonism",
     "picks": [
      29
-    ]
+    ],
+    "evidence": {
+     "29": "in_vivo"
+    }
    },
    {
     "effect": "anxiety",
@@ -211,14 +303,21 @@
     "picks": [
      29,
      48
-    ]
+    ],
+    "evidence": {
+     "29": "in_vivo",
+     "48": "in_vivo"
+    }
    },
    {
     "effect": "anxiety",
     "mode": "antagonism",
     "picks": [
      23
-    ]
+    ],
+    "evidence": {
+     "23": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
@@ -226,7 +325,11 @@
     "picks": [
      18,
      46
-    ]
+    ],
+    "evidence": {
+     "18": "in_vivo",
+     "46": "in_vivo"
+    }
    }
   ],
   "5ht3": [
@@ -236,7 +339,11 @@
     "picks": [
      6,
      17
-    ]
+    ],
+    "evidence": {
+     "6": "in_vivo",
+     "17": "in_vivo"
+    }
    },
    {
     "effect": "antiemetic",
@@ -245,21 +352,32 @@
      0,
      7,
      18
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "7": "in_vivo",
+     "18": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "antagonism",
     "picks": [
      9
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo"
+    }
    },
    {
     "effect": "anxiety",
     "mode": "agonism",
     "picks": [
      17
-    ]
+    ],
+    "evidence": {
+     "17": "in_vivo"
+    }
    }
   ],
   "5ht4": [
@@ -269,7 +387,11 @@
     "picks": [
      10,
      11
-    ]
+    ],
+    "evidence": {
+     "10": "in_vivo",
+     "11": "isolated_tissue"
+    }
    }
   ],
   "5ht7": [
@@ -279,21 +401,31 @@
     "picks": [
      16,
      14
-    ]
+    ],
+    "evidence": {
+     "16": "in_vivo",
+     "14": "in_vivo"
+    }
    },
    {
     "effect": "pro_cognitive",
     "mode": "antagonism",
     "picks": [
      14
-    ]
+    ],
+    "evidence": {
+     "14": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
     "mode": "antagonism",
     "picks": [
      7
-    ]
+    ],
+    "evidence": {
+     "7": "in_vivo"
+    }
    }
   ],
   "a2a": [
@@ -302,14 +434,20 @@
     "mode": "antagonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    },
    {
     "effect": "vasodilation",
     "mode": "agonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    }
   ],
   "ache": [
@@ -318,7 +456,10 @@
     "mode": "inhibition",
     "picks": [
      4
-    ]
+    ],
+    "evidence": {
+     "4": "in_vivo"
+    }
    }
   ],
   "alpha1a": [
@@ -329,7 +470,12 @@
      34,
      2,
      12
-    ]
+    ],
+    "evidence": {
+     "34": "in_vivo",
+     "2": "in_vivo",
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "dizziness",
@@ -337,7 +483,11 @@
     "picks": [
      34,
      4
-    ]
+    ],
+    "evidence": {
+     "34": "in_vivo",
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "sedation",
@@ -346,14 +496,22 @@
      2,
      4,
      11
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "4": "in_vivo",
+     "11": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "vasoconstriction",
@@ -362,14 +520,22 @@
      54,
      62,
      63
-    ]
+    ],
+    "evidence": {
+     "54": "in_vivo",
+     "62": "isolated_tissue",
+     "63": "isolated_tissue"
+    }
    },
    {
     "effect": "anxiolytic",
     "mode": "antagonism",
     "picks": [
      37
-    ]
+    ],
+    "evidence": {
+     "37": "in_vivo"
+    }
    }
   ],
   "alpha1b": [
@@ -380,7 +546,12 @@
      34,
      2,
      12
-    ]
+    ],
+    "evidence": {
+     "34": "in_vivo",
+     "2": "in_vivo",
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "dizziness",
@@ -388,7 +559,11 @@
     "picks": [
      34,
      4
-    ]
+    ],
+    "evidence": {
+     "34": "in_vivo",
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "sedation",
@@ -397,14 +572,22 @@
      2,
      4,
      11
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "4": "in_vivo",
+     "11": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "vasoconstriction",
@@ -413,14 +596,22 @@
      54,
      62,
      63
-    ]
+    ],
+    "evidence": {
+     "54": "in_vivo",
+     "62": "isolated_tissue",
+     "63": "isolated_tissue"
+    }
    },
    {
     "effect": "anxiolytic",
     "mode": "antagonism",
     "picks": [
      37
-    ]
+    ],
+    "evidence": {
+     "37": "in_vivo"
+    }
    }
   ],
   "alpha1d": [
@@ -431,7 +622,12 @@
      34,
      2,
      12
-    ]
+    ],
+    "evidence": {
+     "34": "in_vivo",
+     "2": "in_vivo",
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "dizziness",
@@ -439,7 +635,11 @@
     "picks": [
      34,
      4
-    ]
+    ],
+    "evidence": {
+     "34": "in_vivo",
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "sedation",
@@ -448,28 +648,42 @@
      2,
      4,
      11
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "4": "in_vivo",
+     "11": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "vasoconstriction",
     "mode": "agonism",
     "picks": [
      54
-    ]
+    ],
+    "evidence": {
+     "54": "in_vivo"
+    }
    },
    {
     "effect": "anxiolytic",
     "mode": "antagonism",
     "picks": [
      37
-    ]
+    ],
+    "evidence": {
+     "37": "in_vivo"
+    }
    }
   ],
   "alpha2": [
@@ -478,7 +692,10 @@
     "mode": "agonism",
     "picks": [
      39
-    ]
+    ],
+    "evidence": {
+     "39": "in_vivo"
+    }
    }
   ],
   "alpha2a": [
@@ -488,7 +705,11 @@
     "picks": [
      10,
      20
-    ]
+    ],
+    "evidence": {
+     "10": "in_vivo",
+     "20": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
@@ -496,21 +717,31 @@
     "picks": [
      10,
      20
-    ]
+    ],
+    "evidence": {
+     "10": "in_vivo",
+     "20": "in_vivo"
+    }
    },
    {
     "effect": "pro_cognitive",
     "mode": "agonism",
     "picks": [
      12
-    ]
+    ],
+    "evidence": {
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "bradycardia",
     "mode": "agonism",
     "picks": [
      19
-    ]
+    ],
+    "evidence": {
+     "19": "in_vivo"
+    }
    }
   ],
   "alpha2b": [
@@ -520,14 +751,21 @@
     "picks": [
      0,
      2
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "2": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "alpha2c": [
@@ -536,21 +774,30 @@
     "mode": "agonism",
     "picks": [
      3
-    ]
+    ],
+    "evidence": {
+     "3": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
     "mode": "agonism",
     "picks": [
      3
-    ]
+    ],
+    "evidence": {
+     "3": "in_vivo"
+    }
    },
    {
     "effect": "vasoconstriction",
     "mode": "agonism",
     "picks": [
      11
-    ]
+    ],
+    "evidence": {
+     "11": "in_vivo"
+    }
    }
   ],
   "alpha2d": [
@@ -559,14 +806,20 @@
     "mode": "agonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
     "mode": "agonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    }
   ],
   "ampa": [
@@ -575,7 +828,10 @@
     "mode": "agonism",
     "picks": [
      12
-    ]
+    ],
+    "evidence": {
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "anticonvulsant",
@@ -583,7 +839,11 @@
     "picks": [
      13,
      14
-    ]
+    ],
+    "evidence": {
+     "13": "in_vivo",
+     "14": "in_vivo"
+    }
    }
   ],
   "beta1": [
@@ -592,7 +852,10 @@
     "mode": "antagonism",
     "picks": [
      1
-    ]
+    ],
+    "evidence": {
+     "1": "in_vivo"
+    }
    }
   ],
   "beta2": [
@@ -602,7 +865,11 @@
     "picks": [
      2,
      5
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "5": "isolated_tissue"
+    }
    },
    {
     "effect": "bronchodilation",
@@ -610,7 +877,11 @@
     "picks": [
      4,
      6
-    ]
+    ],
+    "evidence": {
+     "4": "in_vivo",
+     "6": "in_vivo"
+    }
    },
    {
     "effect": "vasodilation",
@@ -618,7 +889,11 @@
     "picks": [
      7,
      1
-    ]
+    ],
+    "evidence": {
+     "7": "in_vivo",
+     "1": "in_vivo"
+    }
    }
   ],
   "beta3": [
@@ -627,14 +902,20 @@
     "mode": "agonism",
     "picks": [
      1
-    ]
+    ],
+    "evidence": {
+     "1": "isolated_tissue"
+    }
    },
    {
     "effect": "bladder_relaxation",
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "isolated_tissue"
+    }
    }
   ],
   "cb1": [
@@ -643,7 +924,10 @@
     "mode": "agonism",
     "picks": [
      6
-    ]
+    ],
+    "evidence": {
+     "6": "in_vivo"
+    }
    }
   ],
   "cgrp": [
@@ -652,7 +936,10 @@
     "mode": "antagonism",
     "picks": [
      3
-    ]
+    ],
+    "evidence": {
+     "3": "in_vivo"
+    }
    }
   ],
   "d1": [
@@ -661,21 +948,30 @@
     "mode": "agonism",
     "picks": [
      13
-    ]
+    ],
+    "evidence": {
+     "13": "in_vivo"
+    }
    },
    {
     "effect": "pro_cognitive",
     "mode": "agonism",
     "picks": [
      9
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "d2": [
@@ -686,7 +982,12 @@
      5,
      30,
      39
-    ]
+    ],
+    "evidence": {
+     "5": "in_vivo",
+     "30": "in_vivo",
+     "39": "in_vivo"
+    }
    },
    {
     "effect": "akathisia",
@@ -695,7 +996,12 @@
      31,
      34,
      41
-    ]
+    ],
+    "evidence": {
+     "31": "in_vivo",
+     "34": "in_vivo",
+     "41": "in_vivo"
+    }
    },
    {
     "effect": "tardive_dyskinesia",
@@ -704,7 +1010,12 @@
      7,
      35,
      37
-    ]
+    ],
+    "evidence": {
+     "7": "in_vivo",
+     "35": "in_vivo",
+     "37": "in_vivo"
+    }
    },
    {
     "effect": "prolactin_elevation",
@@ -712,21 +1023,31 @@
     "picks": [
      28,
      80
-    ]
+    ],
+    "evidence": {
+     "28": "in_vivo",
+     "80": "in_vivo"
+    }
    },
    {
     "effect": "nausea",
     "mode": "agonism",
     "picks": [
      95
-    ]
+    ],
+    "evidence": {
+     "95": "in_vivo"
+    }
    },
    {
     "effect": "psychosis",
     "mode": "agonism",
     "picks": [
      63
-    ]
+    ],
+    "evidence": {
+     "63": "in_vivo"
+    }
    },
    {
     "effect": "antipsychotic",
@@ -734,7 +1055,11 @@
     "picks": [
      18,
      111
-    ]
+    ],
+    "evidence": {
+     "18": "in_vivo",
+     "111": "in_vivo"
+    }
    },
    {
     "effect": "antiparkinsonian",
@@ -742,7 +1067,11 @@
     "picks": [
      63,
      187
-    ]
+    ],
+    "evidence": {
+     "63": "in_vivo",
+     "187": "in_vivo"
+    }
    }
   ],
   "d3": [
@@ -752,21 +1081,31 @@
     "picks": [
      2,
      12
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "antipsychotic",
     "mode": "antagonism",
     "picks": [
      12
-    ]
+    ],
+    "evidence": {
+     "12": "in_vivo"
+    }
    },
    {
     "effect": "antiparkinsonian",
     "mode": "agonism",
     "picks": [
      18
-    ]
+    ],
+    "evidence": {
+     "18": "in_vivo"
+    }
    }
   ],
   "dat": [
@@ -777,14 +1116,22 @@
      32,
      21,
      7
-    ]
+    ],
+    "evidence": {
+     "32": "in_vivo",
+     "21": "in_vivo",
+     "7": "in_vivo"
+    }
    },
    {
     "effect": "appetite_decrease",
     "mode": "inhibition",
     "picks": [
      28
-    ]
+    ],
+    "evidence": {
+     "28": "in_vivo"
+    }
    }
   ],
   "delta": [
@@ -794,14 +1141,21 @@
     "picks": [
      14,
      19
-    ]
+    ],
+    "evidence": {
+     "14": "in_vivo",
+     "19": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
     "mode": "agonism",
     "picks": [
      8
-    ]
+    ],
+    "evidence": {
+     "8": "in_vivo"
+    }
    }
   ],
   "gaba_a": [
@@ -812,14 +1166,22 @@
      10,
      22,
      25
-    ]
+    ],
+    "evidence": {
+     "10": "in_vivo",
+     "22": "in_vivo",
+     "25": "in_vivo"
+    }
    },
    {
     "effect": "euphoria",
     "mode": "agonism",
     "picks": [
      25
-    ]
+    ],
+    "evidence": {
+     "25": "in_vivo"
+    }
    },
    {
     "effect": "seizures",
@@ -827,7 +1189,11 @@
     "picks": [
      26,
      20
-    ]
+    ],
+    "evidence": {
+     "26": "in_vivo",
+     "20": "in_vivo"
+    }
    },
    {
     "effect": "anxiolytic",
@@ -835,7 +1201,11 @@
     "picks": [
      22,
      6
-    ]
+    ],
+    "evidence": {
+     "22": "in_vivo",
+     "6": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
@@ -843,7 +1213,11 @@
     "picks": [
      9,
      8
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo",
+     "8": "in_vivo"
+    }
    },
    {
     "effect": "anticonvulsant",
@@ -851,14 +1225,21 @@
     "picks": [
      24,
      25
-    ]
+    ],
+    "evidence": {
+     "24": "in_vivo",
+     "25": "in_vivo"
+    }
    },
    {
     "effect": "ataxia",
     "mode": "agonism",
     "picks": [
      23
-    ]
+    ],
+    "evidence": {
+     "23": "in_vivo"
+    }
    }
   ],
   "gaba_b": [
@@ -867,7 +1248,10 @@
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "glycine": [
@@ -876,7 +1260,10 @@
     "mode": "antagonism",
     "picks": [
      4
-    ]
+    ],
+    "evidence": {
+     "4": "in_vivo"
+    }
    }
   ],
   "h1": [
@@ -887,7 +1274,12 @@
      19,
      22,
      14
-    ]
+    ],
+    "evidence": {
+     "19": "in_vivo",
+     "22": "in_vivo",
+     "14": "in_vivo"
+    }
    },
    {
     "effect": "weight_gain",
@@ -896,7 +1288,12 @@
      19,
      14,
      1
-    ]
+    ],
+    "evidence": {
+     "19": "in_vivo",
+     "14": "in_vivo",
+     "1": "in_vivo"
+    }
    },
    {
     "effect": "sleep_promotion",
@@ -904,28 +1301,41 @@
     "picks": [
      30,
      32
-    ]
+    ],
+    "evidence": {
+     "30": "in_vivo",
+     "32": "in_vivo"
+    }
    },
    {
     "effect": "anxiolytic",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "wakefulness",
     "mode": "agonism",
     "picks": [
      21
-    ]
+    ],
+    "evidence": {
+     "21": "in_vivo"
+    }
    },
    {
     "effect": "bronchoconstriction",
     "mode": "agonism",
     "picks": [
      42
-    ]
+    ],
+    "evidence": {
+     "42": "in_vivo"
+    }
    }
   ],
   "h2": [
@@ -934,7 +1344,10 @@
     "mode": "antagonism",
     "picks": [
      4
-    ]
+    ],
+    "evidence": {
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "gastric_acid_increase",
@@ -943,7 +1356,12 @@
      2,
      4,
      7
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "4": "in_vivo",
+     "7": "in_vivo"
+    }
    }
   ],
   "h3": [
@@ -953,21 +1371,31 @@
     "picks": [
      3,
      4
-    ]
+    ],
+    "evidence": {
+     "3": "in_vivo",
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "vasoconstriction",
     "mode": "agonism",
     "picks": [
      13
-    ]
+    ],
+    "evidence": {
+     "13": "isolated_tissue"
+    }
    },
    {
     "effect": "analgesia",
     "mode": "agonism",
     "picks": [
      14
-    ]
+    ],
+    "evidence": {
+     "14": "in_vivo"
+    }
    }
   ],
   "kappa": [
@@ -979,7 +1407,13 @@
      73,
      58,
      102
-    ]
+    ],
+    "evidence": {
+     "7": "in_vivo",
+     "73": "in_vivo",
+     "58": "in_vivo",
+     "102": "in_vivo"
+    }
    },
    {
     "effect": "hallucinations",
@@ -988,7 +1422,12 @@
      73,
      58,
      102
-    ]
+    ],
+    "evidence": {
+     "73": "in_vivo",
+     "58": "in_vivo",
+     "102": "in_vivo"
+    }
    },
    {
     "effect": "sedation",
@@ -996,7 +1435,11 @@
     "picks": [
      10,
      102
-    ]
+    ],
+    "evidence": {
+     "10": "in_vivo",
+     "102": "in_vivo"
+    }
    },
    {
     "effect": "prolactin_elevation",
@@ -1005,7 +1448,12 @@
      25,
      38,
      101
-    ]
+    ],
+    "evidence": {
+     "25": "in_vivo",
+     "38": "in_vivo",
+     "101": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
@@ -1016,14 +1464,24 @@
      103,
      104,
      16
-    ]
+    ],
+    "evidence": {
+     "13": "in_vivo",
+     "12": "in_vivo",
+     "103": "in_vivo",
+     "104": "in_vivo",
+     "16": "in_vivo"
+    }
    },
    {
     "effect": "antipruritic",
     "mode": "agonism",
     "picks": [
      97
-    ]
+    ],
+    "evidence": {
+     "97": "in_vivo"
+    }
    }
   ],
   "m1": [
@@ -1034,28 +1492,42 @@
      9,
      15,
      16
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo",
+     "15": "in_vivo",
+     "16": "in_vivo"
+    }
    },
    {
     "effect": "dry_mouth",
     "mode": "antagonism",
     "picks": [
      9
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo"
+    }
    },
    {
     "effect": "constipation",
     "mode": "antagonism",
     "picks": [
      9
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo"
+    }
    },
    {
     "effect": "blurred_vision",
     "mode": "antagonism",
     "picks": [
      9
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo"
+    }
    },
    {
     "effect": "sedation",
@@ -1064,7 +1536,12 @@
      2,
      4,
      3
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo",
+     "4": "in_vivo",
+     "3": "in_vivo"
+    }
    },
    {
     "effect": "pro_cognitive",
@@ -1072,14 +1549,21 @@
     "picks": [
      0,
      7
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "7": "in_vivo"
+    }
    },
    {
     "effect": "antipsychotic",
     "mode": "agonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "bronchoconstriction",
@@ -1087,14 +1571,21 @@
     "picks": [
      18,
      16
-    ]
+    ],
+    "evidence": {
+     "18": "in_vivo",
+     "16": "in_vivo"
+    }
    },
    {
     "effect": "gastric_acid_increase",
     "mode": "agonism",
     "picks": [
      14
-    ]
+    ],
+    "evidence": {
+     "14": "in_vivo"
+    }
    }
   ],
   "m2": [
@@ -1103,35 +1594,50 @@
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "blurred_vision",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "constipation",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "urinary_retention",
     "mode": "antagonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "bradycardia",
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "m3": [
@@ -1140,21 +1646,30 @@
     "mode": "agonism",
     "picks": [
      1
-    ]
+    ],
+    "evidence": {
+     "1": "in_vivo"
+    }
    },
    {
     "effect": "vasodilation",
     "mode": "agonism",
     "picks": [
      3
-    ]
+    ],
+    "evidence": {
+     "3": "in_vivo"
+    }
    },
    {
     "effect": "bronchoconstriction",
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "m4": [
@@ -1163,7 +1678,10 @@
     "mode": "agonism",
     "picks": [
      1
-    ]
+    ],
+    "evidence": {
+     "1": "in_vivo"
+    }
    }
   ],
   "m5": [
@@ -1172,7 +1690,10 @@
     "mode": "agonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "isolated_tissue"
+    }
    }
   ],
   "mao_a": [
@@ -1181,14 +1702,20 @@
     "mode": "inhibition",
     "picks": [
      4
-    ]
+    ],
+    "evidence": {
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "inhibition",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    }
   ],
   "mao_b": [
@@ -1197,7 +1724,10 @@
     "mode": "inhibition",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "mglur1": [
@@ -1208,7 +1738,12 @@
      9,
      10,
      12
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo",
+     "10": "in_vivo",
+     "12": "in_vivo"
+    }
    }
   ],
   "mglur2": [
@@ -1217,7 +1752,10 @@
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "mglur3": [
@@ -1226,7 +1764,10 @@
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "mglur6": [
@@ -1235,7 +1776,10 @@
     "mode": "antagonism",
     "picks": [
      7
-    ]
+    ],
+    "evidence": {
+     "7": "in_vivo"
+    }
    }
   ],
   "mt1": [
@@ -1246,21 +1790,32 @@
      0,
      6,
      4
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "6": "in_vivo",
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "circadian_shift",
     "mode": "agonism",
     "picks": [
      0
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo"
+    }
    },
    {
     "effect": "vasoconstriction",
     "mode": "agonism",
     "picks": [
      10
-    ]
+    ],
+    "evidence": {
+     "10": "isolated_tissue"
+    }
    }
   ],
   "mt2": [
@@ -1270,7 +1825,11 @@
     "picks": [
      0,
      6
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "6": "in_vivo"
+    }
    },
    {
     "effect": "circadian_shift",
@@ -1278,7 +1837,11 @@
     "picks": [
      0,
      8
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "8": "in_vivo"
+    }
    }
   ],
   "mu": [
@@ -1287,28 +1850,40 @@
     "mode": "agonism",
     "picks": [
      15
-    ]
+    ],
+    "evidence": {
+     "15": "in_vivo"
+    }
    },
    {
     "effect": "nausea",
     "mode": "agonism",
     "picks": [
      15
-    ]
+    ],
+    "evidence": {
+     "15": "in_vivo"
+    }
    },
    {
     "effect": "euphoria",
     "mode": "agonism",
     "picks": [
      15
-    ]
+    ],
+    "evidence": {
+     "15": "in_vivo"
+    }
    },
    {
     "effect": "respiratory_depression",
     "mode": "agonism",
     "picks": [
      15
-    ]
+    ],
+    "evidence": {
+     "15": "in_vivo"
+    }
    },
    {
     "effect": "constipation",
@@ -1316,7 +1891,11 @@
     "picks": [
      13,
      15
-    ]
+    ],
+    "evidence": {
+     "13": "in_vivo",
+     "15": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
@@ -1325,14 +1904,22 @@
      7,
      16,
      6
-    ]
+    ],
+    "evidence": {
+     "7": "in_vivo",
+     "16": "in_vivo",
+     "6": "in_vivo"
+    }
    },
    {
     "effect": "itch",
     "mode": "agonism",
     "picks": [
      15
-    ]
+    ],
+    "evidence": {
+     "15": "in_vivo"
+    }
    }
   ],
   "nachr_a4b2": [
@@ -1341,7 +1928,10 @@
     "mode": "agonism",
     "picks": [
      2
-    ]
+    ],
+    "evidence": {
+     "2": "in_vivo"
+    }
    }
   ],
   "nachr_a7": [
@@ -1350,7 +1940,10 @@
     "mode": "agonism",
     "picks": [
      1
-    ]
+    ],
+    "evidence": {
+     "1": "in_vivo"
+    }
    }
   ],
   "nachr_muscle": [
@@ -1359,7 +1952,10 @@
     "mode": "antagonism",
     "picks": [
      1
-    ]
+    ],
+    "evidence": {
+     "1": "in_vivo"
+    }
    }
   ],
   "net": [
@@ -1368,28 +1964,40 @@
     "mode": "inhibition",
     "picks": [
      16
-    ]
+    ],
+    "evidence": {
+     "16": "in_vivo"
+    }
    },
    {
     "effect": "anxiety",
     "mode": "inhibition",
     "picks": [
      27
-    ]
+    ],
+    "evidence": {
+     "27": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "inhibition",
     "picks": [
      13
-    ]
+    ],
+    "evidence": {
+     "13": "in_vivo"
+    }
    },
    {
     "effect": "analgesia",
     "mode": "inhibition",
     "picks": [
      20
-    ]
+    ],
+    "evidence": {
+     "20": "in_vivo"
+    }
    }
   ],
   "nmda": [
@@ -1399,21 +2007,31 @@
     "picks": [
      15,
      9
-    ]
+    ],
+    "evidence": {
+     "15": "in_vivo",
+     "9": "in_vivo"
+    }
    },
    {
     "effect": "hallucinations",
     "mode": "antagonism",
     "picks": [
      83
-    ]
+    ],
+    "evidence": {
+     "83": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "antagonism",
     "picks": [
      33
-    ]
+    ],
+    "evidence": {
+     "33": "in_vivo"
+    }
    }
   ],
   "orexin": [
@@ -1423,7 +2041,11 @@
     "picks": [
      0,
      28
-    ]
+    ],
+    "evidence": {
+     "0": "in_vivo",
+     "28": "in_vivo"
+    }
    }
   ],
   "sert": [
@@ -1433,21 +2055,31 @@
     "picks": [
      12,
      17
-    ]
+    ],
+    "evidence": {
+     "12": "in_vivo",
+     "17": "in_vivo"
+    }
    },
    {
     "effect": "insomnia",
     "mode": "inhibition",
     "picks": [
      17
-    ]
+    ],
+    "evidence": {
+     "17": "in_vivo"
+    }
    },
    {
     "effect": "anxiety",
     "mode": "inhibition",
     "picks": [
      17
-    ]
+    ],
+    "evidence": {
+     "17": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
@@ -1455,7 +2087,11 @@
     "picks": [
      18,
      6
-    ]
+    ],
+    "evidence": {
+     "18": "in_vivo",
+     "6": "in_vivo"
+    }
    }
   ],
   "sigma1": [
@@ -1464,14 +2100,20 @@
     "mode": "agonism",
     "picks": [
      4
-    ]
+    ],
+    "evidence": {
+     "4": "in_vivo"
+    }
    },
    {
     "effect": "antidepressant",
     "mode": "agonism",
     "picks": [
      9
-    ]
+    ],
+    "evidence": {
+     "9": "in_vivo"
+    }
    }
   ]
  }

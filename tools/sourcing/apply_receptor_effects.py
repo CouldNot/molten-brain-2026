@@ -5,7 +5,14 @@ Third step of the four-step pipeline (see ``tools/fetch/fetch_receptor_effects.p
 first): an LLM read ``receptor_effects_worklist.json`` and answered by candidate index into
 ``receptor_effects_judged.json``::
 
-    {"owners": {"h1": [{"effect": "sedation", "mode": "antagonism", "picks": [3]}]}}
+    {"owners": {"h1": [{"effect": "sedation", "mode": "antagonism", "picks": [3],
+                        "evidence": {"3": "in_vivo"}}]}}
+
+``evidence`` is the picker's reading of each picked sentence (closed
+``EFFECT_EVIDENCE``): ``isolated_tissue`` when it reports only an isolated human tissue
+preparation (a vessel ring, a mucosa strip), else ``in_vivo``. It rides each cached
+source, and a node whose every source is ``isolated_tissue`` wears the derived
+``isolated_tissue`` uncertainty bullet (``data_generators.receptor_effects``).
 
 This applier is the **sole writer** of the cache and rebuilds it from the judged file on
 every run (so dropping a pick there, e.g. after a judge reject, drops its node here).
@@ -17,7 +24,8 @@ A node lands only when every gate passes, all or nothing per node:
    target only (a receptor is agonised or antagonised, not inhibited);
 3. every picked candidate was offered for that effect (its keyword hit), so a pick
    cannot attach a sentence to an effect it never mentions;
-4. every picked sentence is still verbatim on its stored page (``prose_gate.PageGate``).
+4. every pick carries an ``evidence`` reading from ``EFFECT_EVIDENCE``;
+5. every picked sentence is still verbatim on its stored page (``prose_gate.PageGate``).
 
 It writes no ``llm`` stamp, so ``tools/sourcing/recheck_quotes.py`` (``--kinds
 receptor_effect``) must judge the new citations afterwards, or ``check_data.py`` family 5
@@ -48,7 +56,7 @@ REPO = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators.receptor_effects import (  # noqa: E402
-    CACHE, RECEPTOR_EFFECT_MODES, RECEPTOR_EFFECTS)
+    CACHE, EFFECT_EVIDENCE, RECEPTOR_EFFECT_MODES, RECEPTOR_EFFECTS)
 from prose_gate import apply_picks, not_offered, run_applier  # noqa: E402
 from apply_classification_sources import PROSE_PAGES as _PROSE  # noqa: E402
 from data_generators.provenance import corpus_page_path  # noqa: E402
@@ -88,8 +96,23 @@ def apply(worklist: dict, judged: dict, kinds: dict[str, str],
         off = not_offered(cands, node.get("picks"), "effects", effect)
         if off:
             return key, f"candidate(s) {off} were not offered for {effect!r}"
+        evidence = node.get("evidence") or {}
+        unread = [i for i in node.get("picks") or []
+                  if evidence.get(str(i)) not in EFFECT_EVIDENCE]
+        if unread:
+            return key, f"pick(s) {unread} carry no evidence reading in {EFFECT_EVIDENCE}"
         return key, None
-    return apply_picks(worklist, judged, kinds, check, pages)
+    cache, misses = apply_picks(worklist, judged, kinds, check, pages)
+    # Stamp each landed source with its pick's evidence reading, matched by quote.
+    for oid, nodes in (judged.get("owners") or {}).items():
+        cands = ((worklist.get("owners") or {}).get(oid) or {}).get("candidates", [])
+        for node in nodes or []:
+            bucket = (cache.get(oid) or {}).get(f"{node.get('mode')}:{node.get('effect')}")
+            by_quote = {cands[i]["line"]: node["evidence"][str(i)]
+                        for i in node.get("picks") or [] if bucket}
+            for src in bucket or []:
+                src["evidence"] = by_quote.get(src["quote"], src.get("evidence"))
+    return cache, misses
 
 
 def unknown_log(worklist: dict, cache: dict, kinds: dict[str, str], ledger: dict,
