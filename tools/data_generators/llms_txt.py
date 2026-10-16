@@ -50,8 +50,9 @@ def _fields(records: list[dict[str, Any]]) -> list[str]:
 
 
 def render(version: str, collections: dict[str, list[dict[str, Any]]], meta_keys: list[str],
-           n_quotes: int) -> str:
-    """The llms.txt Markdown for these emitted collections."""
+           n_quotes: int, effect_lines: list[str] | None = None) -> str:
+    """The llms.txt Markdown for these emitted collections. ``effect_lines`` is the BETA
+    effect index (``effect_index.summary_lines``), its own section when given."""
     unknown = set(collections) - set(COLLECTION_BLURBS)
     if unknown:
         raise KeyError(f"llms_txt.COLLECTION_BLURBS has no entry for {sorted(unknown)}")
@@ -61,6 +62,13 @@ def render(version: str, collections: dict[str, list[dict[str, Any]]], meta_keys
         data_lines.append(f"- [{name}.jsonl]({SITE_URL}/data/{name}.jsonl): {len(records)} "
                           f"{COLLECTION_BLURBS[name]}. Fields: {fields}")
     meta = ", ".join(f"`{k}`" for k in meta_keys)
+    effects = "" if not effect_lines else f"""
+## Clinical effects (BETA, derived)
+
+Each effect below is one a source attributes to acting on a receptor in some mode (the receptors' stored `effects[]` nodes), with the drugs whose directional bindings could produce it. The drug side is derived, never stored, and not medical advice: a drug listed does not necessarily cause it. Full list per effect, with sources and the bindings that lead there: `{SITE_URL}/api/effect/<id>` (also listed at `/api/effect/`); viewer: `{SITE_URL}/#tabs=effect:<id>`.
+
+{chr(10).join(effect_lines)}
+"""
     return f"""# Neurarium
 
 > An interactive 3D brain visualizer with an open dataset of brain regions, pathways, neurotransmitter receptors and CNS drugs (bindings, pharmacokinetics, metabolism, pharmacogenomics). Every claim is a "node" carrying its own source quote and a provenance grade. Version {version}. Not medical advice.
@@ -89,8 +97,8 @@ The whole codebase (viewer, data generator, sourcing pipeline, deploy) is docume
 
 [{SITE_URL}/api/]({SITE_URL}/api/) is the dataset as Markdown, one page per node (e.g. `{SITE_URL}/api/drug/sertraline`, `{SITE_URL}/api/receptor/d2`), all listed at `/api/` (one kind: `/api/drug/`). An address with no page returns the full list with ids (status 404), so a guessed id is one step from the right one. Each page holds the node's stored fields, each claim tagged `[grade quote_id]`, with the verbatim quotes and their source links listed under Sources at the end.
 
-**The human version shows slightly more.** The 3D viewer also computes a few sections in the browser from these stored facts, and they are deliberately not on the text pages: a drug's possible effects and release changes (from its bindings and each receptor's effects), its indicative neurotransmitter tone, possible drug-drug interactions (from shared metabolic enzymes), and the simulation. Each is a combination of claims that are on the pages, so an agent can reason them out itself, but it should say so rather than present them as neurarium's statement, and point its user to the viewer link on each page to see them.
-
+**The human version shows slightly more.** The 3D viewer also computes a few sections in the browser from these stored facts, and apart from the BETA effect index (below) they are deliberately not on the text pages: a drug's possible effects and release changes (from its bindings and each receptor's effects), its indicative neurotransmitter tone, possible drug-drug interactions (from shared metabolic enzymes), and the simulation. Each is a combination of claims that are on the pages, so an agent can reason them out itself, but it should say so rather than present them as neurarium's statement, and point its user to the viewer link on each page to see them.
+{effects}
 ## Data files
 
 Static JSON Lines (one record per line) and JSON, regenerated from the repository on every release. English only; French strings are in `translations.fr.json` (English string -> French).

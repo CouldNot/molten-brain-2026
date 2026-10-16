@@ -11,6 +11,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "data_generators"))
+import effect_index  # noqa: E402
 import llms_txt  # noqa: E402
 
 PUBLIC = Path(__file__).resolve().parents[2] / "public"
@@ -40,7 +41,12 @@ class RenderTest(unittest.TestCase):
             for name in llms_txt.COLLECTION_BLURBS}
         meta = json.loads((data / "meta.json").read_text(encoding="utf-8"))
         n_quotes = len((data / "quotes.jsonl").read_text(encoding="utf-8").splitlines())
-        expected = llms_txt.render(llms_txt.app_version(PUBLIC), collections, list(meta), n_quotes)
+        effects = effect_index.summary_lines(
+            effect_index.build(collections["receptors"], collections["drugs"],
+                               collections["metabolites"], meta),
+            meta["receptor_effect_modes"], llms_txt.SITE_URL)
+        expected = llms_txt.render(llms_txt.app_version(PUBLIC), collections, list(meta), n_quotes,
+                                   effects)
         self.assertEqual((PUBLIC / "llms.txt").read_text(encoding="utf-8"), expected,
                          "public/llms.txt is stale: run python tools/generate_data.py")
 

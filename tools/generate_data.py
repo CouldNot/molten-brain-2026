@@ -207,6 +207,7 @@ import claim_walk as CW  # noqa: E402
 # them reachable).
 from data_generators.changelog import load_changelog  # noqa: E402
 from data_generators import llms_txt  # noqa: E402 (public/llms.txt for LLM agents)
+from data_generators import effect_index as EFFECT_INDEX  # noqa: E402 (llms.txt effects, BETA)
 
 # The CPIC reader (corpus #15), shared with tools/check_data.py so both ends derive
 # the guidance blocks and the enzyme routes they state from the same committed export.
@@ -2151,7 +2152,12 @@ def write_artifacts(root: Path) -> None:
     llms_path = root / "llms.txt"
     llms_path.write_text(llms_txt.render(
         llms_txt.app_version(Path(__file__).resolve().parent.parent / "public"), {name: emitted[name] for name in CW.COLLECTIONS},
-        list(emitted["meta"]), len(QUOTES)), encoding="utf-8")
+        list(emitted["meta"]), len(QUOTES),
+        EFFECT_INDEX.summary_lines(
+            EFFECT_INDEX.build(emitted["receptors"], emitted["drugs"], emitted["metabolites"],
+                               emitted["meta"]),
+            emitted["meta"].get("receptor_effect_modes") or {}, llms_txt.SITE_URL)),
+        encoding="utf-8")
     log.info("wrote %s", llms_path)
 
     # The deduplicated quote table, one quote node per line, sorted by id for
