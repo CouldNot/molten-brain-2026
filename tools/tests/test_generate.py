@@ -376,6 +376,8 @@ class MetaAndTranslationsTest(unittest.TestCase):
             (DATA_DIR / "search_names.fr.json").read_text(encoding="utf-8"))
         self.assertEqual(names.get("Hippocampus"), "Hippocampe")
         self.assertEqual(names.get("Frontal lobe"), "Lobe frontal")
+        # receptor_effect labels too, so "Nausées" finds the Effects panel's nausea row.
+        self.assertEqual(names.get("Nausea / vomiting"), "Nausées / vomissements")
         sided = [k for k in names if k.startswith(("Right ", "Left "))]
         self.assertFalse(sided, f"per-hemisphere names leaked: {sided[:5]}")
         tr = json.loads(

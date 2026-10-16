@@ -788,8 +788,9 @@ def search_names(data: dict) -> dict[str, str]:
         walk(data[name])
     meta = data["meta"]
     walk(meta.get("drug_targets") or {})
-    for label in (meta.get("drug_category_labels") or {}).values():
-        keep(label)
+    for labels in ("drug_category_labels", "receptor_effect_labels"):
+        for label in (meta.get(labels) or {}).values():
+            keep(label)
     return out
 
 
