@@ -95,6 +95,12 @@
 "q_0269031767fc": {
 "drug:isocarboxazid/bindings[mao_a:enzyme_inhibitor]": "sonnet"
 },
+"q_027265ada8f0": {
+"drug:solriamfetol/workup[blood_pressure:before]": "opus",
+"drug:solriamfetol/workup[blood_pressure:during]": "opus",
+"drug:solriamfetol/workup[heart_rate:before]": "opus",
+"drug:solriamfetol/workup[heart_rate:during]": "opus"
+},
 "q_027f6be6855d": {
 "drug:lofepramine/metabolites[desipramine]": "sonnet"
 },
@@ -138,6 +144,9 @@
 },
 "q_03b6771f2e90": {
 "drug:tiapride/half_life": "sonnet"
+},
+"q_03e8580343fc": {
+"drug:phenytoin/workup[ecg:during]": "opus"
 },
 "q_0439d1a62162": {
 "metabolite:nordoxepin/half_life": "opus"
@@ -439,7 +448,8 @@
 "drug:ketamine/brands[Ketalar]": "sonnet"
 },
 "q_0ac26164ee6c": {
-"drug:valproate/workup[pregnancy_test:before]": "opus"
+"drug:valproate/workup[pregnancy_test:before]": "opus",
+"drug:valproate/workup[pregnancy_test:during]": "opus"
 },
 "q_0ad987cb6515": {
 "metabolite:carbamazepine_10_11_epoxide/half_life": "sonnet"
@@ -502,6 +512,10 @@
 },
 "q_0c358ff12c7e": {
 "group:kind:cholinergic": "opus"
+},
+"q_0c362d084554": {
+"drug:lamotrigine/workup[drug_level:before]": "opus",
+"drug:lamotrigine/workup[drug_level:during]": "opus"
 },
 "q_0c3a3e397630": {
 "drug:alpidem/categories": "sonnet"
@@ -573,6 +587,9 @@
 "drug:risperidone/bindings[alpha1b:antagonist]": "sonnet",
 "drug:risperidone/bindings[alpha1c:antagonist]": "sonnet",
 "drug:risperidone/bindings[alpha1d:antagonist]": "sonnet"
+},
+"q_0dca8be83aa3": {
+"drug:zonisamide/workup[weight:during]": "opus"
 },
 "q_0dd56a488dbc": {
 "drug:granisetron/originator_country": "opus"
@@ -730,6 +747,9 @@
 },
 "q_116587d29b69": {
 "drug:desvenlafaxine/formulations[xr]/release": "opus"
+},
+"q_116871469faf": {
+"drug:mianserin/workup[glycaemia:during]": "opus"
 },
 "q_116939ff7047": {
 "drug:nitrazepam/brands[Mogadon]": "sonnet"
@@ -1049,7 +1069,8 @@
 "drug:citalopram/half_life": "sonnet"
 },
 "q_18fc52f9732b": {
-"drug:cabergoline/workup[echocardiography:before]": "opus"
+"drug:cabergoline/workup[echocardiography:before]": "opus",
+"drug:cabergoline/workup[renal_function:before]": "opus"
 },
 "q_1906f9ed062a": {
 "drug:nitrazepam/categories": "sonnet"
@@ -1252,6 +1273,10 @@
 "q_1d11dabe77dc": {
 "drug:mianserin/bindings[h1:antagonist]": "sonnet"
 },
+"q_1d37d7b4ba3a": {
+"drug:olanzapine/workup[glycaemia:before]": "opus",
+"drug:olanzapine/workup[glycaemia:during]": "opus"
+},
 "q_1d41df897411": {
 "drug:tofisopam/half_life": "sonnet"
 },
@@ -1269,6 +1294,10 @@
 },
 "q_1dd8b1096133": {
 "drug:donepezil/formulations[transdermal]/release": "opus"
+},
+"q_1ddfefd11726": {
+"drug:methadone/workup[ecg:during]": "opus",
+"drug:methadone/workup[electrolytes:during]": "opus"
 },
 "q_1de427b25b6e": {
 "drug:doxepin/brands[Silenor]": "sonnet"
@@ -1486,6 +1515,10 @@
 "q_22580062533c": {
 "drug:ketamine/first_approval": "opus"
 },
+"q_2262ee8d2dba": {
+"drug:propranolol/workup[blood_pressure:during]": "opus",
+"drug:propranolol/workup[ecg:during]": "opus"
+},
 "q_2263aec33efc": {
 "drug:aripiprazole/brands[Abilify Maintena]": "sonnet"
 },
@@ -1675,6 +1708,9 @@
 "q_260ba673161c": {
 "drug:phenterminetopiramate/bindings[carbonic_anhydrase:enzyme_inhibitor]": "sonnet"
 },
+"q_26334c345233": {
+"drug:carbamazepine/workup[hla_genotype:before]": "opus"
+},
 "q_2659142c7dc6": {
 "drug:methylphenidate_dl/formulations[transdermal]/release": "opus"
 },
@@ -1726,6 +1762,9 @@
 },
 "q_27b0c573ffa5": {
 "drug:nefazodone/first_approval": "opus"
+},
+"q_27b327b1b4c7": {
+"drug:fenfluramine/workup[weight:during]": "opus"
 },
 "q_27d9ad7ee778": {
 "drug:prothipendyl/categories": "opus"
@@ -1877,11 +1916,15 @@
 "drug:quetiapine/workup[weight:before]": "opus",
 "drug:quetiapine/workup[weight:during]": "opus"
 },
+"q_2b276d38e243": {
+"drug:bumetanide/workup[glycaemia:during]": "opus"
+},
 "q_2b2cf2617434": {
 "drug:tiagabine/categories": "sonnet"
 },
 "q_2b30670c0893": {
-"drug:tetrabenazine/workup[ecg:before]": "opus"
+"drug:tetrabenazine/workup[ecg:before]": "opus",
+"drug:tetrabenazine/workup[ecg:during]": "opus"
 },
 "q_2b353a51208c": {
 "drug:pipothiazine/nbn": "sonnet"
@@ -2029,6 +2072,9 @@
 "q_2fe158c82e68": {
 "drug:dimenhydrinate/half_life": "opus"
 },
+"q_2fed2a669d7a": {
+"drug:methylphenidate_dl/workup[weight:during]": "opus"
+},
 "q_300f1a261196": {
 "drug:selegiline/brands[Emsam]": "sonnet"
 },
@@ -2138,6 +2184,9 @@
 },
 "q_32e6d4d77682": {
 "drug:viloxazine/brands[Qelbree]": "sonnet"
+},
+"q_32ebeff235be": {
+"drug:fenfluramine/workup[echocardiography:during]": "opus"
 },
 "q_33178c00457d": {
 "drug:biperiden/brands[Akinophyl]": "sonnet"
@@ -2264,6 +2313,9 @@
 },
 "q_35c17e74a0f8": {
 "drug:quetiapine/metabolites[norquetiapine]/formed_by[cyp3a4]": "sonnet"
+},
+"q_35da43cf9687": {
+"drug:aripiprazole/workup[weight:during]": "opus"
 },
 "q_35daa7469760": {
 "receptor:d1/effects[agonism:antiparkinsonian]": "opus"
@@ -2458,6 +2510,9 @@
 "drug:amphetamine_dl/formulations[xr]/tmax": "opus",
 "drug:amphetamine_dl/tmax": "sonnet"
 },
+"q_3af20dd6d810": {
+"drug:bromocriptine/workup[eye_exam:during]": "opus"
+},
 "q_3b0da938e3eb": {
 "receptor:5ht1e/locations[frontal]": "sonnet"
 },
@@ -2604,6 +2659,10 @@
 },
 "q_3dedfa81b7cb": {
 "drug:sildenafil/categories": "sonnet"
+},
+"q_3e04ad0a1d8f": {
+"drug:bupropion/workup[blood_pressure:before]": "opus",
+"drug:bupropion/workup[blood_pressure:during]": "opus"
 },
 "q_3e06c95f0461": {
 "drug:topiramate/bindings[nav:blocker]": "sonnet"
@@ -3343,6 +3402,9 @@
 "drug:nitrous_oxide/bindings[nmda:antagonist]": "sonnet",
 "drug:nitrous_oxide/categories": "sonnet"
 },
+"q_4e90aef4341b": {
+"drug:olanzapine/workup[liver_function:during]": "opus"
+},
 "q_4eae338ea9a6": {
 "drug:thiothixene/bindings[d2:antagonist]": "sonnet"
 },
@@ -3351,6 +3413,9 @@
 },
 "q_4f2fccdddbd8": {
 "drug:lithium/workup[glycaemia:before]": "opus"
+},
+"q_4f419e7e05a7": {
+"drug:ethosuximide/workup[liver_function:during]": "opus"
 },
 "q_4f4469b29332": {
 "drug:propranolol/brands[Inderal LA]": "sonnet"
@@ -3382,6 +3447,9 @@
 },
 "q_501c5dbbcc2b": {
 "drug:phenobarbital/bindings[gaba_a:pam]": "sonnet"
+},
+"q_50324cba5dde": {
+"drug:escitalopram/workup[ecg:before]": "opus"
 },
 "q_50385d4dcb0f": {
 "drug:triazolam/categories": "sonnet"
@@ -3502,6 +3570,9 @@
 "q_52bc098cfcf5": {
 "receptor:5ht1a/release_modulation[heteroreceptor:-:glutamatergic_neuron:glutamate:decrease]": "opus"
 },
+"q_52da72db5bb0": {
+"drug:paliperidone/workup[weight:during]": "opus"
+},
 "q_52ef474437cc": {
 "drug:desvenlafaxine/categories": "sonnet"
 },
@@ -3520,6 +3591,9 @@
 },
 "q_53522552ea79": {
 "receptor:d2/release_modulation[autoreceptor:-:presynaptic_terminal:dopamine:decrease]": "opus"
+},
+"q_53618b245345": {
+"drug:fluoxetine/workup[weight:during]": "opus"
 },
 "q_5368a2ae0717": {
 "circuit:commissures": "sonnet",
@@ -3940,6 +4014,9 @@
 "q_5ebd64019872": {
 "receptor:ampa/classification[sign]": "opus"
 },
+"q_5ec728bcce23": {
+"drug:furosemide/workup[glycaemia:during]": "opus"
+},
 "q_5ee1255859ae": {
 "drug:methamphetamine/bindings[sigma1:agonist]": "sonnet"
 },
@@ -4289,6 +4366,9 @@
 "q_65c1819f8146": {
 "drug:thiopental/formulations[injection]/release": "opus"
 },
+"q_65d46f1e3268": {
+"drug:risperidone/workup[blood_count:during]": "opus"
+},
 "q_65da152389a1": {
 "drug:deutetrabenazine/categories": "sonnet"
 },
@@ -4300,6 +4380,12 @@
 },
 "q_661a52bea1e7": {
 "receptor:5ht2a/locations[temporal]": "sonnet"
+},
+"q_662d6d1018d5": {
+"drug:citalopram/workup[ecg:before]": "opus"
+},
+"q_66364d04e74f": {
+"drug:duloxetine/workup[blood_pressure:during]": "opus"
 },
 "q_6666512dce50": {
 "drug:risperidone/nbn": "sonnet"
@@ -4434,6 +4520,10 @@
 "q_69136330de27": {
 "drug:viloxazine/first_approval": "opus"
 },
+"q_69283841c2d1": {
+"drug:baclofen/workup[glycaemia:during]": "opus",
+"drug:baclofen/workup[liver_function:during]": "opus"
+},
 "q_693614ac8cde": {
 "drug:alprazolam/brands[Xanax XR]": "sonnet"
 },
@@ -4446,6 +4536,10 @@
 },
 "q_6985c11eb068": {
 "drug:zopiclone/categories": "sonnet"
+},
+"q_698bd4f098ba": {
+"drug:risperidone/workup[weight:before]": "opus",
+"drug:risperidone/workup[weight:during]": "opus"
 },
 "q_69a0aa9ab2c4": {
 "metabolite:psilocin/bindings[5ht2c:agonist]": "opus"
@@ -4478,6 +4572,9 @@
 },
 "q_6a9560f1623c": {
 "structure:midbrain": "sonnet"
+},
+"q_6a994c6b5e31": {
+"drug:sulpiride/workup[glycaemia:during]": "opus"
 },
 "q_6aa7f59a2961": {
 "drug:quetiapine/metabolites[norquetiapine]": "sonnet"
@@ -4620,6 +4717,9 @@
 "q_6e1893bc50e6": {
 "drug:desipramine/originator": "opus"
 },
+"q_6e37d3a4a88d": {
+"drug:clozapine/workup[glycaemia:during]": "opus"
+},
 "q_6e41473ad08a": {
 "receptor:5ht1f/locations[frontal]": "sonnet",
 "receptor:5ht1f/locations[thalamus]": "sonnet"
@@ -4674,6 +4774,9 @@
 },
 "q_6f4416259cd5": {
 "metabolite:dextrorphan/bindings[nmda:antagonist]": "opus"
+},
+"q_6f5a7a927e9e": {
+"drug:tolcapone/workup[liver_function:during]": "opus"
 },
 "q_6f5d86412d6e": {
 "receptor:h1/effects[antagonism:sedation]": "opus"
@@ -5021,6 +5124,10 @@
 "q_7679f2bd55da": {
 "drug:trifluoperazine/bindings[d2:antagonist]": "sonnet"
 },
+"q_767a1c9b3573": {
+"drug:tolcapone/workup[liver_function:before]": "opus",
+"drug:tolcapone/workup[liver_function:during]": "opus"
+},
 "q_76bdc7050d55": {
 "drug:tetrabenazine/bindings[vmat2:vesicular_inhibitor]": "sonnet",
 "drug:tetrabenazine/categories": "sonnet"
@@ -5136,6 +5243,13 @@
 "drug:mdma/bindings[5ht1a:partial_agonist]": "sonnet",
 "drug:mdma/bindings[5ht2a:partial_agonist]": "sonnet",
 "drug:mdma/bindings[5ht2c:partial_agonist]": "sonnet"
+},
+"q_792adeb5f468": {
+"drug:nicotine/workup[glycaemia:during]": "opus"
+},
+"q_793b691e7fb5": {
+"drug:lamotrigine/workup[drug_level:before]": "opus",
+"drug:lamotrigine/workup[drug_level:during]": "opus"
 },
 "q_7940a8e66a89": {
 "target:vmat2/classification": "sonnet",
@@ -5348,6 +5462,9 @@
 "drug:paliperidone/brands[Xeplion]": "sonnet",
 "drug:paliperidone/formulations[depot]/brands[Xeplion]": "opus"
 },
+"q_7f1f1ba48f79": {
+"drug:carbamazepine/workup[thyroid_function:during]": "opus"
+},
 "q_7f4ed916ae5e": {
 "drug:sertraline/enzymes[cyp2c19:substrate]": "opus",
 "drug:sertraline/enzymes[cyp2c19:substrate]/strength": "opus"
@@ -5443,6 +5560,9 @@
 },
 "q_806c8738ea9a": {
 "receptor:alpha1b/effects[agonism:vasoconstriction]": "opus"
+},
+"q_807c8bdf13c4": {
+"drug:fenfluramine/workup[echocardiography:before]": "opus"
 },
 "q_808e9db6c7ed": {
 "drug:rizatriptan/bindings[5ht1b:agonist]": "sonnet",
@@ -5662,6 +5782,10 @@
 "drug:amoxapine/formulations[ir]/tmax": "opus",
 "drug:amoxapine/tmax": "sonnet"
 },
+"q_86b499fbf6f3": {
+"drug:ropinirole/workup[blood_pressure:before]": "opus",
+"drug:ropinirole/workup[blood_pressure:during]": "opus"
+},
 "q_86bb9b8c7018": {
 "drug:estazolam/brands[ProSom]": "sonnet"
 },
@@ -5689,6 +5813,9 @@
 },
 "q_874a48cd9ef3": {
 "drug:trifluoperazine/bindings[h1:antagonist]": "sonnet"
+},
+"q_8766bab545f4": {
+"drug:cannabidiol/workup[liver_function:during]": "opus"
 },
 "q_8772f1121bef": {
 "receptor:d5/locations[midbrain]": "sonnet"
@@ -6032,6 +6159,7 @@
 "drug:pipamperone/tmax": "opus"
 },
 "q_8e5ce489ea02": {
+"drug:maprotiline/workup[blood_pressure:during]": "opus",
 "drug:maprotiline/workup[ecg:before]": "opus"
 },
 "q_8e61e4dd737a": {
@@ -6253,6 +6381,9 @@
 },
 "q_9422a239292b": {
 "drug:amisulpride/nbn": "sonnet"
+},
+"q_943461430b28": {
+"drug:trimipramine/workup[glycaemia:during]": "opus"
 },
 "q_9447609b3d80": {
 "drug:pargyline/first_approval": "opus"
@@ -6629,6 +6760,9 @@
 "q_9b8588ed7fc1": {
 "drug:perazine/bindings[d2:antagonist]": "sonnet"
 },
+"q_9b9640ba3a38": {
+"drug:methadone/workup[glycaemia:during]": "opus"
+},
 "q_9b9779e3188b": {
 "drug:ropinirole/formulations[ir]/tmax": "opus",
 "drug:ropinirole/tmax": "sonnet"
@@ -6698,6 +6832,9 @@
 "projection:subthalamic_nucleus_R->globus_pallidus_R": "opus",
 "projection:subthalamic_nucleus_R->globus_pallidus_R/sign": "opus",
 "projection:subthalamic_nucleus_R->globus_pallidus_R/transmitter": "opus"
+},
+"q_9cbdaa0db446": {
+"drug:moclobemide/workup[blood_pressure:during]": "opus"
 },
 "q_9cc05e3d4d90": {
 "drug:ondansetron/half_life": "sonnet"
@@ -6920,6 +7057,9 @@
 "projection:vta_R->frontal_R/transmitter": "opus",
 "projection:vta_R->hippocampus_R": "opus",
 "projection:vta_R->hippocampus_R/transmitter": "opus"
+},
+"q_a0d096b14f52": {
+"drug:risperidone/workup[glycaemia:during]": "opus"
 },
 "q_a0da63199cc0": {
 "drug:selegiline/categories": "sonnet"
@@ -7187,6 +7327,10 @@
 "q_a6a6e8e67f35": {
 "drug:blonanserin/categories": "sonnet"
 },
+"q_a6ac69595914": {
+"drug:pramipexole/workup[blood_pressure:before]": "opus",
+"drug:pramipexole/workup[blood_pressure:during]": "opus"
+},
 "q_a6c8f60eb214": {
 "drug:viloxazine/formulations[xr]/release": "opus"
 },
@@ -7306,6 +7450,9 @@
 "q_a9d8335d47b8": {
 "drug:lamotrigine/brands[Labileno]": "sonnet"
 },
+"q_a9e5e1238da5": {
+"drug:clomipramine/workup[ecg:during]": "opus"
+},
 "q_a9e924f3da5e": {
 "drug:xenon/bindings[5ht3:antagonist]": "sonnet"
 },
@@ -7320,6 +7467,9 @@
 },
 "q_aa66934577a1": {
 "drug:lsd/tmax": "sonnet"
+},
+"q_aab0c9fb00ed": {
+"drug:fluoxetine/workup[ecg:before]": "opus"
 },
 "q_aace0df6264c": {
 "drug:levomepromazine/categories": "sonnet"
@@ -7379,6 +7529,9 @@
 "drug:pimozide/enzymes[cyp1a2:substrate]": "opus",
 "drug:pimozide/enzymes[cyp1a2:substrate]/strength": "opus"
 },
+"q_ac276b341fc1": {
+"drug:sevoflurane/workup[renal_function:during]": "opus"
+},
 "q_ac2870bd3de8": {
 "projection:cerebellum->thalamus_R": "opus",
 "projection:cerebellum->thalamus_R/sign": "opus"
@@ -7401,6 +7554,9 @@
 },
 "q_acf0816b54a2": {
 "drug:alpidem/first_approval": "opus"
+},
+"q_ad0f71b3a92d": {
+"drug:cannabidiol/workup[liver_function:before]": "opus"
 },
 "q_ad17a0aad2f5": {
 "receptor:5ht2a/effects[antagonism:antipsychotic]": "opus"
@@ -7556,6 +7712,9 @@
 },
 "q_b1311ee76f12": {
 "target:cgrp/classification": "opus"
+},
+"q_b133fbaaeeb1": {
+"drug:olanzapine/workup[blood_pressure:during]": "opus"
 },
 "q_b1421473b202": {
 "drug:sulfonmethane/categories": "sonnet"
@@ -8107,6 +8266,9 @@
 "q_bdb29a2d1954": {
 "drug:flurazepam/half_life": "sonnet"
 },
+"q_bdc6422a8dfd": {
+"drug:carbamazepine/workup[electrolytes:during]": "opus"
+},
 "q_bdcac6867fcd": {
 "drug:baclofen/originator/now": "opus",
 "drug:clomipramine/originator/now": "opus",
@@ -8231,6 +8393,9 @@
 "q_c05b7ad2b67c": {
 "drug:clozapine/tmax": "sonnet"
 },
+"q_c07db89596db": {
+"drug:aripiprazole/workup[glycaemia:during]": "opus"
+},
 "q_c0a034678372": {
 "drug:clomethiazole/categories": "opus",
 "drug:clomethiazole/originator": "opus"
@@ -8342,6 +8507,9 @@
 "projection:temporal_R->caudate_R/sign": "opus",
 "projection:temporal_R->caudate_R/transmitter": "opus"
 },
+"q_c2a9f95fdb88": {
+"drug:paliperidone/workup[glycaemia:during]": "opus"
+},
 "q_c2b91e4c28bc": {
 "drug:estazolam/tmax": "sonnet"
 },
@@ -8396,6 +8564,9 @@
 "drug:propranolol/formulations[xr]/half_life": "opus",
 "drug:propranolol/formulations[xr]/release": "opus",
 "drug:propranolol/half_life": "sonnet"
+},
+"q_c38681bb590b": {
+"drug:baclofen/workup[renal_function:during]": "opus"
 },
 "q_c3970c15ab85": {
 "drug:trimipramine/categories": "sonnet"
@@ -8720,6 +8891,9 @@
 "q_cb7aa35bf4a0": {
 "drug:daridorexant/brands[Quvivq]": "sonnet"
 },
+"q_cb8746ef880d": {
+"drug:paliperidone/workup[blood_count:during]": "opus"
+},
 "q_cba30dfb30d2": {
 "drug:sulpiride/bindings[m1:antagonist]": "sonnet",
 "drug:sulpiride/bindings[m2:antagonist]": "sonnet",
@@ -8810,6 +8984,11 @@
 "receptor:mt1/effects[agonism:circadian_shift]": "opus",
 "receptor:mt1/effects[agonism:sleep_promotion]": "opus"
 },
+"q_cdbb84a49df2": {
+"drug:flumazenil/workup[blood_pressure:during]": "opus",
+"drug:flumazenil/workup[ecg:during]": "opus",
+"drug:flumazenil/workup[heart_rate:during]": "opus"
+},
 "q_cdc47d3d8fbb": {
 "drug:memantine/tmax": "sonnet"
 },
@@ -8869,6 +9048,10 @@
 },
 "q_cec45188267d": {
 "drug:methylphenidate_dl/brands[Daytrana]": "sonnet"
+},
+"q_ceed55698d41": {
+"drug:methadone/workup[ecg:before]": "opus",
+"drug:methadone/workup[ecg:during]": "opus"
 },
 "q_cf0b8635309e": {
 "drug:promethazine/originator_country": "opus",
@@ -8972,6 +9155,9 @@
 "q_d14883fae658": {
 "receptor:5ht2a/demographics[age:decrease:-]": "opus"
 },
+"q_d1579b299428": {
+"drug:apomorphine/workup[blood_count:during]": "opus"
+},
 "q_d15d68827f29": {
 "drug:methaqualone/brands[Malsedin]": "sonnet"
 },
@@ -9030,6 +9216,9 @@
 },
 "q_d296e37380b4": {
 "drug:memantine/bindings[5ht3:antagonist]": "sonnet"
+},
+"q_d31b0f5ab3b6": {
+"drug:agomelatine/workup[liver_function:before]": "opus"
 },
 "q_d3392fdbb282": {
 "drug:quetiapine/bindings[alpha2:antagonist]": "opus"
@@ -9211,6 +9400,9 @@
 },
 "q_d702b6b68e45": {
 "receptor:5ht1a/locations[amygdala]": "sonnet"
+},
+"q_d749b6423126": {
+"drug:cannabidiol/workup[weight:during]": "opus"
 },
 "q_d74ef970c140": {
 "receptor:cb1/classification[family]": "sonnet",
@@ -9405,6 +9597,9 @@
 "drug:amoxapine/bindings[alpha1b:antagonist]": "sonnet",
 "drug:amoxapine/bindings[alpha1c:antagonist]": "sonnet",
 "drug:amoxapine/bindings[alpha1d:antagonist]": "sonnet"
+},
+"q_dba21c64ade6": {
+"drug:oxcarbazepine/workup[thyroid_function:during]": "opus"
 },
 "q_dbc2037fb57a": {
 "drug:lithium/brands[Eskalith]": "sonnet"
@@ -9866,6 +10061,9 @@
 "drug:zolpidem/formulations[ir]/release": "opus",
 "drug:zolpidem/formulations[sublingual]/release": "opus"
 },
+"q_e5e7dce22b18": {
+"drug:mianserin/workup[blood_count:during]": "opus"
+},
 "q_e60e7a6186b0": {
 "drug:prazepam/metabolites[desmethyldiazepam]": "sonnet"
 },
@@ -10097,6 +10295,9 @@
 "q_eac429136fe7": {
 "drug:imipramine/bindings[h1:antagonist]": "sonnet"
 },
+"q_eae043369b49": {
+"drug:clozapine/workup[liver_function:during]": "opus"
+},
 "q_eb1269eb1e95": {
 "receptor:m3/effects[agonism:vasodilation]": "opus"
 },
@@ -10170,6 +10371,10 @@
 },
 "q_ed9339ca14b5": {
 "drug:mianserin/first_approval": "opus"
+},
+"q_edacd7b199a0": {
+"drug:naltrexone/workup[liver_function:before]": "opus",
+"drug:naltrexone/workup[liver_function:during]": "opus"
 },
 "q_edd1f55f5a19": {
 "drug:olanzapine/workup[lipids:before]": "opus",
@@ -10269,6 +10474,9 @@
 },
 "q_ef45ad7d0032": {
 "drug:temazepam/brands[Euhypnos]": "sonnet"
+},
+"q_ef4c4e032c58": {
+"drug:entacapone/workup[weight:during]": "opus"
 },
 "q_ef4cfa1783a6": {
 "drug:metoclopramide/first_approval": "opus"
@@ -10444,6 +10652,9 @@
 "q_f38d36f84dc1": {
 "drug:yohimbine/categories": "sonnet"
 },
+"q_f3cbff6efbf8": {
+"drug:propofol/workup[lipids:during]": "opus"
+},
 "q_f3e3f320443d": {
 "drug:cyproheptadine/first_approval": "opus"
 },
@@ -10514,6 +10725,13 @@
 },
 "q_f4de3ce72e09": {
 "drug:levetiracetam/brands[Keppra]": "sonnet"
+},
+"q_f4eaa6a7774b": {
+"drug:phenytoin/workup[blood_pressure:during]": "opus",
+"drug:phenytoin/workup[heart_rate:during]": "opus"
+},
+"q_f4f21a16689b": {
+"drug:imipramine/workup[liver_function:during]": "opus"
 },
 "q_f4f3c56700af": {
 "receptor:alpha2a/classification[synaptic]": "opus"
@@ -10594,6 +10812,9 @@
 },
 "q_f6a3eea8f1b6": {
 "drug:nitrazepam/first_approval": "opus"
+},
+"q_f6b5eae787a9": {
+"drug:mirtazapine/workup[glycaemia:during]": "opus"
 },
 "q_f6c15471d597": {
 "drug:lisdexamfetamine/brands[Aduvanz]": "sonnet"
@@ -10714,6 +10935,9 @@
 },
 "q_f95402666221": {
 "drug:naloxone/first_approval": "opus"
+},
+"q_f96cef6dfa28": {
+"drug:zuclopenthixol/workup[liver_function:during]": "opus"
 },
 "q_f990bcadec25": {
 "drug:duloxetine/categories": "sonnet"
@@ -10895,6 +11119,9 @@
 },
 "q_fd407c6a6ff0": {
 "drug:lurasidone/first_approval": "opus"
+},
+"q_fd7911e6f2fb": {
+"drug:oxcarbazepine/workup[electrolytes:before]": "opus"
 },
 "q_fd883718d159": {
 "drug:amitriptyline/originator": "opus"

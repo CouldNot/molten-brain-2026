@@ -8,6 +8,12 @@
       "page": "62525777",
       "provenance": "verified",
       "quote": "Un contrôle de la fonction hépatique doit être réalisé chez tous les patients avant l’instauration du traitement. Le traitement ne doit pas être instauré chez les patients dont les transaminases sont supérieures à 3 fois la limite supérieure des valeurs normales (voir rubriques 4.3 et 4.4)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62525777",
+      "provenance": "verified",
+      "quote": "Un bilan initial de la fonction hépatique doit être réalisé chez tous les patients ; le traitement ne doit pas être instauré chez les patients dont les ALAT et/ou les ASAT sont supérieures à 3 fois la limite supérieure des valeurs normales (voir rubrique 4.3)."
      }
     ],
     "test": "liver_function",
@@ -28,6 +34,9 @@
   ],
   "amisulpride": [
    {
+    "conditions": [
+     "des patients devant être traités au long cours par un neuroleptique"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -128,8 +137,107 @@
     "timing": "during"
    }
   ],
+  "apomorphine": [
+   {
+    "conditions": [
+     "en cas d’association de lévodopa à l’apomorphine"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "63665248",
+      "provenance": "verified",
+      "quote": "Des cas d’anémie hémolytique ont été signalés chez les patients traités par lévodopa et apomorphine. Des examens hématologiques devront être réalisés à intervalles réguliers, en cas d’association de lévodopa à l’apomorphine."
+     }
+    ],
+    "test": "blood_count",
+    "timing": "during"
+   }
+  ],
+  "aripiprazole": [
+   {
+    "conditions": [
+     "chez les patients diabétiques ou ayant des facteurs de risque pouvant favoriser le développement d'un diabète"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60031071",
+      "provenance": "verified",
+      "quote": "L’obésité et les antécédents familiaux de diabète sont des facteurs de risque pouvant favoriser les complications sévères. Dans les études cliniques menées avec aripiprazole, il n'a pas été observé de différence significative entre les groupes aripiprazole et placebo, concernant l'incidence d'effets indésirables liés à une hyperglycémie (dont le diabète), ou concernant des valeurs anormales de la glycémie. Les données nécessaires à une estimation précise du risque de survenue d'effets indésirables liés à une hyperglycémie chez les patients traités par aripiprazole et par tout autre antipsychotique atypique, permettant une comparaison directe, ne sont pas disponibles. Les signes et symptômes d'hyperglycémie (tels que polydipsie, polyurie, polyphagie et fatigue) doivent être recherchés chez les patients traités par antipsychotiques atypiques, y compris l’aripiprazole. Une surveillance régulière est recommandée afin de détecter toute anomalie de la glycémie chez les patients diabétiques ou ayant des facteurs de risque pouvant favoriser le développement d'un diabète (voir rubrique 4.8)."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients adolescents bipolaires lors d'épisodes maniaques"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60031071",
+      "provenance": "verified",
+      "quote": "La prise de poids est souvent observée chez les patients schizophrènes et les patients bipolaires ayant des épisodes maniaques en raison de comorbidités, de l’utilisation d’antipsychotiques connus pour entrainer des prises de poids et d’une mauvaise hygiène de vie, pouvant conduire à des complications graves. La prise de poids a été rapportée chez les patients traités par l’aripiprazole après sa commercialisation. Lorsqu’une prise de poids a été observée, il s’agissait généralement de patients qui présentaient des facteurs de risque significatifs tels qu’un antécédent de diabète, un trouble thyroïdien ou un adénome hypophysaire. Dans les études cliniques, l’aripiprazole n’a pas entraîné de prise de poids cliniquement significative chez l'adulte (voir rubrique 5.1). Dans des études cliniques chez des patients adolescents bipolaires au décours d'un épisode maniaque, une prise de poids a été associée à l'utilisation d'aripiprazole après 4 semaines de traitement. La prise de poids doit être surveillée chez les patients adolescents bipolaires lors d'épisodes maniaques. Si la prise de poids est cliniquement significative, une diminution de la posologie doit être envisagée (voir rubrique 4.8)."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   }
+  ],
+  "baclofen": [
+   {
+    "conditions": [
+     "lorsque LIORESAL est associé à des médicaments ou produits pharmaceutiques qui peuvent avoir un impact significatif sur la fonction rénale"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60304050",
+      "provenance": "verified",
+      "quote": "Des précautions particulières sont nécessaires lorsque LIORESAL est associé à des médicaments ou produits pharmaceutiques qui peuvent avoir un impact significatif sur la fonction rénale. La fonction rénale doit être étroitement surveillée et la dose quotidienne de LIORESAL doit être ajustée pour prévenir la toxicité du baclofène."
+     }
+    ],
+    "test": "renal_function",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "En cas d’affections hépatiques ou de diabète"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60304050",
+      "provenance": "verified",
+      "quote": "En cas d’affections hépatiques ou de diabète, des contrôles réguliers des transaminases, des phosphatases alcalines sériques ou de la glycémie sont nécessaires."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "En cas d’affections hépatiques ou de diabète"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60304050",
+      "provenance": "verified",
+      "quote": "En cas d’affections hépatiques ou de diabète, des contrôles réguliers des transaminases, des phosphatases alcalines sériques ou de la glycémie sont nécessaires."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   }
+  ],
   "bromocriptine": [
    {
+    "conditions": [
+     "Pour le traitement à long terme"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -140,6 +248,21 @@
     ],
     "test": "echocardiography",
     "timing": "before"
+   },
+   {
+    "conditions": [
+     "des patients traités par bromocriptine pour un macroprolactinome"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "63369053",
+      "provenance": "verified",
+      "quote": "Un suivi du champ visuel des patients traités par bromocriptine pour un macroprolactinome est recommandé pour un dépistage précoce de la perte secondaire du champ visuel."
+     }
+    ],
+    "test": "eye_exam",
+    "timing": "during"
    }
   ],
   "bumetanide": [
@@ -154,6 +277,47 @@
     ],
     "test": "electrolytes",
     "timing": "during"
+   },
+   {
+    "conditions": [
+     "Chez les patients atteints d’un diabète sucré avéré ou latent"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61834055",
+      "provenance": "verified",
+      "quote": "Chez les patients atteints d’un diabète sucré avéré ou latent, un dosage régulier de la glycémie et de la glycosurie doit être pratiqué."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   }
+  ],
+  "bupropion": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64556383",
+      "provenance": "verified",
+      "quote": "Des cas d'hypertension artérielle, parfois sévère et justifiant d'un traitement spécifique (voir rubrique 4.8), ont été rapportés dans la pratique clinique chez des patients recevant du bupropion seul ou associé à un traitement substitutif à la nicotine, que ces patients présentent ou non une hypertension préexistante. La pression artérielle doit être mesurée au début du traitement et faire l'objet d'une surveillance ultérieure, particulièrement chez les patients qui présentent une hypertension artérielle préexistante."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64556383",
+      "provenance": "verified",
+      "quote": "Des cas d'hypertension artérielle, parfois sévère et justifiant d'un traitement spécifique (voir rubrique 4.8), ont été rapportés dans la pratique clinique chez des patients recevant du bupropion seul ou associé à un traitement substitutif à la nicotine, que ces patients présentent ou non une hypertension préexistante. La pression artérielle doit être mesurée au début du traitement et faire l'objet d'une surveillance ultérieure, particulièrement chez les patients qui présentent une hypertension artérielle préexistante."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
    }
   ],
   "cabergoline": [
@@ -163,22 +327,10 @@
       "corpus": "bdpm_rcp",
       "page": "69671845",
       "provenance": "verified",
-      "quote": "Tous les patients doivent subir une évaluation cardio-vasculaire incluant la réalisation d'une échocardiographie afin d'évaluer la présence potentielle d'une pathologie valvulaire asymptomatique. Il est également approprié de déterminer la vitesse de sédimentation des érythrocytes ou de doser d'autres marqueurs de l'inflammation et d'examiner les fonctions pulmonaires, de réaliser une radiographie du thorax et d'évaluer la fonction rénale avant de commencer le traitement."
+      "quote": "Après équilibration de la posologie, un dosage trimestriel de la prolactinémie s'avère suffisant. La plupart des patients sont contrôlés par une dose inférieure ou égale à 1 mg/semaine. Dans ce cas, une prise unique hebdomadaire est suffisante. La posologie peut varier de 0,25 à 2 mg, voire jusqu'à 4,5 mg par semaine. Lorsque la posologie dépasse 1 mg, il est recommandé de fractionner la dose hebdomadaire en deux prises ou plus selon la tolérance du patient."
      }
     ],
-    "test": "echocardiography",
-    "timing": "before"
-   },
-   {
-    "sources": [
-     {
-      "corpus": "bdpm_rcp",
-      "page": "69671845",
-      "provenance": "verified",
-      "quote": "La surveillance diagnostique clinique de l'apparition de troubles fibrotiques est essentielle. Une fois le traitement commencé, le premier échocardiogramme doit être réalisé au bout de 3 à 6 mois ; ensuite, la fréquence du suivi échocardiographique doit être déterminée en fonction de l'évaluation clinique individuelle en portant l'attention tout particulièrement sur les signes et symptômes mentionnés ci-dessus, mais dans tous les cas un échocardiogramme doit être pratiqué au moins tous les 6 à 12 mois."
-     }
-    ],
-    "test": "echocardiography",
+    "test": "prolactin",
     "timing": "during"
    },
    {
@@ -199,6 +351,42 @@
       "corpus": "bdpm_rcp",
       "page": "69671845",
       "provenance": "verified",
+      "quote": "Tous les patients doivent subir une évaluation cardio-vasculaire incluant la réalisation d'une échocardiographie afin d'évaluer la présence potentielle d'une pathologie valvulaire asymptomatique. Il est également approprié de déterminer la vitesse de sédimentation des érythrocytes ou de doser d'autres marqueurs de l'inflammation et d'examiner les fonctions pulmonaires, de réaliser une radiographie du thorax et d'évaluer la fonction rénale avant de commencer le traitement."
+     }
+    ],
+    "test": "echocardiography",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "69671845",
+      "provenance": "verified",
+      "quote": "Tous les patients doivent subir une évaluation cardio-vasculaire incluant la réalisation d'une échocardiographie afin d'évaluer la présence potentielle d'une pathologie valvulaire asymptomatique. Il est également approprié de déterminer la vitesse de sédimentation des érythrocytes ou de doser d'autres marqueurs de l'inflammation et d'examiner les fonctions pulmonaires, de réaliser une radiographie du thorax et d'évaluer la fonction rénale avant de commencer le traitement."
+     }
+    ],
+    "test": "renal_function",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "69671845",
+      "provenance": "verified",
+      "quote": "La surveillance diagnostique clinique de l'apparition de troubles fibrotiques est essentielle. Une fois le traitement commencé, le premier échocardiogramme doit être réalisé au bout de 3 à 6 mois ; ensuite, la fréquence du suivi échocardiographique doit être déterminée en fonction de l'évaluation clinique individuelle en portant l'attention tout particulièrement sur les signes et symptômes mentionnés ci-dessus, mais dans tous les cas un échocardiogramme doit être pratiqué au moins tous les 6 à 12 mois."
+     }
+    ],
+    "test": "echocardiography",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "69671845",
+      "provenance": "verified",
       "quote": "Avant l'administration de cabergoline, il faut exclure une grossesse éventuelle. La cabergoline pouvant restaurer l'ovulation et la fertilité, une méthode adéquate de contraception doit être adoptée chez les femmes ne souhaitant pas de grossesse pendant le traitement et après."
      }
     ],
@@ -206,6 +394,9 @@
     "timing": "before"
    },
    {
+    "conditions": [
+     "En l'absence de contraception"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -215,18 +406,6 @@
      }
     ],
     "test": "pregnancy_test",
-    "timing": "during"
-   },
-   {
-    "sources": [
-     {
-      "corpus": "bdpm_rcp",
-      "page": "69671845",
-      "provenance": "verified",
-      "quote": "Après équilibration de la posologie, un dosage trimestriel de la prolactinémie s'avère suffisant. La plupart des patients sont contrôlés par une dose inférieure ou égale à 1 mg/semaine. Dans ce cas, une prise unique hebdomadaire est suffisante. La posologie peut varier de 0,25 à 2 mg, voire jusqu'à 4,5 mg par semaine. Lorsque la posologie dépasse 1 mg, il est recommandé de fractionner la dose hebdomadaire en deux prises ou plus selon la tolérance du patient."
-     }
-    ],
-    "test": "prolactin",
     "timing": "during"
    }
   ],
@@ -244,7 +423,60 @@
     "timing": "during"
    }
   ],
+  "cannabidiol": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61680130",
+      "provenance": "verified",
+      "quote": "Avant l’instauration du traitement par cannabidiol, les taux sériques de transaminases (ALAT et ASAT) et de bilirubine totale doivent être contrôlés."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61680130",
+      "provenance": "verified",
+      "quote": "Surveillance systématique Les taux sériques de transaminases et de bilirubine totale doivent être contrôlés 1 mois, 3 mois et 6 mois après l’instauration du traitement par cannabidiol, et périodiquement par la suite ou selon l’indication clinique."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61680130",
+      "provenance": "verified",
+      "quote": "Le cannabidiol peut provoquer une perte de poids ou une diminution de la prise de poids (voir rubrique 4.8). Chez les patients atteints du SLG, du SD et de la STB, ce phénomène pourrait être lié à la dose. Dans certains cas, la perte de poids a été rapportée comme un événement indésirable. La baisse de l’appétit et la perte de poids peuvent légèrement ralentir la croissance. Une perte de poids ou une absence de prise de poids continue doit faire l’objet d’une surveillance régulière pour déterminer si le traitement par cannabidiol doit être interrompu."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   }
+  ],
   "carbamazepine": [
+   {
+    "conditions": [
+     "chez certains patients"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61009918",
+      "provenance": "verified",
+      "quote": "Une recherche des allèles HLA-B*1502 et HLA-A*3101 devrait être effectuée autant que possible avant instauration d’un traitement par la carbamazépine chez certains patients (voir rubrique 4.4)."
+     }
+    ],
+    "test": "hla_genotype",
+    "timing": "before"
+   },
    {
     "sources": [
      {
@@ -306,6 +538,39 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "Chez les patients présentant une atteinte rénale prééxistante avec une natrémie basse ou chez les patients traités de façon concomitante avec des médicaments hyponatrémiants"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61009918",
+      "provenance": "verified",
+      "quote": "Il est bien établi qu’une hyponatrémie peut survenir avec la carbamazépine. Chez les patients présentant une atteinte rénale prééxistante avec une natrémie basse ou chez les patients traités de façon concomitante avec des médicaments hyponatrémiants (ex : les diurétiques, les médicaments associés à une sécrétion inappropriée d’hormone anti-diurétique [ADH]), la natrémie doit être mesurée avant l’initiation d’un traitement par la carbamazépine puis renouvelée environ 2 semaines après et ensuite à intervalles d’un mois durant les trois premiers mois de traitement, ou selon l’état clinique du patient. Ces facteurs de risques concernent particulièrement les patients âgés. Lorsqu’une hyponatrémie est observée, la restriction hydrique est une mesure corrective majeure si la situation clinique l’indique."
+     }
+    ],
+    "test": "electrolytes",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "Chez les patients ayant une hypothyroïdie"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61009918",
+      "provenance": "verified",
+      "quote": "Chez les patients ayant une hypothyroïdie, la carbamazépine peut réduire les concentrations plasmatiques d’hormones thyroïdiennes, via une induction enzymatique, nécessitant une augmentation de la posologie de l’hormonothérapie thyroïdienne substitutive. Un contrôle de la fonction thyroïdienne est recommandé afin d’ajuster la posologie de l’hormonothérapie thyroïdienne substitutive."
+     }
+    ],
+    "test": "thyroid_function",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez une femme susceptible de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -332,6 +597,9 @@
     "timing": "before"
    },
    {
+    "conditions": [
+     "lors des traitements prolongés"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -344,6 +612,9 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "lors des traitements prolongés"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -356,8 +627,28 @@
     "timing": "during"
    }
   ],
+  "citalopram": [
+   {
+    "conditions": [
+     "Si un patient présentant une pathologie cardiaque stabilisée est traité par le citalopram"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "68231138",
+      "provenance": "verified",
+      "quote": "Si un patient présentant une pathologie cardiaque stabilisée est traité par le citalopram, un contrôle de l’électrocardiogramme (ECG) doit être envisagé avant de débuter le traitement."
+     }
+    ],
+    "test": "ecg",
+    "timing": "before"
+   }
+  ],
   "clobazam": [
    {
+    "conditions": [
+     "Lors d’un traitement prolongé"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -370,6 +661,9 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "Lors d’un traitement prolongé"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -389,18 +683,6 @@
       "corpus": "bdpm_rcp",
       "page": "61426025",
       "provenance": "verified",
-      "quote": "La prudence est recommandée chez les sujets porteurs de certaines affections cardiovasculaires, en raison des effets quinidiniques, tachycardisants et hypotenseurs de cette classe de produits. Un bilan cardiovasculaire initial complet, incluant un ECG, est recommandé."
-     }
-    ],
-    "test": "ecg",
-    "timing": "before"
-   },
-   {
-    "sources": [
-     {
-      "corpus": "bdpm_rcp",
-      "page": "61426025",
-      "provenance": "verified",
       "quote": "Il est conseillé de contrôler la pression artérielle avant de commencer le traitement par ANAFRANIL car les patients souffrant d'hypotension orthostatique ou de troubles de la circulation sanguine risquent de présenter une baisse de la pression artérielle."
      }
     ],
@@ -408,6 +690,39 @@
     "timing": "before"
    },
    {
+    "conditions": [
+     "chez les sujets porteurs de certaines affections cardiovasculaires"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61426025",
+      "provenance": "verified",
+      "quote": "La prudence est recommandée chez les sujets porteurs de certaines affections cardiovasculaires, en raison des effets quinidiniques, tachycardisants et hypotenseurs de cette classe de produits. Un bilan cardiovasculaire initial complet, incluant un ECG, est recommandé."
+     }
+    ],
+    "test": "ecg",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "chez les patients âgés"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61426025",
+      "provenance": "verified",
+      "quote": "La surveillance de la fonction cardiaque et de l’ECG est indiquée chez les patients âgés."
+     }
+    ],
+    "test": "ecg",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients souffrant d’insuffisances hépatiques et rénales"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -420,6 +735,9 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "chez les patients souffrant d’insuffisances hépatiques et rénales"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -451,17 +769,11 @@
       "corpus": "bdpm_rcp",
       "page": "62552920",
       "provenance": "verified",
-      "quote": "Avant d'instaurer le traitement par la clozapine, il convient d'effectuer une numération formule sanguine (voir \"Agranulocytose\"), un examen clinique et un recueil des antécédents du patient. Les patients ayant des antécédents de maladie cardiaque ou d'anomalies cardiaques découvertes lors de l'examen clinique, doivent être adressés à un spécialiste pour d'autres examens qui peuvent inclure un ECG. Le patient ne doit être traité que si les bénéfices escomptés l'emportent clairement sur les risques (voir rubrique 4.3). Le médecin traitant doit envisager de réaliser un ECG avant traitement."
-     },
-     {
-      "corpus": "bdpm_rcp",
-      "page": "62552920",
-      "provenance": "verified",
-      "quote": "Une numération des neutrophiles doit être effectuée dans les 10 jours précédant l’instauration du traitement par LEPONEX pour s’assurer que seuls des patients ayant un nombre absolu de PNN ³ 1500/mm3 [1,5 x 109/l]) recevront LEPONEX. Après le début du traitement par LEPONEX, le nombre absolu de PNN doit être contrôlé une fois par semaine pendant les 18 premières semaines puis tous les mois pendant les 34 semaines suivantes. Après 12 mois, en l’absence d’épisodes de neutropénie au cours de la première année, la fréquence de la surveillance des PNN devrait être réduite à une fois toutes les 12 semaines. Après 24 mois, en l’absence d’épisodes de neutropénie au cours des deux années précédentes, la numération absolue des PNN doit être effectuée uniquement une fois par an. En cas de neutropénie légère en cours de traitement, qui a ensuite été stabilisée et/ou résolue, la surveillance des PNN doit être assurée une fois par mois tout au long du traitement."
+      "quote": "Les augmentations posologiques doivent être limitées ou différées en cas de survenue d'hypotension orthostatique, de sédation excessive ou de confusion. La pression artérielle doit être surveillée pendant les premières semaines de traitement."
      }
     ],
-    "test": "blood_count",
-    "timing": "before"
+    "test": "blood_pressure",
+    "timing": "during"
    },
    {
     "sources": [
@@ -487,10 +799,32 @@
       "corpus": "bdpm_rcp",
       "page": "62552920",
       "provenance": "verified",
-      "quote": "Les augmentations posologiques doivent être limitées ou différées en cas de survenue d'hypotension orthostatique, de sédation excessive ou de confusion. La pression artérielle doit être surveillée pendant les premières semaines de traitement."
+      "quote": "Avant d'instaurer le traitement par la clozapine, il convient d'effectuer une numération formule sanguine (voir \"Agranulocytose\"), un examen clinique et un recueil des antécédents du patient. Les patients ayant des antécédents de maladie cardiaque ou d'anomalies cardiaques découvertes lors de l'examen clinique, doivent être adressés à un spécialiste pour d'autres examens qui peuvent inclure un ECG. Le patient ne doit être traité que si les bénéfices escomptés l'emportent clairement sur les risques (voir rubrique 4.3). Le médecin traitant doit envisager de réaliser un ECG avant traitement."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62552920",
+      "provenance": "verified",
+      "quote": "Une numération des neutrophiles doit être effectuée dans les 10 jours précédant l’instauration du traitement par LEPONEX pour s’assurer que seuls des patients ayant un nombre absolu de PNN ³ 1500/mm3 [1,5 x 109/l]) recevront LEPONEX. Après le début du traitement par LEPONEX, le nombre absolu de PNN doit être contrôlé une fois par semaine pendant les 18 premières semaines puis tous les mois pendant les 34 semaines suivantes. Après 12 mois, en l’absence d’épisodes de neutropénie au cours de la première année, la fréquence de la surveillance des PNN devrait être réduite à une fois toutes les 12 semaines. Après 24 mois, en l’absence d’épisodes de neutropénie au cours des deux années précédentes, la numération absolue des PNN doit être effectuée uniquement une fois par an. En cas de neutropénie légère en cours de traitement, qui a ensuite été stabilisée et/ou résolue, la surveillance des PNN doit être assurée une fois par mois tout au long du traitement."
      }
     ],
-    "test": "blood_pressure",
+    "test": "blood_count",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "chez les patients ayant commencé un traitement par antipsychotiques atypiques et présentant un diagnostic confirmé de diabète sucré",
+     "chez les patients ayant commencé un traitement par un antipsychotique atypique et présentant des facteurs de risque de diabète sucré"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62552920",
+      "provenance": "verified",
+      "quote": "De rares cas de diminution de la tolérance au glucose et/ou de développement ou d'exacerbation d'un diabète sucré ont été rapportés sous traitement par la clozapine. Le mécanisme de cette association possible n'a pas encore été déterminé. La survenue d'une hyperglycémie sévère avec acido-cétose ou coma hyperosmolaire, ayant parfois conduit au décès, a été observée très rarement chez des patients sans antécédent d’hyperglycémie. Dans les cas où des données relatives à l'évolution étaient disponibles, l'arrêt de la prise de clozapine a le plus souvent permis une résolution de l’intolérance au glucose et la réintroduction du médicament l'a fait réapparaître. La glycémie doit être régulièrement contrôlée chez les patients ayant commencé un traitement par antipsychotiques atypiques et présentant un diagnostic confirmé de diabète sucré. Un dosage de la glycémie à jeun doit être réalisé en début de traitement et périodiquement durant le traitement chez les patients ayant commencé un traitement par un antipsychotique atypique et présentant des facteurs de risque de diabète sucré (par exemple obésité, antécédents familiaux de diabète). Un dosage de la glycémie à jeun doit être réalisé chez les patients développant des symptômes d’hyperglycémie durant le traitement avec un antipsychotique atypique. Dans certains cas, l’hyperglycémie s’est résolue à l’arrêt de l’antipsychotique atypique ; cependant, un traitement antidiabétique a été nécessaire chez certains patients malgré l’interruption du traitement suspecté. L’arrêt du traitement par la clozapine doit être envisagé en cas d’échec de la prise en charge médicale active de l’hyperglycémie."
+     }
+    ],
+    "test": "glycaemia",
     "timing": "during"
    },
    {
@@ -527,6 +861,21 @@
      }
     ],
     "test": "weight",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "Les patients atteints de troubles hépatiques stables préexistants"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62552920",
+      "provenance": "verified",
+      "quote": "Les patients atteints de troubles hépatiques stables préexistants peuvent être traités par LEPONEX. Ces patients nécessitent cependant une surveillance régulière de la fonction hépatique. Un contrôle de la fonction hépatique doit aussi être réalisé chez les patients présentant des symptômes évoquant une atteinte hépatique (comme des nausées, des vomissements et/ou une anorexie) au cours du traitement par LEPONEX. Si l'élévation des valeurs du bilan biologique hépatique atteint un seuil cliniquement significatif (plus de 3 fois la limite supérieure de la normale) ou si un ictère apparaît, le traitement par LEPONEX doit être arrêté. Il ne pourra être réinstauré (voir le paragraphe \"Reprise du traitement après une interruption\" de la rubrique 4.2) qu'après la normalisation du bilan biologique hépatique. Dans ce cas, la fonction hépatique devra être étroitement contrôlée après la réintroduction du LEPONEX."
+     }
+    ],
+    "test": "liver_function",
     "timing": "during"
    }
   ],
@@ -570,6 +919,57 @@
     "timing": "during"
    }
   ],
+  "duloxetine": [
+   {
+    "conditions": [
+     "chez les patients présentant une hypertension artérielle et/ou une cardiopathie"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60299831",
+      "provenance": "verified",
+      "quote": "La duloxétine a été associée à une augmentation de la pression artérielle et à une hypertension artérielle cliniquement significative chez certains patients. Ceci peut être dû à l’effet noradrénergique de la duloxétine. Des cas de crise hypertensive ont été rapportés avec la duloxétine, en particulier chez des patients présentant une hypertension préexistante. Par conséquent, chez les patients présentant une hypertension artérielle et/ou une cardiopathie, une surveillance de la pression artérielle est recommandée, particulièrement pendant le premier mois de traitement. La duloxétine doit être utilisée avec prudence chez les patients dont l’état peut être aggravé par une augmentation de la fréquence cardiaque ou par une augmentation de la pression artérielle. La prudence est également de mise lorsque la duloxétine est associée à des médicaments pouvant perturber son métabolisme (voir rubrique 4.5). Chez les patients présentant une augmentation persistante de la pression artérielle au cours de leur traitement par la duloxétine, une diminution de la posologie ou un sevrage progressif devra être envisagé (voir rubrique 4.8). Chez les patients présentant une hypertension non équilibrée, la duloxétine ne devra pas être prescrite (voir rubrique 4.3)."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   }
+  ],
+  "entacapone": [
+   {
+    "conditions": [
+     "Pour les patients présentant une diarrhée"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "65562898",
+      "provenance": "verified",
+      "quote": "Pour les patients présentant une diarrhée, un suivi du poids est recommandé afin d’éviter une perte de poids potentielle excessive. Une diarrhée prolongée ou persistante survenant lors de la prise d’entacapone peut être un signe de colite. En cas de diarrhée prolongée ou persistante, le médicament doit être arrêté et un traitement médical approprié ainsi que des investigations doivent être envisagés."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   }
+  ],
+  "escitalopram": [
+   {
+    "conditions": [
+     "Si un patient présentant une pathologie cardiaque stabilisée est traité"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60474889",
+      "provenance": "verified",
+      "quote": "Si un patient présentant une pathologie cardiaque stabilisée est traité, un contrôle de l’électrocardiogramme (ECG) doit être envisagé avant de débuter le traitement."
+     }
+    ],
+    "test": "ecg",
+    "timing": "before"
+   }
+  ],
   "ethosuximide": [
    {
     "sources": [
@@ -582,10 +982,136 @@
     ],
     "test": "blood_count",
     "timing": "during"
+   },
+   {
+    "conditions": [
+     "En cas d'affection rénale, ou hépatique"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "68481191",
+      "provenance": "verified",
+      "quote": "En cas d'affection rénale, ou hépatique, l'éthosuximide doit être utilisé avec prudence puisque des altérations des fonctions rénales et hépatiques ont été rapportées ; des bilans urinaires et des tests hépatiques devront être pratiqués régulièrement."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
+   }
+  ],
+  "fenfluramine": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62154820",
+      "provenance": "verified",
+      "quote": "Avant l’instauration du traitement, une échocardiographie doit être réalisée pour établir la situation initiale et exclure toute cardiopathie valvulaire ou hypertension artérielle pulmonaire préexistante (voir rubrique 4.3)"
+     }
+    ],
+    "test": "echocardiography",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62154820",
+      "provenance": "verified",
+      "quote": "La surveillance par échocardiographie doit être effectuée tous les 6 mois pendant les deux premières années, puis une fois par an. Après l’interruption du traitement pour quelque raison que ce soit, une échocardiographie finale doit être effectuée 3 à 6 mois après la dernière dose du traitement par fenfluramine."
+     }
+    ],
+    "test": "echocardiography",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62154820",
+      "provenance": "verified",
+      "quote": "La fenfluramine peut entraîner une diminution de l’appétit et une perte de poids (voir rubrique 4.8). Un effet additionnel sur la diminution de l’appétit peut se produire lorsque la fenfluramine est associée à d’autres médicaments antiépileptiques, par exemple le stiripentol. La perte de poids semble être dose-dépendante. La plupart des sujets ont repris du poids au cours du temps tout en poursuivant le traitement. Le poids du patient doit être surveillé. Une évaluation du rapport bénéfice/risque doit être effectuée avant de commencer le traitement par la fenfluramine chez les patients ayant des antécédents d’anorexie mentale ou de boulimie."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   }
+  ],
+  "flumazenil": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67248985",
+      "provenance": "verified",
+      "quote": "Le patient doit être étroitement surveillé pendant une durée appropriée (ECG, pouls, oxymétrie, vivacité et autres signes vitaux tels que la fréquence cardiaque, respiratoire et la tension artérielle)."
+     }
+    ],
+    "test": "ecg",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67248985",
+      "provenance": "verified",
+      "quote": "Le patient doit être étroitement surveillé pendant une durée appropriée (ECG, pouls, oxymétrie, vivacité et autres signes vitaux tels que la fréquence cardiaque, respiratoire et la tension artérielle)."
+     }
+    ],
+    "test": "heart_rate",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67248985",
+      "provenance": "verified",
+      "quote": "Le patient doit être étroitement surveillé pendant une durée appropriée (ECG, pouls, oxymétrie, vivacité et autres signes vitaux tels que la fréquence cardiaque, respiratoire et la tension artérielle)."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   }
+  ],
+  "fluoxetine": [
+   {
+    "conditions": [
+     "Si un patient présentant une pathologie cardiaque stabilisée est traité"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60338857",
+      "provenance": "verified",
+      "quote": "Si un patient présentant une pathologie cardiaque stabilisée est traité, un contrôle de l’électrocardiogramme (ECG) doit être envisagé avant de débuter le traitement."
+     }
+    ],
+    "test": "ecg",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "chez les enfants et les adolescents traités par la fluoxétine"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60338857",
+      "provenance": "verified",
+      "quote": "Dans une étude clinique de 19 semaines, une diminution de la croissance en taille et de la prise de poids a été observée chez les enfants et les adolescents traités par la fluoxétine (voir rubrique 5.1). Un effet sur la taille adulte finale n'a pas été établi. La possibilité d'un retard pubertaire ne peut être écartée (voir rubriques 4.8 et 5.3). La croissance et le développement pubertaire (taille, poids et stade de Tanner) doivent donc faire l'objet d'un suivi pendant et après le traitement par fluoxétine. En cas de ralentissement de la croissance ou du développement pubertaire, l'avis d'un pédiatre doit être envisagé."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
    }
   ],
   "flupenthixol": [
    {
+    "conditions": [
+     "des patients devant être traités au long cours par un neuroleptique"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -624,6 +1150,21 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "chez le diabétique et le pré-diabétique"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61547571",
+      "provenance": "verified",
+      "quote": "L'effet hyperglycémiant est modeste. Le contrôle de la glycémie sera renforcé chez le diabétique et le pré-diabétique."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -633,18 +1174,6 @@
      }
     ],
     "test": "renal_function",
-    "timing": "during"
-   },
-   {
-    "sources": [
-     {
-      "corpus": "bdpm_rcp",
-      "page": "61547571",
-      "provenance": "verified",
-      "quote": "Contrôle de la pression artérielle."
-     }
-    ],
-    "test": "blood_pressure",
     "timing": "during"
    }
   ],
@@ -724,10 +1253,29 @@
     ],
     "test": "blood_count",
     "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients souffrant de troubles hépatiques"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67117128",
+      "provenance": "verified",
+      "quote": "Une surveillance périodique des enzymes hépatiques est recommandée chez les patients souffrant de troubles hépatiques."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
    }
   ],
   "ketamine": [
    {
+    "conditions": [
+     "Toute administration répétée",
+     "en cas d’utilisation prolongée ou répétée"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -743,6 +1291,52 @@
      }
     ],
     "test": "liver_function",
+    "timing": "during"
+   }
+  ],
+  "lamotrigine": [
+   {
+    "conditions": [
+     "si un traitement par l’association atazanavir/ritonavir est ajouté",
+     "si un traitement par l’association lopinavir/ritonavir est ajouté"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61043653",
+      "provenance": "verified",
+      "quote": "Chez les patients recevant déjà une posologie d’entretien de lamotrigine et ne prenant pas d’inducteurs de la glucuronisation de la lamotrigine, il pourra être nécessaire d’augmenter la posologie de lamotrigine si un traitement par l’association atazanavir/ritonavir est ajouté ou diminuer la posologie de lamotrigine si atazanavir/ritonavir est arrêté. La surveillance des concentrations plasmatiques de lamotrigine devra être effectuée avant et pendant les 2 semaines suivant l’instauration ou l'arrêt d’un traitement par l’association atazanavir/ritonavir, afin de voir si un ajustement posologique de la lamotrigine est nécessaire (voir rubrique 4.5)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61043653",
+      "provenance": "verified",
+      "quote": "Chez les patients recevant déjà une posologie d’entretien de lamotrigine et ne prenant pas d’inducteurs de la glucuronisation de la lamotrigine, il pourra être nécessaire d’augmenter la posologie de lamotrigine si un traitement par l’association lopinavir/ritonavir est ajouté ou diminuer la posologie de lamotrigine si lopinavir/ritonavir est arrêté. La surveillance des concentrations plasmatiques de lamotrigine devra être effectuée avant et pendant les 2 semaines suivant l’instauration ou l'arrêt d’un traitement par l’association lopinavir/ritonavir, afin de voir si un ajustement posologique de la lamotrigine est nécessaire (voir rubrique 4.5)."
+     }
+    ],
+    "test": "drug_level",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "si un traitement par l’association atazanavir/ritonavir est ajouté",
+     "si un traitement par l’association lopinavir/ritonavir est ajouté"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61043653",
+      "provenance": "verified",
+      "quote": "Chez les patients recevant déjà une posologie d’entretien de lamotrigine et ne prenant pas d’inducteurs de la glucuronisation de la lamotrigine, il pourra être nécessaire d’augmenter la posologie de lamotrigine si un traitement par l’association atazanavir/ritonavir est ajouté ou diminuer la posologie de lamotrigine si atazanavir/ritonavir est arrêté. La surveillance des concentrations plasmatiques de lamotrigine devra être effectuée avant et pendant les 2 semaines suivant l’instauration ou l'arrêt d’un traitement par l’association atazanavir/ritonavir, afin de voir si un ajustement posologique de la lamotrigine est nécessaire (voir rubrique 4.5)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61043653",
+      "provenance": "verified",
+      "quote": "Chez les patients recevant déjà une posologie d’entretien de lamotrigine et ne prenant pas d’inducteurs de la glucuronisation de la lamotrigine, il pourra être nécessaire d’augmenter la posologie de lamotrigine si un traitement par l’association lopinavir/ritonavir est ajouté ou diminuer la posologie de lamotrigine si lopinavir/ritonavir est arrêté. La surveillance des concentrations plasmatiques de lamotrigine devra être effectuée avant et pendant les 2 semaines suivant l’instauration ou l'arrêt d’un traitement par l’association lopinavir/ritonavir, afin de voir si un ajustement posologique de la lamotrigine est nécessaire (voir rubrique 4.5)."
+     }
+    ],
+    "test": "drug_level",
     "timing": "during"
    }
   ],
@@ -890,6 +1484,9 @@
     "timing": "before"
    },
    {
+    "conditions": [
+     "la femme en âge de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -955,18 +1552,6 @@
       "corpus": "bdpm_rcp",
       "page": "62124478",
       "provenance": "verified",
-      "quote": "Examen cardiaque : le lithium entraîne des modifications de repolarisation surtout aux fortes doses ou en cas de surdosage. Il doit être utilisé avec précaution, et après avis spécialisé chez les sujets ayant des troubles du rythme paroxystiques ou chroniques. Le lithium est susceptible d’allonger l’intervalle QT. Ce traitement doit être évité chez les patients présentant des facteurs de risque d’allongement de l’intervalle QT (tels qu’allongement de l’intervalle QT, bradycardie, hypokaliémie)."
-     }
-    ],
-    "test": "ecg",
-    "timing": "before"
-   },
-   {
-    "sources": [
-     {
-      "corpus": "bdpm_rcp",
-      "page": "62124478",
-      "provenance": "verified",
       "quote": "Réaliser des contrôles réguliers de la créatinémie et de la calcémie."
      }
     ],
@@ -1012,6 +1597,9 @@
   ],
   "lormetazepam": [
    {
+    "conditions": [
+     "si le maintien du traitement est nécessaire"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1024,6 +1612,9 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "si le maintien du traitement est nécessaire"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1136,6 +1727,9 @@
   ],
   "maprotiline": [
    {
+    "conditions": [
+     "chez les patients âgés ou sensibles à l’hypotension orthostatique"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1148,6 +1742,21 @@
     "timing": "before"
    },
    {
+    "conditions": [
+     "chez les patients âgés ou sensibles à l’hypotension orthostatique"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "63912862",
+      "provenance": "verified",
+      "quote": "Il est recommandé d’effectuer un ECG dans le bilan initial et de contrôler régulièrement la pression artérielle chez les patients âgés ou sensibles à l’hypotension orthostatique."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   },
+   {
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1157,6 +1766,75 @@
      }
     ],
     "test": "blood_count",
+    "timing": "during"
+   }
+  ],
+  "methadone": [
+   {
+    "conditions": [
+     "aux patients présentant un risque d’allongement de l’intervalle QT",
+     "Pour les patients présentant des facteurs de risque d'allongement de l'intervalle QT"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60998856",
+      "provenance": "verified",
+      "quote": "Des cas d’allongement de l’intervalle QT et de torsades de pointe pouvant aboutir à une mort subite d’origine cardiaque ont été rapportés au cours de traitements par la méthadone, principalement à des posologies élevées (> 120 mg/j). La méthadone doit être administrée avec précaution, sous surveillance clinique, électrolytique (surveillance étroite de la kaliémie et de la magnésémie) et ECG, aux patients présentant un risque d’allongement de l’intervalle QT, c’est-à-dire en cas :"
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60998856",
+      "provenance": "verified",
+      "quote": "Pour les patients présentant des facteurs de risque d'allongement de l'intervalle QT, un ECG à l’instauration du traitement par méthadone doit être réalisé ainsi que dans les 30 jours qui suivent. Des ECG supplémentaires doivent être effectués chaque année ou chaque fois que la dose de méthadone dépasse 120 mg/jour."
+     }
+    ],
+    "test": "ecg",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "aux patients présentant un risque d’allongement de l’intervalle QT"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60998856",
+      "provenance": "verified",
+      "quote": "Des cas d’allongement de l’intervalle QT et de torsades de pointe pouvant aboutir à une mort subite d’origine cardiaque ont été rapportés au cours de traitements par la méthadone, principalement à des posologies élevées (> 120 mg/j). La méthadone doit être administrée avec précaution, sous surveillance clinique, électrolytique (surveillance étroite de la kaliémie et de la magnésémie) et ECG, aux patients présentant un risque d’allongement de l’intervalle QT, c’est-à-dire en cas :"
+     }
+    ],
+    "test": "electrolytes",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "Pour les patients présentant des facteurs de risque d'allongement de l'intervalle QT"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60998856",
+      "provenance": "verified",
+      "quote": "Pour les patients présentant des facteurs de risque d'allongement de l'intervalle QT, un ECG à l’instauration du traitement par méthadone doit être réalisé ainsi que dans les 30 jours qui suivent. Des ECG supplémentaires doivent être effectués chaque année ou chaque fois que la dose de méthadone dépasse 120 mg/jour."
+     }
+    ],
+    "test": "ecg",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "lors de l'augmentation de la dose"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60998856",
+      "provenance": "verified",
+      "quote": "Une hypoglycémie a été observée dans un contexte de surdosage en méthadone ou d’une augmentation de la dose. Une surveillance régulière de la glycémie est recommandée lors de l'augmentation de la dose (voir rubriques 4.8 et 4.9)."
+     }
+    ],
+    "test": "glycaemia",
     "timing": "during"
    }
   ],
@@ -1246,9 +1924,44 @@
       "page": "60047182",
       "provenance": "verified",
       "quote": "Le poids doit être enregistré régulièrement pour les adultes ;"
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60047182",
+      "provenance": "verified",
+      "quote": "Au cours du traitement par méthylphénidate, la croissance devra être surveillée : la taille, le poids et l’appétit de l’enfant doivent être mesurés au moins tous les 6 mois et une courbe de croissance devra être tenue à jour. Il pourra être nécessaire d'interrompre le traitement chez les patients ne présentant pas la croissance ou la prise de poids attendue. Chez l’adulte, le poids doit faire l’objet d’une surveillance régulière."
      }
     ],
     "test": "weight",
+    "timing": "during"
+   }
+  ],
+  "mianserin": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60854845",
+      "provenance": "verified",
+      "quote": "Des cas exceptionnels d'agranulocytose ont été rapportés, notamment chez les personnes âgées de plus de 65 ans. Un contrôle de l'hémogramme est donc recommandé, notamment lorsque le malade présente une fièvre, une angine ou d'autres signes d'infection."
+     }
+    ],
+    "test": "blood_count",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les diabétiques non stabilisés"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60854845",
+      "provenance": "verified",
+      "quote": "La miansérine doit être utilisée avec prudence chez les diabétiques non stabilisés : surveiller la glycémie."
+     }
+    ],
+    "test": "glycaemia",
     "timing": "during"
    }
   ],
@@ -1299,6 +2012,40 @@
      }
     ],
     "test": "heart_rate",
+    "timing": "during"
+   }
+  ],
+  "mirtazapine": [
+   {
+    "conditions": [
+     "chez les patients diabétiques"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "65124914",
+      "provenance": "verified",
+      "quote": "Un diabète : chez les patients diabétiques, les antidépresseurs peuvent altérer l’équilibre glycémique. Une adaptation de la posologie d’insuline et/ou d’hypoglycémiant oral peut s’avérer nécessaire et une surveillance étroite est recommandée."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   }
+  ],
+  "moclobemide": [
+   {
+    "conditions": [
+     "chez les patients traités par antihypertenseurs"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62439997",
+      "provenance": "verified",
+      "quote": "Une surveillance plus fréquente de la pression artérielle est recommandée chez les patients traités par antihypertenseurs."
+     }
+    ],
+    "test": "blood_pressure",
     "timing": "during"
    }
   ],
@@ -1354,6 +2101,12 @@
       "page": "60370919",
       "provenance": "verified",
       "quote": "Des anomalies des tests de la fonction hépatique ont été rapportées chez des patients obèses et âgés sous naltrexone n’ayant pas d’antécédent de toxicomanie. Des tests de la fonction hépatique doivent être réalisés avant et pendant le traitement."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60370919",
+      "provenance": "verified",
+      "quote": "Une altération de la fonction hépatique n'est pas rare chez les individus dépendants aux opiacés. Par ailleurs, il n’est pas rare que les personnes alcooliques présentent des signes d’insuffisance hépatique. Des anomalies des tests hépatiques sous naltrexone ont été rapportées chez des patients obèses et âgés recevant des posologies (jusqu'à 300 mg/j) supérieures à celles préconisées dans le traitement de la dépendance alcoolique. Des tests de la fonction hépatique doivent être réalisés avant et périodiquement pendant le traitement."
      }
     ],
     "test": "liver_function",
@@ -1372,9 +2125,32 @@
       "page": "60370919",
       "provenance": "verified",
       "quote": "Des anomalies des tests de la fonction hépatique ont été rapportées chez des patients obèses et âgés sous naltrexone n’ayant pas d’antécédent de toxicomanie. Des tests de la fonction hépatique doivent être réalisés avant et pendant le traitement."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60370919",
+      "provenance": "verified",
+      "quote": "Une altération de la fonction hépatique n'est pas rare chez les individus dépendants aux opiacés. Par ailleurs, il n’est pas rare que les personnes alcooliques présentent des signes d’insuffisance hépatique. Des anomalies des tests hépatiques sous naltrexone ont été rapportées chez des patients obèses et âgés recevant des posologies (jusqu'à 300 mg/j) supérieures à celles préconisées dans le traitement de la dépendance alcoolique. Des tests de la fonction hépatique doivent être réalisés avant et périodiquement pendant le traitement."
      }
     ],
     "test": "liver_function",
+    "timing": "during"
+   }
+  ],
+  "nicotine": [
+   {
+    "conditions": [
+     "aux patients souffrant de diabète"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60052222",
+      "provenance": "verified",
+      "quote": "Diabète : il est recommandé aux patients souffrant de diabète de surveiller plus étroitement leur glycémie lorsqu'ils arrêtent de fumer et qu'une thérapie de remplacement de la nicotine est mise en place car la libération de catécholamines induite par la réduction des apports de nicotine peut affecter le métabolisme des glucides."
+     }
+    ],
+    "test": "glycaemia",
     "timing": "during"
    }
   ],
@@ -1385,6 +2161,30 @@
       "corpus": "bdpm_rcp",
       "page": "60126594",
       "provenance": "verified",
+      "quote": "Des cas d’hyperglycémie et/ou de survenue ou exacerbation d’un diabète, associés parfois à une acidocétose ou un coma, avec une issue fatale pour certains cas, ont été rapportés de manière peu fréquente (voir rubrique 4.8). Dans certains cas, une prise de poids antérieure, qui pourrait être un facteur prédisposant, a été rapportée. Une surveillance clinique appropriée est souhaitable conformément aux recommandations en vigueur sur les antipsychotiques, par exemple mesurer la glycémie au début du traitement par olanzapine, 12 semaines après l’instauration du traitement, puis tous les ans."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60126594",
+      "provenance": "verified",
+      "quote": "Des cas d’hyperglycémie et/ou de survenue ou exacerbation d’un diabète, associés parfois à une acidocétose ou un coma, avec une issue fatale pour certains cas, ont été rapportés de manière peu fréquente (voir rubrique 4.8). Dans certains cas, une prise de poids antérieure, qui pourrait être un facteur prédisposant, a été rapportée. Une surveillance clinique appropriée est souhaitable conformément aux recommandations en vigueur sur les antipsychotiques, par exemple mesurer la glycémie au début du traitement par olanzapine, 12 semaines après l’instauration du traitement, puis tous les ans."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60126594",
+      "provenance": "verified",
       "quote": "Le poids doit être surveillé régulièrement, par exemple au début du traitement, 4, 8 et 12 semaines après l’instauration du traitement par olanzapine, puis tous les 3 mois."
      }
     ],
@@ -1425,11 +2225,147 @@
      }
     ],
     "test": "lipids",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients présentant une élévation des ALAT et/ou des ASAT"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60126594",
+      "provenance": "verified",
+      "quote": "Des élévations transitoires et asymptomatiques des aminotransférases (ALAT et ASAT) ont été fréquemment observées, notamment en début de traitement. La prudence s'impose chez les patients présentant une élévation des ALAT et/ou des ASAT, chez les patients présentant des signes et des symptômes évocateurs d'une atteinte hépatique, chez les patients atteints d’affections préexistantes associées à une réserve fonctionnelle limitée et chez les patients traités par des médicaments potentiellement hépatotoxiques et un suivi doit être instauré. Dans les cas où une hépatite a été diagnostiquée (comprenant des atteintes hépatiques cytolytiques, cholestatiques ou mixtes), le traitement par olanzapine doit être arrêté."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "des patients de plus de 65 ans"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60126594",
+      "provenance": "verified",
+      "quote": "Il est recommandé de mesurer périodiquement la pression artérielle des patients de plus de 65 ans."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   }
+  ],
+  "oxcarbazepine": [
+   {
+    "conditions": [
+     "En cas d’affection rénale préexistante associée à une natrémie basse (ex : syndrome de sécrétion inappropriée d’hormone anti-diurétique) ou chez les patients recevant de façon concomitante des traitements hyponatrémiants (ex : diurétiques, desmopressine) ou des AINS (ex : indométacine)"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61556061",
+      "provenance": "verified",
+      "quote": "Des hyponatrémies, avec des taux sériques de sodium inférieurs à 125 mmol/l, généralement asymptomatiques et n’ayant pas nécessité d’ajustement thérapeutique, ont été rapportées chez 2,7 % des patients traités par TRILEPTAL. L’expérience acquise au cours des études cliniques montre que la natrémie se normalise après réduction de la dose, arrêt du traitement ou mise en œuvre d’un traitement symptomatique (par exemple restriction hydrique). En cas d’affection rénale préexistante associée à une natrémie basse (ex : syndrome de sécrétion inappropriée d’hormone anti-diurétique) ou chez les patients recevant de façon concomitante des traitements hyponatrémiants (ex : diurétiques, desmopressine) ou des AINS (ex : indométacine), la natrémie devra être contrôlée avant l’instauration du traitement. Par la suite, la natrémie devra être contrôlée après environ deux semaines, puis tous les mois pendant les 3 premiers mois du traitement ou selon les besoins. Ces facteurs de risque peuvent s'appliquer en particulier au sujet âgé."
+     }
+    ],
+    "test": "electrolytes",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61556061",
+      "provenance": "verified",
+      "quote": "Chez les patients traités par TRILEPTAL et devant commencer un traitement hyponatrémiant les mêmes recommandations devront s'appliquer. De façon générale, s’il apparaît des symptômes cliniques évocateurs d’hyponatrémie lors du traitement par TRILEPTAL (voir rubrique 4.8), le contrôle de la natrémie doit être envisagé. Dans les autres cas, le contrôle de la natrémie fait partie du bilan biologique habituel. Un contrôle régulier du poids de tous les patients présentant une insuffisance cardiaque ou une insuffisance cardiaque secondaire devra être réalisé afin de détecter la survenue d'une rétention liquidienne. En cas de rétention liquidienne ou d'aggravation de l'état cardiaque, la natrémie devra être contrôlée. Si une hyponatrémie est constatée, la restriction hydrique est une mesure thérapeutique importante. Bien que, l’oxcarbazépine ne conduise que très rarement à une altération de la conduction cardiaque, les patients présentant des troubles de la conduction préexistants (par ex. bloc auriculo-ventriculaire, arythmie) devront être surveillés attentivement."
+     }
+    ],
+    "test": "electrolytes",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "de tous les patients présentant une insuffisance cardiaque ou une insuffisance cardiaque secondaire"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61556061",
+      "provenance": "verified",
+      "quote": "Chez les patients traités par TRILEPTAL et devant commencer un traitement hyponatrémiant les mêmes recommandations devront s'appliquer. De façon générale, s’il apparaît des symptômes cliniques évocateurs d’hyponatrémie lors du traitement par TRILEPTAL (voir rubrique 4.8), le contrôle de la natrémie doit être envisagé. Dans les autres cas, le contrôle de la natrémie fait partie du bilan biologique habituel. Un contrôle régulier du poids de tous les patients présentant une insuffisance cardiaque ou une insuffisance cardiaque secondaire devra être réalisé afin de détecter la survenue d'une rétention liquidienne. En cas de rétention liquidienne ou d'aggravation de l'état cardiaque, la natrémie devra être contrôlée. Si une hyponatrémie est constatée, la restriction hydrique est une mesure thérapeutique importante. Bien que, l’oxcarbazépine ne conduise que très rarement à une altération de la conduction cardiaque, les patients présentant des troubles de la conduction préexistants (par ex. bloc auriculo-ventriculaire, arythmie) devront être surveillés attentivement."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "dans la population pédiatrique"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61556061",
+      "provenance": "verified",
+      "quote": "L’hypothyroïdie est un effet indésirable de l’oxcarbazépine (peu fréquent, voir rubrique 4.8). Compte-tenu de l’importance des hormones thyroïdiennes dans le développement de l’enfant après la naissance, une surveillance de la fonction thyroïdienne est recommandée dans la population pédiatrique pendant le traitement par TRILEPTAL."
+     }
+    ],
+    "test": "thyroid_function",
+    "timing": "during"
+   }
+  ],
+  "paliperidone": [
+   {
+    "conditions": [
+     "Les patients présentant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64582563",
+      "provenance": "verified",
+      "quote": "Une agranulocytose a été très rarement rapportée (< 1/10 000 patients) lors de la surveillance après commercialisation. Les patients présentant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse doivent être surveillés pendant les tout premiers mois de traitement et l’arrêt de PALIPERIDONE TEVA doit être envisagé au premier signe d’une baisse cliniquement significative de la NGB en l’absence d’autres facteurs causaux. Les patients présentant une neutropénie cliniquement significative doivent être attentivement surveillés en vue de détecter une fièvre ou d’autres symptômes ou signes d’infection et doivent être traités rapidement si de tels symptômes ou signes apparaissent. Les patients présentant une neutropénie sévère (numération absolue de neutrophiles < 1 × 109/L) doivent arrêter PALIPERIDONE TEVA et leur NGB doit être suivie jusqu’au rétablissement."
+     }
+    ],
+    "test": "blood_count",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients diabétiques"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64582563",
+      "provenance": "verified",
+      "quote": "Hyperglycémie, diabète et exacerbation d’un diabète préexistant, dont coma diabétique et acidocétose, ont été rapportés au cours du traitement par palipéridone. Une surveillance clinique adéquate est recommandée conformément aux recommandations relatives aux antipsychotiques. Les symptômes d’hyperglycémie (tels que polydipsie, polyurie, polyphagie et faiblesse) doivent être recherchés chez les patients traités par palipéridone. Une surveillance régulière doit être effectuée chez les patients diabétiques afin de détecter une aggravation de la glycémie."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64582563",
+      "provenance": "verified",
+      "quote": "Une prise de poids significative a été rapportée avec l’utilisation de la palipéridone. Le poids doit être contrôlé régulièrement."
+     }
+    ],
+    "test": "weight",
     "timing": "during"
    }
   ],
   "phenobarbital": [
    {
+    "conditions": [
+     "chez les femmes en âge de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1449,6 +2385,42 @@
       "corpus": "bdpm_rcp",
       "page": "62436200",
       "provenance": "verified",
+      "quote": "Vérifier le pouls et la tension artérielle, toutes les deux minutes. Une baisse de la tension artérielle, une bradycardie doivent impérativement faire ralentir le débit de l'injection."
+     }
+    ],
+    "test": "heart_rate",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62436200",
+      "provenance": "verified",
+      "quote": "Vérifier le pouls et la tension artérielle, toutes les deux minutes. Une baisse de la tension artérielle, une bradycardie doivent impérativement faire ralentir le débit de l'injection."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62436200",
+      "provenance": "verified",
+      "quote": "Une surveillance continue ou subcontinue de l'électrocardiogramme est fortement conseillée, surtout chez les personnes âgées ou à risque. On cherchera à identifier tout signe de détresse respiratoire. Un dosage des taux sériques de phénytoïne peut être nécessaire lors de la prise en charge d'un état de mal épileptique et de l'établissement du traitement d'entretien."
+     }
+    ],
+    "test": "ecg",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62436200",
+      "provenance": "verified",
       "quote": "Contrôler le taux plasmatique de phénytoïne dans les heures suivant la dose de charge pour ajuster le traitement d'entretien, surtout lorsqu'une interaction avec un autre médicament est possible."
      }
     ],
@@ -1456,6 +2428,9 @@
     "timing": "during"
    },
    {
+    "conditions": [
+     "chez une femme en âge de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1552,10 +2527,43 @@
     ],
     "test": "eye_exam",
     "timing": "during"
+   },
+   {
+    "conditions": [
+     "En cas de troubles cardiovasculaires sévères"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61129497",
+      "provenance": "verified",
+      "quote": "En cas de troubles cardiovasculaires sévères, une attention particulière s'impose. Il est recommandé de contrôler la pression artérielle, en particulier au début du traitement, compte tenu du risque d'hypotension orthostatique associé au traitement dopaminergique."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "En cas de troubles cardiovasculaires sévères"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61129497",
+      "provenance": "verified",
+      "quote": "En cas de troubles cardiovasculaires sévères, une attention particulière s'impose. Il est recommandé de contrôler la pression artérielle, en particulier au début du traitement, compte tenu du risque d'hypotension orthostatique associé au traitement dopaminergique."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
    }
   ],
   "primidone": [
    {
+    "conditions": [
+     "chez les femmes en âge de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1566,6 +2574,55 @@
     ],
     "test": "pregnancy_test",
     "timing": "before"
+   }
+  ],
+  "propofol": [
+   {
+    "conditions": [
+     "à des patients considérés comme étant à risque de surcharge lipidique"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60616445",
+      "provenance": "verified",
+      "quote": "Il est recommandé de surveiller le taux sanguin de lipides lorsque DIPRIVAN est administré à des patients considérés comme étant à risque de surcharge lipidique."
+     }
+    ],
+    "test": "lipids",
+    "timing": "during"
+   }
+  ],
+  "propranolol": [
+   {
+    "conditions": [
+     "injection IV très lente"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62914611",
+      "provenance": "verified",
+      "quote": "Adulte : injection IV très lente de 1 ml (soit 1 mg) par minute sous contrôle de l’ECG et de la tension artérielle."
+     }
+    ],
+    "test": "ecg",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "injection IV très lente"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62914611",
+      "provenance": "verified",
+      "quote": "Adulte : injection IV très lente de 1 ml (soit 1 mg) par minute sous contrôle de l’ECG et de la tension artérielle."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
    }
   ],
   "quetiapine": [
@@ -1656,16 +2713,64 @@
   ],
   "risperidone": [
    {
+    "conditions": [
+     "Les patients ayant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60260497",
+      "provenance": "verified",
+      "quote": "Les patients ayant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse doivent être surveillés pendant les tous premiers mois de traitement et l'arrêt de RISPERDAL doit être considéré au premier signe d'une baisse cliniquement significative de la NGB en l'absence d'autres facteurs causaux."
+     }
+    ],
+    "test": "blood_count",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients diabétiques"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60260497",
+      "provenance": "verified",
+      "quote": "Hyperglycémie, diabète et exacerbation d’un diabète préexistant ont été rapportés au cours du traitement par RISPERDAL. Dans certains cas, une prise de poids antérieure a été rapportée, ce qui peut être un facteur prédisposant. L’association à une acidocétose a été très rarement rapportée et l’association à un coma diabétique rarement rapportée. Une surveillance clinique adéquate est recommandée conformément aux recommandations relatives aux antipsychotiques. Les symptômes d'hyperglycémie (tels que polydipsie, polyurie, polyphagie et fatigue) doivent être recherchés chez les patients traités par antipsychotiques atypiques, y compris RISPERDAL. Une surveillance régulière doit être effectuée afin de détecter une aggravation de la glycémie chez les patients diabétiques."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
     "sources": [
      {
       "corpus": "bdpm_rcp",
       "page": "60260497",
       "provenance": "verified",
       "quote": "Une prise de poids cliniquement significative a été rapportée avec l’utilisation de RISPERDAL. Le poids doit être contrôlé régulièrement."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60260497",
+      "provenance": "verified",
+      "quote": "La rispéridone a été associée à des augmentations moyennes du poids et de l’index de masse corporelle (IMC). Il est recommandé de mesurer le poids avant l’instauration du traitement et de le contrôler ensuite régulièrement. Les modifications de la taille au cours des études d’extension au long terme en ouvert étaient dans les limites normales attendues en fonction de l’âge. L’effet d’un traitement au long terme par la rispéridone sur la maturation sexuelle et la taille n’a pas été adéquatement étudié."
      }
     ],
     "test": "weight",
     "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60260497",
+      "provenance": "verified",
+      "quote": "La rispéridone a été associée à des augmentations moyennes du poids et de l’index de masse corporelle (IMC). Il est recommandé de mesurer le poids avant l’instauration du traitement et de le contrôler ensuite régulièrement. Les modifications de la taille au cours des études d’extension au long terme en ouvert étaient dans les limites normales attendues en fonction de l’âge. L’effet d’un traitement au long terme par la rispéridone sur la maturation sexuelle et la taille n’a pas été adéquatement étudié."
+     }
+    ],
+    "test": "weight",
+    "timing": "before"
    }
   ],
   "rivastigmine": [
@@ -1679,6 +2784,38 @@
      }
     ],
     "test": "weight",
+    "timing": "during"
+   }
+  ],
+  "ropinirole": [
+   {
+    "conditions": [
+     "chez les patients présentant une affection cardio-vasculaire sévère"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61497951",
+      "provenance": "verified",
+      "quote": "En raison du risque d’hypotension, une surveillance de la pression artérielle est recommandée, en particulier lors de l’instauration du traitement, chez les patients présentant une affection cardio-vasculaire sévère (en particulier insuffisance coronarienne)."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "before"
+   },
+   {
+    "conditions": [
+     "chez les patients présentant une affection cardio-vasculaire sévère"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "61497951",
+      "provenance": "verified",
+      "quote": "En raison du risque d’hypotension, une surveillance de la pression artérielle est recommandée, en particulier lors de l’instauration du traitement, chez les patients présentant une affection cardio-vasculaire sévère (en particulier insuffisance coronarienne)."
+     }
+    ],
+    "test": "blood_pressure",
     "timing": "during"
    }
   ],
@@ -1708,6 +2845,73 @@
     "timing": "during"
    }
   ],
+  "sevoflurane": [
+   {
+    "conditions": [
+     "chez les patients insuffisants rénaux (DFG ≤ 60 ml/min)"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67329056",
+      "provenance": "verified",
+      "quote": "Le sévoflurane doit être administré avec prudence chez les patients insuffisants rénaux (DFG ≤ 60 ml/min). Par ailleurs, la fonction rénale doit être contrôlée après l’intervention chirurgicale."
+     }
+    ],
+    "test": "renal_function",
+    "timing": "during"
+   }
+  ],
+  "solriamfetol": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64617815",
+      "provenance": "verified",
+      "quote": "Sunosi n’est pas un traitement de l’obstruction des voies aériennes chez les patients présentant un SAHOS. Le traitement primaire du SAHOS doit être maintenu chez ces patients. La pression artérielle et la fréquence cardiaque doivent être mesurées avant l’instauration du traitement par solriamfetol et contrôlées régulièrement pendant le traitement, en particulier après une augmentation de la dose. Une hypertension préexistante doit être stabilisée avant l’instauration du traitement par solriamfetol et les patients ayant un risque plus élevé d’événements cardiaques indésirables majeurs (ECIM), en particulier les patients présentant une hypertension préexistante, une maladie cardiovasculaire ou cérébrovasculaire et les patients âgés, doivent être traités avec prudence."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64617815",
+      "provenance": "verified",
+      "quote": "Sunosi n’est pas un traitement de l’obstruction des voies aériennes chez les patients présentant un SAHOS. Le traitement primaire du SAHOS doit être maintenu chez ces patients. La pression artérielle et la fréquence cardiaque doivent être mesurées avant l’instauration du traitement par solriamfetol et contrôlées régulièrement pendant le traitement, en particulier après une augmentation de la dose. Une hypertension préexistante doit être stabilisée avant l’instauration du traitement par solriamfetol et les patients ayant un risque plus élevé d’événements cardiaques indésirables majeurs (ECIM), en particulier les patients présentant une hypertension préexistante, une maladie cardiovasculaire ou cérébrovasculaire et les patients âgés, doivent être traités avec prudence."
+     }
+    ],
+    "test": "heart_rate",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64617815",
+      "provenance": "verified",
+      "quote": "Sunosi n’est pas un traitement de l’obstruction des voies aériennes chez les patients présentant un SAHOS. Le traitement primaire du SAHOS doit être maintenu chez ces patients. La pression artérielle et la fréquence cardiaque doivent être mesurées avant l’instauration du traitement par solriamfetol et contrôlées régulièrement pendant le traitement, en particulier après une augmentation de la dose. Une hypertension préexistante doit être stabilisée avant l’instauration du traitement par solriamfetol et les patients ayant un risque plus élevé d’événements cardiaques indésirables majeurs (ECIM), en particulier les patients présentant une hypertension préexistante, une maladie cardiovasculaire ou cérébrovasculaire et les patients âgés, doivent être traités avec prudence."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "64617815",
+      "provenance": "verified",
+      "quote": "Sunosi n’est pas un traitement de l’obstruction des voies aériennes chez les patients présentant un SAHOS. Le traitement primaire du SAHOS doit être maintenu chez ces patients. La pression artérielle et la fréquence cardiaque doivent être mesurées avant l’instauration du traitement par solriamfetol et contrôlées régulièrement pendant le traitement, en particulier après une augmentation de la dose. Une hypertension préexistante doit être stabilisée avant l’instauration du traitement par solriamfetol et les patients ayant un risque plus élevé d’événements cardiaques indésirables majeurs (ECIM), en particulier les patients présentant une hypertension préexistante, une maladie cardiovasculaire ou cérébrovasculaire et les patients âgés, doivent être traités avec prudence."
+     }
+    ],
+    "test": "heart_rate",
+    "timing": "during"
+   }
+  ],
   "sulpiride": [
    {
     "sources": [
@@ -1720,6 +2924,21 @@
     ],
     "test": "ecg",
     "timing": "before"
+   },
+   {
+    "conditions": [
+     "Les patients diabétiques et les patients ayant des facteurs de risque de diabète"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62344129",
+      "provenance": "verified",
+      "quote": "Les patients diabétiques et les patients ayant des facteurs de risque de diabète, et qui débutent un traitement par sulpiride, doivent faire l'objet d'une surveillance glycémique appropriée."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
    }
   ],
   "tetrabenazine": [
@@ -1734,10 +2953,28 @@
     ],
     "test": "ecg",
     "timing": "before"
+   },
+   {
+    "conditions": [
+     "en fonction des données cliniques"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62463044",
+      "provenance": "verified",
+      "quote": "Il est recommandé de réaliser un électrocardiogramme avant l’instauration du traitement, à la fin de la titration et au cours du traitement en fonction des données cliniques (ex. patients présentant des facteurs de risque cardiaques, prise de médicaments arythmogènes)."
+     }
+    ],
+    "test": "ecg",
+    "timing": "during"
    }
   ],
   "tiapride": [
    {
+    "conditions": [
+     "traités au long cours par un neuroleptique"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1750,8 +2987,43 @@
     "timing": "before"
    }
   ],
+  "tolcapone": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67077388",
+      "provenance": "verified",
+      "quote": "La fonction hépatique doit être contrôlée avant le début du traitement par Tasmar, puis surveillée toutes les 2 semaines pendant la première année de traitement, toutes les 4 semaines pendant les 6 mois suivants et toutes les 8 semaines ensuite. Si la posologie est augmentée à 200 mg 3 fois par jour, un contrôle des enzymes hépatiques doit être pratiqué avant d'augmenter la dose, puis recommencé suivant le même rythme de fréquence indiqué ci-dessus (voir rubriques 4.4 et 4.8)."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67077388",
+      "provenance": "verified",
+      "quote": "La fonction hépatique doit être contrôlée avant le début du traitement par Tasmar, puis surveillée toutes les 2 semaines pendant la première année de traitement, toutes les 4 semaines pendant les 6 mois suivants et toutes les 8 semaines ensuite. Si la posologie est augmentée à 200 mg 3 fois par jour, un contrôle des enzymes hépatiques doit être pratiqué avant d'augmenter la dose, puis recommencé suivant le même rythme de fréquence indiqué ci-dessus (voir rubriques 4.4 et 4.8)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "67077388",
+      "provenance": "verified",
+      "quote": "Pendant le traitement : la fonction hépatique doit être contrôlée toutes les 2 semaines pendant la première année de traitement, toutes les 4 semaines pendant les 6 mois suivants et toutes les 8 semaines ensuite. Si la posologie est augmentée à 200 mg 3 fois par jour, les enzymes hépatiques doivent être contrôlées avant d'augmenter la dose et les contrôles doivent être répétés suivant le même rythme de fréquence indiqué ci-dessus. Le traitement doit être interrompu immédiatement si le taux d'ALAT et/ou d’ASAT dépasse la limite supérieure de la normale ou s'il apparaît des signes ou symptômes évoquant une insuffisance hépatique (nausées persistantes, fatigue, léthargie, anorexie, ictère, urines foncées, prurit et sensibilité de l'hypochondre droit)."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
+   }
+  ],
   "topiramate": [
    {
+    "conditions": [
+     "chez une femme susceptible de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
@@ -1776,15 +3048,29 @@
     "timing": "during"
    }
   ],
-  "valproate": [
+  "trimipramine": [
    {
+    "conditions": [
+     "chez les patients dont le diagnostic de diabète sucré est établi ou chez ceux présentant des facteurs de risque de diabète"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
-      "page": "60184188",
+      "page": "63344192",
       "provenance": "verified",
-      "quote": "la patiente comprend la nécessité d’effectuer un test de grossesse avant le début du traitement et pendant le traitement, en tant que de besoin ;"
-     },
+      "quote": "Des études épidémiologiques ont identifié un risque accru de diabète sucré chez les patients dépressifs traités par des antidépresseurs tricycliques. Par conséquent, une surveillance glycémique adéquate doit être mise en place chez les patients dont le diagnostic de diabète sucré est établi ou chez ceux présentant des facteurs de risque de diabète, et qui ont commencé un traitement avec de la trimipramine (voir rubrique 4.8)."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   }
+  ],
+  "valproate": [
+   {
+    "conditions": [
+     "chez les femmes en âge de procréer"
+    ],
+    "sources": [
      {
       "corpus": "bdpm_rcp",
       "page": "60184188",
@@ -1796,12 +3082,15 @@
     "timing": "before"
    },
    {
+    "conditions": [
+     "chez les femmes en âge de procréer"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",
       "page": "60184188",
       "provenance": "verified",
-      "quote": "la patiente comprend la nécessité d’effectuer un test de grossesse avant le début du traitement et pendant le traitement, en tant que de besoin ;"
+      "quote": "Le traitement par valproate ne doit pas être instauré chez les femmes en âge de procréer sans l’obtention d’un test de grossesse négatif (test de grossesse plasmatique d’une sensibilité d’au moins 25 mUI/mL), confirmé par un professionnel de santé, afin d’éliminer toute possibilité d’utilisation involontaire du produit pendant la grossesse. Ce test de grossesse doit être répété à intervalles réguliers pendant le traitement."
      }
     ],
     "test": "pregnancy_test",
@@ -1974,8 +3263,43 @@
     "timing": "during"
    }
   ],
+  "zonisamide": [
+   {
+    "conditions": [
+     "chez l’enfant"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "62741554",
+      "provenance": "verified",
+      "quote": "L’incidence de la diminution du poids est uniforme entre les tranches d’âge (voir rubrique 4.8) ; cependant, compte tenu de la gravité potentielle d’une perte de poids chez l’enfant, le poids doit être surveillé dans cette population. Des suppléments nutritionnels ou une augmentation de l’apport alimentaire doivent être envisagés si le gain pondéral du patient n’est pas conforme aux courbes de croissance ; sinon, l’arrêt du traitement par le zonisamide doit être envisagé."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   }
+  ],
   "zuclopenthixol": [
    {
+    "conditions": [
+     "chez les alcooliques chroniques et chez les patients ayant présenté antérieurement une atteinte hépatique sérieuse"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "60209937",
+      "provenance": "verified",
+      "quote": "Une surveillance biologique (transaminases, tests hépatiques) est recommandée chez les alcooliques chroniques et chez les patients ayant présenté antérieurement une atteinte hépatique sérieuse."
+     }
+    ],
+    "test": "liver_function",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "traités au long cours par un neuroleptique"
+    ],
     "sources": [
      {
       "corpus": "bdpm_rcp",

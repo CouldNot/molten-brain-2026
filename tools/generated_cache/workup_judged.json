@@ -6,21 +6,34 @@
    "timing": "before"
   },
   {
+   "index": 6,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
    "index": 2,
    "test": "liver_function",
    "timing": "during"
   }
  ],
+ "alimemazine": [],
+ "amantadine": [],
  "amisulpride": [
   {
    "index": 3,
    "test": "ecg",
-   "timing": "before"
+   "timing": "before",
+   "condition": "des patients devant être traités au long cours par un neuroleptique"
   }
  ],
  "amitriptyline": [
   {
    "index": 6,
+   "test": "ecg",
+   "timing": "before"
+  },
+  {
+   "index": 0,
    "test": "ecg",
    "timing": "before"
   }
@@ -57,11 +70,63 @@
    "timing": "during"
   }
  ],
+ "apomorphine": [
+  {
+   "index": 1,
+   "test": "blood_count",
+   "timing": "during",
+   "condition": "en cas d’association de lévodopa à l’apomorphine"
+  }
+ ],
+ "aripiprazole": [
+  {
+   "index": 5,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients diabétiques ou ayant des facteurs de risque pouvant favoriser le développement d'un diabète"
+  },
+  {
+   "index": 6,
+   "test": "weight",
+   "timing": "during",
+   "condition": "chez les patients adolescents bipolaires lors d'épisodes maniaques"
+  }
+ ],
+ "atropine": [],
+ "baclofen": [
+  {
+   "index": 4,
+   "test": "renal_function",
+   "timing": "during",
+   "condition": "lorsque LIORESAL est associé à des médicaments ou produits pharmaceutiques qui peuvent avoir un impact significatif sur la fonction rénale"
+  },
+  {
+   "index": 5,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "En cas d’affections hépatiques ou de diabète"
+  },
+  {
+   "index": 5,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "En cas d’affections hépatiques ou de diabète"
+  }
+ ],
+ "brivaracetam": [],
+ "bromazepam": [],
  "bromocriptine": [
   {
    "index": 0,
    "test": "echocardiography",
-   "timing": "before"
+   "timing": "before",
+   "condition": "Pour le traitement à long terme"
+  },
+  {
+   "index": 7,
+   "test": "eye_exam",
+   "timing": "during",
+   "condition": "des patients traités par bromocriptine pour un macroprolactinome"
   }
  ],
  "bumetanide": [
@@ -69,22 +134,52 @@
    "index": 1,
    "test": "electrolytes",
    "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "Chez les patients atteints d’un diabète sucré avéré ou latent"
   }
  ],
+ "buprenorphine": [],
+ "bupropion": [
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "during"
+  }
+ ],
+ "buspirone": [],
  "cabergoline": [
+  {
+   "index": 1,
+   "test": "prolactin",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
   {
    "index": 4,
    "test": "echocardiography",
    "timing": "before"
   },
   {
-   "index": 5,
-   "test": "echocardiography",
-   "timing": "during"
+   "index": 4,
+   "test": "renal_function",
+   "timing": "before"
   },
   {
-   "index": 3,
-   "test": "blood_pressure",
+   "index": 5,
+   "test": "echocardiography",
    "timing": "during"
   },
   {
@@ -95,12 +190,8 @@
   {
    "index": 12,
    "test": "pregnancy_test",
-   "timing": "during"
-  },
-  {
-   "index": 1,
-   "test": "prolactin",
-   "timing": "during"
+   "timing": "during",
+   "condition": "En l'absence de contraception"
   }
  ],
  "caffeine": [
@@ -110,7 +201,30 @@
    "timing": "during"
   }
  ],
+ "cannabidiol": [
+  {
+   "index": 6,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 7,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 10,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
  "carbamazepine": [
+  {
+   "index": 0,
+   "test": "hla_genotype",
+   "timing": "before",
+   "condition": "chez certains patients"
+  },
   {
    "index": 5,
    "test": "blood_count",
@@ -137,9 +251,22 @@
    "timing": "during"
   },
   {
+   "index": 8,
+   "test": "electrolytes",
+   "timing": "during",
+   "condition": "Chez les patients présentant une atteinte rénale prééxistante avec une natrémie basse ou chez les patients traités de façon concomitante avec des médicaments hyponatrémiants"
+  },
+  {
+   "index": 9,
+   "test": "thyroid_function",
+   "timing": "during",
+   "condition": "Chez les patients ayant une hypothyroïdie"
+  },
+  {
    "index": 11,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "before",
+   "condition": "chez une femme susceptible de procréer"
   }
  ],
  "chlorpromazine": [
@@ -151,46 +278,67 @@
   {
    "index": 5,
    "test": "eye_exam",
-   "timing": "during"
+   "timing": "during",
+   "condition": "lors des traitements prolongés"
   },
   {
    "index": 5,
    "test": "blood_count",
-   "timing": "during"
+   "timing": "during",
+   "condition": "lors des traitements prolongés"
+  }
+ ],
+ "citalopram": [
+  {
+   "index": 5,
+   "test": "ecg",
+   "timing": "before",
+   "condition": "Si un patient présentant une pathologie cardiaque stabilisée est traité par le citalopram"
   }
  ],
  "clobazam": [
   {
    "index": 2,
    "test": "liver_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "Lors d’un traitement prolongé"
   },
   {
    "index": 2,
    "test": "renal_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "Lors d’un traitement prolongé"
   }
  ],
  "clomipramine": [
-  {
-   "index": 8,
-   "test": "ecg",
-   "timing": "before"
-  },
   {
    "index": 4,
    "test": "blood_pressure",
    "timing": "before"
   },
   {
+   "index": 8,
+   "test": "ecg",
+   "timing": "before",
+   "condition": "chez les sujets porteurs de certaines affections cardiovasculaires"
+  },
+  {
+   "index": 7,
+   "test": "ecg",
+   "timing": "during",
+   "condition": "chez les patients âgés"
+  },
+  {
    "index": 10,
    "test": "liver_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "chez les patients souffrant d’insuffisances hépatiques et rénales"
   },
   {
    "index": 10,
    "test": "renal_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "chez les patients souffrant d’insuffisances hépatiques et rénales"
   },
   {
    "index": 11,
@@ -198,7 +346,20 @@
    "timing": "during"
   }
  ],
+ "clonazepam": [],
+ "clonidine": [],
+ "clotiazepam": [],
  "clozapine": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 4,
+   "test": "blood_count",
+   "timing": "during"
+  },
   {
    "index": 5,
    "test": "blood_count",
@@ -210,19 +371,21 @@
    "timing": "before"
   },
   {
-   "index": 4,
-   "test": "blood_count",
-   "timing": "during"
-  },
-  {
    "index": 10,
    "test": "blood_count",
    "timing": "during"
   },
   {
-   "index": 0,
-   "test": "blood_pressure",
-   "timing": "during"
+   "index": 32,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients ayant commencé un traitement par antipsychotiques atypiques et présentant un diagnostic confirmé de diabète sucré"
+  },
+  {
+   "index": 32,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients ayant commencé un traitement par un antipsychotique atypique et présentant des facteurs de risque de diabète sucré"
   },
   {
    "index": 33,
@@ -238,6 +401,12 @@
    "index": 34,
    "test": "weight",
    "timing": "during"
+  },
+  {
+   "index": 35,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "Les patients atteints de troubles hépatiques stables préexistants"
   }
  ],
  "cyamemazine": [
@@ -247,6 +416,9 @@
    "timing": "before"
   }
  ],
+ "cyproheptadine": [],
+ "dexmedetomidine": [],
+ "diazepam": [],
  "disulfiram": [
   {
    "index": 1,
@@ -259,20 +431,107 @@
    "timing": "during"
   }
  ],
+ "domperidone": [],
+ "donepezil": [],
+ "doxylamine": [],
+ "duloxetine": [
+  {
+   "index": 4,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "chez les patients présentant une hypertension artérielle et/ou une cardiopathie"
+  }
+ ],
+ "entacapone": [
+  {
+   "index": 0,
+   "test": "weight",
+   "timing": "during",
+   "condition": "Pour les patients présentant une diarrhée"
+  }
+ ],
+ "ephedrine": [],
+ "escitalopram": [
+  {
+   "index": 6,
+   "test": "ecg",
+   "timing": "before",
+   "condition": "Si un patient présentant une pathologie cardiaque stabilisée est traité"
+  }
+ ],
+ "esketamine": [],
  "ethosuximide": [
   {
    "index": 2,
    "test": "blood_count",
    "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "En cas d'affection rénale, ou hépatique"
+  }
+ ],
+ "etomidate": [],
+ "fenfluramine": [
+  {
+   "index": 2,
+   "test": "echocardiography",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "echocardiography",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
+ "fentanyl": [],
+ "flumazenil": [
+  {
+   "index": 1,
+   "test": "ecg",
+   "timing": "during"
+  },
+  {
+   "index": 1,
+   "test": "heart_rate",
+   "timing": "during"
+  },
+  {
+   "index": 1,
+   "test": "blood_pressure",
+   "timing": "during"
+  }
+ ],
+ "fluoxetine": [
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before",
+   "condition": "Si un patient présentant une pathologie cardiaque stabilisée est traité"
+  },
+  {
+   "index": 0,
+   "test": "weight",
+   "timing": "during",
+   "condition": "chez les enfants et les adolescents traités par la fluoxétine"
   }
  ],
  "flupenthixol": [
   {
    "index": 0,
    "test": "ecg",
-   "timing": "before"
+   "timing": "before",
+   "condition": "des patients devant être traités au long cours par un neuroleptique"
   }
  ],
+ "fluvoxamine": [],
  "furosemide": [
   {
    "index": 2,
@@ -285,16 +544,18 @@
    "timing": "during"
   },
   {
+   "index": 4,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez le diabétique et le pré-diabétique"
+  },
+  {
    "index": 5,
    "test": "renal_function",
    "timing": "during"
-  },
-  {
-   "index": 7,
-   "test": "blood_pressure",
-   "timing": "during"
   }
  ],
+ "gabapentin": [],
  "galantamine": [
   {
    "index": 1,
@@ -302,6 +563,7 @@
    "timing": "during"
   }
  ],
+ "granisetron": [],
  "haloperidol": [
   {
    "index": 0,
@@ -319,6 +581,8 @@
    "timing": "during"
   }
  ],
+ "hydromorphone": [],
+ "hydroxyzine": [],
  "imipramine": [
   {
    "index": 1,
@@ -329,20 +593,58 @@
    "index": 4,
    "test": "blood_count",
    "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "chez les patients souffrant de troubles hépatiques"
   }
  ],
+ "isoflurane": [],
  "ketamine": [
   {
    "index": 0,
    "test": "liver_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "Toute administration répétée"
   },
   {
    "index": 2,
    "test": "liver_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "en cas d’utilisation prolongée ou répétée"
   }
  ],
+ "lacosamide": [],
+ "lamotrigine": [
+  {
+   "index": 4,
+   "test": "drug_level",
+   "timing": "before",
+   "condition": "si un traitement par l’association atazanavir/ritonavir est ajouté"
+  },
+  {
+   "index": 4,
+   "test": "drug_level",
+   "timing": "during",
+   "condition": "si un traitement par l’association atazanavir/ritonavir est ajouté"
+  },
+  {
+   "index": 5,
+   "test": "drug_level",
+   "timing": "before",
+   "condition": "si un traitement par l’association lopinavir/ritonavir est ajouté"
+  },
+  {
+   "index": 5,
+   "test": "drug_level",
+   "timing": "during",
+   "condition": "si un traitement par l’association lopinavir/ritonavir est ajouté"
+  }
+ ],
+ "levetiracetam": [],
+ "levodopa": [],
  "levomepromazine": [
   {
    "index": 3,
@@ -406,7 +708,8 @@
   {
    "index": 12,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "before",
+   "condition": "la femme en âge de procréer"
   },
   {
    "index": 13,
@@ -431,11 +734,6 @@
   {
    "index": 17,
    "test": "eeg",
-   "timing": "before"
-  },
-  {
-   "index": 14,
-   "test": "ecg",
    "timing": "before"
   },
   {
@@ -468,12 +766,14 @@
   {
    "index": 0,
    "test": "liver_function",
-   "timing": "during"
+   "timing": "during",
+   "condition": "si le maintien du traitement est nécessaire"
   },
   {
    "index": 0,
    "test": "blood_count",
-   "timing": "during"
+   "timing": "during",
+   "condition": "si le maintien du traitement est nécessaire"
   }
  ],
  "loxapine": [
@@ -522,12 +822,53 @@
   {
    "index": 0,
    "test": "ecg",
-   "timing": "before"
+   "timing": "before",
+   "condition": "chez les patients âgés ou sensibles à l’hypotension orthostatique"
+  },
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "chez les patients âgés ou sensibles à l’hypotension orthostatique"
   },
   {
    "index": 2,
    "test": "blood_count",
    "timing": "during"
+  }
+ ],
+ "melatonin": [],
+ "memantine": [],
+ "methadone": [
+  {
+   "index": 2,
+   "test": "ecg",
+   "timing": "during",
+   "condition": "aux patients présentant un risque d’allongement de l’intervalle QT"
+  },
+  {
+   "index": 2,
+   "test": "electrolytes",
+   "timing": "during",
+   "condition": "aux patients présentant un risque d’allongement de l’intervalle QT"
+  },
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "before",
+   "condition": "Pour les patients présentant des facteurs de risque d'allongement de l'intervalle QT"
+  },
+  {
+   "index": 3,
+   "test": "ecg",
+   "timing": "during",
+   "condition": "Pour les patients présentant des facteurs de risque d'allongement de l'intervalle QT"
+  },
+  {
+   "index": 7,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "lors de l'augmentation de la dose"
   }
  ],
  "methylphenidate_dl": [
@@ -575,8 +916,28 @@
    "index": 6,
    "test": "heart_rate",
    "timing": "during"
+  },
+  {
+   "index": 10,
+   "test": "weight",
+   "timing": "during"
   }
  ],
+ "metoclopramide": [],
+ "mianserin": [
+  {
+   "index": 0,
+   "test": "blood_count",
+   "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les diabétiques non stabilisés"
+  }
+ ],
+ "midazolam": [],
  "milnacipran": [
   {
    "index": 3,
@@ -599,6 +960,22 @@
    "timing": "during"
   }
  ],
+ "mirtazapine": [
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients diabétiques"
+  }
+ ],
+ "moclobemide": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "chez les patients traités par antihypertenseurs"
+  }
+ ],
  "modafinil": [
   {
    "index": 1,
@@ -616,6 +993,9 @@
    "timing": "during"
   }
  ],
+ "morphine": [],
+ "nalmefene": [],
+ "naloxone": [],
  "naltrexone": [
   {
    "index": 0,
@@ -636,10 +1016,44 @@
    "index": 1,
    "test": "liver_function",
    "timing": "during"
+  },
+  {
+   "index": 2,
+   "test": "liver_function",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "liver_function",
+   "timing": "during"
+  }
+ ],
+ "nicotine": [
+  {
+   "index": 0,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "aux patients souffrant de diabète"
   }
  ],
  "olanzapine": [
   {
+   "index": 3,
+   "test": "glycaemia",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "glycaemia",
+   "timing": "during"
+  },
+  {
+   "index": 4,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "les patients ayant un diabète de type II ou des facteurs de risque de diabète de type II"
+  },
+  {
    "index": 5,
    "test": "weight",
    "timing": "before"
@@ -657,17 +1071,93 @@
   {
    "index": 6,
    "test": "lipids",
+   "timing": "during"
+  },
+  {
+   "index": 7,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "chez les patients présentant une élévation des ALAT et/ou des ASAT"
+  },
+  {
+   "index": 9,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "des patients de plus de 65 ans"
+  }
+ ],
+ "ondansetron": [],
+ "oxcarbazepine": [
+  {
+   "index": 13,
+   "test": "electrolytes",
+   "timing": "before",
+   "condition": "En cas d’affection rénale préexistante associée à une natrémie basse (ex : syndrome de sécrétion inappropriée d’hormone anti-diurétique) ou chez les patients recevant de façon concomitante des traitements hyponatrémiants (ex : diurétiques, desmopressine) ou des AINS (ex : indométacine)"
+  },
+  {
+   "index": 14,
+   "test": "electrolytes",
+   "timing": "during"
+  },
+  {
+   "index": 14,
+   "test": "weight",
+   "timing": "during",
+   "condition": "de tous les patients présentant une insuffisance cardiaque ou une insuffisance cardiaque secondaire"
+  },
+  {
+   "index": 15,
+   "test": "thyroid_function",
+   "timing": "during",
+   "condition": "dans la population pédiatrique"
+  }
+ ],
+ "oxycodone": [],
+ "paliperidone": [
+  {
+   "index": 6,
+   "test": "blood_count",
+   "timing": "during",
+   "condition": "Les patients présentant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse"
+  },
+  {
+   "index": 7,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients diabétiques"
+  },
+  {
+   "index": 8,
+   "test": "weight",
    "timing": "during"
   }
  ],
+ "paroxetine": [],
+ "perampanel": [],
  "phenobarbital": [
   {
    "index": 1,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "before",
+   "condition": "chez les femmes en âge de procréer"
   }
  ],
  "phenytoin": [
+  {
+   "index": 5,
+   "test": "heart_rate",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "ecg",
+   "timing": "during"
+  },
   {
    "index": 7,
    "test": "drug_level",
@@ -676,7 +1166,8 @@
   {
    "index": 10,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "before",
+   "condition": "chez une femme en âge de procréer"
   }
  ],
  "pimozide": [
@@ -715,18 +1206,56 @@
    "timing": "before"
   }
  ],
+ "pitolisant": [],
  "pramipexole": [
   {
    "index": 6,
    "test": "eye_exam",
    "timing": "during"
+  },
+  {
+   "index": 7,
+   "test": "blood_pressure",
+   "timing": "before",
+   "condition": "En cas de troubles cardiovasculaires sévères"
+  },
+  {
+   "index": 7,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "En cas de troubles cardiovasculaires sévères"
   }
  ],
+ "pregabalin": [],
  "primidone": [
   {
    "index": 3,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "before",
+   "condition": "chez les femmes en âge de procréer"
+  }
+ ],
+ "promethazine": [],
+ "propofol": [
+  {
+   "index": 9,
+   "test": "lipids",
+   "timing": "during",
+   "condition": "à des patients considérés comme étant à risque de surcharge lipidique"
+  }
+ ],
+ "propranolol": [
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "during",
+   "condition": "injection IV très lente"
+  },
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "injection IV très lente"
   }
  ],
  "quetiapine": [
@@ -769,11 +1298,40 @@
    "index": 8,
    "test": "weight",
    "timing": "during"
+  },
+  {
+   "index": 8,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "les patients présentant un diabète sucré ou des facteurs de risque de diabète sucré"
   }
  ],
+ "rimegepant": [],
  "risperidone": [
   {
+   "index": 0,
+   "test": "blood_count",
+   "timing": "during",
+   "condition": "Les patients ayant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse"
+  },
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients diabétiques"
+  },
+  {
    "index": 3,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 8,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 8,
    "test": "weight",
    "timing": "during"
   }
@@ -783,6 +1341,21 @@
    "index": 1,
    "test": "weight",
    "timing": "during"
+  }
+ ],
+ "rizatriptan": [],
+ "ropinirole": [
+  {
+   "index": 4,
+   "test": "blood_pressure",
+   "timing": "before",
+   "condition": "chez les patients présentant une affection cardio-vasculaire sévère"
+  },
+  {
+   "index": 4,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "chez les patients présentant une affection cardio-vasculaire sévère"
   }
  ],
  "rotigotine": [
@@ -797,32 +1370,100 @@
    "timing": "during"
   }
  ],
+ "scopolamine": [],
+ "selegiline": [],
+ "sertraline": [],
+ "sevoflurane": [
+  {
+   "index": 4,
+   "test": "renal_function",
+   "timing": "during",
+   "condition": "chez les patients insuffisants rénaux (DFG ≤ 60 ml/min)"
+  }
+ ],
+ "sildenafil": [],
+ "sodium_oxybate": [],
+ "solriamfetol": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 0,
+   "test": "heart_rate",
+   "timing": "during"
+  }
+ ],
  "sulpiride": [
   {
    "index": 3,
    "test": "ecg",
    "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "Les patients diabétiques et les patients ayant des facteurs de risque de diabète"
   }
  ],
+ "sumatriptan": [],
  "tetrabenazine": [
   {
    "index": 0,
    "test": "ecg",
    "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "ecg",
+   "timing": "during",
+   "condition": "en fonction des données cliniques"
   }
  ],
+ "tiagabine": [],
  "tiapride": [
   {
    "index": 3,
    "test": "ecg",
+   "timing": "before",
+   "condition": "traités au long cours par un neuroleptique"
+  }
+ ],
+ "tolcapone": [
+  {
+   "index": 1,
+   "test": "liver_function",
    "timing": "before"
+  },
+  {
+   "index": 1,
+   "test": "liver_function",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "liver_function",
+   "timing": "during"
   }
  ],
  "topiramate": [
   {
    "index": 8,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "before",
+   "condition": "chez une femme susceptible de procréer"
   },
   {
    "index": 15,
@@ -830,21 +1471,27 @@
    "timing": "during"
   }
  ],
+ "tramadol": [],
+ "trimipramine": [
+  {
+   "index": 2,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients dont le diagnostic de diabète sucré est établi ou chez ceux présentant des facteurs de risque de diabète"
+  }
+ ],
  "valproate": [
   {
-   "index": 5,
+   "index": 9,
    "test": "pregnancy_test",
-   "timing": "before"
-  },
-  {
-   "index": 5,
-   "test": "pregnancy_test",
-   "timing": "during"
+   "timing": "before",
+   "condition": "chez les femmes en âge de procréer"
   },
   {
    "index": 9,
    "test": "pregnancy_test",
-   "timing": "before"
+   "timing": "during",
+   "condition": "chez les femmes en âge de procréer"
   },
   {
    "index": 16,
@@ -855,6 +1502,12 @@
    "index": 16,
    "test": "liver_function",
    "timing": "during"
+  },
+  {
+   "index": 17,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "En cas de modification des traitements associés connus pour leur toxicité hépatique"
   },
   {
    "index": 19,
@@ -887,6 +1540,7 @@
    "timing": "during"
   }
  ],
+ "varenicline": [],
  "venlafaxine": [
   {
    "index": 2,
@@ -936,11 +1590,28 @@
    "timing": "during"
   }
  ],
+ "vortioxetine": [],
+ "zolpidem": [],
+ "zonisamide": [
+  {
+   "index": 12,
+   "test": "weight",
+   "timing": "during",
+   "condition": "chez l’enfant"
+  }
+ ],
  "zuclopenthixol": [
+  {
+   "index": 0,
+   "test": "liver_function",
+   "timing": "during",
+   "condition": "chez les alcooliques chroniques et chez les patients ayant présenté antérieurement une atteinte hépatique sérieuse"
+  },
   {
    "index": 1,
    "test": "ecg",
-   "timing": "before"
+   "timing": "before",
+   "condition": "traités au long cours par un neuroleptique"
   }
  ]
 }

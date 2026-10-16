@@ -246,6 +246,18 @@ class ApplierGateTest(unittest.TestCase):
         self.assertEqual(A.undecided({"lithium": []}, self.OFFERED), [])
 
 
+class JudgedCoverageTest(unittest.TestCase):
+    """Every drug the committed worklist offers has an explicit decision in the
+    committed judged file (``[]`` = judged, nothing), so an absent key can only mean
+    a new candidate nobody has read yet, and this fails until someone does."""
+
+    def test_every_offered_drug_is_judged(self):
+        cache = ROOT / "tools" / "generated_cache"
+        worklist = json.loads((cache / "workup_worklist.json").read_text(encoding="utf-8"))
+        judged = json.loads((cache / "workup_judged.json").read_text(encoding="utf-8"))
+        self.assertEqual(A.undecided(judged, worklist), [])
+
+
 class GeneratorTest(unittest.TestCase):
     SRC = [{"corpus": "bdpm_rcp", "page": "1", "quote": "Un ECG avant.", "provenance": "verified"}]
 

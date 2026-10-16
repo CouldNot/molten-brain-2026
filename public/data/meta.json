@@ -11261,7 +11261,13 @@
       "pages_dir": "data_sources/bdpm/pages_rcp4",
       "editable": true,
       "page_kind": "cis",
-      "page_url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/{page}/extrait"
+      "page_url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/{page}/extrait",
+      "page_urls": {
+        "61680130": "https://www.ema.europa.eu/fr/documents/product-information/epidyolex-epar-product-information_fr.pdf",
+        "62154820": "https://www.ema.europa.eu/fr/documents/product-information/fintepla-epar-product-information_fr.pdf",
+        "64617815": "https://www.ema.europa.eu/fr/documents/product-information/sunosi-epar-product-information_fr.pdf",
+        "67077388": "https://www.ema.europa.eu/fr/documents/product-information/tasmar-epar-product-information_fr.pdf"
+      }
     },
     "cpic": {
       "ref": "CPIC, clinical pharmacogenetics dosing guideline",
@@ -11928,8 +11934,8 @@
         "unknown": 0
       },
       "drug_workup": {
-        "total": 146,
-        "verified": 146,
+        "total": 227,
+        "verified": 227,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,

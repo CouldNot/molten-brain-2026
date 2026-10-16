@@ -620,6 +620,48 @@
    }
   ]
  },
+ "brivaracetam": {
+  "cis": "60579228",
+  "denomination": "BRIVIACT 10 mg/ml, solution injectable/pour perfusion",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Le médecin doit prescrire la forme et le dosage les plus adaptés en fonction du poids et de la dose.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Oubli de doses En cas d’oubli d’une ou plusieurs doses, le patient doit prendre une seule dose dès que possible et prendre la dose suivante à l’heure habituelle le matin ou le soir. Cela peut empêcher la concentration plasmatique de brivaracétam de diminuer en dessous de la concentration efficace et prévenir la réapparition de crises convulsives.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "Arrêt du traitement Pour les patients âgés de 16 ans et plus, si le traitement par brivaracétam doit être arrêté, il est recommandé de diminuer progressivement la dose par paliers de 50 mg par jour chaque semaine. Pour les patients de moins de 16 ans, si le traitement par brivaracétam doit être arrêté, il est recommandé de diminuer la dose de moitié au maximum chaque semaine, jusqu’à ce que la dose de 1 mg/kg/jour (pour les patients dont le poids corporel est inférieur à 50 kg) ou 50 mg/jour (pour les patients dont le poids corporel est de 50 kg ou plus) soit atteinte.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.2",
+    "under": "",
+    "quote": "Âge et poids corporelDose initiale recommandéeDose quotidienne maximale recommandée",
+    "tests": [
+     "weight"
+    ]
+   }
+  ]
+ },
  "bromazepam": {
   "cis": "66796142",
   "denomination": "LEXOMIL 6 mg, comprimé quadrisécable",
@@ -1073,6 +1115,115 @@
     "quote": "Une surveillance de la caféinémie est indispensable afin de maintenir une concentration plasmatique thérapeutique comprise entre 8 et 15 mg/L.",
     "tests": [
      "drug_level"
+    ]
+   }
+  ]
+ },
+ "cannabidiol": {
+  "cis": "61680130",
+  "denomination": "EPIDYOLEX 100 mg/mL, solution buvable",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "Le cannabidiol peut entraîner des élévations dose dépendante des transaminases hépatiques (alanine aminotransférase [ALAT] et/ou aspartate aminotransférase [ASAT]) (voir rubrique 4.8). Les élévations surviennent généralement dans les deux mois suivant l’instauration du traitement ; cependant, des cas ont été observés jusqu’à 18 mois après l’instauration du traitement, en particulier chez les patients prenant un traitement associé par valproate.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "Dans les essais cliniques, la plupart des élévations de l’ALAT survenaient chez les patients prenant un traitement associé par valproate. L’utilisation concomitante de clobazam a également augmenté l’incidence des élévations des transaminases, bien que dans une moindre mesure que le valproate. L’adaptation de la dose de valproate ou l’arrêt du traitement ou l’adaptation de la dose de clobazam doit être envisagée en cas d’augmentation des transaminases.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les élévations des transaminases ont été résolues avec l’interruption de cannabidiol ou la réduction de la dose de cannabidiol et/ou du valproate associé, dans environ deux tiers des cas. Dans environ un tiers des cas, les élévations des transaminases ont été résolues pendant le traitement par cannabidiol, sans réduction de la dose.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les patients avec des taux de transaminases initiaux supérieurs à la LSN présentaient une incidence plus élevée d’élévations des transaminases pendant le traitement par cannabidiol. Chez certains patients, un effet synergique du traitement concomitant par valproate sur les transaminases initiales déjà élevées a entraîné un risque majoré d’élévations des transaminases.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Dans une étude non contrôlée menée dans une indication autre que l’épilepsie, deux patients âgés ont développé des élévations des taux de phosphatase alcaline supérieures à deux fois la LSN ainsi que des élévations des transaminases. Les élévations ont été résolues après l’interruption du traitement par cannabidiol.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "Surveillance En règle générale, les élévations des transaminases supérieures à trois fois la LSN en présence d’une bilirubine augmentée sans autre explication représentent un facteur prédictif important d’atteinte hépatique sévère. L’identification précoce des élévations des transaminases peut réduire le risque d’événement indésirable grave. Les patients avec des taux de transaminases initiaux supérieurs à trois fois la LSN ou des élévations de la bilirubine supérieures à deux fois la LSN doivent être évalués avant l’instauration du traitement par cannabidiol.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "Avant l’instauration du traitement par cannabidiol, les taux sériques de transaminases (ALAT et ASAT) et de bilirubine totale doivent être contrôlés.",
+    "tests": [
+     "liver_function",
+     "drug_level"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "",
+    "quote": "Surveillance systématique Les taux sériques de transaminases et de bilirubine totale doivent être contrôlés 1 mois, 3 mois et 6 mois après l’instauration du traitement par cannabidiol, et périodiquement par la suite ou selon l’indication clinique.",
+    "tests": [
+     "liver_function",
+     "drug_level"
+    ]
+   },
+   {
+    "index": 8,
+    "section": "4.4",
+    "under": "",
+    "quote": "Surveillance intensifiée Les patients présentant des élévations initiales de l’ALAT ou de l’ASAT et les patients qui prennent du valproate doivent faire l’objet d’un dosage des taux sériques de transaminases et de bilirubine totale à 2 semaines, 1 mois, 2 mois, 3 mois et 6 mois après l’instauration du traitement par cannabidiol, et régulièrement par la suite ou selon l’indication clinique. En cas de modification de la dose de cannabidiol supérieure à 10 mg/kg/jour ou tout changement au niveau des médicaments associés (modification de la dose ou ajout d’un autre traitement) susceptibles d’avoir un impact sur le foie, ce programme de surveillance devra être réinitié.",
+    "tests": [
+     "liver_function",
+     "drug_level"
+    ]
+   },
+   {
+    "index": 9,
+    "section": "4.4",
+    "under": "",
+    "quote": "Si un patient développe des signes ou des symptômes cliniques évoquant une atteinte hépatique, les taux sériques de transaminases et de bilirubine totale doivent être mesurés rapidement et le traitement par cannabidiol suspendu ou interrompu définitivement, au besoin. Le traitement par cannabidiol doit être interrompu chez les patients présentant des élévations des taux de transaminases supérieures à 3 fois la LSN et des taux de bilirubine supérieures à 2 fois la LSN. Il doit également être interrompu chez les patients présentant des élévations prolongées des transaminases supérieures à 5 fois la LSN. Les autres causes possibles doivent être explorées chez les patients présentant des élévations prolongées des transaminases sériques. Une adaptation de la dose des médicaments associés susceptibles d’avoir un impact sur le foie doit être envisagée (par ex. valproate et clobazam) (voir rubrique 4.5).",
+    "tests": [
+     "liver_function",
+     "drug_level"
+    ]
+   },
+   {
+    "index": 10,
+    "section": "4.4",
+    "under": "",
+    "quote": "Le cannabidiol peut provoquer une perte de poids ou une diminution de la prise de poids (voir rubrique 4.8). Chez les patients atteints du SLG, du SD et de la STB, ce phénomène pourrait être lié à la dose. Dans certains cas, la perte de poids a été rapportée comme un événement indésirable. La baisse de l’appétit et la perte de poids peuvent légèrement ralentir la croissance. Une perte de poids ou une absence de prise de poids continue doit faire l’objet d’une surveillance régulière pour déterminer si le traitement par cannabidiol doit être interrompu.",
+    "tests": [
+     "weight"
     ]
    }
   ]
@@ -2477,6 +2628,105 @@
    }
   ]
  },
+ "fenfluramine": {
+  "cis": "62154820",
+  "denomination": "FINTEPLA 2,2 mg/mL, solution buvable",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Interruption du traitement En cas d’interruption du traitement, la dose doit être réduite progressivement. L’arrêt brutal du traitement doit être évité, dans la mesure du possible, afin réduire les risques d’augmentation de la fréquence des crises d’épilepsie et de survenue d’un état de mal épileptique. Une échocardiographie finale doit être effectuée 3 à 6 mois après la dernière dose du traitement par fenfluramine.",
+    "tests": [
+     "echocardiography"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "La fenfluramine peut entraîner une cardiopathie valvulaire et une hypertension artérielle pulmonaire chez les patients traités pour le syndrome de Dravet ou le syndrome de Lennox-Gastaut (voir rubrique 4.8). Par conséquent, une surveillance échocardiographique doit être effectuée.",
+    "tests": [
+     "echocardiography",
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.4",
+    "under": "",
+    "quote": "Avant l’instauration du traitement, une échocardiographie doit être réalisée pour établir la situation initiale et exclure toute cardiopathie valvulaire ou hypertension artérielle pulmonaire préexistante (voir rubrique 4.3)",
+    "tests": [
+     "echocardiography",
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "La surveillance par échocardiographie doit être effectuée tous les 6 mois pendant les deux premières années, puis une fois par an. Après l’interruption du traitement pour quelque raison que ce soit, une échocardiographie finale doit être effectuée 3 à 6 mois après la dernière dose du traitement par fenfluramine.",
+    "tests": [
+     "echocardiography"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Si une échocardiographie montre des modifications valvulaires pathologiques, une échocardiographie de suivi dans un délai plus court doit être réalisée pour évaluer si l’anomalie persiste. Si des anomalies pathologiques sont observées à l’échocardiographie, il est recommandé de réévaluer le rapport bénéfice/risque de la poursuite du traitement par la fenfluramine en concertation avec le prescripteur, le médecin traitant et le cardiologue.",
+    "tests": [
+     "echocardiography"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "Si l’échocardiographie évoque une hypertension artérielle pulmonaire, une nouvelle échocardiographie doit être réalisée dès que possible et dans les 3 mois pour confirmer ces résultats. En cas de confirmation des résultats de l’échocardiographie évoquant une probabilité accrue d’hypertension artérielle pulmonaire, définie comme une « probabilité intermédiaire » selon les recommandations de la Société européenne de cardiologie (European Society of Cardiology, ESC) et de la Société européenne de pneumologie (European Respiratory Society, ERS), une réévaluation du rapport bénéfice/risque de la poursuite du traitement par Fintepla doit être réalisée en concertation entre le prescripteur, le médecin traitant et le cardiologue. Si, après confirmation, le résultat de l’échocardiographie évoque une forte probabilité d’hypertension artérielle pulmonaire, selon la définition des recommandations de l’ESC et de l’ERS, il est recommandé d’arrêter le traitement par la fenfluramine.",
+    "tests": [
+     "echocardiography",
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "La fenfluramine peut entraîner une diminution de l’appétit et une perte de poids (voir rubrique 4.8). Un effet additionnel sur la diminution de l’appétit peut se produire lorsque la fenfluramine est associée à d’autres médicaments antiépileptiques, par exemple le stiripentol. La perte de poids semble être dose-dépendante. La plupart des sujets ont repris du poids au cours du temps tout en poursuivant le traitement. Le poids du patient doit être surveillé. Une évaluation du rapport bénéfice/risque doit être effectuée avant de commencer le traitement par la fenfluramine chez les patients ayant des antécédents d’anorexie mentale ou de boulimie.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "",
+    "quote": "Un programme d’accès contrôlé a été institué pour 1) empêcher l’utilisation hors AMM de Fintepla pour la diminution du poids chez les patients obèses et 2) confirmer que les médecins prescripteurs ont été informés de la nécessité d’une surveillance cardiaque régulière chez les patients prenant Fintepla.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 8,
+    "section": "4.4",
+    "under": "",
+    "quote": "La fenfluramine peut provoquer une mydriase et entraîner un glaucome à angle fermé. Interrompre le traitement chez les patients présentant une diminution aiguë de l’acuité visuelle. Envisager l’arrêt du traitement en cas de douleur oculaire et si une autre cause ne peut être déterminée.",
+    "tests": [
+     "eye_exam"
+    ]
+   },
+   {
+    "index": 9,
+    "section": "4.4",
+    "under": "",
+    "quote": "Une administration concomitante d’inducteurs puissants du CYP1A2 ou du CYP2B6 diminuera les concentrations plasmatiques de fenfluramine, , ce qui peut entraîner une diminution de l’efficacité de la fenfluramine (voir rubrique 4.5). Si une administration concomitante d’un inducteur puissant du CYP1A2 ou du CYP2B6 et de fenfluramine est nécessaire, il convient de surveiller le patient pour détecter une éventuelle réduction de l’efficacité et d’augmenter la dose de fenfluramine dans la mesure où elle ne dépasse pas le double de la dose quotidienne maximale (52 mg/jour) (voir rubrique 4.2).Si un inducteur puissant du CYP1A2 ou du CYP2B6 est arrêté pendant le traitement d’entretien par fenfluramine, envisager une réduction progressive de la dose de fenfluramine jusqu’à la dose administrée avant l’instauration de l’inducteur (voir rubrique 4.2).",
+    "tests": [
+     "drug_level"
+    ]
+   }
+  ]
+ },
  "fentanyl": {
   "cis": "60282999",
   "denomination": "ABSTRAL 400 microgrammes, comprimé sublingual",
@@ -3434,6 +3684,30 @@
     "tests": [
      "ecg",
      "electrolytes"
+    ]
+   }
+  ]
+ },
+ "levodopa": {
+  "cis": "60092590",
+  "denomination": "SINEMET 250 mg/25 mg, comprimé sécable",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "hypotension artérielle orthostatique. L'étiologie doit être recherchée avant l'instauration du traitement (elle est souvent iatrogène). Des mesures simples doivent être conseillées (par exemple : augmentation de l'apport hydrosodique, port de bas de contention). Le traitement médicamenteux est indiqué en cas d'hypotension artérielle orthostatique symptomatique,",
+    "tests": [
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "Le traitement par SINEMET ne doit pas être interrompu brutalement. Une telle interruption du traitement peut entraîner l'équivalent d'un \"syndrome malin des neuroleptiques\" (hyperthermie, rigidité musculaire, troubles psychiques, augmentation de la créatinine phosphokinase sérique) qui peut menacer le pronostic vital. Après évaluation, le traitement par SINEMET peut éventuellement être repris.",
+    "tests": [
+     "renal_function"
     ]
    }
   ]
@@ -4702,6 +4976,21 @@
    }
   ]
  },
+ "nalmefene": {
+  "cis": "63957761",
+  "denomination": "SELINCRO 18 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "La prudence est recommandée si Selincro est prescrit à des patients présentant un taux d’ALAT ou d’ASAT élevé (> 3 fois la limite supérieure de la normale, LSN) car ces patients n’ont pas été inclus dans les études du programme de développement clinique.",
+    "tests": [
+     "liver_function"
+    ]
+   }
+  ]
+ },
  "naloxone": {
   "cis": "62968616",
   "denomination": "PRENOXAD 0,91 mg/ml, solution injectable en seringue préremplie",
@@ -5165,6 +5454,121 @@
    }
   ]
  },
+ "paliperidone": {
+  "cis": "64582563",
+  "denomination": "PALIPERIDONE TEVA 75 mg, suspension injectable à libération prolongée",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "Personnes âgées",
+    "quote": "En général, la posologie de PALIPERIDONE TEVA recommandée pour les patients âgés présentant une fonction rénale normale est la même que celle des patients adultes plus jeunes dont la fonction rénale est normale. Toutefois, certains patients âgés pouvant avoir une fonction rénale diminuée, un ajustement posologique peut être nécessaire (voir Insuffisance rénale ci-dessous pour les recommandations posologiques chez les patients présentant une insuffisance rénale).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "Insuffisance rénale",
+    "quote": "La palipéridone n’a pas été étudiée de manière systématique chez les patients présentant une insuffisance rénale (voir rubrique 5.2). Chez les patients présentant une insuffisance rénale légère (clairance de la créatinine ≥ 50 à < 80 mL/min), les doses initiales de PALIPERIDONE TEVA recommandées sont de 100 mg au jour 1 du traitement et de 75 mg une semaine plus tard, les deux doses étant administrées dans le muscle deltoïde. La dose d’entretien mensuelle recommandée est de 50 mg dans un intervalle allant de 25 à 100 mg en fonction de la tolérance individuelle du patient et/ou l’efficacité.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "Insuffisance rénale",
+    "quote": "PALIPERIDONE TEVA n’est pas recommandé chez les patients présentant une insuffisance rénale modérée ou sévère (clairance de la créatinine < 50 mL/min) (voir rubrique 4.4).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.2",
+    "under": "Administration dans le muscle deltoïde",
+    "quote": "La taille d’aiguille recommandée pour les administrations initiales et d’entretien de PALIPERIDONE TEVA dans le muscle deltoïde est déterminée par le poids du patient. Pour les patients dont le poids est ≥ 90 kg, l’aiguille de 11/2 pouce 22 Gauge (38,1 mm × 0,72 mm) est recommandée. Pour ceux dont le poids est < 90 kg, l’aiguille de 1 pouce 23 Gauge (25,4 mm × 0,64 mm) est recommandée. Les injections dans le muscle deltoïde doivent être alternées entre les deux muscles deltoïdes.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "Intervalle QT",
+    "quote": "La prudence est recommandée lorsque la palipéridone est prescrite à des patients présentant une maladie cardiovasculaire connue ou des antécédents familiaux d’allongement de l’intervalle QT, et en cas d’utilisation concomitante de médicaments suspectés d’allonger l’intervalle QT.",
+    "tests": [
+     "ecg"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "Syndrome malin des neuroleptiques",
+    "quote": "Le syndrome malin des neuroleptiques (SMN), caractérisé par une hyperthermie, une rigidité musculaire, une instabilité du système nerveux autonome, une altération de la conscience et une augmentation des taux sériques de créatine phosphokinase, a été rapporté avec la palipéridone. Des signes cliniques supplémentaires peuvent inclure une myoglobinurie (rhabdomyolyse) et une insuffisance rénale aiguë. Si un patient développe des signes ou des symptômes évocateurs d’un SMN, la palipéridone doit être interrompue.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "Leucopénie, neutropénie et agranulocytose",
+    "quote": "Une agranulocytose a été très rarement rapportée (< 1/10 000 patients) lors de la surveillance après commercialisation. Les patients présentant des antécédents cliniquement significatifs de faible numération des globules blancs (NGB) ou de leucopénie/neutropénie d’origine médicamenteuse doivent être surveillés pendant les tout premiers mois de traitement et l’arrêt de PALIPERIDONE TEVA doit être envisagé au premier signe d’une baisse cliniquement significative de la NGB en l’absence d’autres facteurs causaux. Les patients présentant une neutropénie cliniquement significative doivent être attentivement surveillés en vue de détecter une fièvre ou d’autres symptômes ou signes d’infection et doivent être traités rapidement si de tels symptômes ou signes apparaissent. Les patients présentant une neutropénie sévère (numération absolue de neutrophiles < 1 × 109/L) doivent arrêter PALIPERIDONE TEVA et leur NGB doit être suivie jusqu’au rétablissement.",
+    "tests": [
+     "blood_count"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "Hyperglycémie et diabète",
+    "quote": "Hyperglycémie, diabète et exacerbation d’un diabète préexistant, dont coma diabétique et acidocétose, ont été rapportés au cours du traitement par palipéridone. Une surveillance clinique adéquate est recommandée conformément aux recommandations relatives aux antipsychotiques. Les symptômes d’hyperglycémie (tels que polydipsie, polyurie, polyphagie et faiblesse) doivent être recherchés chez les patients traités par palipéridone. Une surveillance régulière doit être effectuée chez les patients diabétiques afin de détecter une aggravation de la glycémie.",
+    "tests": [
+     "glycaemia"
+    ]
+   },
+   {
+    "index": 8,
+    "section": "4.4",
+    "under": "Prise de poids",
+    "quote": "Une prise de poids significative a été rapportée avec l’utilisation de la palipéridone. Le poids doit être contrôlé régulièrement.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 9,
+    "section": "4.4",
+    "under": "Utilisation chez des patients présentant des tumeurs prolactine-dépendantes",
+    "quote": "Des études sur des cultures de tissus suggèrent que la croissance cellulaire des tumeurs du sein chez l’Homme peut être stimulée par la prolactine. Bien qu’aucune association claire avec l’administration d’antipsychotiques n’ait été démontrée jusqu’à présent dans les études cliniques et épidémiologiques, la prudence est recommandée chez les patients présentant des antécédents médicaux significatifs. La palipéridone doit être utilisée avec prudence chez les patients présentant une tumeur préexistante potentiellement prolactine-dépendante.",
+    "tests": [
+     "prolactin"
+    ]
+   },
+   {
+    "index": 10,
+    "section": "4.4",
+    "under": "Insuffisance rénale",
+    "quote": "Les concentrations plasmatiques de palipéridone sont augmentées chez les patients présentant une insuffisance rénale et de ce fait, un ajustement posologique est recommandé chez les patients présentant une insuffisance rénale légère. La palipéridone n’est pas recommandée chez les patients présentant une insuffisance rénale modérée ou sévère (clairance de la créatinine < 50 mL/min) (voir rubriques 4.2 et 5.2).",
+    "tests": [
+     "renal_function",
+     "drug_level"
+    ]
+   },
+   {
+    "index": 11,
+    "section": "4.4",
+    "under": "Syndrome de l’iris hypotonique peropératoire",
+    "quote": "Le SIHP peut augmenter le risque de complications oculaires pendant et après l’opération. L’utilisation actuelle ou antérieure de médicaments ayant un effet antagoniste des récepteurs alpha 1a-adrénergiques doit être portée à la connaissance du chirurgien ophtalmologiste avant l’intervention chirurgicale. Le bénéfice potentiel de l’arrêt du traitement par alpha 1-bloquant avant l’intervention chirurgicale de la cataracte n’a pas été établi et doit être mis en balance avec le risque d’arrêt du traitement antipsychotique.",
+    "tests": [
+     "eye_exam"
+    ]
+   }
+  ]
+ },
  "paroxetine": {
   "cis": "60160707",
   "denomination": "DEROXAT 20 mg, comprimé pelliculé sécable",
@@ -5232,6 +5636,57 @@
     "quote": "Une hyponatrémie a été rarement rapportée, principalement chez le sujet âgé. Une attention particulière devra également être portée aux patients présentant un risque d’hyponatrémie lié à un traitement concomitant ou une cirrhose. L’hyponatrémie est généralement réversible à l’arrêt de la paroxétine.",
     "tests": [
      "electrolytes"
+    ]
+   }
+  ]
+ },
+ "perampanel": {
+  "cis": "61849146",
+  "denomination": "FYCOMPA 12 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Le médecin doit prescrire la formulation et le dosage les plus appropriés en fonction du poids et de la",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Arrêt du traitement Il est recommandé d’arrêter progressivement le traitement, afin de réduire le risque de crises d’épilepsie par effet rebond. Cependant, compte tenu de sa demi-vie longue et de la diminution lente des concentrations plasmatiques qui en résulte, le pérampanel peut être arrêté brutalement en cas d’absolue nécessité.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les symptômes d’un syndrome DRESS incluent généralement, mais pas exclusivement, une fièvre, une éruption cutanée associée à l’atteinte d’autres systèmes d’organes, une lymphadénopathie, des anomalies des tests hépatiques et une éosinophilie. Il est important de noter que des manifestations précoces d’hypersensibilité, telles qu’une fièvre ou une lymphadénopathie, peuvent être présentes, même si l’éruption cutanée n’est pas évidente.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "La réponse clinique et la tolérance des patients doivent être suivies étroitement lors de l’ajout ou du retrait d’inducteurs ou d’inhibiteurs du cytochrome P450, car les concentrations plasmatiques du pérampanel peuvent être diminuées ou augmentées ; il est possible que la dose de pérampanel doive être ajustée en conséquence.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Des cas d’hépatotoxicité (principalement une élévation des enzymes hépatiques) ont été rapportés avec l’utilisation du pérampanel en association avec d’autres antiépileptiques. En cas d’élévation des enzymes hépatiques, une surveillance de la fonction hépatique doit être envisagée.",
+    "tests": [
+     "liver_function"
     ]
    }
   ]
@@ -5571,6 +6026,30 @@
     "section": "4.4",
     "under": "Mises en garde spéciales",
     "quote": "Hormis les situations d'urgence, il est recommandé d'effectuer un ECG dans le bilan initial des patients devant être traités par un neuroleptique.",
+    "tests": [
+     "ecg"
+    ]
+   }
+  ]
+ },
+ "pitolisant": {
+  "cis": "60227166",
+  "denomination": "OZAWADE 18 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "Le pitolisant doit être administré avec prudence chez les patients atteints d'obésité sévère ou d'anorexie sévère (voir rubrique 4.8). En cas de changement de poids significatif, le traitement doit être réévalué par le médecin.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "Dans deux études spécifiques, des doses de pitolisant supra-thérapeutiques (6 à 12 fois la dose thérapeutique, c’est-à-dire de 108 mg à 216 mg) ont produit une prolongation légère à modérée de l'intervalle QTc (10-13 ms). Les patients souffrant de maladie cardiaque, d’hypertension à risque d’évènements cardiovasculaires majeurs (ECM), traités avec d'autres médicaments allongeant l’intervalle QT ou pouvant augmenter le risque de troubles de la repolarisation, ou traités avec des médicaments augmentant de manière significative la Cmax et l’ASC (aire sous la courbe) du pitolisant (voir rubrique 4.5) ou les patients atteints d'insuffisance rénale sévère ou d’insuffisance hépatique modérée (voir rubrique 4.4) doivent être étroitement surveillés (voir rubrique 4.5).",
     "tests": [
      "ecg"
     ]
@@ -6115,6 +6594,30 @@
    }
   ]
  },
+ "rimegepant": {
+  "cis": "65899221",
+  "denomination": "VYDURA 75 mg, lyophilisat oral",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance hépatique Aucun ajustement de la posologie n’est nécessaire chez les patients présentant une insuffisance hépatique légère (classe A de Child-Pugh) ou modérée (classe B de Child-Pugh). Les concentrations plasmatiques du rimégépant (ASC du médicament libre) étaient significativement plus élevées chez les patients présentant une insuffisance hépatique sévère (classe C de Child-Pugh) (voir rubrique 5.2). L’utilisation du rimégépant doit être évitée chez les patients atteints d’insuffisance hépatique sévère.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Les patients doivent être informés qu’ils doivent avoir les mains sèches pour ouvrir la plaquette et qu’ils doivent se reporter à la notice pour les instructions complètes.",
+    "tests": [
+     "blood_count"
+    ]
+   }
+  ]
+ },
  "risperidone": {
   "cis": "60260497",
   "denomination": "RISPERDAL 2 mg, comprimé pelliculé",
@@ -6245,6 +6748,30 @@
     "tests": [
      "ecg",
      "electrolytes"
+    ]
+   }
+  ]
+ },
+ "rizatriptan": {
+  "cis": "64983766",
+  "denomination": "MAXALT 10 mg, comprimé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.3",
+    "under": "",
+    "quote": "Hypertension artérielle modérée ou sévère, ou hypertension légère non contrôlée.",
+    "tests": [
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "Comme avec les autres agonistes des récepteurs 5-HT1B/1D, le rizatriptan ne doit pas être administré, sans une évaluation préalable, aux patients chez lesquels une maladie cardiovasculaire asymptomatique est possible ou aux patients ayant un risque de maladie coronarienne (par exemple, les patients ayant une hypertension artérielle, les diabétiques, les fumeurs ou les utilisateurs de thérapies de substitution à base de nicotine, les hommes âgés de plus de 40 ans, les femmes ménopausées, les patients ayant un bloc de branche, et ceux ayant des antécédents familiaux importants de maladie coronarienne).",
+    "tests": [
+     "blood_pressure"
     ]
    }
   ]
@@ -6617,6 +7144,78 @@
    }
   ]
  },
+ "solriamfetol": {
+  "cis": "64617815",
+  "denomination": "SUNOSI 150 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Sunosi n’est pas un traitement de l’obstruction des voies aériennes chez les patients présentant un SAHOS. Le traitement primaire du SAHOS doit être maintenu chez ces patients. La pression artérielle et la fréquence cardiaque doivent être mesurées avant l’instauration du traitement par solriamfetol et contrôlées régulièrement pendant le traitement, en particulier après une augmentation de la dose. Une hypertension préexistante doit être stabilisée avant l’instauration du traitement par solriamfetol et les patients ayant un risque plus élevé d’événements cardiaques indésirables majeurs (ECIM), en particulier les patients présentant une hypertension préexistante, une maladie cardiovasculaire ou cérébrovasculaire et les patients âgés, doivent être traités avec prudence.",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "La nécessité de poursuivre le traitement par solriamfetol doit être évaluée à intervalles réguliers. Si un patient présente des augmentations de la pression artérielle ou de la fréquence cardiaque qui ne peuvent pas être contrôlées par une réduction de la dose de solriamfetol ou par une autre intervention médicale appropriée, l’arrêt du solriamfetol doit être envisagé. L’utilisation de médicaments qui augmentent la pression artérielle et la fréquence cardiaque doit se faire avec précaution (voir rubrique 4.5).",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "Sujets âgés (plus de 65 ans) Les données disponibles chez les patients âgés sont limitées. L’utilisation de doses plus faibles et une surveillance étroite doivent être envisagées dans cette population (voir rubrique 4.4). Le solriamfetol est éliminé principalement par voie rénale et les patients âgés étant plus susceptibles de présenter une diminution de la fonction rénale, un ajustement de la posologie en fonction de la clairance de la créatinine peut être nécessaire chez ces patients.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale Insuffisance rénale légère (clairance de la créatinine de 60 à 89 mL/min) : aucun ajustement de la posologie n’est nécessaire.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale modérée (clairance de la créatinine de 30 à 59 mL/min) : la dose initiale recommandée est de 37,5 mg une fois par jour. La dose peut être augmentée jusqu’à un maximum de 75 mg une fois par jour après 5 jours.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale sévère (clairance de la créatinine de 15 à 29 mL/min) : la dose recommandée est de 37,5 mg une fois par jour. Insuffisance rénale terminale (clairance de la créatinine < 15 mL/min) : l’utilisation du solriamfetol chez les patients atteints d’insuffisance rénale terminale n’est pas recommandée.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les analyses des données issues des études cliniques ont montré que le traitement par solriamfetol augmente la pression artérielle systolique, la pression artérielle diastolique et la fréquence cardiaque de façon dose-dépendante.",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   }
+  ]
+ },
  "sulpiride": {
   "cis": "62344129",
   "denomination": "DOGMATIL 50 mg, gélule",
@@ -6854,6 +7453,84 @@
     "quote": "Cancer du sein : le tiapride peut augmenter les taux de prolactine. Il doit donc être utilisé avec précaution. Quel que soit leur sexe, les patients ayant des antécédents personnels ou familiaux de cancer du sein doivent être étroitement surveillés pendant le traitement par tiapride.",
     "tests": [
      "prolactin"
+    ]
+   }
+  ]
+ },
+ "tolcapone": {
+  "cis": "67077388",
+  "denomination": "TASMAR 100 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisants rénaux (voir rubrique 5.2) Aucun ajustement de la dose de Tasmar n'est recommandée en cas d'insuffisance rénale légère ou modérée (clairance de la créatinine ≥ 30 ml/min). Les patients souffrant d’insuffisance rénale sévère (clairance de la créatinine < 30 ml/min) doivent être traités avec précaution. Aucune information sur la tolérance de ces populations à la tolcapone n’est disponible (voir rubrique 5.2).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "La fonction hépatique doit être contrôlée avant le début du traitement par Tasmar, puis surveillée toutes les 2 semaines pendant la première année de traitement, toutes les 4 semaines pendant les 6 mois suivants et toutes les 8 semaines ensuite. Si la posologie est augmentée à 200 mg 3 fois par jour, un contrôle des enzymes hépatiques doit être pratiqué avant d'augmenter la dose, puis recommencé suivant le même rythme de fréquence indiqué ci-dessus (voir rubriques 4.4 et 4.8).",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "Le traitement par Tasmar doit être également arrêté si le taux d’ALAT (alanine amino transférase) et/ou le taux d’ASAT (aspartate amino transférase) dépasse(nt) la limite supérieure de la normale ou s’il apparaît des signes ou symptômes évoquant une insuffisance hépatique (voir rubrique 4.4).",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Atteinte hépatique : En raison du risque d’atteinte hépatique aiguë, rare, mais potentiellement mortelle, Tasmar n'est indiqué que chez les patients ayant une maladie de Parkinson idiopathique avec des fluctuations motrices répondant à la lévodopa qui n’ont pas répondu ou ont été intolérants à d’autres inhibiteurs de la COMT. Le contrôle régulier des enzymes hépatiques ne permet pas de prévoir de façon fiable la survenue d’une hépatite fulminante. Cependant, il est communément admis que le dépistage précoce d’une atteinte hépatique médicamenteuse associé à l’arrêt immédiat du médicament suspect augmente les chances de guérison. Les hépatites ont le plus souvent été observées entre 1 et 6 mois après le début du traitement par Tasmar. Egalement, des rares cas d'hépatite tardive ont été reportés après 18 mois de traitement. Il faut également noter que les femmes semblent avoir un risque plus élevé d’atteinte hépatique (voir rubrique 4.8).",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Avant d’instaurer le traitement : si les tests fonctionnels hépatiques sont anormaux ou en cas de signes d'altération de la fonction hépatique, Tasmar ne doit pas être prescrit. En cas de prescription de Tasmar, le patient doit être informé sur les signes et les symptômes évocateurs d'une atteinte hépatique et sur le fait de contacter immédiatement son médecin.",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "Pendant le traitement : la fonction hépatique doit être contrôlée toutes les 2 semaines pendant la première année de traitement, toutes les 4 semaines pendant les 6 mois suivants et toutes les 8 semaines ensuite. Si la posologie est augmentée à 200 mg 3 fois par jour, les enzymes hépatiques doivent être contrôlées avant d'augmenter la dose et les contrôles doivent être répétés suivant le même rythme de fréquence indiqué ci-dessus. Le traitement doit être interrompu immédiatement si le taux d'ALAT et/ou d’ASAT dépasse la limite supérieure de la normale ou s'il apparaît des signes ou symptômes évoquant une insuffisance hépatique (nausées persistantes, fatigue, léthargie, anorexie, ictère, urines foncées, prurit et sensibilité de l'hypochondre droit).",
+    "tests": [
+     "liver_function"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "Des cas isolés compatibles avec un SMN ont été associés à un traitement par Tasmar. Les symptômes ont le plus souvent débuté durant le traitement par Tasmar ou peu de temps après son arrêt. Le SMN se caractérise par des symptômes moteurs (rigidité, myoclonies et tremblements), des modifications de la conscience (agitation, confusion, stupeur et coma), une élévation de la température, une dysautonomie (labilité tensionnelle, tachycardie) et une élévation du taux sérique de créatine-phosphokinase (CPK) pouvant résulter de la myolyse. Un diagnostic de SMN doit être envisagé même si tous ces symptômes ne sont pas présents. A la suite de ce diagnostic, Tasmar doit être immédiatement arrêté et le patient surveillé étroitement.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "",
+    "quote": "Warfarine : compte tenu que l’information clinique sur l’association de la warfarine et de la tolcapone est limitée, les paramètres de la coagulation doivent être surveillés en cas de co-administration.",
+    "tests": [
+     "coagulation"
     ]
    }
   ]
@@ -7336,6 +8013,48 @@
    }
   ]
  },
+ "varenicline": {
+  "cis": "60442838",
+  "denomination": "CHAMPIX 1 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Sujet âgé Aucun ajustement posologique n'est nécessaire chez le sujet âgé (voir rubrique 5.2). Comme le patient âgé a plus de risques de présenter une fonction rénale diminuée, les prescripteurs devront tenir compte de l'état de la fonction rénale du patient âgé.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisant rénal Aucun ajustement posologique n'est nécessaire chez l'insuffisant rénal léger (clairance de la créatinine estimée > 50 ml/min et ≤ 80 ml/min) à modéré (clairance de la créatinine estimée ≥ 30 ml/min et ≤ 50 ml/min).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "Chez l'insuffisant rénal sévère (clairance de la créatinine estimée < 30 ml/min), la dose recommandée de CHAMPIX est de 1 mg une fois par jour. L'administration doit débuter par 0,5 mg une fois par jour durant les 3 premiers jours, puis être augmentée à 1 mg une fois par jour. En raison de l’expérience clinique limitée de CHAMPIX chez les patients en stade d’insuffisance rénale terminale, le traitement n’est pas recommandé chez cette population de patients (voir rubrique 5.2).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les modifications physiologiques résultant du sevrage tabagique, avec ou sans traitement par CHAMPIX, peuvent modifier les paramètres pharmacocinétiques ou pharmacodynamiques de certains médicaments ; un ajustement posologique de ces médicaments pourrait être nécessaire (exemples : théophylline, warfarine et insuline). Comme le tabagisme a un effet inducteur sur le CYP1A2, le sevrage tabagique peut entraîner une augmentation des taux plasmatiques des substrats du CYP1A2.",
+    "tests": [
+     "drug_level"
+    ]
+   }
+  ]
+ },
  "venlafaxine": {
   "cis": "61403425",
   "denomination": "EFFEXOR L.P. 75 mg, gélule à libération prolongée",
@@ -7578,6 +8297,48 @@
     "quote": "La vigabatrine étant éliminée par voie rénale, une attention particulière doit être apportée chez les patients dont la clairance de la créatinine est inférieure à 60 ml/min ainsi que chez les personnes âgées. Ces patients doivent faire l'objet d'une surveillance particulière à la recherche d'éventuels effets indésirables à type de sédation ou de confusion (voir rubrique 4.2).",
     "tests": [
      "renal_function"
+    ]
+   }
+  ]
+ },
+ "vortioxetine": {
+  "cis": "60316362",
+  "denomination": "BRINTELLIX 20 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale ou hépatique Aucune adaptation posologique n’est nécessaire sur la base de la fonction rénale ou hépatique (voir rubriques 4.4 et 5.2).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les symptômes associés au syndrome sérotoninergique incluent des modifications de l'état mental (par exemple, agitation, hallucinations, coma), une instabilité du système autonome (par exemple, tachycardie, pression artérielle labile, hyperthermie), des aberrations neuromusculaires (par exemple, hyperréflexie, incoordination) et/ou des symptômes gastro-intestinaux (par exemple, nausées, vomissements, diarrhée). Le cas échéant, le traitement par vortioxétine doit être arrêté immédiatement et un traitement symptomatique doit être instauré.",
+    "tests": [
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.4",
+    "under": "",
+    "quote": "Des anomalies hémorragiques, comme des ecchymoses, un purpura et d'autres troubles hémorragiques, comme des hémorragies gastro-intestinales ou gynécologiques, ont été rarement rapportés avec les antidépresseurs possédant un effet sérotoninergique, dont la vortioxétine. Les ISRS et IRSNA peuvent augmenter le risque d’hémorragie du post-partum, et ce risque pourrait également concerner la vortioxétine (voir rubrique 4.6). La prudence est recommandée chez les patients prenant des anticoagulants et/ou des médicaments connus pour altérer la fonction plaquettaire [par exemple, antipsychotiques atypiques et phénothiazines, la plupart des antidépresseurs tricycliques, les anti- inflammatoires non stéroïdiens (AINS), l’acide acétylsalicylique (AAS)] (voir rubrique 4.5) et chez les patients présentant des tendances/troubles hémorragiques connus.",
+    "tests": [
+     "blood_count"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Une hyponatrémie, probablement due à une sécrétion inappropriée d'hormone antidiurétique (SIADH) a été rapportée dans de rares cas lors de l'utilisation d'antidépresseurs possédant un effet sérotoninergique (ISRS, IRSN). Il convient de faire preuve de prudence chez les patients à risque, tels que les personnes âgées, les patients présentant une cirrhose du foie ou en cas d’association avec des médicaments connus pour provoquer une hyponatrémie. L'arrêt de la vortioxétine doit être envisagé chez les patients présentant une hyponatrémie symptomatique et une prise en charge médicale adaptée doit être instituée.",
+    "tests": [
+     "electrolytes"
     ]
    }
   ]
