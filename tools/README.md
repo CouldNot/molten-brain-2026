@@ -553,6 +553,17 @@ Screenshots).
   drug target goes by in prose (Greek folded to Latin, separator-tolerant, boundary-strict, so `d2`
   never fires on `CYP2D6` and `alpha2` never absorbs `alpha2A`). One definition, because a gate that
   disagreed with the offer would accept what the worklist could not have shown.
+- The binding-gap pass (a **new** binding a drug's EN Wikipedia article states, corpus #9), end to end:
+  `uv run tools/fetch/fetch_binding_gaps.py` (offline, `--only <ids>`; writes
+  `tools/generated_cache/binding_gaps_worklist.json`, drugbox target cells + direction-stating prose
+  sentences naming an uncovered target) -> one LLM pass deciding every candidate by index into
+  `binding_gaps_judged.json` (`{drug: [{index, target, pick, action | reason}]}`, `_`-prefixed keys are
+  metadata) -> `python tools/sourcing/apply_binding_gaps.py --dry-run --verbose` then without
+  `--dry-run` (stdlib, sole writer, lists the Stahl-drug gaps it reports instead of writing) ->
+  `generate_data.py` -> `recheck_quotes.py build --kinds drug_bindings --unjudged` + judge +
+  `apply --llm <model>` -> `generate_data.py`. `tools/binding_gaps.py` (stdlib library) holds the
+  predicates both halves run (negation per clause, stereo relatives, covered targets, Stahl detection).
+  See docs/DRUGS.md Drugs (Binding gaps).
 - `tools/fetch/pdf_to_pages.py` — splits a PDF into one `<page>.md` per page (the quote-gate text);
   `uv run`, `--layout` for OCR.
 - `tools/fetch/build_toc_index.py` — `INDEX.md` from a PDF's embedded TOC (generic). `uv run`.

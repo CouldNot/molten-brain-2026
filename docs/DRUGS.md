@@ -200,6 +200,20 @@ fixed Stahl list.
   applied by the same applier's `--tables` through the gates above. A binding neither the prose nor
   the table states stays a NOSOURCE `drug_binding_action` node on purpose, which is most of them (an
   article states a handful of directions, not a whole assay panel).
+- **Binding gaps (Wikipedia).** The passes above only complete a binding that already exists; a
+  target no assay panel covers and no monograph names (an anaesthetic's GABA-A potentiation,
+  amantadine's sigma1 agonism) needs a **new** binding, which the drug's own article (corpus #9)
+  often states in prose (only ~15 stored articles carry a drugbox "Biomolecular targets" row, which
+  is read too). Same four steps: `tools/fetch/fetch_binding_gaps.py` offers each direction-stating
+  sentence naming a target the drug does not yet cover (coarse relatives count, `fetch_ki.COARSE_MEMBERS`)
+  into `binding_gaps_worklist.json`, no verdict; one LLM pass decides **every** candidate by index
+  into `binding_gaps_judged.json` (a pick needs an action: a direction-less "binds" has no Ki to show);
+  `tools/sourcing/apply_binding_gaps.py` is the sole writer, gating index, target, action, not already
+  bound, the shared matcher, a per-clause negation/hedge cue, stereo relatives (a racemate's article
+  naming its enantiomer is another molecule), and the verbatim quote; `recheck_quotes.py` stamps the
+  judge. The predicates fetcher and applier share live in `tools/binding_gaps.py`. **Stahl drugs are
+  reported, never written** (their bindings stay dump-sourced), and an unjudged index is reported, so a
+  partial pass cannot read as complete.
 - **Binding affinity (PDSP Ki).** A binding's `ki` (from `fetch_ki.py`) renders as a `kiChip`: the
   median + `[min-max]` + human/non-human counts + a **verified** badge (tooltip = the representative
   assay). Non-human-only is amber; an alias-borrowed value (`ki.mapped`) carries a "⚠ measured as
