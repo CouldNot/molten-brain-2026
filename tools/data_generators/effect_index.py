@@ -1,0 +1,117 @@
+"""data_generators.effect_index: the effect -> receptors -> drugs index (BETA), for agents.
+
+The Python twin of ``public/js/receptor-effects.js`` (``derivePossibleEffects`` +
+``indexEffects``), read by ``llms_txt.py`` and ``tools/render_api.py``, which see only the
+emitted data and cannot run the viewer's JS. Same rules, so the agent pages and the
+viewer's Effects panel list the same drugs (``tools/tests/test_effect_index.py`` pins a
+few counts): a drug's binding inherits a receptor_effect node only when its ``action`` is
+one of the actions that node's mode lists (``meta.receptor_effect_modes``); an
+affinity_only binding (no action) inherits nothing; a prodrug borrows its metabolites'
+bindings first (``js/data.js``). Derived, never stored: a statement about the receptors
+a drug acts on, not about the drug.
+
+Stdlib only, no package-relative import, so ``render_api`` can load it off ``sys.path``.
+
+Built with the help of Claude Code.
+"""
+
+from __future__ import annotations
+
+from typing import Any
+
+
+def _en(value: Any) -> str:
+    """A label as English, whether still bilingual (``{en, fr}``) or already emitted."""
+    return value.get("en", "") if isinstance(value, dict) else str(value)
+
+
+def owner_effects(receptors: list[dict[str, Any]],
+                  drug_targets: dict[str, dict[str, Any]]) -> dict[str, tuple[str, str, list]]:
+    """Target id -> (owner kind, English name, its stored ``effects`` nodes), as the viewer's merged
+    target list keys them: a receptor by its id, a non-receptor target by its
+    ``drug_targets`` key (a receptor-linked ``drug_targets`` entry IS the receptor)."""
+    out = {r["id"]: ("receptor", _en(r.get("name") or r["id"]), r.get("effects") or [])
+           for r in receptors}
+    for tid, t in drug_targets.items():
+        if not t.get("receptor"):
+            out[tid] = ("target", _en(t.get("name") or tid), t.get("effects") or [])
+    return out
+
+
+def drug_bindings(drug: dict[str, Any], drugs_by_id: dict[str, dict[str, Any]],
+                  metabolites_by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    """The drug's bindings as the viewer joins them: a prodrug also borrows each
+    metabolite's own bindings, else its linked modeled drug's (tagged ``via_metabolite``)."""
+    out = list(drug.get("bindings") or [])
+    if not drug.get("prodrug"):
+        return out
+    for ref in drug.get("metabolites") or []:
+        m = metabolites_by_id.get(ref.get("id"), {})
+        linked = drugs_by_id.get(m.get("drug_id") or "")
+        own = m.get("bindings") or ((linked or {}).get("bindings") or [])
+        out += [{**b, "via_metabolite": m.get("name")} for b in own]
+    return out
+
+
+def possible_effects(bindings: list[dict[str, Any]], effects_of: dict[str, tuple[str, str, list]],
+                     modes: dict[str, dict[str, Any]]) -> dict[str, list[tuple[dict, dict]]]:
+    """Effect id -> its ``(binding, node)`` pairs, first-seen order (``derivePossibleEffects``)."""
+    out: dict[str, list[tuple[dict, dict]]] = {}
+    for b in bindings:
+        if not b.get("action"):
+            continue
+        for node in effects_of.get(b.get("target"), ("", "", []))[2]:
+            if b["action"] not in (modes.get(node["mode"]) or {}).get("actions", []):
+                continue
+            via = out.setdefault(node["effect"], [])
+            if not any(vb.get("target") == b.get("target") and vn is node for vb, vn in via):
+                via.append((b, node))
+    return out
+
+
+def build(receptors: list[dict[str, Any]], drugs: list[dict[str, Any]],
+          metabolites: list[dict[str, Any]], meta: dict[str, Any]) -> list[dict[str, Any]]:
+    """One entry per effect some target carries, sorted by English label::
+
+        {"id": "nausea", "label": "Nausea / vomiting",
+         "owners": [{"kind": "receptor", "id": "5ht3", "name": "5-HT3", "node": {...}}, ...],
+         "drugs": [{"drug": {...}, "via": [(binding, node), ...]}, ...]}
+    """
+    labels = meta.get("receptor_effect_labels") or {}
+    modes = meta.get("receptor_effect_modes") or {}
+    effects_of = owner_effects(receptors, meta.get("drug_targets") or {})
+    drugs_by_id = {d["id"]: d for d in drugs}
+    metabolites_by_id = {m["id"]: m for m in metabolites}
+    index: dict[str, dict[str, Any]] = {}
+
+    def entry(effect: str) -> dict[str, Any]:
+        return index.setdefault(effect, {"id": effect, "label": _en(labels.get(effect, effect)),
+                                         "owners": [], "drugs": []})
+
+    for tid, (kind, name, nodes) in effects_of.items():
+        for node in nodes:
+            entry(node["effect"])["owners"].append({"kind": kind, "id": tid, "name": name,
+                                                    "node": node})
+    for d in drugs:
+        joined = possible_effects(drug_bindings(d, drugs_by_id, metabolites_by_id), effects_of, modes)
+        for effect, via in joined.items():
+            entry(effect)["drugs"].append({"drug": d, "via": via})
+    return sorted(index.values(), key=lambda e: e["label"].lower())
+
+
+def summary_lines(index: list[dict[str, Any]], modes: dict[str, dict[str, Any]],
+                  site_url: str) -> list[str]:
+    """One Markdown line per effect for ``llms.txt``: its owners by mode, its drug count.
+    e.g. ``- [Nausea / vomiting](<site>/api/effect/nausea) `nausea`: agonism of 5-HT3, D2;
+    28 drugs could cause it``."""
+    out = []
+    for e in index:
+        parts = []
+        for mode, spec in modes.items():
+            names = sorted(o["name"] for o in e["owners"] if o["node"]["mode"] == mode)
+            if names:
+                parts.append(f"{_en(spec.get('label', mode)).lower()} of {', '.join(names)}")
+        out.append(f"- [{e['label']}]({site_url}/api/effect/{e['id']}) `{e['id']}`: "
+                   f"{'; '.join(parts)}; {len(e['drugs'])} "
+                   f"{'drug' if len(e['drugs']) == 1 else 'drugs'} could cause it")
+    return out
