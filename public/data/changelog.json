@@ -1,6 +1,45 @@
 {
   "versions": [
     {
+      "version": "3.130.0",
+      "date": "2026-10-16",
+      "entries": [
+        {
+          "category": "added",
+          "text": "39 more bindings stated in the Wikipedia articles of Stahl drugs (clomipramine, memantine, viloxazine, naltrexone, aripiprazole VMAT2, ...), added only where Stahl lists no binding on that target, each quote checked",
+          "commits": [
+            "e74ca3d",
+            "604cb71",
+            "268beb4"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "Dimenhydrinate is now shown as a salt of diphenhydramine and 8-chlorotheophylline and borrows diphenhydramine's bindings, each tagged so",
+          "commits": [
+            "0f07a34"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "Salvinorin A's D2 partial agonism is marked contradicted by a 50-receptor screen, and 12 new bindings the article itself hedges are marked speculative",
+          "commits": [
+            "03bb054",
+            "6e5b234",
+            "1f5816b",
+            "f2d03f4"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "Stahl drugs may now carry a Wikipedia binding on a target Stahl does not list; Stahl's own bindings are never overwritten",
+          "commits": [
+            "6c22c4b"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.129.0",
       "date": "2026-10-16",
       "entries": [
