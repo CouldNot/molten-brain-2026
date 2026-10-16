@@ -1,14 +1,15 @@
 """data_generators.effect_index: the effect -> receptors -> drugs index (BETA), for agents.
 
-The Python twin of ``public/js/receptor-effects.js`` (``derivePossibleEffects`` +
-``indexEffects``), read by ``llms_txt.py`` and ``tools/render_api.py``, which see only the
-emitted data and cannot run the viewer's JS. Same rules, so the agent pages and the
-viewer's Effects panel list the same drugs (``tools/tests/test_effect_index.py`` pins a
-few counts): a drug's binding inherits a receptor_effect node only when its ``action`` is
-one of the actions that node's mode lists (``meta.receptor_effect_modes``); an
-affinity_only binding (no action) inherits nothing; a prodrug borrows its metabolites'
-bindings first (``js/data.js``). Derived, never stored: a statement about the receptors
-a drug acts on, not about the drug.
+The single implementation of this join: ``llms_txt.py`` and ``tools/render_api.py`` read
+it in Python, and the viewer reads its ``to_json`` form, ``/derived/effects.json``,
+written by ``render_api.py --effects-out`` at build / serve time (the Docker ``api``
+stage, ``tools/serve.py``), never committed. ``public/js/receptor-effects.js``
+``readEffectIndex`` only resolves the ids in that file, it computes nothing. Rules: a
+drug's binding inherits a receptor_effect node only when its ``action`` is one of the
+actions that node's mode lists (``meta.receptor_effect_modes``); an affinity_only binding
+(no action) inherits nothing; a prodrug borrows its metabolites' bindings first (as
+``js/data.js`` does). Derived, never stored: a statement about the receptors a drug acts
+on, not about the drug.
 
 Stdlib only, no package-relative import, so ``render_api`` can load it off ``sys.path``.
 
@@ -55,7 +56,7 @@ def drug_bindings(drug: dict[str, Any], drugs_by_id: dict[str, dict[str, Any]],
 
 def possible_effects(bindings: list[dict[str, Any]], effects_of: dict[str, tuple[str, str, list]],
                      modes: dict[str, dict[str, Any]]) -> dict[str, list[tuple[dict, dict]]]:
-    """Effect id -> its ``(binding, node)`` pairs, first-seen order (``derivePossibleEffects``)."""
+    """Effect id -> its ``(binding, node)`` pairs, first-seen order of the bindings."""
     out: dict[str, list[tuple[dict, dict]]] = {}
     for b in bindings:
         if not b.get("action"):
@@ -97,6 +98,31 @@ def build(receptors: list[dict[str, Any]], drugs: list[dict[str, Any]],
         for effect, via in joined.items():
             entry(effect)["drugs"].append({"drug": d, "via": via})
     return sorted(index.values(), key=lambda e: e["label"].lower())
+
+
+def to_json(index: list[dict[str, Any]]) -> dict[str, Any]:
+    """The viewer's file: ids only, the viewer resolves them against the data it loaded::
+
+        {"effects": [{"id": "nausea",
+                      "owners": [{"target": "5ht3", "mode": "agonism"}, ...],
+                      "drugs": [{"drug": "ondansetron",
+                                 "via": [{"target": "5ht3", "action": "antagonist",
+                                          "mode": "antagonism"}]}, ...]}]}
+
+    A via entry borrowed by a prodrug also names its ``via_metabolite`` (the
+    metabolite's name, as the viewer tags the binding). Order is the index's (effects by
+    English label, drugs in data order)."""
+    def via(b: dict[str, Any], node: dict[str, Any]) -> dict[str, Any]:
+        out = {"target": b["target"], "action": b["action"], "mode": node["mode"]}
+        if b.get("via_metabolite"):
+            out["via_metabolite"] = b["via_metabolite"]
+        return out
+    return {"effects": [
+        {"id": e["id"],
+         "owners": [{"target": o["id"], "mode": o["node"]["mode"]} for o in e["owners"]],
+         "drugs": [{"drug": d["drug"]["id"], "via": [via(b, n) for b, n in d["via"]]}
+                   for d in e["drugs"]]}
+        for e in index]}
 
 
 def summary_lines(index: list[dict[str, Any]], modes: dict[str, dict[str, Any]],

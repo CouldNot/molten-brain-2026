@@ -16,6 +16,11 @@ Serving every response with ``Cache-Control: no-store`` makes the browser refetc
 each module on every load, so a plain reload always runs the code currently on
 disk. Use this instead of ``python -m http.server`` while developing.
 
+It also serves ``/derived/effects.json``, the viewer's effect index, which is never
+committed nor under ``public/``: rebuilt from ``<root>/data`` on each request by
+``render_api.write_effects`` (the same writer the Docker image runs at build time), so
+a fresh ``generate_data.py`` run shows up on reload.
+
 Stdlib-only on purpose (like ``generate_data.py``): it must run with a bare
 ``python`` interpreter and no third-party packages.
 
@@ -29,9 +34,17 @@ Usage
 from __future__ import annotations
 
 import argparse
+import sys
+import tempfile
+import threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import render_api  # noqa: E402 (write_effects: the build-time effect index)
+
+DERIVED = "/derived/"
 
 
 class NoCacheHandler(SimpleHTTPRequestHandler):
@@ -66,6 +79,23 @@ class NoCacheHandler(SimpleHTTPRequestHandler):
         ".jsonl": "text/plain; charset=utf-8",
     }
 
+    # Set per server (see main): the scratch dir /derived/* is served from.
+    derived_dir: Path | None = None
+    _derive_lock = threading.Lock()
+
+    def translate_path(self, path: str) -> str:
+        """``/derived/<file>`` maps into the scratch dir (``effects.json`` rebuilt from
+        the served data first); every other path is the stock lookup under ``--root``."""
+        clean = path.split("?", 1)[0].split("#", 1)[0]
+        if self.derived_dir is None or not clean.startswith(DERIVED):
+            return super().translate_path(path)
+        name = clean[len(DERIVED):]
+        if name == "effects.json":
+            with self._derive_lock:
+                render_api.write_effects(Path(self.directory) / "data",
+                                         self.derived_dir / name)
+        return str(self.derived_dir / Path(name).name)
+
     def end_headers(self) -> None:
         if self.path.startswith("/data/"):
             # no-cache: cache but revalidate (304 when unchanged, see class doc).
@@ -95,6 +125,8 @@ def main() -> None:
 
     # `directory` is bound per-handler so the server can serve any root without
     # chdir'ing the whole process.
+    derived = tempfile.TemporaryDirectory(prefix="neurarium-derived-")
+    NoCacheHandler.derived_dir = Path(derived.name)
     handler = partial(NoCacheHandler, directory=str(args.root))
     server = ThreadingHTTPServer(("127.0.0.1", args.port), handler)
     print(
@@ -107,6 +139,7 @@ def main() -> None:
         print("\nstopped")
     finally:
         server.server_close()
+        derived.cleanup()
 
 
 if __name__ == "__main__":

@@ -107,6 +107,13 @@
 			}
 		}
 	}
+	# The viewer's effect index (/derived/effects.json), built into the image from the
+	# deployed data (docker/Dockerfile, tools/render_api.py --effects-out), never committed.
+	# application/json, so the encode list above already compresses it.
+	handle /derived/* {
+		root * /opt/neurarium
+		file_server
+	}
 	handle {
 		file_server
 	}

@@ -15,7 +15,10 @@ COPY tools/data_generators/llms_txt.py /src/tools/data_generators/llms_txt.py
 COPY tools/data_generators/effect_index.py /src/tools/data_generators/effect_index.py
 COPY public/version.js /src/public/version.js
 COPY public/data /src/public/data
-RUN python -I /src/tools/render_api.py --public /src/public --out /api
+# Plus the viewer's effect index (data_generators/effect_index.py), the one place the
+# effect -> receptors -> drugs join is computed; served at /derived/effects.json.
+RUN python -I /src/tools/render_api.py --public /src/public --out /api \
+    --effects-out /derived/effects.json
 
 # Runtime: the stock alpine image with our custom binary dropped in over the
 # stock one.
@@ -41,3 +44,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Served by Caddy at /api/ (see Caddyfile).
 COPY --from=api /api /opt/neurarium/api
+COPY --from=api /derived /opt/neurarium/derived

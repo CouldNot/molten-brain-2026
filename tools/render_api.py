@@ -7,14 +7,16 @@ at the end of the page.
 
 **Stored fields only**, with one exception: the BETA ``/api/effect/<id>`` pages (an effect
 -> the receptors whose stored nodes carry it -> the drugs whose bindings could reach it),
-the viewer's Effects panel derived by ``data_generators/effect_index.py`` and labelled as
-derived on the page. Everything else the viewer derives in the browser (possible effects, release
+the same index the viewer's Effects panel reads (``data_generators/effect_index.py``),
+labelled as derived on the page. Everything the viewer derives in the browser (release
 changes, neurotransmitter tone, drug-drug interactions, the simulation) is not here, so
 nothing duplicates the JS that computes it. The rendering is generic (a record's keys in
 order, nested values as bullets), so a new data field shows up with no edit here.
 
 Built into the Docker image (``docker/Dockerfile``, ``api`` stage), never committed:
-``python tools/render_api.py --out <dir>``. Stdlib only.
+``python tools/render_api.py --out <dir>``. ``--effects-out <file>`` also (or only) writes
+the viewer's effect index (``effect_index.to_json``, served at ``/derived/effects.json``;
+``tools/serve.py`` calls ``write_effects`` itself). Stdlib only.
 """
 
 from __future__ import annotations
@@ -327,15 +329,35 @@ def render(data_dir: Path, out: Path, version: str) -> int:
     return n
 
 
+def write_effects(data_dir: Path, path: Path) -> int:
+    """Write the viewer's effect index (``effect_index.to_json``) to ``path``; returns
+    the effect count. One join for the viewer, the /api/ pages and llms.txt."""
+    data = load(data_dir)
+    index = effect_index.build(data["receptors"], data["drugs"], data["metabolites"],
+                               data["meta"])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(effect_index.to_json(index), ensure_ascii=False,
+                               separators=(",", ":")), encoding="utf-8")
+    return len(index)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--public", type=Path, default=PUBLIC,
                         help="Site root holding data/ and version.js (default: ../public).")
-    parser.add_argument("--out", type=Path, required=True,
+    parser.add_argument("--out", type=Path,
                         help="Directory to write the pages into (cleared first). Never under public/.")
+    parser.add_argument("--effects-out", type=Path,
+                        help="File to write the viewer's effect index into. Never under public/.")
     args = parser.parse_args()
-    n = render(args.public / "data", args.out, llms_txt.app_version(args.public))
-    print(f"wrote {n} pages + index.md to {args.out}")
+    if not (args.out or args.effects_out):
+        parser.error("give --out, --effects-out or both")
+    if args.out:
+        n = render(args.public / "data", args.out, llms_txt.app_version(args.public))
+        print(f"wrote {n} pages + index.md to {args.out}")
+    if args.effects_out:
+        n = write_effects(args.public / "data", args.effects_out)
+        print(f"wrote {n} effects to {args.effects_out}")
 
 
 if __name__ == "__main__":
