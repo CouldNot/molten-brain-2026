@@ -10,7 +10,7 @@
 // NOTE: because these are fetch()ed, the site must be served over http(s); see
 // CLAUDE.md ("Running"). Opening index.html via file:// will fail CORS.
 //
-import { resolveEffects, indexEffects } from "./receptor-effects.js";
+import { resolveEffects, readEffectIndex } from "./receptor-effects.js";
 import { resolveModulation } from "./release-modulation.js";
 import { resolveDemographics } from "./receptor-demographics.js";
 import { resolveVariants } from "./receptor-variants.js";
@@ -170,8 +170,11 @@ function localize(field) {
  *   `{drug, metabolite, formedBy}` triples (the active metabolites it forms).
  *   Pharmacokinetics, so an entry has no anatomy and never lights the scene.
  * @property {object[]} effects  The Effects browse list (BETA): one entry per
- *   receptor_effect some target carries, `{id, label, name, owners, drugs, keywords}` from
- *   `indexEffects` (js/receptor-effects.js); `drugs` is derived, never stored.
+ *   receptor_effect some target carries, `{id, label, name, owners, drugs, keywords}`,
+ *   read from the build-time `derived/effects.json` (`readEffectIndex`,
+ *   js/receptor-effects.js); `drugs` is derived, never stored. Empty when that fails to load.
+ * @property {Map<string, object[]>} possibleEffectsByDrug  drug id -> its possible
+ *   effects `{effect, label, via}` from the same file (the drug panel's derived section).
  * @property {Map<string, {drug: object, enzyme: object}[]>} drugsByEnzyme  Reverse
  *   index: enzyme id -> the drugs with a role at it, each paired with that role row.
  * @property {(drug: object) => {affects: object[], affectedBy: object[]}} pkInteractionsOf
@@ -396,7 +399,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     }
   }
   const [metaRecord, structures, projections, circuits, projectionGroups,
-         receptors, drugs, metaboliteRecords, addonRecords, quotes] =
+         receptors, drugs, metaboliteRecords, addonRecords, quotes, effectIndex] =
     await Promise.all([
       fetchOrThrow(`${dataDir}/meta.json`).then((r) => r.json()),
       fetchJsonl(`${dataDir}/structures.jsonl`),
@@ -408,6 +411,15 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       fetchJsonl(`${dataDir}/metabolites.jsonl`),
       fetchJsonl(`${dataDir}/addons.jsonl`),
       fetchJsonl(`${dataDir}/quotes.jsonl`),
+      // The effect index is built at deploy / serve time, never committed (see
+      // tools/data_generators/effect_index.py). Non-fatal: the viewer still works
+      // without it, the red banner says what is missing.
+      fetchOrThrow("derived/effects.json").then((r) => r.json()).catch((e) => {
+        console.error("Could not load the effect index.", e);
+        window.showErrorBanner?.(window.__I18N__
+          ? window.__I18N__.t("effects.loadError", { msg: e.message }) : e.message);
+        return null;
+      }),
     ]);
   // Source quotes are emitted once into quotes.jsonl (deduplicated), each node
   // carrying only a `{quote_id, provenance}` reference (see quote_table.py).
@@ -1719,9 +1731,13 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     if (rows.length) effectsByTarget.set(tgt.id, rows);
   }
   // The effect-centred view of the same nodes (the Effects section + panel, BETA):
-  // effect -> owners carrying it + drugs whose derived possible effects reach it.
-  const effects = indexEffects(targets, (tid) => effectsByTarget.get(tid) || [], drugs, effectModes)
+  // effect -> owners carrying it + drugs whose possible effects reach it, read from
+  // the build-time index (the drug panel's possible effects come from it too).
+  const effectRead = readEffectIndex(effectIndex, new Map(targets.map((tg) => [tg.id, tg])),
+    effectsByTarget, new Map(drugs.map((d) => [d.id, d])), effectLabels);
+  const effects = effectRead.effects
     .map((e) => ({ ...e, name: e.label, keywords: e.id.replace(/_/g, " ") }));
+  const possibleEffectsByDrug = effectRead.byDrug;
 
   // receptor_release_modulation nodes (BETA): target id -> resolved rows, for the
   // receptor panel's Downstream section and the drug panel's derived release changes
@@ -1882,6 +1898,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     addonsBySlot,
     effectsByTarget,
     effects,
+    possibleEffectsByDrug,
     modulationByTarget,
     byId,
     meta: {

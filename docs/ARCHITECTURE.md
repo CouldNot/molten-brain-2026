@@ -368,7 +368,7 @@ Viewer (`public/`):
   All English (a crawler reads the raw HTML before i18n; no prerender step) and the
   canonical / `og:url` / `og:image` / JSON-LD URLs are **hardcoded to the public domain**
   (update all four spots + `sitemap.xml`/`robots.txt` if it ever changes).
-- LLM agents: `public/llms.txt` (https://llmstxt.org) is **generated** by `tools/data_generators/llms_txt.py` from the emitted records (file list, counts, field names, how to read a claim, deep links, "clone, don't crawl", contact link); `tools/tests/test_llms_txt.py` fails when it is stale. Its live companion `/status.json` (`{version, started_at}`) is rendered by `docker/entrypoint.sh` into `/gen` like `app-config.js`, so it exists only in the container (404 under `tools/serve.py`); `started_at` is floored to 5 minutes. It is never a repo file, so never committed. The `/api/` Markdown pages (one per node, stored fields only, `[grade quote_id]` markers + a Sources list per page) are rendered by `tools/render_api.py` in the Dockerfile's `api` stage and baked into the image (never committed, refreshed on each `docker compose build`); Caddy resolves `<path>`, `<path>.md` or `<path>/index.md` and answers anything else with `not_found.md` (the full page list) under a 404; the build context is the repo root, allowlisted by `.dockerignore`.
+- LLM agents: `public/llms.txt` (https://llmstxt.org) is **generated** by `tools/data_generators/llms_txt.py` from the emitted records (file list, counts, field names, how to read a claim, deep links, "clone, don't crawl", contact link); `tools/tests/test_llms_txt.py` fails when it is stale. Its live companion `/status.json` (`{version, started_at}`) is rendered by `docker/entrypoint.sh` into `/gen` like `app-config.js`, so it exists only in the container (404 under `tools/serve.py`); `started_at` is floored to 5 minutes. It is never a repo file, so never committed. The `/api/` Markdown pages (one per node, stored fields only, `[grade quote_id]` markers + a Sources list per page) are rendered by `tools/render_api.py` in the Dockerfile's `api` stage and baked into the image (never committed, refreshed on each `docker compose build`); Caddy resolves `<path>`, `<path>.md` or `<path>/index.md` and answers anything else with `not_found.md` (the full page list) under a 404; the build context is the repo root, allowlisted by `.dockerignore`. The same stage writes the viewer's effect index `/derived/effects.json` (`render_api.py --effects-out`, `data_generators/effect_index.py`, the only implementation of the effect -> receptors -> drugs join), served by Caddy from `/opt/neurarium/derived` and by `tools/serve.py` from a temp dir rebuilt per request; never committed, never under `public/`.
 - `js/data.js`: fetches `meta.json` + the `.jsonl` (incl. `quotes.jsonl`, and `metabolites.jsonl` whose records it joins onto each drug's `{id}` refs) + shape files, rehydrates
   each `{quote_id, provenance}` source from the deduplicated `quotes.jsonl` excerpt table
   (`rehydrateQuotes`, mirror of the generator's externalize; see Source provenance); returns a normalized
@@ -408,8 +408,9 @@ Viewer (`public/`):
   a focused receptor/target. Exports `buildGemCloud` + `GEM_DOT_SIZE` (reused by
   the drug animation). See Receptors & targets.
 - `js/receptor-effects.js`: `resolveEffects` (an owner's `effects[]` -> display rows) +
-  `derivePossibleEffects` (the drug panel's direction-aware join). Pure, no DOM. See
-  Receptors & targets (Effects).
+  `readEffectIndex` (resolves the ids of the build-time `derived/effects.json`; the join
+  itself is `tools/data_generators/effect_index.py`). Pure, no DOM. See Receptors &
+  targets (Effects).
 - `js/release-modulation.js`: `resolveModulation` (a receptor's `release_modulation[]` ->
   display rows) + `deriveReleaseChanges` (the drug panel's direction-aware join) +
   `transmitterVars`. Pure, no DOM. See Receptors & targets (Downstream).

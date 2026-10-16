@@ -1,10 +1,11 @@
 /**
  * receptor_effect nodes (BETA): resolve them for the receptor / target panel, and
- * DERIVE a drug's "possible effects via its bindings" for the drug panel.
+ * read the build-time effect index behind the Effects section, the effect panel and a
+ * drug's "possible effects via its bindings".
  *
  * No three.js, no DOM: pure functions, unit-tested by
- * tools/tests/receptor_effects.test.mjs. The drug-side list is computed, never
- * stored, and is a statement about the receptors a drug acts on, not about the drug:
+ * tools/tests/receptor_effects.test.mjs. The drug-side list is computed at build time
+ * (tools/data_generators/effect_index.py), never stored in the dataset, and is a statement about the receptors a drug acts on, not about the drug:
  * the panel words it conditionally ("could cause"), never as a side effect of the drug.
  *
  * Built with the help of Claude Code.
@@ -33,66 +34,58 @@ export function resolveEffects(raw, modes, labels) {
 }
 
 /**
- * Join a drug's bindings with the effect nodes of the targets they hit.
+ * Resolve the build-time effect index (`/derived/effects.json`, written by
+ * tools/render_api.py from tools/data_generators/effect_index.py, the one place the
+ * effect -> receptors -> drugs join is computed) against the loaded data. Ids only
+ * in, objects out: nothing is joined here, so the viewer, the /api/ pages and
+ * llms.txt can never disagree. An id the loaded data lacks (a stale file) is skipped.
  *
- * Direction-aware: a binding inherits an effect node only when its action is one of
- * the actions that node's mode lists (an antagonist inherits antagonism effects, an
- * agonist agonism ones, `both` takes either). An affinity_only binding (no action)
- * contributes nothing: a Ki says the drug binds, never in which direction.
- *
- * @param {object[]} bindings  resolved drug bindings (`{target, targetName, action}`).
- * @param {(targetId:string) => object[]} effectsOf  target id -> resolved effect rows.
- * @param {Object<string,{actions:string[]}>} modes  meta.receptor_effect_modes.
- * @returns {{effect:string, label:string, via:{binding:object, node:object}[]}[]}
- *   one entry per effect, in first-seen order of the bindings as given.
+ * @param {{effects: object[]}} json  `{effects: [{id, owners: [{target, mode}],
+ *   drugs: [{drug, via: [{target, action, mode, via_metabolite?}]}]}]}`.
+ * @param {Map<string, object>} targetsById  merged receptor + target list by id.
+ * @param {Map<string, object[]>} effectsByTarget  target id -> resolved effect rows.
+ * @param {Map<string, object>} drugsById  drugs with resolved bindings
+ *   (`{target, action, viaMetabolite}`).
+ * @param {Object<string,string>} labels  localized meta.receptor_effect_labels.
+ * @returns {{effects: {id:string, label:string, owners:{target:object, node:object}[],
+ *   drugs:{drug:object, via:{binding:object, node:object}[]}[]}[],
+ *   byDrug: Map<string, {effect:string, label:string, via:object[]}[]>}}
+ *   e.g. `effects[0] = {id: "nausea", label: "Nausea / vomiting", owners: [{target: 5ht3,
+ *   node}], drugs: [{drug: ondansetron, via: [...]}]}`, sorted by localized label;
+ *   `byDrug.get("olanzapine")` = that drug's possible effects, for the drug panel.
  */
-export function derivePossibleEffects(bindings, effectsOf, modes) {
-  const byEffect = new Map();
-  for (const b of bindings || []) {
-    if (!b.action) continue;
-    for (const node of effectsOf(b.target) || []) {
-      const actions = (modes[node.mode] && modes[node.mode].actions) || [];
-      if (!actions.includes(b.action)) continue;
-      if (!byEffect.has(node.effect)) {
-        byEffect.set(node.effect, { effect: node.effect, label: node.label, via: [] });
-      }
-      const entry = byEffect.get(node.effect);
-      if (!entry.via.some((v) => v.binding.target === b.target && v.node === node)) {
-        entry.via.push({ binding: b, node });
-      }
+export function readEffectIndex(json, targetsById, effectsByTarget, drugsById, labels) {
+  const nodeOf = (target, mode, effect) =>
+    (effectsByTarget.get(target) || []).find((n) => n.mode === mode && n.effect === effect);
+  const effects = [];
+  const byDrug = new Map();
+  for (const e of (json && json.effects) || []) {
+    const label = labels[e.id] || e.id;
+    const owners = [];
+    for (const o of e.owners || []) {
+      const target = targetsById.get(o.target);
+      const node = nodeOf(o.target, o.mode, e.id);
+      if (target && node) owners.push({ target, node });
     }
-  }
-  return [...byEffect.values()];
-}
-
-/**
- * The effect-centred index behind the Effects section + panel (BETA): one entry per
- * effect some target's stored nodes carry, with those owners and the drugs that could
- * reach it. The drug side is `derivePossibleEffects` run per drug (the very join the
- * drug panel shows), so the two views can never disagree; nothing here is stored.
- *
- * @param {{id:string}[]} targets  the merged receptor + target list.
- * @param {(targetId:string) => object[]} effectsOf  target id -> resolved effect rows.
- * @param {{bindings:object[]}[]} drugs  drugs with resolved bindings.
- * @param {Object<string,{actions:string[]}>} modes  meta.receptor_effect_modes.
- * @returns {{id:string, label:string, owners:{target:object, node:object}[],
- *   drugs:{drug:object, via:{binding:object, node:object}[]}[]}[]}
- *   e.g. `[{id: "nausea", label: "Nausea / vomiting", owners: [{target: 5ht3, node}],
- *   drugs: [{drug: ondansetron, via: [...]}]}]`, sorted by label.
- */
-export function indexEffects(targets, effectsOf, drugs, modes) {
-  const byEffect = new Map();
-  const entry = ({ effect, label }) => {
-    if (!byEffect.has(effect)) byEffect.set(effect, { id: effect, label, owners: [], drugs: [] });
-    return byEffect.get(effect);
-  };
-  for (const target of targets || []) {
-    for (const node of effectsOf(target.id) || []) entry(node).owners.push({ target, node });
-  }
-  for (const drug of drugs || []) {
-    for (const e of derivePossibleEffects(drug.bindings, effectsOf, modes)) {
-      entry(e).drugs.push({ drug, via: e.via });
+    const drugs = [];
+    for (const d of e.drugs || []) {
+      const drug = drugsById.get(d.drug);
+      if (!drug) continue;
+      const via = [];
+      for (const v of d.via || []) {
+        const binding = (drug.bindings || []).find((b) => b.target === v.target
+          && b.action === v.action && (b.viaMetabolite || null) === (v.via_metabolite || null));
+        const node = nodeOf(v.target, v.mode, e.id);
+        if (binding && node) via.push({ binding, node });
+      }
+      if (!via.length) continue;
+      drugs.push({ drug, via });
+      if (!byDrug.has(drug.id)) byDrug.set(drug.id, []);
+      byDrug.get(drug.id).push({ effect: e.id, label, via });
     }
+    effects.push({ id: e.id, label, owners, drugs });
   }
-  return [...byEffect.values()].sort((a, b) => a.label.localeCompare(b.label));
+  effects.sort((a, b) => a.label.localeCompare(b.label));
+  for (const list of byDrug.values()) list.sort((a, b) => a.label.localeCompare(b.label));
+  return { effects, byDrug };
 }

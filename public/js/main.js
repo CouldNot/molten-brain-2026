@@ -36,7 +36,6 @@ import { createSimulation } from "./simulation.js";
 import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState, LIST_SEP } from "./url-state.js";
 import { createTheme } from "./theme.js";
-import { derivePossibleEffects } from "./receptor-effects.js";
 import { groupByVariant, variantsForDrug } from "./receptor-variants.js";
 import { deriveReleaseChanges, transmitterVars } from "./release-modulation.js";
 import {
@@ -2425,13 +2424,13 @@ function createInfoPanel(data, sourcingModal) {
   };
 
   // The drug panel's derived "Possible effects via its bindings" (BETA): the drug's
-  // directional bindings joined with the receptor_effect nodes of their targets
-  // (js/receptor-effects.js). Computed, never stored, and worded conditionally: it
+  // directional bindings joined with the receptor_effect nodes of their targets, read
+  // from the build-time effect index (data.possibleEffectsByDrug, see
+  // tools/data_generators/effect_index.py). Never stored, and worded conditionally: it
   // says what acting on these receptors can cause, never that this drug does.
   // Folded with the rest of the drug panel by its final foldSections.
   const appendPossibleEffects = (drug) => {
-    const effects = derivePossibleEffects(
-      drug.bindings, (tid) => data.effectsByTarget.get(tid) || [], data.meta.effectModes);
+    const effects = data.possibleEffectsByDrug.get(drug.id) || [];
     if (!effects.length) return;
     const { sec, ul } = betaSection("effects", "effects.drugHeading", "effects.drugHint");
     for (const e of effects) {
@@ -4510,8 +4509,8 @@ function createInfoPanel(data, sourcingModal) {
      * Populate the panel for one clinical *effect* (the Effects section, BETA): the
      * receptors / targets whose stored receptor_effect nodes carry it, grouped by
      * mode, each with that node's own pill; then the drugs whose bindings could reach
-     * it, the drug panel's own derived join (`data.effects`, js/receptor-effects.js)
-     * seen from the effect's end. Nothing here is stored per drug, said in the caption.
+     * it, the drug panel's own derived join seen from the effect's end (`data.effects`,
+     * the build-time index, tools/data_generators/effect_index.py). Nothing here is stored per drug, said in the caption.
      */
     showEffect(effect) {
       clearBody("effect");

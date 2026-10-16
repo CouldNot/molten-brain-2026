@@ -1,5 +1,5 @@
-"""``data_generators/effect_index.py``: the Python twin of js/receptor-effects.js's
-effect -> receptors -> drugs join (BETA), read by llms.txt and the /api/ effect pages.
+"""``data_generators/effect_index.py``: the one effect -> receptors -> drugs join (BETA),
+read by llms.txt, the /api/ effect pages and (as ``derived/effects.json``) the viewer.
 
 Run: ``python -m unittest discover -s tools/tests -t tools/tests -p test_effect_index.py``
 """
@@ -58,18 +58,48 @@ class JoinTest(unittest.TestCase):
                       "antagonism of H1; 1 drug could cause it", lines)
 
 
-class EmittedTest(unittest.TestCase):
-    def test_matches_the_viewer_counts(self):
-        """Counts read off the viewer's Effects panel (headless, 2026-10-16): nausea
-        lists 4 receptors and 28 drugs, sedation 14 and 146. A drift means the two
-        joins disagree (or the data changed: re-read the panel, then update)."""
-        load = lambda n: [json.loads(line) for line in  # noqa: E731
-                          (DATA / f"{n}.jsonl").read_text(encoding="utf-8").splitlines() if line]
-        meta = json.loads((DATA / "meta.json").read_text(encoding="utf-8"))
-        idx = {e["id"]: e for e in effect_index.build(
-            load("receptors"), load("drugs"), load("metabolites"), meta)}
-        self.assertEqual((len(idx["nausea"]["owners"]), len(idx["nausea"]["drugs"])), (4, 28))
-        self.assertEqual((len(idx["sedation"]["owners"]), len(idx["sedation"]["drugs"])), (14, 146))
+class GroupingTest(unittest.TestCase):
+    def test_two_receptors_reaching_one_effect_are_grouped_under_it(self):
+        receptors = RECEPTORS + [{"id": "alpha1a", "name": "α1A",
+                                  "effects": [{"mode": "antagonism", "effect": "sedation"}]}]
+        drugs = [{"id": "q", "bindings": [{"target": "h1", "action": "antagonist"},
+                                          {"target": "alpha1a", "action": "antagonist"}]}]
+        idx = {e["id"]: e for e in effect_index.build(receptors, drugs, [], META)}
+        self.assertEqual([b["target"] for b, _ in idx["sedation"]["drugs"][0]["via"]],
+                         ["h1", "alpha1a"])
+        self.assertEqual([o["id"] for o in idx["sedation"]["owners"]], ["h1", "alpha1a"])
+
+
+class ToJsonTest(unittest.TestCase):
+    """The viewer's file shape, which ``readEffectIndex`` (js/receptor-effects.js)
+    reads; ``receptor_effects.test.mjs`` reads back the real file."""
+
+    def test_ids_only_with_via_metabolite_on_borrowed_bindings(self):
+        drugs = [{"id": "pro", "prodrug": True, "bindings": [], "metabolites": [{"id": "m"}]},
+                 {"id": "active", "bindings": [{"target": "5ht2a", "action": "agonist", "ki": 3}]}]
+        metabolites = [{"id": "m", "name": "Active", "drug_id": "active"}]
+        out = effect_index.to_json(effect_index.build(RECEPTORS, drugs, metabolites, META))
+        self.assertEqual(out["effects"][0], {
+            "id": "hallucinations",
+            "owners": [{"target": "5ht2a", "mode": "agonism"}],
+            "drugs": [{"drug": "pro", "via": [{"target": "5ht2a", "action": "agonist",
+                                               "mode": "agonism", "via_metabolite": "Active"}]},
+                      {"drug": "active", "via": [{"target": "5ht2a", "action": "agonist",
+                                                  "mode": "agonism"}]}]})
+        self.assertEqual(out["effects"][1]["id"], "sedation")
+
+    def test_write_effects_from_the_emitted_data(self):
+        import tempfile
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+        import render_api
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "derived" / "effects.json"
+            n = render_api.write_effects(DATA, path)
+            out = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(n, len(out["effects"]))
+        ids = [e["id"] for e in out["effects"]]
+        self.assertIn("nausea", ids)
+        self.assertEqual(len(ids), len(set(ids)))
 
 
 if __name__ == "__main__":
