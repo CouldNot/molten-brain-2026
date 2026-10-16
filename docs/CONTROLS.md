@@ -143,6 +143,9 @@ through beats a nearer non-focused one.
   only when a `browser` callback was handed in, which the pre-load call has not.
 - **Receptors & targets** (`#receptors`) / **Drugs** (`#drugs`) / **Metabolising enzymes**
   (`#enzymes`, `buildEnzymeLegend` -> `showEnzyme`): see their sections.
+- **Effects** (`#effects`, BETA, `buildEffectLegend` -> `showEffect`, tab `effect:<id>`): one row
+  per clinical effect, its receptors by mode + the drugs that could cause it (derived); see
+  `docs/VIEWER.md` "Effects (BETA)".
 - **About** (`#about-modal`, ⓘ, `wireAboutModal`): a blurb (Olivier Cornelis + Claude), a "Start the
   tutorial" button (`#about-tour`, above the caveat: the offer comes before one feature's limitation),
   the animation caveat + a collapsed **What the animations mean** dropdown (`about.animCaveat` /
