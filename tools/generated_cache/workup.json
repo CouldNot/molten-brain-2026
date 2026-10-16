@@ -186,6 +186,23 @@
     "timing": "during"
    }
   ],
+  "asenapine": [
+   {
+    "conditions": [
+     "chez les patients diabétiques et chez les patients présentant des facteurs de risque de développer un diabète sucré"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-001177",
+      "provenance": "verified",
+      "quote": "Hyperglycémie et diabète sucré Une hyperglycémie ou une aggravation d’un diabète préexistant a été rapportée occasionnellement au cours du traitement par asénapine. L’évaluation de la relation entre l’utilisation d’un antipsychotique atypique et les anomalies glycémiques est compliquée par la possibilité d’un risque de fond augmenté de diabète sucré chez les patients atteints de schizophrénie ou de troubles bipolaires et par l’augmentation de l’incidence du diabète sucré dans la population générale. Une surveillance clinique appropriée est conseillée chez les patients diabétiques et chez les patients présentant des facteurs de risque de développer un diabète sucré."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   }
+  ],
   "baclofen": [
    {
     "conditions": [
@@ -230,6 +247,95 @@
      }
     ],
     "test": "glycaemia",
+    "timing": "during"
+   }
+  ],
+  "brexpiprazole": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Hyperglycémie et diabète Des cas d'hyperglycémie, parfois graves et associés à une acidocétose ou un coma hyperosmolaire, avec une issue fatale dans certains cas, ont été rapportés chez les patients traités par antipsychotiques atypiques. L’obésité et les antécédents familiaux de diabète sont des facteurs de risque pouvant favoriser les complications. Les patients traités avec des antipsychotiques, y compris le brexpiprazole, doivent être surveillés afin de déceler les signes et les symptômes d'hyperglycémie (tels que la polydipsie, la polyurie, la polyphagie et la faiblesse). La glycémie à jeun doit être évaluée avant ou peu après le début du traitement antipsychotique. Pendant le traitement à long terme, les taux de glucose plasmatiques doivent être surveillés régulièrement pour rechercher une dégradation du contrôle de la glycémie."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Hyperglycémie et diabète Des cas d'hyperglycémie, parfois graves et associés à une acidocétose ou un coma hyperosmolaire, avec une issue fatale dans certains cas, ont été rapportés chez les patients traités par antipsychotiques atypiques. L’obésité et les antécédents familiaux de diabète sont des facteurs de risque pouvant favoriser les complications. Les patients traités avec des antipsychotiques, y compris le brexpiprazole, doivent être surveillés afin de déceler les signes et les symptômes d'hyperglycémie (tels que la polydipsie, la polyurie, la polyphagie et la faiblesse). La glycémie à jeun doit être évaluée avant ou peu après le début du traitement antipsychotique. Pendant le traitement à long terme, les taux de glucose plasmatiques doivent être surveillés régulièrement pour rechercher une dégradation du contrôle de la glycémie."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Prise de poids et dyslipidémie Les antipsychotiques, dont le brexpiprazole, ont été associés à des changements métaboliques, y compris prise de poids et dyslipidémie. Une augmentation de la fréquence de la prise de poids a été observée avec l’allongement de la durée du traitement par le brexpiprazole (voir rubrique 4.8). Le profil lipidique doit être évalué en début du traitement. Une surveillance clinique du poids et du profil lipidique est recommandé à l’initiation et pendant le traitement."
+     }
+    ],
+    "test": "lipids",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Prise de poids et dyslipidémie Les antipsychotiques, dont le brexpiprazole, ont été associés à des changements métaboliques, y compris prise de poids et dyslipidémie. Une augmentation de la fréquence de la prise de poids a été observée avec l’allongement de la durée du traitement par le brexpiprazole (voir rubrique 4.8). Le profil lipidique doit être évalué en début du traitement. Une surveillance clinique du poids et du profil lipidique est recommandé à l’initiation et pendant le traitement."
+     }
+    ],
+    "test": "lipids",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Prise de poids et dyslipidémie Les antipsychotiques, dont le brexpiprazole, ont été associés à des changements métaboliques, y compris prise de poids et dyslipidémie. Une augmentation de la fréquence de la prise de poids a été observée avec l’allongement de la durée du traitement par le brexpiprazole (voir rubrique 4.8). Le profil lipidique doit être évalué en début du traitement. Une surveillance clinique du poids et du profil lipidique est recommandé à l’initiation et pendant le traitement."
+     }
+    ],
+    "test": "weight",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Prise de poids et dyslipidémie Les antipsychotiques, dont le brexpiprazole, ont été associés à des changements métaboliques, y compris prise de poids et dyslipidémie. Une augmentation de la fréquence de la prise de poids a été observée avec l’allongement de la durée du traitement par le brexpiprazole (voir rubrique 4.8). Le profil lipidique doit être évalué en début du traitement. Une surveillance clinique du poids et du profil lipidique est recommandé à l’initiation et pendant le traitement."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "des patients ayant une faible NGB préexistante ou des antécédents de leucopénie/neutropénie induite par un médicament"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003841",
+      "provenance": "verified",
+      "quote": "Leucopénie, neutropénie et agranulocytose Des cas de leucopénie, de neutropénie et d’agranulocytose (y compris des cas mortels) ont été rapportés avec les antipsychotiques. Les facteurs de risque possibles de leucopénie/neutropénie comprennent une faible numération des globules blancs (NGB) préexistante et des antécédents de leucopénie/neutropénie induite par un médicament. Au cours des premiers mois de traitement, il est nécessaire de contrôler fréquemment la numération formule sanguine (NFS) des patients ayant une faible NGB préexistante ou des antécédents de leucopénie/neutropénie induite par un médicament et le brexpiprazole doit être arrêté au premier signe de diminution de la NGB, en l'absence d'autres facteurs étiologiques. Les patients ayant une neutropénie doivent être attentivement surveillés afin de dépister une fièvre ou d'autres symptômes ou signes d'infection et traités rapidement si de tels symptômes ou signes apparaissent. Les patients ayant une neutropénie sévère (numération absolue de neutrophiles < 1 000/mm3) doivent arrêter le brexpiprazole et leur NGB doit être suivie jusqu'à rétablissement."
+     }
+    ],
+    "test": "blood_count",
     "timing": "during"
    }
   ],
@@ -581,6 +687,47 @@
     ],
     "test": "pregnancy_test",
     "timing": "before"
+   }
+  ],
+  "cariprazine": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-002770",
+      "provenance": "verified",
+      "quote": "Variations de la pression artérielle La cariprazine peut provoquer une hypotension orthostatique ainsi qu’une hypertension (voir rubrique 4.8). La cariprazine doit être utilisée avec prudence chez les patients présentant une maladie cardiovasculaire connue prédisposant aux variations de la pression artérielle. La pression artérielle doit être surveillée."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "présentant un diagnostic établi de diabète ou des facteurs de risque de diabète"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-002770",
+      "provenance": "verified",
+      "quote": "La glycémie doit être surveillée chez les patients commençant un traitement par des antipsychotiques atypiques et présentant un diagnostic établi de diabète ou des facteurs de risque de diabète (par ex. obésité, antécédents familiaux de diabète). Lors des études cliniques, des effets indésirables associés au glucose ont été rapportés avec la cariprazine (voir rubrique 5.1)."
+     }
+    ],
+    "test": "glycaemia",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-002770",
+      "provenance": "verified",
+      "quote": "Une prise de poids importante a été observée avec l’utilisation de cariprazine. Le poids des patients doit être surveillé régulièrement (voir rubrique 4.8)."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
    }
   ],
   "chlorpromazine": [
@@ -1191,6 +1338,98 @@
     "timing": "during"
    }
   ],
+  "guanfacine": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant de prescrire le médicament, une évaluation initiale doit être réalisée afin d’identifier les patients présentant un risque accru de somnolence et de sédation, d’hypotension et de bradycardie, d’allongement de l’intervalle QT ou d’arythmies, de prise de poids ou d’obésité. Cette évaluation doit comprendre l’état cardiovasculaire du patient, incluant la pression artérielle et la fréquence cardiaque, une anamnèse complète documentant les traitements concomitants, les troubles ou symptômes médicaux et psychiatriques associés passés et présents, les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué. Une mesure précise du poids et de la taille avant le traitement doit être réalisée et inscrite sur une courbe de croissance (voir rubrique 4.4)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant l’instauration du traitement, une évaluation de l’état cardiovasculaire du patient, incluant les paramètres de fréquence cardiaque et de pression artérielle et les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué doit être réalisée afin d’identifier les patients présentant un risque accru d’hypotension, de bradycardie et d’allongement de l’intervalle QT ou un risque d’arythmies. Les mesures de la fréquence cardiaque et de la pression artérielle doivent être poursuivies une fois par semaine pendant les périodes de titration et de stabilisation de la dose, puis au moins tous les trois mois pendant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant de prescrire le médicament, une évaluation initiale doit être réalisée afin d’identifier les patients présentant un risque accru de somnolence et de sédation, d’hypotension et de bradycardie, d’allongement de l’intervalle QT ou d’arythmies, de prise de poids ou d’obésité. Cette évaluation doit comprendre l’état cardiovasculaire du patient, incluant la pression artérielle et la fréquence cardiaque, une anamnèse complète documentant les traitements concomitants, les troubles ou symptômes médicaux et psychiatriques associés passés et présents, les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué. Une mesure précise du poids et de la taille avant le traitement doit être réalisée et inscrite sur une courbe de croissance (voir rubrique 4.4)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant l’instauration du traitement, une évaluation de l’état cardiovasculaire du patient, incluant les paramètres de fréquence cardiaque et de pression artérielle et les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué doit être réalisée afin d’identifier les patients présentant un risque accru d’hypotension, de bradycardie et d’allongement de l’intervalle QT ou un risque d’arythmies. Les mesures de la fréquence cardiaque et de la pression artérielle doivent être poursuivies une fois par semaine pendant les périodes de titration et de stabilisation de la dose, puis au moins tous les trois mois pendant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose."
+     }
+    ],
+    "test": "heart_rate",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant de prescrire le médicament, une évaluation initiale doit être réalisée afin d’identifier les patients présentant un risque accru de somnolence et de sédation, d’hypotension et de bradycardie, d’allongement de l’intervalle QT ou d’arythmies, de prise de poids ou d’obésité. Cette évaluation doit comprendre l’état cardiovasculaire du patient, incluant la pression artérielle et la fréquence cardiaque, une anamnèse complète documentant les traitements concomitants, les troubles ou symptômes médicaux et psychiatriques associés passés et présents, les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué. Une mesure précise du poids et de la taille avant le traitement doit être réalisée et inscrite sur une courbe de croissance (voir rubrique 4.4)."
+     },
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Les enfants et adolescents traités par guanfacine peuvent présenter une augmentation de l’IMC. Par conséquent, la taille, le poids et l’IMC doivent être contrôlés avant l’instauration du traitement puis tous les trois mois durant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose."
+     }
+    ],
+    "test": "weight",
+    "timing": "before"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant l’instauration du traitement, une évaluation de l’état cardiovasculaire du patient, incluant les paramètres de fréquence cardiaque et de pression artérielle et les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué doit être réalisée afin d’identifier les patients présentant un risque accru d’hypotension, de bradycardie et d’allongement de l’intervalle QT ou un risque d’arythmies. Les mesures de la fréquence cardiaque et de la pression artérielle doivent être poursuivies une fois par semaine pendant les périodes de titration et de stabilisation de la dose, puis au moins tous les trois mois pendant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose."
+     }
+    ],
+    "test": "blood_pressure",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Avant l’instauration du traitement, une évaluation de l’état cardiovasculaire du patient, incluant les paramètres de fréquence cardiaque et de pression artérielle et les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué doit être réalisée afin d’identifier les patients présentant un risque accru d’hypotension, de bradycardie et d’allongement de l’intervalle QT ou un risque d’arythmies. Les mesures de la fréquence cardiaque et de la pression artérielle doivent être poursuivies une fois par semaine pendant les périodes de titration et de stabilisation de la dose, puis au moins tous les trois mois pendant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose."
+     }
+    ],
+    "test": "heart_rate",
+    "timing": "during"
+   },
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-003759",
+      "provenance": "verified",
+      "quote": "Les enfants et adolescents traités par guanfacine peuvent présenter une augmentation de l’IMC. Par conséquent, la taille, le poids et l’IMC doivent être contrôlés avant l’instauration du traitement puis tous les trois mois durant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   }
+  ],
   "haloperidol": [
    {
     "sources": [
@@ -1722,6 +1961,35 @@
      }
     ],
     "test": "blood_pressure",
+    "timing": "during"
+   }
+  ],
+  "lurasidone": [
+   {
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-002713",
+      "provenance": "verified",
+      "quote": "Une prise de poids a été observée lors de l’utilisation d’antipsychotiques atypiques. Une surveillance clinique du poids est recommandée."
+     }
+    ],
+    "test": "weight",
+    "timing": "during"
+   },
+   {
+    "conditions": [
+     "chez les patients diabétiques et les patients présentant des facteurs de risque de diabète de type II"
+    ],
+    "sources": [
+     {
+      "corpus": "bdpm_rcp",
+      "page": "EMEA-H-C-002713",
+      "provenance": "verified",
+      "quote": "De rares cas d’effets indésirables liés au glucose (par ex. augmentation de la glycémie) ont été rapportés lors d’études cliniques menées avec la lurasidone. Une surveillance clinique adaptée est conseillée chez les patients diabétiques et les patients présentant des facteurs de risque de diabète de type II."
+     }
+    ],
+    "test": "glycaemia",
     "timing": "during"
    }
   ],

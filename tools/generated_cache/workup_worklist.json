@@ -1,6 +1,6 @@
 {
  "agomelatine": {
-  "cis": "62525777",
+  "page": "62525777",
   "denomination": "AGOMELATINE ZENTIVA 25 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -87,7 +87,7 @@
   ]
  },
  "alimemazine": {
-  "cis": "66801066",
+  "page": "66801066",
   "denomination": "THERALENE 5 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -111,7 +111,7 @@
   ]
  },
  "amantadine": {
-  "cis": "67703803",
+  "page": "67703803",
   "denomination": "MANTADIX 100 mg, capsule",
   "candidates": [
    {
@@ -153,7 +153,7 @@
   ]
  },
  "amisulpride": {
-  "cis": "60019927",
+  "page": "60019927",
   "denomination": "SOLIAN 100 mg, comprimé sécable",
   "candidates": [
    {
@@ -224,7 +224,7 @@
   ]
  },
  "amitriptyline": {
-  "cis": "62633436",
+  "page": "62633436",
   "denomination": "LAROXYL 50 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -294,7 +294,7 @@
   ]
  },
  "amphetamine_d": {
-  "cis": "61746712",
+  "page": "61746712",
   "denomination": "TENTIN 10 mg, comprimé",
   "candidates": [
    {
@@ -394,7 +394,7 @@
   ]
  },
  "apomorphine": {
-  "cis": "63665248",
+  "page": "63665248",
   "denomination": "APOMORPHINE VIATRIS 5 mg/ml, solution injectable",
   "candidates": [
    {
@@ -437,7 +437,7 @@
   ]
  },
  "aripiprazole": {
-  "cis": "60031071",
+  "page": "60031071",
   "denomination": "ARIPIPRAZOLE SANDOZ 10 mg, comprimé orodispersible",
   "candidates": [
    {
@@ -517,8 +517,59 @@
    }
   ]
  },
+ "asenapine": {
+  "page": "EMEA-H-C-001177",
+  "denomination": "Sycrest (EMEA/H/C/001177)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale Aucun ajustement posologique n’est nécessaire chez les patients atteints d’une insuffisance rénale. Il n’y a pas de donnée avec l’asénapine chez les patients atteints d’insuffisance rénale sévère avec une clairance de la créatinine inférieure à 15 mL/min.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance hépatique Aucun ajustement posologique n’est nécessaire chez les patients atteints d’une insuffisance hépatique légère. La possibilité d’une élévation des taux plasmatiques d’asénapine ne peut être exclue chez certains patients atteints d’une insuffisance hépatique modérée (Child-Pugh B) et il est conseillé de prendre des précautions. Chez les sujets atteints d’une insuffisance hépatique sévère (Child-Pugh C), une augmentation de l’exposition à l’asénapine d’un facteur sept a été observée. Par conséquent, Sycrest n’est pas recommandé chez les patients atteints d’une insuffisance hépatique sévère.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "Le comprimé ne doit pas être extrait de la plaquette tant que le patient n’est pas prêt à le prendre. Les mains doivent être sèches avant de toucher le comprimé. Le comprimé ne doit pas être poussé à travers la plaquette. La plaquette ne doit être ni découpée, ni déchirée. La languette de couleur doit être décollée et le comprimé doit être extrait doucement. Le comprimé ne doit pas être écrasé.",
+    "tests": [
+     "blood_count"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Intervalle QT Un allongement cliniquement significatif de l’intervalle QT ne semble pas être associé à l’asénapine. Sycrest doit être prescrit avec prudence chez les patients atteints d’une maladie cardiovasculaire confirmée ou présentant des antécédents familiaux d’allongement de l’intervalle QT, et en cas d’utilisation concomitante avec d’autres médicaments connus pour allonger l’intervalle QT.",
+    "tests": [
+     "ecg"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Hyperglycémie et diabète sucré Une hyperglycémie ou une aggravation d’un diabète préexistant a été rapportée occasionnellement au cours du traitement par asénapine. L’évaluation de la relation entre l’utilisation d’un antipsychotique atypique et les anomalies glycémiques est compliquée par la possibilité d’un risque de fond augmenté de diabète sucré chez les patients atteints de schizophrénie ou de troubles bipolaires et par l’augmentation de l’incidence du diabète sucré dans la population générale. Une surveillance clinique appropriée est conseillée chez les patients diabétiques et chez les patients présentant des facteurs de risque de développer un diabète sucré.",
+    "tests": [
+     "glycaemia"
+    ]
+   }
+  ]
+ },
  "atropine": {
-  "cis": "63358772",
+  "page": "63358772",
   "denomination": "ATROPINE SULFATE AGUETTANT 0,1 mg/mL, solution injectable en seringue préremplie",
   "candidates": [
    {
@@ -560,7 +611,7 @@
   ]
  },
  "baclofen": {
-  "cis": "60304050",
+  "page": "60304050",
   "denomination": "LIORESAL 10 mg, comprimé sécable",
   "candidates": [
    {
@@ -620,8 +671,89 @@
    }
   ]
  },
+ "brexpiprazole": {
+  "page": "EMEA-H-C-003841",
+  "denomination": "Rxulti (EMEA/H/C/003841)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Passage du brexpiprazole à d’autres antipsychotiques Lors du passage du brexpiprazole à d’autres antipsychotiques, aucune titration croisée progressive n'est nécessaire. Le nouvel antipsychotique doit être démarré à sa dose la plus faible concomitamment à l’arrêt du brexpiprazole. Il est à considérer que la concentration plasmatique de brexpiprazole diminuera progressivement et disparaitra complètement en 1 à 2 semaines.",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.4",
+    "under": "",
+    "quote": "Le brexpiprazole doit être utilisé avec prudence chez les patients avec une pathologie cardiovasculaire connue (antécédent d’infarctus du myocarde ou de maladie cardiaque ischémique, d’insuffisance cardiaque, ou de troubles de la conduction), une maladie cérébrovasculaire, toute pathologie pouvant favoriser une hypotension (déshydratation, hypovolémie et traitement avec des médicaments antihypertenseurs) ou une hypertension artérielle (accélérée ou maligne).",
+    "tests": [
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.4",
+    "under": "",
+    "quote": "Allongement de l’intervalle QT Un allongement de l’intervalle QT peut survenir chez les patients traités par antipsychotiques. Dans les essais cliniques, seuls quelques allongements non graves de l’intervalle QT ont été rapportés avec le brexpiprazole. Des précautions doivent être prises lorsque le brexpiprazole est prescrit à des patients présentant une maladie cardiovasculaire connue, des antécédents familiaux d’allongement de l’intervalle QT, un déséquilibre électrolytique ou en cas d’utilisation concomitante avec d’autres médicaments susceptibles d’allonger l’intervalle QT (voir rubriques 4.8 et 5.1).",
+    "tests": [
+     "ecg",
+     "electrolytes"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Syndrome malin des neuroleptiques (SMN) Le SMN est un syndrome potentiellement mortel associé aux traitements antipsychotiques, y compris avec le brexpiprazole (voir rubrique 4.8). Les signes cliniques du SMN sont l'hyperthermie, la rigidité musculaire, l'altération des facultés mentales et des signes d’instabilité neurovégétative (instabilité du pouls ou de la pression artérielle, tachycardie, hypersudation et troubles du rythme cardiaque). Peuvent s’ajouter des signes tels qu’une élévation de la créatine phosphokinase, une myoglobinurie (rhabdomyolyse) et l’insuffisance rénale aiguë. Si un patient présente des signes ou des symptômes évoquant un SMN, ou une hyperthermie inexpliquée non accompagnée d’autres signes cliniques de SMN, le brexpiprazole doit être arrêté immédiatement.",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Hyperglycémie et diabète Des cas d'hyperglycémie, parfois graves et associés à une acidocétose ou un coma hyperosmolaire, avec une issue fatale dans certains cas, ont été rapportés chez les patients traités par antipsychotiques atypiques. L’obésité et les antécédents familiaux de diabète sont des facteurs de risque pouvant favoriser les complications. Les patients traités avec des antipsychotiques, y compris le brexpiprazole, doivent être surveillés afin de déceler les signes et les symptômes d'hyperglycémie (tels que la polydipsie, la polyurie, la polyphagie et la faiblesse). La glycémie à jeun doit être évaluée avant ou peu après le début du traitement antipsychotique. Pendant le traitement à long terme, les taux de glucose plasmatiques doivent être surveillés régulièrement pour rechercher une dégradation du contrôle de la glycémie.",
+    "tests": [
+     "glycaemia"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "Prise de poids et dyslipidémie Les antipsychotiques, dont le brexpiprazole, ont été associés à des changements métaboliques, y compris prise de poids et dyslipidémie. Une augmentation de la fréquence de la prise de poids a été observée avec l’allongement de la durée du traitement par le brexpiprazole (voir rubrique 4.8). Le profil lipidique doit être évalué en début du traitement. Une surveillance clinique du poids et du profil lipidique est recommandé à l’initiation et pendant le traitement.",
+    "tests": [
+     "lipids",
+     "weight"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "Leucopénie, neutropénie et agranulocytose Des cas de leucopénie, de neutropénie et d’agranulocytose (y compris des cas mortels) ont été rapportés avec les antipsychotiques. Les facteurs de risque possibles de leucopénie/neutropénie comprennent une faible numération des globules blancs (NGB) préexistante et des antécédents de leucopénie/neutropénie induite par un médicament. Au cours des premiers mois de traitement, il est nécessaire de contrôler fréquemment la numération formule sanguine (NFS) des patients ayant une faible NGB préexistante ou des antécédents de leucopénie/neutropénie induite par un médicament et le brexpiprazole doit être arrêté au premier signe de diminution de la NGB, en l'absence d'autres facteurs étiologiques. Les patients ayant une neutropénie doivent être attentivement surveillés afin de dépister une fièvre ou d'autres symptômes ou signes d'infection et traités rapidement si de tels symptômes ou signes apparaissent. Les patients ayant une neutropénie sévère (numération absolue de neutrophiles < 1 000/mm3) doivent arrêter le brexpiprazole et leur NGB doit être suivie jusqu'à rétablissement.",
+    "tests": [
+     "blood_count"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "",
+    "quote": "Prolactine Le brexpiprazole peut élever le taux de prolactine. Les élévations associées au traitement par brexpiprazole sont généralement légères et peuvent diminuer au cours de l’administration, cependant, dans de rares cas, l’effet peut persister durant le traitement (voir section 4.8).",
+    "tests": [
+     "prolactin"
+    ]
+   }
+  ]
+ },
  "brivaracetam": {
-  "cis": "60579228",
+  "page": "60579228",
   "denomination": "BRIVIACT 10 mg/ml, solution injectable/pour perfusion",
   "candidates": [
    {
@@ -663,7 +795,7 @@
   ]
  },
  "bromazepam": {
-  "cis": "66796142",
+  "page": "66796142",
   "denomination": "LEXOMIL 6 mg, comprimé quadrisécable",
   "candidates": [
    {
@@ -678,7 +810,7 @@
   ]
  },
  "bromocriptine": {
-  "cis": "63369053",
+  "page": "63369053",
   "denomination": "PARLODEL 2,5 mg, comprimé sécable",
   "candidates": [
    {
@@ -758,7 +890,7 @@
   ]
  },
  "bumetanide": {
-  "cis": "61834055",
+  "page": "61834055",
   "denomination": "BURINEX 2 mg/4 ml IV, solution injectable en ampoule",
   "candidates": [
    {
@@ -809,7 +941,7 @@
   ]
  },
  "buprenorphine": {
-  "cis": "60549391",
+  "page": "60549391",
   "denomination": "TEMGESIC 0,2 mg, comprimé sublingual",
   "candidates": [
    {
@@ -833,7 +965,7 @@
   ]
  },
  "bupropion": {
-  "cis": "64556383",
+  "page": "64556383",
   "denomination": "ZYBAN L.P. 150 mg, comprimé à libération prolongée",
   "candidates": [
    {
@@ -911,7 +1043,7 @@
   ]
  },
  "buspirone": {
-  "cis": "61964472",
+  "page": "61964472",
   "denomination": "BUSPIRONE VIATRIS 10 mg, comprimé sécable",
   "candidates": [
    {
@@ -954,7 +1086,7 @@
   ]
  },
  "cabergoline": {
-  "cis": "69671845",
+  "page": "69671845",
   "denomination": "DOSTINEX 0,5 mg, comprimé",
   "candidates": [
    {
@@ -1105,7 +1237,7 @@
   ]
  },
  "caffeine": {
-  "cis": "65973294",
+  "page": "65973294",
   "denomination": "CITRATE DE CAFEINE COOPER 25 mg/mL, solution injectable et buvable",
   "candidates": [
    {
@@ -1120,7 +1252,7 @@
   ]
  },
  "cannabidiol": {
-  "cis": "61680130",
+  "page": "61680130",
   "denomination": "EPIDYOLEX 100 mg/mL, solution buvable",
   "candidates": [
    {
@@ -1229,7 +1361,7 @@
   ]
  },
  "carbamazepine": {
-  "cis": "61009918",
+  "page": "61009918",
   "denomination": "TEGRETOL 200 mg, comprimé sécable",
   "candidates": [
    {
@@ -1371,8 +1503,97 @@
    }
   ]
  },
+ "cariprazine": {
+  "page": "EMEA-H-C-002770",
+  "denomination": "Reagila (EMEA/H/C/002770)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "La dose initiale recommandée de cariprazine est de 1,5 mg une fois par jour. Par la suite, la dose peut être augmentée progressivement, par paliers de 1,5 mg, jusqu’à une dose maximale de 6 mg/jour, si besoin. La dose efficace la plus basse doit être maintenue, selon l’avis clinique du médecin traitant. En raison de la longue demi-vie de la cariprazine et de ses métabolites actifs, les modifications posologiques ne seront pas clairement visibles dans les dosages plasmatiques pendant plusieurs semaines. Il convient de surveiller l’apparition d’effets indésirables chez le patient, ainsi que la réponse au traitement, pendant plusieurs semaines après le début du traitement par cariprazine et après une modification de la dose (voir rubrique 5.2).",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Relais de cariprazine par un autre antipsychotique Lors du relais de cariprazine par un autre antipsychotique, aucun ajustement croisé progressif de la posologie n’est nécessaire, le nouvel antipsychotique devant être instauré à sa dose la plus faible tandis que le traitement par cariprazine est arrêté. Il convient de tenir compte du fait que la concentration plasmatique de la cariprazine et de ses métabolites actifs diminuera de 50 % en une semaine environ (voir rubrique 5.2).",
+    "tests": [
+     "drug_level"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale Aucun ajustement de la posologie n’est nécessaire chez les patients présentant une insuffisance rénale légère à modérée (clairance de la créatinine [Clcr] ≥ 30 ml/min et < 89 ml/min). La sécurité et l’efficacité de la cariprazine n’ont pas été évaluées chez les patients présentant une insuffisance rénale sévère (Clcr < 30 ml/min). L’utilisation de la cariprazine n’est pas recommandée chez les patients",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Dans les études précliniques de la cariprazine, une opacité du cristallin/de la cataracte a été détectée chez des chiens (voir rubriques 4.8 et 5.3). Toutefois, aucune relation de cause à effet n’a été établie entre les changements du cristallin/la cataracte observés dans les études sur l’homme et l’utilisation de la cariprazine. Néanmoins, les patients qui développeraient des symptômes potentiellement liés à la cataracte doivent passer un examen ophtalmologique et leur état doit être réévalué pour savoir s’ils peuvent continuer le traitement.",
+    "tests": [
+     "eye_exam"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Un ensemble de symptômes potentiellement mortels, appelé SMN, a été décrit, en association aux traitements antipsychotiques. Les signes cliniques du SMN sont l’hyperthermie, la rigidité musculaire, une élévation des taux sérique de créatine phosphokinase, l’altération des facultés mentales et des signes d’instabilité neurovégétative (irrégularité du pouls ou de la pression artérielle, tachycardie, hypersudation et troubles du rythme cardiaque). Peuvent s’ajouter des signes tels qu’une myoglobinurie (rhabdomyolyse) et une insuffisance rénale aiguë. Si un patient présente des signes ou des symptômes évoquant un SMN, ou une hyperthermie inexpliquée non accompagnée d’autres signes cliniques de SMN, la cariprazine doit être arrêtée immédiatement.",
+    "tests": [
+     "blood_pressure",
+     "heart_rate",
+     "drug_level"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "Variations de la pression artérielle La cariprazine peut provoquer une hypotension orthostatique ainsi qu’une hypertension (voir rubrique 4.8). La cariprazine doit être utilisée avec prudence chez les patients présentant une maladie cardiovasculaire connue prédisposant aux variations de la pression artérielle. La pression artérielle doit être surveillée.",
+    "tests": [
+     "blood_pressure"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "Modifications de l’électrocardiogramme (ECG) Un allongement de l’intervalle QT peut se produire chez les patients traités par des antipsychotiques. Aucun allongement de l’intervalle QT n’a été observé avec la cariprazine comparée au placebo lors d’une étude clinique conçue pour évaluer l’allongement de l’intervalle QT (voir rubrique 5.1). Dans les études cliniques, seuls quelques allongements non graves de l’intervalle QT ont été signalés avec la cariprazine (voir rubrique 4.8). Par conséquent, la cariprazine doit être utilisée avec prudence chez les patients présentant une maladie cardiovasculaire connue ou chez les patients ayant des antécédents familiaux d’allongement de l’intervalle QT ou en cas d’utilisation concomitante de médicaments connus pour allonger l’intervalle QT (voir rubrique 5.1).",
+    "tests": [
+     "ecg"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "",
+    "quote": "La glycémie doit être surveillée chez les patients commençant un traitement par des antipsychotiques atypiques et présentant un diagnostic établi de diabète ou des facteurs de risque de diabète (par ex. obésité, antécédents familiaux de diabète). Lors des études cliniques, des effets indésirables associés au glucose ont été rapportés avec la cariprazine (voir rubrique 5.1).",
+    "tests": [
+     "glycaemia"
+    ]
+   },
+   {
+    "index": 8,
+    "section": "4.4",
+    "under": "",
+    "quote": "Une prise de poids importante a été observée avec l’utilisation de cariprazine. Le poids des patients doit être surveillé régulièrement (voir rubrique 4.8).",
+    "tests": [
+     "weight"
+    ]
+   }
+  ]
+ },
  "chlorpromazine": {
-  "cis": "62184888",
+  "page": "62184888",
   "denomination": "LARGACTIL 25 mg/5 ml, solution injectable en ampoule",
   "candidates": [
    {
@@ -1434,7 +1655,7 @@
   ]
  },
  "citalopram": {
-  "cis": "68231138",
+  "page": "68231138",
   "denomination": "SEROPRAM 40 mg/ml, solution buvable",
   "candidates": [
    {
@@ -1505,7 +1726,7 @@
   ]
  },
  "clobazam": {
-  "cis": "62905911",
+  "page": "62905911",
   "denomination": "URBANYL 10 mg, comprimé sécable",
   "candidates": [
    {
@@ -1539,7 +1760,7 @@
   ]
  },
  "clomipramine": {
-  "cis": "61426025",
+  "page": "61426025",
   "denomination": "ANAFRANIL 75 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -1656,7 +1877,7 @@
   ]
  },
  "clonazepam": {
-  "cis": "61496251",
+  "page": "61496251",
   "denomination": "RIVOTRIL 2,5 mg/ml, solution buvable en goutte",
   "candidates": [
    {
@@ -1680,7 +1901,7 @@
   ]
  },
  "clonidine": {
-  "cis": "64256681",
+  "page": "64256681",
   "denomination": "CATAPRESSAN 0,15 mg/ml, solution injectable",
   "candidates": [
    {
@@ -1741,7 +1962,7 @@
   ]
  },
  "clotiazepam": {
-  "cis": "65558647",
+  "page": "65558647",
   "denomination": "VERATRAN 5 mg, comprimé",
   "candidates": [
    {
@@ -1756,7 +1977,7 @@
   ]
  },
  "clozapine": {
-  "cis": "62552920",
+  "page": "62552920",
   "denomination": "LEPONEX 100 mg, comprimé sécable",
   "candidates": [
    {
@@ -2089,7 +2310,7 @@
   ]
  },
  "cyamemazine": {
-  "cis": "60271248",
+  "page": "60271248",
   "denomination": "TERCIAN 100 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -2131,7 +2352,7 @@
   ]
  },
  "cyproheptadine": {
-  "cis": "67231270",
+  "page": "67231270",
   "denomination": "PERIACTINE 4 mg, comprimé",
   "candidates": [
    {
@@ -2145,8 +2366,24 @@
    }
   ]
  },
+ "deutetrabenazine": {
+  "page": "EMEA-H-C-006371",
+  "denomination": "Austedo (EMEA/H/C/006371)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "La deutétrabénazine peut provoquer un allongement de l’intervalle QTc, mais le degré de cet allongement n’est pas cliniquement significatif lorsque la deutétrabénazine est administrée dans la fenêtre de dose recommandée (voir rubrique 5.1). La deutétrabénazine doit être utilisée avec précaution en association avec d’autres médicaments qui allongent l’intervalle QTc (voir rubrique 4.5) et chez les patients ayant un syndrome du QT long congénital, une bradycardie, une hypokaliémie, une hypomagnésémie ou des antécédents d’arythmies cardiaques.",
+    "tests": [
+     "ecg",
+     "electrolytes"
+    ]
+   }
+  ]
+ },
  "dexmedetomidine": {
-  "cis": "64729383",
+  "page": "64729383",
   "denomination": "DEXMEDETOMIDINE EVER PHARMA 100 microgrammes/mL, solution à diluer pour perfusion",
   "candidates": [
    {
@@ -2179,7 +2416,7 @@
   ]
  },
  "diazepam": {
-  "cis": "60290800",
+  "page": "60290800",
   "denomination": "VALIUM 10 mg, comprimé sécable",
   "candidates": [
    {
@@ -2194,7 +2431,7 @@
   ]
  },
  "disulfiram": {
-  "cis": "61500746",
+  "page": "61500746",
   "denomination": "ESPERAL 500 mg, comprimé",
   "candidates": [
    {
@@ -2227,7 +2464,7 @@
   ]
  },
  "domperidone": {
-  "cis": "60764337",
+  "page": "60764337",
   "denomination": "DOMPERIDONE EG 10 mg, comprimé orodispersible",
   "candidates": [
    {
@@ -2261,7 +2498,7 @@
   ]
  },
  "donepezil": {
-  "cis": "62262995",
+  "page": "62262995",
   "denomination": "ARICEPT 5 mg, comprimé orodispersible",
   "candidates": [
    {
@@ -2304,7 +2541,7 @@
   ]
  },
  "doxylamine": {
-  "cis": "62382724",
+  "page": "62382724",
   "denomination": "DONORMYL 15 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -2320,7 +2557,7 @@
   ]
  },
  "duloxetine": {
-  "cis": "60299831",
+  "page": "60299831",
   "denomination": "DULOXETINE ALMUS 60 mg, gélule gastro-résistante",
   "candidates": [
    {
@@ -2381,7 +2618,7 @@
   ]
  },
  "entacapone": {
-  "cis": "65562898",
+  "page": "65562898",
   "denomination": "ENTACAPONE VIATRIS 200 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -2406,7 +2643,7 @@
   ]
  },
  "ephedrine": {
-  "cis": "60149276",
+  "page": "60149276",
   "denomination": "EPHEDRINE AGUETTANT 3 mg/ml, solution injectable en seringue préremplie",
   "candidates": [
    {
@@ -2421,7 +2658,7 @@
   ]
  },
  "escitalopram": {
-  "cis": "60474889",
+  "page": "60474889",
   "denomination": "SEROPLEX 15 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -2500,7 +2737,7 @@
   ]
  },
  "esketamine": {
-  "cis": "60811559",
+  "page": "60811559",
   "denomination": "ESKESIA 25 mg/mL, solution injectable/pour perfusion",
   "candidates": [
    {
@@ -2543,7 +2780,7 @@
   ]
  },
  "ethosuximide": {
-  "cis": "68481191",
+  "page": "68481191",
   "denomination": "ZARONTIN 250 mg/5 ml, sirop",
   "candidates": [
    {
@@ -2587,7 +2824,7 @@
   ]
  },
  "etomidate": {
-  "cis": "63444171",
+  "page": "63444171",
   "denomination": "HYPNOMIDATE 2 mg/ml, solution injectable",
   "candidates": [
    {
@@ -2629,7 +2866,7 @@
   ]
  },
  "fenfluramine": {
-  "cis": "62154820",
+  "page": "62154820",
   "denomination": "FINTEPLA 2,2 mg/mL, solution buvable",
   "candidates": [
    {
@@ -2728,7 +2965,7 @@
   ]
  },
  "fentanyl": {
-  "cis": "60282999",
+  "page": "60282999",
   "denomination": "ABSTRAL 400 microgrammes, comprimé sublingual",
   "candidates": [
    {
@@ -2743,7 +2980,7 @@
   ]
  },
  "flumazenil": {
-  "cis": "67248985",
+  "page": "67248985",
   "denomination": "FLUMAZENIL HIKMA 0,1 mg/mL, solution injectable/pour perfusion",
   "candidates": [
    {
@@ -2769,7 +3006,7 @@
   ]
  },
  "fluoxetine": {
-  "cis": "60338857",
+  "page": "60338857",
   "denomination": "FLUOXETINE BIOGARAN 20 mg, comprimé dispersible sécable",
   "candidates": [
    {
@@ -2858,7 +3095,7 @@
   ]
  },
  "flupenthixol": {
-  "cis": "62571671",
+  "page": "62571671",
   "denomination": "FLUANXOL 4 %, solution buvable",
   "candidates": [
    {
@@ -2882,7 +3119,7 @@
   ]
  },
  "fluvoxamine": {
-  "cis": "60439525",
+  "page": "60439525",
   "denomination": "FLOXYFRAL 100 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -2935,7 +3172,7 @@
   ]
  },
  "furosemide": {
-  "cis": "61547571",
+  "page": "61547571",
   "denomination": "LASILIX SPECIAL 500 mg, comprimé sécable",
   "candidates": [
    {
@@ -3023,7 +3260,7 @@
   ]
  },
  "gabapentin": {
-  "cis": "61022591",
+  "page": "61022591",
   "denomination": "NEURONTIN 400 mg, gélule",
   "candidates": [
    {
@@ -3074,7 +3311,7 @@
   ]
  },
  "galantamine": {
-  "cis": "63358402",
+  "page": "63358402",
   "denomination": "GALANTAMINE BIOGARAN LP 8 mg, gélule à libération prolongée",
   "candidates": [
    {
@@ -3108,7 +3345,7 @@
   ]
  },
  "granisetron": {
-  "cis": "63420868",
+  "page": "63420868",
   "denomination": "KYTRIL 2 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -3123,8 +3360,113 @@
    }
   ]
  },
+ "guanfacine": {
+  "page": "EMEA-H-C-003759",
+  "denomination": "Intuniv (EMEA/H/C/003759)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Avant de prescrire le médicament, une évaluation initiale doit être réalisée afin d’identifier les patients présentant un risque accru de somnolence et de sédation, d’hypotension et de bradycardie, d’allongement de l’intervalle QT ou d’arythmies, de prise de poids ou d’obésité. Cette évaluation doit comprendre l’état cardiovasculaire du patient, incluant la pression artérielle et la fréquence cardiaque, une anamnèse complète documentant les traitements concomitants, les troubles ou symptômes médicaux et psychiatriques associés passés et présents, les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué. Une mesure précise du poids et de la taille avant le traitement doit être réalisée et inscrite sur une courbe de croissance (voir rubrique 4.4).",
+    "tests": [
+     "ecg",
+     "blood_pressure",
+     "heart_rate",
+     "weight"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "En fonction de la réponse du patient et sa tolérance à la guanfacine, la dose d’entretien recommandée est de 0,05 à 0,12 mg/kg par jour. Le schéma de titration de la dose recommandé chez les enfants et adolescents est présenté ci-dessous (voir tableaux 1 et 2). Après la dose initiale, la dose peut être ajustée (augmentée ou diminuée) à tout moment à l'intervalle d’une semaine jusqu’à la dose maximale tolérée dans la fourchette des doses optimales recommandées par rapport au poids, en fonction du jugement clinique de la réponse et de la tolérance.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.2",
+    "under": "",
+    "quote": "En cas d’arrêt du traitement, la dose doit être diminuée progressivement par paliers de 1 mg au maximum tous les 3 à 7 jours et la pression artérielle et la fréquence cardiaque doivent être surveillées afin de minimiser d’éventuels effets de sevrage, en particulier des augmentations de la pression artérielle et de la fréquence cardiaque (voir rubrique 4.4).",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "Avant l’instauration du traitement, une évaluation de l’état cardiovasculaire du patient, incluant les paramètres de fréquence cardiaque et de pression artérielle et les antécédents familiaux de mort subite d’origine cardiaque ou de décès inexpliqué doit être réalisée afin d’identifier les patients présentant un risque accru d’hypotension, de bradycardie et d’allongement de l’intervalle QT ou un risque d’arythmies. Les mesures de la fréquence cardiaque et de la pression artérielle doivent être poursuivies une fois par semaine pendant les périodes de titration et de stabilisation de la dose, puis au moins tous les trois mois pendant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose.",
+    "tests": [
+     "ecg",
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "La prudence est recommandée lors du traitement par guanfacine chez des patients ayant des antécédents d’hypotension, de bloc cardiaque, de bradycardie ou de maladie cardiovasculaire ou chez les patients ayant des antécédents de syncope ou présentant un état susceptible de les prédisposer aux syncopes, par exemple hypotension, hypotension orthostatique, bradycardie ou déshydratation. La prudence est également recommandée en cas d’administration chez des patients recevant un traitement concomitant par des antihypertenseurs ou par d’autres médicaments pouvant entraîner une diminution de la pression artérielle ou de la fréquence cardiaque ou majorer le risque de syncope (voir rubrique 4.5). Il doit être recommandé aux patients de boire abondamment.",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "La pression artérielle et la fréquence cardiaque peuvent augmenter après l’arrêt du traitement par guanfacine. Depuis la commercialisation, de très rares cas d’encéphalopathie hypertensive ont été rapportés après l’arrêt brutal du traitement (voir rubrique 4.8). Pour minimiser le risque d’augmentation de la pression artérielle après l’arrêt du traitement, la dose quotidienne totale doit être diminuée progressivement par paliers de 1 mg au maximum tous les 3 à 7 jours (voir rubrique 4.2). La pression artérielle et la fréquence cardiaque doivent être surveillées lors d’une réduction de la dose ou de l’arrêt du traitement.",
+    "tests": [
+     "blood_pressure",
+     "heart_rate"
+    ]
+   },
+   {
+    "index": 6,
+    "section": "4.4",
+    "under": "",
+    "quote": "Dans les études de phases II et III randomisées en double aveugle en monothérapie, des augmentations de l’intervalle QTc corrigé selon les formules de Fridericia et de Bazett représentant une variation > 60 ms par rapport à la valeur initiale ont été observées chez respectivement 0 (0 %) et 2 (0,3%) des patients recevant le placebo et 1 (0,1 %) et 1 (0,1 %) des patients traités par la guanfacine.",
+    "tests": [
+     "ecg"
+    ]
+   },
+   {
+    "index": 7,
+    "section": "4.4",
+    "under": "",
+    "quote": "Depuis la commercialisation, des cas de prolongation de l’intervalle QT/QTc ont été rapportés (voir rubrique 4.8). En cas de prolongation de l’intervalle QT à l’électrocardiogramme, il peut être envisagé, en fonction du jugement clinique, de réduire la dose ou d’arrêter le traitement (voir rubrique 4.2).",
+    "tests": [
+     "ecg"
+    ]
+   },
+   {
+    "index": 8,
+    "section": "4.4",
+    "under": "",
+    "quote": "La guanfacine doit être prescrite avec précaution chez les patients ayant des antécédents connus d’allongement de l’intervalle QT, des facteurs de risque de torsades de pointe (par exemple bloc cardiaque, bradycardie, hypokaliémie) ou chez les patients recevant des médicaments connus pour entraîner un allongement de l’intervalle QT (voir rubrique 4.5). Un bilan cardiaque supplémentaire doit être réalisé chez ces patients selon l'appréciation clinique du médecin (voir rubrique 4.8).",
+    "tests": [
+     "ecg",
+     "electrolytes"
+    ]
+   },
+   {
+    "index": 9,
+    "section": "4.4",
+    "under": "",
+    "quote": "Les enfants et adolescents traités par guanfacine peuvent présenter une augmentation de l’IMC. Par conséquent, la taille, le poids et l’IMC doivent être contrôlés avant l’instauration du traitement puis tous les trois mois durant la première année, selon l'appréciation clinique du médecin. Par la suite, des contrôles doivent être effectués tous les six mois, avec une surveillance plus fréquente après tout ajustement de la dose.",
+    "tests": [
+     "weight"
+    ]
+   }
+  ]
+ },
  "haloperidol": {
-  "cis": "61490049",
+  "page": "61490049",
   "denomination": "HALDOL 1 mg, comprimé",
   "candidates": [
    {
@@ -3175,7 +3517,7 @@
   ]
  },
  "hydromorphone": {
-  "cis": "63771924",
+  "page": "63771924",
   "denomination": "SOPHIDONE L.P. 8 mg, gélule à libération prolongée",
   "candidates": [
    {
@@ -3199,7 +3541,7 @@
   ]
  },
  "hydroxyzine": {
-  "cis": "61162294",
+  "page": "61162294",
   "denomination": "ATARAX 2 mg/mL, sirop",
   "candidates": [
    {
@@ -3260,7 +3602,7 @@
   ]
  },
  "imipramine": {
-  "cis": "67117128",
+  "page": "67117128",
   "denomination": "TOFRANIL 25 mg, comprimé enrobé",
   "candidates": [
    {
@@ -3311,7 +3653,7 @@
   ]
  },
  "isoflurane": {
-  "cis": "63498500",
+  "page": "63498500",
   "denomination": "AERRANE, liquide pour inhalation par vapeur",
   "candidates": [
    {
@@ -3327,7 +3669,7 @@
   ]
  },
  "ketamine": {
-  "cis": "62768665",
+  "page": "62768665",
   "denomination": "KETAMINE PANPHARMA 10 mg/mL, solution injectable (I.V.-I.M.)",
   "candidates": [
    {
@@ -3360,7 +3702,7 @@
   ]
  },
  "lacosamide": {
-  "cis": "60575525",
+  "page": "60575525",
   "denomination": "LACOSAMIDE EG 100 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -3456,7 +3798,7 @@
   ]
  },
  "lamotrigine": {
-  "cis": "61043653",
+  "page": "61043653",
   "denomination": "LAMICTAL 2 mg, comprimé dispersible ou à croquer",
   "candidates": [
    {
@@ -3573,7 +3915,7 @@
   ]
  },
  "levetiracetam": {
-  "cis": "60591091",
+  "page": "60591091",
   "denomination": "LEVIDCEN 1000 mg, granulés enrobés en sachet",
   "candidates": [
    {
@@ -3689,7 +4031,7 @@
   ]
  },
  "levodopa": {
-  "cis": "60092590",
+  "page": "60092590",
   "denomination": "SINEMET 250 mg/25 mg, comprimé sécable",
   "candidates": [
    {
@@ -3713,7 +4055,7 @@
   ]
  },
  "levomepromazine": {
-  "cis": "64026417",
+  "page": "64026417",
   "denomination": "NOZINAN 25 mg/ml, solution injectable en ampoule (I.M.)",
   "candidates": [
    {
@@ -3776,7 +4118,7 @@
   ]
  },
  "lisdexamfetamine": {
-  "cis": "64274416",
+  "page": "64274416",
   "denomination": "XURTA 50 mg, gélule",
   "candidates": [
    {
@@ -3914,7 +4256,7 @@
   ]
  },
  "lithium": {
-  "cis": "62124478",
+  "page": "62124478",
   "denomination": "TERALITHE 250 mg, comprimé sécable",
   "candidates": [
    {
@@ -4199,7 +4541,7 @@
   ]
  },
  "lormetazepam": {
-  "cis": "60186584",
+  "page": "60186584",
   "denomination": "LORMETAZEPAM ARROW 2 mg, comprimé sécable",
   "candidates": [
    {
@@ -4224,7 +4566,7 @@
   ]
  },
  "loxapine": {
-  "cis": "64162292",
+  "page": "64162292",
   "denomination": "LOXAPAC 25 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -4274,8 +4616,69 @@
    }
   ]
  },
+ "lurasidone": {
+  "page": "EMEA-H-C-002713",
+  "denomination": "Latuda (EMEA/H/C/002713)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Sujets âgés Chez les patients âgés ayant une fonction rénale normale (Clcr ≥ 80 ml/min), la dose recommandée est la même que chez les patients adultes ayant une fonction rénale normale. Toutefois, compte-tenu que les patients âgés peuvent avoir une fonction rénale altérée, des ajustements de la posologie peuvent être nécessaires en fonction du bilan fonctionnel rénal (voir la rubrique « Insuffisance rénale » ci-dessous).",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 1,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale Aucun ajustement de la posologie de lurasidone n’est nécessaire chez les patients présentant une insuffisance rénale légère. Chez les patients en insuffisance rénale modérée (clairance de la créatinine [Clcr] ≥ 30 et < 50 ml/min), sévère (Clcr >15 et < 30 ml/min) ou en insuffisance rénale chronique terminale (IRCT) (Clcr <15 ml/min), la dose initiale recommandée est de 18,5 mg et la dose maximale ne doit pas dépasser 74 mg une fois par jour. La lurasidone ne doit être administrée aux patients en IRCT que si les bénéfices potentiels sont supérieurs aux risques potentiels. En cas d’administration chez des patients en IRCT, une surveillance médicale est conseillée.",
+    "tests": [
+     "renal_function"
+    ]
+   },
+   {
+    "index": 2,
+    "section": "4.4",
+    "under": "",
+    "quote": "La prudence est recommandée lorsque la lurasidone est prescrite à des patients atteints d’une maladie cardiovasculaire avérée ou présentant des antécédents familiaux d’allongement de l’intervalle QT ou d’hypokaliémie, ou lors de l’administration concomitante avec d’autres médicaments qui entraînent un allongement de l’intervalle QT.",
+    "tests": [
+     "ecg",
+     "electrolytes"
+    ]
+   },
+   {
+    "index": 3,
+    "section": "4.4",
+    "under": "",
+    "quote": "La lurasidone induit une augmentation des taux de prolactine en raison de ses propriétés antagonistes des récepteurs dopaminergiques D2. Les patients doivent être informés des signes et symptômes d’une augmentation de la prolactine, tels que gynécomastie, galactorrhée, aménorrhée et dysfonction érectile. Il est conseillé aux patients de consulter un médecin s’ils présentent des signes et des symptômes.",
+    "tests": [
+     "prolactin"
+    ]
+   },
+   {
+    "index": 4,
+    "section": "4.4",
+    "under": "",
+    "quote": "Une prise de poids a été observée lors de l’utilisation d’antipsychotiques atypiques. Une surveillance clinique du poids est recommandée.",
+    "tests": [
+     "weight"
+    ]
+   },
+   {
+    "index": 5,
+    "section": "4.4",
+    "under": "",
+    "quote": "De rares cas d’effets indésirables liés au glucose (par ex. augmentation de la glycémie) ont été rapportés lors d’études cliniques menées avec la lurasidone. Une surveillance clinique adaptée est conseillée chez les patients diabétiques et les patients présentant des facteurs de risque de diabète de type II.",
+    "tests": [
+     "glycaemia"
+    ]
+   }
+  ]
+ },
  "maprotiline": {
-  "cis": "63912862",
+  "page": "63912862",
   "denomination": "LUDIOMIL 25 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -4318,7 +4721,7 @@
   ]
  },
  "melatonin": {
-  "cis": "63820563",
+  "page": "63820563",
   "denomination": "ADAFLEX 2 mg, comprimé",
   "candidates": [
    {
@@ -4361,7 +4764,7 @@
   ]
  },
  "memantine": {
-  "cis": "60151124",
+  "page": "60151124",
   "denomination": "MEMANTINE ARROW LAB 10 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -4376,7 +4779,7 @@
   ]
  },
  "methadone": {
-  "cis": "60998856",
+  "page": "60998856",
   "denomination": "METHADONE AP-HP 10 mg, gélule",
   "candidates": [
    {
@@ -4473,7 +4876,7 @@
   ]
  },
  "methylphenidate_dl": {
-  "cis": "60047182",
+  "page": "60047182",
   "denomination": "CONCERTA LP 54 mg, comprimé à libération prolongée",
   "candidates": [
    {
@@ -4617,7 +5020,7 @@
   ]
  },
  "metoclopramide": {
-  "cis": "61729093",
+  "page": "61729093",
   "denomination": "PRIMPERAN 10 mg/2 ml, solution injectable en ampoule",
   "candidates": [
    {
@@ -4669,7 +5072,7 @@
   ]
  },
  "mianserin": {
-  "cis": "60854845",
+  "page": "60854845",
   "denomination": "MIANSERINE ARROW 30 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -4703,7 +5106,7 @@
   ]
  },
  "midazolam": {
-  "cis": "62149015",
+  "page": "62149015",
   "denomination": "OZALIN 2 mg/mL, solution buvable en récipient unidose",
   "candidates": [
    {
@@ -4763,7 +5166,7 @@
   ]
  },
  "milnacipran": {
-  "cis": "60068034",
+  "page": "60068034",
   "denomination": "MILNACIPRAN EG 25 mg, gélule",
   "candidates": [
    {
@@ -4835,7 +5238,7 @@
   ]
  },
  "mirtazapine": {
-  "cis": "65124914",
+  "page": "65124914",
   "denomination": "NORSET 15 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -4886,7 +5289,7 @@
   ]
  },
  "moclobemide": {
-  "cis": "62439997",
+  "page": "62439997",
   "denomination": "MOCLAMINE 150 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -4901,7 +5304,7 @@
   ]
  },
  "modafinil": {
-  "cis": "66805883",
+  "page": "66805883",
   "denomination": "MODIODAL 100 mg, comprimé",
   "candidates": [
    {
@@ -4944,7 +5347,7 @@
   ]
  },
  "morphine": {
-  "cis": "60328261",
+  "page": "60328261",
   "denomination": "ACTISKENAN 5 mg, comprimé orodispersible",
   "candidates": [
    {
@@ -4977,7 +5380,7 @@
   ]
  },
  "nalmefene": {
-  "cis": "63957761",
+  "page": "63957761",
   "denomination": "SELINCRO 18 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -4992,7 +5395,7 @@
   ]
  },
  "naloxone": {
-  "cis": "62968616",
+  "page": "62968616",
   "denomination": "PRENOXAD 0,91 mg/ml, solution injectable en seringue préremplie",
   "candidates": [
    {
@@ -5025,7 +5428,7 @@
   ]
  },
  "naltrexone": {
-  "cis": "60370919",
+  "page": "60370919",
   "denomination": "NALTREXONE VIATRIS 50 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -5058,7 +5461,7 @@
   ]
  },
  "nicotine": {
-  "cis": "60052222",
+  "page": "60052222",
   "denomination": "NICOTINELL 1 mg/dose, solution pour pulvérisation buccale",
   "candidates": [
    {
@@ -5082,7 +5485,7 @@
   ]
  },
  "olanzapine": {
-  "cis": "60126594",
+  "page": "60126594",
   "denomination": "OLANZAPINE VIATRIS 5 mg, comprimé orodispersible",
   "candidates": [
    {
@@ -5194,7 +5597,7 @@
   ]
  },
  "ondansetron": {
-  "cis": "60530882",
+  "page": "60530882",
   "denomination": "ZOPHREN 4 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -5228,7 +5631,7 @@
   ]
  },
  "oxcarbazepine": {
-  "cis": "61556061",
+  "page": "61556061",
   "denomination": "TRILEPTAL 300 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -5421,7 +5824,7 @@
   ]
  },
  "oxycodone": {
-  "cis": "60629186",
+  "page": "60629186",
   "denomination": "OXYNORM 20 mg, gélule",
   "candidates": [
    {
@@ -5455,7 +5858,7 @@
   ]
  },
  "paliperidone": {
-  "cis": "64582563",
+  "page": "64582563",
   "denomination": "PALIPERIDONE TEVA 75 mg, suspension injectable à libération prolongée",
   "candidates": [
    {
@@ -5570,7 +5973,7 @@
   ]
  },
  "paroxetine": {
-  "cis": "60160707",
+  "page": "60160707",
   "denomination": "DEROXAT 20 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -5641,7 +6044,7 @@
   ]
  },
  "perampanel": {
-  "cis": "61849146",
+  "page": "61849146",
   "denomination": "FYCOMPA 12 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -5692,7 +6095,7 @@
   ]
  },
  "phenobarbital": {
-  "cis": "61475588",
+  "page": "61475588",
   "denomination": "GARDENAL 100 mg, comprimé",
   "candidates": [
    {
@@ -5743,7 +6146,7 @@
   ]
  },
  "phenytoin": {
-  "cis": "62436200",
+  "page": "62436200",
   "denomination": "DILANTIN 250 mg/5 ml, solution injectable",
   "candidates": [
    {
@@ -5914,7 +6317,7 @@
   ]
  },
  "pimozide": {
-  "cis": "60625647",
+  "page": "60625647",
   "denomination": "ORAP 4 mg, comprimé",
   "candidates": [
    {
@@ -5975,7 +6378,7 @@
   ]
  },
  "pipamperone": {
-  "cis": "64210075",
+  "page": "64210075",
   "denomination": "DIPIPERON 40 mg/ml, solution buvable en gouttes",
   "candidates": [
    {
@@ -5999,7 +6402,7 @@
   ]
  },
  "pipothiazine": {
-  "cis": "62000861",
+  "page": "62000861",
   "denomination": "PIPORTIL L4 25 mg/ml, solution injectable en ampoule (I.M.)",
   "candidates": [
    {
@@ -6033,7 +6436,7 @@
   ]
  },
  "pitolisant": {
-  "cis": "60227166",
+  "page": "60227166",
   "denomination": "OZAWADE 18 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -6057,7 +6460,7 @@
   ]
  },
  "pramipexole": {
-  "cis": "61129497",
+  "page": "61129497",
   "denomination": "PRAMIPEXOLE ARROW LAB 0,18 mg, comprimé sécable",
   "candidates": [
    {
@@ -6135,7 +6538,7 @@
   ]
  },
  "pregabalin": {
-  "cis": "60061602",
+  "page": "60061602",
   "denomination": "PREGABALINE TEVA SANTE 200 mg, gélule",
   "candidates": [
    {
@@ -6205,7 +6608,7 @@
   ]
  },
  "primidone": {
-  "cis": "65201684",
+  "page": "65201684",
   "denomination": "MYSOLINE 250 mg, comprimé sécable",
   "candidates": [
    {
@@ -6265,7 +6668,7 @@
   ]
  },
  "promethazine": {
-  "cis": "69646945",
+  "page": "69646945",
   "denomination": "PHENERGAN 2,5 POUR CENT, solution injectable",
   "candidates": [
    {
@@ -6280,7 +6683,7 @@
   ]
  },
  "propofol": {
-  "cis": "60616445",
+  "page": "60616445",
   "denomination": "DIPRIVAN 10 mg/mL, émulsion injectable en seringue pré-remplie",
   "candidates": [
    {
@@ -6413,7 +6816,7 @@
   ]
  },
  "propranolol": {
-  "cis": "62914611",
+  "page": "62914611",
   "denomination": "KARNODYL 5 mg/5 ml, solution injectable en ampoule",
   "candidates": [
    {
@@ -6456,7 +6859,7 @@
   ]
  },
  "quetiapine": {
-  "cis": "60078765",
+  "page": "60078765",
   "denomination": "QUETIAPINE ACCORD HEALTHCARE LP 400 mg, comprimé à libération prolongée",
   "candidates": [
    {
@@ -6595,7 +6998,7 @@
   ]
  },
  "rimegepant": {
-  "cis": "65899221",
+  "page": "65899221",
   "denomination": "VYDURA 75 mg, lyophilisat oral",
   "candidates": [
    {
@@ -6619,7 +7022,7 @@
   ]
  },
  "risperidone": {
-  "cis": "60260497",
+  "page": "60260497",
   "denomination": "RISPERDAL 2 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -6719,7 +7122,7 @@
   ]
  },
  "rivastigmine": {
-  "cis": "60557826",
+  "page": "60557826",
   "denomination": "RIVASTIGMINE VIATRIS 3 mg, gélule",
   "candidates": [
    {
@@ -6753,7 +7156,7 @@
   ]
  },
  "rizatriptan": {
-  "cis": "64983766",
+  "page": "64983766",
   "denomination": "MAXALT 10 mg, comprimé",
   "candidates": [
    {
@@ -6777,7 +7180,7 @@
   ]
  },
  "ropinirole": {
-  "cis": "61497951",
+  "page": "61497951",
   "denomination": "REQUIP 0,25 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -6828,7 +7231,7 @@
   ]
  },
  "rotigotine": {
-  "cis": "63205730",
+  "page": "63205730",
   "denomination": "ROTIGOTINE ARROW 8 mg/24 heures, dispositif transdermique",
   "candidates": [
    {
@@ -6887,8 +7290,23 @@
    }
   ]
  },
+ "safinamide": {
+  "page": "61882445",
+  "denomination": "XADAGO 50 mg, comprimé pelliculé",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "Le safinamide ne doit pas être administré aux patients présentant des antécédents ophtalmologiques pouvant les exposer à un risque accru d’éventuels effets sur la rétine (par ex., antécédents familiaux de maladie héréditaire de la rétine ou antécédents d’uvéite), voir rubriques 4.3 et 5.3.",
+    "tests": [
+     "eye_exam"
+    ]
+   }
+  ]
+ },
  "scopolamine": {
-  "cis": "63958849",
+  "page": "63958849",
   "denomination": "SCOPODERM TTS 1 mg/72 heures, dispositif transdermique",
   "candidates": [
    {
@@ -6903,7 +7321,7 @@
   ]
  },
  "selegiline": {
-  "cis": "60498751",
+  "page": "60498751",
   "denomination": "DEPRENYL 5 mg, comprimé sécable",
   "candidates": [
    {
@@ -6918,7 +7336,7 @@
   ]
  },
  "sertraline": {
-  "cis": "60155788",
+  "page": "60155788",
   "denomination": "ZOLOFT 25 mg, gélule",
   "candidates": [
    {
@@ -6988,7 +7406,7 @@
   ]
  },
  "sevoflurane": {
-  "cis": "67329056",
+  "page": "67329056",
   "denomination": "SEVOFLURANE BAXTER 1 ml/ml, liquide pour inhalation par vapeur",
   "candidates": [
    {
@@ -7060,7 +7478,7 @@
   ]
  },
  "sildenafil": {
-  "cis": "61021436",
+  "page": "61021436",
   "denomination": "SILANDYLTEC 25 mg, film orodispersible",
   "candidates": [
    {
@@ -7111,7 +7529,7 @@
   ]
  },
  "sodium_oxybate": {
-  "cis": "67300599",
+  "page": "67300599",
   "denomination": "OXYBATE DE SODIUM KALCEKS 500 mg/mL, solution buvable",
   "candidates": [
    {
@@ -7145,7 +7563,7 @@
   ]
  },
  "solriamfetol": {
-  "cis": "64617815",
+  "page": "64617815",
   "denomination": "SUNOSI 150 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -7217,7 +7635,7 @@
   ]
  },
  "sulpiride": {
-  "cis": "62344129",
+  "page": "62344129",
   "denomination": "DOGMATIL 50 mg, gélule",
   "candidates": [
    {
@@ -7278,7 +7696,7 @@
   ]
  },
  "sumatriptan": {
-  "cis": "64676030",
+  "page": "64676030",
   "denomination": "IMIGRANE 50 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -7292,8 +7710,23 @@
    }
   ]
  },
+ "tasimelteon": {
+  "page": "EMEA-H-C-003870",
+  "denomination": "Hetlioz (EMEA/H/C/003870)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.4",
+    "under": "",
+    "quote": "Il convient de faire preuve de prudence en cas d'administration concomitante de tasimeltéon et de fluvoxamine ou d'autres inhibiteurs puissants du CYP1A2, en particulier ceux qui inhibent également d’autres enzymes impliquées dans la clairance de tasimeltéon, en raison d'une augmentation potentiellement importante de l'exposition au tasimeltéon et d'un risque accru d'effets indésirables (voir rubrique 4.5).",
+    "tests": [
+     "renal_function"
+    ]
+   }
+  ]
+ },
  "tetrabenazine": {
-  "cis": "62463044",
+  "page": "62463044",
   "denomination": "XENAZINE 25 mg, comprimé sécable",
   "candidates": [
    {
@@ -7364,7 +7797,7 @@
   ]
  },
  "tiagabine": {
-  "cis": "60058517",
+  "page": "60058517",
   "denomination": "GABITRIL 10 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -7406,7 +7839,7 @@
   ]
  },
  "tiapride": {
-  "cis": "67890598",
+  "page": "67890598",
   "denomination": "TIAPRIDAL 100 mg, comprimé sécable",
   "candidates": [
    {
@@ -7458,7 +7891,7 @@
   ]
  },
  "tolcapone": {
-  "cis": "67077388",
+  "page": "67077388",
   "denomination": "TASMAR 100 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -7536,7 +7969,7 @@
   ]
  },
  "topiramate": {
-  "cis": "61913385",
+  "page": "61913385",
   "denomination": "EPITOMAX 100 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -7695,7 +8128,7 @@
   ]
  },
  "tramadol": {
-  "cis": "60344529",
+  "page": "60344529",
   "denomination": "MONOCRIXO L.P. 150 mg, gélule à libération prolongée (UNE PRISE QUOTIDIENNE)",
   "candidates": [
    {
@@ -7738,7 +8171,7 @@
   ]
  },
  "trimipramine": {
-  "cis": "63344192",
+  "page": "63344192",
   "denomination": "SURMONTIL 25 mg, comprimé",
   "candidates": [
    {
@@ -7771,7 +8204,7 @@
   ]
  },
  "valproate": {
-  "cis": "60184188",
+  "page": "60184188",
   "denomination": "DEPAKINE 500 mg, comprimé gastro-résistant",
   "candidates": [
    {
@@ -8014,7 +8447,7 @@
   ]
  },
  "varenicline": {
-  "cis": "60442838",
+  "page": "60442838",
   "denomination": "CHAMPIX 1 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -8056,7 +8489,7 @@
   ]
  },
  "venlafaxine": {
-  "cis": "61403425",
+  "page": "61403425",
   "denomination": "EFFEXOR L.P. 75 mg, gélule à libération prolongée",
   "candidates": [
    {
@@ -8134,7 +8567,7 @@
   ]
  },
  "vigabatrin": {
-  "cis": "61139833",
+  "page": "61139833",
   "denomination": "SABRIL 500 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -8302,7 +8735,7 @@
   ]
  },
  "vortioxetine": {
-  "cis": "60316362",
+  "page": "60316362",
   "denomination": "BRINTELLIX 20 mg, comprimé pelliculé",
   "candidates": [
    {
@@ -8344,7 +8777,7 @@
   ]
  },
  "zolpidem": {
-  "cis": "63179285",
+  "page": "63179285",
   "denomination": "STILNOX 10 mg, comprimé pelliculé sécable",
   "candidates": [
    {
@@ -8359,7 +8792,7 @@
   ]
  },
  "zonisamide": {
-  "cis": "62741554",
+  "page": "62741554",
   "denomination": "ZONISAMIDE SANDOZ 100 mg, gélule",
   "candidates": [
    {
@@ -8501,7 +8934,7 @@
   ]
  },
  "zuclopenthixol": {
-  "cis": "60209937",
+  "page": "60209937",
   "denomination": "CLOPIXOL 2 POUR CENT, solution buvable en gouttes",
   "candidates": [
    {
@@ -8529,6 +8962,21 @@
     "quote": "L’utilisation de ce médicament est dangereuse chez les sujets alcooliques et doit être prise en compte chez les femmes enceintes ou allaitant, les enfants et les groupes à haut risque tels que les insuffisants hépatiques ou les épileptiques.",
     "tests": [
      "pregnancy_test"
+    ]
+   }
+  ]
+ },
+ "zuranolone": {
+  "page": "EMEA-H-C-006488",
+  "denomination": "Zurzuvae (EMEA/H/C/006488)",
+  "candidates": [
+   {
+    "index": 0,
+    "section": "4.2",
+    "under": "",
+    "quote": "Insuffisance rénale La dose recommandée chez les patientes présentant une insuffisance rénale modérée (débit de filtration glomérulaire estimé [DFGe] de 30 à 59 mL/min) ou sévère (DFGe < 30 mL/min sans dépendance à la dialyse) est de 30 mg par voie orale, en une prise par jour au cours de la période de traitement de 14 jours. Aucun ajustement de la dose n’est nécessaire chez les patientes présentant une insuffisance rénale légère (DFGe de 60 à 89 mL/min) (voir rubrique 5.2).",
+    "tests": [
+     "renal_function"
     ]
    }
   ]

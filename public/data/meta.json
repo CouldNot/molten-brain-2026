@@ -11255,18 +11255,23 @@
       "page_url": "https://base-donnees-publique.medicaments.gouv.fr/extrait.php?specid={page}"
     },
     "bdpm_rcp": {
-      "ref": "Base de données publique des médicaments (ANSM), RCP sections 4.2-4.4",
-      "citation": "ANSM / Ministère de la Santé. Base de données publique des médicaments, résumé des caractéristiques du produit (RCP) of the cited product, sections 4.2, 4.3 and 4.4. base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS code pinned per citation).",
+      "ref": "Base de données publique des médicaments (ANSM) or EMA EPAR, RCP sections 4.2-4.4",
+      "citation": "ANSM / Ministère de la Santé. Base de données publique des médicaments, résumé des caractéristiques du produit (RCP) of the cited product, sections 4.2, 4.3 and 4.4. base-donnees-publique.medicaments.gouv.fr (Licence Ouverte; CIS code pinned per citation). For a centrally authorised product, the European Medicines Agency's EPAR product information (SmPC, French version), ema.europa.eu (EMA product number pinned per citation).",
       "url": "https://base-donnees-publique.medicaments.gouv.fr/",
       "pages_dir": "data_sources/bdpm/pages_rcp4",
       "editable": true,
-      "page_kind": "cis",
+      "page_kind": "product",
       "page_url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/{page}/extrait",
       "page_urls": {
         "61680130": "https://www.ema.europa.eu/fr/documents/product-information/epidyolex-epar-product-information_fr.pdf",
         "62154820": "https://www.ema.europa.eu/fr/documents/product-information/fintepla-epar-product-information_fr.pdf",
         "64617815": "https://www.ema.europa.eu/fr/documents/product-information/sunosi-epar-product-information_fr.pdf",
-        "67077388": "https://www.ema.europa.eu/fr/documents/product-information/tasmar-epar-product-information_fr.pdf"
+        "67077388": "https://www.ema.europa.eu/fr/documents/product-information/tasmar-epar-product-information_fr.pdf",
+        "EMEA-H-C-001177": "https://www.ema.europa.eu/fr/documents/product-information/sycrest-epar-product-information_fr.pdf",
+        "EMEA-H-C-002713": "https://www.ema.europa.eu/fr/documents/product-information/latuda-epar-product-information_fr.pdf",
+        "EMEA-H-C-002770": "https://www.ema.europa.eu/fr/documents/product-information/reagila-epar-product-information_fr.pdf",
+        "EMEA-H-C-003759": "https://www.ema.europa.eu/fr/documents/product-information/intuniv-epar-product-information_fr.pdf",
+        "EMEA-H-C-003841": "https://www.ema.europa.eu/fr/documents/product-information/rxulti-epar-product-information_fr.pdf"
       }
     },
     "cpic": {
@@ -11934,8 +11939,8 @@
         "unknown": 0
       },
       "drug_workup": {
-        "total": 227,
-        "verified": 227,
+        "total": 246,
+        "verified": 246,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -12215,15 +12220,15 @@
       }
     },
     "nodes": {
-      "total": 10107,
-      "verified": 9366,
+      "total": 10126,
+      "verified": 9385,
       "uncertain": 435,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 667,
-      "backed": 9801,
+      "backed": 9820,
       "pct_backed": 97
     },
     "ki_coverage": {

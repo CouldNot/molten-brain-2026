@@ -6,13 +6,22 @@
   "60579228": "https://www.ema.europa.eu/fr/documents/product-information/briviact-epar-product-information_fr.pdf",
   "61680130": "https://www.ema.europa.eu/fr/documents/product-information/epidyolex-epar-product-information_fr.pdf",
   "61849146": "https://www.ema.europa.eu/fr/documents/product-information/fycompa-epar-product-information_fr.pdf",
+  "61882445": "https://www.ema.europa.eu/fr/documents/product-information/xadago-epar-product-information_fr.pdf",
   "62154820": "https://www.ema.europa.eu/fr/documents/product-information/fintepla-epar-product-information_fr.pdf",
   "63401330": "https://www.ema.europa.eu/fr/documents/product-information/aimovig-epar-product-information_fr.pdf",
   "63957761": "https://www.ema.europa.eu/fr/documents/product-information/selincro-epar-product-information_fr.pdf",
   "64617815": "https://www.ema.europa.eu/fr/documents/product-information/sunosi-epar-product-information_fr.pdf",
   "65899221": "https://www.ema.europa.eu/fr/documents/product-information/vydura-epar-product-information_fr.pdf",
   "67077388": "https://www.ema.europa.eu/fr/documents/product-information/tasmar-epar-product-information_fr.pdf",
-  "67801165": "https://www.ema.europa.eu/fr/documents/product-information/quviviq-epar-product-information_fr.pdf"
+  "67801165": "https://www.ema.europa.eu/fr/documents/product-information/quviviq-epar-product-information_fr.pdf",
+  "EMEA-H-C-001177": "https://www.ema.europa.eu/fr/documents/product-information/sycrest-epar-product-information_fr.pdf",
+  "EMEA-H-C-002713": "https://www.ema.europa.eu/fr/documents/product-information/latuda-epar-product-information_fr.pdf",
+  "EMEA-H-C-002770": "https://www.ema.europa.eu/fr/documents/product-information/reagila-epar-product-information_fr.pdf",
+  "EMEA-H-C-003759": "https://www.ema.europa.eu/fr/documents/product-information/intuniv-epar-product-information_fr.pdf",
+  "EMEA-H-C-003841": "https://www.ema.europa.eu/fr/documents/product-information/rxulti-epar-product-information_fr.pdf",
+  "EMEA-H-C-003870": "https://www.ema.europa.eu/fr/documents/product-information/hetlioz-epar-product-information_fr.pdf",
+  "EMEA-H-C-006371": "https://www.ema.europa.eu/fr/documents/product-information/austedo-epar-product-information_fr.pdf",
+  "EMEA-H-C-006488": "https://www.ema.europa.eu/fr/documents/product-information/zurzuvae-epar-product-information_fr.pdf"
  },
  "drugsfda": {
   "NDA005010": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=005010",

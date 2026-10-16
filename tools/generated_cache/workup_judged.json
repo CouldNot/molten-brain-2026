@@ -92,6 +92,14 @@
    "condition": "chez les patients adolescents bipolaires lors d'épisodes maniaques"
   }
  ],
+ "asenapine": [
+  {
+   "index": 4,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients diabétiques et chez les patients présentant des facteurs de risque de développer un diabète sucré"
+  }
+ ],
  "atropine": [],
  "baclofen": [
   {
@@ -111,6 +119,44 @@
    "test": "glycaemia",
    "timing": "during",
    "condition": "En cas d’affections hépatiques ou de diabète"
+  }
+ ],
+ "brexpiprazole": [
+  {
+   "index": 4,
+   "test": "glycaemia",
+   "timing": "before"
+  },
+  {
+   "index": 4,
+   "test": "glycaemia",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "lipids",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "lipids",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 5,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 6,
+   "test": "blood_count",
+   "timing": "during",
+   "condition": "des patients ayant une faible NGB préexistante ou des antécédents de leucopénie/neutropénie induite par un médicament"
   }
  ],
  "brivaracetam": [],
@@ -269,6 +315,24 @@
    "condition": "chez une femme susceptible de procréer"
   }
  ],
+ "cariprazine": [
+  {
+   "index": 5,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 7,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "présentant un diagnostic établi de diabète ou des facteurs de risque de diabète"
+  },
+  {
+   "index": 8,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
  "chlorpromazine": [
   {
    "index": 2,
@@ -417,6 +481,7 @@
   }
  ],
  "cyproheptadine": [],
+ "deutetrabenazine": [],
  "dexmedetomidine": [],
  "diazepam": [],
  "disulfiram": [
@@ -564,6 +629,77 @@
   }
  ],
  "granisetron": [],
+ "guanfacine": [
+  {
+   "index": 0,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 0,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 2,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "En cas d’arrêt du traitement"
+  },
+  {
+   "index": 2,
+   "test": "heart_rate",
+   "timing": "during",
+   "condition": "En cas d’arrêt du traitement"
+  },
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "heart_rate",
+   "timing": "before"
+  },
+  {
+   "index": 3,
+   "test": "blood_pressure",
+   "timing": "during"
+  },
+  {
+   "index": 3,
+   "test": "heart_rate",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "blood_pressure",
+   "timing": "during",
+   "condition": "lors d’une réduction de la dose ou de l’arrêt du traitement"
+  },
+  {
+   "index": 5,
+   "test": "heart_rate",
+   "timing": "during",
+   "condition": "lors d’une réduction de la dose ou de l’arrêt du traitement"
+  },
+  {
+   "index": 9,
+   "test": "weight",
+   "timing": "before"
+  },
+  {
+   "index": 9,
+   "test": "weight",
+   "timing": "during"
+  }
+ ],
  "haloperidol": [
   {
    "index": 0,
@@ -816,6 +952,19 @@
    "index": 4,
    "test": "blood_pressure",
    "timing": "during"
+  }
+ ],
+ "lurasidone": [
+  {
+   "index": 4,
+   "test": "weight",
+   "timing": "during"
+  },
+  {
+   "index": 5,
+   "test": "glycaemia",
+   "timing": "during",
+   "condition": "chez les patients diabétiques et les patients présentant des facteurs de risque de diabète de type II"
   }
  ],
  "maprotiline": [
@@ -1370,6 +1519,7 @@
    "timing": "during"
   }
  ],
+ "safinamide": [],
  "scopolamine": [],
  "selegiline": [],
  "sertraline": [],
@@ -1419,6 +1569,7 @@
   }
  ],
  "sumatriptan": [],
+ "tasimelteon": [],
  "tetrabenazine": [
   {
    "index": 0,
@@ -1613,5 +1764,6 @@
    "timing": "before",
    "condition": "traités au long cours par un neuroleptique"
   }
- ]
+ ],
+ "zuranolone": []
 }

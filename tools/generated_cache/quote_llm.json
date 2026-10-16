@@ -419,6 +419,12 @@
 "q_09fa3505a0d7": {
 "receptor:h1/effects[agonism:wakefulness]": "opus"
 },
+"q_09fdf8b6d82a": {
+"drug:brexpiprazole/workup[lipids:before]": "opus",
+"drug:brexpiprazole/workup[lipids:during]": "opus",
+"drug:brexpiprazole/workup[weight:before]": "opus",
+"drug:brexpiprazole/workup[weight:during]": "opus"
+},
 "q_0a0e09bd476c": {
 "drug:safinamide/first_approval": "opus"
 },
@@ -873,6 +879,9 @@
 },
 "q_13e0fd628bfc": {
 "drug:carbamazepine/metabolites[carbamazepine_10_11_epoxide]": "sonnet"
+},
+"q_13e2676d4d89": {
+"drug:cariprazine/workup[glycaemia:during]": "opus"
 },
 "q_13eff888031c": {
 "drug:flupenthixol/bindings[d2:antagonist]": "sonnet"
@@ -1395,6 +1404,9 @@
 "q_1ffd91f8a108": {
 "drug:carbidopa/half_life": "sonnet"
 },
+"q_200c2b3e96ae": {
+"drug:asenapine/workup[glycaemia:during]": "opus"
+},
 "q_200cec5ab4c7": {
 "drug:buprenorphine/first_approval": "opus"
 },
@@ -1743,6 +1755,11 @@
 "q_26e186538e09": {
 "receptor:delta/locations[frontal]": "sonnet",
 "receptor:delta/locations[parietal]": "sonnet"
+},
+"q_26e7d2513cc2": {
+"drug:guanfacine/workup[blood_pressure:before]": "opus",
+"drug:guanfacine/workup[heart_rate:before]": "opus",
+"drug:guanfacine/workup[weight:before]": "opus"
 },
 "q_27073f05497f": {
 "drug:nimetazepam/originator": "opus"
@@ -2267,6 +2284,9 @@
 "q_33ff153077b2": {
 "drug:trazodone/nbn": "sonnet"
 },
+"q_3401a1674abb": {
+"drug:brexpiprazole/workup[blood_count:during]": "opus"
+},
 "q_3416570d87a3": {
 "drug:melatonin/half_life": "opus"
 },
@@ -2647,6 +2667,9 @@
 },
 "q_3d2dd082daed": {
 "drug:viloxazine/bindings[net:reuptake_inhibitor]": "sonnet"
+},
+"q_3d4393ba2c2f": {
+"drug:lurasidone/workup[glycaemia:during]": "opus"
 },
 "q_3d46502150e4": {
 "projection:parietal_R->caudate_R": "sonnet",
@@ -3345,6 +3368,9 @@
 "q_4c2ffd58f401": {
 "drug:aripiprazole/bindings[5ht1a:partial_agonist]": "sonnet"
 },
+"q_4c44fadb4b27": {
+"drug:lurasidone/workup[weight:during]": "opus"
+},
 "q_4c78f92729f7": {
 "drug:hydromorphone/half_life": "sonnet"
 },
@@ -3429,6 +3455,9 @@
 },
 "q_4e88accb0432": {
 "drug:ketamine/brands[Spravato]": "sonnet"
+},
+"q_4e8bf5dc6996": {
+"drug:cariprazine/workup[blood_pressure:during]": "opus"
 },
 "q_4e8d2a03e727": {
 "drug:nitrous_oxide/bindings[nmda:antagonist]": "sonnet",
@@ -6261,6 +6290,10 @@
 "q_8f9c9d9be69b": {
 "drug:oxcarbazepine/brands[Trileptal]": "sonnet"
 },
+"q_8fe20788712b": {
+"drug:brexpiprazole/workup[glycaemia:before]": "opus",
+"drug:brexpiprazole/workup[glycaemia:during]": "opus"
+},
 "q_90005fb673de": {
 "drug:clozapine/brands[Clozaril]": "sonnet"
 },
@@ -7459,6 +7492,9 @@
 "q_a865d6a2c331": {
 "receptor:beta3/effects[agonism:bladder_relaxation]": "opus"
 },
+"q_a867e4302e5b": {
+"drug:cariprazine/workup[weight:during]": "opus"
+},
 "q_a8773659304c": {
 "drug:methylphenidate_dl/brands[QuilliChew ER]": "sonnet"
 },
@@ -7755,6 +7791,12 @@
 "drug:lisdexamfetamine/bindings[dat:reuptake_inhibitor]": "sonnet",
 "drug:lisdexamfetamine/bindings[net:releaser]": "sonnet",
 "drug:lisdexamfetamine/bindings[net:reuptake_inhibitor]": "sonnet"
+},
+"q_b05a4fbb729d": {
+"drug:guanfacine/workup[blood_pressure:before]": "opus",
+"drug:guanfacine/workup[blood_pressure:during]": "opus",
+"drug:guanfacine/workup[heart_rate:before]": "opus",
+"drug:guanfacine/workup[heart_rate:during]": "opus"
 },
 "q_b079d09d689b": {
 "drug:lumateperone/bindings[d2:antagonist]": "sonnet"
@@ -10937,6 +10979,10 @@
 },
 "q_f75db5036f72": {
 "drug:phenobarbital/brands[Luminal]": "sonnet"
+},
+"q_f764983a8f2f": {
+"drug:guanfacine/workup[weight:before]": "opus",
+"drug:guanfacine/workup[weight:during]": "opus"
 },
 "q_f7913f635975": {
 "receptor:alpha1a/effects[antagonism:sleep_promotion]": "opus",
