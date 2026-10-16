@@ -819,6 +819,9 @@
 "q_139034db7f2f": {
 "drug:ketanserin/originator": "opus"
 },
+"q_1392de56a87f": {
+"receptor:m1/effects[agonism:bronchoconstriction]": "opus"
+},
 "q_13975d12fb63": {
 "drug:pimozide/workup[ecg:before]": "opus",
 "drug:pimozide/workup[ecg:during]": "opus"
@@ -3712,6 +3715,9 @@
 "q_58b75257e8db": {
 "drug:flupenthixol/categories": "sonnet"
 },
+"q_59020f17a538": {
+"receptor:m3/effects[agonism:bronchoconstriction]": "opus"
+},
 "q_5904feddae1d": {
 "drug:quetiapine/workup[weight:during]": "opus"
 },
@@ -4467,6 +4473,9 @@
 "receptor:h3/classification[family]": "sonnet",
 "receptor:h3/classification[synaptic]": "sonnet"
 },
+"q_6a8601e27733": {
+"receptor:h2/effects[agonism:gastric_acid_increase]": "opus"
+},
 "q_6a9560f1623c": {
 "structure:midbrain": "sonnet"
 },
@@ -5151,6 +5160,9 @@
 "q_79ccd0d2adf6": {
 "drug:paliperidone/categories": "sonnet"
 },
+"q_79ddb82aa080": {
+"receptor:glycine/effects[antagonism:exaggerated_startle]": "opus"
+},
 "q_79e3c3abc583": {
 "drug:lorazepam/categories": "sonnet"
 },
@@ -5209,6 +5221,13 @@
 "q_7bf377e7d21a": {
 "drug:propofol/originator_country": "opus",
 "drug:viloxazine/originator_country": "opus"
+},
+"q_7bfa977ca86c": {
+"drug:oxcarbazepine/workup[electrolytes:during]": "opus",
+"drug:oxcarbazepine/workup[weight:during]": "opus"
+},
+"q_7c12e3f8da48": {
+"receptor:mglur6/effects[antagonism:night_blindness]": "opus"
 },
 "q_7c3d97640a71": {
 "drug:solriamfetol/brands[Sunosi]": "sonnet"
@@ -5815,6 +5834,9 @@
 "q_8aace6b47e86": {
 "drug:lormetazepam/categories": "sonnet"
 },
+"q_8ac2e84b300e": {
+"receptor:mglur1/effects[antagonism:ataxia]": "opus"
+},
 "q_8ade1bd5abd7": {
 "drug:phenterminetopiramate/bindings[dat:reuptake_inhibitor]": "sonnet",
 "drug:phenterminetopiramate/bindings[net:reuptake_inhibitor]": "sonnet"
@@ -6378,6 +6400,9 @@
 "q_975add60c1b6": {
 "projection:raphe->substantia_nigra_R": "opus"
 },
+"q_9778defa6e9b": {
+"receptor:h2/effects[agonism:gastric_acid_increase]": "opus"
+},
 "q_977b161dbc07": {
 "drug:modafinil/first_approval": "opus"
 },
@@ -6707,6 +6732,9 @@
 },
 "q_9d5e48cc1e0b": {
 "receptor:m2/locations[hippocampus]": "sonnet"
+},
+"q_9d63c522dfb9": {
+"receptor:gaba_a/effects[agonism:ataxia]": "opus"
 },
 "q_9d7608a4cddf": {
 "drug:citalopram/brands[Ciprapine]": "sonnet"
@@ -7130,6 +7158,9 @@
 },
 "q_a679ce5649d2": {
 "drug:sertraline/brands[Serlain]": "sonnet"
+},
+"q_a67e3bb0c269": {
+"receptor:mglur1/effects[antagonism:ataxia]": "opus"
 },
 "q_a689fa98235b": {
 "drug:methylphenidate_dl/nbn": "sonnet"
@@ -8015,6 +8046,9 @@
 "q_bbdd9312ed3c": {
 "drug:protriptyline/half_life": "sonnet"
 },
+"q_bbe2a935bb6c": {
+"receptor:kappa/effects[agonism:antipruritic]": "opus"
+},
 "q_bc128dd5160e": {
 "receptor:kappa/effects[agonism:analgesia]": "opus"
 },
@@ -8228,6 +8262,9 @@
 },
 "q_c1694bec90d6": {
 "drug:methadone/half_life": "opus"
+},
+"q_c186b669c38f": {
+"receptor:m1/effects[agonism:gastric_acid_increase]": "opus"
 },
 "q_c1b136b12b7e": {
 "receptor:ampa/effects[agonism:seizures]": "opus"
@@ -8466,6 +8503,9 @@
 },
 "q_c618ff7374a1": {
 "drug:risperidone/brands[Perseris]": "sonnet"
+},
+"q_c6516892023e": {
+"receptor:h1/effects[agonism:bronchoconstriction]": "opus"
 },
 "q_c65ef0526cdf": {
 "drug:clotiazepam/brands[Vératran]": "sonnet"
@@ -9185,6 +9225,9 @@
 "q_d7c2e5988666": {
 "drug:esketamine/formulations[nasal]/release": "opus"
 },
+"q_d7d4098977f6": {
+"receptor:nachr_muscle/effects[antagonism:muscle_weakness]": "opus"
+},
 "q_d7df85b45db3": {
 "drug:risperidone/formulations[ir]/tmax": "opus",
 "drug:risperidone/tmax": "sonnet"
@@ -9383,6 +9426,9 @@
 },
 "q_dcc6d85969c8": {
 "receptor:mt2/effects[agonism:circadian_shift]": "opus"
+},
+"q_dccd35839a5b": {
+"receptor:mglur1/effects[antagonism:ataxia]": "opus"
 },
 "q_dcd0f3d33c29": {
 "drug:risperidone/workup[weight:during]": "opus"

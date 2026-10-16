@@ -27346,54 +27346,6 @@
    }
   ]
  },
- "receptor:glycine/effects": {
-  "by": {
-   "harness": "Claude Code",
-   "model": "opus"
-  },
-  "candidates_offered": 3,
-  "kind": "receptor_effect",
-  "searched": "2026-10-16",
-  "sources": [
-   {
-    "corpus": "wikipedia_pharm",
-    "hits": 0,
-    "lookup": "article Glycine_receptor: every sentence with a closed-vocabulary effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "gtopdb_function",
-    "hits": 0,
-    "lookup": "function / pathophysiology / altered-expression rows of glycine: human or species-less lines with an effect keyword",
-    "note": "4 line(s), 2 human or species-less; offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "stahl_essential",
-    "hits": 2,
-    "lookup": "every page: sentences naming Glycine with an effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "europepmc",
-    "hits": 349,
-    "note": "offered to the picker, none states an effect of acting on it in humans",
-    "offered": 1,
-    "query": "(ABSTRACT:\"Glycine receptor\" OR ABSTRACT:\"GLRA1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
-    "read": [
-     "41928088",
-     "41226576",
-     "42162244",
-     "40206345",
-     "42045869",
-     "42524505",
-     "41588006",
-     "42626357",
-     "40205369",
-     "37238731"
-    ]
-   }
-  ]
- },
  "receptor:h4/effects": {
   "by": {
    "harness": "Claude Code",
@@ -27447,7 +27399,7 @@
    "harness": "Claude Code",
    "model": "opus"
   },
-  "candidates_offered": 7,
+  "candidates_offered": 8,
   "kind": "receptor_effect",
   "searched": "2026-10-16",
   "sources": [
@@ -27473,7 +27425,7 @@
     "corpus": "europepmc",
     "hits": 261,
     "note": "offered to the picker, none states an effect of acting on it in humans",
-    "offered": 4,
+    "offered": 5,
     "query": "(ABSTRACT:\"Kainate receptor\" OR ABSTRACT:\"GRIK1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
     "read": [
      "40650226",
@@ -27486,54 +27438,6 @@
      "39439207",
      "41391686",
      "41079616"
-    ]
-   }
-  ]
- },
- "receptor:mglur1/effects": {
-  "by": {
-   "harness": "Claude Code",
-   "model": "opus"
-  },
-  "candidates_offered": 9,
-  "kind": "receptor_effect",
-  "searched": "2026-10-16",
-  "sources": [
-   {
-    "corpus": "wikipedia_pharm",
-    "hits": 7,
-    "lookup": "article Metabotropic_glutamate_receptor: every sentence with a closed-vocabulary effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "gtopdb_function",
-    "hits": 0,
-    "lookup": "function / pathophysiology / altered-expression rows of mglur1: human or species-less lines with an effect keyword",
-    "note": "19 line(s), 4 human or species-less; offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "stahl_essential",
-    "hits": 0,
-    "lookup": "every page: sentences naming mGluR1 with an effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "europepmc",
-    "hits": 461,
-    "note": "offered to the picker, none states an effect of acting on it in humans",
-    "offered": 2,
-    "query": "(ABSTRACT:\"mGluR1 receptor\" OR ABSTRACT:\"mGluR1\" OR ABSTRACT:\"GRM1\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
-    "read": [
-     "41750392",
-     "42763428",
-     "42756386",
-     "42750652",
-     "41525334",
-     "41580663",
-     "42509834",
-     "41639063",
-     "42512469",
-     "41424796"
     ]
    }
   ]
@@ -27591,7 +27495,7 @@
    "harness": "Claude Code",
    "model": "opus"
   },
-  "candidates_offered": 22,
+  "candidates_offered": 23,
   "kind": "receptor_effect",
   "searched": "2026-10-16",
   "sources": [
@@ -27617,7 +27521,7 @@
     "corpus": "europepmc",
     "hits": 940,
     "note": "offered to the picker, none states an effect of acting on it in humans",
-    "offered": 15,
+    "offered": 16,
     "query": "(ABSTRACT:\"mGluR5 receptor\" OR ABSTRACT:\"mGluR5\" OR ABSTRACT:\"GRM5\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
     "read": [
      "42781272",
@@ -27630,54 +27534,6 @@
      "41929374",
      "41580663",
      "42483533"
-    ]
-   }
-  ]
- },
- "receptor:mglur6/effects": {
-  "by": {
-   "harness": "Claude Code",
-   "model": "opus"
-  },
-  "candidates_offered": 8,
-  "kind": "receptor_effect",
-  "searched": "2026-10-16",
-  "sources": [
-   {
-    "corpus": "wikipedia_pharm",
-    "hits": 7,
-    "lookup": "article Metabotropic_glutamate_receptor: every sentence with a closed-vocabulary effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "gtopdb_function",
-    "hits": 0,
-    "lookup": "function / pathophysiology / altered-expression rows of mglur6: human or species-less lines with an effect keyword",
-    "note": "7 line(s), 1 human or species-less; offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "stahl_essential",
-    "hits": 0,
-    "lookup": "every page: sentences naming mGluR6 with an effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "europepmc",
-    "hits": 50,
-    "note": "offered to the picker, none states an effect of acting on it in humans",
-    "offered": 1,
-    "query": "(ABSTRACT:\"mGluR6 receptor\" OR ABSTRACT:\"mGluR6\" OR ABSTRACT:\"GRM6\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
-    "read": [
-     "41371955",
-     "41395268",
-     "39298028",
-     "39825567",
-     "41993637",
-     "41867370",
-     "40930976",
-     "31573889",
-     "33790745",
-     "38255972"
     ]
    }
   ]
@@ -27726,54 +27582,6 @@
      "38983774",
      "42569468",
      "41826372"
-    ]
-   }
-  ]
- },
- "receptor:nachr_muscle/effects": {
-  "by": {
-   "harness": "Claude Code",
-   "model": "opus"
-  },
-  "candidates_offered": 12,
-  "kind": "receptor_effect",
-  "searched": "2026-10-16",
-  "sources": [
-   {
-    "corpus": "wikipedia_pharm",
-    "hits": 12,
-    "lookup": "article Nicotinic_acetylcholine_receptor: every sentence with a closed-vocabulary effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "gtopdb_function",
-    "hits": 0,
-    "lookup": "function / pathophysiology / altered-expression rows of nachr_muscle: human or species-less lines with an effect keyword",
-    "note": "4 line(s), 3 human or species-less; offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "stahl_essential",
-    "hits": 0,
-    "lookup": "every page: sentences naming Muscle nAChR with an effect keyword",
-    "note": "offered to the picker, none states an effect of acting on it in humans"
-   },
-   {
-    "corpus": "europepmc",
-    "hits": 86,
-    "note": "offered to the picker, none states an effect of acting on it in humans",
-    "offered": 0,
-    "query": "(ABSTRACT:\"Muscle nAChR receptor\" OR ABSTRACT:\"CHRNA1\" OR ABSTRACT:\"CHRNB1\" OR ABSTRACT:\"CHRND\" OR ABSTRACT:\"CHRNE\" OR ABSTRACT:\"muscle nicotinic receptor\" OR ABSTRACT:\"muscle-type nicotinic\" OR ABSTRACT:\"neuromuscular nicotinic\") AND (agonist OR antagonist OR \"inverse agonist\" OR inhibitor OR blocker OR modulator OR releaser OR agonism OR antagonism OR blockade OR activation OR stimulation) AND (sedat* OR somnolen* OR \"weight gain\" OR appetite OR hypotension OR dizziness OR hallucinat* OR prolactin OR extrapyramidal OR dyskinesia OR akathisia OR cognit* OR memory OR nausea OR vomiting OR sexual OR insomnia OR anxi* OR euphori* OR dysphori* OR \"respiratory depression\" OR seizure* OR convuls* OR psychosis OR psychotic OR \"heart rate\" OR \"blood pressure\" OR valvulopath* OR antiemetic OR anticonvulsant OR antidepressant OR antipsychotic OR parkinson* OR analges* OR pain OR migraine OR sleep OR circadian OR wakefulness OR hypotherm* OR bradycardia OR bronchodilat* OR \"gastric acid\" OR vasoconstrict* OR vasodilat* OR bladder OR motility) AND (human OR humans OR patients OR volunteers OR \"healthy subjects\") AND SRC:MED AND HAS_ABSTRACT:y",
-    "read": [
-     "42536689",
-     "42509725",
-     "42643272",
-     "42657756",
-     "38715819",
-     "42536688",
-     "41097341",
-     "37458380",
-     "42347111",
-     "36835142"
     ]
    }
   ]

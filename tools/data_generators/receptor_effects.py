@@ -97,13 +97,27 @@ RECEPTOR_EFFECTS: dict[str, dict[str, str]] = {
     "hypothermia": {"en": "Lowered body temperature", "fr": "Baisse de la température corporelle"},
     "bradycardia": {"en": "Slowed heart rate", "fr": "Ralentissement de la fréquence cardiaque"},
     "bronchodilation": {"en": "Bronchodilation", "fr": "Bronchodilatation"},
+    "bronchoconstriction": {"en": "Bronchoconstriction", "fr": "Bronchoconstriction"},
     "gastric_acid_reduction": {"en": "Reduced gastric acid secretion",
                                "fr": "Diminution de la sécrétion acide gastrique"},
+    "gastric_acid_increase": {"en": "Increased gastric acid secretion",
+                              "fr": "Augmentation de la sécrétion acide gastrique"},
     "vasoconstriction": {"en": "Vasoconstriction", "fr": "Vasoconstriction"},
     "vasodilation": {"en": "Vasodilation", "fr": "Vasodilatation"},
     "bladder_relaxation": {"en": "Bladder relaxation", "fr": "Relâchement de la vessie"},
     "gi_motility": {"en": "Increased gut motility (prokinetic)",
                     "fr": "Augmentation de la motilité digestive (prokinétique)"},
+    # Effects of losing a receptor's function (a loss-of-function variant or a blocking
+    # autoantibody, stated by the source in humans): named as the effect, never the disease.
+    "muscle_weakness": {"en": "Muscle weakness / paralysis",
+                        "fr": "Faiblesse musculaire / paralysie"},
+    "exaggerated_startle": {"en": "Exaggerated startle reflex",
+                            "fr": "Réflexe de sursaut exagéré"},
+    "night_blindness": {"en": "Night blindness", "fr": "Cécité nocturne"},
+    "itch": {"en": "Itch (pruritus)", "fr": "Démangeaisons (prurit)"},
+    "antipruritic": {"en": "Itch relief (antipruritic)",
+                     "fr": "Soulagement des démangeaisons (antiprurigineux)"},
+    "ataxia": {"en": "Ataxia (loss of coordination)", "fr": "Ataxie (perte de coordination)"},
 }
 
 

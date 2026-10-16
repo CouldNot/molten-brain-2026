@@ -1260,6 +1260,14 @@
     "quote": "The anxiolytic actions of benzodiazepines are hypothetically at GABAA receptors localized within the amygdala, where"
    }
   ],
+  "agonism:ataxia": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "gabaa_receptor",
+    "provenance": "verified",
+    "quote": "For instance, benzodiazepine receptor ligands with high activity at the α1 and/or α5 tend to be more associated with sedation , ataxia and amnesia , whereas those with higher activity at GABA A receptors containing α2 and/or α3 subunits generally have greater anxiolytic activity."
+   }
+  ],
   "agonism:euphoria": [
    {
     "corpus": "wikipedia_pharm",
@@ -1327,7 +1335,26 @@
    }
   ]
  },
+ "glycine": {
+  "antagonism:exaggerated_startle": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 423,
+    "provenance": "verified",
+    "quote": "glycine receptor α1 subunit (GLRA1), GtoPdb target 423 | pathophysiology: Hyperekplexia, hereditary 1; HKPX1 | comments: All mutations produce similar symptoms although the severity may vary. The main symptom in adults is an exaggerated and generalised startle reflex to unexpected and sometimes trivial stimuli. This is often accompanied by temporary but complete muscular rigidity, often resulting in unprotected falls. Neonates also usually display a severe muscular rigidity (hypertonia) that subsides throughout the first year of life."
+   }
+  ]
+ },
  "h1": {
+  "agonism:bronchoconstriction": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 262,
+    "provenance": "verified",
+    "quote": "H1 receptor (HRH1), GtoPdb target 262 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
+    "species": "Human"
+   }
+  ],
   "agonism:wakefulness": [
    {
     "corpus": "stahl_essential",
@@ -1400,6 +1427,27 @@
   ]
  },
  "h2": {
+  "agonism:gastric_acid_increase": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "histamine_h2_receptor",
+    "provenance": "verified",
+    "quote": "It is an integral membrane protein and stimulates gastric acid secretion."
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "histamine_h2_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the H 2 receptor results in the following physiological responses: - Stimulation of gastric acid secretion (Target of anti-histaminergics (H 2 receptors) for peptic ulcer disease and GERD ) - Smooth muscle relaxation (Experimental histamine H 2 receptor agonist used for asthma and COPD) - Inhibit antibody synthesis, T-cell proliferation and cytokine production - Vasodilation – PKA activity causes phosphorylation of MLCK , decreasing its activity, resulting in MLC of myosin being dephosphorylated by MLCP and thus inhibiting contraction."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 263,
+    "provenance": "verified",
+    "quote": "H2 receptor (HRH2), GtoPdb target 263 | physiological function (Human): Stimulation of gastric acid secretion. | tissue: In vivo.",
+    "species": "Human"
+   }
+  ],
   "antagonism:gastric_acid_reduction": [
    {
     "corpus": "wikipedia_pharm",
@@ -1476,6 +1524,14 @@
     "page": "kappa_opioid_receptor",
     "provenance": "verified",
     "quote": "In the spinal cord , presynaptic activation suppresses nociceptive transmission through inhibition of calcium influx and reduction of neurotransmitter release from primary sensory neurons ."
+   }
+  ],
+  "agonism:antipruritic": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "kappa_opioid_receptor",
+    "provenance": "verified",
+    "quote": "KOR agonists suppress itching , and the selective KOR agonist nalfurafine is used clinically as an antipruritic ."
    }
   ],
   "agonism:dysphoria": [
@@ -1570,6 +1626,29 @@
     "page": 56,
     "provenance": "verified",
     "quote": "Acetylcholine M1 Agonist Procognitive and antipsychotic"
+   }
+  ],
+  "agonism:bronchoconstriction": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 13,
+    "provenance": "verified",
+    "quote": "M1 receptor (CHRM1), GtoPdb target 13 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
+    "species": "Human"
+   },
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "muscarinic_acetylcholine_receptor_m1",
+    "provenance": "verified",
+    "quote": "As of 2015, the M 1 receptor remains the only known muscarinic receptor to have this effect of hallucinogenic delirium when its functionality is inhibited or antagonized. - Cognitive flexibility - Synaptic plasticity modulation - Anxiety-like behavior and spontaneous working memory - Task switching - Vagally-induced bronchoconstriction - Mediating olfactory neural pathways which help regulate aggression , mating , and social behavior in rodents."
+   }
+  ],
+  "agonism:gastric_acid_increase": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "muscarinic_acetylcholine_receptor_m1",
+    "provenance": "verified",
+    "quote": "EPSP in autonomic ganglia - Secretion from salivary glands - Gastric acid secretion from stomach - Via the central nervous system (especially within the brain); mediating certain core aspects of perception , attention, cognitive functioning and likely; memory consolidation ."
    }
   ],
   "agonism:pro_cognitive": [
@@ -1694,6 +1773,14 @@
   ]
  },
  "m3": {
+  "agonism:bronchoconstriction": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "muscarinic_acetylcholine_receptor_m3",
+    "provenance": "verified",
+    "quote": "Because the M 3 receptor is G q -coupled and mediates an increase in intracellular calcium , it typically causes constriction of smooth muscle, such as that observed during bronchoconstriction ."
+   }
+  ],
   "agonism:nausea": [
    {
     "corpus": "wikipedia_pharm",
@@ -1760,6 +1847,28 @@
    }
   ]
  },
+ "mglur1": {
+  "antagonism:ataxia": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 289,
+    "provenance": "verified",
+    "quote": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology comment: In patients with congenital cerebellar ataxia, the mutated receptor is predicted not to possess the 7 transmembrane domain and therefore to be nonfunctional."
+   },
+   {
+    "corpus": "gtopdb_function",
+    "page": 289,
+    "provenance": "verified",
+    "quote": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology comment: Besides mutation, autoantibodies against the mGlu1 receptor have been reported in patients with paraneoplastic cerebellar ataxia."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "41580663",
+    "provenance": "verified",
+    "quote": "Patients with anti-mGLUR1 and anti-mGLur2 mainly manifested ataxia, while those with anti-mGLUR5 antibodies manifested psychiatric symptoms."
+   }
+  ]
+ },
  "mglur2": {
   "agonism:anxiolytic": [
    {
@@ -1777,6 +1886,16 @@
     "page": "metabotropic_glutamate_receptor",
     "provenance": "verified",
     "quote": "For example, clinical trial suggested that an mGlu 2/3 agonist, LY354740, was effective in the treatment of generalized anxiety disorder ."
+   }
+  ]
+ },
+ "mglur6": {
+  "antagonism:night_blindness": [
+   {
+    "corpus": "gtopdb_function",
+    "page": 294,
+    "provenance": "verified",
+    "quote": "mGlu6 receptor (GRM6), GtoPdb target 294 | pathophysiology: Night blindness, congenital stationary, type 1B; CSNB1B | comments: Single nucleotide polymorphisms. Loss of function mutations in the human mGlu6 gene are associated with night blindness and abnormal cone electroretinogram ON responses."
    }
   ]
  },
@@ -1892,6 +2011,14 @@
     "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
    }
   ],
+  "agonism:itch": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "mu_opioid_receptor",
+    "provenance": "verified",
+    "quote": "Activation of the μ-opioid receptor by an agonist such as morphine causes analgesia , sedation , slightly reduced blood pressure , itching , nausea , euphoria , decreased respiration , miosis (constricted pupils), and decreased bowel motility often leading to constipation ."
+   }
+  ],
   "agonism:nausea": [
    {
     "corpus": "wikipedia_pharm",
@@ -1934,6 +2061,16 @@
     "page": 564,
     "provenance": "verified",
     "quote": "The α7 nicotinic receptor on postsynaptic prefrontal cortex neurons may be linked to the pro-cognitive and mentally alerting actions of nicotine, but not to addictive actions."
+   }
+  ]
+ },
+ "nachr_muscle": {
+  "antagonism:muscle_weakness": [
+   {
+    "corpus": "wikipedia_pharm",
+    "page": "nicotinic_acetylcholine_receptor",
+    "provenance": "verified",
+    "quote": "These α- neurotoxins antagonistically bind tightly and noncovalently to nAChRs of skeletal muscles and in neurons, thereby blocking the action of ACh at the postsynaptic membrane, inhibiting ion flow and leading to paralysis and death."
    }
   ]
  },

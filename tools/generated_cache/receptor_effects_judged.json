@@ -852,6 +852,13 @@
      24,
      25
     ]
+   },
+   {
+    "effect": "ataxia",
+    "mode": "agonism",
+    "picks": [
+     23
+    ]
    }
   ],
   "gaba_b": [
@@ -860,6 +867,15 @@
     "mode": "agonism",
     "picks": [
      2
+    ]
+   }
+  ],
+  "glycine": [
+   {
+    "effect": "exaggerated_startle",
+    "mode": "antagonism",
+    "picks": [
+     4
     ]
    }
   ],
@@ -903,6 +919,13 @@
     "picks": [
      21
     ]
+   },
+   {
+    "effect": "bronchoconstriction",
+    "mode": "agonism",
+    "picks": [
+     42
+    ]
    }
   ],
   "h2": [
@@ -911,6 +934,15 @@
     "mode": "antagonism",
     "picks": [
      4
+    ]
+   },
+   {
+    "effect": "gastric_acid_increase",
+    "mode": "agonism",
+    "picks": [
+     2,
+     4,
+     7
     ]
    }
   ],
@@ -944,18 +976,18 @@
     "mode": "agonism",
     "picks": [
      7,
-     72,
+     73,
      58,
-     99
+     102
     ]
    },
    {
     "effect": "hallucinations",
     "mode": "agonism",
     "picks": [
-     72,
+     73,
      58,
-     99
+     102
     ]
    },
    {
@@ -963,7 +995,7 @@
     "mode": "agonism",
     "picks": [
      10,
-     99
+     102
     ]
    },
    {
@@ -972,7 +1004,7 @@
     "picks": [
      25,
      38,
-     98
+     101
     ]
    },
    {
@@ -981,9 +1013,16 @@
     "picks": [
      13,
      12,
-     100,
-     101,
+     103,
+     104,
      16
+    ]
+   },
+   {
+    "effect": "antipruritic",
+    "mode": "agonism",
+    "picks": [
+     97
     ]
    }
   ],
@@ -1041,6 +1080,21 @@
     "picks": [
      0
     ]
+   },
+   {
+    "effect": "bronchoconstriction",
+    "mode": "agonism",
+    "picks": [
+     18,
+     16
+    ]
+   },
+   {
+    "effect": "gastric_acid_increase",
+    "mode": "agonism",
+    "picks": [
+     14
+    ]
    }
   ],
   "m2": [
@@ -1094,6 +1148,13 @@
     "picks": [
      3
     ]
+   },
+   {
+    "effect": "bronchoconstriction",
+    "mode": "agonism",
+    "picks": [
+     2
+    ]
    }
   ],
   "m4": [
@@ -1139,6 +1200,17 @@
     ]
    }
   ],
+  "mglur1": [
+   {
+    "effect": "ataxia",
+    "mode": "antagonism",
+    "picks": [
+     9,
+     10,
+     12
+    ]
+   }
+  ],
   "mglur2": [
    {
     "effect": "anxiolytic",
@@ -1154,6 +1226,15 @@
     "mode": "agonism",
     "picks": [
      2
+    ]
+   }
+  ],
+  "mglur6": [
+   {
+    "effect": "night_blindness",
+    "mode": "antagonism",
+    "picks": [
+     7
     ]
    }
   ],
@@ -1245,6 +1326,13 @@
      16,
      6
     ]
+   },
+   {
+    "effect": "itch",
+    "mode": "agonism",
+    "picks": [
+     15
+    ]
    }
   ],
   "nachr_a4b2": [
@@ -1260,6 +1348,15 @@
    {
     "effect": "pro_cognitive",
     "mode": "agonism",
+    "picks": [
+     1
+    ]
+   }
+  ],
+  "nachr_muscle": [
+   {
+    "effect": "muscle_weakness",
+    "mode": "antagonism",
     "picks": [
      1
     ]

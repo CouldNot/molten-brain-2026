@@ -31,7 +31,8 @@
       "weight_gain",
       "orthostatic_hypotension",
       "dry_mouth",
-      "blurred_vision"
+      "blurred_vision",
+      "muscle_weakness"
      ]
     },
     {
@@ -588,7 +589,8 @@
       "weight_gain",
       "orthostatic_hypotension",
       "dry_mouth",
-      "blurred_vision"
+      "blurred_vision",
+      "muscle_weakness"
      ]
     },
     {
@@ -1145,7 +1147,8 @@
       "weight_gain",
       "orthostatic_hypotension",
       "dry_mouth",
-      "blurred_vision"
+      "blurred_vision",
+      "muscle_weakness"
      ]
     },
     {
@@ -2620,7 +2623,8 @@
      "line": "EPSP in autonomic ganglia - Secretion from salivary glands - Gastric acid secretion from stomach - Via the central nervous system (especially within the brain); mediating certain core aspects of perception , attention, cognitive functioning and likely; memory consolidation .",
      "effects": [
       "pro_cognitive",
-      "gastric_acid_reduction"
+      "gastric_acid_reduction",
+      "gastric_acid_increase"
      ]
     },
     {
@@ -2641,7 +2645,8 @@
       "anxiety",
       "anxiolytic",
       "pro_cognitive",
-      "bronchodilation"
+      "bronchodilation",
+      "bronchoconstriction"
      ]
     },
     {
@@ -2659,7 +2664,8 @@
      "page": 13,
      "line": "M1 receptor (CHRM1), GtoPdb target 13 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
      "effects": [
-      "bronchodilation"
+      "bronchodilation",
+      "bronchoconstriction"
      ],
      "species": "Human"
     }
@@ -2780,7 +2786,8 @@
      "page": "muscarinic_acetylcholine_receptor_m3",
      "line": "Because the M 3 receptor is G q -coupled and mediates an increase in intracellular calcium , it typically causes constriction of smooth muscle, such as that observed during bronchoconstriction .",
      "effects": [
-      "bronchodilation"
+      "bronchodilation",
+      "bronchoconstriction"
      ]
     },
     {
@@ -2908,6 +2915,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "nicotinic_acetylcholine_receptor",
+     "line": "These α- neurotoxins antagonistically bind tightly and noncovalently to nAChRs of skeletal muscles and in neurons, thereby blocking the action of ACh at the postsynaptic membrane, inhibiting ion flow and leading to paralysis and death.",
+     "effects": [
+      "muscle_weakness"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
      "line": "Nicotine addiction arises from nAChR-mediated dopamine release in the mesolimbic pathway.",
      "effects": [
       "euphoria"
@@ -2995,6 +3010,22 @@
      "line": "Additionally, smoking rates are significantly higher in those with schizophrenia, implying that smoking nicotine may be a form of self-medicating.",
      "effects": [
       "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "line": "Bupropion - Muscarinic agonist - Muscarinic antagonist - TDBzcholine - Myasthenia gravis - Congenital myasthenic syndrome - Adrenergic - Adrenergic receptor",
+     "effects": [
+      "muscle_weakness"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 462,
+     "line": "nicotinic acetylcholine receptor α1 subunit (CHRNA1), GtoPdb target 462 | pathophysiology: Myasthenia gravis | role: Target for autoantibodies",
+     "effects": [
+      "muscle_weakness"
      ]
     }
    ]
@@ -3055,6 +3086,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "nicotinic_acetylcholine_receptor",
+     "line": "These α- neurotoxins antagonistically bind tightly and noncovalently to nAChRs of skeletal muscles and in neurons, thereby blocking the action of ACh at the postsynaptic membrane, inhibiting ion flow and leading to paralysis and death.",
+     "effects": [
+      "muscle_weakness"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
      "line": "Nicotine addiction arises from nAChR-mediated dopamine release in the mesolimbic pathway.",
      "effects": [
       "euphoria"
@@ -3142,6 +3181,14 @@
      "line": "Additionally, smoking rates are significantly higher in those with schizophrenia, implying that smoking nicotine may be a form of self-medicating.",
      "effects": [
       "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "line": "Bupropion - Muscarinic agonist - Muscarinic antagonist - TDBzcholine - Myasthenia gravis - Congenital myasthenic syndrome - Adrenergic - Adrenergic receptor",
+     "effects": [
+      "muscle_weakness"
      ]
     },
     {
@@ -3227,6 +3274,14 @@
     {
      "corpus": "wikipedia_pharm",
      "page": "nicotinic_acetylcholine_receptor",
+     "line": "These α- neurotoxins antagonistically bind tightly and noncovalently to nAChRs of skeletal muscles and in neurons, thereby blocking the action of ACh at the postsynaptic membrane, inhibiting ion flow and leading to paralysis and death.",
+     "effects": [
+      "muscle_weakness"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
      "line": "Nicotine addiction arises from nAChR-mediated dopamine release in the mesolimbic pathway.",
      "effects": [
       "euphoria"
@@ -3314,6 +3369,14 @@
      "line": "Additionally, smoking rates are significantly higher in those with schizophrenia, implying that smoking nicotine may be a form of self-medicating.",
      "effects": [
       "antipsychotic"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "nicotinic_acetylcholine_receptor",
+     "line": "Bupropion - Muscarinic agonist - Muscarinic antagonist - TDBzcholine - Myasthenia gravis - Congenital myasthenic syndrome - Adrenergic - Adrenergic receptor",
+     "effects": [
+      "muscle_weakness"
      ]
     },
     {
@@ -6013,7 +6076,8 @@
      "line": "For instance, benzodiazepine receptor ligands with high activity at the α1 and/or α5 tend to be more associated with sedation , ataxia and amnesia , whereas those with higher activity at GABA A receptors containing α2 and/or α3 subunits generally have greater anxiolytic activity.",
      "effects": [
       "sedation",
-      "anxiolytic"
+      "anxiolytic",
+      "ataxia"
      ]
     },
     {
@@ -7357,6 +7421,14 @@
      "effects": [
       "antidepressant"
      ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "39439207",
+     "line": "However, these drugs can cause gait disorders and ataxia through unknown mechanisms. α2δ-2 and GluK1, a glutamate-gated kainate receptor subtype, are coexpressed in cerebellar Purkinje cells.",
+     "effects": [
+      "ataxia"
+     ]
     }
    ]
   },
@@ -7427,11 +7499,51 @@
      ]
     },
     {
+     "corpus": "gtopdb_function",
+     "page": 289,
+     "line": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology: Spinocerebellar ataxia, autosomal recessive 13; SCAR13 | mutation: 3 bp exon 8 deletion",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 289,
+     "line": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology: Spinocerebellar ataxia, autosomal recessive 13; SCAR13 | mutation: Intron 8",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 289,
+     "line": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology comment: In patients with congenital cerebellar ataxia, the mutated receptor is predicted not to possess the 7 transmembrane domain and therefore to be nonfunctional.",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 289,
+     "line": "mGlu1 receptor (GRM1), GtoPdb target 289 | pathophysiology comment: Besides mutation, autoantibodies against the mGlu1 receptor have been reported in patients with paraneoplastic cerebellar ataxia.",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
      "corpus": "europepmc",
      "page": "42763428",
      "line": "The mechanism relies on MT1/MT2 as core targets, which mediate the regulation of sleep-related molecules (CLOCK, PER1, CaMKII, p-CREB/CREB, GABARAP, and mGluR1), as well as the membrane protein shedding-related molecule ADAM10.",
      "effects": [
       "sleep_promotion"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "41580663",
+     "line": "Patients with anti-mGLUR1 and anti-mGLur2 mainly manifested ataxia, while those with anti-mGLUR5 antibodies manifested psychiatric symptoms.",
+     "effects": [
+      "ataxia"
      ]
     },
     {
@@ -7829,6 +7941,14 @@
     },
     {
      "corpus": "europepmc",
+     "page": "41580663",
+     "line": "Patients with anti-mGLUR1 and anti-mGLur2 mainly manifested ataxia, while those with anti-mGLUR5 antibodies manifested psychiatric symptoms.",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "europepmc",
      "page": "42483533",
      "line": "Second, siRNA-mediated knockdown of circHomer1 in the ventral CA1 (vCA1) region significantly alleviated surgery-induced cognitive deficits, increased Homer1b mRNA expression, and upregulated mGluR5 and PSD-95 protein levels.",
      "effects": [
@@ -7927,6 +8047,14 @@
      "effects": [
       "antipsychotic",
       "pro_cognitive"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 294,
+     "line": "mGlu6 receptor (GRM6), GtoPdb target 294 | pathophysiology: Night blindness, congenital stationary, type 1B; CSNB1B | comments: Single nucleotide polymorphisms. Loss of function mutations in the human mGlu6 gene are associated with night blindness and abnormal cone electroretinogram ON responses.",
+     "effects": [
+      "night_blindness"
      ]
     },
     {
@@ -8030,6 +8158,38 @@
      ]
     },
     {
+     "corpus": "wikipedia_pharm",
+     "page": "glycine_receptor",
+     "line": "Disruption of GlyR surface expression or reduced ability of expressed GlyRs to conduct chloride ions results in the rare neurological disorder, hyperekplexia .",
+     "effects": [
+      "exaggerated_startle"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 423,
+     "line": "glycine receptor α1 subunit (GLRA1), GtoPdb target 423 | pathophysiology: Hyperekplexia, hereditary 1; HKPX1 | role: Around 20 α1 GlyR mutations have been identified to date in ~70 human hyperekplexia pedigrees. All known mutations reduce the magnitude of α1 GlyR-mediated currents, with some completely eliminating α1GlyR expression or function.",
+     "effects": [
+      "exaggerated_startle"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 423,
+     "line": "glycine receptor α1 subunit (GLRA1), GtoPdb target 423 | pathophysiology: Hyperekplexia, hereditary 1; HKPX1 | comments: All mutations produce similar symptoms although the severity may vary. The main symptom in adults is an exaggerated and generalised startle reflex to unexpected and sometimes trivial stimuli. This is often accompanied by temporary but complete muscular rigidity, often resulting in unprotected falls. Neonates also usually display a severe muscular rigidity (hypertonia) that subsides throughout the first year of life.",
+     "effects": [
+      "exaggerated_startle"
+     ]
+    },
+    {
+     "corpus": "europepmc",
+     "page": "42524505",
+     "line": "The glycine receptor alpha 1 subunit (GlyRα1) mediates the primary inhibitory neurotransmission in the spinal cord, however, the contribution of spinal glycinergic inhibition to startle regulation remains poorly understood.",
+     "effects": [
+      "exaggerated_startle"
+     ]
+    },
+    {
      "corpus": "europepmc",
      "page": "41588006",
      "line": "We develop highly selective nanobodies for a recently discovered glycine receptor mGlyR crucially linked to pathophysiology of depression.",
@@ -8066,7 +8226,8 @@
       "weight_gain",
       "orthostatic_hypotension",
       "dry_mouth",
-      "blurred_vision"
+      "blurred_vision",
+      "muscle_weakness"
      ]
     },
     {
@@ -8418,7 +8579,8 @@
      "page": 262,
      "line": "H1 receptor (HRH1), GtoPdb target 262 | physiological function (Human): Bronchoconstriction. | tissue: In vivo.",
      "effects": [
-      "bronchodilation"
+      "bronchodilation",
+      "bronchoconstriction"
      ],
      "species": "Human"
     }
@@ -8434,7 +8596,8 @@
      "page": 418,
      "line": "Histamine 2 (H2) receptors, best known for their actions in gastric acid secretion and the target of a number of anti-ulcer drugs, also exist in the brain (Figure 10-6).",
      "effects": [
-      "gastric_acid_reduction"
+      "gastric_acid_reduction",
+      "gastric_acid_increase"
      ]
     },
     {
@@ -8450,7 +8613,8 @@
      "page": "histamine_h2_receptor",
      "line": "It is an integral membrane protein and stimulates gastric acid secretion.",
      "effects": [
-      "gastric_acid_reduction"
+      "gastric_acid_reduction",
+      "gastric_acid_increase"
      ]
     },
     {
@@ -8468,6 +8632,7 @@
      "effects": [
       "bronchodilation",
       "gastric_acid_reduction",
+      "gastric_acid_increase",
       "vasodilation"
      ]
     },
@@ -8492,7 +8657,8 @@
      "page": 263,
      "line": "H2 receptor (HRH2), GtoPdb target 263 | physiological function (Human): Stimulation of gastric acid secretion. | tissue: In vivo.",
      "effects": [
-      "gastric_acid_reduction"
+      "gastric_acid_reduction",
+      "gastric_acid_increase"
      ],
      "species": "Human"
     }
@@ -8649,7 +8815,9 @@
      "line": "The discovery of this receptor has brought it to increasing attention for its therapeutic use in inflammatory diseases such as allergy, asthma, chronic itch, and autoimmune diseases.",
      "effects": [
       "pro_cognitive",
-      "bronchodilation"
+      "bronchodilation",
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -8818,7 +8986,9 @@
       "respiratory_depression",
       "cardiovascular",
       "antiemetic",
-      "analgesia"
+      "analgesia",
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -8829,7 +8999,9 @@
       "sedation",
       "euphoria",
       "respiratory_depression",
-      "analgesia"
+      "analgesia",
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -8837,7 +9009,9 @@
      "page": "mu_opioid_receptor",
      "line": "The canonical MOR1 isoform is responsible for morphine-induced analgesia, whereas the alternatively spliced MOR1D isoform (through heterodimerization with the gastrin-releasing peptide receptor ) is required for morphine-induced itching.",
      "effects": [
-      "analgesia"
+      "analgesia",
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -9132,7 +9306,9 @@
      "page": "kappa_opioid_receptor",
      "line": "Ligands binding to the receptor have been approved to treat pruritus and manage pain.",
      "effects": [
-      "analgesia"
+      "analgesia",
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -9199,7 +9375,9 @@
      "effects": [
       "sedation",
       "dysphoria",
-      "analgesia"
+      "analgesia",
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -9699,7 +9877,18 @@
      "effects": [
       "sedation",
       "dysphoria",
-      "analgesia"
+      "analgesia",
+      "itch",
+      "antipruritic"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "Experiments in β-arrestin2 knockout mice demonstrated that the antipruritic effects of KOR agonists are preserved in the absence of β-arrestin2, whilst conditioned place aversion requires both GRK3 and β-arrestin2.",
+     "effects": [
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -9912,6 +10101,24 @@
      "line": "A 2022 systematic review of 24 studies involving 705 participants found that both ibogaine and noribogaine show promise in treating substance use disorders and comorbid depressive symptoms.",
      "effects": [
       "antidepressant"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "KOR agonists suppress itching , and the selective KOR agonist nalfurafine is used clinically as an antipruritic .",
+     "effects": [
+      "itch",
+      "antipruritic"
+     ]
+    },
+    {
+     "corpus": "wikipedia_pharm",
+     "page": "kappa_opioid_receptor",
+     "line": "Peripheral agonist difelikefalin also have been approved in the US and Europe for moderate-to-severe pruritus.",
+     "effects": [
+      "itch",
+      "antipruritic"
      ]
     },
     {
@@ -12502,7 +12709,8 @@
      "effects": [
       "prolactin_elevation",
       "pro_cognitive",
-      "sleep_promotion"
+      "sleep_promotion",
+      "muscle_weakness"
      ]
     },
     {
@@ -16724,10 +16932,114 @@
     {
      "corpus": "gtopdb_function",
      "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | comments: EA-2 genetic alterations are distributed throughout the channel, with a large number of missense and premature truncations identified within the pore-forming p-loops. EA-2 truncations and missense mutations consistently show a loss-of-function phenotype with a net reduction of available channels and calcium entry; depolarizing shift in V0.5,act, increased rate of inactivation, reduced rate of recovery from inactivation, and reduced current density proposed to be a result of fewer channels being properly folded and reaching the membrane. Some EA-2 mutations occur in mutually exclusive alternative exons thus CACNA1A differential splicing is likely to affect phenotypic expression. Other mutations appear to result in aberrant splicing.",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 16",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 22",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 23",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 28",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 30. The 3 nucleotide deletion results in both an amino acid deletion and a substitution.",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 27",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 29",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 35",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 37A",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: exon 42",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Episodic ataxia, type 2; EA2 | mutation: intron 24, results in aberrant splicing",
+     "effects": [
+      "ataxia"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
      "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Migraine, familial hemiplegic, 1; FHM1 | comments: The majority of FHM-1 mutations are located in the S4 voltage sensors and flanking regions. Examination of FHM-1 mutations on Cav2.1 biophysical properties using electrophysiological analysis in Xenopus laevis oocytes and HEK-293 cells shows considerable variability that may be accounted for by the use of different expression systems, Cav2.1 splice variants, auxiliary subunits and experimental conditions. Overall trends point towards FHM-1 mutations causing a predicted gain-of-function phenotype: shift of V0.5,act to more hyperpolarised potentials, increased availability of opening at lower membrane potentials, increased channel open probability and single channel conductance. Knock-in mice carrying R192Q and S218L FHM-1 mutations support gain-of-function in showing a lower threshold for stimulation of cortical spreading depression and increased velocity of propagation across the cortex, increased presynaptic basal calcium levels and altered synaptic plasticity. The severity of phenotype resulting from some FHM-1 mutations appears to be affected by CACNA1A alternative splicing.",
      "effects": [
       "antidepressant",
       "antimigraine"
+     ]
+    },
+    {
+     "corpus": "gtopdb_function",
+     "page": 532,
+     "line": "Cav2.1 (CACNA1A), GtoPdb target 532 | pathophysiology: Spinocerebellar ataxia 6; SCA6 | comments: SCA6 is a member in the group of neurodegenerative disorders containing expanded CAG (polyglutamine) repeats. Unaffected individuals have CAG repeats numbering between 4 and 16 in the CACNA1A gene, while SCA6 patients have expansions of greater than 21 repeats. The length of the expansion appears to be correlated with age of onset (greater CAG expansion is associated with earlier age of onset) and is associated with severe cerebellar Purkinje cell loss, moderate granule cell and dentate nucleus neuronal loss and mild neuronal loss in the inferior olive. In heterogenous expression systems biophysical analyses of polyglutamine expansions on Cav2.1 properties show a range of effects on voltage- and time-dependant properties with a strong dependence on both auxiliary subunit and Cav2.1 subunit splice variant composition when expressed in heterologous systems. The neuronal loss observed in SCA6 brains may be due to a combination of altered channel properties resulting in abnormal intracellular calcium concentrations and perinuclear and/or nuclear channel protein aggregates resulting in cell death.",
+     "effects": [
+      "ataxia"
      ]
     }
    ]

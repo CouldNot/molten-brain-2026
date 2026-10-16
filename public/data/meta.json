@@ -10489,11 +10489,19 @@
     "hypothermia": "Lowered body temperature",
     "bradycardia": "Slowed heart rate",
     "bronchodilation": "Bronchodilation",
+    "bronchoconstriction": "Bronchoconstriction",
     "gastric_acid_reduction": "Reduced gastric acid secretion",
+    "gastric_acid_increase": "Increased gastric acid secretion",
     "vasoconstriction": "Vasoconstriction",
     "vasodilation": "Vasodilation",
     "bladder_relaxation": "Bladder relaxation",
-    "gi_motility": "Increased gut motility (prokinetic)"
+    "gi_motility": "Increased gut motility (prokinetic)",
+    "muscle_weakness": "Muscle weakness / paralysis",
+    "exaggerated_startle": "Exaggerated startle reflex",
+    "night_blindness": "Night blindness",
+    "itch": "Itch (pruritus)",
+    "antipruritic": "Itch relief (antipruritic)",
+    "ataxia": "Ataxia (loss of coordination)"
   },
   "release_modulation": {
     "kinds": {
@@ -11337,6 +11345,7 @@
         "40831207": "https://doi.org/10.1177/02698811251365177",
         "40992411": "https://doi.org/10.1055/a-2695-0263",
         "41270648": "https://doi.org/10.1016/j.ejmech.2025.118361",
+        "41580663": "https://doi.org/10.1186/s12883-025-04615-5",
         "6147261": "https://doi.org/10.1007/bf00235271",
         "6302549": "https://doi.org/10.1016/0028-3908(83)90238-1",
         "6315152": "https://doi.org/10.1016/0006-8993(83)90222-6",
@@ -12134,14 +12143,14 @@
         "unknown": 0
       },
       "receptor_effect": {
-        "total": 166,
-        "verified": 166,
+        "total": 178,
+        "verified": 178,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
         "nosource": 0,
         "missing": 0,
-        "unknown": 15
+        "unknown": 11
       },
       "receptor_release_modulation": {
         "total": 64,
@@ -12195,15 +12204,15 @@
       }
     },
     "nodes": {
-      "total": 9948,
-      "verified": 9214,
+      "total": 10041,
+      "verified": 9307,
       "uncertain": 428,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
-      "unknown": 671,
-      "backed": 9642,
+      "unknown": 667,
+      "backed": 9735,
       "pct_backed": 97
     },
     "ki_coverage": {

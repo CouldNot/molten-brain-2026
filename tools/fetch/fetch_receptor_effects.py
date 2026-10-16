@@ -105,12 +105,20 @@ EFFECT_KEYWORDS: dict[str, re.Pattern[str]] = {k: re.compile(v, re.I) for k, v i
     "hypothermia": r"hypotherm|body temperature|thermoreg",
     "bradycardia": r"bradycard|heart rate|chronotrop",
     "bronchodilation": r"bronchodilat|bronch|asthma|airway",
+    "bronchoconstriction": r"bronchoconstrict|bronchospas",
     "gastric_acid_reduction": r"gastric acid|acid secretion|peptic|ulcer|heartburn|reflux",
+    "gastric_acid_increase": r"gastric acid|acid secretion",
     "vasoconstriction": r"vasoconstrict|contraction of (?:\w+ ){0,4}(?:arter|vein)",
     "vasodilation": r"vasodilat|vasorelax",
     "bladder_relaxation": r"bladder relax|detrusor relax|overactive bladder",
     "gi_motility": (r"gastric emptying|peristal|prokinetic|gut motility|"
                     r"gastrointestinal motility|colonic transit"),
+    "muscle_weakness": r"weakness|paraly|myasthen|neuromuscular block",
+    "exaggerated_startle": r"startle|hyperekplex",
+    "night_blindness": r"night blind|nyctalop",
+    "itch": r"\bitch|prurit",
+    "antipruritic": r"\bitch|prurit",
+    "ataxia": r"ataxi",
 }.items()}
 assert set(EFFECT_KEYWORDS) == set(RECEPTOR_EFFECTS), "keyword table out of sync"
 
