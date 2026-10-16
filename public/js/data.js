@@ -1706,7 +1706,15 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     const rows = resolveEffects(raw, effectModes, effectLabels)
       .map((e) => ({ ...e, sources: mapSources(e.sources) }));
     tgt.effectInfo = rows;
-    if (tgt.receptor) tgt.receptor.effectInfo = rows;
+    // {searched, corpora} when every required corpus was searched and none states an
+    // effect (tools/data_generators/unknown.py): the panel's blue UNKNOWN row. Never an
+    // effect, so it stays out of effectsByTarget and the effect index.
+    const owner = tgt.receptor || drugTargets[tgt.id] || {};
+    tgt.effectsUnknown = rows.length ? null : owner.effects_unknown || null;
+    if (tgt.receptor) {
+      tgt.receptor.effectInfo = rows;
+      tgt.receptor.effectsUnknown = tgt.effectsUnknown;
+    }
     if (rows.length) effectsByTarget.set(tgt.id, rows);
   }
   // The effect-centred view of the same nodes (the Effects section + panel, BETA):

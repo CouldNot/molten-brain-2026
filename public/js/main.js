@@ -2402,12 +2402,19 @@ function createInfoPanel(data, sourcingModal) {
   };
 
   // A receptor / target panel's "Effects" section (BETA): one row per receptor_effect
-  // node, "<effect> · <mode>" with that node's own pill. Nothing when the owner
-  // carries no sourced effect.
-  const appendEffects = (rows) => {
-    if (!rows || !rows.length) return;
+  // node, "<effect> · <mode>" with that node's own pill. An owner with no effect but a
+  // recorded search (`unknown`, {searched, corpora}) gets one row with the blue UNKNOWN
+  // pill naming that search; with neither, nothing.
+  const appendEffects = (rows, unknown) => {
+    if ((!rows || !rows.length) && !unknown) return;
     const { sec, ul } = betaSection("effects", "effects.heading", "effects.hint");
-    for (const e of rows) {
+    if (!rows || !rows.length) {
+      const li = el("li");
+      li.appendChild(el("span", "loc-name", t("effects.unknown")));
+      li.appendChild(sourceBackedPill("unknown", { unknown }));
+      ul.appendChild(li);
+    }
+    for (const e of rows || []) {
       const li = el("li");
       li.appendChild(effectLink(e.effect, e.label));
       li.appendChild(el("span", "eff-mode", e.modeLabel));
@@ -4242,7 +4249,7 @@ function createInfoPanel(data, sourcingModal) {
           receptor.locationInfo, receptor.densityInfo));
       }
       body.appendChild(where);
-      appendEffects(receptor.effectInfo);
+      appendEffects(receptor.effectInfo, receptor.effectsUnknown);
       appendDownstream(receptor.modulationInfo);
       appendDemographics(receptor.demographicInfo);
       appendVariants(receptor.variantInfo);
@@ -4325,7 +4332,7 @@ function createInfoPanel(data, sourcingModal) {
           target.locationInfo, target.densityInfo));
       }
       body.appendChild(where);
-      appendEffects(target.effectInfo);
+      appendEffects(target.effectInfo, target.effectsUnknown);
       appendDemographics(target.demographicInfo);
       appendVariants(target.variantInfo);
 
