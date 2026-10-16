@@ -1,0 +1,2578 @@
+[
+ {
+  "drug": "acamprosate",
+  "name": "Acamprosate",
+  "slug": "acamprosate",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "Ethanol (alcohol) acts on the central nervous system by binding to the GABA A receptor , increasing the effects of the inhibitory neurotransmitter GABA (i.e., it acts as positive allosteric modulators at these receptors)."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "When alcohol is no longer consumed, these down-regulated GABA A receptor complexes are so insensitive to GABA that the typical amount of GABA produced has little effect, leading to physical withdrawal symptoms ; since GABA normally inhibits neural firing , GABA A receptor desensitization results in unopposed excitatory neurotransmission (i.e., fewer inhibitory postsynaptic potentials occur through GABA A receptors), leading to neuronal over-excitation (i.e., more action potentials in the postsynaptic neuron)."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "In addition, alcohol also inhibits the activity of NMDA receptors (NMDARs)."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "Acamprosate is originally believed to act as an NMDA receptor antagonist and positive allosteric modulator of GABA A receptors ."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Acamprosate is originally believed to act as an NMDA receptor antagonist and positive allosteric modulator of GABA A receptors ."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "An inhibition of the GABA-B system is believed to cause indirect enhancement of GABA A receptors ."
+   },
+   {
+    "target": "gaba_b",
+    "target_name": "GABA-B",
+    "origin": "prose",
+    "line": "An inhibition of the GABA-B system is believed to cause indirect enhancement of GABA A receptors ."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "The effects on the NMDA complex are dose-dependent; the product appears to enhance receptor activation at low concentrations, while inhibiting it when consumed in higher amounts, which counters the excessive activation of NMDA receptors in the context of alcohol withdrawal."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "At high concentrations, well above those that occur clinically (1 μM to 3 μM), there are reports of inhibition of glutamate receptor -activated responses (1 mM), enhancement of NMDA receptor function (300 μM), weak antagonization of the NMDA receptor, and partial agonism of the polyamine site of the NMDA receptor."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "At clinical levels, any inhibition of the NMDA receptor probably occurs in an allosteric way."
+   },
+   {
+    "target": "mglur5",
+    "target_name": "mGluR5",
+    "origin": "prose",
+    "line": "The idea originated from the fact that acamprosate blocked the neurotoxicity of an agonist of mGluR1 and mGluR5."
+   }
+  ]
+ },
+ {
+  "drug": "alpidem",
+  "name": "Alpidem",
+  "slug": "alpidem",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "GABA A receptor positive allosteric modulators with selectivity for α 2 and α 3 subunit -containing GABA A receptors over α 1 subunit-containing GABA A receptors, for instance adipiplon , L-838,417 , and darigabat —among others, have been and are under investigation as potential anxioselective agents."
+   }
+  ]
+ },
+ {
+  "drug": "amantadine",
+  "name": "Amantadine",
+  "slug": "amantadine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "It acts as a sigma σ 1 receptor agonist , nicotinic acetylcholine receptor negative allosteric modulator , dopaminergic agent , and weak NMDA receptor antagonist , among other actions."
+   },
+   {
+    "target": "m2",
+    "target_name": "M2",
+    "origin": "prose",
+    "line": "The antiviral mechanism of action is inhibition of the influenza virus A M2 proton channel , which prevents endosomal escape (i.e., the release of viral genetic material into the host cytoplasm)."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "The drug is a weak antagonist of the NMDA-type glutamate receptor , increases dopamine release , and blocks dopamine reuptake ."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "The drug is a weak antagonist of the NMDA-type glutamate receptor , increases dopamine release , and blocks dopamine reuptake ."
+   },
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "It is a negative allosteric modulator of the nicotinic acetylcholine receptors , specifically the α 4 β 2 and α 7 nicotinic acetylcholine receptors ."
+   },
+   {
+    "target": "nachr_a4b2",
+    "target_name": "Neuronal α4β2 nAChR",
+    "origin": "prose",
+    "line": "It is a negative allosteric modulator of the nicotinic acetylcholine receptors , specifically the α 4 β 2 and α 7 nicotinic acetylcholine receptors ."
+   },
+   {
+    "target": "nachr_a7",
+    "target_name": "Neuronal α7 nAChR",
+    "origin": "prose",
+    "line": "It is a negative allosteric modulator of the nicotinic acetylcholine receptors , specifically the α 4 β 2 and α 7 nicotinic acetylcholine receptors ."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "In 2004, it was discovered that amantadine and memantine bind to and act as agonists of the sigma σ 1 receptor (K i = 7.44 μM and 2.60 μM, respectively) and that activation of the σ 1 receptor is potentially involved in the dopaminergic effects of amantadine at therapeutically relevant concentrations. σ 1 receptor activation is one of amantadine's more potent actions. σ 1 receptor agonists enhance tyrosine hydroxylase activity, modulate NMDA -stimulated dopamine release, increase dopamine release in the striatum in vivo , and decrease dopamine reuptake ."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "In 2004, it was discovered that amantadine and memantine bind to and act as agonists of the sigma σ 1 receptor (K i = 7.44 μM and 2.60 μM, respectively) and that activation of the σ 1 receptor is potentially involved in the dopaminergic effects of amantadine at therapeutically relevant concentrations. σ 1 receptor activation is one of amantadine's more potent actions. σ 1 receptor agonists enhance tyrosine hydroxylase activity, modulate NMDA -stimulated dopamine release, increase dopamine release in the striatum in vivo , and decrease dopamine reuptake ."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "These include dopaminergic actions like indirect enhancement of dopamine release , dopamine reuptake inhibition , and D 2 receptor interactions, noradrenergic actions, glutamatergic actions such as NMDA receptor antagonism , and immunomodulation , among many others."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "These include dopaminergic actions like indirect enhancement of dopamine release , dopamine reuptake inhibition , and D 2 receptor interactions, noradrenergic actions, glutamatergic actions such as NMDA receptor antagonism , and immunomodulation , among many others."
+   }
+  ]
+ },
+ {
+  "drug": "amitriptyline",
+  "name": "Amitriptyline",
+  "slug": "amitriptyline",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Amitriptyline also acts as NMDA receptor blocker, but the precise mechanism of this blockade remains unclear ."
+   }
+  ]
+ },
+ {
+  "drug": "amoxapine",
+  "name": "Amoxapine",
+  "slug": "amoxapine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht2b",
+    "target_name": "5-HT2B",
+    "origin": "prose",
+    "line": "It is a moderate and strong reuptake inhibitor of serotonin and norepinephrine , respectively, and binds to the 5-HT 2A , 5-HT 2B , 5-HT 2C , 5-HT 3 , 5-HT 6 , 5-HT 7 , D 2 , α 1 -adrenergic , D 3 , D 4 , and H 1 receptors with varying but significant affinity , where it acts as an antagonist (or inverse agonist depending on the receptor in question) at all sites."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "It is a moderate and strong reuptake inhibitor of serotonin and norepinephrine , respectively, and binds to the 5-HT 2A , 5-HT 2B , 5-HT 2C , 5-HT 3 , 5-HT 6 , 5-HT 7 , D 2 , α 1 -adrenergic , D 3 , D 4 , and H 1 receptors with varying but significant affinity , where it acts as an antagonist (or inverse agonist depending on the receptor in question) at all sites."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Amoxapine is also a weak GlyT2 blocker , as well as a weak (K i = 2.5 μM, EC 50 = 0.98 μM) δ-opioid receptor partial agonist ."
+   }
+  ]
+ },
+ {
+  "drug": "amphetamine_d",
+  "name": "Amphetamine (D)",
+  "slug": "dextroamphetamine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "drugbox",
+    "line": "Inhibited transporters | DAT NET SERT VMAT1 VMAT2 EAAT3 SLC22A3 SLC22A5"
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Activation of TAAR1 increases cAMP production via adenylyl cyclase activation and inhibits the function of the dopamine transporter , norepinephrine transporter , and serotonin transporter , as well as inducing the release of these monoamine neurotransmitters (effluxion)."
+   }
+  ]
+ },
+ {
+  "drug": "amphetamine_dl",
+  "name": "Amphetamine (D,L)",
+  "slug": "amphetamine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "drugbox",
+    "line": "Inhibited transporters | DAT NET SERT VMAT1 VMAT2 EAAT3 SLC22A3 SLC22A5"
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Amphetamine addiction is largely mediated through increased activation of dopamine receptors and co-localized NMDA receptors in the nucleus accumbens; magnesium ions inhibit NMDA receptors by blocking the receptor calcium channel ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Amphetamine potentiates monoaminergic neurotransmission primarily by entering axon terminals either through active transport by monoamine transporters ( DAT , NET , and SERT ) or by passive diffusion across neuronal membranes ."
+   },
+   {
+    "target": "5ht1a",
+    "target_name": "5-HT1A",
+    "origin": "prose",
+    "line": "In humans, the only post-synaptic receptor at which amphetamine is known to bind is the 5-HT 1A receptor , where it acts as an agonist with low micromolar affinity."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "TAAR1 also couples G-protein alpha subunit G 13 ; when triggered by amphetamine, this pathway activates Ras homolog A (RhoA) and its downstream protein kinase, Rho-associated coiled-coil kinase (ROCK), an effect that internalizes both DAT and the neuronal glutamate transporter EAAT3 ."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "In locus coeruleus norepinephrine neurons, TAAR1-dependent RhoA signaling promotes EAAT3 internalization and subsequent glutamate reuptake inhibition."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Amphetamine affects serotonin via VMAT2 inhibition and SERT phosphorylation."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "This increase in extracellular glutamate presumably occurs via the amphetamine-induced internalization of EAAT3 , a glutamate reuptake transporter in some dopamine and norepinephrine neurons."
+   }
+  ]
+ },
+ {
+  "drug": "aripiprazole",
+  "name": "Aripiprazole",
+  "slug": "aripiprazole",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "vmat2",
+    "target_name": "Vesicular monoamine transporter (VMAT2)",
+    "origin": "prose",
+    "line": "It has also been identified as a potent vesicular monoamine transporter 2 (VMAT2) inhibitor , lessening the degree of tardive dyskinesia , in contrast to other antipsychotic therapy associated with this side effect. ( IC 50"
+   }
+  ]
+ },
+ {
+  "drug": "atomoxetine",
+  "name": "Atomoxetine",
+  "slug": "atomoxetine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "In rats, atomoxetine increased prefrontal cortex catecholamine concentrations without altering dopamine levels in the striatum or nucleus accumbens ; in contrast, methylphenidate , a dopamine reuptake inhibitor (DRI), was found to increase prefrontal, striatal, and accumbal dopamine levels to the same degree."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Atomoxetine's status as a serotonin transporter (SERT) inhibitor at clinical doses in humans is uncertain."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Conversely, venlafaxine robustly inhibited the SERT but only inhibited the NET at high doses."
+   },
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "K ir 3.1/3.2 ion channels are opened downstream of M 2 , α 2 , D 2 , and A 1 stimulation, as well as other G i -coupled receptors."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "K ir 3.1/3.2 ion channels are opened downstream of M 2 , α 2 , D 2 , and A 1 stimulation, as well as other G i -coupled receptors."
+   },
+   {
+    "target": "m2",
+    "target_name": "M2",
+    "origin": "prose",
+    "line": "K ir 3.1/3.2 ion channels are opened downstream of M 2 , α 2 , D 2 , and A 1 stimulation, as well as other G i -coupled receptors."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "4-Hydroxyatomoxetine, the major active metabolite of atomoxetine in CYP2D6 extensive metabolizers, has been found to have sub-micromolar affinity for opioid receptors , acting as an antagonist at the μ-opioid receptor (MOR) and as a partial agonist at the κ-opioid receptor (KOR)."
+   },
+   {
+    "target": "mu",
+    "target_name": "μ (MOR)",
+    "origin": "prose",
+    "line": "4-Hydroxyatomoxetine, the major active metabolite of atomoxetine in CYP2D6 extensive metabolizers, has been found to have sub-micromolar affinity for opioid receptors , acting as an antagonist at the μ-opioid receptor (MOR) and as a partial agonist at the κ-opioid receptor (KOR)."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Atomoxetine is being studied for treatment of sleep apnea in combination with various other drugs including oxybutynin or aroxybutynin , trazodone , antimineralocorticoids like spironolactone , an orexin receptor antagonist , pimavanserin , acetazolamide , dronabinol (Δ 9 -tetrahydrocannabinol;"
+   },
+   {
+    "target": "orexin",
+    "target_name": "Orexin receptors (OX1R/OX2R)",
+    "origin": "prose",
+    "line": "Atomoxetine is being studied for treatment of sleep apnea in combination with various other drugs including oxybutynin or aroxybutynin , trazodone , antimineralocorticoids like spironolactone , an orexin receptor antagonist , pimavanserin , acetazolamide , dronabinol (Δ 9 -tetrahydrocannabinol;"
+   }
+  ]
+ },
+ {
+  "drug": "benztropine",
+  "name": "Benztropine",
+  "slug": "benzatropine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "The drug also has antihistamine and dopamine reuptake inhibitor activity."
+   }
+  ]
+ },
+ {
+  "drug": "brexanolone",
+  "name": "Brexanolone",
+  "slug": "allopregnanolone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "While allopregnanolone, like other inhibitory neurosteroids such as THDOC, positively modulates all GABA A receptor isoforms, those isoforms containing δ subunits exhibit the greatest potentiation."
+   },
+   {
+    "target": "gaba_a_rho",
+    "target_name": "GABA-A-ρ",
+    "origin": "prose",
+    "line": "Allopregnanolone has also been found to act as a positive allosteric modulator of the GABA A -ρ receptor , though the implications of this action are unclear."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "In addition to its actions on GABA receptors, allopregnanolone, like progesterone, is known to be a negative allosteric modulator of nACh receptors , and also appears to act as a negative allosteric modulator of the 5-HT 3 receptor ."
+   }
+  ]
+ },
+ {
+  "drug": "bromocriptine",
+  "name": "Bromocriptine",
+  "slug": "bromocriptine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "Bromocriptine has additionally been found to inhibit the release of glutamate by reversing the glutamate transporter 1 (GLT-1;"
+   }
+  ]
+ },
+ {
+  "drug": "buprenorphine",
+  "name": "Buprenorphine",
+  "slug": "buprenorphine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "Buprenorphine is commonly given alongside acepromazine or α 2 -adrenergic receptor agonists ."
+   }
+  ]
+ },
+ {
+  "drug": "bupropion",
+  "name": "Bupropion",
+  "slug": "bupropion",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "It is also popular as an add-on medication in the cases of \"incomplete response\" to the first-line selective serotonin reuptake inhibitor (SSRI) antidepressant."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Bupropion is more effective than selective serotonin reuptake inhibitors (SSRIs) at improving symptoms of hypersomnia and fatigue in depressed patients."
+   },
+   {
+    "target": "vmat2",
+    "target_name": "Vesicular monoamine transporter (VMAT2)",
+    "origin": "prose",
+    "line": "Bupropion has also been shown to increase reuptake of dopamine by striatal VMAT2 , though it is unknown if this effect is more pronounced than other DRIs."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "Bupropion has been claimed to be a sigma σ 1 receptor agonist ."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "Its antidepressant-like effects in rodents depend on σ 1 receptor activation."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "They are enhanced and inhibited by σ 1 receptor agonists and antagonists, respectively."
+   }
+  ]
+ },
+ {
+  "drug": "caffeine",
+  "name": "Caffeine",
+  "slug": "caffeine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "It is also a competitive antagonist of the ionotropic glycine receptor ."
+   },
+   {
+    "target": "ache",
+    "target_name": "Acetylcholinesterase",
+    "origin": "prose",
+    "line": "Caffeine also affects the cholinergic system where it is a moderate inhibitor of the enzyme acetylcholinesterase ."
+   }
+  ]
+ },
+ {
+  "drug": "cannabinol",
+  "name": "Cannabinol",
+  "slug": "cannabinol",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "In the case of CB1R agonism on the presynaptic membrane of a GABAergic interneuron , activation leads to a net effect of increased activity, while the same activity on a glutamatergic neuron leads to the opposite net effect."
+   }
+  ]
+ },
+ {
+  "drug": "clomipramine",
+  "name": "Clomipramine",
+  "slug": "clomipramine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "It is specifically an antagonist of the α 1 -adrenergic receptor , the histamine H 1 receptor , the serotonin 5-HT 2A , 5-HT 2C , 5-HT 3 , 5-HT 6 , and 5-HT 7 receptors , the dopamine D 1 , D 2 , and D 3 receptors , and the muscarinic acetylcholine receptors ( M 1 – M 5 )."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "It is specifically an antagonist of the α 1 -adrenergic receptor , the histamine H 1 receptor , the serotonin 5-HT 2A , 5-HT 2C , 5-HT 3 , 5-HT 6 , and 5-HT 7 receptors , the dopamine D 1 , D 2 , and D 3 receptors , and the muscarinic acetylcholine receptors ( M 1 – M 5 )."
+   },
+   {
+    "target": "5ht6",
+    "target_name": "5-HT6",
+    "origin": "prose",
+    "line": "It is specifically an antagonist of the α 1 -adrenergic receptor , the histamine H 1 receptor , the serotonin 5-HT 2A , 5-HT 2C , 5-HT 3 , 5-HT 6 , and 5-HT 7 receptors , the dopamine D 1 , D 2 , and D 3 receptors , and the muscarinic acetylcholine receptors ( M 1 – M 5 )."
+   },
+   {
+    "target": "5ht7",
+    "target_name": "5-HT7",
+    "origin": "prose",
+    "line": "It is specifically an antagonist of the α 1 -adrenergic receptor , the histamine H 1 receptor , the serotonin 5-HT 2A , 5-HT 2C , 5-HT 3 , 5-HT 6 , and 5-HT 7 receptors , the dopamine D 1 , D 2 , and D 3 receptors , and the muscarinic acetylcholine receptors ( M 1 – M 5 )."
+   },
+   {
+    "target": "d1",
+    "target_name": "D1",
+    "origin": "prose",
+    "line": "It is specifically an antagonist of the α 1 -adrenergic receptor , the histamine H 1 receptor , the serotonin 5-HT 2A , 5-HT 2C , 5-HT 3 , 5-HT 6 , and 5-HT 7 receptors , the dopamine D 1 , D 2 , and D 3 receptors , and the muscarinic acetylcholine receptors ( M 1 – M 5 )."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "It is specifically an antagonist of the α 1 -adrenergic receptor , the histamine H 1 receptor , the serotonin 5-HT 2A , 5-HT 2C , 5-HT 3 , 5-HT 6 , and 5-HT 7 receptors , the dopamine D 1 , D 2 , and D 3 receptors , and the muscarinic acetylcholine receptors ( M 1 – M 5 )."
+   },
+   {
+    "target": "d1",
+    "target_name": "D1",
+    "origin": "prose",
+    "line": "In addition to serotonin reuptake inhibition, clomipramine is also a mild but clinically significant antagonist of the dopamine D 1 , D 2 , and D 3 receptors at high concentrations."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "In addition to serotonin reuptake inhibition, clomipramine is also a mild but clinically significant antagonist of the dopamine D 1 , D 2 , and D 3 receptors at high concentrations."
+   }
+  ]
+ },
+ {
+  "drug": "clonidine",
+  "name": "Clonidine",
+  "slug": "clonidine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "Somatodendritic α 2 adrenoceptors reduce locus coeruleus firing, and presynaptic α 2 adrenoceptors reduce norepinephrine release along noradrenergic pathways , in turn lowering noradrenergic modulation of arousal in the ascending reticular activating system . α 2 adrenoceptors are also expressed on axon terminals that release several other neurotransmitters (i.e., serotonin , dopamine , acetylcholine , GABA , and glutamate ), and their activation can suppress release at these synapses as well."
+   }
+  ]
+ },
+ {
+  "drug": "clozapine",
+  "name": "Clozapine",
+  "slug": "clozapine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "Clozapine induces the release of glutamate and D-serine , co-agonists at the glycine site of the NMDA receptor , from astrocytes , and reduces the expression of astrocytic glutamate transporters ."
+   },
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "Clozapine induces the release of glutamate and D-serine , co-agonists at the glycine site of the NMDA receptor , from astrocytes , and reduces the expression of astrocytic glutamate transporters ."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Clozapine induces the release of glutamate and D-serine , co-agonists at the glycine site of the NMDA receptor , from astrocytes , and reduces the expression of astrocytic glutamate transporters ."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Clozapine prevents impaired NMDA receptor expression caused by NMDA receptor antagonists."
+   }
+  ]
+ },
+ {
+  "drug": "dimenhydrinate",
+  "name": "Dimenhydrinate",
+  "slug": "dimenhydrinate",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "h1",
+    "target_name": "H1",
+    "origin": "prose",
+    "line": "Diphen­hydramine is itself an H 1 receptor antagonist that demonstrates anticholinergic activity."
+   }
+  ]
+ },
+ {
+  "drug": "diphenhydramine",
+  "name": "Diphenhydramine",
+  "slug": "diphenhydramine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "The mild anxiolytic effects of hydroxyzine are mostly due to its weak but significant activity as an antagonist of the 5-HT 2A receptor , a common target of most antidepressant drugs (as well as certain other antihistamines like cyproheptadine and promethazine )."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "This discovery led to a search for viable antidepressants with similar structures and fewer side effects, culminating in the invention of fluoxetine (Prozac), a selective serotonin reuptake inhibitor (SSRI)."
+   }
+  ]
+ },
+ {
+  "drug": "dmt",
+  "name": "DMT",
+  "slug": "dimethyltryptamine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "However, when taken in combination with an irreversible monoamine oxidase inhibitor (MAOI) or a reversible inhibitor of MAO-A (RIMA) such as a harmala alkaloid like harmine or harmaline or a pharmaceutical RIMA like moclobemide , DMT becomes orally active with an extended duration relative to parenteral use of DMT alone."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "DMT inhibited SERT-mediated serotonin uptake into platelets at an average concentration of 4.00 ± 0.70 μmol/L and VMAT2-mediated serotonin uptake at an average concentration of 93 ± 6.8 μmol/L."
+   },
+   {
+    "target": "vmat2",
+    "target_name": "Vesicular monoamine transporter (VMAT2)",
+    "origin": "prose",
+    "line": "DMT inhibited SERT-mediated serotonin uptake into platelets at an average concentration of 4.00 ± 0.70 μmol/L and VMAT2-mediated serotonin uptake at an average concentration of 93 ± 6.8 μmol/L."
+   }
+  ]
+ },
+ {
+  "drug": "donepezil",
+  "name": "Donepezil",
+  "slug": "donepezil",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "In addition to its actions as an acetylcholinesterase inhibitor, donepezil has been found to act as a potent agonist of the σ 1 receptor (K i = 14.6 nM), and has been shown to produce specific antiamnestic effects in animals mainly via this action."
+   }
+  ]
+ },
+ {
+  "drug": "ethosuximide",
+  "name": "Ethosuximide",
+  "slug": "ethosuximide",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "cav",
+    "target_name": "Voltage-gated calcium channel",
+    "origin": "prose",
+    "line": "Its mechanism of action is thought to be due to antagonism of the postsynaptic T-type voltage-gated calcium channel."
+   }
+  ]
+ },
+ {
+  "drug": "fenfluramine",
+  "name": "Fenfluramine",
+  "slug": "fenfluramine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "Fenfluramine acts as a serotonin and norepinephrine releasing agent , agonist of the serotonin 5-HT 2 receptors , and sigma σ 1 receptor positive modulator ."
+   }
+  ]
+ },
+ {
+  "drug": "fentanyl",
+  "name": "Fentanyl",
+  "slug": "fentanyl",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "Fentanyl exerts its actions as an agonist of the μ-opioid receptor and κ-opioid receptor ."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "The μ-receptor agonism is responsible for the respiratory depression and generalized analgesia whilst the κ-receptor agonism is responsible for sedation and spinal analgesia."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "Fentanyl is a potent μ-receptor agonist but has less affinity for the κ-receptor."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Existing studies advise medical practitioners to exercise caution when combining selective serotonin reuptake inhibitor (SSRI) drugs with fentanyl."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "It also produces sedation and spinal analgesia through Κ-receptor agonism."
+   }
+  ]
+ },
+ {
+  "drug": "flibanserin",
+  "name": "Flibanserin",
+  "slug": "flibanserin",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "d4",
+    "target_name": "D4",
+    "origin": "prose",
+    "line": "Flibanserin acts as a full agonist in the frontal cortex and the dorsal raphe nucleus , but only as a partial agonist in the CA3 region of the hippocampus of the 5-HT 1A receptor ( serotonin receptor ) (K i = 1 nM in CHO cells , but only 15–50 nM in cortex, hippocampus and dorsal raphe) and, with lower affinity , as an antagonist of the 5-HT 2A receptor (K i = 49 nM) and antagonist or very weak partial agonist of the D 4 receptor (K i = 4–24 nM, K i = 8–650 nM )."
+   },
+   {
+    "target": "5ht2b",
+    "target_name": "5-HT2B",
+    "origin": "prose",
+    "line": "Flibanserin also has low affinity for the 5-HT 2B receptor (K i = 89.3 nM) and the 5-HT 2C receptor (K i = 88.3 nM), both of which it behaves as an antagonist of."
+   },
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "Flibanserin also has low affinity for the 5-HT 2B receptor (K i = 89.3 nM) and the 5-HT 2C receptor (K i = 88.3 nM), both of which it behaves as an antagonist of."
+   }
+  ]
+ },
+ {
+  "drug": "fluoxetine",
+  "name": "Fluoxetine",
+  "slug": "fluoxetine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Its use should also be avoided in those receiving other serotonergic drugs such as monoamine oxidase inhibitors , tricyclic antidepressants , methamphetamine , amphetamine , MDMA , triptans , buspirone , ginseng , dextromethorphan (DXM) , linezolid , tramadol , serotonin–norepinephrine reuptake inhibitors (SNRIs), and other SSRIs due to the potential for serotonin syndrome to develop as a result."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "In addition, fluoxetine has been found to act as an agonist of the σ 1 -receptor , with a potency greater than that of citalopram but less than that of fluvoxamine ."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "A number of other ion channels , including nicotinic acetylcholine receptors and 5-HT 3 receptors , are also known to be inhibited at similar concentrations."
+   }
+  ]
+ },
+ {
+  "drug": "gabapentin",
+  "name": "Gabapentin",
+  "slug": "gabapentin",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "Gabapentin reduces delivery of intracellular calcium channels to the cell membrane, reduces the activation of the channels by the α 2 δ subunit, decreases signaling to lead to neurotransmitters release, and disrupts interactions of α 2 δ with voltage gated calcium channels but also with NMDA receptors , neurexins , and thrombospondin ."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Gabapentin reduces delivery of intracellular calcium channels to the cell membrane, reduces the activation of the channels by the α 2 δ subunit, decreases signaling to lead to neurotransmitters release, and disrupts interactions of α 2 δ with voltage gated calcium channels but also with NMDA receptors , neurexins , and thrombospondin ."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Gabapentin reduces delivery of intracellular calcium channels to the cell membrane, reduces the activation of the channels by the α 2 δ subunit, decreases signaling to lead to neurotransmitters release, and disrupts interactions of α 2 δ with voltage gated calcium channels but also with NMDA receptors , neurexins , and thrombospondin ."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "By the early 1970s, it was appreciated that there are two main classes of GABA receptors , GABA A and GABA B and also that baclofen was an agonist of GABA B receptors."
+   },
+   {
+    "target": "gaba_b",
+    "target_name": "GABA-B",
+    "origin": "prose",
+    "line": "By the early 1970s, it was appreciated that there are two main classes of GABA receptors , GABA A and GABA B and also that baclofen was an agonist of GABA B receptors."
+   }
+  ]
+ },
+ {
+  "drug": "galantamine",
+  "name": "Galantamine",
+  "slug": "galantamine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "Galantamine is a potent allosteric potentiating ligand of human nicotinic acetylcholine receptors (nAChRs) α 4 β 2 , α 3 β 4 , and α 6 β 4 , and chicken/mouse nAChRs α 7 / 5-HT 3 in certain areas of the brain."
+   },
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "Galantamine is a potent allosteric potentiating ligand of human nicotinic acetylcholine receptors (nAChRs) α 4 β 2 , α 3 β 4 , and α 6 β 4 , and chicken/mouse nAChRs α 7 / 5-HT 3 in certain areas of the brain."
+   }
+  ]
+ },
+ {
+  "drug": "guanfacine",
+  "name": "Guanfacine",
+  "slug": "guanfacine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht2b",
+    "target_name": "5-HT2B",
+    "origin": "prose",
+    "line": "It is also a serotonin 5-HT 2B receptor agonist."
+   },
+   {
+    "target": "5ht2b",
+    "target_name": "5-HT2B",
+    "origin": "prose",
+    "line": "Activation of the 5-HT 2B receptor is a well-known antitarget and is associated with cardiac valvulopathy ."
+   },
+   {
+    "target": "5ht2b",
+    "target_name": "5-HT2B",
+    "origin": "prose",
+    "line": "In in vitro studies, guanfacine showed 100-fold lower affinity for the 5-HT 2B receptor than for the α 2A -adrenergic receptor, 30-fold lower affinity for the 5-HT 2B receptor than serotonin , and 1,000-fold lower potency in activating the 5-HT 2B receptor compared to serotonin."
+   }
+  ]
+ },
+ {
+  "drug": "hydroxyzine",
+  "name": "Hydroxyzine",
+  "slug": "hydroxyzine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "In addition to its antihistamine activity, hydroxyzine has also been shown to act more weakly as an antagonist of the serotonin 5-HT 2A receptor , the dopamine D 2 receptor , and the α 1 -adrenergic receptor ."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "In addition to its antihistamine activity, hydroxyzine has also been shown to act more weakly as an antagonist of the serotonin 5-HT 2A receptor , the dopamine D 2 receptor , and the α 1 -adrenergic receptor ."
+   }
+  ]
+ },
+ {
+  "drug": "ibogaine",
+  "name": "Ibogaine",
+  "slug": "ibogaine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "Similarly, LSD and DOM partially substitute for ibogaine and this can be blocked by the serotonin 5-HT 2A receptor antagonist pirenperone ."
+   },
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "The preferential serotonin 5-HT 2C receptor agonists MK-212 and mCPP partially substitute for ibogaine as well and this can be blocked by the serotonin 5-HT 2 receptor antagonist metergoline ."
+   },
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "The preceding findings suggest that serotonin 5-HT 2A and 5-HT 2C receptor activation are involved in the subjective effects of ibogaine."
+   },
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "The preceding findings suggest that serotonin 5-HT 2A and 5-HT 2C receptor activation are involved in the subjective effects of ibogaine."
+   },
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "As with the case of ibogaine, the psychedelic DOM partially substitutes for harmaline and this further supports a role of serotonin 5-HT 2A receptor activation in the effects of ibogaine as well as of harmala alkaloids."
+   },
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "However, like ibogaine, harmala alkaloids like harmaline bound to the serotonin 5-HT 2A receptor but were inactive as direct agonists of the receptor even at very high concentrations in vitro ."
+   },
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "This can be blocked by the serotonin 5-HT 2A receptor antagonist ketanserin , by the mTOR inhibitor rapamycin , and by a TrkB antagonist."
+   }
+  ]
+ },
+ {
+  "drug": "iloperidone",
+  "name": "Iloperidone",
+  "slug": "iloperidone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "h1",
+    "target_name": "H1",
+    "origin": "prose",
+    "line": "Antagonism occurs at all other receptors following dopamine D 2 (6.3 nM) and D 3 (7.1 nM) and α 1 -adrenergic receptors (0.36 nM), moderate affinity for dopamine D 4 (25 nM), serotonin 5-HT 6 (43 nM), 5-HT 7 (22 nM), and low affinity for the serotonin 5-HT 1A (168 nM), dopamine D 1 , and histamine H 1 receptors."
+   }
+  ]
+ },
+ {
+  "drug": "indalpine",
+  "name": "Indalpine",
+  "slug": "indalpine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "In line with indalpine's fate, research and development was halted relating to the two other 4-alkylpiperidine derivatives developed by Pharmuka, viqualine (a serotonin releasing agent ) and pipequaline (a GABA A receptor positive allosteric modulator ), both in different stages of development at the time."
+   }
+  ]
+ },
+ {
+  "drug": "isocarboxazid",
+  "name": "Isocarboxazid",
+  "slug": "isocarboxazid",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "The major interaction risks are mechanistically distinct: foods containing substantial tyramine can provoke hypertensive reactions, while drugs with significant serotonin reuptake inhibition or serotonin-releasing activity can precipitate serotonin syndrome ."
+   }
+  ]
+ },
+ {
+  "drug": "isoflurane",
+  "name": "Isoflurane",
+  "slug": "isoflurane",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "Isoflurane acts as a positive allosteric modulator of the GABA A receptor in electrophysiology studies of neurons and recombinant receptors."
+   },
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "It potentiates glycine receptor activity, which decreases motor function."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "It inhibits receptor activity in the NMDA glutamate receptor subtypes."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "It inhibits receptor activity in the NMDA glutamate receptor subtypes."
+   }
+  ]
+ },
+ {
+  "drug": "ketamine",
+  "name": "Ketamine",
+  "slug": "ketamine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "As an NMDA receptor antagonist , ketamine triggers a paradoxical acute burst of glutamate by selectively blocking inhibitory GABAergic neurons."
+   },
+   {
+    "target": "ampa",
+    "target_name": "AMPA",
+    "origin": "prose",
+    "line": "This surge activates AMPA receptors, which modulate downstream signaling pathways in the limbic system to produce rapid antidepressant effects."
+   },
+   {
+    "target": "ampa",
+    "target_name": "AMPA",
+    "origin": "prose",
+    "line": "Such downstream actions of the activation of AMPA receptors include upregulation of BDNF and activation of its signaling receptor tropomyosin receptor kinase B (TrkB), activation of the mammalian target of rapamycin (mTOR) pathway, deactivation of glycogen synthase kinase 3 (GSK-3), and inhibition of the phosphorylation of the eukaryotic elongation factor 2 (eEF2) kinase ."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "Ketamine principally acts as a pore blocker of the NMDA receptor , an ionotropic glutamate receptor ."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "Whether ketamine is an agonist of D 2 receptors is controversial."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "Early research by the Philip Seeman group found ketamine to be a D 2 partial agonist with a potency similar to that of its NMDA receptor antagonism."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "However, later studies by different researchers found the affinity of ketamine of >10 μM for the regular human and rat D 2 receptors, Moreover, whereas D 2 receptor agonists such as bromocriptine can rapidly and powerfully suppress prolactin secretion , subanesthetic doses of ketamine have not been found to do this in humans and in fact, have been found to dose-dependently increase prolactin levels."
+   }
+  ]
+ },
+ {
+  "drug": "lamotrigine",
+  "name": "Lamotrigine",
+  "slug": "lamotrigine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "It also blocks L-, N-, and P-type calcium channels and weakly inhibits the serotonin 5-HT 3 receptor ."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "These actions are thought to inhibit release of glutamate at cortical projections in the ventral striatum limbic areas , and its neuroprotective and antiglutamatergic effects have been pointed out as promising contributors to its mood stabilizing activity."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Lamotrigine blocks NMDA receptor-initiated arachidonic acid signalling in rat brain."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "As is the case for antiepileptic drugs that act on voltage-dependent sodium channels, lamotrigine thereby inhibits the release of glutamate and aspartate , which is evoked by the sodium-channel activator veratrine and was less effective in the inhibition of acetylcholine or GABA release."
+   }
+  ]
+ },
+ {
+  "drug": "lithium",
+  "name": "Lithium",
+  "slug": "lithium_medication",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "GABA is an inhibitory neurotransmitter that plays an important role in regulating dopamine and glutamate neurotransmission ."
+   }
+  ]
+ },
+ {
+  "drug": "loxapine",
+  "name": "Loxapine",
+  "slug": "loxapine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "It acts as Serotonin–norepinephrine reuptake inhibitor , and acts as moderate and strong reuptake inhibitor for Serotonin and Norepinephrine respectively."
+   }
+  ]
+ },
+ {
+  "drug": "lsd",
+  "name": "LSD",
+  "slug": "lsd",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "d4",
+    "target_name": "D4",
+    "origin": "prose",
+    "line": "Subsequent research has found that the delayed dopaminergic phase is associated with the highly potent dopamine D 4 receptor agonism of LSD's metabolite 13-hydroxy-LSD ."
+   }
+  ]
+ },
+ {
+  "drug": "lumateperone",
+  "name": "Lumateperone",
+  "slug": "lumateperone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "d4",
+    "target_name": "D4",
+    "origin": "prose",
+    "line": "Lumateperone acts as an antagonist at 5-HT 2A receptors and binds to several dopamine receptors ( D 1 , D 2 , and D 4 ) with moderate affinity."
+   }
+  ]
+ },
+ {
+  "drug": "lurasidone",
+  "name": "Lurasidone",
+  "slug": "lurasidone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "alpha1a",
+    "target_name": "α1A",
+    "origin": "prose",
+    "line": "It has moderate-affinity antagonism at α2C-adrenergic receptors; low to very low-affinity antagonism at α1A-adrenergic α2A-adrenergic receptors."
+   }
+  ]
+ },
+ {
+  "drug": "mdma",
+  "name": "MDMA",
+  "slug": "mdma",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "5ht1b",
+    "target_name": "5-HT1B",
+    "origin": "prose",
+    "line": "With varying potencies ranging from high to low, it is a partial agonist of several of the serotonin 5-HT 1 receptors , including the serotonin 5-HT 1A , 5-HT 1B , and 5-HT 1D receptors , and is a partial agonist of the serotonin 5-HT 2 receptors , including the serotonin 5-HT 2A , 5-HT 2B , and 5-HT 2C receptors ."
+   },
+   {
+    "target": "5ht1d",
+    "target_name": "5-HT1D",
+    "origin": "prose",
+    "line": "With varying potencies ranging from high to low, it is a partial agonist of several of the serotonin 5-HT 1 receptors , including the serotonin 5-HT 1A , 5-HT 1B , and 5-HT 1D receptors , and is a partial agonist of the serotonin 5-HT 2 receptors , including the serotonin 5-HT 2A , 5-HT 2B , and 5-HT 2C receptors ."
+   },
+   {
+    "target": "5ht1b",
+    "target_name": "5-HT1B",
+    "origin": "prose",
+    "line": "Activation of serotonin 5-HT 1B and 5-HT 2A receptors is also thought to be involved in the stimulant and euphoriant effects of MDMA, while serotonin 5-HT 2C receptor activation is thought to constrain these effects and limit MDMA's reinforcing potential ."
+   }
+  ]
+ },
+ {
+  "drug": "meclizine",
+  "name": "Meclizine",
+  "slug": "meclizine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "d1",
+    "target_name": "D1",
+    "origin": "prose",
+    "line": "Meclizine also has been reported to be a weak dopamine antagonist at D 1 -like and D 2 -like receptors but it does not cause catalepsy in mice, perhaps because of its anticholinergic activity."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "Meclizine also has been reported to be a weak dopamine antagonist at D 1 -like and D 2 -like receptors but it does not cause catalepsy in mice, perhaps because of its anticholinergic activity."
+   }
+  ]
+ },
+ {
+  "drug": "memantine",
+  "name": "Memantine",
+  "slug": "memantine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "The low affinity, uncompetitive nature, and rapid off-rate kinetics of memantine at the level of the NMDA receptor channel, however, preserve the function of the receptor at synapses, as it can still be activated by physiological release of glutamate following depolarization of the postsynaptic neuron."
+   },
+   {
+    "target": "nachr_a7",
+    "target_name": "Neuronal α7 nAChR",
+    "origin": "prose",
+    "line": "Memantine acts as a non-competitive antagonist at the α 7 nicotinic acetycholine receptor (IC50 affinity = 340nM-5,000nM or 0.34-5 μM)."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "Memantine has been shown to act as an agonist of dopamine D 2 High receptor with equal or slightly higher affinity than to NMDA receptors (D2 IC50 affinity = ~137-917 nM)."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "Memantine acts as a weak agonist of the sigma σ 1 receptor with low affinity (K i = 2,600nM or 2.6 μM)."
+   }
+  ]
+ },
+ {
+  "drug": "mescaline",
+  "name": "Mescaline",
+  "slug": "mescaline",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "Similarly, the antipsychotic chlorpromazine , which acts as both a dopamine D 2 receptor antagonist and to a lesser extent as a serotonin 5-HT 2A receptor antagonist, has been reported to reverse the psychoactive effects of mescaline."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "Barbiturates , which are GABA A receptor positive allosteric modulators , have been found to reduce the anxiety induced by mescaline."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Conversely, it was potentiated by the MAO-A inhibitor clorgiline but not by the MAO-B inhibitor rasagiline ."
+   }
+  ]
+ },
+ {
+  "drug": "methadone",
+  "name": "Methadone",
+  "slug": "methadone",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Both enantiomers bind to the glutamatergic NMDA ( N -methyl- D -aspartate) receptor, acting as noncompetitive antagonists."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Methadone has been shown to reduce neuropathic pain in rat models, primarily through NMDA receptor antagonism."
+   }
+  ]
+ },
+ {
+  "drug": "methamphetamine",
+  "name": "Methamphetamine",
+  "slug": "methamphetamine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "alpha2a",
+    "target_name": "α2A",
+    "origin": "drugbox",
+    "line": "Biomolecular targets | TAAR1 (agonist) σ1R (agonist) σ2R (agonist) α 2A adrenoceptor (agonist) α 2B adrenoceptor (agonist) α 2C adrenoceptor (agonist) MAO ( competitive inhibitor )"
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "TAAR1 activation by methamphetamine in astrocytes appears to negatively modulate the membrane expression and function of EAAT2 , a type of glutamate transporter ."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Methamphetamine is also an agonist of the alpha-2 adrenergic receptors and sigma receptors with a greater affinity for σ 1 than σ 2 , and inhibits monoamine oxidase A (MAO-A) and monoamine oxidase B (MAO-B)."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "Methamphetamine is also an agonist of the alpha-2 adrenergic receptors and sigma receptors with a greater affinity for σ 1 than σ 2 , and inhibits monoamine oxidase A (MAO-A) and monoamine oxidase B (MAO-B)."
+   }
+  ]
+ },
+ {
+  "drug": "mianserin",
+  "name": "Mianserin",
+  "slug": "mianserin",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "Mianserin has been found to be a low affinity but potentially significant partial agonist of the κ-opioid receptor (K i = 1.7 μM;"
+   }
+  ]
+ },
+ {
+  "drug": "mirtazapine",
+  "name": "Mirtazapine",
+  "slug": "mirtazapine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Onset of action appears faster than some selective serotonin reuptake inhibitors and similar to tricyclic antidepressants ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "In addition, mirtazapine has a statistical advantage over selective serotonin reuptake inhibitors in terms of reducing symptoms of depression , but the difference is not clinically significant."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "After one week of usage, mirtazapine was found to have an earlier onset of action compared to selective serotonin reuptake inhibitors."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "A 2011 Cochrane review found that, compared with other antidepressants, it is more likely to cause weight gain and sleepiness, but it is less likely to cause tremors than tricyclic antidepressants, and less likely to cause nausea and sexual dysfunction than selective serotonin reuptake inhibitors."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "In general, some antidepressants, especially selective serotonin reuptake inhibitors, can paradoxically worsen some peoples' depression or anxiety or cause suicidal ideation ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "However, it is more likely that the residual differences between people prescribed mirtazapine rather than a selective serotonin reuptake inhibitor account for the difference in risk of mortality."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Mirtazapine is considered to be relatively safe in the event of an overdose , although it is considered slightly more toxic in overdose than most of the selective serotonin reuptake inhibitors (except citalopram )."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "This is similar to that observed with selective serotonin reuptake inhibitors."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Mirtazapine in combination with a selective serotonin reuptake inhibitor , serotonin–norepinephrine reuptake inhibitor , or tricyclic antidepressant as an augmentation strategy is considered to be relatively safe and is often employed therapeutically but caution should be given when combined with fluvoxamine , which inhibits the isoenzymes normally responsible for metabolic clearing, leading to dramatically increased blood plasma levels of mirtazapine."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "In contrast to mirtazapine, the selective serotonin reuptake inhibitors, serotonin–norepinephrine reuptake inhibitors , monoamine oxidase inhibitors, and some tricyclic antidepressants acutely increase the general activity of the 5-HT 2A , 5-HT 2C , and 5-HT 3 receptors, leading to a number of negative changes and side effects, the most prominent of which include anorexia, insomnia , nausea , and diarrhea , among others."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "However, there are a handful of case reports of serotonin syndrome occurring with mirtazapine in combination with serotonergic drugs like selective serotonin reuptake inhibitors, although such reports are very rare, and do not necessarily implicate mirtazapine as causative."
+   }
+  ]
+ },
+ {
+  "drug": "moclobemide",
+  "name": "Moclobemide",
+  "slug": "moclobemide",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "In efficacy studies for the treatment of major depressive disorder, moclobemide has been found to be significantly more effective than placebo, as effective as the tricyclic antidepressants (TCAs) and selective serotonin reuptake inhibitors (SSRIs), and somewhat less effective than the older, irreversible MAOIs phenelzine and tranylcypromine ."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Serotonin–norepinephrine reuptake inhibitors (SNRIs) such as venlafaxine in combination with moclobemide have also been associated with serotonin syndrome."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "The combination of moclobemide and a reversible MAO-B inhibitor requires tyramine dietary restrictions."
+   },
+   {
+    "target": "beta3",
+    "target_name": "β3",
+    "origin": "prose",
+    "line": "Moclobemide is a benzamide , derivative of morpholine , which acts pharmacologically as a selective, reversible inhibitor of monoamine oxidase-A (RIMA), a type of monoamine oxidase inhibitor (MAOI), and increases levels of norepinephrine (noradrenaline), dopamine , and especially serotonin in neuronal cells as well as in synaptic vesicles ; extracellular levels also increase which results in increased monoamine receptor stimulation and suppression of REM sleep , down regulation of beta-3 adrenergic receptors ."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "Although it has been estimated that a single 300 mg dose of moclobemide inhibits 80% of monoamine oxidase-A (MAO-A) and 20-30% of MAO-B, studies evaluating brain occupancy of MAO-A enzymes have shown dosages of 600 mg to only inhibit 74% of MAO-A enzymes and dosages in the 900–1200 mg range to inhibit slightly less MAO-A than phenelzine (Nardil) at 45–60 mg; subsequently, it is highly plausible that reports of lower efficacy could be largely or entirely the consequence of conservative dosage guidelines rather than the pharmacological properties of the drug."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "Platelet MAO is of the MAO-B and this is inhibited only to a small degree in humans; the inhibition is due to low levels of metabolites of moclobemide that have MAO-B inhibiting properties."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "Moclobemide has been reported to be a mixed MAO-A/MAO-B inhibitor in rats but in man, it has been reported to be a pure MAO-A inhibitor, blocking the decomposition of norepinephrine, serotonin and, to a lesser extent, dopamine."
+   }
+  ]
+ },
+ {
+  "drug": "molindone",
+  "name": "Molindone",
+  "slug": "molindone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Its inhibition of monoamine oxidase is irreversible and is selective for monoamine oxidase A (MAO-A)."
+   }
+  ]
+ },
+ {
+  "drug": "morphine",
+  "name": "Morphine",
+  "slug": "morphine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "The rotation of morphine with chemically dissimilar opioids in the long-term treatment of pain will slow down the growth of tolerance in the longer run, particularly agents known to have significantly incomplete cross-tolerance with morphine such as levorphanol , ketobemidone , piritramide , and methadone and its derivatives; all of these drugs also have NMDA antagonist properties."
+   }
+  ]
+ },
+ {
+  "drug": "nabilone",
+  "name": "Nabilone",
+  "slug": "nabilone",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "A study comparing nabilone with metoclopramide , conducted before the development of modern 5-HT 3 antagonist anti-emetics such as ondansetron , revealed that patients taking cisplatin chemotherapy preferred metoclopramide , while patients taking carboplatin preferred nabilone to control nausea and vomiting."
+   }
+  ]
+ },
+ {
+  "drug": "naltrexone",
+  "name": "Naltrexone",
+  "slug": "naltrexone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Naltrexone is specifically an antagonist preferentially of the μ-opioid receptor (MOR), to a lesser extent of the κ-opioid receptor (KOR), and to a much lesser extent of the δ-opioid receptor (DOR)."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "Naltrexone is specifically an antagonist preferentially of the μ-opioid receptor (MOR), to a lesser extent of the κ-opioid receptor (KOR), and to a much lesser extent of the δ-opioid receptor (DOR)."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "However, naltrexone is not actually a silent antagonist of these receptors but instead acts as a weak partial agonist , with E max values of 14 to 29% at the MOR, 16 to 39% at the KOR, and 14 to 25% at the DOR in different studies."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "However, naltrexone is not actually a silent antagonist of these receptors but instead acts as a weak partial agonist , with E max values of 14 to 29% at the MOR, 16 to 39% at the KOR, and 14 to 25% at the DOR in different studies."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Conversely, the naltrexone remains a neutral antagonist (or weak partial agonist) of the KOR and DOR."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "Conversely, the naltrexone remains a neutral antagonist (or weak partial agonist) of the KOR and DOR."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Naltrexone antagonises the μ- , κ- , and δ- , but methylnaltrexone does not bind to the δ-opioid receptor and binds to the μ-opioid receptor at greater potency than the κ-opioid receptor and it does not cross the blood-brain barrier , which allows methylnaltrexone to treat peripheral effects of opioids such as gastrointestinal ileus whilst maintaining analgesia."
+   },
+   {
+    "target": "kappa",
+    "target_name": "κ (KOR)",
+    "origin": "prose",
+    "line": "Naltrexone antagonises the μ- , κ- , and δ- , but methylnaltrexone does not bind to the δ-opioid receptor and binds to the μ-opioid receptor at greater potency than the κ-opioid receptor and it does not cross the blood-brain barrier , which allows methylnaltrexone to treat peripheral effects of opioids such as gastrointestinal ileus whilst maintaining analgesia."
+   }
+  ]
+ },
+ {
+  "drug": "nitrous_oxide",
+  "name": "Nitrous oxide",
+  "slug": "nitrous_oxide_medication",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   },
+   {
+    "target": "ampa",
+    "target_name": "AMPA",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   },
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   },
+   {
+    "target": "gaba_a_rho",
+    "target_name": "GABA-A-ρ",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   },
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   },
+   {
+    "target": "kainate",
+    "target_name": "Kainate",
+    "origin": "prose",
+    "line": "It moderately blocks NMDAR and β 2 -subunit -containing nACh channels , weakly inhibits AMPA , kainate , GABA C and 5-HT 3 receptors , and slightly potentiates GABA A and glycine receptors ."
+   }
+  ]
+ },
+ {
+  "drug": "perampanel",
+  "name": "Perampanel",
+  "slug": "perampanel",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "Perampanel is a non-competitive AMPA glutamate receptor antagonist."
+   },
+   {
+    "target": "m1",
+    "target_name": "M1",
+    "origin": "prose",
+    "line": "The rates of block and unblock of AMPA receptor currents were 1.5×10 5 M −1 s −1 and 0.58 s −1 , respectively."
+   }
+  ]
+ },
+ {
+  "drug": "pethidine",
+  "name": "Pethidine",
+  "slug": "pethidine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "Pethidine also has stimulant effects mediated by its inhibition of the dopamine transporter (DAT) and norepinephrine transporter (NET)."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Pethidine also has stimulant effects mediated by its inhibition of the dopamine transporter (DAT) and norepinephrine transporter (NET)."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "Pethidine will substitute for cocaine in animals trained to discriminate cocaine from saline, probably as a result of its inhibitory actions on DAT and NET."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Pethidine will substitute for cocaine in animals trained to discriminate cocaine from saline, probably as a result of its inhibitory actions on DAT and NET."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "Several analogs of pethidine such as 4-fluoropethidine have been synthesized that are potent inhibitors of the reuptake of the monoamine neurotransmitters dopamine and norepinephrine via DAT and NET."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Several analogs of pethidine such as 4-fluoropethidine have been synthesized that are potent inhibitors of the reuptake of the monoamine neurotransmitters dopamine and norepinephrine via DAT and NET."
+   }
+  ]
+ },
+ {
+  "drug": "phencyclidine",
+  "name": "Phencyclidine",
+  "slug": "phencyclidine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "These effects can lead to inhibition of excitatory glutamate activity in certain brain regions such as the hippocampus and cerebellum thus potentially leading to memory loss as one of the effects of prolonged use."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "PCP, like ketamine, also acts as a potent dopamine D 2 High receptor partial agonist in rat brain homogenate and has affinity for the human cloned D 2 High receptor."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "In addition to its well-explored interactions with NMDA receptors, PCP has also been shown to inhibit dopamine reuptake , and thereby leads to increased extracellular levels of dopamine and hence increased dopaminergic neurotransmission ."
+   },
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "Because the PCP site is located within the ion channel, a coagonist such as glycine must bind and open the channel for PCP to enter, bind to the PCP site, and block the channel."
+   }
+  ]
+ },
+ {
+  "drug": "phenelzine",
+  "name": "Phenelzine",
+  "slug": "phenelzine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "It is also contraindicated with drugs, supplements, or recreational drugs that have significant serotonin reuptake inhibition or significant serotonin-releasing activity, because of the risk of serotonin toxicity."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Examples include selective serotonin reuptake inhibitors (SSRIs), serotonin–norepinephrine reuptake inhibitors (SNRIs), clomipramine , imipramine , MDMA , and certain analgesics such as meperidine , tramadol , methadone , tapentadol , dextromethorphan , dextropropoxyphene , pentazocine , and levorphanol ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Examples include selective serotonin reuptake inhibitors (SSRIs), serotonin–norepinephrine reuptake inhibitors (SNRIs), clomipramine , imipramine , MDMA , and certain analgesics such as meperidine , tramadol , methadone , tapentadol , dextromethorphan , dextropropoxyphene , pentazocine , and levorphanol ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "In perioperative care, the main drugs to avoid are those with significant serotonin reuptake inhibition or serotonin-releasing activity, especially serotonergic opioid analgesics such as meperidine (pethidine) and tramadol ."
+   },
+   {
+    "target": "gaba_t",
+    "target_name": "GABA transaminase (GABA-T)",
+    "origin": "prose",
+    "line": "By inhibiting GABA-T and ALA-T, phenelzine causes an increase in the alanine and GABA levels in the brain and body."
+   }
+  ]
+ },
+ {
+  "drug": "phentermine",
+  "name": "Phentermine",
+  "slug": "phentermine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "drugbox",
+    "line": "Inhibited transporters | DAT NET SERT VMAT1 VMAT2 EAAT3 SLC22A3 SLC22A5"
+   },
+   {
+    "target": "vmat2",
+    "target_name": "Vesicular monoamine transporter (VMAT2)",
+    "origin": "drugbox",
+    "line": "Inhibited transporters | DAT NET SERT VMAT1 VMAT2 EAAT3 SLC22A3 SLC22A5"
+   },
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "However, another study found that phentermine was a weak human serotonin 5-HT 2C receptor partial agonist ( EC 50"
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "It specifically inhibits monoamine oxidase A (MAO-A) ( IC 50"
+   }
+  ]
+ },
+ {
+  "drug": "pimozide",
+  "name": "Pimozide",
+  "slug": "pimozide",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "It is also contraindicated in individuals being cotreated with selective serotonin reuptake inhibitors (SSRI) or in those with a known hypersensitivity to pimozide or other diphenylbutyl-piperidine derivatives."
+   }
+  ]
+ },
+ {
+  "drug": "pramipexole",
+  "name": "Pramipexole",
+  "slug": "pramipexole",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Pramipexole has been evaluated for the treatment of sexual dysfunction experienced by some users of selective serotonin reuptake inhibitors ."
+   }
+  ]
+ },
+ {
+  "drug": "pregabalin",
+  "name": "Pregabalin",
+  "slug": "pregabalin",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "The World Federation of Biological Psychiatry recommends pregabalin as one of several first line agents for the treatment of generalized anxiety disorder, but recommends other agents such as those of the selective serotonin reuptake inhibitor (SSRI) class as first-line treatment for obsessive–compulsive disorder (OCD) and post-traumatic stress disorder (PTSD)."
+   },
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "Instead, its action involves binding to a specific site on the α 2 δ-1 protein and reducing the release of excitatory neurotransmitters in synapses."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Instead, its action involves binding to a specific site on the α 2 δ-1 protein and reducing the release of excitatory neurotransmitters in synapses."
+   },
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "It has been found that this binding inhibits several actions of α 2 δ-1 and also inhibits the release of excitatory neurotransmitters ."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "It has been found that this binding inhibits several actions of α 2 δ-1 and also inhibits the release of excitatory neurotransmitters ."
+   }
+  ]
+ },
+ {
+  "drug": "propranolol",
+  "name": "Propranolol",
+  "slug": "propranolol",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "In addition to blockade of adrenergic receptors , propranolol has very weak inhibitory effects on the norepinephrine transporter and/or weakly stimulates norepinephrine release (i.e., the concentration of norepinephrine is increased in the synapse )."
+   }
+  ]
+ },
+ {
+  "drug": "pseudoephedrine",
+  "name": "Pseudoephedrine",
+  "slug": "pseudoephedrine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Pseudoephedrine is a very weak reversible inhibitor of monoamine oxidase (MAO) in vitro , including both MAO-A and MAO-B (K i = 1,000–5,800 μM)."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "Pseudoephedrine is a very weak reversible inhibitor of monoamine oxidase (MAO) in vitro , including both MAO-A and MAO-B (K i = 1,000–5,800 μM)."
+   }
+  ]
+ },
+ {
+  "drug": "rasagiline",
+  "name": "Rasagiline",
+  "slug": "rasagiline",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Serotonin syndrome has been reported rarely with rasagiline both alone and in combination with selective serotonin reuptake inhibitors (SSRIs) like escitalopram , paroxetine , and sertraline and other MAOIs like linezolid ."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Rasagiline is contraindicated with known serotonergic agents like selective serotonin reuptake inhibitors (SSRIs), serotonin–norepinephrine reuptake inhibitors (SNRIs), tricyclic antidepressants (TCAs), tetracyclic antidepressants (TeCAs), triazolopyridines or serotonin antagonists and reuptake inhibitors (SARIs) like trazodone , and other monoamine oxidase inhibitors (MAOIs), as well as meperidine (pethidine), tramadol , methadone , propoxyphene , dextromethorphan , St."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Rasagiline is contraindicated with known serotonergic agents like selective serotonin reuptake inhibitors (SSRIs), serotonin–norepinephrine reuptake inhibitors (SNRIs), tricyclic antidepressants (TCAs), tetracyclic antidepressants (TeCAs), triazolopyridines or serotonin antagonists and reuptake inhibitors (SARIs) like trazodone , and other monoamine oxidase inhibitors (MAOIs), as well as meperidine (pethidine), tramadol , methadone , propoxyphene , dextromethorphan , St."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Rasagiline acts as a selective and potent irreversible inhibitor of the monoamine oxidases (MAO) enzymes monoamine oxidase B (MAO-B) and monoamine oxidase A (MAO-A)."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "It is selective for inhibition of MAO-B over MAO-A, but can also inhibit MAO-A at high doses or concentrations."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Rasagiline is about 30 to 100 times more potent in inhibiting MAO-B than MAO-A in vitro and is about 17 to 65 times more potent in inhibiting MAO-B over MAO-A in vivo in rodents."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "It is expected that at sufficiently high doses rasagiline would eventually become non-selective and additionally inhibit MAO-A in humans."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "Selegiline and rasagiline have similar selectivity for inhibition of MAO-B over MAO-A."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "However, it is less selective for inhibition of MAO-B over MAO-A than rasagiline."
+   },
+   {
+    "target": "ache",
+    "target_name": "Acetylcholinesterase",
+    "origin": "prose",
+    "line": "TV-3326), was developed from structural modification of rasagiline and additionally acts as an acetylcholinesterase inhibitor due to its carbamate moiety."
+   }
+  ]
+ },
+ {
+  "drug": "rimonabant",
+  "name": "Rimonabant",
+  "slug": "rimonabant",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "mu",
+    "target_name": "μ (MOR)",
+    "origin": "prose",
+    "line": "Originally thought to be selective for the CB 1 receptor, rimonabant was subsequently also found to act as an antagonist of the μ-opioid receptor ."
+   }
+  ]
+ },
+ {
+  "drug": "ropinirole",
+  "name": "Ropinirole",
+  "slug": "ropinirole",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "It can also reduce the side effects caused by selective serotonin reuptake inhibitors, including Parkinsonism syndrome as well as sexual dysfunction and erectile dysfunction caused by either SSRIs or antipsychotics."
+   },
+   {
+    "target": "5ht2b",
+    "target_name": "5-HT2B",
+    "origin": "prose",
+    "line": "It is a potent agonist of the 5-HT 2B receptor , but shows biased agonism at this receptor and does not appear to pose a risk of cardiac valvulopathy ."
+   }
+  ]
+ },
+ {
+  "drug": "safinamide",
+  "name": "Safinamide",
+  "slug": "safinamide",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "As a MAO inhibitor, safinamide can theoretically cause hypertensive crises , serotonin syndrome and other severe side effects when combined with other MAO inhibitors or with drugs that are known to interact with MAO inhibitors, such as pethidine, dextromethorphan , selective serotonin reuptake inhibitors (SSRIs), serotonin–noradrenaline reuptake inhibitors (SNRIs), tricyclic and tetracyclic antidepressants ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "As a MAO inhibitor, safinamide can theoretically cause hypertensive crises , serotonin syndrome and other severe side effects when combined with other MAO inhibitors or with drugs that are known to interact with MAO inhibitors, such as pethidine, dextromethorphan , selective serotonin reuptake inhibitors (SSRIs), serotonin–noradrenaline reuptake inhibitors (SNRIs), tricyclic and tetracyclic antidepressants ."
+   },
+   {
+    "target": "glutamate",
+    "target_name": "Glutamate receptors",
+    "origin": "prose",
+    "line": "Safinamide also inhibits glutamate release and dopamine and serotonin reuptake ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Safinamide also inhibits glutamate release and dopamine and serotonin reuptake ."
+   },
+   {
+    "target": "sigma1",
+    "target_name": "σ1",
+    "origin": "prose",
+    "line": "It binds to the sigma receptors as well, with IC 50 values for binding inhibition of 19 nM for σ 1 and 1,590 nM for σ 2 ."
+   }
+  ]
+ },
+ {
+  "drug": "salvinorin_a",
+  "name": "Salvinorin A",
+  "slug": "salvinorin_a",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "Conversely, the serotonin 5-HT 2A receptor antagonist ketanserin was ineffective."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "In addition to its KOR agonism, salvinorin A has been found to act as a dopamine D 2 receptor partial agonist , with an affinity of 5–10 nM, an intrinsic activity of 40–60%, and an EC 50 of 48 nM."
+   },
+   {
+    "target": "mu",
+    "target_name": "μ (MOR)",
+    "origin": "prose",
+    "line": "Some derivatives, such as herkinorin , reduce kappa opioid action and instead act as mu opioid agonists."
+   }
+  ]
+ },
+ {
+  "drug": "selegiline",
+  "name": "Selegiline",
+  "slug": "selegiline",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Selegiline is contraindicated with serotonergic antidepressants including selective serotonin reuptake inhibitors (SSRIs), serotonin–norepinephrine reuptake inhibitors (SNRIs), and tricyclic antidepressants (TCAs), with serotonergic opioids like meperidine , tramadol , and methadone , with other monoamine oxidase inhibitors (MAOIs) such as linezolid , phenelzine , and tranylcypromine , and with dextromethorphan , St."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Selegiline is contraindicated with serotonergic antidepressants including selective serotonin reuptake inhibitors (SSRIs), serotonin–norepinephrine reuptake inhibitors (SNRIs), and tricyclic antidepressants (TCAs), with serotonergic opioids like meperidine , tramadol , and methadone , with other monoamine oxidase inhibitors (MAOIs) such as linezolid , phenelzine , and tranylcypromine , and with dextromethorphan , St."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "This is by inhibiting the norepinephrine transporter (NET) and preventing entry of tyramine into presynaptic noradrenergic neurons where tyramine induces the release of norepinephrine."
+   },
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "Norepinephrine–dopamine reuptake inhibitors (NDRIs), like methylphenidate and bupropion , are also considered to be safe in combination with MAOIs."
+   },
+   {
+    "target": "ache",
+    "target_name": "Acetylcholinesterase",
+    "origin": "prose",
+    "line": "A further derivative of rasagiline, ladostigil (- N -propylcarbamate), a dual MAO-B inhibitor and acetylcholinesterase inhibitor , was developed for treatment of Alzheimer's disease and other conditions but was ultimately never introduced for medical use."
+   }
+  ]
+ },
+ {
+  "drug": "sumatriptan",
+  "name": "Sumatriptan",
+  "slug": "sumatriptan",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Cases of serotonin syndrome have been reported with co-administration of triptans and serotonin reuptake inhibitors ."
+   },
+   {
+    "target": "cgrp",
+    "target_name": "CGRP receptor",
+    "origin": "prose",
+    "line": "Sumatriptan's primary therapeutic effect is related in its inhibition of the release of calcitonin gene-related peptide (CGRP), likely through its 5-HT 1D/1B receptor agonist action."
+   }
+  ]
+ },
+ {
+  "drug": "tetrabenazine",
+  "name": "Tetrabenazine",
+  "slug": "tetrabenazine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "dat",
+    "target_name": "Dopamine transporter (DAT)",
+    "origin": "prose",
+    "line": "These include the dopamine releasing agent lisdexamfetamine , the dopamine reuptake inhibitors methylphenidate , bupropion , modafinil , vanoxerine , PRX-14040 , and MRZ-9547 , and the MAO-B inhibitor and catecholaminergic activity enhancer selegiline ."
+   },
+   {
+    "target": "mao_b",
+    "target_name": "Monoamine oxidase B (MAO-B)",
+    "origin": "prose",
+    "line": "These include the dopamine releasing agent lisdexamfetamine , the dopamine reuptake inhibitors methylphenidate , bupropion , modafinil , vanoxerine , PRX-14040 , and MRZ-9547 , and the MAO-B inhibitor and catecholaminergic activity enhancer selegiline ."
+   },
+   {
+    "target": "mao_a",
+    "target_name": "Monoamine oxidase A (MAO-A)",
+    "origin": "prose",
+    "line": "In contrast to the preceding agents, many antidepressants , including selective serotonin reuptake inhibitors (SSRIs) like fluoxetine and citalopram , the norepinephrine reuptake inhibitors (NRIs) desipramine and atomoxetine , the selective MAO-A inhibitor moclobemide , and the non-selective monoamine oxidase inhibitor pargyline , are ineffective in reversing tetrabenazine-induced amotivational symptoms."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "In contrast to the preceding agents, many antidepressants , including selective serotonin reuptake inhibitors (SSRIs) like fluoxetine and citalopram , the norepinephrine reuptake inhibitors (NRIs) desipramine and atomoxetine , the selective MAO-A inhibitor moclobemide , and the non-selective monoamine oxidase inhibitor pargyline , are ineffective in reversing tetrabenazine-induced amotivational symptoms."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "In contrast to the preceding agents, many antidepressants , including selective serotonin reuptake inhibitors (SSRIs) like fluoxetine and citalopram , the norepinephrine reuptake inhibitors (NRIs) desipramine and atomoxetine , the selective MAO-A inhibitor moclobemide , and the non-selective monoamine oxidase inhibitor pargyline , are ineffective in reversing tetrabenazine-induced amotivational symptoms."
+   }
+  ]
+ },
+ {
+  "drug": "thc",
+  "name": "Tetrahydrocannabinol",
+  "slug": "tetrahydrocannabinol",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "The actions of Δ 9 -THC result from its partial agonist activity at the cannabinoid receptor CB 1 ( K i = 40.7 nM ), located mainly in the central nervous system , and the CB 2 receptor ( K i = 36 nM ), mainly expressed in cells of the immune system ."
+   }
+  ]
+ },
+ {
+  "drug": "tiagabine",
+  "name": "Tiagabine",
+  "slug": "tiagabine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "The effects of tiagabine on sleep resemble those of GABA A receptor agonists like gaboxadol and muscimol , primarily enhancing slow wave sleep , and differ from those of GABA A receptor positive allosteric modulators like benzodiazepines and Z drugs ."
+   },
+   {
+    "target": "gaba_a",
+    "target_name": "GABA-A",
+    "origin": "prose",
+    "line": "Through GAT-1 blockade, tiagabine increases levels of GABA, the major inhibitory neurotransmitter in the central nervous system , and consequently increases GABA receptor activation and GABAergic signaling , including of both GABA A and GABA B receptors ."
+   },
+   {
+    "target": "gaba_b",
+    "target_name": "GABA-B",
+    "origin": "prose",
+    "line": "Through GAT-1 blockade, tiagabine increases levels of GABA, the major inhibitory neurotransmitter in the central nervous system , and consequently increases GABA receptor activation and GABAergic signaling , including of both GABA A and GABA B receptors ."
+   }
+  ]
+ },
+ {
+  "drug": "tianeptine",
+  "name": "Tianeptine",
+  "slug": "tianeptine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "It was also found to act as a full agonist of the δ-opioid receptor (DOR), although with approximately 200-fold lower potency."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Tianeptine had been found to bind to the same allosteric site on the serotonin transporter (SERT) as conventional TCAs."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "However, whereas conventional TCAs inhibit serotonin reuptake by the SERT, tianeptine appeared to enhance it."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "This seems to be because of the unique C3 amino heptanoic acid side chain of tianeptine, which, in contrast to other TCAs, is thought to lock the SERT in a conformation that increases affinity for and reuptake ( V max ) of serotonin."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "As such, tianeptine was thought to act a positive allosteric modulator of the SERT, or as a \" serotonin reuptake enhancer \"."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "However, coadministration of tianeptine and the selective serotonin reuptake inhibitor fluoxetine inhibited the effect of tianeptine on long-term potentiation in hippocampal CA1 area ."
+   },
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "Tianeptine modestly enhances the mesolimbic release of dopamine and potentiates CNS D 2 and D 3 receptors ."
+   },
+   {
+    "target": "d3",
+    "target_name": "D3",
+    "origin": "prose",
+    "line": "Tianeptine modestly enhances the mesolimbic release of dopamine and potentiates CNS D 2 and D 3 receptors ."
+   },
+   {
+    "target": "delta",
+    "target_name": "δ (DOR)",
+    "origin": "prose",
+    "line": "Tianeptine has been shown to be a high-efficacy agonist of PPAR-delta , a nuclear receptor."
+   }
+  ]
+ },
+ {
+  "drug": "tiapride",
+  "name": "Tiapride",
+  "slug": "tiapride",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "It is more selective than other neuroleptic drugs such as haloperidol and risperidone , which not only target four of the five known dopamine receptor subtypes (D 1-4 ), but also block serotonin (5-HT 2A, 2C ), α 1 - and α 2 - adrenergic , and histamine H1 receptors."
+   },
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "It is more selective than other neuroleptic drugs such as haloperidol and risperidone , which not only target four of the five known dopamine receptor subtypes (D 1-4 ), but also block serotonin (5-HT 2A, 2C ), α 1 - and α 2 - adrenergic , and histamine H1 receptors."
+   },
+   {
+    "target": "h1",
+    "target_name": "H1",
+    "origin": "prose",
+    "line": "It is more selective than other neuroleptic drugs such as haloperidol and risperidone , which not only target four of the five known dopamine receptor subtypes (D 1-4 ), but also block serotonin (5-HT 2A, 2C ), α 1 - and α 2 - adrenergic , and histamine H1 receptors."
+   }
+  ]
+ },
+ {
+  "drug": "tolcapone",
+  "name": "Tolcapone",
+  "slug": "tolcapone",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "aadc",
+    "target_name": "Aromatic L-amino acid decarboxylase (AADC)",
+    "origin": "prose",
+    "line": "While increase of dopamine levels is a desired interaction, tolcapone can theoretically also increase the levels of other drugs metabolised by COMT, such as the AADC inhibitors carbidopa and benserazide, as well as methyldopa , dobutamine , apomorphine , epinephrine (adrenaline), and isoprenaline ."
+   },
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "A related type of theoretical interactions is with drugs that increase catecholamine concentrations, such as monoamine oxidase (MAO) inhibitors and norepinephrine reuptake inhibitors ; these also showed only slight effects in practice."
+   }
+  ]
+ },
+ {
+  "drug": "topiramate",
+  "name": "Topiramate",
+  "slug": "topiramate",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "ampa",
+    "target_name": "AMPA",
+    "origin": "prose",
+    "line": "These include voltage-gated sodium channels , high-voltage-activated calcium channels , GABA A receptors , AMPA / kainate receptors, and carbonic anhydrase isoenzymes."
+   },
+   {
+    "target": "kainate",
+    "target_name": "Kainate",
+    "origin": "prose",
+    "line": "These include voltage-gated sodium channels , high-voltage-activated calcium channels , GABA A receptors , AMPA / kainate receptors, and carbonic anhydrase isoenzymes."
+   }
+  ]
+ },
+ {
+  "drug": "tramadol",
+  "name": "Tramadol",
+  "slug": "tramadol",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "m1",
+    "target_name": "M1",
+    "origin": "prose",
+    "line": "Both enantiomers of tramadol are agonists of the μ-opioid receptor and its M1 metabolite, O- desmetramadol , is also a μ-opioid receptor agonist but is 6 times more potent than tramadol itself."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "The analgesic effects of tramadol are only partially reversed by naloxone in human volunteers, hence indicating that its opioid action is unlikely the sole factor; tramadol's analgesic effects are also partially reversed by α 2 -adrenergic receptor antagonists such as yohimbine , the 5-HT 3 receptor antagonist ondansetron , and the 5-HT 7 receptor antagonists SB-269970 and SB-258719 ."
+   },
+   {
+    "target": "5ht7",
+    "target_name": "5-HT7",
+    "origin": "prose",
+    "line": "The analgesic effects of tramadol are only partially reversed by naloxone in human volunteers, hence indicating that its opioid action is unlikely the sole factor; tramadol's analgesic effects are also partially reversed by α 2 -adrenergic receptor antagonists such as yohimbine , the 5-HT 3 receptor antagonist ondansetron , and the 5-HT 7 receptor antagonists SB-269970 and SB-258719 ."
+   },
+   {
+    "target": "alpha2",
+    "target_name": "α2 adrenergic receptors",
+    "origin": "prose",
+    "line": "The analgesic effects of tramadol are only partially reversed by naloxone in human volunteers, hence indicating that its opioid action is unlikely the sole factor; tramadol's analgesic effects are also partially reversed by α 2 -adrenergic receptor antagonists such as yohimbine , the 5-HT 3 receptor antagonist ondansetron , and the 5-HT 7 receptor antagonists SB-269970 and SB-258719 ."
+   },
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "Tramadol has inhibitory actions on the 5-HT 2C receptor."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "Nausea and vomiting caused by tramadol are thought to be due to activation of the 5-HT 3 receptor via increased serotonin levels."
+   },
+   {
+    "target": "5ht3",
+    "target_name": "5-HT3",
+    "origin": "prose",
+    "line": "In accordance, the 5-HT 3 receptor antagonist ondansetron can be used to treat tramadol-associated nausea and vomiting."
+   }
+  ]
+ },
+ {
+  "drug": "tranylcypromine",
+  "name": "Tranylcypromine",
+  "slug": "tranylcypromine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Drugs with significant serotonin reuptake inhibition or significant serotonin-releasing activity can precipitate serotonin toxicity, while tyramine-rich foods and some indirectly acting sympathomimetics can cause blood-pressure elevation."
+   }
+  ]
+ },
+ {
+  "drug": "trazodone",
+  "name": "Trazodone",
+  "slug": "trazodone",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "d2",
+    "target_name": "D2",
+    "origin": "prose",
+    "line": "In addition, at higher doses, trazodone acts as a dopamine D 2 receptor antagonist in animals."
+   }
+  ]
+ },
+ {
+  "drug": "trimipramine",
+  "name": "Trimipramine",
+  "slug": "trimipramine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht2a",
+    "target_name": "5-HT2A",
+    "origin": "prose",
+    "line": "That said, blockade of the 5-HT 2A , 5-HT 2C , and α 2 -adrenergic receptors, as with mirtazapine , has also been implicated in antidepressant effects."
+   },
+   {
+    "target": "5ht2c",
+    "target_name": "5-HT2C",
+    "origin": "prose",
+    "line": "That said, blockade of the 5-HT 2A , 5-HT 2C , and α 2 -adrenergic receptors, as with mirtazapine , has also been implicated in antidepressant effects."
+   },
+   {
+    "target": "h2",
+    "target_name": "H2",
+    "origin": "prose",
+    "line": "Trimipramine is also an antagonist of the H 2 receptor with lower potency and has been found to be effective in the treatment of duodenal ulcers ."
+   },
+   {
+    "target": "d1",
+    "target_name": "D1",
+    "origin": "prose",
+    "line": "Trimipramine is a weak but significant antagonist of the dopamine D 1 and D 2 receptors , and also binds to the D 4 receptor (K i = 275 nM)."
+   },
+   {
+    "target": "d4",
+    "target_name": "D4",
+    "origin": "prose",
+    "line": "Trimipramine is a weak but significant antagonist of the dopamine D 1 and D 2 receptors , and also binds to the D 4 receptor (K i = 275 nM)."
+   }
+  ]
+ },
+ {
+  "drug": "varenicline",
+  "name": "Varenicline",
+  "slug": "varenicline",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "Varenicline displays full agonism on α 7 nicotinic acetylcholine receptors and is a partial agonist on the α 4 β 2 , α 3 β 4 , and α 6 β 2 subtypes."
+   },
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "Varenicline's partial agonism on the α 4 β 2 receptors rather than nicotine's full agonism produces less effect of dopamine release than nicotine's."
+   },
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "This α 4 β 2 competitive binding reduces the ability of nicotine to bind and stimulate the mesolimbic dopamine system—similar to the method of action of buprenorphine in the treatment of opioid addiction."
+   }
+  ]
+ },
+ {
+  "drug": "viloxazine",
+  "name": "Viloxazine",
+  "slug": "viloxazine",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "5ht7",
+    "target_name": "5-HT7",
+    "origin": "prose",
+    "line": "It also showed weak antagonistic activity at the serotonin 5-HT 7 receptor and the α 1B - and β 2 -adrenergic receptors ."
+   },
+   {
+    "target": "alpha1b",
+    "target_name": "α1B",
+    "origin": "prose",
+    "line": "It also showed weak antagonistic activity at the serotonin 5-HT 7 receptor and the α 1B - and β 2 -adrenergic receptors ."
+   },
+   {
+    "target": "beta2",
+    "target_name": "β2",
+    "origin": "prose",
+    "line": "It also showed weak antagonistic activity at the serotonin 5-HT 7 receptor and the α 1B - and β 2 -adrenergic receptors ."
+   },
+   {
+    "target": "sert",
+    "target_name": "Serotonin transporter (SERT)",
+    "origin": "prose",
+    "line": "Viloxazine was discovered by scientists at Imperial Chemical Industries when they recognized that some beta blockers inhibited serotonin reuptake inhibitor activity in the brain at high doses."
+   }
+  ]
+ },
+ {
+  "drug": "xenon",
+  "name": "Xenon",
+  "slug": "xenon",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "Xenon is a high-affinity glycine-site NMDA receptor antagonist ."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Xenon is a high-affinity glycine-site NMDA receptor antagonist ."
+   },
+   {
+    "target": "nachr_a4b2",
+    "target_name": "Neuronal α4β2 nAChR",
+    "origin": "prose",
+    "line": "Xenon inhibits nicotinic acetylcholine α4β2 receptors which contribute to spinally mediated analgesia."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Through its influence on Ca 2+ , K + , KATP \\HIF, and NMDA antagonism, xenon is neuroprotective when administered before, during and after ischemic insults."
+   },
+   {
+    "target": "glycine",
+    "target_name": "Glycine",
+    "origin": "prose",
+    "line": "Xenon is a high affinity antagonist at the NMDA receptor glycine site."
+   },
+   {
+    "target": "nmda",
+    "target_name": "NMDA",
+    "origin": "prose",
+    "line": "Xenon is a high affinity antagonist at the NMDA receptor glycine site."
+   }
+  ]
+ },
+ {
+  "drug": "zimelidine",
+  "name": "Zimelidine",
+  "slug": "zimelidine",
+  "stahl": false,
+  "candidates": [
+   {
+    "target": "net",
+    "target_name": "Norepinephrine transporter (NET)",
+    "origin": "prose",
+    "line": "Their work began with a series of antihistamines known as pheniramines that were found to block both serotonin and noradrenaline reuptake, and among these, brompheniramine was identified as the most potent serotonin reuptake blocker and was therefore selected as the starting point for their synthesis program, ultimately leading to the invention of zimelidine as a derivative of brompheniramine."
+   }
+  ]
+ },
+ {
+  "drug": "zuclopenthixol",
+  "name": "Zuclopenthixol",
+  "slug": "zuclopenthixol",
+  "stahl": true,
+  "candidates": [
+   {
+    "target": "d1",
+    "target_name": "D1",
+    "origin": "prose",
+    "line": "Zuclopenthixol is a D 1 and D 2 antagonist, α 1 -adrenergic and 5-HT 2 antagonist."
+   },
+   {
+    "target": "d1",
+    "target_name": "D1",
+    "origin": "prose",
+    "line": "Zuclopenthixol antagonises both dopamine D 1 and D 2 receptors, α 1 -adrenoceptors and 5-HT 2 receptors with a high affinity, but has no affinity for muscarinic acetylcholine receptors ."
+   },
+   {
+    "target": "h1",
+    "target_name": "H1",
+    "origin": "prose",
+    "line": "It weakly antagonises the histamine (H 1 ) receptor but has no α 2 -adrenoceptor blocking activity ."
+   }
+  ]
+ }
+]
