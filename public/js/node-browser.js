@@ -414,7 +414,7 @@ export function collectNodes(data, deps, opts = {}) {
     }
     for (const n of d.workup || []) {
       push("drug_workup", d.name, `${t("drug.workupShort")} ${formatWorkup(n, t("drug.workupOnlyIf"))}`,
-        n.provenance, go, { sources: n.sources });
+        n.provenance, go, n);
     }
     if (d.originator) {
       push("drug_originator", d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,

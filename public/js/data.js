@@ -1151,6 +1151,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       conditions: w.conditions || [],   // verbatim French spans: a conditional ask
       sources: mapSources(w.sources),
       provenance: strongestGrade(w.sources),
+      uncertainty: mapUncertainty(w.uncertainty),   // e.g. a curated `contradicted`
     }));
     d.withdrawals = (d.withdrawals || []).map((w) => ({
       year: w.year,
