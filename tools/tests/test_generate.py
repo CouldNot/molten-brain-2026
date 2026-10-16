@@ -858,6 +858,14 @@ class ContradictionTest(unittest.TestCase):
                     "receptor:5ht5a/classification[synaptic]"):
             self.assertIn(key, self.table)
 
+    def test_one_binding_of_two_on_a_target(self):
+        # Amisulpride antagonises D2 and (tentatively) partially agonises it: the denial
+        # is of the second, so the first must stay unflagged.
+        part = "drug:amisulpride/bindings[d2:partial_agonist]"
+        self.assertIn(part, self.table)
+        anta = self.nodes["drug:amisulpride/bindings[d2:antagonist]"]
+        self.assertNotIn("contradicted", [b["kind"] for b in anta.get("uncertainty", [])])
+
     def test_receptor_bullet_rides_on_the_attribute_only(self):
         for key in self._sites("/classification["):
             rid = key.split(":", 1)[1].split("/", 1)[0]

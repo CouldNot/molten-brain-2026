@@ -175,6 +175,29 @@ CONTRADICTIONS: dict[str, dict[str, Any] | list[dict[str, Any]]] = {
         "Certain general anesthetics (e.g., propofol, etomidate, alphaxolone, alfadalone) "
         "also bind at the same sites as neuroactive steroids"),
 
+    # Stahl p.31 hedges a D2 partial agonism ("May be a partial agonist at dopamine 2
+    # receptors ...") beside the D2 blockade it also states: two bindings on one target,
+    # and only the partial agonism is denied. Tadori 2012 ran exactly the assay that
+    # separates the two (cAMP in cells expressing human D2, beside aripiprazole and the
+    # partial agonists) and amisulpride came out an antagonist; GtoPdb's curated rows and
+    # the article's pharmacology lead say antagonist and nothing else.
+    "drug:amisulpride/bindings[d2:partial_agonist]": [
+        _europepmc(
+            "22568121",
+            "Antipsychotics (risperidone, olanzapine, amisulpride, sulpiride and "
+            "perphenazine) which displayed antidepressive effects in schizophrenia "
+            "patients behaved as preferential antagonists in cells expressing D2 "
+            "receptors compared to cells expressing D3 receptors."),
+        _gtopdb_ki(
+            "amisulpride",
+            "amisulpride at D2 receptor (DRD2, Human): Antagonist / Antagonist, pKi 7.8 "
+            "[PMID 1975644]"),
+        _wiki(
+            "amisulpride",
+            "Amisulpride functions primarily as a dopamine D 2 and D 3 receptor "
+            "antagonist"),
+    ],
+
     # --- active-metabolite links another corpus denies. The link and its own sources
     # stay; the bullet quotes the denial underneath it. ---
     # Stahl p.604 lists both samidorphan metabolites as active ("function as a mu opioid

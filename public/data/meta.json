@@ -11745,8 +11745,8 @@
       },
       "drug_bindings": {
         "total": 1898,
-        "verified": 1666,
-        "uncertain": 214,
+        "verified": 1665,
+        "uncertain": 215,
         "sourced": 0,
         "llm": 0,
         "nosource": 18,
@@ -11755,8 +11755,8 @@
       },
       "drug_binding_action": {
         "total": 1387,
-        "verified": 1105,
-        "uncertain": 113,
+        "verified": 1104,
+        "uncertain": 114,
         "sourced": 0,
         "llm": 132,
         "nosource": 37,
@@ -12216,8 +12216,8 @@
     },
     "nodes": {
       "total": 10041,
-      "verified": 9302,
-      "uncertain": 433,
+      "verified": 9300,
+      "uncertain": 435,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
