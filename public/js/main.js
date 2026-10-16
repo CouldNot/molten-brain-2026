@@ -40,11 +40,15 @@ import { createTheme } from "./theme.js";
 import { groupByVariant, variantsForDrug } from "./receptor-variants.js";
 import { deriveReleaseChanges, transmitterVars } from "./release-modulation.js";
 import { appendDrugHistory } from "./drug-history.js";
-import { appendTdmChips, formatDuration, valueChip } from "./tdm.js";
+import { appendTdmChips, valueChip } from "./tdm.js";
 import { appendPhyschemChips, hasPhyschem } from "./physchem.js";
 import { formatConditions, groupWorkup } from "./workup.js";
 import { controlName, foldText, parseSearchQuery } from "./search/query.js";
 import { attachTip, closeOpenTip, linkifiedText } from "./panel/tooltip.js";
+import {
+  bindingKi, EFFECT_GLYPHS, formatHalfLife, NOSOURCE_GLYPH, stripSide,
+} from "./panel/format.js";
+import { flashRow, foldSections } from "./panel/dom.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -89,18 +93,6 @@ const INTRO_ROTATION_TURNS = 0.75;
 // world units (so the brain renders lower in the frame).
 const DEV_BANNER_UNZOOM = 1.15;
 const DEV_BANNER_DROP = 1.6;
-
-// Drug-effect glyphs: a coloured symbol that stands in for the plain colour bar in
-// a binding row, so the action's direction reads at a glance: + boost (increase),
-// − block (decrease), ≈ modulate (roughly), each drawn in the effect's own colour
-// (emerald / rose / violet).
-const EFFECT_GLYPHS = { boost: "+", block: "−", modulate: "≈" };
-
-// The glyph shown inside a NOSOURCE pill (no source document for the claim yet): a
-// cross, so an unbacked node reads as a red ✕ at a glance rather than a long word.
-// Shared by the info-panel pills (makeProvenancePill) and the About grade key, so
-// the two never drift.
-const NOSOURCE_GLYPH = "✕";
 
 // The render loop is built at the bottom of this module, long after the scene, so
 // anything up here that needs a repaint goes through this hook, which `invalidate`
@@ -939,16 +931,6 @@ function addLegendItem(container, color, label, line = false) {
   row.append(swatch, document.createTextNode(label));
   container.appendChild(row);
   return row;
-}
-
-// Format an elimination half-life ({hours, hours_max?}) into a compact human string,
-// choosing ONE unit (minutes / hours / days) from the largest bound so a range reads
-// in a single unit ("2–3 days", "6–8 h", "45 min"). The data stores canonical hours
-// precisely, so this is the single place the days/h/min choice lives. Returns "" for
-// a missing value. Module-level so BOTH the drug panel (showDrug) and the drugs list
-// (buildDrugLegend) can format T½ the same way.
-function formatHalfLife(hl) {
-  return formatDuration(hl, t, window.__I18N__.lang);
 }
 
 /**
@@ -1792,74 +1774,6 @@ function createPanelTabs() {
      *  No-op for a key that is not open. */
     activate(key) { activate(key); },
   };
-}
-
-// A drug binding's representative Ki (its median), or Infinity when unmeasured. The
-// single "how hard does this drug grip this target" ranking key, shared by the info
-// panel (the drug's "Direct molecular targets" order, each system's strongest binding) and the target
-// legend's affinity sort, so every affinity ordering agrees.
-const bindingKi = (b) =>
-  b.ki && typeof b.ki.median === "number" ? b.ki.median : Infinity;
-
-/**
- * Scroll an element into view and flash it, for an action that lands the reader
- * somewhere they did not choose to scroll to: a click that navigates to another node
- * *because of* one row (arriving on the target's panel, the row that explains the jump
- * is under the eye instead of hunted for), or a search pick that flips a setting (the
- * changed toggle says so itself). Deferred a frame because the caller usually shows
- * the host pane right AFTER this runs (see focusDrug -> openDetailTab, and the search
- * pick, which closes the search box only after the item's select()), and
- * scrollIntoView on a hidden box is a no-op.
- * @param {?HTMLElement} elm
- */
-function flashRow(elm) {
-  if (!elm) return;
-  requestAnimationFrame(() => {
-    // A row folded inside a collapsed section (see foldSections) is opened first, or
-    // the jump would land on nothing visible. Inside the rAF: the fold pass runs
-    // after a panel's rows are built, so the <details> only exists by now.
-    if (elm.tagName === "DETAILS") elm.open = true;
-    for (let d = elm.parentElement?.closest("details"); d;
-      d = d.parentElement?.closest("details")) d.open = true;
-    elm.scrollIntoView({ block: "center", behavior: "smooth" });
-    elm.classList.add("node-flash");
-    elm.addEventListener("animationend",
-      () => elm.classList.remove("node-flash"), { once: true });
-  });
-}
-
-/**
- * Fold every headed section directly under `host` into a collapsed `<details>`: a
- * section whose first child is an `<h3>` becomes `details.disclosure.panel-sec` with
- * that heading as its `<summary>` and the rest in an indented `.panel-sec-body`; one
- * that already is a `<details>` (the drug panel's "Drug interactions") just gets the
- * same classes and body. Classes and `data-tour-*` hooks carry over, so a tour step
- * or flashRow still finds the section (and flashRow opens it). Unheaded blocks (the
- * title, intro, facts) stay as they are.
- * @param {HTMLElement} host
- */
-function foldSections(host) {
-  for (const sec of [...host.children]) {
-    const isDetails = sec.tagName === "DETAILS";
-    const head = sec.firstElementChild;
-    if (!head || (!isDetails && head.tagName !== "H3")) continue;
-    let det = sec;
-    let summary = head;
-    if (!isDetails) {
-      det = document.createElement("details");
-      det.className = sec.className;
-      Object.assign(det.dataset, sec.dataset);
-      summary = document.createElement("summary");
-      summary.append(...head.childNodes);
-      head.remove();
-    }
-    det.classList.add("disclosure", "panel-sec");
-    const inner = document.createElement("div");
-    inner.className = "panel-sec-body";
-    inner.append(...[...sec.childNodes].filter((n) => n !== summary));
-    if (!isDetails) sec.replaceWith(det);
-    det.replaceChildren(summary, inner);
-  }
 }
 
 /**
@@ -5342,33 +5256,6 @@ function createInfoPanel(data, sourcingModal) {
      */
     appendAddons,
   };
-}
-
-/**
- * Build the merged "Receptors & targets" legend section from the live dataset
- * (#receptors-body): the unified `data.targets` list (every modeled receptor plus
- * every non-receptor drug target: transporters, enzymes, channels, receptor
- * groups), grouped by neurotransmitter `system`, so a transporter like SERT sits
- * under "Serotonergic" beside the 5-HT receptors. System headings are ordered by
- * **total knowledge nodes** (biggest first: the sum over the system's targets of
- * each target's own node + its "Found in" regions + the drug bindings on it, so a
- * heavily-expressed, heavily-drugged system like dopaminergic leads), with the
- * system-less "Other" bucket pinned last; members within a system are ordered
- * **lexicographically** by name. Each row is coloured by its swatch (a receptor's
- * sign colour, a target's type colour) and, for a non-receptor target, tagged with
- * its type ("transporter", ...). A focusable row is clickable (dim the brain to the
- * regions it sits in + scatter glowing dots, handled by the caller's `onPick`); a
- * footprint-less one (a receptor stub, an unlocated enzyme) renders muted + inert.
- * Returns a `reflect(activeId)` callback that lights the active row and greys the rest.
- * @param {import("./data.js").BrainData} data
- * @param {(target: object) => void} onPick
- * @returns {(activeId: string|null) => void}
- */
-/** `accumbens_R` -> `accumbens`: the side-stripped base id. A hemisphere is a
- * rendering detail, so anything keyed by region (expression, search rows, deep
- * links) keys by the base. */
-function stripSide(id) {
-  return String(id == null ? "" : id).replace(/_[LR]$/, "");
 }
 
 /**
