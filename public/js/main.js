@@ -1913,6 +1913,11 @@ const bindingKi = (b) =>
 // torn down too, not just its `.show` class).
 let _openTip = null;
 
+/** Close whichever tooltip is open (pinned or hovered), if any. */
+function closeOpenTip() {
+  if (_openTip) _openTip();
+}
+
 // The nearest ancestor that establishes a containing block for a position:fixed
 // descendant (a transform / filter / backdrop-filter / perspective / will-change /
 // paint-contain), or null if none (then fixed is viewport-relative). The panel
@@ -2151,6 +2156,9 @@ function createInfoPanel(data, sourcingModal) {
   // with no visible reason. One helper instead of a line per show*(), so a new view
   // cannot forget it.
   const clearBody = (view = "") => {
+    // A pinned tooltip lives in <body>, not in the panel, so it would outlive the
+    // row it explains (its reposition only notices on the next scroll).
+    closeOpenTip();
     body.innerHTML = "";
     body.dataset.view = view;
     if (pane) pane.scrollTop = 0;
@@ -10202,7 +10210,8 @@ async function main() {
   };
   const openTabKey = (key) => {
     const idx = key.indexOf(":");
-    const open = idx > 0 ? TAB_OPENERS[key.slice(0, idx)] : null;
+    const kind = key.slice(0, idx);
+    const open = idx > 0 && Object.hasOwn(TAB_OPENERS, kind) ? TAB_OPENERS[kind] : null;
     return !!open && open(key.slice(idx + 1));
   };
 
@@ -10281,7 +10290,7 @@ async function main() {
       for (const [name, ctrl] of Object.entries(POPUPS)) {
         if (name !== v && ctrl.isOpen) ctrl.close();
       }
-      POPUPS[v]?.open();
+      if (Object.hasOwn(POPUPS, v)) POPUPS[v].open();
     },
   });
   // Every popup goes through wireModal, so one hook keeps the key current.
