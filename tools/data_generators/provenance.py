@@ -1698,9 +1698,13 @@ def _provenance_stats(structures: list[dict[str, Any]],
     # Clinical-effect nodes (kind receptor_effect, BETA): one per (owner, mode, effect),
     # on receptors and non-receptor targets alike. Like a density profile, a node exists
     # only once sourced, and it is a stored quoted claim, so it sits in the headline.
-    receptor_effect_grades = [e["grade"] for o in (*receptors, *(
-        t for t in drug_targets.values() if t.get("type") != "receptor"))
-        for e in o.get("effects", [])]
+    # An owner whose effects were searched everywhere with no hit (``effects_unknown``,
+    # data_generators/unknown.py) adds one UNKNOWN, outside the denominator.
+    effect_owners = (*receptors, *(t for t in drug_targets.values()
+                                   if t.get("type") != "receptor"))
+    receptor_effect_grades = [e["grade"] for o in effect_owners
+                              for e in o.get("effects", [])] + [
+        "unknown" for o in effect_owners if o.get("effects_unknown")]
     # Release-modulation nodes (kind receptor_release_modulation, BETA): one per (receptor,
     # kind, site, transmitter, direction); exists only once sourced, so in the headline.
     release_modulation_grades = [n["grade"] for r in receptors

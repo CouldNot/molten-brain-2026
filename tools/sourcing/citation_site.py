@@ -19,7 +19,14 @@ place a quote is cited from.
     drug:fluoxetine/enzymes[cyp2d6:inhibitor]
     receptor:5ht1a/classification[family]
     receptor:5ht1a/locations[amygdala]
+    receptor:h1/effects[antagonism:sedation]
+    receptor:5ht1e/effects
     projection:raphe_R->hippocampus_R
+
+A site with no ``[key]`` names a whole facet of its owner: ``receptor:5ht1e/effects`` is
+the address of an owner-level UNKNOWN search (``data_generators/unknown.py``: no searched
+source states any effect of acting on it), the facet whose members would otherwise be
+``effects[<mode>:<effect>]``.
 
 It is written for a reader, not for a parser: a judge is shown one per claim and answers
 with the ones that fail, so a site that cannot be read back by a person is useless even

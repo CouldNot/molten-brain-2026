@@ -1850,10 +1850,10 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     apply_binding_contradictions(drugs)
     # ... and an active-metabolite link another corpus denies is active.
     apply_metabolite_contradictions(drugs)
-    # UNKNOWN: a binding direction every reachable source was searched for, with no
-    # hit (a recorded search log, see data_generators/unknown.py). After the
-    # uncertainty pass so it only ever stamps a still-affinity-only binding.
-    apply_unknown(drugs, metabolites)
+    # UNKNOWN: a binding direction (or a receptor's effects) every reachable source was
+    # searched for, with no hit (a recorded search log, see data_generators/unknown.py).
+    # After the uncertainty pass so it only ever stamps a still-affinity-only binding.
+    apply_unknown(drugs, metabolites, receptors=receptors, targets=drug_targets)
     # The same badge over the metabolism rows, from a hand-written table rather than a
     # derivation (see quotes/contradictions.py): a corpus denying what another states is
     # the one doubt this dataset cannot resolve, so both ship and the row says so.

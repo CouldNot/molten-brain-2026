@@ -1050,13 +1050,16 @@ def check_provenance(report, meta, structures, projections, circuits,
     # UNKNOWN stamps (data_generators/unknown.py): only on a claim still unsourced, and
     # only after a search that covered every corpus its kind requires.
     n_unknown = 0
-    for where, binding, stamp in _unknown_stamps(drugs, metabolites):
+    for where, kind, claim, stamp in _unknown_stamps(drugs, metabolites, receptors, meta):
         n_unknown += 1
-        if binding.get("action") or not binding.get("affinity_only"):
+        if kind == "drug_binding_action" and (
+                claim.get("action") or not claim.get("affinity_only")):
             report.error(f"{where}: UNKNOWN stamped on a binding that states a direction "
                          f"(a real source wins)")
-        missing = unknown.missing_required("drug_binding_action",
-                                           stamp.get("corpora") or [])
+        if kind == "receptor_effect" and claim.get("effects"):
+            report.error(f"{where}: UNKNOWN stamped on an owner that carries a sourced "
+                         f"effect (a real source wins)")
+        missing = unknown.missing_required(kind, stamp.get("corpora") or [])
         if missing:
             report.error(f"{where}: UNKNOWN search skipped required source(s) "
                          f"{', '.join(missing)}")
@@ -2746,18 +2749,27 @@ def _editable_sources(node, editable, out):
     return out
 
 
-def _unknown_stamps(drugs, metabolites=()):
-    """Every emitted UNKNOWN stamp, as ``(where, binding, stamp)``: a drug binding or a
-    metabolite binding (data_generators/unknown.py)."""
+def _unknown_stamps(drugs, metabolites=(), receptors=(), meta=None):
+    """Every emitted UNKNOWN stamp, as ``(where, kind, claim, stamp)``: a drug or
+    metabolite binding direction (kind ``drug_binding_action``, claim = the binding),
+    or a receptor's / non-receptor target's effects (kind ``receptor_effect``, claim =
+    the owner record). See data_generators/unknown.py."""
     owners = [(f"drug {d.get('id')}", d) for d in drugs] + [
         (f"metabolite {m.get('id')}", m) for m in metabolites]
     for label, owner in owners:
         for b in owner.get("bindings", []) or []:
             if b.get("unknown"):
-                yield f"{label} binding {b.get('target')}", b, b["unknown"]
+                yield (f"{label} binding {b.get('target')}", "drug_binding_action", b,
+                       b["unknown"])
+    effect_owners = [(f"receptor {r.get('id')}", r) for r in receptors] + [
+        (f"target {tid}", t) for tid, t in ((meta or {}).get("drug_targets") or {}).items()
+        if isinstance(t, dict) and t.get("type") != "receptor"]
+    for label, owner in effect_owners:
+        if owner.get("effects_unknown"):
+            yield f"{label} effects", "receptor_effect", owner, owner["effects_unknown"]
 
 
-def check_freshness(report, meta, collections, today=None, metabolites=()):
+def check_freshness(report, meta, collections, today=None, metabolites=(), receptors=()):
     """Family 13: every cited page of an editable online corpus was downloaded recently.
 
     A book page does not change under a citation; a Wikipedia article or a live database
@@ -2815,7 +2827,7 @@ def check_freshness(report, meta, collections, today=None, metabolites=()):
     drugs = next((c for c in collections if isinstance(c, list) and c
                   and isinstance(c[0], dict) and "bindings" in c[0]), [])
     old_searches = {}
-    for where, _b, stamp in _unknown_stamps(drugs, metabolites):
+    for where, _k, _c, stamp in _unknown_stamps(drugs, metabolites, receptors, meta):
         searched = str(stamp.get("searched"))
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}", searched) and freshness.is_stale(
                 searched, today, months):
@@ -2862,7 +2874,8 @@ def main():
     collections = [meta, structures, projections, circuits, projection_groups,
                    receptors, drugs, metabolites, addons]
     if only:
-        check_freshness(report, meta, collections, metabolites=metabolites)
+        check_freshness(report, meta, collections, metabolites=metabolites,
+                        receptors=receptors)
         return _summary(report)
 
     args = (report, meta, structures, projections, circuits, projection_groups,
@@ -2881,7 +2894,8 @@ def main():
     check_baked_meshes(report, structures)
     check_enzyme_variability(report, meta, drugs)
     check_clinpgx_variants(report, meta, receptors)
-    check_freshness(report, meta, collections, metabolites=metabolites)
+    check_freshness(report, meta, collections, metabolites=metabolites,
+                        receptors=receptors)
     return _summary(report)
 
 

@@ -72,6 +72,61 @@ class ApplyTest(unittest.TestCase):
             unknown.apply_unknown(drugs(), metabs(), {"metabolite:zz/bindings[h1]": entry()})
 
 
+EFFECT_ALL = list(unknown.UNKNOWN_REQUIRED_SOURCES["receptor_effect"])
+
+
+def effect_entry(corpora=EFFECT_ALL, searched="2026-10-16"):
+    return {**entry(corpora, searched), "kind": "receptor_effect"}
+
+
+def receptors():
+    """``r1`` carries a sourced effect, ``r2`` none."""
+    return [{"id": "r1", "effects": [{"mode": "agonism", "effect": "sedation",
+                                      "sources": [{"provenance": "verified"}],
+                                      "grade": "verified"}]},
+            {"id": "r2"}]
+
+
+def targets():
+    return {"t1": {"type": "transporter"}, "r2": {"type": "receptor"}}
+
+
+class EffectsApplyTest(unittest.TestCase):
+    def test_stamps_an_owner_with_no_effect(self):
+        rs, ts = receptors(), targets()
+        stats = unknown.apply_unknown(drugs(), metabs(), {
+            "receptor:r2/effects": effect_entry(), "target:t1/effects": effect_entry()},
+            receptors=rs, targets=ts)
+        self.assertEqual(rs[1]["effects_unknown"],
+                         {"searched": "2026-10-16", "corpora": EFFECT_ALL})
+        self.assertIn("effects_unknown", ts["t1"])
+        self.assertEqual(stats, {"stamped": 2, "superseded": 0})
+
+    def test_a_sourced_effect_wins(self):
+        rs = receptors()
+        stats = unknown.apply_unknown(drugs(), metabs(),
+                                      {"receptor:r1/effects": effect_entry()}, receptors=rs)
+        self.assertNotIn("effects_unknown", rs[0])
+        self.assertEqual(stats, {"stamped": 0, "superseded": 1})
+
+    def test_stale_or_misfiled_key_raises(self):
+        with self.assertRaises(KeyError):
+            unknown.apply_unknown(drugs(), metabs(), {"receptor:zz/effects": effect_entry()},
+                                  receptors=receptors())
+        with self.assertRaises(KeyError):   # a receptor-group target is not an effect owner
+            unknown.apply_unknown(drugs(), metabs(), {"target:r2/effects": effect_entry()},
+                                  receptors=receptors(), targets=targets())
+        with self.assertRaises(ValueError):  # the kind and the site grammar disagree
+            unknown.apply_unknown(drugs(), metabs(), {"receptor:r2/effects": entry()},
+                                  receptors=receptors())
+
+    def test_required_sources(self):
+        self.assertEqual(set(EFFECT_ALL), {"wikipedia_pharm", "gtopdb_function",
+                                           "stahl_essential", "europepmc"})
+        self.assertEqual(unknown.missing_required("receptor_effect", EFFECT_ALL[:-1]),
+                         EFFECT_ALL[-1:])
+
+
 class SiteTest(unittest.TestCase):
     def test_site_matches_the_citation_site_grammar(self):
         sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "sourcing"))
@@ -79,6 +134,14 @@ class SiteTest(unittest.TestCase):
         self.assertEqual(unknown.binding_site("a", "d2"), cs.site("drug", "a", "bindings[d2]"))
         self.assertEqual(unknown.binding_site("nor_a", "h1", "metabolite"),
                          cs.site("metabolite", "nor_a", "bindings", "h1"))
+
+    def test_effects_site_matches_the_citation_site_grammar(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "sourcing"))
+        import citation_site as cs
+        self.assertEqual(unknown.effects_site("receptor", "5ht1e"),
+                         cs.site("receptor", "5ht1e", "effects"))
+        self.assertEqual(unknown.effects_site("target", "gat"),
+                         cs.site("target", "gat", "effects"))
 
     def test_enumeration_lists_a_shared_metabolite_once(self):
         rows = unknown.affinity_only_bindings(drugs(), metabs())
@@ -102,6 +165,13 @@ class TallyTest(unittest.TestCase):
         self.assertEqual(after["nodes"]["unknown"], 1)
         # One backed of two counted nodes instead of one of three.
         self.assertGreater(after["nodes"]["pct_backed"], before["nodes"]["pct_backed"])
+
+
+    def test_effects_unknown_is_its_own_bucket(self):
+        rs = receptors()
+        unknown.apply_unknown([], [], {"receptor:r2/effects": effect_entry()}, receptors=rs)
+        k = _provenance_stats([], [], [], [], rs, [], [], {}, [])["by_kind"]["receptor_effect"]
+        self.assertEqual((k["total"], k["verified"], k["unknown"]), (1, 1, 1))
 
 
 class CheckDataTest(unittest.TestCase):
@@ -135,6 +205,26 @@ class CheckDataTest(unittest.TestCase):
         ds = drugs()
         ds[0]["bindings"][1]["unknown"] = {"searched": "2026-10-12", "corpora": ALL}
         self.assertEqual(self._provenance_errors(ds), 1)
+
+    def _effect_errors(self, corpora=EFFECT_ALL, owner="r2"):
+        rs = receptors()
+        unknown.apply_unknown([], [], {f"receptor:{owner}/effects": effect_entry(corpora)},
+                              receptors=rs)
+        if owner == "r1":   # forge a stamp beside a sourced effect
+            rs[0]["effects_unknown"] = {"searched": "2026-10-16", "corpora": EFFECT_ALL}
+        report = check_data.Report()
+        with redirect_stdout(io.StringIO()):
+            check_data.check_provenance(report, {}, [], [], [], [], rs, [], [])
+        return report.errors
+
+    def test_effects_search_complete_passes(self):
+        self.assertEqual(self._effect_errors(), 0)
+
+    def test_effects_search_missing_a_required_source_fails(self):
+        self.assertEqual(self._effect_errors(EFFECT_ALL[1:]), 1)
+
+    def test_effects_stamp_beside_a_sourced_effect_fails(self):
+        self.assertEqual(self._effect_errors(owner="r1"), 1)
 
     def test_search_expires_like_a_cited_page(self):
         self.assertEqual(self._freshness_errors(self._stamped(searched="2025-10-12")), 0)

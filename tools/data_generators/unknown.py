@@ -23,12 +23,16 @@ lookup key or query run against it, how many hits it gave, the date, and who ran
 
 A metabolite binding is keyed ``metabolite:<id>/bindings[<target>]``: the metabolite is
 one record whichever drugs make it (``tools/data/metabolites_data.jsonl``), so one entry
-covers it under every parent.
+covers it under every parent. A receptor's (or a non-receptor target's) clinical effects
+are keyed ``receptor:<id>/effects`` / ``target:<id>/effects``, ONE entry per owner (kind
+``receptor_effect``): it says no searched source states any effect of acting on it, and
+lands as ``effects_unknown`` on an owner that carries no effect node.
 
 Three rules, each enforced:
 
 * **A real source wins.** :func:`apply_unknown` stamps only a claim that is still
-  unsourced (for a binding direction: still ``affinity_only``); a log entry whose claim
+  unsourced (for a binding direction: still ``affinity_only``; for effects: no effect
+  node at all); a log entry whose claim
   has since gained a source is ignored, so a later find needs no log edit.
 * **The search must be complete.** :data:`UNKNOWN_REQUIRED_SOURCES` lists, per node
   kind, the corpora a search has to cover; ``check_data.py`` (family 4) fails a stamp
@@ -59,13 +63,19 @@ UNKNOWN_LOG_PATH = os.path.join(ROOT, "tools", "generated_cache", "unknown_searc
 # UNKNOWN. A binding direction is stated (when it is stated at all) in a measured-assay
 # table (PDSP, GtoPdb's action column), an encyclopedic article (EN + FR Wikipedia), or a
 # primary paper (Europe PMC abstracts).
+# A receptor's clinical effects (``receptor_effect``, one UNKNOWN per owner: "no source
+# states any effect of acting on it") are stated, when at all, in its encyclopedic article,
+# its GtoPdb function rows, the psychopharmacology textbook, or a human study.
 UNKNOWN_REQUIRED_SOURCES: dict[str, tuple[str, ...]] = {
     "drug_binding_action": ("pdsp_ki", "gtopdb_ki", "wikipedia_pharm", "wikipedia_fr",
                             "europepmc"),
+    "receptor_effect": ("wikipedia_pharm", "gtopdb_function", "stahl_essential",
+                        "europepmc"),
 }
 
 _BINDING_SITE = re.compile(
     r"^(?P<kind>drug|metabolite):(?P<owner>[^/]+)/bindings\[(?P<target>[^\]:]+)\]$")
+_EFFECTS_SITE = re.compile(r"^(?P<kind>receptor|target):(?P<owner>[^/]+)/effects$")
 
 
 fold = ascii_key  # a metabolite name folded for matching (case + punctuation)
@@ -77,6 +87,13 @@ def binding_site(owner_id: str, target: str, kind: str = "drug") -> str:
     ``metabolite:<id>/bindings[<target>]`` for a metabolite's own binding (one record
     per molecule, whichever drugs make it). An affinity-only binding has no action."""
     return f"{kind}:{owner_id}/bindings[{target}]"
+
+
+def effects_site(owner_kind: str, owner_id: str) -> str:
+    """An owner's effects log key (``receptor:<id>/effects``, ``target:<id>/effects``),
+    in ``citation_site.py``'s grammar: ONE entry per owner, since what UNKNOWN states is
+    that no source names any effect of acting on it (a sourced effect is per node)."""
+    return f"{owner_kind}:{owner_id}/effects"
 
 
 def affinity_only_bindings(drugs: list[dict[str, Any]],
@@ -133,26 +150,43 @@ def missing_required(kind: str, corpora: list[str]) -> list[str]:
 
 
 def apply_unknown(drugs: list[dict[str, Any]], metabolites: list[dict[str, Any]] = (),
-                  log: dict[str, Any] | None = None) -> dict[str, int]:
-    """Stamp ``unknown`` on every still-unsourced binding direction the log covers.
+                  log: dict[str, Any] | None = None, receptors: list[dict[str, Any]] = (),
+                  targets: dict[str, dict[str, Any]] | None = None) -> dict[str, int]:
+    """Stamp ``unknown`` on every still-unsourced claim the log covers.
 
-    Mutates ``drugs`` / ``metabolites`` (the emitted records) in place and returns a
-    small tally. Raises on a log key that resolves to no binding at all (a renamed drug
-    or metabolite, a dropped target), so a stale entry can never sit silently in the
+    A binding direction (``drug_binding_action``) is stamped on the binding row while it
+    is still ``affinity_only``; an owner's effects (``receptor_effect``) as
+    ``effects_unknown`` on the receptor record / target entry while it carries no
+    ``effects`` node. Mutates the emitted records in place and returns a small tally.
+    Raises on a log key that resolves to nothing (a renamed drug, metabolite, receptor
+    or target, a dropped binding), so a stale entry can never sit silently in the
     committed log.
     """
     log = load_log() if log is None else log
     owners = {("drug", d["id"]): d for d in drugs}
     owners.update({("metabolite", m["id"]): m for m in metabolites})
+    owners.update({("receptor", r["id"]): r for r in receptors})
+    owners.update({("target", tid): t for tid, t in (targets or {}).items()
+                   if t.get("type") != "receptor"})
     stats = {"stamped": 0, "superseded": 0}
     for key, entry in sorted(log.items()):
-        m = _BINDING_SITE.match(key)
-        if not m or entry.get("kind") != "drug_binding_action":
-            raise ValueError(f"unknown_searches.json: {key!r} is not a binding-direction "
-                             f"site (the only UNKNOWN kind today)")
+        kind = entry.get("kind")
+        m = (_BINDING_SITE if kind == "drug_binding_action" else
+             _EFFECTS_SITE if kind == "receptor_effect" else None)
+        m = m.match(key) if m else None
+        if not m:
+            raise ValueError(f"unknown_searches.json: {key!r} is not a {kind} site (the "
+                             f"UNKNOWN kinds: {', '.join(UNKNOWN_REQUIRED_SOURCES)})")
         owner = owners.get((m["kind"], m["owner"]))
         if owner is None:
             raise KeyError(f"unknown_searches.json: {key!r} names no {m['kind']}")
+        if kind == "receptor_effect":
+            if owner.get("effects"):
+                stats["superseded"] += 1  # a real source won since the search
+            else:
+                owner["effects_unknown"] = stamp(entry)
+                stats["stamped"] += 1
+            continue
         rows = [b for b in owner.get("bindings", []) if b["target"] == m["target"]]
         if not rows:
             raise KeyError(f"unknown_searches.json: {key!r} resolves to no binding")
