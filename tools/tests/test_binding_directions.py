@@ -268,6 +268,14 @@ class AliasTest(unittest.TestCase):
                          "blockade of alpha 2A receptors"):
             self.assertNames("alpha2a", sentence)
 
+    def test_gaba_a_rho_is_not_named_by_plain_gaba_a(self):
+        # The display name is "GABA-A-ρ": with ρ unfolded its alias reduced to
+        # "gaba a" and fired on every GABA-A sentence.
+        self.assertNames("gaba_a_rho", "a positive allosteric modulator of GABAA receptors",
+                         False)
+        self.assertNames("gaba_a_rho", "an antagonist of GABA-A-ρ receptors")
+        self.assertNames("gaba_a_rho", "an antagonist of GABA-A-rho receptors")
+
     def test_the_coarse_group_does_not_absorb_its_subtype(self):
         # alpha2 is its own (receptor_group) target, so a sentence about alpha2A must
         # not read as naming it: the two carry different bindings.

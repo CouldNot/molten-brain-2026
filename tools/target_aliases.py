@@ -50,9 +50,9 @@ from data_generators.receptors import RECEPTORS  # noqa: E402
 # longer names an adrenoceptor at all. Only the letters the target names actually use.
 GREEK_TO_LATIN = {
     "α": "alpha", "β": "beta", "γ": "gamma", "δ": "delta", "ε": "epsilon",
-    "κ": "kappa", "μ": "mu", "σ": "sigma", "ω": "omega",
+    "κ": "kappa", "μ": "mu", "ρ": "rho", "σ": "sigma", "ω": "omega",
     "Α": "alpha", "Β": "beta", "Γ": "gamma", "Δ": "delta", "Κ": "kappa",
-    "Μ": "mu", "Σ": "sigma", "Ω": "omega",
+    "Μ": "mu", "Ρ": "rho", "Σ": "sigma", "Ω": "omega",
 }
 
 # How much punctuation/whitespace an alias may skip between two of its tokens. Bounded
