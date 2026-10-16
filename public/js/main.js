@@ -1919,37 +1919,42 @@ function createInfoPanel(data, sourcingModal) {
   // every pathway list so left/right twins collapse to one row (see pathwayList).
   const baseNameOf = (id) => data.byId.get(id)?.base_name || nameOf(id);
 
+  // The pick handlers below are set by the caller (on*() at the bottom). Each is a
+  // stable function forwarding to whatever handler is registered at call time, so a
+  // view can capture it before the caller has wired anything.
+  const pickHandlers = {};
+  const delegate = (key) => (...args) => pickHandlers[key]?.(...args);
   // Set by the caller (onConnection): what to do when a connection row in a
   // structure panel is clicked. The panel only knows projections, so the caller
   // maps the projection to its arrow and does the framing/halo/connection-panel.
-  let onConnectionPick = () => {};
+  const onConnectionPick = delegate("onConnectionPick");
   // Set by the caller (onTarget): what to do when a binding row in a drug panel is
   // clicked. The panel hands back the resolved target entry; the caller focuses it
   // exactly like its "Receptors & targets" legend row.
-  let onTargetPick = () => {};
+  const onTargetPick = delegate("onTargetPick");
   // Set by the caller (onStructure): what to do when a region row in a receptor /
   // target panel's "Found in" list is clicked. The panel hands back the structure
   // *base* id; the caller resolves it to a mesh and jumps to that structure.
-  let onStructurePick = () => {};
+  const onStructurePick = delegate("onStructurePick");
   // Set by the caller (onDrug): what to do when a drug row in a receptor / target
   // panel's "Interacting drugs" list is clicked. The panel hands back the drug
   // record; the caller focuses it exactly like its Drugs legend row / search pick.
-  let onDrugPick = () => {};
-  let onEnzymePick = () => {};
+  const onDrugPick = delegate("onDrugPick");
+  const onEnzymePick = delegate("onEnzymePick");
   // Set by the caller (onEffect): open an effect's panel (the Effects section, BETA),
   // from a receptor panel's Effects row or a drug panel's derived "could cause" row.
-  let onEffectPick = () => {};
+  const onEffectPick = delegate("onEffectPick");
   // Set by the caller (onProjectionGroup): what to do when a projection-group row in
   // a drug panel's "Neurotransmitter tone" list is clicked. The panel hands back the
   // group record; the caller focuses it exactly like its Projections legend row.
-  let onProjectionGroupPick = () => {};
+  const onProjectionGroupPick = delegate("onProjectionGroupPick");
   // Set by the caller (onSearch): run a search query. A drug panel's clickable
   // Class / Nomenclature values hand back a `field:"value"` query string; the caller
   // opens the search box pre-filled with it (see wireToolbar.openSearchWithQuery).
-  let onSearchPick = () => {};
+  const onSearchPick = delegate("onSearchPick");
   // Set by the caller (onImage): pop a panel illustration up large. The panel hands
   // back (src, alt, {invert}); the caller shows it in the image lightbox.
-  let onImagePick = () => {};
+  const onImagePick = delegate("onImagePick");
   // Resolve a drug binding's `target` key to its merged-list entry, so a binding
   // row can focus that target (a receptor entry shares its id; a non-receptor one
   // its drug_targets key). Only focusable entries become clickable.
@@ -5230,12 +5235,12 @@ function createInfoPanel(data, sourcingModal) {
 
     /** Register the handler run when a structure-panel connection row is clicked. */
     onConnection(fn) {
-      onConnectionPick = fn;
+      pickHandlers.onConnectionPick = fn;
     },
 
     /** Register the handler run when a drug-panel binding (target) row is clicked. */
     onTarget(fn) {
-      onTargetPick = fn;
+      pickHandlers.onTargetPick = fn;
     },
 
     /**
@@ -5244,7 +5249,7 @@ function createInfoPanel(data, sourcingModal) {
      * resolves it to a mesh and jumps to that structure.
      */
     onStructure(fn) {
-      onStructurePick = fn;
+      pickHandlers.onStructurePick = fn;
     },
 
     /**
@@ -5253,7 +5258,7 @@ function createInfoPanel(data, sourcingModal) {
      * focuses it exactly like its Drugs legend row / search pick.
      */
     onDrug(fn) {
-      onDrugPick = fn;
+      pickHandlers.onDrugPick = fn;
     },
 
     /**
@@ -5262,12 +5267,12 @@ function createInfoPanel(data, sourcingModal) {
      * opens it exactly like its Enzymes legend row.
      */
     onEnzyme(fn) {
-      onEnzymePick = fn;
+      pickHandlers.onEnzymePick = fn;
     },
 
     /** Register the handler run when an effect row is clicked (see onEffectPick). */
     onEffect(fn) {
-      onEffectPick = fn;
+      pickHandlers.onEffectPick = fn;
     },
 
     /**
@@ -5276,7 +5281,7 @@ function createInfoPanel(data, sourcingModal) {
      * caller focuses it exactly like its Projections legend row / search pick.
      */
     onProjectionGroup(fn) {
-      onProjectionGroupPick = fn;
+      pickHandlers.onProjectionGroupPick = fn;
     },
 
     /**
@@ -5285,11 +5290,11 @@ function createInfoPanel(data, sourcingModal) {
      * opens the search box pre-filled with it.
      */
     onSearch(fn) {
-      onSearchPick = fn;
+      pickHandlers.onSearchPick = fn;
     },
     /** Set the handler that enlarges a clicked panel image (the lightbox). */
     onImage(fn) {
-      onImagePick = fn;
+      pickHandlers.onImagePick = fn;
     },
 
     /**
