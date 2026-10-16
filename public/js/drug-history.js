@@ -101,7 +101,7 @@ function appendChipRow(facts, label, value, items, text, pill, addFactRow) {
 /**
  * Append the drug's history rows to its facts block.
  *
- * `addFactRow`, `makeProvenancePill`, `sourcesTip` and `t` are the panel's own helpers
+ * `addFactRow`, `nodePill` and `t` are the panel's own helpers
  * (js/main.js), passed in so this module owns only the history wording. A withdrawal
  * row carries the `fact-warning` class (caution ink, see index.html); every row carries
  * `fact-history` (no capitalization of the prose value). Order: originator (+ its
@@ -109,21 +109,18 @@ function appendChipRow(facts, label, value, items, text, pill, addFactRow) {
  * groupWithdrawals), current holders (one chip per market).
  */
 export function appendDrugHistory(facts, drug,
-  { addFactRow, makeProvenancePill, sourcesTip, t, lang }) {
-  const pill = (node) => (node.sources && node.sources.length
-    ? makeProvenancePill(node.provenance, sourcesTip(node.sources))
-    : makeProvenancePill(node.provenance || null));
+  { addFactRow, nodePill, t, lang }) {
   if (drug.originator) {
     const o = drug.originator;
     const items = [{ text: formatOriginator(o, t), node: o }];
     if (o.country) items.push({ text: o.country.label, node: o.country });
     appendChipRow(facts, t("drug.originator"), "", items, (x) => x.text,
-      (x) => pill(x.node), addFactRow).title = t("drug.originatorTip");
+      (x) => nodePill(x.node), addFactRow).title = t("drug.originatorTip");
   }
   if (drug.firstApproval) {
     const fa = drug.firstApproval;
     addFactRow(facts, approvalLabel(fa, t), formatApproval(fa, yearsAgo(fa.year, t)),
-      null, { pill: pill(fa) });
+      null, { pill: nodePill(fa) });
     facts.lastChild.title = t(drug.firstApproval.national ? "drug.firstNationalApprovalTip"
       : "drug.firstApprovalTip");
     facts.lastChild.classList.add("fact-history");
@@ -131,10 +128,10 @@ export function appendDrugHistory(facts, drug,
   for (const g of groupWithdrawals(drug.withdrawals, lang)) {
     appendChipRow(facts, t("drug.withdrawn"),
       t("drug.withdrawnGroup", { year: g.year, reason: g.reasonLabel }), g.items,
-      (w) => w.countryLabel, pill, addFactRow).classList.add("fact-warning");
+      (w) => w.countryLabel, nodePill, addFactRow).classList.add("fact-warning");
   }
   if ((drug.holders || []).length) {
-    appendChipRow(facts, t("drug.holders"), "", drug.holders, formatHolder, pill,
+    appendChipRow(facts, t("drug.holders"), "", drug.holders, formatHolder, nodePill,
       addFactRow).title = t("drug.holdersTip");
   }
 }

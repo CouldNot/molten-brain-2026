@@ -33,12 +33,13 @@ export function formatBbb(b, t, lang) {
  * Append the drug's XLogP3, TPSA and BBB chips to `host`. Each label carries the
  * tooltip saying how to read the value (and that the first two are computed estimates,
  * the third curated measurement data). `h` = the panel's own helpers
- * {el, makeProvenancePill, sourcesTip, t, lang} (js/main.js).
+ * {el, nodePill, t, lang} (js/main.js).
  */
 export function appendPhyschemChips(host, drug, h) {
   const { t, lang } = h;
   const chip = (node, label, tip, value) => host.appendChild(valueChip(h, {
-    label, tip, value, provenance: node.provenance, sources: node.sources }));
+    label, tip, value, provenance: node.provenance, sources: node.sources,
+    uncertainty: node.uncertainty }));
   if (drug.xlogp) {
     chip(drug.xlogp, t("drug.xlogp"), t("drug.xlogpTip"), formatLogP(drug.xlogp.value, lang));
   }

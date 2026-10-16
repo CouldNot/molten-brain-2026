@@ -2321,9 +2321,7 @@ function createInfoPanel(data, sourcingModal) {
         min: (data.meta.densityMinReliability ?? 0).toFixed(2),
       });
       cap.appendChild(agree);
-      cap.appendChild(makeProvenancePill(
-        density.provenance,
-        density.sources.length ? sourcesTip(density.sources) : undefined));
+      cap.appendChild(nodePill(density));
       container.appendChild(cap);
     }
     for (const g of order) {
@@ -2370,7 +2368,7 @@ function createInfoPanel(data, sourcingModal) {
     if (tgt && tgt.focusable) chip.addEventListener("click", () => onTargetPick(tgt));
     else chip.disabled = true;
     const wrap = el("span", "eff-via-item");
-    wrap.append(chip, sourceBackedPill(node.provenance, node));
+    wrap.append(chip, nodePill(node));
     return wrap;
   };
   // One derived drug-panel row: its conditional sentence (or a ready head node, the
@@ -2417,7 +2415,7 @@ function createInfoPanel(data, sourcingModal) {
       const li = el("li");
       li.appendChild(effectLink(e.effect, e.label));
       li.appendChild(el("span", "eff-mode", e.modeLabel));
-      li.appendChild(sourceBackedPill(e.provenance, e));
+      li.appendChild(nodePill(e));
       ul.appendChild(li);
     }
     body.appendChild(sec);
@@ -2456,7 +2454,7 @@ function createInfoPanel(data, sourcingModal) {
       const li = el("li", "eff-row");
       li.appendChild(el("span", "loc-name", t(`relmod.activation.${n.effect}`,
         transmitterVars(n.transmitterLabel, ofNoun))));
-      li.appendChild(sourceBackedPill(n.provenance, n));
+      li.appendChild(nodePill(n));
       li.appendChild(el("span", "eff-mode eff-site", t("relmod.site",
         { kind: n.kindLabel, cell: n.cellLabel, where: inStructure(n.structure) })));
       ul.appendChild(li);
@@ -2475,7 +2473,7 @@ function createInfoPanel(data, sourcingModal) {
       const li = el("li", "eff-row");
       li.appendChild(el("span", "demog-chip", `${n.glyph} ${n.factorLabel}`));
       li.appendChild(el("span", "loc-name", t(n.textKey, { where: inStructure(n.structure) })));
-      li.appendChild(sourceBackedPill(n.provenance, n));
+      li.appendChild(nodePill(n));
       if (n.magnitude) {
         li.appendChild(el("span", "eff-mode eff-site", t("demog.magnitude", { magnitude: n.magnitude })));
       }
@@ -2498,7 +2496,7 @@ function createInfoPanel(data, sourcingModal) {
       : t("variant.assocNoDrug", { category });
     li.appendChild(el("span", "loc-name",
       prefix ? t("variant.withVariant", { variant: prefix, text }) : text));
-    li.appendChild(sourceBackedPill(row.provenance, row));
+    li.appendChild(nodePill(row));
     const meta = el("span", "var-meta",
       [row.phenotypes.join(", "),
        row.population ? t("variant.population", { population: row.population }) : ""]
@@ -2598,7 +2596,7 @@ function createInfoPanel(data, sourcingModal) {
         li.appendChild(el("span", "loc-name", n.testLabel));
         const cond = formatConditions(n, t("drug.workupOnlyIf"));
         if (cond) li.appendChild(el("span", "workup-cond", cond));
-        li.appendChild(sourceBackedPill(n.provenance, n));
+        li.appendChild(nodePill(n));
         list.appendChild(li);
       }
       sec.appendChild(list);
@@ -2895,7 +2893,12 @@ function createInfoPanel(data, sourcingModal) {
         labelled(withUncertainty(doubt, kiCorpusRefNode(node.ki, { dash: true }))));
     return makeProvenancePill(shown, labelled(withUncertainty(doubt, null)));
   };
-  const bindingProvenancePill = (binding) => sourceBackedPill(binding.provenance, binding);
+  // THE pill for a node-shaped claim `{provenance, sources, uncertainty?, ki?}`: every
+  // row badging one goes through here, so a doubted node (a curated `contradicted`
+  // holder, an animal-only region) reads orange wherever it is shown, never green
+  // because one call site hand-rolled its pill. A flat facet (NbN, class, release)
+  // passes a `{provenance, sources}` view of itself.
+  const nodePill = (node, what) => sourceBackedPill((node && node.provenance) || null, node, what);
 
   // The binding's DIRECTION is its own node (kind `drug_binding_action`): "this drug
   // binds this target" and "it does so as an agonist" are two claims, and a measured Ki
@@ -2940,7 +2943,7 @@ function createInfoPanel(data, sourcingModal) {
     const head = el(headTag, "addon-head");
     if (addon.glyph) head.appendChild(el("span", "addon-glyph", addon.glyph));
     if (addon.title) head.appendChild(el("strong", "addon-title", addon.title));
-    head.appendChild(sourceBackedPill(addon.provenance, addon));
+    head.appendChild(nodePill(addon));
     box.appendChild(head);
     box.appendChild(el("p", "addon-text", addon.text));
     return box;
@@ -3294,7 +3297,7 @@ function createInfoPanel(data, sourcingModal) {
     // pill (its Ki's verified badge is the only source), so the name stands alone.
     const nameRow = el("div", "bind-name");
     nameRow.appendChild(el("span", "bind-target", nameText));
-    if (!affinity) nameRow.appendChild(bindingProvenancePill(binding));
+    if (!affinity) nameRow.appendChild(nodePill(binding));
     txt.appendChild(nameRow);
     const parts = [affinity ? t("drug.affinityOnly") : binding.actionLabel,
                    binding.note,
@@ -3720,8 +3723,7 @@ function createInfoPanel(data, sourcingModal) {
         headline.appendChild(freq);
         // One node, two quotes (the implication, then the recommendation), so one pill
         // whose tooltip carries both: see tools/data_generators/cpic.py.
-        headline.appendChild(makeProvenancePill(row.provenance,
-          sourcesTip(row.sources)));
+        headline.appendChild(nodePill(row));
         li.appendChild(headline);
         li.appendChild(el("p", "pgx-implication", row.implication));
         li.appendChild(el("p", "pgx-recommendation", row.recommendation));
@@ -3908,9 +3910,7 @@ function createInfoPanel(data, sourcingModal) {
     // (a node's provenance is never simply absent from the panel). A pathway the book
     // states only as one blanket sweep wears the orange "uncertain" badge instead of a
     // green check, its reasons leading the tooltip: same rule the binding pill follows.
-    const doubt = proj.uncertainty && proj.uncertainty.length ? proj.uncertainty : null;
-    li.appendChild(makeProvenancePill(doubt ? "uncertain" : proj.provenance,
-      withUncertainty(doubt, sourcesTip(proj.sources))));
+    li.appendChild(nodePill(proj));
     li.addEventListener("click", () => onConnectionPick(proj));
     return li;
   };
@@ -3967,7 +3967,7 @@ function createInfoPanel(data, sourcingModal) {
     const groupEl = el("div", "info-group", labelText);
     if (always || provenance) {
       groupEl.appendChild(document.createTextNode(" "));
-      groupEl.appendChild(makeProvenancePill(provenance || null, sourcesTip(sources)));
+      groupEl.appendChild(nodePill({ provenance, sources }));
     }
     body.appendChild(groupEl);
   };
@@ -4054,8 +4054,7 @@ function createInfoPanel(data, sourcingModal) {
       // each data row below so every claim (route, transmitter, description) carries
       // its own badge, rather than a single block at the bottom that leaves it
       // unclear which node it backs. The tooltip lists the citation(s).
-      const provPill = () =>
-        makeProvenancePill(proj.provenance, sourcesTip(proj.sources));
+      const provPill = () => nodePill(proj);
 
       // Route line: from -> to (or <-> for a bidirectional/commissural link), each
       // endpoint clickable to jump to (and isolate) that structure.
@@ -4293,10 +4292,7 @@ function createInfoPanel(data, sourcingModal) {
       // rather than a single broad "Source" row below, so a source always grades the
       // specific node beside it. A fresh pill per row; only when the row has a value
       // (so an empty System row still drops instead of showing a bare pill).
-      const tgtPill = () => makeProvenancePill(
-        target.classificationProvenance,
-        target.sources && target.sources.length
-          ? sourcesTip(target.sources) : undefined);
+      const tgtPill = () => nodePill({ provenance: target.classificationProvenance, sources: target.sources });
       const withPill = (v) => (v && target.classificationProvenance ? { pill: tgtPill() } : {});
       const facts = el("div", "info-facts");
       addFactRow(facts, t("receptor.type"), target.typeLabel, target.swatchColor,
@@ -4314,10 +4310,7 @@ function createInfoPanel(data, sourcingModal) {
           : (target.polaritySign === "inhibitory"
             ? t("target.polarityAutoreceptor") : null);
         if (polText) {
-          const polPill = makeProvenancePill(
-            target.polarityProvenance,
-            target.polaritySources && target.polaritySources.length
-              ? sourcesTip(target.polaritySources) : undefined);
+          const polPill = nodePill({ provenance: target.polarityProvenance, sources: target.polaritySources });
           addFactRow(facts, t("target.polarity"), polText, null, { pill: polPill });
         }
       }
@@ -4387,9 +4380,7 @@ function createInfoPanel(data, sourcingModal) {
           if (formedBy.reactionLabel) parts.push(formedBy.reactionLabel);
           text.appendChild(el("span", "bind-action", ` ${parts.join(" · ")}`));
           li.appendChild(text);
-          li.appendChild(formedBy.sources && formedBy.sources.length
-            ? makeProvenancePill(formedBy.provenance, sourcesTip(formedBy.sources))
-            : makeProvenancePill(formedBy.provenance || null));
+          li.appendChild(nodePill(formedBy));
           li.classList.add("clickable");
           li.addEventListener("click",
             () => onDrugPick(drug, { highlightMetabolite: metabolite.name }));
@@ -4408,8 +4399,7 @@ function createInfoPanel(data, sourcingModal) {
       if (variability) {
         const box = el("div", "info-bindings info-variability");
         const head = el("h3", null, t("enzyme.variability"));
-        head.appendChild(makeProvenancePill(variability.provenance,
-          sourcesTip(variability.sources)));
+        head.appendChild(nodePill(variability));
         box.appendChild(head);
         box.appendChild(el("p", "var-caveat", t("enzyme.variabilityCaveat")));
         // Where these numbers come from, and where to go past them: we publish one
@@ -4533,7 +4523,7 @@ function createInfoPanel(data, sourcingModal) {
           const li = el("li");
           li.appendChild(linkName(target.name,
             target.focusable ? () => onTargetPick(target) : null));
-          li.appendChild(sourceBackedPill(node.provenance, node));
+          li.appendChild(nodePill(node));
           ul.appendChild(li);
         }
         owners.sec.appendChild(ul);
@@ -4577,12 +4567,10 @@ function createInfoPanel(data, sourcingModal) {
       // the parent's sourced metabolite pill.
       if (drug.metaboliteOf && drug.metaboliteOf.length) {
         const p = el("p", "info-desc metab-of", `${t("drug.activeMetaboliteOf")} `);
-        drug.metaboliteOf.forEach(({ parent, sources, provenance }, i) => {
+        drug.metaboliteOf.forEach(({ parent, ...claim }, i) => {
           if (i) p.appendChild(document.createTextNode(", "));
           p.appendChild(drugNameLink(parent));
-          p.appendChild(sources && sources.length
-            ? makeProvenancePill(provenance, sourcesTip(sources))
-            : makeProvenancePill(provenance || null));
+          p.appendChild(nodePill(claim));
         });
         body.appendChild(p);
       }
@@ -4612,9 +4600,7 @@ function createInfoPanel(data, sourcingModal) {
         const cc = drug.constituentsClaim;
         if (cc) {
           links.appendChild(document.createTextNode(" "));
-          links.appendChild(cc.sources.length
-            ? makeProvenancePill(cc.provenance, sourcesTip(cc.sources))
-            : makeProvenancePill(cc.provenance || null));
+          links.appendChild(nodePill(cc));
         }
         warn.appendChild(links);
         body.appendChild(warn);
@@ -4722,9 +4708,7 @@ function createInfoPanel(data, sourcingModal) {
       // The class classification is its own node: pill it (its own grade, or the
       // verbatim quote when category_sources exist), so the claim "this drug is an
       // SSRI/..." carries its provenance beside the value like every other node.
-      const catPill = drug.categorySources && drug.categorySources.length
-        ? makeProvenancePill(drug.categoryProvenance, sourcesTip(drug.categorySources))
-        : makeProvenancePill(drug.categoryProvenance || null);
+      const catPill = nodePill({ provenance: drug.categoryProvenance, sources: drug.categorySources });
       addFactRow(facts, t("drug.class"), null, null, {
         links: drug.categoryLabels.map((label) => ({
           text: label,
@@ -4737,9 +4721,7 @@ function createInfoPanel(data, sourcingModal) {
         // (with the verbatim quote in the tooltip) beside the clickable value. If a
         // drug ever carries an NbN value with no source, still show a pill (its
         // grade, else the red NOSOURCE pill) so the node is never left unbadged.
-        const nbnPill = drug.nbnSources && drug.nbnSources.length
-          ? makeProvenancePill(drug.nbnProvenance, sourcesTip(drug.nbnSources))
-          : makeProvenancePill(drug.nbnProvenance || null);
+        const nbnPill = nodePill({ provenance: drug.nbnProvenance, sources: drug.nbnSources });
         addFactRow(facts, t("drug.nomenclature"), null, null, {
           links: [{ text: drug.nbn, query: `nbn:"${drug.nbn}"` }],
           pill: nbnPill,
@@ -4759,9 +4741,8 @@ function createInfoPanel(data, sourcingModal) {
       // Pharmacokinetics table instead (see below), so this row keeps the molecule's.
       const appendBrand = (host, b) => {
         host.appendChild(el("span", "bind-target", b.name));
-        host.appendChild(b.sources && b.sources.length
-          ? makeProvenancePill(b.sources[0].provenance, sourcesTip(b.sources))
-          : makeProvenancePill(null));
+        // A brand's grade is its top-region source's (the one the row keeps).
+      host.appendChild(nodePill({ ...b, provenance: b.sources && b.sources.length ? b.sources[0].provenance : null }));
       };
       // Administrative: the regulatory history (first approval + years since,
       // withdrawals) and the brands, i.e. what the drug is as a marketed product rather
@@ -4770,7 +4751,7 @@ function createInfoPanel(data, sourcingModal) {
       admin.appendChild(el("h3", null, t("drug.admin")));
       const history = el("div", "info-facts");
       appendDrugHistory(history, drug,
-        { addFactRow, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
+        { addFactRow, nodePill, t, lang: window.__I18N__.lang });
       if (history.childElementCount) admin.appendChild(history);
       const moleculeBrands = (drug.brandsOrdered || []).filter((b) => !b.release);
       if (moleculeBrands.length) {
@@ -4814,7 +4795,7 @@ function createInfoPanel(data, sourcingModal) {
           || forms.length) {
         const hlEl = el("div", "info-bindings info-halflife");
         hlEl.appendChild(el("h3", null, t("drug.pkTiming")));
-        const chipHelpers = { el, makeProvenancePill, sourcesTip, t,
+        const chipHelpers = { el, nodePill, t,
                               lang: window.__I18N__.lang };
         if (drug.tmax) {
           hlEl.appendChild(valueChip(chipHelpers, {
@@ -4860,8 +4841,7 @@ function createInfoPanel(data, sourcingModal) {
             // The pill rides inside the release name, so the row's wide gap
             // only separates whole items (each chip already ends in its pill).
             const release = el("span", "form-release", `${f.label} `);
-            release.appendChild(makeProvenancePill(f.releaseProvenance,
-              sourcesTip(f.releaseSources)));
+            release.appendChild(nodePill({ provenance: f.releaseProvenance, sources: f.releaseSources }));
             head.appendChild(release);
             if (f.tmax) {
               head.appendChild(valueChip(chipHelpers, {
@@ -4900,7 +4880,7 @@ function createInfoPanel(data, sourcingModal) {
         const pc = el("div", "info-bindings info-halflife info-physchem");
         pc.appendChild(el("h3", null, t("drug.physchem")));
         appendPhyschemChips(pc, drug,
-          { el, makeProvenancePill, sourcesTip, t, lang: window.__I18N__.lang });
+          { el, nodePill, t, lang: window.__I18N__.lang });
         body.appendChild(pc);
       }
 
@@ -4917,8 +4897,7 @@ function createInfoPanel(data, sourcingModal) {
       if (drug.prodrug) {
         const p = el("p", "info-desc", `${t("drug.prodrug")} `);
         p.title = t("drug.prodrugTip");
-        p.appendChild(makeProvenancePill(drug.prodrug.provenance,
-          sourcesTip(drug.prodrug.sources)));
+        p.appendChild(nodePill(drug.prodrug));
         acts.appendChild(p);
       }
       if (!drug.bindings.length) {
@@ -4977,7 +4956,7 @@ function createInfoPanel(data, sourcingModal) {
             head.appendChild(el("span", "bind-target", m.name));
           }
           // The shared node pill, so a link another corpus denies reads orange.
-          head.appendChild(sourceBackedPill(m.provenance || null, m));
+          head.appendChild(nodePill(m));
           li.appendChild(head);
           // Which enzyme makes it, each its own sourced node and clickable to that
           // enzyme's panel: the prodrug story (why a CYP2D6 poor metabolizer gets a
@@ -4992,9 +4971,7 @@ function createInfoPanel(data, sourcingModal) {
             if (f.reactionLabel)
               text.appendChild(el("span", "bind-action", ` · ${f.reactionLabel}`));
             row.appendChild(text);
-            row.appendChild(f.sources && f.sources.length
-              ? makeProvenancePill(f.provenance, sourcesTip(f.sources))
-              : makeProvenancePill(f.provenance || null));
+            row.appendChild(nodePill(f));
             const enz = enzymeById.get(f.enzyme);
             if (enz) {
               row.classList.add("clickable");
@@ -5004,7 +4981,7 @@ function createInfoPanel(data, sourcingModal) {
           }
           const hlStr = formatHalfLife(m.halfLife);
           if (hlStr) {
-            li.appendChild(valueChip({ el, makeProvenancePill, sourcesTip }, {
+            li.appendChild(valueChip({ el, nodePill }, {
               label: t("drug.halfLife"), value: hlStr, cls: "metab-hl", bare: true,
               provenance: m.halfLifeProvenance, sources: m.halfLifeSources }));
           }
@@ -5081,7 +5058,7 @@ function createInfoPanel(data, sourcingModal) {
             row.appendChild(el("span", "tone-term-math",
               `${b.toneSign > 0 ? "+1" : "−1"}${factor !== 1 ? ` × ${mag(factor)}` : ""} × ${mag(b.toneWeight)}`
               + ` = ${fmtTone(b.toneSign * factor * b.toneWeight)}`));
-            row.appendChild(bindingProvenancePill(b));
+            row.appendChild(nodePill(b));
             const tgt = targetById.get(b.target);
             if (tgt && tgt.focusable) {
               row.classList.add("clickable");
@@ -5504,7 +5481,7 @@ function createInfoPanel(data, sourcingModal) {
             // the drug<->system link is one node, so both ends carry the same source,
             // the strongest-affinity binding feeding this system.
             const rep = strongestBindingForKind(d.bindings, group.key);
-            if (rep) li.appendChild(bindingProvenancePill(rep));
+            if (rep) li.appendChild(nodePill(rep));
             const tone = el("span", "tone-value", fmtTone(netTone(d, group.key)));
             tone.title = t("group.toneTip");
             li.appendChild(tone);

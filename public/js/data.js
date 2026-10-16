@@ -1127,6 +1127,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       names: h.names,
       sources: mapSources(h.sources),
       provenance: strongestGrade(h.sources),
+      uncertainty: mapUncertainty(h.uncertainty),   // e.g. a curated `contradicted`
     }));
     // Prodrug flag (kind drug_prodrug): its own graded claim; the borrowed
     // bindings are wired by the prodrug pass above this loop.
@@ -1509,6 +1510,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
             ? localize(enzymeReactions[f.reaction]) : null,
           sources: mapSources(f.sources),
           provenance: strongestGrade(f.sources),
+          uncertainty: mapUncertainty(f.uncertainty),
         };
       });
       return {
@@ -1545,7 +1547,7 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       const child = m.drugId && drugById.get(m.drugId);
       if (!child || child === d) continue;
       (child.metaboliteOf ||= []).push({ parent: d, sources: m.sources,
-                                         provenance: m.provenance });
+                                         provenance: m.provenance, uncertainty: m.uncertainty });
     }
   }
 

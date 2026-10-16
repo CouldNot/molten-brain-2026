@@ -41,21 +41,20 @@ export function formatDuration(hl, t, lang) {
 
 /**
  * One "label value pill" chip (`.hl-chip`), the shape every Pharmacokinetics value
- * takes. `h` = the panel's helpers {el, makeProvenancePill, sourcesTip};
+ * takes. `h` = the panel's helpers {el, nodePill}; `uncertainty` (optional) turns a
+ * doubted value's pill orange, like every other node pill;
  * `tip` titles the label; `cls` adds a class (e.g. "metab-hl"); `bare` drops the pill
  * of an unsourced value instead of showing its grade (a metabolite's T½ borrowed
  * from its own drug row, graded there). Returned unattached,
  * so a caller can append extras (the half-life's non-linear warning) first.
  */
-export function valueChip(h, { label, tip, value, provenance, sources, cls, bare }) {
+export function valueChip(h, { label, tip, value, provenance, sources, uncertainty, cls, bare }) {
   const c = h.el("span", cls ? `hl-chip ${cls}` : "hl-chip");
   const l = h.el("span", "hl-label", `${label} `);
   if (tip) l.title = tip;
   c.appendChild(l);
   c.appendChild(h.el("span", "hl-val", value));
-  if (sources && sources.length)
-    c.appendChild(h.makeProvenancePill(provenance, h.sourcesTip(sources)));
-  else if (!bare) c.appendChild(h.makeProvenancePill(provenance || null));
+  if ((sources && sources.length) || !bare) c.appendChild(h.nodePill({ provenance, sources, uncertainty }));
   return c;
 }
 
@@ -76,12 +75,13 @@ export function formatAlert(a, lang) {
  * Append the range + alert chips to the Pharmacokinetics block `host`. The TDM
  * recommendation level rides in the range chip's tooltip (it is the guideline's
  * verdict on that row, not a molecule fact). `h` = the panel's own helpers
- * {el, makeProvenancePill, sourcesTip, t, lang} (js/main.js).
+ * {el, nodePill, t, lang} (js/main.js).
  */
 export function appendTdmChips(host, drug, h) {
   const { t, lang } = h;
   const chip = (node, labelKey, tip, value) => host.appendChild(valueChip(h, {
-    label: t(labelKey), tip, value, provenance: node.provenance, sources: node.sources }));
+    label: t(labelKey), tip, value, provenance: node.provenance, sources: node.sources,
+    uncertainty: node.uncertainty }));
   const r = drug.therapeuticRange;
   if (r) {
     const level = r.tdmLevel ? ` ${t("drug.tdmLevel", { level: r.tdmLevel,
