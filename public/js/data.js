@@ -484,6 +484,9 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
   const historyScopes = new Set(metaRecord.drug_history_scopes || []);
   const historyAgencies = localizeMap(metaRecord.drug_history_agencies);
   const withdrawalReasons = localizeMap(metaRecord.drug_withdrawal_reasons);
+  // Pre-prescription workup vocabularies (BDPM RCP #24): test / timing id -> label.
+  const workupTests = localizeMap(metaRecord.workup_tests);
+  const workupTimings = localizeMap(metaRecord.workup_timings);
   // Formulation release types (closed vocabulary, display order): id -> label.
   const releaseLabels = localizeMap(metaRecord.drug_releases);
   const drugTargets = metaRecord.drug_targets || {};
@@ -1124,6 +1127,15 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
     d.bbb = d.bbb ? physNode(d.bbb_sources, {
       label: d.bbb.label, logbb: d.bbb.logbb ?? null, logbbMax: d.bbb.logbb_max ?? null,
     }) : null;
+    // Pre-prescription workup (kind drug_workup, BETA): one node per (test, timing) the
+    // French label (RCP 4.2 / 4.3 / 4.4) asks for, rendered by js/workup.js + main.js.
+    d.workup = (d.workup || []).map((w) => ({
+      test: w.test, timing: w.timing,
+      testLabel: workupTests[w.test] || w.test,
+      timingLabel: workupTimings[w.timing] || w.timing,
+      sources: mapSources(w.sources),
+      provenance: strongestGrade(w.sources),
+    }));
     d.withdrawals = (d.withdrawals || []).map((w) => ({
       year: w.year,
       country: w.country,

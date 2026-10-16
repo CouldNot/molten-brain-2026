@@ -44,6 +44,7 @@ import {
 } from "./drug-history.js";
 import { appendTdmChips, formatAlert, formatDuration, formatRange, valueChip } from "./tdm.js";
 import { appendPhyschemChips, formatBbb, formatLogP, formatTpsa, hasPhyschem } from "./physchem.js";
+import { formatWorkup, groupWorkup } from "./workup.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -2553,6 +2554,29 @@ function createInfoPanel(data, sourcingModal) {
     body.appendChild(sec);
   };
 
+  // A drug panel's "Checks before and during treatment" section (BETA): one row per
+  // drug_workup node, grouped by timing, each with its own pill (the RCP sentence on
+  // hover). Neutral wording ("the French label asks for"), plus the not-medical-advice
+  // caveat, since a label's checklist is a regulatory text, not a care plan.
+  const appendWorkup = (drug) => {
+    if (!drug.workup || !drug.workup.length) return;
+    const { sec, ul } = betaSection("workup", "drug.workup", "drug.workupHint");
+    sec.removeChild(ul);
+    for (const g of groupWorkup(drug.workup)) {
+      sec.appendChild(el("h4", "loc-group-label", t(`drug.workup.${g.timing}`)));
+      const list = el("ul");
+      for (const n of g.rows) {
+        const li = el("li", "eff-row");
+        li.appendChild(el("span", "loc-name", n.testLabel));
+        li.appendChild(sourceBackedPill(n.provenance, n));
+        list.appendChild(li);
+      }
+      sec.appendChild(list);
+    }
+    sec.appendChild(el("p", "var-caveat", t("drug.workupCaveat")));
+    body.appendChild(sec);
+  };
+
   // One route endpoint (a structure id) for the connection panel's route line: its
   // name, made clickable to jump to (and isolate) that structure when the id
   // resolves to a modeled mesh, exactly like a "Found in" region row. A non-
@@ -4836,6 +4860,7 @@ function createInfoPanel(data, sourcingModal) {
       appendPossibleEffects(drug);
       appendReleaseChanges(drug);
       appendDrugVariants(drug);
+      appendWorkup(drug);
 
       // Active metabolites: one row per metabolite (its own sourced identity node).
       // A metabolite that is itself a modeled drug links to it (jump via onDrugPick);
@@ -6410,6 +6435,7 @@ const KIND_LABELS = {
   drug_lipophilicity: "about.kindDrugLipophilicity",
   drug_polar_surface: "about.kindDrugPolarSurface",
   drug_bbb: "about.kindDrugBbb",
+  drug_workup: "about.kindDrugWorkup",
   drug_enzymes: "about.kindDrugEnzymes",
   drug_enzyme_strength: "about.kindDrugEnzymeStrength",
   enzyme_variability: "about.kindEnzymeVariability",
@@ -6831,6 +6857,12 @@ function buildKindExample(kind, data, nav) {
       const d = drugWith("olanzapine", (x) => x.bbb);
       return d ? line(d.name, `${t("drug.bbb")} `
         + formatBbb(d.bbb, t, window.__I18N__.lang), () => nav.drug(d)) : null;
+    }
+    case "drug_workup": {
+      // e.g. Lithium "Pre-treatment checks: blood count, before starting".
+      const d = drugWith("lithium", (x) => x.workup.length);
+      return d ? line(d.name, `${t("drug.workupShort")} ${formatWorkup(d.workup[0])}`,
+        () => nav.drug(d)) : null;
     }
     case "drug_withdrawals": {
       const d = drugWith("nefazodone", (x) => x.withdrawals.length);

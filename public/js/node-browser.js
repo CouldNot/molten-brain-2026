@@ -20,6 +20,7 @@ import {
 } from "./drug-history.js";
 import { formatAlert, formatRange } from "./tdm.js";
 import { formatBbb, formatLogP, formatTpsa } from "./physchem.js";
+import { formatWorkup } from "./workup.js";
 import { transmitterVars } from "./release-modulation.js";
 
 // Sort rank of a display grade, weakest to strongest. `uncertain` sits between
@@ -71,6 +72,7 @@ const KIND_ORDER = [
   "drug_lipophilicity",
   "drug_polar_surface",
   "drug_bbb",
+  "drug_workup",
   "drug_enzymes",
   "drug_enzyme_strength",
   "drug_metabolites",
@@ -409,6 +411,10 @@ export function collectNodes(data, deps, opts = {}) {
     ]) {
       if (node) push(kind, d.name, `${t(key)} ${text(node)}`, node.provenance, go,
         { sources: node.sources });
+    }
+    for (const n of d.workup || []) {
+      push("drug_workup", d.name, `${t("drug.workupShort")} ${formatWorkup(n)}`,
+        n.provenance, go, { sources: n.sources });
     }
     if (d.originator) {
       push("drug_originator", d.name, `${t("drug.originator")} ${formatOriginator(d.originator, t)}`,
