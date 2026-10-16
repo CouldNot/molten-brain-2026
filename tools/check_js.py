@@ -10,7 +10,7 @@ raises when that exact line runs, so a search entry nobody clicked shipped broke
 So this walks each file's scope tree the way the engine would and reports every
 identifier reference that no enclosing scope binds.
 
-    python tools/check_js.py            # public/js/*.js + public/*.js
+    python tools/check_js.py            # public/js/**/*.js + public/*.js
     python tools/check_js.py a.js b.js  # just these
 
 Exit status is 1 when something is unbound, so it can gate a push.
@@ -455,12 +455,16 @@ def analyse(src):
 
 
 def targets():
+    """public/js/**/*.js (the viewer's modules, nested folders included) + public/*.js."""
     out = []
-    for d in (os.path.join(ROOT, "public", "js"), os.path.join(ROOT, "public")):
-        for name in sorted(os.listdir(d)):
-            path = os.path.join(d, name)
-            if name.endswith(".js") and os.path.isfile(path):
-                out.append(path)
+    for dirpath, dirnames, filenames in os.walk(os.path.join(ROOT, "public", "js")):
+        dirnames.sort()
+        out += [os.path.join(dirpath, n) for n in sorted(filenames) if n.endswith(".js")]
+    top = os.path.join(ROOT, "public")
+    for name in sorted(os.listdir(top)):
+        path = os.path.join(top, name)
+        if name.endswith(".js") and os.path.isfile(path):
+            out.append(path)
     return out
 
 
