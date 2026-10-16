@@ -276,6 +276,12 @@ class AliasTest(unittest.TestCase):
         self.assertNames("gaba_a_rho", "an antagonist of GABA-A-ρ receptors")
         self.assertNames("gaba_a_rho", "an antagonist of GABA-A-rho receptors")
 
+    def test_alpha4beta2_and_gaba_c_resolve(self):
+        al = ta.aliases_by_target()
+        self.assertTrue(ta.mentions("an \u03b1 4 \u03b2 2 nicotinic antagonist", al["nachr_a4b2"]))
+        self.assertTrue(ta.mentions("an antagonist of GABA C receptors", al["gaba_a_rho"]))
+        self.assertFalse(ta.mentions("a GABA A receptor modulator", al["gaba_a_rho"]))
+
     def test_the_coarse_group_does_not_absorb_its_subtype(self):
         # alpha2 is its own (receptor_group) target, so a sentence about alpha2A must
         # not read as naming it: the two carry different bindings.

@@ -139,6 +139,9 @@ EXTRA_ALIASES: dict[str, list[str]] = {
     "delta": ["delta opioid", "delta receptor"],
     # The subtype is what identifies this one; "nAChR" alone names every other subtype too.
     "nachr_a7": ["alpha7", "alpha7 nicotinic", "alpha7 nAChR"],
+    "nachr_a4b2": ["alpha4beta2", "alpha4beta2 nicotinic", "alpha4beta2 nAChR"],
+    # GABA-A-rho's older name, still the usual one in anaesthetic pharmacology prose.
+    "gaba_a_rho": ["GABA-C", "GABAC receptor"],
     # The coarse group target. The boundary rule already keeps "alpha2" off "alpha2A".
     "alpha2": ["alpha2 adrenergic", "alpha2 autoreceptor", "alpha2 adrenoceptor"],
 }
