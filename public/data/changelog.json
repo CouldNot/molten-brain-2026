@@ -1,6 +1,108 @@
 {
   "versions": [
     {
+      "version": "3.129.0",
+      "date": "2026-10-16",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Every receptor's Effects section now shows something: a sourced effect, or a blue \"unknown\" pill saying which sources were searched and when; 5-HT1F gains antimigraine and sedation from papers",
+          "commits": [
+            "faeaf9a",
+            "1c97f34",
+            "86a9a75",
+            "008da4f",
+            "6d2e92b",
+            "a4047fe"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "Eight new effects (bronchoconstriction, more gastric acid, muscle weakness, exaggerated startle, night blindness, ataxia, itch, itch relief), so glycine, mGluR1, mGluR6 and the muscle nicotinic receptor now have sourced effects",
+          "commits": [
+            "551f8cf",
+            "4266381"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "An effect backed only by isolated human tissue (not living patients) now carries an orange warning",
+          "commits": [
+            "6fede37",
+            "900de13"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "Workup: checks the label asks only for some patients now show as \"only if: ...\", quoting the label; every label line was judged, and drugs with no French product use their European (EMA) label, so 246 checks over 85 drugs",
+          "commits": [
+            "982c1b3",
+            "7bc8b80",
+            "c608391",
+            "f61c456",
+            "04f10a2",
+            "d715d42",
+            "246f31b",
+            "c4769ca"
+          ]
+        },
+        {
+          "category": "added",
+          "text": "33 new drug bindings stated in the drugs' Wikipedia articles (amantadine, isoflurane, nitrous oxide, methamphetamine, ...), each quote checked",
+          "commits": [
+            "043afd5",
+            "c75c6d1",
+            "bc22195",
+            "73f62d7",
+            "3cd9aca"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "A tab showing an older build (a restored tab, or an offline launch) now reloads onto the latest version as soon as the server answers",
+          "commits": [
+            "510c81a"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "Any data point can now be marked contradicted; amisulpride's tentative D2 partial agonism is flagged against GtoPdb, Wikipedia and a cAMP assay",
+          "commits": [
+            "e5ea521",
+            "b2b85d5",
+            "187a488",
+            "c18614e"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The effects index is computed once at build time instead of twice",
+          "commits": [
+            "1870cf3",
+            "cf89a12"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "\"GABA-A-rho\" no longer matches every GABA-A sentence when mining prose",
+          "commits": [
+            "6519e73"
+          ]
+        },
+        {
+          "category": "docs",
+          "text": "UNKNOWN effects, the tissue flag, site-keyed contradictions, the binding-gap pass and the EMA label fallback are documented",
+          "commits": [
+            "c84fa35",
+            "32d7e2a",
+            "f9b1687",
+            "03c03b4",
+            "ea2de9e"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.128.0",
       "date": "2026-10-16",
       "entries": [
