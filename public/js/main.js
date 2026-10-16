@@ -5725,6 +5725,16 @@ function buildTargetLegend(data, onPick) {
     }
   }
 
+  return reflectRows(rows);
+}
+
+/**
+ * The `reflect(activeId)` every browse legend returns over its `{row, id}` rows: lights
+ * the active row and dims the rest (nothing dimmed when `activeId` is null).
+ * @param {{row: HTMLElement, id: string}[]} rows
+ * @returns {(activeId: string|null) => void}
+ */
+function reflectRows(rows) {
   return function reflect(activeId) {
     for (const { row, id } of rows) {
       const selected = id === activeId;
@@ -5732,6 +5742,39 @@ function buildTargetLegend(data, onPick) {
       row.classList.toggle("dimmed", activeId !== null && !selected);
     }
   };
+}
+
+/**
+ * A flat browse list in `#<section>-body`: its caption, then one clickable row per
+ * item with a neutral swatch (the item carries no effect colour, and borrowing one
+ * would imply a net effect the row does not claim) and a count tag. Rows carry
+ * `data-tour-id="<kind>:<id>"` for the tour and the snapshot tooling.
+ * @param {{section: string, captionKey: string, kind: string, items: object[],
+ *   count: (item: object) => number, tagTitle?: string, onPick: (item: object) => void}} o
+ * @returns {(activeId: string|null) => void} reflect: lights the active row
+ */
+function buildBrowseList({ section, captionKey, kind, items, count, tagTitle, onPick }) {
+  const container = document.getElementById(`${section}-body`);
+  if (!container) return () => {};
+  container.replaceChildren();
+  const rows = [];
+  const caption = document.createElement("p");
+  caption.className = "legend-caption";
+  caption.textContent = t(captionKey);
+  container.appendChild(caption);
+  for (const item of items) {
+    const row = addLegendItem(container, "#9aa0a6", item.label);
+    const tag = document.createElement("span");
+    tag.className = "legend-tag";
+    tag.textContent = String(count(item));
+    if (tagTitle) tag.title = tagTitle;
+    row.appendChild(tag);
+    row.classList.add("clickable");
+    row.dataset.tourId = `${kind}:${item.id}`;
+    row.addEventListener("click", () => onPick(item));
+    rows.push({ row, id: item.id });
+  }
+  return reflectRows(rows);
 }
 
 /**
@@ -5747,34 +5790,8 @@ function buildTargetLegend(data, onPick) {
  * @returns {(activeId: string|null) => void} reflect: lights the active row
  */
 function buildEnzymeLegend(data, onPick) {
-  const container = document.getElementById("enzymes-body");
-  if (!container) return () => {};
-  container.replaceChildren();
-  const rows = [];
-  const caption = document.createElement("p");
-  caption.className = "legend-caption";
-  caption.textContent = t("enzymes.hint");
-  container.appendChild(caption);
-  for (const enz of data.enzymes || []) {
-    // Neutral swatch: an enzyme carries no effect colour (it is not a binding), and
-    // borrowing one would imply a net effect the row does not claim.
-    const row = addLegendItem(container, "#9aa0a6", enz.label);
-    const tag = document.createElement("span");
-    tag.className = "legend-tag";
-    tag.textContent = String(enz.rows.length);
-    row.appendChild(tag);
-    row.classList.add("clickable");
-    row.dataset.tourId = `enzyme:${enz.id}`;
-    row.addEventListener("click", () => onPick(enz));
-    rows.push({ row, id: enz.id });
-  }
-  return function reflect(activeId) {
-    for (const { row, id } of rows) {
-      const selected = id === activeId;
-      row.classList.toggle("selected", selected);
-      row.classList.toggle("dimmed", activeId !== null && !selected);
-    }
-  };
+  return buildBrowseList({ section: "enzymes", captionKey: "enzymes.hint", kind: "enzyme",
+    items: data.enzymes || [], count: (enz) => enz.rows.length, onPick });
 }
 
 /**
@@ -5787,37 +5804,13 @@ function buildEnzymeLegend(data, onPick) {
  * @returns {(activeId: string|null) => void} reflect: lights the active row
  */
 function buildEffectLegend(data, onPick) {
-  const container = document.getElementById("effects-body");
-  if (!container) return () => {};
-  container.replaceChildren();
   // No effect index (derived/effects.json failed to load, already said by a red
   // banner): hide the whole section rather than show an empty, clickable header.
   const section = document.getElementById("effects");
   if (section) section.hidden = !(data.effects || []).length;
-  const rows = [];
-  const caption = document.createElement("p");
-  caption.className = "legend-caption";
-  caption.textContent = t("effects.legendHint");
-  container.appendChild(caption);
-  for (const effect of data.effects || []) {
-    const row = addLegendItem(container, "#9aa0a6", effect.label);
-    const tag = document.createElement("span");
-    tag.className = "legend-tag";
-    tag.textContent = String(effect.drugs.length);
-    tag.title = t("effects.legendTag");
-    row.appendChild(tag);
-    row.classList.add("clickable");
-    row.dataset.tourId = `effect:${effect.id}`;
-    row.addEventListener("click", () => onPick(effect));
-    rows.push({ row, id: effect.id });
-  }
-  return function reflect(activeId) {
-    for (const { row, id } of rows) {
-      const selected = id === activeId;
-      row.classList.toggle("selected", selected);
-      row.classList.toggle("dimmed", activeId !== null && !selected);
-    }
-  };
+  return buildBrowseList({ section: "effects", captionKey: "effects.legendHint", kind: "effect",
+    items: data.effects || [], count: (effect) => effect.drugs.length,
+    tagTitle: t("effects.legendTag"), onPick });
 }
 
 /**
@@ -6019,13 +6012,7 @@ function buildDrugLegend(data, onPick) {
   }
   applyFilter(); // apply the persisted toggle state on first build
 
-  return function reflect(activeId) {
-    for (const { row, id } of rows) {
-      const selected = id === activeId;
-      row.classList.toggle("selected", selected);
-      row.classList.toggle("dimmed", activeId !== null && !selected);
-    }
-  };
+  return reflectRows(rows);
 }
 
 // Camera directions for `?view=` (unit vectors from the framed target back to
@@ -8757,12 +8744,12 @@ async function main() {
   selection.onHighlight((mesh) => labels.setPinned(mesh ? isolateGroupFor(mesh) : null));
   // When the last detail tab is closed, nothing is selected any more: clear the
   // 3D focus (halo / isolate / dim / dots) so the scene matches the empty strip.
-  // Last tab closed: drop the 3D focus and, since an enzyme focus has no 3D state
-  // for selection.clear() to unwind, its row highlight too.
+  // Last tab closed: drop the 3D focus and, since a panel-only focus (enzyme,
+  // effect) has no 3D state for selection.clear() to unwind, its row highlight too.
+  const panelOnlyFocuses = []; // their reset()s, see createPanelOnlyFocus
   const clearNodeFocus = () => {
     selection.clear();
-    activeEnzymeId = null;
-    reflectEnzymes(null);
+    for (const reset of panelOnlyFocuses) reset();
   };
   tabs.setOnEmpty(clearNodeFocus);
   // Stepping back to the Settings tab is "put the scene back": the detail tabs stay
@@ -8835,68 +8822,49 @@ async function main() {
   // is pharmacokinetics with no anatomy, so there is no mesh set to dim, no dots and
   // no arrows to pin. It is a panel + tab only, and the section caption says so, so
   // the still scene reads as intended rather than as a broken click.
-  let activeEnzymeId = null;
-  let reflectEnzymes = () => {};
-  const focusEnzyme = (enz) => {
-    // Having no 3D state of its own is exactly why this focus has to drop the
-    // PREVIOUS one by hand: every other focus replaces the scene as it applies
-    // itself, so stepping from a drug tab to an enzyme tab would otherwise leave
-    // the drug's dots, wash and flow beads running under a panel that no longer
-    // mentions that drug (the watcher below hides them off this clear). Folding
-    // the whole panel away is not a focus change and deliberately keeps it going.
-    selection.clear();
-    info.showEnzyme(enz);
-    activeEnzymeId = enz.id;
-    reflectEnzymes(activeEnzymeId);
-    openDetailTab(`enzyme:${enz.id}`, enz.label, () => focusEnzyme(enz));
+  //
+  // A panel-only focus (an enzyme, an effect): a panel + tab with no 3D state of its
+  // own, which is exactly why it has to drop the PREVIOUS focus by hand: every other
+  // focus replaces the scene as it applies itself, so stepping from a drug tab to an
+  // enzyme tab would otherwise leave the drug's dots, wash and flow beads running
+  // under a panel that no longer mentions that drug (the watcher below hides them off
+  // this clear). Folding the whole panel away is not a focus change and deliberately
+  // keeps it going. Its legend row stays lit only while it is what is focused: any
+  // focus that DOES touch the scene puts it out (the onIsolate mirror; focus() clears
+  // first and sets the active id after, so it fires on the way in and leaves the
+  // incoming row lit). Returns {focus, reset}; reset is for clearNodeFocus.
+  const createPanelOnlyFocus = ({ kind, show, buildLegend }) => {
+    let activeId = null;
+    let reflect = () => {};
+    const focus = (item) => {
+      selection.clear();
+      show(item);
+      activeId = item.id;
+      reflect(activeId);
+      openDetailTab(`${kind}:${item.id}`, item.label, () => focus(item));
+    };
+    const reset = () => {
+      if (activeId === null) return;
+      activeId = null;
+      reflect(null);
+    };
+    const toggle = (item) => {
+      if (activeId !== item.id) { focus(item); return; }
+      reset();
+      tabs.close(`${kind}:${item.id}`);
+    };
+    selection.onIsolate(reset);
+    reflect = buildLegend(toggle);
+    panelOnlyFocuses.push(reset);
+    return focus;
   };
-  const toggleEnzyme = (enz) => {
-    if (activeEnzymeId === enz.id) {
-      activeEnzymeId = null;
-      reflectEnzymes(null);
-      tabs.close(`enzyme:${enz.id}`);
-    } else {
-      focusEnzyme(enz);
-    }
-  };
-  // The mirror of the clear inside focusEnzyme: an enzyme row stays lit only while
-  // the enzyme is what is focused, so any focus that DOES touch the scene puts it
-  // out. focusEnzyme clears first and sets activeEnzymeId after, so this fires on
-  // the way in and leaves the incoming enzyme lit.
-  selection.onIsolate(() => {
-    if (activeEnzymeId === null) return;
-    activeEnzymeId = null;
-    reflectEnzymes(null);
-  });
-  reflectEnzymes = buildEnzymeLegend(data, toggleEnzyme);
+  const focusEnzyme = createPanelOnlyFocus({ kind: "enzyme",
+    show: (enz) => info.showEnzyme(enz), buildLegend: (onPick) => buildEnzymeLegend(data, onPick) });
   info.onEnzyme(focusEnzyme);
-
-  // Effect focus (the Effects section, BETA): the enzyme focus's shape exactly, a
-  // panel + tab with no 3D state, so it drops the previous focus by hand first.
-  let activeEffectId = null;
-  let reflectEffects = () => {};
-  const focusEffect = (effect) => {
-    selection.clear();
-    info.showEffect(effect);
-    activeEffectId = effect.id;
-    reflectEffects(activeEffectId);
-    openDetailTab(`effect:${effect.id}`, effect.label, () => focusEffect(effect));
-  };
-  const toggleEffect = (effect) => {
-    if (activeEffectId === effect.id) {
-      activeEffectId = null;
-      reflectEffects(null);
-      tabs.close(`effect:${effect.id}`);
-    } else {
-      focusEffect(effect);
-    }
-  };
-  selection.onIsolate(() => {
-    if (activeEffectId === null) return;
-    activeEffectId = null;
-    reflectEffects(null);
-  });
-  reflectEffects = buildEffectLegend(data, toggleEffect);
+  // The Effects section (BETA): the same panel + tab shape.
+  const focusEffect = createPanelOnlyFocus({ kind: "effect",
+    show: (effect) => info.showEffect(effect),
+    buildLegend: (onPick) => buildEffectLegend(data, onPick) });
   info.onEffect(focusEffect);
 
   // Per-drug animation + focus (js/drug-anim.js), the same shape as the receptor
