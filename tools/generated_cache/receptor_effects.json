@@ -116,6 +116,30 @@
    }
   ]
  },
+ "5ht1f": {
+  "agonism:antimigraine": [
+   {
+    "corpus": "europepmc",
+    "page": "40992411",
+    "provenance": "verified",
+    "quote": "This review offers an in-depth evaluation of Lasmiditan, a novel and selective 5-HT1F receptor agonist, representing a significant breakthrough in migraine pharmacotherapy."
+   },
+   {
+    "corpus": "europepmc",
+    "page": "36879707",
+    "provenance": "verified",
+    "quote": "Understanding the biology of migraine through careful research has resulted in the identification of major therapeutic classes: (i) triptans, serotonin 5-HT1B/1D receptor agonists, (ii) gepants, calcitonin gene-related peptide (CGRP) receptor antagonists, (iii) ditans, 5-HT1F receptor agonists, (iv) CGRP monoclonal antibodies, and (v) glurants, mGlu5 modulators, with further targets being explored."
+   }
+  ],
+  "agonism:sedation": [
+   {
+    "corpus": "europepmc",
+    "page": "41270648",
+    "provenance": "verified",
+    "quote": "This approach enhances anti-migraine efficacy through peripheral restriction while circumventing central adverse effects (e.g., somnolence) mediated by 5-HT1F activation in the CNS."
+   }
+  ]
+ },
  "5ht2a": {
   "agonism:anxiety": [
    {

@@ -81,6 +81,23 @@
     ]
    }
   ],
+  "5ht1f": [
+   {
+    "effect": "antimigraine",
+    "mode": "agonism",
+    "picks": [
+     16,
+     12
+    ]
+   },
+   {
+    "effect": "sedation",
+    "mode": "agonism",
+    "picks": [
+     13
+    ]
+   }
+  ],
   "5ht2a": [
    {
     "effect": "hallucinations",

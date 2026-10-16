@@ -678,6 +678,9 @@
 "q_108c355b714f": {
 "drug:alpidem/half_life": "opus"
 },
+"q_10a4a47b75cb": {
+"receptor:5ht1f/effects[agonism:antimigraine]": "opus"
+},
 "q_10a6996a1ab5": {
 "drug:perphenazine/nbn": "sonnet"
 },
@@ -2541,6 +2544,9 @@
 "q_3c940660f790": {
 "drug:isocarboxazid/half_life": "opus",
 "drug:isocarboxazid/tmax": "opus"
+},
+"q_3ca6b2119af2": {
+"receptor:5ht1f/effects[agonism:sedation]": "opus"
 },
 "q_3caf5cfcf542": {
 "receptor:m2/classification[synaptic]": "opus",
@@ -9662,6 +9668,9 @@
 },
 "q_e315794987e1": {
 "drug:psilocybin/bindings[5ht2a:agonist]": "sonnet"
+},
+"q_e31f3759503b": {
+"receptor:5ht1f/effects[agonism:antimigraine]": "opus"
 },
 "q_e33e41a9b351": {
 "drug:diazepam/metabolites[desmethyldiazepam]": "opus"

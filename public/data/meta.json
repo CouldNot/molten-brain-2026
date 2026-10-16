@@ -11329,11 +11329,14 @@
         "3394585": "https://doi.org/10.1007/bf02142579",
         "34204205": "https://doi.org/10.3390/pharmaceutics13060894",
         "36653189": "https://doi.org/10.1523/jneurosci.1359-22.2023",
+        "36879707": "https://doi.org/10.7759/cureus.34553",
         "37379841": "https://doi.org/10.1016/j.cub.2023.05.065",
         "39289358": "https://doi.org/10.1038/s41467-024-52429-9",
         "40151398": "https://doi.org/10.1002/trc2.70073",
         "40185102": "https://doi.org/10.1016/j.cell.2025.02.037",
         "40831207": "https://doi.org/10.1177/02698811251365177",
+        "40992411": "https://doi.org/10.1055/a-2695-0263",
+        "41270648": "https://doi.org/10.1016/j.ejmech.2025.118361",
         "6147261": "https://doi.org/10.1007/bf00235271",
         "6302549": "https://doi.org/10.1016/0028-3908(83)90238-1",
         "6315152": "https://doi.org/10.1016/0006-8993(83)90222-6",
@@ -12131,8 +12134,8 @@
         "unknown": 0
       },
       "receptor_effect": {
-        "total": 164,
-        "verified": 164,
+        "total": 166,
+        "verified": 166,
         "uncertain": 0,
         "sourced": 0,
         "llm": 0,
@@ -12192,15 +12195,15 @@
       }
     },
     "nodes": {
-      "total": 9946,
-      "verified": 9212,
+      "total": 9948,
+      "verified": 9214,
       "uncertain": 428,
       "sourced": 0,
       "llm": 237,
       "nosource": 69,
       "missing": 306,
       "unknown": 656,
-      "backed": 9640,
+      "backed": 9642,
       "pct_backed": 97
     },
     "ki_coverage": {
