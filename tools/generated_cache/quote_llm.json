@@ -179,6 +179,7 @@
 "receptor:5ht1d/effects[agonism:vasoconstriction]": "opus"
 },
 "q_050c181be67a": {
+"receptor:h2/effects[agonism:gastric_acid_increase]": "opus",
 "receptor:h2/effects[antagonism:gastric_acid_reduction]": "opus"
 },
 "q_05170853c357": {
@@ -3962,6 +3963,7 @@
 "drug:tetrabenazine/first_approval": "opus"
 },
 "q_5dd84bdc28c3": {
+"receptor:m1/effects[agonism:bronchoconstriction]": "opus",
 "receptor:m1/effects[antagonism:anticholinergic_cognitive]": "opus"
 },
 "q_5ddcd9eaf9a6": {
@@ -11268,6 +11270,7 @@
 "q_ffb79ac0d01d": {
 "receptor:mu/effects[agonism:constipation]": "opus",
 "receptor:mu/effects[agonism:euphoria]": "opus",
+"receptor:mu/effects[agonism:itch]": "opus",
 "receptor:mu/effects[agonism:nausea]": "opus",
 "receptor:mu/effects[agonism:respiratory_depression]": "opus",
 "receptor:mu/effects[agonism:sedation]": "opus"
