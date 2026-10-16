@@ -96,6 +96,9 @@
          [data-app-version] slot: the panel header + the loading overlay) and
          js/dev-banner.js (WIP banner). -->
     <script src="version.js"></script>
+    <!-- Reloads onto the latest deploy when this tab shows an older build (a restored
+         tab, or an offline-fallback launch); see js/update-check.js. -->
+    <script type="module" src="js/update-check.js"></script>
 
     <!-- eruda on-screen debug console (desktop + mobile). Loaded ONLY when the
          URL carries ?debug=1, so normal production visitors never download or

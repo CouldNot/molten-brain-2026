@@ -345,6 +345,7 @@ Viewer (`public/`):
   row click still toggles the panel while the byline link stays clickable). UI-chrome accent = the `--accent*` palette in `:root`;
   data/semantic colours live in `meta.json`, never here. Also wires the PWA: links
   `manifest.webmanifest` + registers `sw.js`.
+- Update check: `js/update-check.js` fetches `version.js` past every cache on load, when the tab becomes visible again and when the connection returns, and reloads once if it names another version (a restored in-memory tab or an offline-fallback launch would otherwise keep showing an old build); offline it does nothing, so the cached build keeps running.
 - PWA (installable + offline): `manifest.webmanifest` (name/icons/`theme_color`), `sw.js`
   (service worker that ALWAYS contacts the server when online, so a visitor never renders
   outdated data or a stale ES module; the Cache-API copy is an offline-only fallback, NOT
