@@ -28,8 +28,9 @@ first, then the non-generic, then the oldest authorisation.
 
 The SmPC: the French product-information PDF (English when EMA has no French one),
 preferring a copy justelesRCP already converted (its EMA manifest maps PDF url -> CIS),
-else downloaded politely and converted with justelesRCP's own ``src/ema_pdf.py``
-(needs ``pymupdf``: run under ``uv run --with pymupdf``), the converted HTML kept under
+else downloaded politely (EMA's own host only, :func:`is_ema_url`) and converted with
+justelesRCP's own ``src/ema_pdf.py`` in an isolated ``python -I`` child (needs
+``pymupdf``: run under ``uv run --with pymupdf``), the converted HTML kept under
 ``data_sources/ema/raw/<page>.html`` with a ``.json`` sidecar dating it, so a re-run is
 offline. ``<page>`` is the EMA product number made filename-safe
 (``EMEA/H/C/003759`` -> ``EMEA-H-C-003759``).
@@ -51,8 +52,8 @@ ROOT = HERE.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import chirality  # noqa: E402
+import polite_http  # noqa: E402 (the one polite GET)
 import fetch_bdpm  # noqa: E402 (fold, molecule_key)
-import fetch_dailymed  # noqa: E402 (_get: the one polite GET)
 
 EMA = "https://www.ema.europa.eu/en/documents/report/"
 MEDICINES_URL = EMA + "medicines-output-medicines_json-report_en.json"
@@ -170,7 +171,7 @@ def _load_table(path: Path, url: str, refresh: bool) -> list[dict]:
     if refresh or not path.exists():
         RAW_DIR.mkdir(parents=True, exist_ok=True)
         print(f"  [ema] downloading {url}")
-        raw = fetch_dailymed._get(url, binary=True)
+        raw = polite_http.fetch_or_none(url, binary=True)
         if raw is None:
             raise SystemExit(f"[error] could not download {url}")
         path.write_bytes(raw)
@@ -239,7 +240,7 @@ class Epar:
         if not is_ema_url(url):
             raise ValueError(f"refusing to fetch {url!r}: not an {EMA_ORIGIN} url")
         print(f"  [ema] downloading {url}")
-        pdf = fetch_dailymed._get(url, binary=True)
+        pdf = polite_http.fetch_or_none(url, binary=True)
         if not pdf or not pdf.startswith(b"%PDF"):
             return None
         conv = self.convert(pdf)

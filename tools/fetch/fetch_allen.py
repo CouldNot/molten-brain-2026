@@ -62,6 +62,8 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent   # tools/ (script lives in tools/fetch/)
 REPO = TOOLS.parent
+sys.path.insert(0, str(TOOLS))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 ALLEN = REPO / "data_sources" / "allen"
 RAW = ALLEN / "raw"
 PAGES = ALLEN / "pages"
@@ -69,7 +71,6 @@ ONTOLOGY_CACHE = RAW / "ontology.json"
 
 API = "http://api.brain-map.org/api/v2/data/query.json"
 DOWNLOAD = "http://human.brain-map.org/api/v2/well_known_file_download/{fid}"
-UA = {"User-Agent": "neurarium-dev/0.1 (expression sourcing; contact via project repo)"}
 
 # The 6 AHBA donors -> the well_known_file id of their NormalizedMicroarrayDataAsCSV zip
 # (id verified against the file's own metadata ``path``, which names the donor). Donor
@@ -168,7 +169,7 @@ def fetch_ontology() -> list[dict]:
         return json.loads(ONTOLOGY_CACHE.read_text("utf-8"))
     url = (API + "?criteria=model::Structure,rma::criteria,[graph_id$eq10],"
            "rma::options[num_rows$eq'all']")
-    req = urllib.request.Request(url, headers=UA)
+    req = polite_http.request(url)
     with urllib.request.urlopen(req, timeout=120) as r:
         structs = json.loads(r.read().decode())["msg"]
     RAW.mkdir(parents=True, exist_ok=True)
@@ -199,7 +200,7 @@ def download_donor(donor: int) -> Path | None:
         return dest
     url = DOWNLOAD.format(fid=DONORS[donor])
     log(f"downloading donor {donor} (~426 MB) ...")
-    req = urllib.request.Request(url, headers=UA)
+    req = polite_http.request(url)
     tmp = dest.with_suffix(".zip.part")
     try:
         with urllib.request.urlopen(req, timeout=600) as r, open(tmp, "wb") as f:
@@ -345,7 +346,6 @@ def main() -> int:
     args = ap.parse_args()
 
     # receptor genes reuse the GtoPdb map (Phase 2b); targets use TARGET_GENES.
-    sys.path.insert(0, str(TOOLS))
     from fetch_gtopdb import RECEPTOR_GENES  # noqa: E402
 
     owners: dict[str, tuple[str, list[str]]] = {}  # owner id -> (kind, [genes])

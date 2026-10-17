@@ -46,6 +46,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 ZIP = os.path.join(ROOT, "data_sources", "clinpgx", "clinicalAnnotations.zip")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 from data_generators.clinpgx import (  # noqa: E402
     DOWNLOAD_URL, EXPORT_NAME, PIN_CACHE, VARIANT_LEVELS, export_path, owners_of,
     read_export, sha256)
@@ -68,8 +69,7 @@ LICENCE = ("ClinPGx (PharmGKB) clinical annotations, CC BY-SA 4.0; "
 
 def download(path: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    req = urllib.request.Request(DOWNLOAD_URL, headers={
-        "User-Agent": "neurarium/data-fetch (ClinPGx CC BY-SA data)"})
+    req = polite_http.request(DOWNLOAD_URL)
     with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
         blob = resp.read()
     with open(path, "wb") as fh:

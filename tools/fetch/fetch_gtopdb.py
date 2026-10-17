@@ -47,13 +47,14 @@ import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent.parent   # script lives in tools/fetch/
+sys.path.insert(0, str(REPO / "tools"))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 OUT = REPO / "data_sources" / "gtopdb"
 RAW = OUT / "raw"
 PAGES = OUT / "pages"
 WORKLIST = OUT / "worklist.json"
 RECEPTORS_JSONL = REPO / "public" / "data" / "receptors.jsonl"
 BASE = "https://www.guidetopharmacology.org/services"
-UA = "neurarium-source-tool/1.0 (github; contact via repo issues)"
 DELAY_S = 1.0  # polite gap between requests
 
 # receptor id (our ids) -> HGNC gene symbol, the key GtoPdb resolves via
@@ -121,7 +122,7 @@ def _backoff_s(exc: urllib.error.HTTPError, attempt: int) -> float:
 
 def http_json(url: str, tries: int = 6):
     """GET a JSON URL politely, with retries (a 429 backs off). Returns parsed JSON."""
-    headers = {"User-Agent": UA, "Accept": "application/json", API_KEY_HEADER: api_key()}
+    headers = {"User-Agent": polite_http.USER_AGENT, "Accept": "application/json", API_KEY_HEADER: api_key()}
     last = None
     for attempt in range(tries):
         try:

@@ -60,6 +60,7 @@ sys.path.insert(0, str(REPO / "tools" / "fetch"))
 
 import chirality                                                   # noqa: E402
 import drugs_io                                                    # noqa: E402
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 from fetch_allen import TARGET_GENES                               # noqa: E402
 from fetch_gtopdb import RECEPTOR_GENES                            # noqa: E402
 
@@ -70,7 +71,6 @@ CACHE = REPO / "tools" / "generated_cache" / "gtopdb_ki.json"
 META = REPO / "public" / "data" / "meta.json"
 
 URL = "https://www.guidetopharmacology.org/DATA/interactions.csv"
-UA = "neurarium-source-tool/1.0 (https://github.com/; research use)"
 
 # Our target id -> gene symbol(s). RECEPTOR_GENES (corpus #7) and TARGET_GENES
 # (Allen, corpus #8) already cover most ids; TARGET_GENES additionally buckets a few
@@ -175,7 +175,7 @@ def download(refresh: bool) -> str:
     if refresh or not CSV_PATH.exists():
         OUT.mkdir(parents=True, exist_ok=True)
         log(f"downloading {URL} ...")
-        req = urllib.request.Request(URL, headers={"User-Agent": UA})
+        req = polite_http.request(URL)
         with urllib.request.urlopen(req, timeout=180) as r:
             CSV_PATH.write_bytes(r.read())
         log(f"  wrote {CSV_PATH} ({CSV_PATH.stat().st_size // 1024} KB)")

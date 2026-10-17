@@ -56,7 +56,7 @@ Usage (from the repo root)::
     python tools/fetch/fetch_bdpm.py --only loprazolam,tiapride
     python tools/fetch/fetch_bdpm.py --refresh       # re-download tables + RCPs
 
-Network, polite (one request at a time, ``fetch_dailymed.SLEEP`` apart) and resumable.
+Network, polite (one request at a time, ``polite_http.PAUSE_S`` apart) and resumable.
 Stdlib only; author-side (``data_sources/`` is gitignored).
 
 Built with the help of Claude Code.
@@ -79,7 +79,7 @@ sys.path.insert(0, str(HERE))
 import chirality                                                # noqa: E402
 from text_fold import strip_accents                             # noqa: E402
 import drugs_io                                                 # noqa: E402
-import fetch_dailymed                                           # noqa: E402 (_get)
+import polite_http                                              # noqa: E402 (the one polite GET)
 import fetch_half_life                                          # noqa: E402 (HALF_LIFE_RE)
 import fetch_tmax                                               # noqa: E402 (PEAK_RE, durations)
 
@@ -450,7 +450,7 @@ def fetch_rcp(drug: dict, ranked: list[tuple[dict, str]], *, refresh: bool,
         if refresh or not raw_path.exists():
             if tried >= MAX_TRIES:
                 break
-            body = fetch_dailymed._get(RCP_URL.format(cis=product["cis"]))
+            body = polite_http.fetch_or_none(RCP_URL.format(cis=product["cis"]))
             tried += 1
             if not body:
                 continue
@@ -473,7 +473,7 @@ def download_tables(refresh: bool) -> None:
     for name in (PRODUCTS_FILE, COMPO_FILE):
         path = BASE_DIR / name
         if refresh or not path.exists():
-            body = fetch_dailymed._get(TABLE_URL.format(name=name), binary=True)
+            body = polite_http.fetch_or_none(TABLE_URL.format(name=name), binary=True)
             if body is None:
                 raise SystemExit(f"[error] could not download {name}")
             BASE_DIR.mkdir(parents=True, exist_ok=True)

@@ -130,6 +130,8 @@ Then `python tools/generate_data.py` compiles the whole tree into `data/changelo
 
 ## Refreshing external data (author-side)
 
+Every fetcher sends the one User-Agent of `tools/polite_http.py`, and most go through its polite GET (backoff on 429/503). Set `NEURARIUM_FETCH_CONTACT` to a real e-mail or URL before a large run (Wikimedia asks for a contact); unset, it sends "contact via repository".
+
 To re-pull every third-party asset the dataset hot-links or vendors, run these (all
 network, idempotent, polite; each touches only what changed). Always finish with
 `generate_data.py` so the emitted `public/data/` picks up the new urls/files:

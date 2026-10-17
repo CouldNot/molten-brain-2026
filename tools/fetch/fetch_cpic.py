@@ -53,6 +53,7 @@ CACHE = os.path.join(ROOT, "tools", "generated_cache", "cpic_guidance.json")
 DRUGS = os.path.join(ROOT, "tools", "data", "drugs_data.jsonl")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 from data_generators.cpic import (  # noqa: E402
     ASSUMED, EXPORT_DIR, EXPORT_NAME, PHENOTYPE_SLUGS, POPULATIONS, export_path,
     guidance_for, read_export, sha256)
@@ -69,10 +70,7 @@ TIMEOUT = 60
 def get(table: str, **params) -> list[dict]:
     """One PostgREST GET, as JSON rows."""
     url = f"{API}/{table}?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={
-        "Accept": "application/json",
-        "User-Agent": "neurarium/data-fetch (+https://github.com/; CPIC CC0 data)",
-    })
+    req = polite_http.request(url, {"Accept": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
             return json.load(resp)

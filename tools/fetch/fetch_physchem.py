@@ -63,7 +63,6 @@ import json
 import re
 import sys
 import time
-import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -71,6 +70,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 import chirality  # noqa: E402
 import drugs_io  # noqa: E402
+import polite_http  # noqa: E402 (the one polite GET)
 from fetch_cyp_wikipedia import page_for  # noqa: E402
 
 PUBCHEM_DIR = ROOT / "data_sources" / "pubchem" / "pages"
@@ -82,7 +82,6 @@ B3DB_URL = "https://raw.githubusercontent.com/theochem/B3DB/main/B3DB/B3DB_class
 PUBCHEM_PROPS = ("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{ids}/property/"
                  "XLogP,TPSA,MolecularWeight,MolecularFormula,InChI,Title/JSON")
 PUBCHEM_PAGE = "https://pubchem.ncbi.nlm.nih.gov/compound/{cid}"
-USER_AGENT = "neurarium-dataset/1.0 (research dataset; contact via repository)"
 BATCH = 100          # CIDs per PubChem property call (well under its URL limit)
 PAUSE_S = 0.4        # PubChem asks for at most 5 requests per second
 
@@ -270,12 +269,6 @@ def pubchem_claims(cid: int, text: str) -> dict:
 # Network + files
 # ---------------------------------------------------------------------------
 
-def _get(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return resp.read()
-
-
 def fetch_pubchem(cids: list[int], refresh: bool) -> None:
     """Write ``pubchem/pages/<cid>.md`` for every CID lacking one (all with --refresh)."""
     PUBCHEM_DIR.mkdir(parents=True, exist_ok=True)
@@ -283,7 +276,8 @@ def fetch_pubchem(cids: list[int], refresh: bool) -> None:
     today = _dt.date.today().isoformat()
     for i in range(0, len(todo), BATCH):
         chunk = todo[i:i + BATCH]
-        data = json.loads(_get(PUBCHEM_PROPS.format(ids=",".join(map(str, chunk)))))
+        url = PUBCHEM_PROPS.format(ids=",".join(map(str, chunk)))
+        data = json.loads(polite_http.fetch(url))
         for props in data["PropertyTable"]["Properties"]:
             (PUBCHEM_DIR / f"{props['CID']}.md").write_text(
                 pubchem_page(props["CID"], props, today), encoding="utf-8")
@@ -295,7 +289,7 @@ def load_b3db(refresh: bool) -> list[dict]:
     """The B3DB classification rows (downloading the TSV once, or with --refresh)."""
     if refresh or not B3DB_TSV.exists():
         B3DB_DIR.mkdir(parents=True, exist_ok=True)
-        B3DB_TSV.write_bytes(_get(B3DB_URL))
+        B3DB_TSV.write_bytes(polite_http.fetch(B3DB_URL))
         print(f"B3DB: downloaded {B3DB_URL}")
     with B3DB_TSV.open(encoding="utf-8", newline="") as fh:
         return list(csv.DictReader(fh, delimiter="\t"))

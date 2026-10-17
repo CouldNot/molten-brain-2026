@@ -31,28 +31,21 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import sys
 import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent   # tools/ (script lives in tools/fetch/)
 REPO = TOOLS.parent
+sys.path.insert(0, str(TOOLS))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 DRUGS_JSONL = REPO / "public" / "data" / "drugs.jsonl"
 OUT_DIR = REPO / "public" / "data" / "molecules"
 SOURCES_JSON = TOOLS / "generated_cache" / "molecules_sources.json"
 API = "https://en.wikipedia.org/w/api.php"
 
-# A descriptive User-Agent is required by the Wikimedia API policy; it should carry
-# a contact. No personal address is hard-coded (privacy): set MOLECULE_FETCH_CONTACT
-# to a real e-mail/URL before a large run, otherwise a TODO placeholder is sent.
-CONTACT = os.environ.get("MOLECULE_FETCH_CONTACT", "TODO-set-MOLECULE_FETCH_CONTACT")
-UA = (f"neurarium-molecule-fetch/1.0 (educational 3D brain visualizer; "
-      f"contact {CONTACT})")
 
 # Filenames that are MediaWiki/Commons chrome (logos, UI icons, maintenance
 # badges), never a molecule, so the fallback image scan skips them.
@@ -99,28 +92,6 @@ STRUCTURE_HINTS = (
 )
 
 
-def _open_with_retry(req: urllib.request.Request, timeout: int) -> bytes:
-    """Open a request, retrying on 429/503 with backoff (respecting Retry-After).
-
-    Wikimedia throttles bursts with HTTP 429; backing off and retrying (rather
-    than failing the drug) lets a long run ride through a rate-limit window.
-    """
-    backoff = 5.0
-    for attempt in range(6):
-        try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                return resp.read()
-        except urllib.error.HTTPError as exc:
-            if exc.code not in (429, 503) or attempt == 5:
-                raise
-            retry_after = exc.headers.get("Retry-After")
-            wait = float(retry_after) if (retry_after or "").isdigit() else backoff
-            print(f"    {exc.code}; backing off {wait:.0f}s "
-                  f"(attempt {attempt + 1}/5)")
-            time.sleep(wait)
-            backoff = min(backoff * 2, 120)
-    raise RuntimeError("unreachable")
-
 
 def http_json(params: dict, api_url: str = API) -> dict:
     """GET a MediaWiki API with our User-Agent and return the parsed JSON.
@@ -130,14 +101,12 @@ def http_json(params: dict, api_url: str = API) -> dict:
     retry/backoff plumbing.
     """
     query = urllib.parse.urlencode({**params, "format": "json"})
-    req = urllib.request.Request(f"{api_url}?{query}", headers={"User-Agent": UA})
-    return json.loads(_open_with_retry(req, timeout=30))
+    return json.loads(polite_http.fetch(f"{api_url}?{query}", timeout=30))
 
 
 def http_bytes(url: str) -> bytes:
     """Download a binary resource (the SVG) with our User-Agent."""
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    return _open_with_retry(req, timeout=60)
+    return polite_http.fetch(url, timeout=60)
 
 
 def article_title(wiki_url: str) -> str | None:

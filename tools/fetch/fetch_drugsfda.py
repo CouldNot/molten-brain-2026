@@ -55,6 +55,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 import chirality  # noqa: E402
 import drugs_io  # noqa: E402
 
@@ -65,7 +66,6 @@ PAGES_DIR = BASE / "pages"
 CACHE_PATH = ROOT / "tools" / "generated_cache" / "drugsfda_approvals.json"
 APP_URL = ("https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm"
            "?event=overview.process&ApplNo={num}")
-USER_AGENT = "neurarium-dataset/1.0 (research dataset; contact via repository)"
 
 # Counter-ion, hydrate and ester words a US active-ingredient name carries around the
 # moiety. Dropped before the join; an ester that makes a long-acting form of the same
@@ -221,7 +221,7 @@ def page_text(app: dict, date: str, export_date: str, fetched: str) -> str:
 
 def download() -> None:
     EXPORT.parent.mkdir(parents=True, exist_ok=True)
-    req = urllib.request.Request(EXPORT_URL, headers={"User-Agent": USER_AGENT})
+    req = polite_http.request(EXPORT_URL)
     with urllib.request.urlopen(req, timeout=300) as r, open(EXPORT, "wb") as fh:
         fh.write(r.read())
 

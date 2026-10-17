@@ -67,12 +67,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)          # sibling fetch_ki.py
 import fetch_ki  # noqa: E402  (reuse norm / parse_ki / NAME_PATTERNS, no duplication)
+sys.path.insert(0, os.path.dirname(HERE))
+import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 
 DATA_DIR = os.path.join(REPO, "data_sources", "wikipedia")
 RAW_DIR = os.path.join(DATA_DIR, "raw")
 PAGES_DIR = os.path.join(DATA_DIR, "pages")
 META_PATH = os.path.join(REPO, "public", "data", "meta.json")
-UA = "neurarium-dev/0.1 (brain-visualizer research; https://github.com/)"
 API = "https://en.wikipedia.org/w/api.php"
 
 # Greek letters Wikipedia uses in receptor names -> the latin token our ids use
@@ -271,7 +272,7 @@ def fetch_page(title: str, lang: str = "en") -> dict:
     q = urllib.parse.urlencode({
         "action": "parse", "page": title, "prop": "text|revid|displaytitle|langlinks",
         "format": "json", "redirects": 1, "formatversion": 2})
-    req = urllib.request.Request(f"{api}?{q}", headers={"User-Agent": UA})
+    req = polite_http.request(f"{api}?{q}")
     with urllib.request.urlopen(req, timeout=30) as resp:
         data = json.load(resp)
     if "error" in data:

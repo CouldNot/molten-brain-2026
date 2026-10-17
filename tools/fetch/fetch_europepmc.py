@@ -100,9 +100,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent                                       # repo root
 sys.path.insert(0, str(HERE))
 
-from fetch_dailymed import _get                                # noqa: E402 (polite GET)
-
 sys.path.insert(0, str(HERE.parent))
+import polite_http                                            # noqa: E402 (the one polite GET)
 from species import species_key                                # noqa: E402
 
 API = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
@@ -201,7 +200,7 @@ def record(pmid: str) -> dict | None:
     """The Europe PMC ``core`` record of one PubMed id, or None when not found."""
     query = urllib.parse.urlencode({"query": f"EXT_ID:{pmid} AND SRC:MED",
                                     "format": "json", "resultType": "core"})
-    text = _get(f"{API}?{query}")
+    text = polite_http.fetch_or_none(f"{API}?{query}")
     if not text:
         return None
     hits = json.loads(text).get("resultList", {}).get("result") or []
@@ -329,7 +328,7 @@ def full_text_xml(rec: dict) -> str | None:
     """Europe PMC's open-access JATS full text of one record, or None (not OA / failed)."""
     if not licence_of(rec):
         return None
-    return _get(FULL_TEXT_API.format(pmcid=rec["pmcid"]))
+    return polite_http.fetch_or_none(FULL_TEXT_API.format(pmcid=rec["pmcid"]))
 
 
 def page_text(rec: dict, full_text: list[str] | None = None) -> str:
@@ -380,7 +379,7 @@ def search(query: str, size: int = SEARCH_TOP) -> tuple[int, list[dict]] | None:
     """Europe PMC's hit count + its top ``size`` core records, or None on an HTTP error."""
     params = urllib.parse.urlencode({"query": query, "format": "json",
                                      "resultType": "core", "pageSize": size})
-    text = _get(f"{API}?{params}")
+    text = polite_http.fetch_or_none(f"{API}?{params}")
     if not text:
         return None
     body = json.loads(text)

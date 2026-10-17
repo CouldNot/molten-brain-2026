@@ -56,8 +56,8 @@ Usage (from the repo root)::
 Every run not scoped by ``--only`` also stores the :data:`QUOTE_LABELS` (cached unless
 ``--refresh`` / ``--redownload``).
 
-Network, polite (one request at a time, ``SLEEP`` seconds apart) and resumable: a drug
-whose page is already on disk is skipped unless ``--refresh``. Stdlib only; author-side
+Network, polite (one request at a time, ``polite_http.PAUSE_S`` seconds apart) and
+resumable: a drug whose page is already on disk is skipped unless ``--refresh``. Stdlib only; author-side
 (``data_sources/`` is gitignored).
 
 Built with the help of Claude Code.
@@ -69,15 +69,14 @@ import os
 import re
 import sys
 import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 
 import drugs_io                                                 # noqa: E402
+import polite_http  # noqa: E402 (the one polite GET)
 
 API = "https://dailymed.nlm.nih.gov/dailymed/services/v2"
 LABEL_URL = "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={setid}"
@@ -85,8 +84,6 @@ RAW_DIR = ROOT / "data_sources" / "dailymed" / "raw"
 PAGES_DIR = ROOT / "data_sources" / "dailymed" / "pages"
 CACHE_PATH = ROOT / "tools" / "generated_cache" / "dailymed_labels.json"
 
-USER_AGENT = "neurarium-dataset/1.0 (research dataset; contact via repository)"
-SLEEP = 0.4          # seconds between requests, to stay a polite API citizen
 SEARCH_PAGESIZE = 50
 MAX_TRIES = 4        # labels downloaded per drug before giving up on it
 
@@ -119,20 +116,6 @@ _TAG = re.compile(r"<[^>]+>")
 _WS = re.compile(r"[ \t ]+")
 
 
-def _get(url: str, *, binary: bool = False):
-    """One polite GET, returning decoded text (or bytes), or None on an HTTP error."""
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            raw = r.read()
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
-        print(f"  [warn] {url}: {e}", file=sys.stderr)
-        return None
-    finally:
-        time.sleep(SLEEP)
-    return raw if binary else raw.decode("utf-8", errors="replace")
-
-
 def search(name: str) -> list[dict]:
     """The SPL summaries DailyMed returns for a drug name, newest-first as it sends them.
 
@@ -148,7 +131,7 @@ def search(name: str) -> list[dict]:
         drug has no US label at all (which is a real, expected answer here).
     """
     q = urllib.parse.urlencode({"drug_name": name, "pagesize": SEARCH_PAGESIZE})
-    body = _get(f"{API}/spls.json?{q}")
+    body = polite_http.fetch_or_none(f"{API}/spls.json?{q}")
     if not body:
         return []
     try:
@@ -256,9 +239,10 @@ def fetch_quote_label(setid: str, *, refresh: bool) -> str:
     """Store one :data:`QUOTE_LABELS` label by set id. Returns a one-word outcome."""
     if not refresh and (PAGES_DIR / f"{setid}.md").exists():
         return "cached"
-    body = _get(f"{API}/spls.json?{urllib.parse.urlencode({'setid': setid})}")
+    query = urllib.parse.urlencode({"setid": setid})
+    body = polite_http.fetch_or_none(f"{API}/spls.json?{query}")
     found = (json.loads(body).get("data") or []) if body else []
-    xml = _get(f"{API}/spls/{setid}.xml") if found else None
+    xml = polite_http.fetch_or_none(f"{API}/spls/{setid}.xml") if found else None
     if not xml:
         return "gone"
     lines = section_texts(xml)
@@ -290,7 +274,7 @@ def fetch_drug(drug: dict, *, refresh: bool, cache: dict) -> str:
             continue
         raw_path = RAW_DIR / f"{setid}.xml"
         if refresh or not raw_path.exists():
-            xml = _get(f"{API}/spls/{setid}.xml")
+            xml = polite_http.fetch_or_none(f"{API}/spls/{setid}.xml")
             tried += 1
             if not xml:
                 continue
@@ -313,7 +297,7 @@ def redownload(did: str, cache: dict) -> str:
     stored quote cites (a repackager's reprint, or a combination product) for another.
     """
     meta = cache[did]
-    xml = _get(f"{API}/spls/{meta['setid']}.xml")
+    xml = polite_http.fetch_or_none(f"{API}/spls/{meta['setid']}.xml")
     if not xml:
         return "gone"
     lines = section_texts(xml)
