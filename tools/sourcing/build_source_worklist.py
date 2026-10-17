@@ -44,6 +44,45 @@ def claim_for(drug_name, target_name, action_label):
     return f"{drug_name} acts on {target_name} ({action_label})."
 
 
+def _en(v, fallback):
+    """meta is English-only (a plain string); tolerate the legacy {en,fr} shape."""
+    if isinstance(v, dict):
+        return v.get("en", fallback)
+    return v if v else fallback
+
+
+def worklist_items(drug, targets, actions):
+    """The work items for one drug's bindings that still need a source.
+
+    Returns ``(items, n_directionless)``. A binding already carrying ``sources`` is
+    skipped (the list is resumable). So is one with no ``action``: an
+    ``affinity_only`` binding is a measured Ki with no direction, so there is no
+    "acts on X (action)" claim for a quote to back here; its direction is the job of
+    the binding-directions pass (``tools/fetch/fetch_binding_directions.py``). Those
+    are counted, not listed.
+    """
+    items, directionless = [], 0
+    for idx, b in enumerate(drug.get("bindings", [])):
+        if b.get("sources"):
+            continue  # already sourced -> skip (resumable)
+        if not b.get("action"):
+            directionless += 1
+            continue
+        tgt = targets.get(b["target"], {})
+        act = actions.get(b["action"], {})
+        tname = _en(tgt.get("name"), b["target"])
+        alabel = _en(act.get("label"), b["action"])
+        items.append({
+            "idx": idx,
+            "target": b["target"],
+            "target_name": tname,
+            "action": b["action"],
+            "action_label": alabel,
+            "claim": claim_for(drug["name"], tname, alabel),
+        })
+    return items, directionless
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0, help="first N drugs only")
@@ -58,6 +97,7 @@ def main():
 
     worklist = []
     n_bindings = 0
+    n_directionless = 0
     missing_range = []
     for d in drugs:
         rng = ranges.get(_norm(d["name"]))
@@ -65,28 +105,8 @@ def main():
             if d.get("bindings"):
                 missing_range.append(d["name"])
             continue
-        items = []
-        for idx, b in enumerate(d.get("bindings", [])):
-            if b.get("sources"):
-                continue  # already sourced -> skip (resumable)
-            tgt = targets.get(b["target"], {})
-            act = actions.get(b["action"], {})
-            # meta is English-only now (a plain string); tolerate the legacy
-            # {en,fr} shape defensively.
-            def _en(v, fallback):
-                if isinstance(v, dict):
-                    return v.get("en", fallback)
-                return v if v else fallback
-            tname = _en(tgt.get("name"), b["target"])
-            alabel = _en(act.get("label"), b["action"])
-            items.append({
-                "idx": idx,
-                "target": b["target"],
-                "target_name": tname,
-                "action": b["action"],
-                "action_label": alabel,
-                "claim": claim_for(d["name"], tname, alabel),
-            })
+        items, directionless = worklist_items(d, targets, actions)
+        n_directionless += directionless
         if items:
             worklist.append({"id": d["id"], "name": d["name"],
                              "pages": rng, "bindings": items})
@@ -99,7 +119,8 @@ def main():
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(worklist, ensure_ascii=False, indent=2),
                               encoding="utf-8")
-    print(f"wrote {args.out}: {len(worklist)} drugs, {n_bindings} un-sourced bindings")
+    print(f"wrote {args.out}: {len(worklist)} drugs, {n_bindings} un-sourced bindings "
+          f"({n_directionless} direction-less affinity_only bindings skipped)")
     if missing_range:
         print(f"WARNING: no page range for {len(missing_range)} drug(s): "
               f"{missing_range}")
