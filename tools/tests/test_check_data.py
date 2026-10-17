@@ -993,3 +993,20 @@ class BindingDupTest(unittest.TestCase):
         drug = {"id": "x", "bindings": [{"target": "dat", "action": "reuptake_inhibitor"},
                                         {"target": "dat", "action": "releaser"}]}
         self.assertFalse(self._errors([drug]))
+
+
+class NodeIdShapeTest(unittest.TestCase):
+    """An id becomes a file name under /api/, so a path-like id is a hard error."""
+
+    def _errors(self, ids):
+        report = check_data.Report(verbose=True)
+        with redirect_stdout(io.StringIO()):
+            check_data.check_id_collection(report, "drugs", [{"id": i, "name": i} for i in ids])
+        return report.errors
+
+    def test_plain_ids_pass(self):
+        self.assertEqual(self._errors(["sertraline", "putamen_R", "amphetamine_dl"]), 0)
+
+    def test_path_like_id_is_an_error(self):
+        self.assertEqual(self._errors(["../x"]), 1)
+        self.assertEqual(self._errors(["a/b"]), 1)

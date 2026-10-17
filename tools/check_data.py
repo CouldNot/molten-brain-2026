@@ -425,7 +425,12 @@ def check_id_collection(report, label, items, id_key="id", name_key="name"):
     for nk, idset in sorted(name_dups, key=lambda kv: kv[0]):
         report.warn(f"{label}: ids {sorted(idset)} share normalized name {nk!r}")
 
-    if not exact and not near and not name_dups:
+    # An id becomes a file name and a URL segment (render_api, the viewer's ?params).
+    malformed = sorted({str(v) for v in ids if not node_id.is_node_id(v)})
+    for value in malformed:
+        report.error(f"{label}: id {value!r} is not {node_id.NODE_ID_RE.pattern}")
+
+    if not exact and not near and not name_dups and not malformed:
         report.ok(f"{label}: {len(items)} entries, no duplicate ids or names")
 
 
@@ -2073,7 +2078,7 @@ from changelog import CATEGORIES as CHANGELOG_CATEGORIES  # noqa: E402
 # rebuilds the emitted quotes with the very code that wrote them, which is
 # the whole point of the derivation gate (see data_generators/pharmfreq.py).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data_generators import clinpgx, cpic, freshness, pharmfreq, unknown  # noqa: E402
+from data_generators import clinpgx, cpic, freshness, node_id, pharmfreq, unknown  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
 from drugs_io import is_combination  # noqa: E402
 from data_generators import release_modulation as RELMOD  # noqa: E402

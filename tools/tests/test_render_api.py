@@ -10,6 +10,7 @@ import re
 import sys
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -83,6 +84,25 @@ class RenderApiTest(unittest.TestCase):
 
     def test_presentation_fields_skipped(self):
         self.assertNotIn("shape_file", self.pages["structure/putamen_R.md"])
+
+
+class PageIdGuardTest(unittest.TestCase):
+    """A malformed id must never become a file path outside its kind directory."""
+
+    def test_render_refuses_a_path_like_id(self):
+        data = render_api.load(render_api.PUBLIC / "data")
+        data["drugs"][0] = dict(data["drugs"][0], id="../escaped")
+        with tempfile.TemporaryDirectory() as tmp, \
+                unittest.mock.patch.object(render_api, "load", return_value=data):
+            with self.assertRaises(ValueError):
+                render_api.render(render_api.PUBLIC / "data", Path(tmp) / "api", "0.0.0")
+            self.assertFalse((Path(tmp) / "escaped.md").exists())
+
+    def test_reserved_and_projection_ids(self):
+        render_api._check_page_id("projection", "raphe--frontal_R")
+        for bad in ("index", "not_found", "a/b", "", None):
+            with self.assertRaises(ValueError):
+                render_api._check_page_id("drug", bad)
 
 
 if __name__ == "__main__":

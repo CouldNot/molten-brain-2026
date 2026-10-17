@@ -33,6 +33,7 @@ from urllib.parse import quote
 sys.path.insert(0, str(Path(__file__).resolve().parent / "data_generators"))
 import effect_index  # noqa: E402 (the effect -> receptors -> drugs join, BETA)
 import llms_txt  # noqa: E402 (SITE_URL + the version, defined once there)
+import node_id  # noqa: E402 (the id shape check_data enforces)
 
 PUBLIC = Path(__file__).resolve().parent.parent / "public"
 COLLECTIONS = ("structures", "projections", "circuits", "projection_groups",
@@ -311,6 +312,19 @@ class Renderer:
         return "\n".join(lines) + "\n"
 
 
+# A page named after one of these would overwrite the kind's listing or the 404 page.
+RESERVED_PAGE_IDS = frozenset({"index", "not_found"})
+
+
+def _check_page_id(kind: str, ident: Any) -> None:
+    """Refuse an id that is not a plain node id before it becomes a file name, so a
+    malformed record (``../x``, ``a/b``) can never write outside its kind directory."""
+    if not isinstance(ident, str) or not node_id.PAGE_ID_RE.fullmatch(ident) \
+            or ident in RESERVED_PAGE_IDS:
+        raise ValueError(f"/api/{kind}: refusing to write page for malformed id {ident!r} "
+                         f"(want {node_id.PAGE_ID_RE.pattern}, not {sorted(RESERVED_PAGE_IDS)})")
+
+
 def render(data_dir: Path, out: Path, version: str) -> int:
     """Write every page under ``out`` (cleared first); returns the page count."""
     r = Renderer(load(data_dir))
@@ -320,6 +334,7 @@ def render(data_dir: Path, out: Path, version: str) -> int:
     for kind, records in r.pages.items():
         (out / kind).mkdir(parents=True)
         for ident, rec in records.items():
+            _check_page_id(kind, ident)
             (out / kind / f"{ident}.md").write_text(r.page(kind, ident, rec), encoding="utf-8")
             n += 1
         (out / kind / "index.md").write_text(r.index(version, [kind]), encoding="utf-8")

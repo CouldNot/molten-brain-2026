@@ -13,6 +13,7 @@ FROM python:3.13-alpine AS api
 COPY tools/render_api.py /src/tools/render_api.py
 COPY tools/data_generators/llms_txt.py /src/tools/data_generators/llms_txt.py
 COPY tools/data_generators/effect_index.py /src/tools/data_generators/effect_index.py
+COPY tools/data_generators/node_id.py /src/tools/data_generators/node_id.py
 COPY public/version.js /src/public/version.js
 COPY public/data /src/public/data
 # Plus the viewer's effect index (data_generators/effect_index.py), the one place the
