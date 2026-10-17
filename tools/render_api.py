@@ -238,12 +238,9 @@ class Renderer:
                  "cause it; a drug listed here does not necessarily cause it. "
                  f"Index: [all pages]({API}/)."]
         lines += ["", f"## Receptors and targets ({len(e['owners'])})"]
-        for mode, spec in self.modes.items():
-            owners = [o for o in e["owners"] if o["node"]["mode"] == mode]
-            if not owners:
-                continue
-            lines += ["", f"### {effect_index._en(spec.get('label', mode))}", ""]
-            for o in sorted(owners, key=lambda o: o["id"]):
+        for label, owners in effect_index.owners_by_mode(e, self.modes):
+            lines += ["", f"### {label}", ""]
+            for o in owners:
                 srcs = " ".join(self.source(s) for s in o["node"].get("sources") or [])
                 doubt = ", ".join(u["kind"] for u in o["node"].get("uncertainty") or [])
                 note = f" (uncertain: {doubt})" if doubt else ""

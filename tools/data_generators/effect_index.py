@@ -137,6 +137,20 @@ def to_json(index: list[dict[str, Any]]) -> dict[str, Any]:
         for e in index]}
 
 
+def owners_by_mode(effect: dict[str, Any], modes: dict[str, dict[str, Any]]
+                   ) -> list[tuple[str, list[dict[str, Any]]]]:
+    """``[(English mode label, owners)]`` for one index entry, in ``modes`` order, a mode
+    no owner holds left out; owners sorted by id. The one grouping ``llms.txt`` and the
+    ``/api/effect/<id>`` page both read."""
+    out = []
+    for mode, spec in modes.items():
+        owners = sorted((o for o in effect["owners"] if o["node"]["mode"] == mode),
+                        key=lambda o: o["id"])
+        if owners:
+            out.append((_en(spec.get("label", mode)), owners))
+    return out
+
+
 def summary_lines(index: list[dict[str, Any]], modes: dict[str, dict[str, Any]],
                   site_url: str) -> list[str]:
     """One Markdown line per effect for ``llms.txt``: its owners by mode, its drug count.
@@ -144,11 +158,8 @@ def summary_lines(index: list[dict[str, Any]], modes: dict[str, dict[str, Any]],
     28 drugs could cause it``."""
     out = []
     for e in index:
-        parts = []
-        for mode, spec in modes.items():
-            names = sorted(o["name"] for o in e["owners"] if o["node"]["mode"] == mode)
-            if names:
-                parts.append(f"{_en(spec.get('label', mode)).lower()} of {', '.join(names)}")
+        parts = [f"{label.lower()} of {', '.join(sorted(o['name'] for o in owners))}"
+                 for label, owners in owners_by_mode(e, modes)]
         out.append(f"- [{e['label']}]({site_url}/api/effect/{e['id']}) `{e['id']}`: "
                    f"{'; '.join(parts)}; {len(e['drugs'])} "
                    f"{'drug' if len(e['drugs']) == 1 else 'drugs'} could cause it")

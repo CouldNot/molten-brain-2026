@@ -79,6 +79,16 @@ class GroupingTest(unittest.TestCase):
                          ["h1", "alpha1a"])
         self.assertEqual([o["id"] for o in idx["sedation"]["owners"]], ["h1", "alpha1a"])
 
+    def test_owners_by_mode_is_mode_ordered_id_sorted_and_english(self):
+        effect = {"owners": [{"id": "h1", "node": {"mode": "antagonism"}},
+                             {"id": "alpha1a", "node": {"mode": "antagonism"}},
+                             {"id": "d2", "node": {"mode": "agonism"}}]}
+        modes = {"agonism": {"label": {"en": "Agonism", "fr": "Agonisme"}},
+                 "antagonism": {"label": "Antagonism"}, "modulation": {}}
+        got = [(label, [o["id"] for o in owners])
+               for label, owners in effect_index.owners_by_mode(effect, modes)]
+        self.assertEqual(got, [("Agonism", ["d2"]), ("Antagonism", ["alpha1a", "h1"])])
+
 
 class ToJsonTest(unittest.TestCase):
     """The viewer's file shape, which ``readEffectIndex`` (js/receptor-effects.js)
