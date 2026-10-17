@@ -53,7 +53,7 @@ PAGES = REPO / "data_sources" / "gtopdb" / "pages_ki"
 CACHE = TOOLS / "generated_cache" / "gtopdb_ki.json"
 
 sys.path.insert(0, str(TOOLS))
-from check_data import normalize_for_match        # noqa: E402  (reuse the gate's normalizer)
+from pipeline.gate import PageGate                # noqa: E402  (the one applier quote gate)
 import drugs_io                                   # noqa: E402
 
 CORPUS = "gtopdb_ki"
@@ -69,19 +69,6 @@ COMPATIBLE = [
     {"releaser", "reuptake_inhibitor"},
     {"modulator", "blocker"},
 ]
-
-
-def gate(quote: str, slug: str, cache: dict[str, str]) -> bool:
-    """True when the quote really is on the cited page (the hallucination backstop).
-
-    Missing page tree (a clone without the author-side corpus) means the gate cannot
-    run; the caller treats that as a hard stop rather than waving claims through.
-    """
-    if slug not in cache:
-        md = PAGES / f"{slug}.md"
-        cache[slug] = normalize_for_match(md.read_text("utf-8")) if md.exists() else ""
-    page = cache[slug]
-    return bool(page) and normalize_for_match(quote) in page
 
 
 def _drop_our_source(binding: dict) -> None:
@@ -119,7 +106,7 @@ def strip_previous(binding: dict) -> None:
         _drop_our_source(binding)
 
 
-def apply_entry(binding: dict, entry: dict | None, owner: str, page_cache: dict,
+def apply_entry(binding: dict, entry: dict | None, owner: str, gate: PageGate,
                 tally: Counter, refinements: list, conflicts: list) -> None:
     """Merge one GtoPdb proposal into one binding (a drug's or a metabolite's).
 
@@ -130,7 +117,10 @@ def apply_entry(binding: dict, entry: dict | None, owner: str, page_cache: dict,
     if not entry:
         return
     src = entry["source"]
-    if not gate(src["quote"], src["page"], page_cache):
+    # The hallucination backstop: the quote must really be on the cited page. A missing
+    # page fails (the caller refuses to run at all without the page tree), so a stale
+    # cache can never wave a claim through.
+    if not gate.on_page(CORPUS, src["page"], src["quote"]):
         tally["gate_fail"] += 1
         return
     source = {k: v for k, v in src.items() if v is not None}
@@ -172,7 +162,7 @@ def apply_entry(binding: dict, entry: dict | None, owner: str, page_cache: dict,
 
 
 def apply_all(drugs: list[dict], proposals: dict, metab_proposals: dict,
-              page_cache: dict, metabolites: list[dict] = ()) -> tuple[Counter, list, list]:
+              gate: PageGate, metabolites: list[dict] = ()) -> tuple[Counter, list, list]:
     """Merge every proposal in place: each drug's own bindings, then each store
     ``metabolites`` record's (keyed by metabolite name; a metabolite linked to a
     modeled drug reuses that drug's bindings and carries none of its own). Confirm-only
@@ -184,14 +174,14 @@ def apply_all(drugs: list[dict], proposals: dict, metab_proposals: dict,
         per_target = proposals.get(drug["id"], {})
         for binding in drug.get("bindings", []):
             apply_entry(binding, per_target.get(binding.get("target")), drug["id"],
-                        page_cache, tally, refinements, conflicts)
+                        gate, tally, refinements, conflicts)
     # One pass per molecule: a metabolite two drugs make is one store record.
     for m in metabolites:
         per_target = metab_proposals.get(m["name"], {})
         for binding in m.get("bindings", []):
             before = tally["ki"] + tally["action"] + tally["confirm"]
             apply_entry(binding, per_target.get(binding.get("target")),
-                        f"metabolite:{m['id']}", page_cache, tally,
+                        f"metabolite:{m['id']}", gate, tally,
                         refinements, conflicts)
             tally["metabolite"] += tally["ki"] + tally["action"] + tally["confirm"] - before
     return tally, refinements, conflicts
@@ -213,7 +203,8 @@ def main() -> int:
     drugs = drugs_io.load_drugs()
     metabolites = drugs_io.load_metabolites()
     tally, refinements, conflicts = apply_all(drugs, cache["drugs"],
-                                              cache.get("metabolites", {}), {},
+                                              cache.get("metabolites", {}),
+                                              PageGate({CORPUS: PAGES}),
                                               metabolites)
     n_ki, kept_ki, n_action, n_confirm, n_gate_fail = (
         tally["ki"], tally["kept_ki"], tally["action"], tally["confirm"], tally["gate_fail"])

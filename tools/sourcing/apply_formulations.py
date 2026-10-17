@@ -55,14 +55,13 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators import formulations as F  # noqa: E402
-from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
-from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
+from pipeline.gate import PageGate, registry_pages  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
 from apply_tmax import clean_value, same_duration  # noqa: E402
 import fetch_formulation_worklist as W  # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "formulation_judged.json"
-PAGES = {c: ROOT / e["pages_dir"] for c, e in SOURCE_CORPORA.items() if e.get("pages_dir")}
+PAGES = registry_pages()
 
 
 def _same_src(a: dict, b: dict) -> bool:

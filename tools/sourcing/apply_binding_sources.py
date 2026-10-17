@@ -48,12 +48,9 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io  # noqa: E402
 
-# Reuse the *exact* normalizer check_data's quote gate applies, so a quote accepted
-# here cannot be rejected by the checker afterwards.
-from check_data import normalize_for_match  # noqa: E402
-
-# Imported as a package member: provenance.py uses relative imports.
-from data_generators.provenance import corpus_page_path  # noqa: E402
+# The applier's one quote gate (check_data's own normalizer, every corpus's page tree),
+# so a quote accepted here cannot be rejected by the checker afterwards.
+from pipeline.gate import PageGate, registry_pages  # noqa: E402
 
 
 def _rows(drug: str, targets: list[str], corpus: str, page: Any, quote: str) -> dict:
@@ -146,14 +143,6 @@ CONFLICTS: list[tuple[str, str]] = [
 ]
 
 
-def _page_text(corpus: str, page: Any) -> str | None:
-    """The author-side page file for a source, or None when the corpus tree is absent."""
-    md = corpus_page_path(corpus, page)
-    if md is None or not md.exists():
-        return None
-    return md.read_text(encoding="utf-8", errors="replace")
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -169,6 +158,7 @@ def main() -> int:
     failed: list[str] = []
     unknown: list[str] = []
     skipped_gate: set[str] = set()
+    gate = PageGate(registry_pages())
 
     for (drug_id, target), source in sorted(BINDING_SOURCES.items()):
         label = f"{drug_id} {target}"
@@ -184,10 +174,11 @@ def main() -> int:
             already.append(label)
             continue
 
-        page_text = _page_text(source["corpus"], source["page"])
-        if page_text is None:
+        # An absent page (a clone without that author-side tree) skips the gate with a
+        # warning instead of refusing: these rows are hand-curated, not LLM-picked.
+        if gate.text(source["corpus"], source["page"]) is None:
             skipped_gate.add(source["corpus"])
-        elif normalize_for_match(source["quote"]) not in normalize_for_match(page_text):
+        elif not gate.on_page(source["corpus"], source["page"], source["quote"]):
             failed.append(f"{label}: quote not found on "
                           f"{source['corpus']} {source['page']}")
             continue

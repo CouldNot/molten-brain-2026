@@ -32,6 +32,21 @@ from page_file import page_file  # noqa: E402 (refuses a path-like page)
 from pipeline.judged import resolve_all  # noqa: E402
 
 
+def registry_pages() -> dict[str, Path]:
+    """``{corpus: absolute page directory}`` for every registered corpus with a page tree.
+
+    The ``pages`` map for a gate that may meet any corpus (a hand-curated table citing
+    Stahl next to Wikipedia, say). It resolves exactly as
+    ``data_generators.provenance.corpus_page_path`` does: ``SOURCE_CORPORA[c]["pages_dir"]``
+    under the repo root, a corpus with no ``pages_dir`` (a CSV corpus) left out.
+    """
+    # Imported here, so a gate over one known corpus never loads the corpus registry.
+    from data_generators.provenance import SOURCE_CORPORA
+
+    return {c: TOOLS.parent / e["pages_dir"] for c, e in SOURCE_CORPORA.items()
+            if e.get("pages_dir")}
+
+
 class PageGate:
     """Re-finds picked candidates on their stored pages, caching each page's text.
 

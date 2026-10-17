@@ -41,11 +41,14 @@ class CitedCorpusGateTest(unittest.TestCase):
         self.m = _load()
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        self.page = Path(tmp.name) / "19890256.md"
+        pages = Path(tmp.name)
+        self.page = pages / "19890256.md"
         self.page.write_text(f"# title\n\nIts effects are mostly attributable to SERT "
                              f"{self.QUOTE}\n", encoding="utf-8")
-        for name, value in (("corpus_page_path", lambda c, p: self.page),
-                            ("_page_text", lambda slug: "unrelated article text"),
+        # The parent's Wikipedia article never states it, so only the cited page can.
+        (pages / "sibutramine.md").write_text("unrelated article text\n", encoding="utf-8")
+        gate = self.m.PageGate({"europepmc": pages, "wikipedia_pharm": pages})
+        for name, value in (("GATE", gate),
                             ("_pdsp_ki", lambda name, target: None)):
             patcher = mock.patch.object(self.m, name, value)
             patcher.start()

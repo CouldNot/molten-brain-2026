@@ -15,8 +15,10 @@ class ImportTest(unittest.TestCase):
             "apply_binding_sources", ROOT / "tools" / "sourcing" / "apply_binding_sources.py")
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
+        # The gate's page map loads provenance.py as a package member (its relative
+        # imports would crash a top-level load), so build it before reading the registry.
+        self.assertIn("wikipedia_pharm", mod.registry_pages())
         corpora = sys.modules["data_generators.provenance"].SOURCE_CORPORA
-        self.assertIsNotNone(mod.corpus_page_path("wikipedia_pharm", "sertraline"))
         for (drug, target), src in mod.BINDING_SOURCES.items():
             self.assertTrue(drug and target)
             self.assertEqual(src["provenance"], "verified")

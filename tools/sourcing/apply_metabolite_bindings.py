@@ -62,23 +62,17 @@ import drugs_io                                                 # noqa: E402
 import fetch_ki                                                 # noqa: E402  (PDSP Ki lookup)
 import fetch_wikipedia_pharmacology as wp                       # noqa: E402  (Ki obj + page store)
 from data_generators.drugs import DRUG_ACTIONS                  # noqa: E402  (valid action keys)
-from data_generators.provenance import corpus_page_path         # noqa: E402  (cited page file)
 
 WORKLIST = ROOT / "tools" / "generated_cache" / "metabolite_bindings_worklist.json"
 JUDGED = ROOT / "tools" / "generated_cache" / "metabolite_bindings_judged.json"
 
-# Reuse check_data's canonical quote-gate normalization (single source of truth), so a
-# quote that passes here also passes check_data's later re-gate.
-from check_data import normalize_for_match  # noqa: E402
+# The applier's one quote gate (check_data's canonical normalization, single source of
+# truth), so a quote that passes here also passes check_data's later re-gate. Over every
+# corpus's page tree: the metabolite's own and parent Wikipedia articles (corpus #9) and
+# any corpus a judged pick cites outright. Pages are read once per run and cached.
+from pipeline.gate import PageGate, registry_pages  # noqa: E402
 
-
-def _page_text(slug: str) -> str | None:
-    """The stored corpus #9 page text for a slug (the quote-gate target), or None."""
-    p = wp.PAGES_DIR + f"/{slug}.md"
-    try:
-        return open(p, encoding="utf-8").read()
-    except OSError:
-        return None
+GATE = PageGate(registry_pages())
 
 
 def _permalink(slug: str) -> str:
@@ -116,7 +110,6 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
     # page and record the matching one as the source page. Ki-table objects still cite the
     # own article (`slug`), where the affinity table lives.
     pages = entry.get("pages") or [slug]
-    page_texts = {s: _page_text(s) for s in pages}
     wiki_ki = {b["target"]: b for b in entry.get("ki_bindings", [])}
 
     def ki_for(target: str) -> dict | None:
@@ -134,19 +127,12 @@ def build_bindings(metab_name: str, entry: dict, judged: dict,
         order (own article first), so the recorded source page is the closest attribution."""
         if not quote:
             return None
-        nq = normalize_for_match(quote)
-        for s in pages:
-            pt = page_texts.get(s)
-            if pt and nq in normalize_for_match(pt):
-                return s
-        return None
+        return next((s for s in pages if GATE.on_page("wikipedia_pharm", s, quote)), None)
 
     def gate_cited(corpus: str, page) -> bool:
         """Whether ``quote`` sits verbatim on the page an explicitly cited corpus names
         (a paper stating what no Wikipedia article does, e.g. a Europe PMC abstract)."""
-        path = corpus_page_path(corpus, page)
-        return bool(path and path.exists() and normalize_for_match(quote)
-                    in normalize_for_match(path.read_text(encoding="utf-8")))
+        return GATE.on_page(corpus, page, quote)
 
     out, emitted = [], set()
     for jb in (judged or {}).get("bindings", []):

@@ -87,8 +87,12 @@ class MetaboliteTest(unittest.TestCase):
                   "metabolites": [{"id": "norfluoxetine"}]}]
         metabs = [{"id": "norfluoxetine", "name": "Norfluoxetine",
                    "bindings": metab_bindings}]
-        cache = {"norfluoxetine": apply_gtopdb_ki.normalize_for_match(self.QUOTE)}
-        tally, _, _ = apply_gtopdb_ki.apply_all(drugs, {}, proposals, cache, metabs)
+        # A fake page store: the one GtoPdb ligand page, already normalized.
+        from check_data import normalize_for_match
+        page = normalize_for_match(self.QUOTE)
+        gate = apply_gtopdb_ki.PageGate(
+            read=lambda corpus, slug: page if slug == "norfluoxetine" else None)
+        tally, _, _ = apply_gtopdb_ki.apply_all(drugs, {}, proposals, gate, metabs)
         return metabs[0]["bindings"], tally
 
     def _entry(self):
