@@ -556,16 +556,15 @@ def load_valid_ids() -> set[str]:
 
 
 def drug_title(drug_id: str) -> str | None:
-    """Best page title for a drug id: its Wikipedia URL leaf, else the id."""
-    try:
-        for d in fetch_ki.drugs_io.load_drugs():
-            if d["id"] == drug_id:
-                url = d.get("wikipedia") or ""
-                if "/wiki/" in url:
-                    return urllib.parse.unquote(url.rsplit("/wiki/", 1)[1])
-                return d.get("name") or drug_id
-    except Exception:
-        pass
+    """Best page title for a drug id: its Wikipedia URL leaf, else its name, else
+    None for an id not on the roster. A corrupt ``drugs_data.jsonl`` raises rather
+    than reading as "no title", which would hide the corruption behind a skip."""
+    for d in fetch_ki.drugs_io.load_drugs():
+        if d["id"] == drug_id:
+            url = d.get("wikipedia") or ""
+            if "/wiki/" in url:
+                return urllib.parse.unquote(url.rsplit("/wiki/", 1)[1])
+            return d.get("name") or drug_id
     return None
 
 
