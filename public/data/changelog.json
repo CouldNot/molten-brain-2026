@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.131.3",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "The data tool that lists drug bindings still missing a source runs again: it crashed on a binding measured without a known direction",
+          "commits": [
+            "7a925cb"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.131.2",
       "date": "2026-10-17",
       "entries": [
