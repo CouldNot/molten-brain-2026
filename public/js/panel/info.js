@@ -207,7 +207,10 @@ export function createInfoPanel(data, sourcingModal) {
   };
 
   // The panel kit: what the views in panel/views/ take from this closure (each
-  // view is `showX(P, ...)`).
+  // view is `showX(P, ...)`). The literal holds the closure's own state and pick
+  // delegates; each panel/*.js helper factory then reads its deps off P and adds its
+  // helpers to it, so a factory may only use what the literal or an EARLIER factory
+  // provides (keep the call order below dependency-first).
   const P = {
     addFactRow, appendSourcedHeading, baseNameOf, baseResolves, body, clearBody, data,
     drugById, effectById, el, enzymeById, foldBody, groupOfBase, nameOf,
