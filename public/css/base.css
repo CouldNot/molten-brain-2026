@@ -1,0 +1,27 @@
+:root[data-theme="light"] .combo-warning { --addon-ink: var(--text-strong); }
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  /* Let OrbitControls handle all touch gestures instead of the browser. */
+  touch-action: none;
+}
+#scene { display: block; width: 100vw; height: 100vh; }
+
+.panel {
+  position: fixed;
+  /* Above the CSS2D label overlay so corner controls stay clickable and
+     are never visually covered by a structure label. */
+  z-index: 5;
+  background: var(--panel-bg);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(var(--ink), 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  user-select: none;
+}

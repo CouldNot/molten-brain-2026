@@ -103,7 +103,7 @@ function appendChipRow(facts, label, value, items, text, pill, addFactRow) {
  *
  * `addFactRow`, `nodePill` and `t` are the panel's own helpers
  * (js/main.js), passed in so this module owns only the history wording. A withdrawal
- * row carries the `fact-warning` class (caution ink, see index.html); every row carries
+ * row carries the `fact-warning` class (caution ink, see css/panel.css); every row carries
  * `fact-history` (no capitalization of the prose value). Order: originator (+ its
  * country), first approval, withdrawals (one row per (year, reason) group, see
  * groupWithdrawals), current holders (one chip per market).

@@ -462,7 +462,7 @@ export function createSimulation({ body, data, deps, ui }) {
       pkLegend.appendChild(item);
     }
     // Pointer, not mouse: one path covers hover, drag and touch, and `touch-action:
-    // none` on the svg (index.html) keeps a scrub from scrolling the panel instead.
+    // none` on the svg (css/simulation.css) keeps a scrub from scrolling the panel instead.
     const onMove = (ev) => {
       const h = pkPlot.timeAt(ev.clientX);
       if (h == null) return;

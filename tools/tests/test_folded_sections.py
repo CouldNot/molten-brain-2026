@@ -6,15 +6,18 @@ space its chips) therefore never reaches them: the Pharmacokinetics chips sat gl
 pill-to-label for that reason while their gap rule looked correct.
 """
 import re
+import sys
 import unittest
 from pathlib import Path
 
-INDEX = Path(__file__).resolve().parents[2] / "public" / "index.html"
-CSS = INDEX.read_text(encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from viewer_source import viewer_css  # noqa: E402
+
+CSS = viewer_css()
 
 
 def rules():
-    """(selector, body) for every flat CSS rule in index.html."""
+    """(selector, body) for every flat CSS rule in the viewer stylesheets."""
     out = []
     for m in re.finditer(r"\{([^{}]*)\}", CSS):
         start = max(CSS.rfind("{", 0, m.start()), CSS.rfind("}", 0, m.start())) + 1

@@ -28,14 +28,32 @@
  *
  * Bump CACHE when the caching logic itself changes; activate() prunes older caches.
  */
-const CACHE = "neurarium-v4";
+const CACHE = "neurarium-v5";
 
 // Minimal app shell precached on install so a first offline launch has a page +
-// icons even before anything else was visited. The bulk of assets (js/*, data/*,
+// icons even before anything else was visited. The stylesheets ride with it, since a
+// page without them is not a usable shell. The bulk of assets (js/*, data/*,
 // vendor/*) are cached opportunistically by the fetch handler as they load.
 const SHELL = [
   ".",
   "index.html",
+  "css/tokens.css",
+  "css/base.css",
+  "css/controls.css",
+  "css/modals.css",
+  "css/tour.css",
+  "css/segmented.css",
+  "css/search.css",
+  "css/labels.css",
+  "css/popups.css",
+  "css/legend.css",
+  "css/node-browser.css",
+  "css/simulation.css",
+  "css/panel.css",
+  "css/pills.css",
+  "css/panel-drug.css",
+  "css/loading.css",
+  "css/banners.css",
   "manifest.webmanifest",
   "favicon.svg",
   "icon-192.png",

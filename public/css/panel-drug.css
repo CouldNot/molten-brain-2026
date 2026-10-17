@@ -1,0 +1,397 @@
+/* Bold colour direction arrow for a connection row (see directionArrow):
+   large + filled in the pathway colour so it is easy to read at a glance. */
+.info-connections .conn-arrow {
+  width: 26px;
+  height: 16px;
+  flex: 0 0 auto;
+  display: block;
+}
+
+/* Drug panel: the molecular-structure SVG (vendored from Wikipedia). The
+   art is black/grey line work on a transparent background, so it is
+   inverted to read as light strokes on the dark panel (the chosen
+   treatment); any colored atom labels shift hue, an accepted tradeoff.
+   Bounded so a wide molecule (long chain) still fits the narrow panel. */
+.mol-structure {
+  margin: 6px 0 12px;
+  text-align: center;
+}
+.mol-structure img {
+  max-width: 100%;
+  max-height: 160px;
+  filter: var(--mol-filter);
+}
+
+/* Structure panel: the Wikipedia illustration (rotating-brain GIF, else an
+   SVG diagram or infobox image, see tools/fetch_structure_images.py),
+   hot-linked from Wikimedia at runtime. Colour art, so it is NOT inverted like
+   the molecule line art; a subtle frame + rounding sets it off from the dark
+   panel. Bounded so a tall image still fits. */
+.structure-image {
+  margin: 8px 0 12px;
+  text-align: center;
+  position: relative;
+}
+.structure-image img {
+  max-width: 100%;
+  max-height: 240px;
+  border-radius: 8px;
+  background: rgba(var(--ink), 0.04);
+}
+/* "Show more" gallery of the structure's other gif/svg (built lazily on first
+   expand). A centered pill toggle, then the figures stacked under it. */
+.gallery-toggle {
+  display: block;
+  margin: 2px auto 10px;
+  font-size: 12px;
+  padding: 5px 12px;
+}
+.structure-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.structure-gallery .structure-image { margin: 0; }
+/* While the remote GIF loads, reserve a little height and show a spinner;
+   both vanish once the <img> fires `load` (the `loading` class is dropped)
+   or the figure is removed on error. */
+.structure-image.loading {
+  min-height: 80px;
+}
+.img-spinner {
+  display: none;
+}
+.structure-image.loading .img-spinner {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  border: 3px solid rgba(var(--ink), 0.18);
+  border-top-color: rgba(var(--ink), 0.7);
+  border-radius: 50%;
+  animation: img-spin 0.8s linear infinite;
+}
+@keyframes img-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .structure-image.loading .img-spinner { animation: none; }
+}
+
+/* Drug panel: the "Direct molecular targets" molecular-target list. Each row is the
+   effect swatch + the target name + (action · note); a speculative
+   binding is dimmed + italic. */
+.info-bindings { margin: 0 0 var(--sp-xl); }
+.info-bindings li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-l);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text);
+  padding: var(--sp-s) 0;
+}
+/* The effect glyph at the head of a binding row (+ boost / − block /
+   ≈ modulate, coloured by the effect). Fixed width so the rows align like
+   the old colour bar did; nudged down to sit on the target name's baseline. */
+.effect-glyph {
+  flex: 0 0 auto;
+  width: 14px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 1px;
+}
+.info-bindings .bind-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+/* Name + the binding's source pill on one line, so the pill reads as
+   belonging to this target's name (it wraps below on a very narrow panel). */
+.info-bindings .bind-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-m);
+}
+/* Metabolism: one heading per role ("Substrate of"), its isoforms indented
+   under it, each line "CYP1A2 [role pill] · major route [strength pill]". */
+.info-bindings .enz-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: var(--sp-l) 0 0 var(--sp-indent);
+}
+.info-bindings .enz-role-list { padding-left: calc(2 * var(--sp-indent)); }
+/* A bare pill straight inside a flex line already gets the line's gap. */
+.bind-name > .help-icon { margin-left: 0; }
+.info-bindings .bind-target { font-weight: 600; }
+.info-bindings .bind-action { color: var(--muted); font-size: 11px; }
+.info-bindings li.tentative { opacity: 0.6; font-style: italic; }
+/* A binding whose target is itself focusable (a transporter / enzyme /
+   receptor in the merged "Receptors & targets" list): clicking the row
+   focuses that target, exactly like its legend row, so the bold target
+   name reads as a link on hover. */
+.info-bindings li.clickable { cursor: pointer; }
+.info-bindings li.clickable:hover .bind-target { color: var(--accent-bright); }
+/* A structure panel's "Receptors found here" row leads with the target's own
+   swatch (the same colour its legend row carries), nudged down so it sits on
+   the text baseline rather than the top of the flex line. */
+.info-bindings li > .swatch { margin-top: 2px; }
+/* The text column (name+pill / action / Ki stack) takes only the width it
+   needs; the source pill rides the name line (.bind-name) so it stays beside
+   the name rather than stranded past the wide Ki line. It still shrinks +
+   wraps (min-width:0) when the name leaves it no room. */
+.info-bindings .bind-text { flex: 0 1 auto; }
+/* Measured PDSP Ki, stacked under the name + action inside the text column
+   (so on a narrow / mobile panel it wraps below the name rather than pushing
+   the source pill off the row), its own verified "truth badge" beside it. */
+.info-bindings .bind-ki { margin-top: 2px; }
+/* The Ki chip itself: the median value (bright) + the [min-max] range and
+   human/non-human counts (muted). Wraps its own parts on a very narrow panel;
+   each part stays intact. */
+.ki-chip {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 5px;
+  font-size: 11px;
+}
+.ki-chip .ki-val { font-weight: 600; color: var(--accent-light); white-space: nowrap; }
+.ki-chip .ki-detail { color: var(--muted); font-size: 10px; }
+/* A Ki with no human assay: tint the value amber so a non-human number is
+   visible at a glance, not only in the tooltip. */
+.ki-chip.ki-nonhuman .ki-val { color: var(--sem-amber); }
+/* Alias-borrowed value warning ("⚠ measured on <compound>"): amber, small. */
+.ki-mapped { color: var(--sem-caution); font-size: 10px; white-space: nowrap; }
+/* Affinity-only (PDSP) binding: no known direction, panel-only, slightly muted. */
+.info-bindings li.affinity-only .bind-action { font-style: italic; }
+/* The action line's direction pill follows a bare text node, which
+   :first-child ignores, so .help-icon:first-child would strip its gap and let
+   italic text run under the pill. Restore the trailing-pill margin. */
+.info-bindings .bind-action > .help-icon { margin-left: var(--sp-m); }
+/* Elimination half-life (T½) chip: a value + its provenance pill. The value
+   is styled like a brand name (plain bold --text, not the accent colour a
+   Ki uses): a T½ is a stated property of the drug, like its trade name, not
+   a measured affinity, so it should not read as one. */
+.hl-chip {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--sp-xs) var(--sp-m);
+  font-size: 12px;
+}
+/* The Pharmacokinetics block: chips side by side with a real gap between them
+   (not glued pill-to-label), wrapping on a narrow panel; any addon takes a full
+   line. The flex sits on the folded section's body (foldSections moves every
+   child there), not on the section itself, or the gap never reaches the chips. */
+.info-halflife > .panel-sec-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-m) var(--sp-xl);
+}
+.info-halflife .addon { flex-basis: 100%; margin: var(--sp-s) 0 0; }
+/* Per-formulation list: one hairline-separated block each, release type + pill
+   + its Tmax / T½ chips on one wrapping line, its brands wrapping below. */
+.info-halflife .formulations { flex-basis: 100%; }
+.formulations > h4, .info-brands > h4 {
+  margin: var(--sp-s) 0 var(--sp-xs); font-size: 11px; font-weight: 600;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em;
+}
+.form-row { padding: var(--sp-xs) 0; border-top: 1px solid rgba(var(--ink), 0.08); }
+.form-head {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: var(--sp-xs) var(--sp-xl); font-size: 12px;
+}
+.form-release { color: var(--text); }
+.form-head > .help-icon { margin-left: 0; }
+.form-brands { margin-top: var(--sp-xs); font-size: 12px; }
+.form-brand { display: inline-block; white-space: nowrap; margin-right: var(--sp-m); }
+.form-brand > .bind-target { margin-right: var(--sp-xs); }
+.hl-chip > .help-icon { margin-left: 0; }
+.hl-chip .hl-val { font-weight: 600; color: var(--text); white-space: nowrap; }
+.hl-chip .hl-label { color: var(--muted); font-size: 11px; }
+/* The non-linear-kinetics warning beside a T½: the number above is only
+   meaningful while clearance is linear, so this says "there is a caveat" and
+   jumps to where it is written. It carries --sem-caution rather than a boxed
+   callout's --addon-ink: there is no tint behind it to say "caution" on its
+   behalf, so the glyph itself has to, in either theme. */
+.hl-warn {
+  border: 0;
+  background: none;
+  padding: 0 2px;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--sem-caution);
+}
+.hl-warn:hover, .hl-warn:focus-visible { filter: brightness(1.25); }
+/* Active-metabolites list: each row is a name (+ its identity pill) with its own
+   T½ underneath, indented and dimmer so it reads as a sub-fact of the drug. */
+.info-metabolites .metab-row { margin-bottom: 6px; }
+.info-metabolites .metab-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--sp-s) var(--sp-m);
+}
+.info-metabolites .metab-hl { margin-left: var(--sp-indent); font-size: 11px; }
+.info-metabolites .metab-hl .hl-val { color: var(--muted); font-weight: 600; }
+/* "formed by <enzyme>": the enzyme that MAKES this metabolite, sitting with the
+   T½ as another sub-fact of the row, and clickable through to that enzyme. */
+.info-metabolites .metab-formed {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin-left: 12px;
+  font-size: 11px;
+}
+.info-metabolites .metab-formed.clickable { cursor: pointer; }
+.info-metabolites .metab-formed.clickable:hover .bind-target {
+  color: var(--accent-light);
+}
+/* A metabolite's own receptor bindings, nested under its row: indented and
+   separated by a faint left rule so they read as sub-facts of the metabolite,
+   reusing the same bindingRow markup as the drug's "Direct molecular targets" list. */
+.info-metabolites .metab-bindings {
+  margin: 4px 0 2px 12px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(var(--ink), 0.12);
+}
+/* A drug name that jumps to its drug (js/main.js drugNameLink): the Drugs-list
+   row look (.legend-item.clickable), inline so it can sit in a sentence. */
+.drug-name-link { display: inline-flex; margin: 0; }
+/* Brief highlight on the row a jump landed ON, so arriving in another node's
+   panel has a visible anchor (a metabolite reached from a receptor's
+   Interacting-drugs list, an isoform reached from another drug's Interactions
+   list). Applied by createInfoPanel's flashRow to any row element. */
+.node-flash {
+  animation: node-flash 1.6s ease-out;
+  border-radius: 4px;
+}
+@keyframes node-flash {
+  0% { background: var(--accent-soft); box-shadow: 0 0 0 4px var(--accent-soft); }
+  100% { background: transparent; box-shadow: 0 0 0 4px transparent; }
+}
+/* Combination-drug warning at the top of a combo's panel. */
+.combo-warning {
+  --addon-accent: 230, 184, 0;
+  --addon-ink: rgb(var(--addon-accent));
+  background: rgba(230, 184, 0, 0.08);
+  border: 1px solid rgba(230, 184, 0, 0.3);
+  border-radius: 6px;
+  padding: var(--sp-l) 10px;
+  margin: 0 0 var(--sp-xl);
+  font-size: 12px;
+}
+.combo-warning strong { color: var(--addon-ink); }
+.combo-warning p { margin: 4px 0 6px; color: var(--muted); }
+.combo-warning .combo-link {
+  background: none;
+  border: none;
+  color: var(--accent-bright);
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  text-decoration: underline;
+}
+.combo-warning .combo-plain { color: var(--muted); }
+/* Addon node (js/main.js ADDON_RENDERERS.admonition): a sourced annotation
+   spliced into a named panel slot. Same boxed-callout shape as the combo
+   warning above, but the accent is keyed by the node's `tone`, which is data
+   (meta.addon_tones) while the ramp each tone paints with is chrome and lives
+   here. --addon-accent is the one knob a new tone sets. */
+.addon {
+  /* Neutral fallback: a tone with no ramp yet reads plain rather than
+     borrowing another tone's urgency. */
+  --addon-accent: 150, 158, 170;
+  /* Text colour, split from the tint colour on purpose: --addon-accent is what
+     paints the 8%-alpha ground, so reusing it for the words is yellow-on-yellow
+     the moment that ground is white. Dark theme keeps the tone colour (bright on
+     a dark panel); the day theme swaps the text for the page's strongest ink in
+     one override below, and the tone still reads off the tint and border. */
+  --addon-ink: rgb(var(--addon-accent));
+  background: rgba(var(--addon-accent), 0.08);
+  border: 1px solid rgba(var(--addon-accent), 0.3);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 0 0 12px;
+  font-size: 12px;
+}
+.addon-caution { --addon-accent: 230, 184, 0; }
+.addon-info { --addon-accent: 120, 170, 255; }
+.addon-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-m);
+  flex-wrap: wrap;
+}
+.addon-head > .help-icon { margin-left: 0; }
+/* A folded addon: the head line is the toggle; the text appears on open. */
+.addon-collapsible > summary.addon-head { cursor: pointer; }
+.addon-collapsible > summary::before { margin-right: 0; }
+.addon-glyph { color: var(--addon-ink); }
+.addon-title { color: var(--addon-ink); font-weight: 600; }
+.addon-text { margin: 4px 0 0; color: var(--muted); }
+/* The provenance line of a DERIVED addon (no source pill to carry it): it
+   says the box is an inference off the rows below, so it is set smaller and
+   dimmer than the claim it qualifies. */
+.addon-derived-note {
+  margin: 6px 0 0;
+  color: var(--muted);
+  opacity: 0.75;
+  font-size: 11px;
+  font-style: italic;
+}
+/* "Interacting drugs" list on a receptor / target panel: the drugs that act
+   on it, grouped by drug category. The .drug-cat sub-heading is a small muted
+   label between groups (the section's own h3 keeps the uppercase header look). */
+.info-interactors { margin-top: 4px; }
+.info-interactors .drug-cat {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 10px 0 2px;
+}
+.info-interactors .drug-cat:first-of-type { margin-top: 2px; }
+
+/* Collapsed <details> section: a caret + label summary that reads as a toggle.
+   One rule, every caller (a receptor_group's per-subtype drug dropdowns, the drug
+   panel's derived "Drug interactions" list), so the caret lives in one place; each
+   caller adds its own typography. */
+.disclosure > summary {
+  cursor: pointer;
+  list-style: none; /* replace the default marker with our own caret below */
+  user-select: none;
+}
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary::before {
+  content: "\25B8"; /* right-pointing triangle, rotates when open */
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--muted);
+  transition: transform 0.12s ease;
+}
+.disclosure[open] > summary::before { transform: rotate(90deg); }
+
+/* A receptor_group panel (α2 / glutamate) lists, below its own interacting
+   drugs, one collapsed <details> per modeled subtype receptor that has drugs of
+   its own (js/main.js appendSubtypeInteractors), so α2A/B/C/D etc. are reachable
+   from the coarse group panel. The drug list inside reuses the .drug-cat styling. */
+.info-subtype-interactors { margin-top: 12px; }
+.subtype-group { margin: 2px 0; }
+.subtype-group > summary {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-bright);
+  padding: 3px 0;
+}

@@ -1,0 +1,141 @@
+/* Startup loading overlay (js/loading.js). Covers the canvas (its own opaque
+   page-coloured background) above every panel/banner so the brain assembles
+   unseen until ready, then fades out. */
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: 70; /* above panels (5), banners/status (50), modal (60) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--page-bg); /* the page bg, so the canvas is hidden until ready */
+  transition: opacity 0.45s ease;
+}
+#loading.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+.loading-card { width: min(320px, 72vw); text-align: center; }
+.loading-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+/* Version tag right of the splash title, same muted treatment as the panel
+   header's .version (both filled from [data-app-version] by js/main.js). */
+.loading-version {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.loading-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(160, 168, 178, 0.18);
+  overflow: hidden;
+}
+.loading-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  transition: width 0.25s ease;
+}
+.loading-caption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  min-height: 1.2em; /* reserve a line so the card doesn't jump as text changes */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* A static one-line tease between the title and the bar (the sourcing
+   pitch), shown while the data loads now that the Sources popup no longer
+   opens on launch. */
+.loading-tagline {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  opacity: 0.8;
+}
+/* Slow-device notice: only ever shown when the load actually had to coarsen
+   the geometry, so it must read as an explanation, not an error. Amber like
+   the WIP banner (a caveat), and wraps freely since it is prose. */
+.loading-note {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  text-align: left;
+  color: var(--sem-amber);
+  background: rgba(224, 168, 74, 0.10);
+  border: 1px solid rgba(224, 168, 74, 0.32);
+  border-radius: 8px;
+}
+
+/* A gentle "feature requests welcome" invite below the bar. Wraps freely
+   (unlike the caption) since it is prose, not a status line. */
+.loading-cta {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.loading-cta a { color: var(--accent-light); text-decoration: underline; }
+/* Author byline, centered in the card between the title and the tagline. */
+.loading-byline {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.loading-byline a { color: var(--accent-light); text-decoration: underline; }
+/* Revealed once loading finishes (js/loading.js waitForStart): the deliberate
+   "enter the app" action, so the tagline + invite can be read first. */
+.loading-start {
+  margin-top: 14px;
+  padding: 9px 22px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.loading-start:hover, .loading-start:focus-visible { background: var(--accent-bright); }
+/* Phones: the fixed px sizes above read too small on a small viewport, so
+   bump every line and widen the card to give the larger text room. */
+@media (max-width: 560px) {
+  .loading-card { width: min(360px, 88vw); }
+  .loading-title { font-size: 26px; }
+  .loading-version { font-size: 14px; }
+  .loading-byline { font-size: 14px; }
+  .loading-tagline { font-size: 16px; }
+  .loading-caption { font-size: 16px; }
+  .loading-start { font-size: 17px; padding: 11px 26px; }
+  .loading-cta { font-size: 15px; }
+  .loading-note { font-size: 13.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #loading, .loading-fill { transition: none; }
+}
+
+#status {
+  position: fixed;
+  /* Sit clear of however many banners are stacked at the top: the stack
+     publishes its height as --banners-height (0 when empty). */
+  top: calc(12px + var(--banners-height, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel-bg);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: none;
+}

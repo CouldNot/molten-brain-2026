@@ -61,7 +61,7 @@ export function createLabels(meshes, arrows, parentEl) {
     // from position. Midline structures have base_name === name.
     el.textContent = mesh.userData.structure.base_name || mesh.userData.structure.name;
     // Outline each floating name in its structure's own color (consumed by the
-    // .structure-label text-shadow in index.html) so the label ties back to the
+    // .structure-label text-shadow in css/labels.css) so the label ties back to the
     // region it points at.
     el.style.setProperty("--label-color", mesh.userData.structure.color);
     const label = new CSS2DObject(el);

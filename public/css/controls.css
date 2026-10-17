@@ -1,0 +1,457 @@
+/* Single bottom-left control panel. padding:0 so the collapse header and
+   body manage their own; capped + scrollable so a tall expanded legend
+   never runs off the top of the screen. */
+#controls {
+  bottom: 12px;
+  left: 12px;
+  width: 240px;
+  padding: 0;
+  max-height: calc(100vh - 24px);
+  /* The panel is a flex column so its top chrome (header, language switch,
+     toolbar, detail tabs) stays PINNED and only the section list
+     (#controls-main, or the details pane when it is shown) is the
+     scroll area. The panel itself does not scroll (overflow:hidden); its inner
+     list does. So an open accordion section shows at its NATURAL height and you
+     scroll the whole list (the lower collapsed headers sitting below the fold),
+     instead of each open section being squeezed into its own tiny inner-scroll
+     box when another section (e.g. Controls) is open above it. */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Flex chain making #controls-main / #details-pane the scroll area
+   while the top chrome stays put. Scoped to the shown pane (:not([hidden])) so
+   a hidden pane keeps display:none and doesn't steal the free height. */
+#controls-body:not([hidden]) {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+#controls-body > #panel-tabs:not([hidden]) { flex: 0 0 auto; }
+#settings-pane:not([hidden]) {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+#settings-pane > #lang-switch,
+#settings-pane > .toolbar-row { flex: 0 0 auto; }
+/* overflow-x: hidden (not the default `visible`) is deliberate: an
+   overflow-y:auto box with overflow-x left visible has its x coerced to `auto`
+   by the spec, so any child a few px too wide (a slider's UA side-margin, a long
+   unbreakable name) makes the pane scroll sideways, which on touch reads as the
+   panel content sliding under the finger. Clipping x keeps it strictly vertical. */
+#controls-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#details-pane:not([hidden]) {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Rendering a detail empties this box and refills it, and the browser's scroll
+     anchoring then "helpfully" re-derives an offset from the new content, landing
+     somewhere arbitrary (and silently, without a scroll event). The panel decides
+     where a detail starts: the top for a fresh one, the remembered offset when you
+     come back to a tab (createPanelTabs). */
+  overflow-anchor: none;
+}
+/* Portrait / vertical screens: a bottom-left box would cover the centered
+   brain, so make the controls span the FULL WIDTH but only the bottom HALF
+   of the screen. js/main.js (updatePanelPan) then pushes the rendered brain
+   straight up into the clear top section, so you can see the brain and use
+   the menus at the same time. The 50vh cap + internal scroll keep a tall
+   expanded legend inside that bottom half. */
+@media (orientation: portrait) {
+  /* The panel spans full width here (left/right 8px), so track that for the
+     tooltip's width too (it reads --panel-w; see .help-tip). */
+  :root { --panel-w: calc(100vw - 16px); }
+  #controls {
+    left: 8px;
+    right: 8px;
+    width: auto;
+    bottom: 8px;
+    max-height: 50vh;
+  }
+}
+/* Landscape / horizontal screens: make the panel a left sidebar that grows
+   toward 25% of the viewport (a 240px floor so it is never too thin, a 420px
+   cap so it is never absurd on a wide desktop), and when it is EXPANDED let it
+   take the FULL vertical height so a long legend has room. js/main.js
+   (updatePanelPan) then pushes the rendered brain RIGHT, into the clear space
+   beside the sidebar, so the panel never hides it. The full-height stretch is
+   gated on the body being shown (`:has`) so a collapsed panel stays a small
+   header at the bottom-left rather than a tall empty glass box; a browser
+   without `:has` just keeps the bottom-left box (graceful fallback). */
+@media (orientation: landscape) {
+  #controls {
+    width: var(--panel-w);
+  }
+  /* When EXPANDED, take the full vertical height so the section list has room
+     to scroll through (each open section at natural height, the lower headers
+     below the fold). A collapsed panel (body hidden, so the `:has` does not
+     match) stays a small bottom-left header; a browser without `:has` just
+     keeps the bottom-left box (graceful fallback). The flex chain that makes
+     #controls-main the scroll area lives in the shared rules above, so it is
+     not repeated here. */
+  #controls:has(#controls-body:not([hidden])) {
+    top: 12px;
+    bottom: 12px;
+    max-height: none;
+  }
+}
+/* Panel-only ("reading") mode, toggled by #toggle-3d: the 3D canvas and the
+   floating-label overlay go away entirely and the panel takes the viewport, so
+   the long sourced texts read like a document rather than a sidebar. Placed
+   after the orientation blocks so it wins in both. Gated on the EXPANDED body
+   exactly like the landscape rule above, so a collapsed panel stays a small
+   bottom-left header; a browser without `:has` keeps the sidebar layout. */
+body.no-3d #scene,
+body.no-3d #labels-layer { display: none; }
+body.no-3d #controls:has(#controls-body:not([hidden])) {
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  width: auto;
+  max-height: none;
+}
+/* Uncollapsing a section slides its body in (a soft downward slide + fade),
+   so opening any accordion section reads as a motion rather than
+   a snap. The bodies ship `hidden` (display:none), so showing one (re)runs the
+   animation each time. Disabled under prefers-reduced-motion. */
+@keyframes section-slide-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#controls-settings-body, #structures-body, #projections-body, #receptors-body, #enzymes-body, #effects-body, #drugs-body, #nodes-body, #simulation-body, #about-body {
+  animation: section-slide-in 200ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  #controls-settings-body, #structures-body, #projections-body, #receptors-body, #enzymes-body, #effects-body, #drugs-body, #nodes-body, #simulation-body, #about-body { animation: none; }
+}
+/* Hide the native scrollbar on the scrollable panels (they still scroll
+   via wheel / touch / drag); the chunky bar looks out of place over the
+   dark glass UI. scrollbar-width covers Firefox, ::-webkit-scrollbar
+   covers Chromium/WebKit. */
+#controls,
+#structures-body,
+#projections-body,
+#legend-body,
+#receptors-body, #enzymes-body, #effects-body,
+#search-results {
+  scrollbar-width: none;
+}
+#controls::-webkit-scrollbar,
+#structures-body::-webkit-scrollbar,
+#projections-body::-webkit-scrollbar,
+#legend-body::-webkit-scrollbar,
+#receptors-body::-webkit-scrollbar,
+#enzymes-body::-webkit-scrollbar,
+#effects-body::-webkit-scrollbar,
+#search-results::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+#controls-body { padding: 0 14px 14px; }
+/* Shared collapse header (the panel title + the nested legend): a full-
+   width button with a chevron that points down when expanded. */
+.collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+}
+/* Fixed-square box so the expanded-state 90deg rotate keeps the SAME bounding
+   box. A bare glyph is ~half-em wide but a full line-box tall, so rotating it
+   swells its rect sideways to the line height and (with the section headers'
+   zero right padding) pushed the header a few px past the panel content edge,
+   which made the section list horizontally scrollable on touch. */
+.collapse-header .chevron {
+  transition: transform 0.15s ease;
+  color: var(--muted);
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+.collapse-header[aria-expanded="true"] .chevron { transform: rotate(90deg); }
+/* Version tag next to the panel title (set from version.js by js/main.js). */
+.collapse-header .version { font-weight: 400; font-size: 11px; color: var(--muted); }
+/* Author byline, inline to the RIGHT of the "neurarium" panel title (see
+   #controls-header below); also reused in the loading overlay via the shared
+   common.byline i18n key. */
+.panel-byline { margin: 0; font-size: 12px; font-weight: 400; color: var(--muted); }
+.panel-byline a { color: var(--accent-light); text-decoration: underline; }
+/* Panel header row: an invisible full-size hit button (the collapse toggle,
+   keyboard-focusable) sits UNDER the visible title + inline byline + chevron.
+   The overlay content is pointer-events:none so a click anywhere on the row
+   reaches the toggle beneath, EXCEPT the byline link (pointer-events:auto) so
+   the author link stays clickable without also toggling the panel. This is
+   what lets the byline sit beside the title (a plain <a> can't nest in a
+   <button>). */
+#controls-header { position: relative; justify-content: flex-start; align-items: baseline; }
+#controls-header > .collapse-hit { position: absolute; inset: 0; width: 100%; padding: 0; margin: 0; background: none; border: 0; cursor: pointer; }
+#controls-header > :not(.collapse-hit) { position: relative; pointer-events: none; }
+#controls-header .panel-byline a { pointer-events: auto; }
+/* Panel-only mode toggle, pinned at the right of the header row before the
+   chevron. Like the byline it must opt back INTO pointer events, or the
+   invisible collapse button underneath would swallow the click and only
+   collapse the panel. It carries the row's right-aligning `margin-left:auto`
+   so the chevron, which normally holds it, sits snug beside it instead. */
+/* Shared by the two icon buttons pinned at the right of the header row (theme,
+   panel-only mode): same 24px box, same muted-to-text hover. Only the FIRST of
+   them carries the row's right-aligning margin, or flexbox would split the free
+   space between the two autos and separate the pair. */
+#controls-header .panel-hdr-btn {
+  pointer-events: auto;
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+}
+#controls-header .panel-hdr-btn svg { width: 16px; height: 16px; display: block; }
+#controls-header .panel-hdr-btn:hover { color: var(--text); background: rgba(var(--ink), 0.12); }
+#controls-header .panel-hdr-btn[aria-pressed="true"] { color: var(--accent-light); }
+#controls-header .panel-theme-btn { margin-left: auto; }
+#controls-header .panel-hdr-btn + .chevron { margin-left: 6px; }
+/* One <svg> per theme, the inactive one hidden: the button shows what a click
+   would GIVE you (a moon while light is on), which is the reading a sun/moon
+   pair is understood by. */
+#controls-header .panel-theme-btn .theme-moon { display: none; }
+:root[data-theme="light"] #controls-header .panel-theme-btn .theme-sun { display: none; }
+:root[data-theme="light"] #controls-header .panel-theme-btn .theme-moon { display: block; }
+#controls-header .chevron { margin-left: auto; align-self: center; }
+#controls-header:has(> .collapse-hit[aria-expanded="true"]) .chevron { transform: rotate(90deg); }
+.row { margin: 12px 0; }
+.row label { display: block; margin-bottom: 6px; color: var(--muted); }
+.row.inline label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  margin: 0;
+  cursor: pointer;
+}
+/* The four global on/off toggles laid out 2-up rather than as a tall
+   single column: two rows read more compactly, especially on a phone.
+   minmax(0,1fr) lets a long label wrap inside its cell instead of
+   widening the column. */
+.toggle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+  margin: 12px 0;
+}
+.toggle-grid .row { margin: 0; }
+/* The Separate + Transparency sliders 2-up (each label stacked over its
+   slider) to save vertical space on a portrait phone. auto-fit + a rem-based
+   min track collapses it back to a single column when the panel is too narrow
+   OR the font is zoomed up (a larger rem widens the min track), which is the
+   "not an uber-large fontsize" fallback. */
+.slider-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 4px 14px;
+  margin: 12px 0;
+}
+.slider-pair .row { margin: 0; }
+/* margin-inline:0 drops the UA's ~2px horizontal margin: with width:100% it
+   otherwise sums to 100%+4px and overflows the (now x-clipped) section list. */
+input[type="range"] { width: 100%; margin-inline: 0; accent-color: var(--accent); }
+input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); }
+
+/* Shared pill button (the "show all names" toggle). The .active state is
+   set from JS when names are forced on. */
+.btn {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  color: var(--text);
+  background: rgba(var(--ink), 0.06);
+  border: 1px solid rgba(var(--ink), 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover { background: rgba(var(--ink), 0.12); }
+.btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Reset-view + search: a row of icon buttons at the top of the panel body,
+   just before the sliders. */
+/* Three icon buttons spread across the row: keyboard (left), reset
+   (center), search (right). space-between puts the first hard left, the
+   last hard right and the middle one centered. */
+/* flex-wrap so the six icon buttons never clip in the narrow (min 240px)
+   landscape sidebar: they drop to a second row instead. */
+.toolbar-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; row-gap: 6px; margin: 2px 0 4px; }
+
+/* The sliders + global scene toggles now live in their own collapsible
+   Controls section (#controls-settings), so the panel top (language switch,
+   reset/search row) no longer needs to hide when a content section opens:
+   it stays put and the Controls section is just collapsed when not wanted.
+   (Earlier these were tagged .collapsible-control and hidden via a
+   #controls.section-open rule; that mechanism is gone.) */
+
+/* Settings / Details tabs at the top of the panel body. The bar ships
+   hidden and is revealed (js/main.js, createPanelTabs) only while a detail
+   (structure / connection / receptor) is open; the Details tab then holds
+   the info that used to live in a separate bottom-right panel. */
+.panel-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 10px;
+  border-bottom: 1px solid rgba(var(--ink), 0.1);
+}
+/* The `hidden` attribute (toggled by createPanelTabs when a detail is
+   opened / dismissed) must win over the display:flex above; without this
+   the attribute is overridden and an empty Settings/Details bar shows even
+   when no detail is open. */
+.panel-tabs[hidden] { display: none; }
+.panel-tab {
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+.panel-tab:hover { color: var(--text); }
+.panel-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+/* The Settings tab is pinned: it never shrinks and never scrolls away, so
+   it is always reachable as the first tab. */
+.panel-tab.pinned { flex: 0 0 auto; }
+/* The scrollable strip of opened detail tabs, to the right of the pinned
+   Settings tab. It takes the remaining width and scrolls horizontally when
+   the tabs overflow the narrow panel (wheel on desktop, touch-drag handled
+   in JS on mobile). touch-action is `none`, NOT `pan-x`: a long-press on a
+   tab reorders it, and native pan-x would let the browser claim the gesture
+   and fire pointercancel mid-hold, killing the long-press on touch. With the
+   browser out of the way, createPanelTabs drives the drag-to-scroll itself
+   (a swipe before the long-press fires) and the long-press reorder. */
+.detail-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Show only the scrollbar thumb (the "cabin"), not the track (the "shaft"):
+     the full bar reads as heavy chrome over the dark glass UI. A transparent
+     track on both engines (scrollbar-color's 2nd value in Firefox, the
+     ::-webkit-scrollbar-track below in Chromium) leaves just a faint thumb as a
+     subtle "there's more to scroll" hint; the strip still scrolls via wheel /
+     touch / long-press drag (driven in JS). */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--ink), 0.18) transparent;
+  touch-action: none;
+}
+.detail-tabs::-webkit-scrollbar { height: 4px; }
+.detail-tabs::-webkit-scrollbar-track { background: transparent; }
+.detail-tabs::-webkit-scrollbar-thumb {
+  background: rgba(var(--ink), 0.18);
+  border-radius: 2px;
+}
+/* One opened detail. Label (ellipsized) + a × close affordance; reorderable
+   by long-press drag (.dragging while lifted). */
+.detail-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex: 0 0 auto;
+  max-width: 130px;
+  padding: 6px 4px 6px 9px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.detail-tab:hover { color: var(--text); }
+.detail-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+.detail-tab.dragging { opacity: 0.55; }
+.detail-tab-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail-tab-close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--muted);
+}
+.detail-tab-close:hover { color: var(--text); background: rgba(var(--ink), 0.14); }
+#details-pane { user-select: text; }
+.tool-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--text);
+  background: rgba(var(--ink), 0.06);
+  border: 1px solid rgba(var(--ink), 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tool-btn:hover { background: rgba(var(--ink), 0.12); }
+.tool-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+/* currentColor on the SVG strokes makes the icons follow the button text
+   color, including the blue .active state of the search toggle. */
+.tool-btn svg { width: 18px; height: 18px; display: block; }
+
+/* Accordion sections nested inside the control panel, set off by a hairline.
+   Their headers have no side padding (the panel body already provides it).
+   Matched by CLASS, not by an id list: enumerating the ids meant a newly added
+   section silently kept the default .collapse-header padding and lost its
+   hairline, reading as an indented sub-item of the section above it. */
+.browse-section {
+  margin-top: 8px;
+  border-top: 1px solid rgba(var(--ink), 0.08);
+}
+#controls-settings .collapse-header,
+.browse-section .collapse-header { padding: 10px 0 4px; }

@@ -1,0 +1,122 @@
+/* Keyboard-shortcuts help popup (#shortcuts-modal): a full-screen dimmed
+   overlay centering a small dialog (reuses .panel for the glass look). */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60; /* above the panels (5) and the banners / status (50) */
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+}
+/* The hidden attribute must win over the display:grid above (same fix as
+   .panel-tabs), else the popup would show on load. */
+.modal-overlay[hidden] { display: none; }
+.modal {
+  position: relative; /* .panel is fixed; the overlay does the centering */
+  /* Roomy on desktop, still safe on a phone (the -32px matches the overlay
+     padding). The .modal wins over .panel's narrow feel; each popup's own
+     content sets its natural width up to this cap. */
+  width: min(540px, calc(100vw - 32px));
+  /* dvh (not vh) so the cap tracks the *visible* viewport: on mobile 100vh is
+     the URL-bar-hidden height, so a vh-sized modal overshoots the screen, gets
+     centered, and its top (the close ×) is clipped above the fold and cannot be
+     reached (the overlay is fixed, so the page can't scroll to it). dvh fits the
+     visible area, so the modal scrolls its own content instead. vh line = fallback. */
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  /* .modal reuses the .panel class for chrome, but .panel sets
+     user-select:none (it is the 3D-control surface). Popups are reading
+     material, so re-enable text selection for their content. */
+  user-select: text;
+}
+/* On a phone, tighten the overlay gutter and let the dialog take almost the
+   full width (a centered 540px cap reads as a thin column on a ~390px screen).
+   It still scrolls its own overflow (max-height + overflow-y above). */
+@media (max-width: 560px) {
+  .modal-overlay { padding: 10px; }
+  .modal { width: calc(100vw - 20px); max-height: calc(100vh - 20px); max-height: calc(100dvh - 20px); }
+}
+.modal h2 { margin: 2px 0 14px; font-size: 15px; padding-right: 20px; }
+/* Image lightbox (#image-lightbox): the clicked illustration shown large,
+   centered by the shared .modal-overlay. A darker backdrop than the shortcuts
+   modal so a transparent (molecule SVG) image doesn't show the brain through
+   it and the picture is the clear focus. The image keeps its aspect ratio
+   within the viewport; molecule line-art is inverted to read on the dark
+   backdrop (same as the panel's .mol-structure). */
+#image-lightbox { background: rgba(0, 0, 0, 0.82); }
+#image-lightbox-img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+}
+#image-lightbox-img.inverted { filter: var(--mol-filter); }
+.lightbox-close {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  font-size: 22px;
+  line-height: 1;
+  border-radius: 50%;
+  color: #f2f3f5;
+  background: rgba(14, 17, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+}
+.lightbox-close:hover { background: rgba(40, 46, 54, 0.95); }
+/* A panel image the user can click to enlarge gets the zoom cursor. */
+.structure-image img, .mol-structure img { cursor: zoom-in; }
+/* Sticky (not absolute) + float so the × stays pinned to the modal's visible
+   top-right while a long popup scrolls its content under it: an absolute button
+   is part of the scrollable overflow and scrolls out of view (the cause of the
+   "cross is hidden, can't close" on tall popups). float puts it top-right beside
+   the title; sticky top:0 keeps it there as the .modal scroll area moves. */
+.modal .info-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin: -4px -6px 4px 8px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  /* Clearly visible (a muted, background-less × read as "transparent / hidden",
+     and is easy to miss when the tour rings it on the spotlightOnly sources step). */
+  color: var(--text);
+  background: rgba(var(--ink), 0.06);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modal .info-close:hover { color: var(--accent-light); background: rgba(var(--ink), 0.12); }
+/* key -> action rows: a two-column grid (the key(s) | the action). */
+#shortcuts-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 14px;
+  align-items: center;
+}
+#shortcuts-list dt { margin: 0; display: flex; gap: 4px; }
+#shortcuts-list dd { margin: 0; color: var(--muted); font-size: 13px; }
+kbd {
+  display: inline-block;
+  min-width: 22px;
+  padding: 2px 7px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text);
+  background: rgba(var(--ink), 0.08);
+  border: 1px solid rgba(var(--ink), 0.18);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+}

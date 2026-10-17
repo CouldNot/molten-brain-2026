@@ -1,0 +1,304 @@
+/* Sources & provenance popup: auto-shown over the loading overlay on startup,
+   so it needs a higher z-index than #loading (70) to sit on top of it (the
+   other modals live at 60, below the overlay). */
+#sourcing-modal { z-index: 80; }
+/* "What's new" popup (#changelog-modal, built by js/changelog.js): one section
+   per version, each a version heading then the bullets grouped under their
+   category. It scrolls with the shared .modal rule (max-height + overflow-y),
+   which matters here more than elsewhere: a visitor returning after several
+   releases reads a long list. Shown once after an update and from About. */
+/* Both titles here run larger than the shared modal/section sizes: this popup is
+   read once, cold, by a visitor who did not go looking for it, so the "What's new"
+   header and each version heading have to carry the reading rather than blend into
+   the bullets under them. */
+#changelog-modal h2 { font-size: 18px; }
+/* A long release list in the shared 540px column reads as a thin strip on a
+   desktop monitor, so widen it on wide viewports only (phones keep the shared
+   full-width .modal rule; the media floor keeps it above that breakpoint). */
+@media (min-width: 900px) {
+  #changelog-modal .modal { width: min(880px, 64vw); }
+}
+.changelog-release { margin: 0 0 18px; }
+.changelog-release:last-child { margin-bottom: 2px; }
+.changelog-release > h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: var(--accent-bright);
+  border-bottom: 1px solid rgba(var(--ink), 0.1);
+  padding-bottom: 4px;
+}
+.changelog-cat {
+  margin: 10px 0 3px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.changelog-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.changelog-list li { margin: 3px 0; }
+/* The commit refs trailing a bullet: a monospace tag, a link only when the
+   configured sourceUrl points into a repository (see changelog.js commitUrl). */
+.changelog-commit {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+a.changelog-commit { color: var(--accent-bright); text-decoration: underline; }
+/* The release date, riding its version heading rather than a line of its own. */
+.changelog-date {
+  float: right;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+/* "Show all release notes": only rendered when the popup is showing a subset
+   (i.e. just what landed since the last visit), so the rest of the history is
+   one click away instead of a wall to scroll past. */
+.changelog-showall {
+  display: block;
+  width: 100%;
+  margin: 14px 0 2px;
+  padding: 7px 10px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--accent-bright);
+  background: rgba(var(--ink), 0.04);
+  border: 1px solid rgba(var(--ink), 0.14);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.changelog-showall:hover { background: rgba(var(--ink), 0.08); }
+.changelog-empty { font-size: 12px; color: var(--muted); }
+/* A "jump to another popup" link row (Legend / About -> Sources & provenance):
+   set off from the content above it with a hairline. */
+.modal-jump-row {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(var(--ink), 0.1);
+}
+/* About blurb (in the #about-modal popup): muted body text with readable
+   links. */
+.about-text {
+  margin: 8px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.about-text a { color: var(--accent-bright); text-decoration: underline; }
+/* "The data is yours to reuse" dropdown in #about-modal: a plain <details>
+   whose summary reads like a link, with the data-file list beneath it. */
+.about-data { margin: 8px 0; }
+.about-data > summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--accent-bright);
+  list-style-position: inside;
+}
+.about-data-list {
+  margin: 4px 0 4px 4px;
+  padding-left: 16px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.about-data-list a { color: var(--accent-bright); text-decoration: underline; }
+/* "What the animations mean" legend inside the same .about-data dropdown:
+   one bullet per visual aspect, each opening with a bold "<aspect>:
+   <one-line explainer>" then a sentence or two, so the popup reads as a key
+   you can scan instead of the paragraph it used to be. Nested <ul> for the
+   per-colour / per-direction sub-cases. */
+.about-anim-list {
+  margin: 4px 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.about-anim-list > li { margin: 8px 0; }
+.about-anim-list ul { margin: 3px 0; padding-left: 16px; }
+.about-anim-list ul li { margin: 2px 0; }
+/* The lead-in of a bullet, in the panel's text colour so it separates from
+   the muted sentences that develop it. */
+.about-anim-list b { color: var(--text); }
+/* "Sources & provenance" block (built by buildAboutSourcing) inside the
+   #sourcing-modal popup. The grade key reuses the .src-pill / .src-prov-*
+   swatches from the info panel so the legend matches the pills shown beside
+   each source. */
+#about-sourcing .about-text { margin: 6px 0; }
+/* Emphasized caveat, so a limitation never reads as a footnote. Used by the
+   "sourced is not true" note in #sourcing-modal and by the drug-animation
+   warning in #about-modal. */
+.about-caveat {
+  margin: 10px 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent);
+  background: rgba(var(--ink), 0.04);
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+.src-key { list-style: none; margin: 6px 0; padding: 0; }
+.src-key li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.src-key .src-pill { cursor: default; flex: 0 0 auto; }
+/* The chain-of-custody note under the grade key: no pill of its own, so it runs
+   the full width and sits slightly apart from the rows it qualifies. */
+.src-key-note { display: block; margin-top: 8px; }
+.src-cite-list { margin: 4px 0 8px; padding-left: 18px; font-size: 11px; line-height: 1.4; opacity: 0.85; }
+
+/* Enzyme variability (PharmFreq, corpus #13): one stacked bar per population
+   group, segments in phenotype order so the same colour sits at the same end of
+   every bar and the columns can be read down. The five fills are literal rather
+   than tokens: they are a slow -> fast ramp, not chrome, and a solid fill reads
+   the same on either theme. */
+.var-caveat { margin: 4px 0 10px; font-size: 11px; line-height: 1.45;
+  color: rgba(var(--ink), 0.62); }
+.var-key { list-style: none; margin: 0 0 10px; padding: 0; display: flex;
+  flex-wrap: wrap; gap: 4px 14px; font-size: 11px; }
+.var-key li { display: flex; align-items: center; gap: 5px; }
+.var-key-note { color: rgba(var(--ink), 0.55); }
+.var-swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.var-rows { list-style: none; margin: 0; padding: 0; }
+.var-rows li { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.var-group { flex: 0 0 42%; font-size: 11px; color: rgba(var(--ink), 0.8); }
+.var-bar { flex: 1; display: flex; height: 11px; border-radius: 3px;
+  overflow: hidden; background: rgba(var(--ink), 0.08); }
+.var-seg { height: 100%; }
+.var-pm { background: #3b6ea5; }
+.var-im { background: #6fa8c7; }
+.var-nm { background: #9aa7a0; }
+.var-rm { background: #e0a04a; }
+.var-um { background: #d1594c; }
+/* CPIC guidance (corpus #15): one row per phenotype, reading top to bottom as
+   "how fast this person clears it" -> "how common that is here" -> "what CPIC
+   says follows" -> "how strongly". The phenotype reuses the variability ramp
+   above as a swatch, so the same colour means the same speed in both panels. */
+.pgx-pick { margin: 2px 0 10px; font-size: 11px;
+  color: rgba(var(--ink), 0.8); }
+.pgx-pick select { font: inherit; color: var(--text);
+  background: rgba(var(--ink), 0.06); border: 1px solid rgba(var(--ink), 0.18);
+  border-radius: 3px; padding: 2px 4px; margin-left: 4px; max-width: 60%; }
+.pgx-level { margin-left: 6px; font-weight: 400; font-size: 10px;
+  color: rgba(var(--ink), 0.6); border-bottom: 1px dotted rgba(var(--ink), 0.35);
+  cursor: help; }
+.pgx-population { margin: 0 0 6px; font-size: 11px;
+  color: rgba(var(--ink), 0.62); }
+.pgx-rows { list-style: none; margin: 6px 0 0; padding: 0; }
+/* A row reads downwards (headline, then CPIC's two sentences, then the
+   strength), so it has to undo the one-line flex `.info-bindings li` gives
+   every other section in this panel: same specificity, declared later, hence
+   the `.info-pgx` prefix. */
+.info-pgx .pgx-rows li { display: block; margin-bottom: 10px;
+  padding: 0 0 0 8px; border-left: 2px solid rgba(var(--ink), 0.12); }
+.pgx-headline { display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; }
+.pgx-pheno { display: flex; align-items: center; gap: 5px; font-size: 12px;
+  font-weight: 600; border-bottom: 1px dotted rgba(var(--ink), 0.35);
+  cursor: help; }
+.pgx-freq { font-size: 11px; color: rgba(var(--ink), 0.8);
+  font-variant-numeric: tabular-nums; }
+.pgx-freq-none { font-style: italic; color: rgba(var(--ink), 0.5); }
+.pgx-implication, .pgx-recommendation { margin: 3px 0 0; font-size: 11px;
+  line-height: 1.45; }
+.pgx-implication { color: rgba(var(--ink), 0.72); }
+.pgx-recommendation { color: var(--text); }
+.pgx-foot { margin-top: 3px; display: flex; flex-wrap: wrap; gap: 4px 10px;
+  font-size: 10px; color: rgba(var(--ink), 0.6); }
+.pgx-class { text-transform: uppercase; letter-spacing: 0.04em; }
+.pgx-assumes { font-style: italic; }
+/* The coverage tally: a label, a thin bar, and the count. */
+.src-stats { margin: 8px 0 2px; font-size: 12px; }
+.src-stat-headline {
+  color: var(--text);
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+.src-stat-kifoot, .src-stat-browser {
+  color: var(--muted);
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin: 10px 0 0;
+}
+.src-stat-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  align-items: center;
+  margin: 5px 0;
+  color: var(--muted);
+}
+.src-stat-row .src-stat-count { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.src-stat-bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(160, 168, 178, 0.18);
+  overflow: hidden;
+  display: flex;           /* the four grade segments sit side by side */
+  cursor: help;            /* signals the hover tooltip with per-grade counts */
+}
+/* Grade segments, strongest to weakest, sharing the pill palette so the bar
+   reads like the grade key above it: green verified, yellow sourced, grey llm,
+   red no-source. Widths are set inline (proportional to each grade's count). */
+.src-stat-bar > span { display: block; height: 100%; }
+.src-seg-verified { background: #66cf85; }
+.src-seg-uncertain { background: #f0913f; }
+.src-seg-sourced  { background: #e3c14a; }
+.src-seg-llm      { background: #b6bcc4; }
+.src-seg-nosource { background: #ef5f6b; }
+/* Progressive-disclosure sourcing tally: one global bar is shown by default; it is
+   a button that expands the per-node-kind breakdown, and each kind row is in turn a
+   button that expands its grade counts + a clickable example node. Keeps the popup
+   a single glanceable number until the reader asks for more. */
+.src-global {
+  display: block; width: 100%; text-align: left;
+  background: none; border: 0; padding: 0; margin: 0 0 4px; cursor: pointer;
+  color: inherit; font: inherit;
+}
+.src-global .src-stat-headline { margin: 0 0 6px; }
+.src-global .src-stat-bar { height: 9px; cursor: pointer; }
+/* A caret hint under the global bar; rotates when the breakdown is open. */
+.src-stat-unknown { margin: 6px 0 0; font-size: 0.85em; color: var(--sem-unknown); }
+.src-global-hint {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 6px; font-size: 0.85em; color: var(--muted);
+}
+.src-global-hint::after {
+  content: "\25be"; /* ▾ */ transition: transform 0.15s ease;
+}
+.src-global[aria-expanded="true"] .src-global-hint::after { transform: rotate(-180deg); }
+.src-kinds { margin-top: 4px; }
+/* Each kind row's clickable header carries the same 2-col grid the static row had. */
+.src-stat-head {
+  display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center;
+  width: 100%; text-align: left; background: none; border: 0; padding: 4px 0;
+  cursor: pointer; color: var(--muted); font: inherit;
+}
+.src-stat-head:hover .src-stat-label { color: var(--text); }
+.src-stat-head .src-stat-count { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.src-stat-head .src-stat-bar { grid-column: 1 / -1; cursor: pointer; }
+/* The revealed detail: per-grade counts + one example node. */
+.src-ex-wrap { padding: 2px 0 8px 2px; font-size: 0.92em; }
+.src-ex-counts { color: var(--muted); margin-bottom: 3px; }
+.src-ex { color: var(--muted); line-height: 1.4; }
+.src-ex-lead { opacity: 0.8; }
+.src-ex-link {
+  color: var(--accent); text-decoration: none; border-bottom: 1px dotted currentColor;
+  cursor: pointer;
+}
+.src-ex-link:hover { color: var(--text); }
+.src-ex-notion { color: var(--text); }

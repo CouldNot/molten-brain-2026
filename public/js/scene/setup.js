@@ -23,7 +23,7 @@ export function initThree() {
   // Set below by the theme, whose token block owns the colour; the literal is only
   // what the canvas holds for the instant before the first apply() runs.
   scene.background = new THREE.Color("#0e1116");
-  // Light/dark. The palette is CSS tokens (see index.html); the WebGL canvas is not
+  // Light/dark. The palette is CSS tokens (see css/tokens.css); the WebGL canvas is not
   // CSS, so the resolved page background is handed back here and painted into the
   // scene. See js/theme.js for who decides which theme is on.
   const theme = createTheme((_name, pageBg) => {

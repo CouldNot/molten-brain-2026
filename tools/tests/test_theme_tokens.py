@@ -15,12 +15,13 @@ below names each one and why).
 
 Built with the help of Claude Code.
 """
-import os
 import re
+import sys
 import unittest
+from pathlib import Path
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-INDEX = os.path.join(ROOT, "public", "index.html")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from viewer_source import viewer_css  # noqa: E402
 
 # Tokens that are deliberately not a colour, so the day theme has nothing to say
 # about them.
@@ -42,18 +43,16 @@ LITERAL_INK_OK = {
 
 
 def stylesheet():
-    """The page's own `<style>` block, without the `<noscript>` inline styles."""
-    with open(INDEX, encoding="utf-8") as fh:
-        src = fh.read()
-    blocks = re.findall(r"<style[^>]*>(.*?)</style>", src, re.S)
-    assert blocks, "index.html has no <style> block"
-    return "\n".join(blocks)
+    """The viewer's stylesheets (public/css/*.css, in cascade order)."""
+    css = viewer_css()
+    assert css.strip(), "index.html links no stylesheet"
+    return css
 
 
 def _block(css, selector):
     """The declarations inside the first rule with exactly this selector."""
     i = css.index(selector + " {")
-    return css[i:css.index("\n      }", i)]
+    return css[i:css.index("\n}", i)]
 
 
 def _tokens(text):

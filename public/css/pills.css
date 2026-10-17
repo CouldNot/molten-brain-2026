@@ -1,0 +1,225 @@
+/* Source / reference provenance pills: one small pill per source saying how
+   trustworthy its attribution is (grey ? = LLM-only, yellow ~ = the LLM had
+   the source, green ✓ = quote-checked), plus the red ✕ NOSOURCE pill for the
+   "no source yet" case. Shared shape (.src-pill); colour says the grade.
+   They are <button>s (so a tap pins the tooltip on touch), reset to look
+   like a pill, sitting in the connection/drug source list and the
+   structure/receptor/target/drug Reference row. The left margin comes from
+   the wrapping .help-icon, so it isn't repeated here. */
+.src-pill {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font: 600 10px/1.45 inherit;
+  cursor: pointer;
+}
+/* No source document for the claim yet: red, a ✕ glyph (see NOSOURCE_GLYPH),
+   so an unbacked node reads as a clear red cross, not a long word. */
+.src-todo {
+  color: var(--sem-missing);
+  background: rgba(239, 95, 107, 0.15);
+  border: 1px solid rgba(239, 95, 107, 0.5);
+}
+/* LLM-only (grey ?): produced from memory, may be a hallucination. */
+.src-prov-llm {
+  color: var(--sem-llm);
+  background: rgba(160, 168, 178, 0.16);
+  border: 1px solid rgba(160, 168, 178, 0.5);
+}
+/* LLM had the source (yellow ~): written with the document, not quote-checked. */
+.src-prov-sourced {
+  color: var(--sem-sourced);
+  background: rgba(227, 193, 74, 0.15);
+  border: 1px solid rgba(227, 193, 74, 0.5);
+}
+/* Green tier: quote-checked (verified) OR a live verbatim Wikipedia read
+   (wikipedia); both share the green AND the ✓ glyph because both are an
+   inspectable, non-LLM extract of a real source (the tooltip names which). */
+.src-prov-verified,
+.src-prov-wikipedia {
+  color: var(--sem-verified);
+  background: rgba(102, 207, 133, 0.18);
+  border: 1px solid rgba(102, 207, 133, 0.5);
+}
+/* Quote-checked, but the sentence does not attribute the claim (orange ⚠).
+   Deliberately NOT the yellow `sourced` tier: the document is just as strong,
+   it is the attribution that is an inference. Its tooltip leads with the
+   reasons (below), so the badge is a "read me", not a downgrade. */
+.src-prov-uncertain {
+  color: var(--sem-uncertain);
+  background: rgba(240, 145, 63, 0.16);
+  border: 1px solid rgba(240, 145, 63, 0.55);
+}
+/* Not a grade: a statement about this dataset itself (an addon whose basis is
+   `dataset`), unsourceable by design. Neutral and dashed so it reads as "not
+   applicable" rather than as the red "nothing found yet". */
+.src-prov-dataset {
+  color: var(--muted);
+  background: rgba(var(--ink), 0.05);
+  border: 1px dashed rgba(var(--ink), 0.35);
+}
+/* Not a grade: searched in every required source, none states it (∅, see
+   tools/data_generators/unknown.py). Its own hue, distinct from the red "not
+   found yet" ✕, because it is a finding and not a to-do. */
+.src-prov-unknown {
+  color: var(--sem-unknown);
+  background: rgba(var(--ink), 0.05);
+  border: 1px solid var(--sem-unknown);
+}
+/* The reasons-to-doubt block at the top of an uncertain pill's tooltip. Each
+   row carries an inert badge (green ✓ / red ✕) so a sourced reason and an
+   absence-of-evidence reason are told apart at a glance. */
+.src-uncertain { margin-bottom: 4px; }
+.src-uncertain-lead { color: var(--sem-uncertain); font-weight: 600; margin-bottom: 6px; }
+.src-uncertain-list { list-style: none; margin: 0; padding: 0; }
+.src-uncertain-list li { display: flex; gap: 6px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 8px; }
+/* The badges here are decoration inside a tooltip, never a control: no pointer,
+   no hover, and they must not inherit the real pill's button sizing. */
+.src-uncertain-list .src-pill { cursor: default; flex: 0 0 auto; margin-top: 1px; }
+.src-uncertain-text { flex: 1 1 140px; min-width: 0; }
+.src-uncertain-src {
+  flex: 1 1 100%;
+  margin-left: 26px;
+  color: var(--muted);
+  font-style: italic;
+}
+/* Structure panel: a clickable list of the structure's connections. */
+.info-group { font-size: 12px; color: var(--muted); margin: -4px 0 12px; }
+.info-wiki { font-size: 12px; margin: -6px 0 12px; }
+.info-wiki a { color: var(--accent-bright); text-decoration: underline; }
+/* Separator between sibling reference links (e.g. Wikipedia · Vidal on a
+   French drug panel). */
+.info-wiki .ref-sep { color: var(--muted); margin: 0 6px; }
+/* A live-fetched Wikipedia description shows its provenance as the Wikipedia
+   link itself, relocated to the end of the description in place of a grade
+   pill (see liveWikiDescription): it reuses the green .src-prov-wikipedia
+   pill shape (so it reads as the trusted "live, verbatim, no-AI" tier) but
+   stays a link, so drop the .info-wiki underline; nowrap keeps the label +
+   its ↗ together. */
+.wiki-src { text-decoration: none; white-space: nowrap; }
+/* "Read more" / "Show less" on a clipped Wikipedia lead: an inline text
+   button in the accent colour, so it reads as part of the paragraph. */
+.wiki-more {
+  padding: 0; border: 0; background: none; font: inherit;
+  color: var(--accent); cursor: pointer; white-space: nowrap;
+}
+.wiki-more:hover { text-decoration: underline; }
+/* "?" caveat badge next to every Source / Reference: the citations + links
+   are LLM-inferred and not yet human-checked. The tooltip shows on
+   hover/focus (desktop) and is pinned on click/tap via .show (touch, where
+   :hover never fires). The bubble is placed in viewport coordinates by
+   withTip() in js/main.js (position: fixed, just above the trigger, clamped
+   to the viewport), so an inline pill (a binding / NbN / description pill)
+   anchors to its own pill rather than to a tall ancestor far away. */
+.help-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: var(--sp-m);
+}
+/* When a help-icon wraps a *leading* glyph (a row's direction arrow or effect
+   glyph, made tap-to-explain), it is the first child, so drop the left margin
+   the trailing-pill case wants. */
+.help-icon:first-child { margin-left: 0; }
+.help-dot {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 600 10px/1 inherit;
+  cursor: pointer;
+}
+.help-dot:hover { color: var(--text); border-color: var(--text); }
+.help-tip {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: max-content;
+  /* Sit just under the control panel's width (never the old thin 260px), and
+     on a narrow/portrait screen cap to the viewport. A long unbreakable token
+     wraps instead of overflowing. attachTip's place() sets a precise max-height
+     per position so the bubble scrolls internally and is never cropped. */
+  max-width: min(calc(var(--panel-w) - 16px), 92vw);
+  padding: 8px 10px;
+  background: var(--tip-bg);
+  border: 1px solid rgba(var(--ink), 0.16);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px var(--tip-shadow);
+  color: var(--text);
+  font: 400 11px/1.45 inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  /* the per-claim source pill builds a multi-line tooltip (the source / quote
+     + page ref, then the grade explainer); honour the \n it inserts. */
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 60;
+}
+/* The bubble is appended to <body> while shown (see withTip in js/main.js), so
+   it is toggled by a class on itself, not on the wrapping .help-icon, and it
+   escapes the panel's clipping + any dimmed row's opacity. */
+.help-tip.show { display: block; }
+/* A source link inside a tooltip (e.g. the Wikipedia Ki corpus label linking to
+   the pinned revision): legible accent on the dark bubble. The tooltip stays
+   open while hovered/pinned (see attachTip), so the link is clickable. */
+.help-tip a {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+/* The "Click for details" cue inside a provenance tooltip: a link-styled
+   button that opens the Sources & provenance popup (see makeDetailsCue). */
+.src-details-cue, .addon-jump {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--accent-light);
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.src-details-cue:hover, .addon-jump:hover { color: var(--accent-bright); }
+.info-connections li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text);
+  padding: 4px 0;
+  cursor: pointer;
+}
+.info-connections li:hover { color: var(--accent-bright); }
+/* The label only takes the width it needs so its summary provenance pill sits
+   right beside it, not stranded at the far panel edge (same treatment as the
+   "Found in" .loc-name and the binding .bind-text). Applies to every pathway
+   list: a structure's connections, a circuit/group's members, and the drug
+   panel's "Neurotransmitter tone". */
+.info-connections .conn-label { flex: 0 1 auto; min-width: 0; }
+/* Neurotransmitter tone: a system row's signed value, then the per-binding
+   arithmetic behind it as indented, dimmer lines (never a pointer row itself). */
+.tone-value { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.info-connections li.tone-terms {
+  display: block; cursor: default; padding: 0 0 var(--sp-s) var(--sp-indent);
+}
+.info-connections li.tone-terms:hover { color: var(--text); }
+.tone-term {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--sp-m);
+  font-size: 11px; color: var(--muted); padding: 1px 0;
+}
+.tone-term.clickable { cursor: pointer; }
+.tone-term.clickable:hover .tone-term-target { color: var(--accent-bright); }
+.tone-term-target { color: var(--text); }
+.tone-term-math { font-variant-numeric: tabular-nums; white-space: nowrap; }

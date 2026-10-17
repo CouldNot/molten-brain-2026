@@ -65,7 +65,7 @@ export function wireControls({ camera, controls, meshes, arrows, labels, focus, 
   // createCameraFocus.setScreenOffset; collapsing it restores the centered view,
   // eased in focus.tick):
   //   - portrait: the panel spans the full width but only the bottom half (see
-  //     the @media rule in index.html), so push the brain straight UP into the
+  //     the @media rule in css/controls.css), so push the brain straight UP into the
   //     clear top section. The shove is half the panel's height fraction, so the
   //     brain ends up centered in the space above the panel whatever its height.
   //   - landscape: the panel is a full-height left sidebar (up to 25% wide), so
@@ -120,7 +120,7 @@ export function wireControls({ camera, controls, meshes, arrows, labels, focus, 
   // themselves: only one open at a time (Controls, above, is exempt; the Legend,
   // Sources & provenance and About are now popups, not sections). The panel top
   // (language switch + reset/search row) stays visible throughout; the open section grows to
-  // fill the tall sidebar via the :has(...) CSS in index.html, so no JS layout
+  // fill the tall sidebar via the :has(...) CSS in css/controls.css, so no JS layout
   // class is needed here anymore.
   // Order mirrors the on-screen section order (Drugs / Receptors / Structures /
   // Projections, set by the markup in index.html). This array only drives the

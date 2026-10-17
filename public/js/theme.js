@@ -1,7 +1,7 @@
 /**
  * Light / dark theme: which one is on, and who decided.
  *
- * The palette itself is CSS (the token block in `index.html`, redefined under
+ * The palette itself is CSS (the token block in `css/tokens.css`, redefined under
  * `:root[data-theme="light"]`). This module owns only the *decision*, which is
  * deliberately a short one: the visitor's own click, persisted in localStorage, and
  * failing that **dark**.

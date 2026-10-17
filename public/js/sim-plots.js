@@ -9,7 +9,7 @@
  * Both plots are `viewBox` + `width: 100%`, so they scale with the panel instead of
  * being re-laid-out on every resize, and both take their ink from the `--sem-*` /
  * `--ink` / `--muted` tokens through CSS classes (see the `.sim-*` rules in
- * index.html); only the per-drug swatch colours arrive as values, since they are a
+ * css/simulation.css); only the per-drug swatch colours arrive as values, since they are a
  * palette the controller cycles rather than a theme decision.
  *
  * Built with the help of Claude Code.

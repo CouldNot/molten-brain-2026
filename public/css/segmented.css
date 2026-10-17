@@ -1,0 +1,59 @@
+/* Segmented control: a row of small mutually-exclusive buttons, the active one
+   highlighted (blue, like .tool-btn.active). Used for the EN/FR language switch
+   at the top of the panel body (.lang-switch) and for the drug panel's
+   Interactions grouping (.seg-switch); one style, two callers. */
+.lang-switch, .seg-switch { display: flex; gap: 4px; margin: 0 0 6px; }
+.seg-switch { margin: 4px 0 8px; }
+.lang-btn, .seg-btn {
+  flex: 0 0 auto;
+  padding: 2px 8px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: rgba(var(--ink), 0.06);
+  border: 1px solid rgba(var(--ink), 0.12);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.lang-btn:hover, .seg-btn:hover { background: rgba(var(--ink), 0.12); color: var(--text); }
+.lang-btn.active, .seg-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* One Drug-interactions group: its rows (and the "+N more" that extends them) are
+   indented off their heading, with a hairline rail, so which direction bucket /
+   isoform a drug sits under reads at a glance down a list of several groups. */
+.pk-group-body {
+  margin-left: 3px;
+  padding-left: 9px;
+  border-left: 1px solid rgba(154, 166, 179, 0.35);
+}
+/* By-enzyme mode splits each isoform's rows by direction: the sub-heading says it
+   once, and its drug names indent under it (the direction used to be repeated on
+   every single row). */
+.pk-dir {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--muted);
+  margin: 8px 0 1px;
+}
+.pk-dir:first-child { margin-top: 2px; }
+.pk-dir-body { padding-left: 10px; }
+/* "+N more" under a capped Interactions group: expands the rest in place, so a
+   long list is trimmed for readability without hiding what was trimmed. */
+.pk-more {
+  margin: 2px 0 8px;
+  padding: 2px 6px;
+  font: inherit;
+  font-size: 11px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 1px dotted rgba(var(--ink), 0.3);
+  cursor: pointer;
+}
+.pk-more:hover { color: var(--text); }
+/* A group heading that navigates (the Interactions by-enzyme headings). */
+.drug-cat.clickable { cursor: pointer; }
+.drug-cat.clickable:hover { color: var(--text); text-decoration: underline; }

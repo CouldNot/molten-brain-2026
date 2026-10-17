@@ -1,0 +1,114 @@
+:root {
+  /* Declare the page's own (dark) colour scheme so the browser's automatic
+     "force dark" / night mode leaves it alone instead of double-inverting it
+     (which turned the inverted molecule SVGs back to black-on-grey). Mirrors
+     the <meta name="color-scheme" content="dark"> in <head>. */
+  color-scheme: dark;
+  /* Spacing scale for the info panel (theme-free: the day block does not
+     redefine it). One knob per kind of gap, so a pill sits as far from its
+     text everywhere, and two chips as far from each other: xs/s inside one
+     item, m between text and the pill grading it, l between a row's items,
+     xl between sibling chips and below a section, indent for a sub-level. */
+  --sp-xs: 2px;
+  --sp-s: 4px;
+  --sp-m: 6px;
+  --sp-l: 8px;
+  --sp-xl: 12px;
+  --sp-indent: 12px;
+  --page-bg: #0e1116;
+  --panel-bg: rgba(20, 24, 31, 0.82);
+  --text: #e7ecf2;
+  --muted: #9aa6b3;
+  /* Emphasis text, one step past --text (a selected legend row, a hovered
+     heading): brighter than --text on a dark ground, DARKER than it on a light
+     one, which is why it is a token and not a literal #fff. The #fff that sits
+     ON var(--accent) is a different thing and stays white in both themes. */
+  --text-strong: #ffffff;
+  /* The overlay channel: every hairline border, hover fill and divider is
+     rgba(var(--ink), a). One triplet flips the whole chrome between a
+     white-on-dark and a black-on-light reading, which is what makes the light
+     theme a token swap instead of 67 hand edits. */
+  --ink: 255, 255, 255;
+  /* The floating structure-name labels sit over the 3D scene, not over a panel,
+     so they carry their own ink + halo rather than reading --text. */
+  --label-ink: #ffffff;
+  --label-halo: 0, 0, 0;
+  /* Molecule SVGs are published as black line art, so they need inverting on a
+     dark ground and NOT on a light one (see .mol-structure img). */
+  --mol-filter: invert(1);
+  /* UI accent: the purple of the parakeet_web logo's wing, so the chrome
+     (sliders, active tabs/buttons, focus rings, links) is purple-themed.
+     These are chrome only; the data/semantic colours (projection kinds,
+     provenance-grade pills, effect dots) live in generate_data.py/meta and
+     are deliberately untouched. --accent-soft is --accent at 0.35 alpha. */
+  --accent: #8a5cf0;
+  --accent-bright: #b48bff;
+  --accent-light: #c8a8ff;
+  --accent-soft: rgba(138, 92, 240, 0.35);
+  /* The bottom-left control-panel width (landscape). One source of truth so a
+     tooltip can size itself just under the panel (see .help-tip). Portrait
+     overrides the panel to full-width; the tooltip's vw cap covers that case. */
+  --panel-w: clamp(240px, 25vw, 420px);
+  /* Semantic ink for the graded chips, flag tags and callouts. Split out of the
+     rules that use it so the day theme can darken it in ONE place: every one of
+     these was picked to glow on a dark panel, and the very same value on a white
+     one is light-on-light (the yellow ~ pill measures 1.7:1 there). The tinted
+     GROUNDS are deliberately not tokenized: a 15%-alpha tint reads correctly over
+     either page colour, so only the text moves. */
+  --sem-missing: #ef5f6b;
+  --sem-llm: #b6bcc4;
+  --sem-sourced: #e3c14a;
+  --sem-verified: #66cf85;
+  --sem-uncertain: #f0913f;
+  --sem-unknown: #9aa8ff;
+  --sem-amber: #e6b86a;
+  --sem-caution: #e6b800;
+  /* The tooltip bubble's own ground. It is NOT --panel-bg: a tip is drawn over
+     the panel it explains, so it has to be opaque and a step further from the
+     page than the panel is, or the text behind it shows through. */
+  --tip-bg: rgba(18, 18, 22, 0.98);
+  --tip-shadow: rgba(0, 0, 0, 0.5);
+}
+/* The day theme: the same purple chrome over white instead of near-black. Only the
+   tokens above are redefined, never a rule, so a component added later is themed on
+   the day it lands (as long as it reads the tokens). The accents darken rather than
+   lighten: --accent-bright / -light mean "more prominent than --accent", which on
+   white is deeper, not paler, or a link would vanish.
+   Set by js/theme.js on <html>, and only ever by a visitor's click on the sun/moon
+   button in the panel header (persisted). Never by a media query: dark is the
+   fallback whenever nothing was chosen, so an unknown client gets the design the
+   data colours were picked for. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page-bg: #f5f3fa;
+  --panel-bg: rgba(255, 255, 255, 0.88);
+  --text: #1b1f27;
+  --muted: #5d6673;
+  --text-strong: #0a0d12;
+  --ink: 24, 28, 36;
+  --label-ink: #14181f;
+  --label-halo: 255, 255, 255;
+  --mol-filter: none;
+  --accent: #7c4ddb;
+  --accent-bright: #5f2fc4;
+  --accent-light: #4d21ab;
+  --accent-soft: rgba(124, 77, 219, 0.22);
+  /* The same roles, darkened: each clears 5:1 over its own tint on white. */
+  --sem-missing: #c1121f;
+  --sem-llm: #4c5561;
+  --sem-sourced: #7a5c00;
+  --sem-verified: #12703a;
+  --sem-uncertain: #9a4700;
+  --sem-unknown: #3a47a6;
+  --sem-amber: #8a5600;
+  --sem-caution: #7d6200;
+  --tip-bg: rgba(255, 255, 255, 0.99);
+  --tip-shadow: rgba(24, 28, 36, 0.22);
+}
+/* Token-only, like the block above, but scoped to the callouts: --addon-ink
+   defaults to the tone colour, which is exactly what a white ground cannot
+   carry. A boxed callout hands its text to the page ink (the tint and border
+   still say which tone it is); the bare ⚠ beside the T1/2 chip has no tinted
+   ground to say it with, so it keeps --sem-caution, which is themed already. */
+:root[data-theme="light"] .addon,
+:root[data-theme="light"] .sim-warn,

@@ -1,0 +1,227 @@
+/* Detail info (structure / connection / receptor / target / drug) lives in
+   the Details pane of the main panel, shown by the active detail tab (see
+   .panel-tabs / .detail-tabs above); the .info-* content styles below are
+   reused there. Each detail tab carries its own × close affordance. */
+.info-title { font-size: 14px; font-weight: 600; margin: 0 0 8px; }
+.info-route {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.info-route .conn-dir { color: var(--muted); }
+.info-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.info-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+.info-connections h3,
+.info-bindings h3,
+.info-bindings > summary, /* a collapsed section's summary IS its heading */
+.panel-sec > summary,
+.info-locations h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 var(--sp-m);
+}
+.info-bindings > summary:hover,
+.panel-sec > summary:hover { color: var(--text); }
+/* A folded detail-panel section (js/main.js foldSections): the open body sits
+   one step in under its heading. */
+.panel-sec { margin: 0 0 var(--sp-m); }
+.panel-sec > .panel-sec-body { padding-left: var(--sp-indent); }
+.info-connections ul,
+.info-bindings ul,
+.info-locations ul { list-style: none; margin: 0; padding: 0; }
+/* Receptor classification facts: label / value rows. */
+.info-facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-m);
+  margin: 0 0 var(--sp-xl);
+}
+.info-fact { display: flex; gap: var(--sp-l); font-size: 12px; line-height: 1.4; }
+.info-fact .fact-label { color: var(--muted); flex: 0 0 92px; }
+.info-fact .fact-value {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  text-transform: capitalize;
+}
+/* A clickable fact value (a drug's Class / Nomenclature): runs a search.
+   The connection panel's route endpoints share the same link styling. */
+.fact-link,
+.conn-endpoint {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent-bright);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-align: left;
+}
+.fact-link:hover,
+.conn-endpoint:hover { color: var(--accent-light); }
+/* A muted trailing note on a fact row (e.g. flagging a non-standard
+   nomenclature). `text-transform: none` overrides the row's capitalize. */
+.info-fact .fact-note {
+  color: var(--muted);
+  font-style: italic;
+  text-transform: none;
+}
+/* A drug's regulatory-history rows (js/drug-history.js): prose values, so not
+   capitalized; a market withdrawal reads in caution ink. */
+.info-fact.fact-history .fact-value { text-transform: none; }
+.info-fact.fact-warning .fact-value { color: var(--sem-caution); }
+/* One withdrawal node in a grouped row: its country, then its own pill. */
+.info-fact .fact-place { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+/* Receptor "found in" region list. Each row is name + its own expression
+   provenance pill, pushed to the right (the claim "this receptor is expressed
+   here" is graded per region). */
+.info-locations { margin-top: 4px; }
+.info-locations li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+}
+/* The name only takes the width it needs so its provenance pill sits right
+   beside it (more legible than stranding the pill at the far panel edge). */
+.info-locations .loc-name { flex: 0 1 auto; min-width: 0; }
+/* Non-human expression flag ("· rat"): amber, same token as the Ki chip's
+   non-human tint, so a claim checked in animal (not human) tissue is visible
+   without hovering the pill. */
+.info-locations .loc-species {
+  flex: 0 0 auto;
+  font-size: 10px;
+  color: var(--sem-amber);
+  white-space: nowrap;
+  cursor: default;
+}
+/* Relative amount per region (Allen mRNA), when the owner carries a measured
+   profile. The caption + its grade pill sit once above the rows because the
+   profile is ONE claim; only the value varies per row. */
+.info-locations .loc-density-caption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 2px;
+  font-size: 11px;
+  color: var(--muted);
+  cursor: help;
+}
+.info-locations .loc-density-agree {
+  font-size: 10px;
+  color: var(--muted);
+  opacity: 0.85;
+  white-space: nowrap;
+}
+/* Per-row bar + signed z. The bar is scaled against this owner's own strongest
+   region (a z is only comparable within one gene), so it reads as "more here
+   than there", never as an absolute quantity. */
+.info-locations .loc-density {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  cursor: help;
+}
+.info-locations .loc-density-bar {
+  width: 34px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(var(--ink), 0.12);
+  background-image: linear-gradient(var(--accent-bright), var(--accent-bright));
+  background-repeat: no-repeat;
+  background-size: var(--fill, 0%) 100%;
+}
+.info-locations .loc-density-z {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  min-width: 30px;
+  text-align: right;
+}
+/* A region row that resolves to a modeled structure jumps to it on click. */
+.info-locations li.clickable { cursor: pointer; }
+.info-locations li.clickable:hover { color: var(--accent-bright); }
+/* receptor_effect rows (BETA): "<effect>  <mode>" + the node's pill on a
+   receptor / target panel; on a drug panel, "could cause <effect>" then one
+   "via" chip per binding (jumps to the target) with that effect node's pill. */
+.info-effects .eff-mode { font-size: 10px; color: var(--muted); white-space: nowrap; }
+.info-effects li.eff-row { flex-wrap: wrap; align-items: baseline; }
+.info-effects .workup-cond { font-style: italic; opacity: 0.75; font-size: 0.92em; }
+.info-effects .eff-via { display: flex; flex-wrap: wrap; gap: 2px 10px; flex: 1 1 100%; padding-left: 10px; }
+.info-effects .eff-via-item { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; }
+.info-effects .eff-chip {
+  background: none; border: none; padding: 0; font: inherit;
+  color: var(--accent-bright); cursor: pointer; text-align: left;
+}
+.info-effects .eff-chip:hover { color: var(--accent-light); }
+/* A row head that opens another panel (an effect, a drug): see linkName. */
+.info-effects .eff-link { cursor: pointer; }
+.info-effects .eff-link:hover { color: var(--accent-light); text-decoration: underline; }
+.info-effects .eff-chip:disabled { color: var(--muted); cursor: default; }
+/* receptor_release_modulation rows (BETA): the site line ("heteroreceptor on
+   GABA interneurons in VTA") wraps under the claim, like the drug-panel via chips. */
+.info-effects .eff-site { white-space: normal; flex: 1 1 100%; padding-left: 10px; }
+/* receptor_demographic rows (BETA): the direction chip ("↓ Age") before the sentence. */
+.info-effects .demog-chip {
+  flex: none; font-size: 10px; padding: 0 5px; border-radius: 8px; white-space: nowrap;
+  border: 1px solid rgba(var(--ink), 0.2); color: var(--accent-light);
+}
+/* receptor_variant rows (ClinPGx #20): a sub-heading per variant (or per target
+   on a drug panel), then "[Level 3 · low] may be associated with ..." + pill,
+   and a muted phenotype / population / ClinPGx line wrapping under it. */
+.info-variants .var-name { margin: 9px 0 2px; font-size: 11px; font-weight: 600;
+  color: var(--accent-light); overflow-wrap: anywhere; }
+.info-variants li.var-row { flex-wrap: wrap; align-items: baseline; margin-bottom: 3px; }
+.info-variants .var-level {
+  flex: none; font-size: 10px; padding: 0 5px; border-radius: 8px; white-space: nowrap;
+  border: 1px solid rgba(var(--ink), 0.2); color: rgba(var(--ink), 0.75); cursor: help;
+}
+.info-variants .var-meta { flex: 1 1 100%; padding-left: 10px; font-size: 10px;
+  color: var(--muted); }
+.info-variants .var-meta a { color: var(--accent-bright); }
+.info-variants .var-target {
+  background: none; border: none; padding: 0; font: inherit;
+  color: var(--accent-bright); cursor: pointer; text-align: left;
+}
+.info-variants .var-target:disabled { color: var(--muted); cursor: default; }
+/* Anatomical-group sub-headings inside the "Found in" list (one per group, in
+   the Structures-legend order): a level below the section's h3, with top space
+   so each group reads as its own block (which also spreads the pills apart). */
+.info-locations .loc-groups { display: flex; flex-direction: column; }
+.info-locations .loc-group-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-light);
+  margin: 9px 0 2px;
+}
+.info-locations .loc-group-label:first-child { margin-top: 0; }
+/* The "Throughout the brain" line for a ubiquitous receptor carries its own
+   grade pill (one expression claim), so lay it out like a location row. */
+.info-desc-pilled { display: flex; align-items: center; gap: 6px; }

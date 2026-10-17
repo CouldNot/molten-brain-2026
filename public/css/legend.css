@@ -1,0 +1,151 @@
+/* The section bodies are NOT individually capped/scrolled: the whole panel
+   list (#controls-main) is the single scroll area now, so an open section
+   shows at its natural height and you scroll through it before reaching the
+   lower collapsed headers (see #controls above). */
+/* Receptor rows reuse the .legend-item styling; the family headings reuse
+   the legend h2 look (added to those rules below). A "stub" receptor (no
+   CNS role) renders muted + non-clickable. */
+#receptors-body, #enzymes-body, #effects-body { padding: 4px 0 8px; }
+.legend-item.muted { opacity: 0.4; cursor: default; }
+.legend-item.muted:hover { color: inherit; }
+
+/* Drugs section: a small filter box at the top of the section body, then
+   category headings + drug rows (reusing .legend-item; rows are coloured by
+   the drug's dominant net-effect swatch). The filter reuses the search-input
+   look. (The body is not its own scroll area now; the whole panel list
+   scrolls, so the filter scrolls with the rows.) */
+#drugs-body { padding: 4px 0 8px; }
+.drugs-filter {
+  width: 100%;
+  padding: 7px 9px;
+  margin: 2px 0 8px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text);
+  background: rgba(var(--ink), 0.06);
+  border: 1px solid rgba(var(--ink), 0.12);
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+}
+.drugs-filter:focus { border-color: var(--accent); }
+.drug-item[hidden] { display: none; }
+.drugs-empty { margin: 6px 2px; font-size: 12px; }
+/* The arrow colour-mode switch sits among the Controls toggles, spaced off
+   the toggle grid above it. */
+#controls-settings-body #color-mode { margin-top: 12px; }
+/* Static Legend "key" captions: a muted one-liner under a heading saying
+   what the swatches below it mean (built by buildLegendKey). */
+.legend-caption {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+/* Arrow colour-mode switch (Neurotransmitter | Potential): a small heading
+   over a two-button segmented control, the active option highlighted blue
+   like the language switch / .tool-btn.active. Sits in the Controls section. */
+.mode-switch { display: flex; flex-direction: column; gap: 6px; }
+.mode-label { color: var(--muted); font-size: 12px; }
+.mode-options { display: flex; gap: 4px; }
+.mode-btn {
+  flex: 1 1 0;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(var(--ink), 0.06);
+  border: 1px solid rgba(var(--ink), 0.12);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.mode-btn:hover { background: rgba(var(--ink), 0.12); color: var(--text); }
+.mode-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+#structures-body h2:first-child,
+#projections-body h2:first-child,
+#legend-body h2:first-child,
+#receptors-body h2:first-child,
+#enzymes-body h2:first-child,
+#drugs-list h2:first-child { margin-top: 0; }
+#structures h2:first-child,
+#projections h2:first-child { margin-top: 0; }
+#structures h2,
+#projections h2,
+#legend-body h2,
+#receptors h2,
+#drugs h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+/* Receptor family + drug category headings stack one after another, so
+   space them apart. */
+#receptors-body h2,
+#enzymes-body h2,
+#drugs-list h2 { margin: 14px 0 8px; }
+/* Small checkbox row under a browse list's filter box (Drugs "show active
+   metabolites", Data browser "show mirrored twins"). */
+.list-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 2px;
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+.list-toggle input { margin: 0; }
+/* Active-metabolite bullet under a parent drug row: indented + dimmer so it
+   reads as a discreet sub-item, with its T½ trailing in muted text. */
+/* --metab-depth (set only past the first level) steps the indent for a
+   metabolite of a metabolite: loxapine -> amoxapine -> 7-hydroxyamoxapine. */
+#drugs-list .metab-item {
+  margin-left: calc(22px * var(--metab-depth, 1));
+  padding: 1px 0;
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.85;
+}
+#drugs-list .metab-item::before { content: "└ "; opacity: 0.5; }
+#drugs-list .metab-item.clickable { cursor: pointer; }
+#drugs-list .metab-item.clickable:hover { color: var(--text); opacity: 1; }
+#drugs-list .metab-item .metab-item-hl { margin-left: 6px; opacity: 0.75; }
+/* Clickable category headings toggle the whole group; same selected/dimmed
+   states as the rows. The clickable group headings live in #structures
+   (the region rows); #projections headings are plain labels. */
+#structures h2.clickable,
+#projections h2.clickable { cursor: pointer; }
+#structures h2.clickable:hover,
+#projections h2.clickable:hover { color: var(--text-strong); }
+#structures h2.selected,
+#projections h2.selected { color: var(--text-strong); }
+#structures h2.dimmed,
+#projections h2.dimmed { opacity: 0.4; }
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+  font-size: 13px;
+}
+/* Structure rows are clickable to isolate that region (projection-kind
+   rows are not). A subtle hover hints at it. */
+.legend-item.clickable { cursor: pointer; }
+.legend-item.clickable:hover { color: var(--text-strong); }
+/* Isolate/focus mode (a structure row was clicked): the picked rows stay
+   lit and bold, the rest grey out, mirroring the dimmed structures. */
+.legend-item.selected { font-weight: 600; color: var(--text-strong); }
+.legend-item.dimmed { opacity: 0.35; }
+/* A muted kind tag after a non-receptor target's name (e.g. "transporter")
+   in the merged Receptors & targets section. */
+.legend-tag { color: var(--muted); font-size: 11px; margin-left: auto; }
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+.swatch.line { height: 4px; border-radius: 2px; }

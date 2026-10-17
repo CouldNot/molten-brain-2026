@@ -81,7 +81,7 @@ ADDON_DISPLAYS: tuple[str, ...] = ("admonition", "collapsible")
 
 # Tone -> its glyph. The tone is the *claim's* register (a caution reads louder
 # than a note), so it is data; the colour ramp each tone paints with is UI chrome
-# and lives with the rest of the panel CSS in index.html.
+# and lives with the rest of the panel CSS in public/css/panel-drug.css.
 ADDON_TONES: dict[str, str] = {
     "info": "ℹ",
     "caution": "⚠",
