@@ -40,9 +40,9 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import datetime as dt
-import importlib.util
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -134,12 +134,24 @@ def product_information(documents: list[dict]) -> dict[str, dict]:
     return out
 
 
+# The only host a url read off EMA's downloaded tables may point at: the tables are
+# downloaded data, so a url in them is never fetched unless it is EMA's own.
+EMA_ORIGIN = "https://www.ema.europa.eu/"
+
+
+def is_ema_url(url: object) -> bool:
+    """True for an ``https://www.ema.europa.eu/`` url, the one host this module fetches."""
+    return isinstance(url, str) and url.startswith(EMA_ORIGIN)
+
+
 def smpc_url(doc: dict) -> tuple[str, str] | None:
-    """``(pdf url, language)``: the French PDF, else the English one, else None."""
-    fr = (doc.get("translations") or {}).get("fr")
-    if fr:
-        return fr, "fr"
-    return (doc["document_url"], "en") if doc.get("document_url") else None
+    """``(pdf url, language)``: the French PDF, else the English one, else None. A url
+    off EMA's own host is skipped, never fetched (:func:`is_ema_url`)."""
+    for url, lang in (((doc.get("translations") or {}).get("fr"), "fr"),
+                      (doc.get("document_url"), "en")):
+        if is_ema_url(url):
+            return url, lang
+    return None
 
 
 def describe(rec: dict, doc: dict, url: str, lang: str) -> dict:
@@ -165,6 +177,17 @@ def _load_table(path: Path, url: str, refresh: bool) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))["data"]
 
 
+# Loads justelesRCP's converter by path and runs it on stdin: the body of the isolated
+# child :meth:`Epar.convert` spawns (argv[1] = the converter's path).
+_CONVERT_CHILD = (
+    "import importlib.util, json, sys\n"
+    "spec = importlib.util.spec_from_file_location('justelesrcp_ema_pdf', sys.argv[1])\n"
+    "mod = importlib.util.module_from_spec(spec)\n"
+    "spec.loader.exec_module(mod)\n"
+    "json.dump(mod.convert(sys.stdin.buffer.read()), sys.stdout)\n"
+)
+
+
 class Epar:
     """EMA's two tables plus the SmPC store; one instance per fetcher run."""
 
@@ -172,7 +195,7 @@ class Epar:
                  offline: bool = False):
         self.medicines = _load_table(MEDICINES_FILE, MEDICINES_URL, refresh)
         self.docs = product_information(_load_table(DOCUMENTS_FILE, DOCUMENTS_URL, refresh))
-        self.justelesrcp, self.offline, self._convert = justelesrcp, offline, None
+        self.justelesrcp, self.offline = justelesrcp, offline
         # A PDF justelesRCP already converted, keyed by its url (it names the CIS).
         self.by_pdf = {e["ema_pdf"]: cis for cis, e in ema_manifest.items()
                        if isinstance(e, dict) and e.get("ema_pdf")}
@@ -187,14 +210,19 @@ class Epar:
                 return rec, doc, *found
         return None
 
-    def converter(self):
-        if self._convert is None:
-            path = self.justelesrcp / "src" / "ema_pdf.py"
-            spec = importlib.util.spec_from_file_location("justelesrcp_ema_pdf", path)
-            mod = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(mod)   # needs pymupdf (uv run --with pymupdf)
-            self._convert = mod.convert
-        return self._convert
+    def convert(self, pdf: bytes) -> dict:
+        """justelesRCP's ``src/ema_pdf.convert`` over ``pdf`` (needs pymupdf: ``uv run
+        --with pymupdf``), run in a ``python -I`` child: the sibling checkout is not ours,
+        so it never shares this process, and isolation keeps its directory (or ours) off
+        the child's import path. The PDF goes in on stdin, the ``{html, date}`` dict comes
+        back as JSON; a failing converter raises with its stderr tail."""
+        path = self.justelesrcp / "src" / "ema_pdf.py"
+        proc = subprocess.run([sys.executable, "-I", "-c", _CONVERT_CHILD, str(path)],
+                              input=pdf, capture_output=True, timeout=600, check=False)
+        if proc.returncode:
+            raise RuntimeError(f"{path} failed (exit {proc.returncode}): "
+                               f"{proc.stderr.decode('utf-8', 'replace')[-2000:]}")
+        return json.loads(proc.stdout)
 
     def smpc(self, page: str, url: str, refresh: bool = False) -> dict | None:
         """The converted SmPC ``{html, fetched, date_source, copied_from}`` for ``page``,
@@ -208,11 +236,13 @@ class Epar:
                         "copied_from": f"neurarium data_sources/ema/raw/{page}.html"}
         if self.offline:
             return None
+        if not is_ema_url(url):
+            raise ValueError(f"refusing to fetch {url!r}: not an {EMA_ORIGIN} url")
         print(f"  [ema] downloading {url}")
         pdf = fetch_dailymed._get(url, binary=True)
         if not pdf or not pdf.startswith(b"%PDF"):
             return None
-        conv = self.converter()(pdf)
+        conv = self.convert(pdf)
         if not conv.get("html"):
             return None
         fetched = dt.date.today().isoformat()

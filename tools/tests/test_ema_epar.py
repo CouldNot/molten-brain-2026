@@ -91,11 +91,19 @@ class MatcherTest(unittest.TestCase):
 
 class SmpcUrlTest(unittest.TestCase):
     def test_french_first_else_english(self):
-        doc = {"document_url": "https://e/x_en.pdf", "translations": {"fr": "https://e/x_fr.pdf"}}
-        self.assertEqual(E.smpc_url(doc), ("https://e/x_fr.pdf", "fr"))
-        self.assertEqual(E.smpc_url({"document_url": "https://e/x_en.pdf"}),
-                         ("https://e/x_en.pdf", "en"))
+        en, fr = "https://www.ema.europa.eu/x_en.pdf", "https://www.ema.europa.eu/x_fr.pdf"
+        self.assertEqual(E.smpc_url({"document_url": en, "translations": {"fr": fr}}), (fr, "fr"))
+        self.assertEqual(E.smpc_url({"document_url": en}), (en, "en"))
         self.assertIsNone(E.smpc_url({}))
+
+    def test_a_url_off_ema_is_never_picked(self):
+        """Regression: the url comes from a downloaded table, so only EMA's own host is
+        fetched; a planted French url falls back to the English EMA one."""
+        doc = {"document_url": "https://www.ema.europa.eu/en/x_en.pdf",
+               "translations": {"fr": "https://evil.example/x_fr.pdf"}}
+        self.assertEqual(E.smpc_url(doc), ("https://www.ema.europa.eu/en/x_en.pdf", "en"))
+        self.assertIsNone(E.smpc_url({"document_url": "http://www.ema.europa.eu/x.pdf"}))
+        self.assertIsNone(E.smpc_url({"document_url": "https://www.ema.europa.eu.evil/x"}))
 
     def test_ids_and_dates(self):
         self.assertEqual(E.page_id("EMEA/H/C/003759"), "EMEA-H-C-003759")
@@ -161,6 +169,41 @@ class PageBuilderTest(unittest.TestCase):
         d = drug("atomoxetine", "Atomoxetine", ["Strattera"])
         self.assertIsNone(R.epar_copy(d, fetch_bdpm.drug_keys(d, {}), self.epar,
                                       Path(self.tmp.name), {}, False))
+
+
+class ConverterIsolationTest(unittest.TestCase):
+    """Regression: the sibling converter ran in-process; it now runs in a ``python -I``
+    child, so neither its directory nor ours is on the child's import path."""
+
+    def test_converter_runs_in_an_isolated_child(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp, "src")
+            src.mkdir()
+            # A planted module next to the converter: an un-isolated import would load it.
+            (src / "planted.py").write_text("LOADED = True\n", encoding="utf-8")
+            (src / "ema_pdf.py").write_text(
+                "import sys\n"
+                "def convert(pdf):\n"
+                "    try:\n"
+                "        import planted  # noqa: F401\n"
+                "        shadowed = True\n"
+                "    except ImportError:\n"
+                "        shadowed = False\n"
+                "    return {'html': str(sys.flags.isolated), 'date': str(shadowed),\n"
+                "            'n': len(pdf)}\n", encoding="utf-8")
+            epar = E.Epar.__new__(E.Epar)
+            epar.justelesrcp = Path(tmp)
+            self.assertEqual(epar.convert(b"%PDF-1.4"), {"html": "1", "date": "False", "n": 8})
+
+    def test_a_failing_converter_raises(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, "src").mkdir()
+            Path(tmp, "src", "ema_pdf.py").write_text(
+                "def convert(pdf):\n    raise ValueError('too many pages')\n", encoding="utf-8")
+            epar = E.Epar.__new__(E.Epar)
+            epar.justelesrcp = Path(tmp)
+            with self.assertRaisesRegex(RuntimeError, "too many pages"):
+                epar.convert(b"%PDF")
 
 
 if __name__ == "__main__":
