@@ -11,9 +11,7 @@ can refuse a pick whose index has since shifted onto another sentence.
 """
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
+from io_atomic import atomic_write_json
 from pipeline.judged import stamp
 
 
@@ -44,7 +42,4 @@ def merge_scoped_list(existing: list, scoped: list, key: str) -> list:
 
 def write(path, worklist, indent: int = 1, sort_keys: bool = False) -> None:
     """Stamp ``qid`` on every candidate of ``worklist`` and write it as UTF-8 JSON."""
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(stamp(worklist), ensure_ascii=False, indent=indent,
-                               sort_keys=sort_keys) + "\n", encoding="utf-8")
+    atomic_write_json(path, stamp(worklist), indent=indent, sort_keys=sort_keys)

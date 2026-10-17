@@ -22,6 +22,7 @@ import json
 import re
 from pathlib import Path
 
+from io_atomic import atomic_write_text
 from text_fold import ascii_key
 
 DRUGS_PATH = Path(__file__).resolve().parent / "data" / "drugs_data.jsonl"
@@ -62,7 +63,7 @@ def save_drugs(records, path=None) -> None:
     """Write the records as JSONL (compact, key order preserved), one per line."""
     p = Path(path) if path is not None else DRUGS_PATH
     lines = [json.dumps(rec, ensure_ascii=False) for rec in records]
-    p.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    atomic_write_text(p, "\n".join(lines) + "\n")
 
 
 def load_metabolites(path=None) -> list[dict]:
