@@ -97,6 +97,9 @@ class PredicateTest(unittest.TestCase):
         self.assertTrue(bg.stereo_mixed("(S)-ketamine blocks NMDA .", []))
         self.assertTrue(bg.stereo_mixed("Like esketamine, it blocks NMDA .", ["esketamine"]))
         self.assertFalse(bg.stereo_mixed("Ketamine blocks NMDA .", ["esketamine"]))
+        self.assertTrue(bg.stereo_mixed("(R)-Ketamine blocks NMDA .", []))
+        # A plural "(s)" is no CIP descriptor: the sentence stays offerable.
+        self.assertFalse(bg.stereo_mixed("It blocks the receptor(s) at 5-HT2A .", []))
 
     def test_stereo_siblings_name_the_relative_never_the_drug(self):
         roster = drugs()

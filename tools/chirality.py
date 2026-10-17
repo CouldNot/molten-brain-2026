@@ -55,10 +55,11 @@ STEREO = {
 # A trailing or leading optical-rotation tag: "(-)-baclofen", "PENTAZOCINE (+)",
 # "Tramadol,(+)", "Pentazocine,(+/-)", "(±)-nicotine". Only parenthesised tags are
 # read, so an unrelated hyphen ("N-desmethylclozapine", "Methylphenidate-d") is
-# left alone and keeps matching exactly as before.
-_TAG = r"\(\s*(±|\+\s*/\s*-|\+-|-\s*/\s*\+|\+|-|−|–)\s*\)"
-_LEAD = re.compile(r"^\s*" + _TAG + r"\s*[-‐-―]?\s*", re.I)
-_TRAIL = re.compile(r"\s*[,\-‐-―]?\s*" + _TAG + r"\s*$", re.I)
+# left alone and keeps matching exactly as before. Public: binding_gaps reads prose
+# stereo descriptors with the same grammar.
+TAG = r"\(\s*(±|\+\s*/\s*-|\+-|-\s*/\s*\+|\+|-|−|–)\s*\)"
+_LEAD = re.compile(r"^\s*" + TAG + r"\s*[-‐-―]?\s*", re.I)
+_TRAIL = re.compile(r"\s*[,\-‐-―]?\s*" + TAG + r"\s*$", re.I)
 
 _RACEMIC = {"±", "+/-", "+-", "-/+"}
 

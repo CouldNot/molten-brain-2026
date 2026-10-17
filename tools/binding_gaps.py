@@ -50,9 +50,10 @@ CLAUSE_SPLIT_RE = re.compile(r";|\b(?:but|whereas|while|although|though|however)
 
 # An explicit stereo descriptor in prose, "(S)-ketamine", "(+)-nicotine", "(R,S)-",
 # reusing the PDSP / GtoPdb tag grammar `chirality` reads (rotation signs), plus the
-# CIP letters prose uses where a database writes a sign.
+# CIP letters prose uses where a database writes a sign. Case-sensitive: CIP letters
+# are capitals, and a lower-case "(s)" is a plural ("the receptor(s) involved").
 STEREO_TAG_RE = re.compile(
-    r"(?:" + chirality._TAG + r"|\(\s*(?:[RS]|R\s*,\s*S|S\s*,\s*R)\s*\))\s*-?\s*[a-z]", re.I)
+    r"(?:" + chirality.TAG + r"|\(\s*(?:[RS]|R\s*,\s*S|S\s*,\s*R)\s*\))\s*-?\s*[A-Za-z]")
 
 
 def clauses(line: str) -> list[str]:
