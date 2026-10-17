@@ -62,6 +62,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)                       # sibling fetch_wikipedia_pharmacology.py
 sys.path.insert(0, os.path.join(REPO, "tools"))  # drugs_io
 import fetch_wikipedia_pharmacology as wp  # noqa: E402  (reuse fetch_page/store_page/etc.)
+from io_atomic import atomic_write_json  # noqa: E402
 import drugs_io  # noqa: E402
 
 DATA_DIR = wp.DATA_DIR                                    # data_sources/wikipedia
@@ -196,8 +197,7 @@ def main():
         prior.update(worklist)
         worklist = prior
 
-    with open(WORKLIST, "w", encoding="utf-8") as f:
-        json.dump(worklist, f, ensure_ascii=False, indent=2, sort_keys=True)
+    atomic_write_json(WORKLIST, worklist, trailing_newline=False, indent=2, sort_keys=True)
     print(f"\nwrote {os.path.relpath(WORKLIST, REPO)} ({len(worklist)} drugs)")
     if no_fr:
         print(f"{len(no_fr)} skipped:")

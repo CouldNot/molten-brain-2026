@@ -69,6 +69,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 import chirality  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 import drugs_io  # noqa: E402
 import polite_http  # noqa: E402 (the one polite GET)
 from fetch_cyp_wikipedia import page_for  # noqa: E402
@@ -378,8 +379,7 @@ def main() -> int:
         prior["skipped"].pop(did, None)
     prior["drugs"].update(entries)
     prior["skipped"].update(skipped)
-    CACHE_PATH.write_text(json.dumps(prior, indent=1, ensure_ascii=False, sort_keys=True)
-                          + "\n", encoding="utf-8")
+    atomic_write_json(CACHE_PATH, prior, indent=1, sort_keys=True)
     vals = prior["drugs"].values()
     print(f"{len(rows)} B3DB rows; {sum('xlogp' in e for e in vals)} XLogP3, "
           f"{sum('tpsa' in e for e in vals)} TPSA, {sum('bbb' in e for e in vals)} BBB "

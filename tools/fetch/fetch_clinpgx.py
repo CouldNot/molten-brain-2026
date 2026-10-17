@@ -33,7 +33,6 @@ from __future__ import annotations
 import argparse
 import csv
 import io
-import json
 import os
 import re
 import sys
@@ -46,6 +45,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 ZIP = os.path.join(ROOT, "data_sources", "clinpgx", "clinicalAnnotations.zip")
 
 sys.path.insert(0, os.path.join(ROOT, "tools"))
+from io_atomic import atomic_write_json, atomic_write_text  # noqa: E402
 import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 from data_generators.clinpgx import (  # noqa: E402
     DOWNLOAD_URL, EXPORT_NAME, PIN_CACHE, VARIANT_LEVELS, export_path, owners_of,
@@ -131,16 +131,11 @@ def main() -> None:
     path = export_path(ROOT)
     if not args.dry_run:
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w", encoding="utf-8") as fh:
-            json.dump(export, fh, ensure_ascii=False, indent=1, sort_keys=True)
-        with open(os.path.join(os.path.dirname(path), "LICENSE.txt"), "w",
-                  encoding="utf-8") as fh:
-            fh.write(licence_text)
+        atomic_write_json(path, export, trailing_newline=False, indent=1, sort_keys=True)
+        atomic_write_text(os.path.join(os.path.dirname(path), "LICENSE.txt"), licence_text)
         read_export(path)  # shape-check what was just written
-        with open(PIN_CACHE, "w", encoding="utf-8") as fh:
-            json.dump({"export_sha256": {EXPORT_NAME: sha256(path)}}, fh, indent=1,
-                      sort_keys=True)
-            fh.write("\n")
+        atomic_write_json(PIN_CACHE, {"export_sha256": {EXPORT_NAME: sha256(path)}},
+                          indent=1, sort_keys=True, ensure_ascii=True)
 
     levels = Counter(r["level"] for r in rows)
     genes = Counter(g for r in rows for g in r["genes"] if owners_of([g]))

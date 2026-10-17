@@ -52,6 +52,7 @@ from fetch_gtopdb import (  # noqa: E402  (path shim above)
     file_date,
     http_json,
 )
+from io_atomic import atomic_write_json  # noqa: E402  (tools/ is on sys.path via fetch_gtopdb)
 
 REPO = Path(__file__).resolve().parent.parent.parent   # script lives in tools/fetch/
 OUT = REPO / "data_sources" / "gtopdb"
@@ -211,8 +212,7 @@ def main() -> int:
         print(f"  [ok]   {owner:14s} ({gene:8s}) target {rec['target_id']:5d} "
               f"type={rec['type']:14s} transduction={len(rec['transduction'])}")
 
-    CACHE.write_text(json.dumps(cache, indent=2, sort_keys=True) + "\n",
-                     encoding="utf-8")
+    atomic_write_json(CACHE, cache, indent=2, sort_keys=True, ensure_ascii=True)
     print(f"\nwrote {CACHE.relative_to(REPO)}: {len(cache)} owners "
           f"({n_trans} with a transduction table this run)")
     print(f"pages under {PAGES.relative_to(REPO)}/")

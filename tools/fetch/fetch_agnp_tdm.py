@@ -43,7 +43,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import sys
 from pathlib import Path
@@ -51,6 +50,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 from check_data import normalize_for_match  # noqa: E402  (the gate's own normalizer)
 from text_fold import alnum_key  # noqa: E402
 
@@ -453,8 +453,7 @@ def main() -> int:
              "enzymes": dict(sorted(enzymes.items())),
              "table1_named": dict(sorted(table1_named(t1, index).items())),
              "skipped": skipped}
-    CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=1) + "\n",
-                          encoding="utf-8")
+    atomic_write_json(CACHE_PATH, cache, indent=1)
     write_index_table(drugs)
     print(f"{len(ranges)} ranges ({sum('alert' in r for r in ranges.values())} with an "
           f"alert level), {len(skipped)} skipped, {len(enzymes)} drugs with Table 1 "

@@ -79,6 +79,7 @@ sys.path.insert(0, str(HERE))
 import chirality                                                # noqa: E402
 from text_fold import strip_accents                             # noqa: E402
 import drugs_io                                                 # noqa: E402
+from io_atomic import atomic_write_json                         # noqa: E402
 import polite_http                                              # noqa: E402 (the one polite GET)
 import fetch_half_life                                          # noqa: E402 (HALF_LIFE_RE)
 import fetch_tmax                                               # noqa: E402 (PEAK_RE, durations)
@@ -540,11 +541,9 @@ def main() -> int:
         counts[outcome] = counts.get(outcome, 0) + 1
         print(f"[{i}/{len(drugs)}] {did}: {outcome}")
         if outcome == "stored":
-            CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=1,
-                                             sort_keys=True) + "\n", encoding="utf-8")
+            atomic_write_json(CACHE_PATH, cache, indent=1, sort_keys=True)
     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=1, sort_keys=True)
-                          + "\n", encoding="utf-8")
+    atomic_write_json(CACHE_PATH, cache, indent=1, sort_keys=True)
     print("[ok] " + ", ".join(f"{k}={v}" for k, v in sorted(counts.items()))
           + f" -> {CACHE_PATH.relative_to(ROOT)}")
     return 0

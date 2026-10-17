@@ -76,6 +76,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 
 import drugs_io                                                 # noqa: E402
+from io_atomic import atomic_write_json                         # noqa: E402
 import polite_http  # noqa: E402 (the one polite GET)
 
 API = "https://dailymed.nlm.nih.gov/dailymed/services/v2"
@@ -354,11 +355,8 @@ def main() -> int:
         print(f"[{i}/{len(todo)}] {drug['id']}: {outcome}", flush=True)
         if outcome == "stored":        # persist as we go: the run is long and resumable
             CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-            CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False,
-                                             indent=1, sort_keys=True) + "\n",
-                                  encoding="utf-8")
-    CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=1,
-                                     sort_keys=True) + "\n", encoding="utf-8")
+            atomic_write_json(CACHE_PATH, cache, indent=1, sort_keys=True)
+    atomic_write_json(CACHE_PATH, cache, indent=1, sort_keys=True)
     print(f"[ok] {len(todo)} drug(s): "
           + ", ".join(f"{k}={v}" for k, v in sorted(counts.items()))
           + f"; {len(cache)} label(s) in {CACHE_PATH.relative_to(ROOT)}")

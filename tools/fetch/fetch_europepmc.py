@@ -103,6 +103,7 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent))
 import polite_http                                            # noqa: E402 (the one polite GET)
 from species import species_key                                # noqa: E402
+from io_atomic import atomic_write_json, atomic_write_text      # noqa: E402
 
 API = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 FULL_TEXT_API = "https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
@@ -610,9 +611,8 @@ def ledger_search(rows: list, ledger_path: Path, refresh: bool,
                         "searched": time.strftime("%Y-%m-%d")}
         print(f"[{i}/{len(rows)}] {site}: {hits} hit(s), read {len(pmids)}")
         if i % 25 == 0:
-            ledger_path.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n",
-                                   "utf-8")
-    ledger_path.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n", "utf-8")
+            atomic_write_json(ledger_path, ledger, indent=1, sort_keys=True, ensure_ascii=True)
+    atomic_write_json(ledger_path, ledger, indent=1, sort_keys=True, ensure_ascii=True)
     print(f"ledger: {len(ledger)} site(s); {failed} failed request(s)")
     return 1 if failed else 0
 
@@ -725,9 +725,9 @@ def write_species_ledger() -> int:
     ledger = {}
     for raw in sorted(RAW_DIR.glob("*.json")):
         ledger[raw.stem] = species_of(json.loads(raw.read_text("utf-8")))
-    SPECIES_LEDGER.write_text(
+    atomic_write_text(SPECIES_LEDGER,
         "{\n" + ",\n".join(f"{json.dumps(k)}: {json.dumps(v)}"
-                             for k, v in sorted(ledger.items())) + "\n}\n", "utf-8")
+                             for k, v in sorted(ledger.items())) + "\n}\n")
     print(f"species: {len(ledger)} record(s), "
           f"{sum(1 for v in ledger.values() if v)} naming a species")
     return 0

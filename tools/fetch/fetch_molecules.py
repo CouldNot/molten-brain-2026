@@ -41,6 +41,7 @@ TOOLS = Path(__file__).resolve().parent.parent   # tools/ (script lives in tools
 REPO = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import polite_http  # noqa: E402 (the one polite GET + User-Agent)
+from io_atomic import atomic_write_json  # noqa: E402
 DRUGS_JSONL = REPO / "public" / "data" / "drugs.jsonl"
 OUT_DIR = REPO / "public" / "data" / "molecules"
 SOURCES_JSON = TOOLS / "generated_cache" / "molecules_sources.json"
@@ -357,9 +358,7 @@ def main() -> None:
         time.sleep(args.delay)
 
     # Persist provenance (sorted for a stable diff).
-    SOURCES_JSON.write_text(
-        json.dumps(dict(sorted(sources.items())), ensure_ascii=False, indent=2)
-        + "\n", encoding="utf-8")
+    atomic_write_json(SOURCES_JSON, dict(sorted(sources.items())), indent=2)
 
     print("\n=== summary ===")
     print(f"fetched : {len(fetched)}")

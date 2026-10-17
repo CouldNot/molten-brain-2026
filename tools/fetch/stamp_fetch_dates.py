@@ -19,12 +19,12 @@ from __future__ import annotations
 
 import argparse
 import datetime
-import json
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from data_generators import freshness, page_links  # noqa: E402  (path shim above)
+from io_atomic import atomic_write_json  # noqa: E402
 
 
 def main() -> int:
@@ -50,8 +50,7 @@ def main() -> int:
     if args.dry_run:
         return 0
     for path, data in ((freshness.LEDGER_PATH, ledger), (page_links.LEDGER_PATH, links)):
-        Path(path).write_text(json.dumps(data, indent=1, sort_keys=True) + "\n",
-                              encoding="utf-8")
+        atomic_write_json(path, data, indent=1, sort_keys=True, ensure_ascii=True)
         print(f"wrote {Path(path).relative_to(freshness.ROOT)}")
     return 0
 

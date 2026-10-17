@@ -63,6 +63,7 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
+from io_atomic import atomic_write_json  # noqa: E402
 import check_data  # noqa: E402  (reuse the quote gate's normalizer + INDEX parser)
 
 STAHL = "stahl"
@@ -407,9 +408,7 @@ def main() -> int:
     if args.dry_run:
         print("--dry-run: cache not written")
         return 0
-    with open(CACHE, "w", encoding="utf-8") as fh:
-        json.dump(payload, fh, ensure_ascii=False, indent=2, sort_keys=False)
-        fh.write("\n")
+    atomic_write_json(CACHE, payload, indent=2)
     print(f"wrote {CACHE} ({len(resolved)} trails)")
     return 0
 

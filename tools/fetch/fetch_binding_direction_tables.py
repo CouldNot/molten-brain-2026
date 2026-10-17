@@ -65,6 +65,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 sys.path.insert(0, HERE)
 
+from io_atomic import atomic_write_json  # noqa: E402
 import drugs_io  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402 (owns PAGE_ALIASES + the slug rule)
 import fetch_wikipedia_pharmacology as wiki  # noqa: E402 (grid, headers, resolver, row text)
@@ -218,9 +219,7 @@ def main() -> int:
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
     proposals, stats = build(only)
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump(proposals, f, indent=1, ensure_ascii=False)
-        f.write("\n")
+    atomic_write_json(args.out, proposals, indent=1)
     print(f"{stats['proposal']} table-stated direction(s) over {len(proposals)} drug(s) "
           f"-> {os.path.relpath(args.out, REPO)}")
     for key, n in sorted(stats.items()):

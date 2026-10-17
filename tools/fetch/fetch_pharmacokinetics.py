@@ -35,7 +35,6 @@ Usage (from the repo root): python tools/fetch/fetch_pharmacokinetics.py
 Stdlib only; author-side (needs the gitignored data_sources/books/stahl tree).
 """
 import argparse
-import json
 import re
 import sys
 from pathlib import Path
@@ -43,6 +42,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io                                                 # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 
 STAHL_DIR = ROOT / "data_sources" / "books" / "stahl"
 INDEX_PATH = STAHL_DIR / "INDEX.md"
@@ -188,8 +188,7 @@ def main() -> int:
         }
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(worklist, ensure_ascii=False, indent=2),
-                        encoding="utf-8")
+    atomic_write_json(args.out, worklist, trailing_newline=False, indent=2)
     n_hl = sum(1 for v in worklist.values() if v["half_life_candidates"])
     n_met = sum(1 for v in worklist.values() if v["metabolite_candidates"])
     print(f"[ok] wrote {args.out.relative_to(ROOT)}: {matched} Stahl drugs "
