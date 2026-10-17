@@ -3,6 +3,7 @@
 // the image gallery.
 
 import { clipLead, fetchWikiLead } from "../wiki.js";
+import { isWebUrl } from "../web-url.js";
 
 const { t } = window.__I18N__;
 
@@ -18,7 +19,7 @@ export function makeReference(P) {
   // the link only repeated it. A missing reference still renders the label + the
   // red NOSOURCE pill, so the gap stays visible like a source.
   const appendWiki = (url) => {
-    const ok = typeof url === "string" && /^https?:\/\//i.test(url);
+    const ok = isWebUrl(url);
     const wrap = el("div", "info-wiki");
     if (ok) {
       const a = el("a", null, t("info.wikipedia"));
@@ -102,7 +103,7 @@ export function makeReference(P) {
   const liveWikiDescription = (url, {
     paragraph = null, anchor = null, before = false, linkWrap = null,
   } = {}) => {
-    if (typeof url !== "string" || !/^https?:\/\//i.test(url)) return;
+    if (!isWebUrl(url)) return;
     fetchWikiLead(url, window.__I18N__.lang).then((live) => {
       if (!live || !live.text) return;
       let p = paragraph;

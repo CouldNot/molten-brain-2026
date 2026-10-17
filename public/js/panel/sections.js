@@ -2,6 +2,7 @@
 // modulation, demographics, genetic variants and the work-up list, each a betaSection.
 
 import { attachTip } from "./tooltip.js";
+import { isWebUrl } from "../web-url.js";
 import { deriveReleaseChanges, transmitterVars } from "../release-modulation.js";
 import { formatConditions, groupWorkup } from "../workup.js";
 import { groupByVariant, variantsForDrug } from "../receptor-variants.js";
@@ -191,7 +192,7 @@ export function makeSections(P) {
       [row.phenotypes.join(", "),
        row.population ? t("variant.population", { population: row.population }) : ""]
         .filter(Boolean).join(" · "));
-    if (row.url) {
+    if (isWebUrl(row.url)) {
       const a = el("a", null, t("variant.link"));
       a.href = row.url;
       a.target = "_blank";

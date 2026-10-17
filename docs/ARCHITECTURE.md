@@ -427,6 +427,7 @@ Viewer (`public/`):
   state (read by every animated module): `enabled` (the **Animations** toggle) + `quality` (0..1
   adaptive) + `speed` (persisted 0.25..4 speed multiplier, the **Animation speed** slider). See
   Settings & toggles + Rendering (adaptive quality).
+- `js/web-url.js`: `isWebUrl(url)`, the one http(s) scheme guard every data-derived `href` goes through (DOM-free, so pure modules can import it).
 - `js/wiki.js`: `fetchWikiLead(url, lang)` runtime fetch of a Wikipedia lead; locale wins via
   langlinks, English fallback; cached; best-effort (failure -> null).
 - `js/tour.js`: `createTour({steps, labels, onEnd, seenKey})`, a generic, three.js-free coach-mark

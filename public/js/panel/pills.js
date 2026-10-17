@@ -3,6 +3,7 @@
 // uncertainty bullets. A factory over the panel kit P (see panel/info.js).
 
 import { NOSOURCE_GLYPH } from "./format.js";
+import { isWebUrl } from "../web-url.js";
 import { attachTip, linkifiedText } from "./tooltip.js";
 import { shownGrade } from "../node-browser.js";
 import { withFetched } from "../data.js";
@@ -226,8 +227,8 @@ export function makePills(P) {
   // kiChip does not, since it appends its own kiCited explainer after).
   const kiCorpusRefNode = (ki, { dash = false } = {}) => {
     const label = ki.corpusRef || "PDSP Ki Database";
-    const refUrl = /^https?:\/\//i.test(ki.reference || "") ? ki.reference
-      : (/^https?:\/\//i.test(ki.corpusUrl || "") ? ki.corpusUrl : "");
+    const refUrl = isWebUrl(ki.reference) ? ki.reference
+      : (isWebUrl(ki.corpusUrl) ? ki.corpusUrl : "");
     const frag = document.createDocumentFragment();
     if (dash) frag.append("— ");
     if (refUrl) {

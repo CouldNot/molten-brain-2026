@@ -6,6 +6,7 @@ import { LIST_SEP } from "../url-state.js";
 import { animSettings } from "../anim-settings.js";
 import { applyExplode, createArrowRetrim, createAutoSpread } from "../scene/explode.js";
 import { openControlsBody } from "../panel/tabs.js";
+import { isWebUrl } from "../web-url.js";
 
 // url-state priorities (a higher number is applied later, see js/url-state.js). The
 // default 0 carries the focus views; scene state that a focus would otherwise override
@@ -155,7 +156,7 @@ export function wireControls({ camera, controls, meshes, arrows, labels, focus, 
   // http(s) url, so a broken/empty config never shows a dead link.
   const aboutSource = document.getElementById("about-source");
   const sourceUrl = String((window.__APP_CONFIG__ || {}).sourceUrl || "").trim();
-  const sourceIsUrl = /^https?:\/\//i.test(sourceUrl);
+  const sourceIsUrl = isWebUrl(sourceUrl);
   if (aboutSource) {
     if (sourceIsUrl) aboutSource.href = sourceUrl;
     else document.getElementById("about-source-row")?.remove();

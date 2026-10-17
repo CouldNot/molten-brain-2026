@@ -10,6 +10,8 @@
 // silently marked as up to date (they get the guided tour instead; a changelog for
 // software they have never seen is noise).
 
+import { isWebUrl } from "./web-url.js";
+
 const STORAGE_KEY = "neurarium.changelogSeen";
 
 /** `"3.39.0" -> [3, 39, 0]`, or null when the string is not a semver triple. */
@@ -48,7 +50,7 @@ export function releasesSince(versions, seen, current) {
  */
 export function commitUrl(sourceUrl, sha) {
   const base = String(sourceUrl || "").trim();
-  if (!/^https?:\/\//i.test(base) || !/^[0-9a-f]{7,40}$/i.test(sha)) return "";
+  if (!isWebUrl(base) || !/^[0-9a-f]{7,40}$/i.test(sha)) return "";
   try {
     const u = new URL(base);
     if (u.pathname.replace(/\/+$/, "") === "") return "";  // a bare domain, not a repo
