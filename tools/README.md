@@ -203,6 +203,7 @@ What each authoring / fetch / check script in `tools/` is (one line each). The d
 tooling (`serve.py`, `shot.py`, `demos/`) is also summarized in `../CLAUDE.md` (Running,
 Screenshots).
 
+- Shared helpers (reuse, never copy): `polite_http.py` (the one GET + User-Agent), `pipeline/judged.py` (qid-checked index picks) + `pipeline/gate.py` (the applier's page gate), `salt_words.py` (EN salt words for name joins), `chirality.py` (enantiomer tags), `data_generators/caches.py` (`load`, `labels`, `attests` for committed caches), `data_generators/node_id.py` (the id shape `check_data` and `render_api` enforce).
 - `generate_data.py` — single source of truth for the anatomy (stdlib-only, offline):
   defines every region/projection/receptor once, emits the artifacts below. Drugs are the
   exception (authored in `tools/data/drugs_data.jsonl`, read by `_load_drugs`). Display strings are

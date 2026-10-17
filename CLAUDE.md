@@ -95,7 +95,7 @@ Full detail (principles, data flow, module graph, boot sequence, per-file map): 
 - SEO canonical / `og:url` / `og:image` / JSON-LD URLs are hardcoded (4 spots in `index.html` + `sitemap.xml`/`robots.txt` + `llms_txt.SITE_URL`).
 - UI-chrome colours are `--accent*` tokens in `css/tokens.css`; data colours live in `meta.json`.
 - Search matches both languages (`data/search_names.fr.json`) and search-only acronyms (`aliases` on structures via `STRUCTURE_ALIASES`, on drugs via `DRUG_ALIASES`). A control is searchable via `data-search` in `index.html`; `js/url-state.js` writes nothing at defaults; `js/prefs.js` is the only `localStorage` touch for flags.
-- Any UI change must be checked against `js/tour.js` by running the tour end to end (headless, step by step): its steps (in `js/main.js`) anchor on selectors and `data-tour-*` hooks and break silently.
+- Any UI change must be checked against `js/tour.js` by running the tour end to end (headless, step by step): its steps (in `js/boot/tour-steps.js`) anchor on selectors and `data-tour-*` hooks and break silently.
 - Every change (new data, new panel section, new derived readout) must also ask whether the agent surface needs it: `llms.txt` (`tools/data_generators/llms_txt.py`) and the `/api/` pages (`tools/render_api.py`) are rendered separately from the viewer, so a feature added only to `js/main.js` is invisible to an LLM reader.
 - Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.
 
@@ -190,7 +190,7 @@ Full detail: [`docs/DRUGS.md`](docs/DRUGS.md).
 
 - Roster scope is **CNS-active, not psychiatric**: a drug belongs when it acts on a modeled target (gaps in `docs/SOURCING_GAPS.md`).
 - Drugs live in `tools/data/drugs_data.jsonl`, never in `public/data/`. Stahl bindings are **strictly dump-sourced** and never overwritten (a target Stahl omits may be added from a judged Wikipedia sentence); non-Stahl drugs get bindings from **PDSP Ki**.
-- Every LLM pass is four steps: fetcher offers candidates with **no verdict** -> LLM answers by **index** echoing the candidate's `qid` (`tools/pipeline/judged.py`, a shifted worklist is refused) -> applier gates and is **sole writer** -> `recheck_quotes.py` stamps the judge. An `extraction: "code"` path needs no recheck.
+- Every LLM pass is four steps: fetcher offers candidates with **no verdict** -> LLM answers by **index** echoing the candidate's `qid` (`tools/pipeline/judged.py`, a shifted worklist is refused) -> applier gates (`tools/pipeline/gate.py`) and is **sole writer** -> `recheck_quotes.py` stamps the judge. An `extraction: "code"` path needs no recheck.
 - A hand-recorded Ki carries `ki.source.curated: true`, so `fetch_ki.py --apply` never strips it.
 
 ## Drug metabolism
