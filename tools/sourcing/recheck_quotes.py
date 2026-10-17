@@ -83,6 +83,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 from data_generators.provenance import SOURCING_LLMS  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from check_data import emitted_page_dirs  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 # The claim walk lives in its own module (the generator runs it too); re-exported here
 # because this is where the judge's side of it is read and tested.
 from claim_walk import (  # noqa: E402,F401
@@ -395,14 +396,13 @@ def cmd_apply(args):
     # ``.get``: the carried-over rows come from an older file that may predate a key.
     flagged.sort(key=lambda x: (bool(x.get("present")), bool(x.get("supports"))))
 
-    os.makedirs(CACHE, exist_ok=True)
-    json.dump(stamped, open(os.path.join(CACHE, "quote_llm.json"), "w"),
-              indent=0, sort_keys=True, ensure_ascii=False)
-    json.dump(flagged, open(os.path.join(CACHE, "quote_recheck_flagged.json"), "w"),
-              indent=1, ensure_ascii=False)
-    json.dump(sorted(disputed.values(), key=lambda d: d["qid"]),
-              open(os.path.join(CACHE, "quote_recheck_disputed.json"), "w"),
-              indent=1, ensure_ascii=False)
+    atomic_write_json(os.path.join(CACHE, "quote_llm.json"), stamped,
+                      trailing_newline=False, indent=0, sort_keys=True)
+    atomic_write_json(os.path.join(CACHE, "quote_recheck_flagged.json"), flagged,
+                      trailing_newline=False, indent=1)
+    atomic_write_json(os.path.join(CACHE, "quote_recheck_disputed.json"),
+                      sorted(disputed.values(), key=lambda d: d["qid"]),
+                      trailing_newline=False, indent=1)
     print(f"stamped {sum(map(len, stamped.values()))} sites over {len(stamped)} quotes "
           f"(this pass: '{args.llm}'); "
           f"flagged {len(flagged)}, disputed {len(disputed)}")

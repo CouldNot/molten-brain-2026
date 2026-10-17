@@ -47,6 +47,7 @@ OUT = TOOLS / "generated_cache" / "location_sources.json"
 
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
+from io_atomic import atomic_write_text  # noqa: E402
 
 
 def load_worklist() -> dict[str, dict]:
@@ -189,7 +190,7 @@ def main() -> int:
     if args.dry_run:
         print("(dry run: not written)")
         return 0
-    OUT.write_text(serialize(payload), encoding="utf-8")
+    atomic_write_text(OUT, serialize(payload))
     print(f"wrote {OUT.relative_to(REPO)}")
     return 0
 

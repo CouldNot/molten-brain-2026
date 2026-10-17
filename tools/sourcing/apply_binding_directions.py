@@ -76,6 +76,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
 import drugs_io  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 import target_aliases as ta  # noqa: E402  (the same matcher the fetcher offered with)
 from check_data import normalize_for_match  # noqa: E402  (one canonical quote gate)
 from pipeline.gate import PageGate, Tally  # noqa: E402 (the applier's page gate)
@@ -442,9 +443,7 @@ def _main_search(args) -> int:
                           unknown.load_log(), metabolites)
         print(f"  UNKNOWN log: {len(log)} binding(s)")
         if not args.dry_run:
-            with open(unknown.UNKNOWN_LOG_PATH, "w", encoding="utf-8") as f:
-                json.dump(log, f, ensure_ascii=False, indent=1, sort_keys=True)
-                f.write("\n")
+            atomic_write_json(unknown.UNKNOWN_LOG_PATH, log, indent=1, sort_keys=True)
         return 0
     if args.dry_run:
         print("\n--dry-run: nothing written")

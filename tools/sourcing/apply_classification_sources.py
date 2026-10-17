@@ -72,6 +72,7 @@ sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
 from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from prose_gate import add_source  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 
 # GtoPdb target type -> our receptor `receptor_class` vocabulary. Absent = no claim:
 # `other_protein` (sigma-1) does not assert our "chaperone", so sigma-1 stays llm.
@@ -174,8 +175,7 @@ def strip_corpus(rec_out: dict, tgt_out: dict, corpus: str = CORPUS) -> int:
 def write_out(rec_out: dict, tgt_out: dict) -> None:
     """The one writer of classification_sources.json, shared by both modes."""
     payload = {k: v for k, v in (("receptors", rec_out), ("targets", tgt_out)) if v}
-    OUT.write_text(json.dumps(payload, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
-                   encoding="utf-8")
+    atomic_write_json(OUT, payload, indent=1, sort_keys=True)
     print(f"wrote {OUT.relative_to(REPO)}")
 
 

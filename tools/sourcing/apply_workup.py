@@ -58,6 +58,7 @@ from pipeline.judged import resolve  # noqa: E402
 import fetch_workup  # noqa: E402
 from data_generators import workup as W  # noqa: E402
 from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "workup_judged.json"
 CORPUS = fetch_workup.CORPUS
@@ -160,8 +161,7 @@ def main() -> int:
     n = sum(len(v) for v in out.values())
     print(f"[ok] {n} workup node(s) over {len(out)} drug(s); {len(rejected)} rejected")
     if not args.dry_run:
-        W.CACHE.write_text(json.dumps({"drugs": out}, ensure_ascii=False, indent=1,
-                                      sort_keys=True) + "\n", encoding="utf-8")
+        atomic_write_json(W.CACHE, {"drugs": out}, indent=1, sort_keys=True)
         print(f"[ok] wrote {W.CACHE.relative_to(ROOT)}")
     return 0
 

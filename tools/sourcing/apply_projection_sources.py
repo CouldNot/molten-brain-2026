@@ -48,6 +48,7 @@ from prose_gate import add_source  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 from data_generators.quotes.attestation import pattern_for  # noqa: E402
 from data_generators.presentation import KIND_TO_SIGN  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 
 CACHE = ROOT / "tools" / "generated_cache"
 WORKLIST = CACHE / "projection_worklist.json"
@@ -133,7 +134,7 @@ def main() -> int:
           f"{len(misses)} miss(es){' (dry run)' if args.dry_run else ''}")
     if not args.dry_run:
         data["projections"] = dict(sorted(out.items()))
-        OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        atomic_write_json(OUT, data, indent=1)
     return 0
 
 

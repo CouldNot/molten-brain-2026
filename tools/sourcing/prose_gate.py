@@ -20,6 +20,7 @@ TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
 from pipeline.gate import PageGate  # noqa: E402 (the page gate, written once)
 from pipeline.judged import resolve  # noqa: E402
+from io_atomic import atomic_write_json  # noqa: E402
 
 
 def add_source(bucket: list, src: dict, key=None) -> bool:
@@ -108,7 +109,6 @@ def run_applier(doc: str, worklist_path: Path, judged_path: Path, cache_path: Pa
     if args.dry_run:
         print("(dry run: not written)")
         return 0
-    cache_path.write_text(json.dumps(cache, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
-                          encoding="utf-8")
+    atomic_write_json(cache_path, cache, indent=1, sort_keys=True)
     print(f"wrote {cache_path}")
     return 0

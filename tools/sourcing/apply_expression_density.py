@@ -43,6 +43,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check_data import normalize_for_match       # noqa: E402  (reuse the gate's normalizer)
 from apply_location_sources import owner_regions  # noqa: E402  (same confirm-only guard)
+from io_atomic import atomic_write_json  # noqa: E402
 
 
 def collect() -> tuple[dict[str, dict], list[str], int]:
@@ -133,7 +134,7 @@ def main() -> int:
     if args.dry_run:
         print("(dry run: not written)")
         return 0
-    OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    atomic_write_json(OUT, payload, indent=2, sort_keys=True, ensure_ascii=True)
     print(f"wrote {OUT.relative_to(REPO)}")
     return 0
 
