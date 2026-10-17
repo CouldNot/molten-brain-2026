@@ -377,9 +377,6 @@ STRUCTURE_QUOTES: dict[str, dict[str, Any]] = {
         "The substantia nigra pars compacta/ventral tegmental area contain an "
         "important population of dopaminergic neurons."),
     "tuberomammillary": _KQ_MONOAMINE_INNERV,
-    # Same sentence as its projections: it is what names the nucleus and places it
-    # in the basal-forebrain cholinergic group.
-    "nucleus_basalis": _KQ_CHOLINERGIC_BASAL,
     # Diencephalon.
     "hypothalamus": _kandel(1025,
         "Neurons controlling the internal environment are concentrated in the "
