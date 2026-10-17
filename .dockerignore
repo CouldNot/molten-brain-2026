@@ -5,6 +5,7 @@
 !tools/render_api.py
 !tools/data_generators/llms_txt.py
 !tools/data_generators/effect_index.py
+!tools/data_generators/node_id.py
 !public/version.js
 !public/data/*.jsonl
 !public/data/meta.json
