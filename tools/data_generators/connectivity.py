@@ -1,87 +1,31 @@
 """Connectivity data: projections (pathways), named circuits, projection groups.
 
 The three connectivity node literals (``PROJECTIONS``, ``CIRCUITS``,
-``PROJECTION_GROUPS``) plus the verified pathway quote-source constants they cite
-(``_KQ_*`` / ``_SG_*``). Every literal references region ids only as bare strings,
-so this module builds only on the shared provenance quote helpers and never
-imports the ``generate_data`` CLI module (no import cycle). ``generate_data``
-imports these lists (and re-imports the ``_KQ_*`` constants its ``PROJECTION_QUOTES``
-map cites) from here.
+``PROJECTION_GROUPS``) plus the projection-group quote constants only they cite
+(``_SG_*``). The Kandel pathway sentences (``_KQ_*``) live with the other Kandel
+quotes in ``data_generators.quotes.kandel`` and are imported from there, so one
+quote module owns every Kandel sentence and the dependency points from the node
+literals to their sources, never back. Every literal references region ids only as
+bare strings, so this module never imports the ``generate_data`` CLI module (no
+import cycle: provenance <- quotes <- connectivity <- generate_data).
 """
 from __future__ import annotations
 
 from typing import Any
 
 from data_generators.provenance import _kandel, _nieuwenhuys, _stahl_ess
+from data_generators.quotes.kandel import (
+    _KQ_BG_DIRECT,
+    _KQ_BG_INDIRECT,
+    _KQ_CORPUS_CALLOSUM,
+    _KQ_CORTICOPONTINE,
+    _KQ_MELATONIN,
+    _KQ_MONOAMINE_INNERV,
+    _KQ_NIGROSTRIATAL,
+    _KQ_PAPEZ,
+)
 
 
-_KQ_NIGROSTRIATAL = _kandel(982,
-    "The substantia nigra pars compacta/ventral tegmental area contain an "
-    "important population of dopaminergic neurons. These neurons represent the "
-    "third major input station of the basal ganglia and give rise to the "
-    "nigrostriatal and mesolimbic/mesocortical dopamine projections.")
-_KQ_STRIATOPALLIDAL = _kandel(982,
-    "Most connections of the globus pallidus are with other basal ganglia nuclei, "
-    "including inhibitory (GABAergic) input from the striatum and excitatory "
-    "(glutamatergic) input from the subthalamus.")
-_KQ_STRIATONIGRAL = _kandel(982,
-    "The substantia nigra pars reticulata is the second principal output nucleus. "
-    "It also receives afferents from other basal ganglia nuclei and provides "
-    "efferent connections to the thalamus and brain stem. Inhibitory (GABAergic) "
-    "inputs come from the striatum and globus pallidus (external) and excitatory "
-    "input from the subthalamus.")
-_KQ_CORTICOSTRIATAL = _kandel(981,
-    "The striatum is the largest nucleus of the basal ganglia. It receives direct "
-    "input from most regions of the cerebral cortex and limbic structures, "
-    "including the amygdala and hippocampus.")
-_KQ_VTA_REWARD = _kandel(1558,
-    "The reward circuitry comprises the dopaminergic projections from the ventral "
-    "tegmental area of the midbrain to forebrain targets, including the nucleus "
-    "accumbens, habenula, prefrontal cortex, hippocampus, and amygdala "
-    "(Chapter 43).")
-_KQ_CORPUS_CALLOSUM = _kandel(549,
-    "A major fiber bundle called the corpus callosum connects the two hemispheres, "
-    "transmitting information across the midline.")
-_KQ_CORTICOPONTINE = _kandel(958,
-    "The cerebral cortex projects to the lateral cerebellum through relays in the "
-    "pontine nuclei.")
-_KQ_PAPEZ = _kandel(1096,
-    "The outputs of the hypothalamus reach the cingulate via the anterior "
-    "thalamus, and the outputs of the cingulate reach the hypothalamus via the "
-    "hippocampus.")
-_KQ_MONOAMINE_INNERV = _kandel(1052,
-    "The noradrenergic locus ceruleus, serotonergic dorsal and median raphe "
-    "nuclei, dopaminergic A10 neurons, and histaminergic tuberomammillary neurons "
-    "innervate the thalamus, hypothalamus, basal forebrain, and cerebral cortex.")
-_KQ_CHOLINERGIC_BASAL = _kandel(1047,
-    "Those in the basal forebrain are divided into the medial septum, the "
-    "nuclei of the vertical and horizontal limbs of the diagonal band, and the "
-    "nucleus basalis of Meynert. These neurons project throughout the cerebral "
-    "cortex, hippocampus, and amygdala.")
-# One sentence pair backing the whole melatonin story: that the pineal makes it,
-# and that the suprachiasmatic nucleus is where its receptors are. Cited by the
-# pineal structure, the pineal -> hypothalamus pathway and the melatonergic group.
-_KQ_MELATONIN = _kandel(1137,
-    "Melatonin is made by the pineal gland, and the suprachiasmatic neurons time "
-    "its release through communication with neurons in the paraventricular "
-    "nucleus of the hypothalamus that activate sympathetic innervation of the "
-    "pineal gland. Neurons in the suprachiasmatic nucleus contain melatonin "
-    "receptors, which reinforce circadian rhythms.")
-_KQ_MONOAMINE_LIMBIC = _kandel(1560,
-    "Serotonergic and noradrenergic neurons in the pons and medulla project widely "
-    "to highly diverse terminal fields in brain regions that include the "
-    "hypothalamus, hippocampus, amygdala, basal ganglia, and cerebral cortex "
-    "(Figures 61–5 and 61–6).")
-# The two basal-ganglia loops named as such (Kandel's Albin-scheme passage); these
-# back the bg_direct / bg_indirect CIRCUITS nodes, so they live outside PROJECTION_QUOTES
-# (which is keyed by projection endpoints, not circuit ids).
-_KQ_BG_DIRECT = _kandel(983,
-    "Output of the basal ganglia is determined by the balance between a direct "
-    "pathway from the striatum to the output nuclei.")
-_KQ_BG_INDIRECT = _kandel(983,
-    "In contrast, striatal neurons containing enkephalin and expressing mainly "
-    "D2 dopamine receptors make excitatory contact with the output nuclei via relays in the "
-    "globus pallidus and subthalamus: the indirect pathway.")
 
 PROJECTIONS: list[dict[str, Any]] = [
     # --- Corticostriatal input (glutamate): cortex drives the striatum ---
