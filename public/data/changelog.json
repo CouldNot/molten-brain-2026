@@ -1,6 +1,59 @@
 {
   "versions": [
     {
+      "version": "3.131.2",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "When the server answers with an error, the app now keeps showing the copy it already had instead of the error page",
+          "commits": [
+            "d8bef1b"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Opening \"What's new\" while offline no longer marks the unread notes as read",
+          "commits": [
+            "98d80a3"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Every link taken from the data, including the ClinPGx variant link, now has to be a web address before it is shown",
+          "commits": [
+            "fe5d445"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "Clean-up of the code behind the panels: one shared builder for page elements, one shared \"Found in\" section for receptors and targets, and every saved preference read in one place",
+          "commits": [
+            "ec2a33a",
+            "d8bafbb",
+            "730c0e3",
+            "642e11f"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The data tools write their files atomically, refuse a citation page that looks like a file path, and share one reader for the Stahl index, the quote check and the judged files",
+          "commits": [
+            "8065f45",
+            "09a7714",
+            "52b5238",
+            "d8c878c",
+            "afde4ce",
+            "8766171",
+            "18406cd",
+            "1c20e7b",
+            "2b81088",
+            "8dea2eb"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.131.1",
       "date": "2026-10-17",
       "entries": [
