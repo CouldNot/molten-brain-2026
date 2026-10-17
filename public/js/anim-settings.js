@@ -26,7 +26,9 @@
 //
 // No dependency: a tiny observable holding two numbers. Modules import the shared
 // `animSettings` singleton; nothing here touches three.js or the DOM beyond
-// matchMedia + localStorage for the default/persistence.
+// matchMedia for the default, prefs.js for the persistence.
+
+import { loadFlag, loadString, saveFlag, saveString } from "./prefs.js";
 
 const STORE_KEY = "neurarium.animations";
 const SPEED_KEY = "neurarium.animspeed";
@@ -37,13 +39,9 @@ const SPEED_MIN = 0.25;
 const SPEED_MAX = 4;
 
 function loadSpeed() {
-  try {
-    const v = parseFloat(localStorage.getItem(SPEED_KEY));
-    if (Number.isFinite(v)) return Math.max(SPEED_MIN, Math.min(SPEED_MAX, v));
-  } catch (_) {
-    /* localStorage unavailable: fall back to the reference speed */
-  }
-  return 1;
+  // A missing or unreadable value parses to NaN: the reference speed then.
+  const v = parseFloat(loadString(SPEED_KEY));
+  return Number.isFinite(v) ? Math.max(SPEED_MIN, Math.min(SPEED_MAX, v)) : 1;
 }
 
 /** The heuristic default when the user has made no explicit choice: on for a fine
@@ -58,14 +56,7 @@ function detectDefault() {
 }
 
 function loadEnabled() {
-  try {
-    const v = localStorage.getItem(STORE_KEY);
-    if (v === "on") return true;
-    if (v === "off") return false;
-  } catch (_) {
-    /* localStorage unavailable (private mode / disabled): fall back to the default */
-  }
-  return detectDefault();
+  return loadFlag(STORE_KEY, detectDefault());
 }
 
 let enabled = loadEnabled();
@@ -87,11 +78,7 @@ export const animSettings = {
     v = !!v;
     if (v === enabled) return;
     enabled = v;
-    try {
-      localStorage.setItem(STORE_KEY, v ? "on" : "off");
-    } catch (_) {
-      /* ignore: persistence is best-effort */
-    }
+    saveFlag(STORE_KEY, v);
     notify();
   },
   /** The heuristic default (no stored override), for the checkbox's initial state. */
@@ -118,11 +105,7 @@ export const animSettings = {
    *  `enabled`. Silent: the modules read `speed` live, so no subscriber needs waking. */
   setSpeed(v) {
     speed = Math.max(SPEED_MIN, Math.min(SPEED_MAX, Number(v) || 1));
-    try {
-      localStorage.setItem(SPEED_KEY, String(speed));
-    } catch (_) {
-      /* ignore: persistence is best-effort */
-    }
+    saveString(SPEED_KEY, speed);
   },
   /** The speed slider's bounds, so the UI's log mapping stays in sync with this module. */
   get speedRange() {

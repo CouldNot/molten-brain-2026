@@ -4,7 +4,7 @@
 import { addLegendItem, reflectRows } from "./item.js";
 import { foldText } from "../search/query.js";
 import { formatHalfLife } from "../panel/format.js";
-import { loadFlag, saveFlag } from "../prefs.js";
+import { loadFlag, loadString, saveFlag, saveString } from "../prefs.js";
 
 const { t } = window.__I18N__;
 
@@ -43,19 +43,11 @@ export function drugSwatchColor(drug, effectColors) {
 export const PK_GROUP_KEY = "neurarium.pkGroup";
 
 export function loadPkGrouping() {
-  try {
-    return localStorage.getItem(PK_GROUP_KEY) === "enzyme" ? "enzyme" : "drug";
-  } catch {
-    return "drug";
-  }
+  return loadString(PK_GROUP_KEY) === "enzyme" ? "enzyme" : "drug";
 }
 
 export function savePkGrouping(mode) {
-  try {
-    localStorage.setItem(PK_GROUP_KEY, mode);
-  } catch {
-    /* private mode / storage disabled: the choice just won't persist. */
-  }
+  saveString(PK_GROUP_KEY, mode);
 }
 
 // localStorage key for the Drugs list's "show active metabolites" toggle (default

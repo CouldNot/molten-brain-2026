@@ -94,7 +94,7 @@ Full detail (principles, data flow, module graph, boot sequence, per-file map): 
 - Caddy `encode` uses an explicit content-type list (a new asset type ships uncompressed until added) and pins `.webmanifest`/`.jsonl` types.
 - SEO canonical / `og:url` / `og:image` / JSON-LD URLs are hardcoded (4 spots in `index.html` + `sitemap.xml`/`robots.txt` + `llms_txt.SITE_URL`).
 - UI-chrome colours are `--accent*` tokens in `css/tokens.css`; data colours live in `meta.json`.
-- Search matches both languages (`data/search_names.fr.json`) and search-only acronyms (`aliases` on structures via `STRUCTURE_ALIASES`, on drugs via `DRUG_ALIASES`). A control is searchable via `data-search` in `index.html`; `js/url-state.js` writes nothing at defaults; `js/prefs.js` is the only `localStorage` touch for flags.
+- Search matches both languages (`data/search_names.fr.json`) and search-only acronyms (`aliases` on structures via `STRUCTURE_ALIASES`, on drugs via `DRUG_ALIASES`). A control is searchable via `data-search` in `index.html`; `js/url-state.js` writes nothing at defaults; `js/prefs.js` is the only `localStorage` touch (classic `i18n.js` excepted).
 - Any UI change must be checked against `js/tour.js` by running the tour end to end (headless, step by step): its steps (in `js/boot/tour-steps.js`) anchor on selectors and `data-tour-*` hooks and break silently.
 - Every change (new data, new panel section, new derived readout) must also ask whether the agent surface needs it: `llms.txt` (`tools/data_generators/llms_txt.py`) and the `/api/` pages (`tools/render_api.py`) are rendered separately from the viewer, so a feature added only to `js/main.js` is invisible to an LLM reader.
 - Uncommitted local files: `deploy.sh`, `CLAUDE.local.md`, `docker/.env`.

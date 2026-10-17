@@ -24,18 +24,16 @@
  * Built with the help of Claude Code.
  */
 
+import { loadString, saveString } from "./prefs.js";
+
 const KEY = "neurarium.theme";
 /** The themes the token block defines. Dark is the fallback; see the module note. */
 export const THEMES = ["dark", "light"];
 
 const readStored = () => {
-  try {
-    const raw = localStorage.getItem(KEY);
-    return THEMES.includes(raw) ? raw : null;
-  } catch {
-    /* private mode / storage disabled: the visitor simply has no stored choice. */
-    return null;
-  }
+  // No stored choice (or storage disabled, or a stale value) reads as null.
+  const raw = loadString(KEY);
+  return THEMES.includes(raw) ? raw : null;
 };
 
 /**
@@ -68,11 +66,7 @@ export function createTheme(onChange) {
   const set = (theme) => {
     if (!THEMES.includes(theme) || theme === current) return;
     current = theme;
-    try {
-      localStorage.setItem(KEY, theme);
-    } catch {
-      /* best-effort, like every other preference: the choice holds for this visit. */
-    }
+    saveString(KEY, theme);   // best-effort: the choice still holds for this visit
     apply();
   };
 

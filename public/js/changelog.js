@@ -10,6 +10,7 @@
 // silently marked as up to date (they get the guided tour instead; a changelog for
 // software they have never seen is noise).
 
+import { loadString, saveString } from "./prefs.js";
 import { isWebUrl } from "./web-url.js";
 
 const STORAGE_KEY = "neurarium.changelogSeen";
@@ -108,11 +109,11 @@ export function createChangelog({ version, sourceUrl, t, pick, wireModal }) {
   }
 
   function seenVersion() {
-    try { return localStorage.getItem(STORAGE_KEY) || ""; } catch { return ""; }
+    return loadString(STORAGE_KEY) || "";
   }
 
   function markSeen(mark) {
-    try { localStorage.setItem(STORAGE_KEY, mark || version); } catch { /* private mode */ }
+    saveString(STORAGE_KEY, mark || version);
   }
 
   /** One release: its version heading, then its bullets grouped under category headings. */

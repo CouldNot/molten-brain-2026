@@ -512,10 +512,7 @@ Viewer (`public/`):
   own pair as it is wired; a view at its default writes nothing and a missing key is never written,
   so links stay short and never override a visitor's persisted preference. Keys +
   the older `#focus*` aliases in [`docs/RUNNING.md`](RUNNING.md).
-- `js/prefs.js`: `loadFlag(key, dflt)` / `saveFlag(key, on)`, the only place a persisted
-  on/off preference touches `localStorage` (panel-only mode, show-metabolites, show-twins;
-  storage throws in private mode, so a read falls back to the default and a write is
-  best-effort). `anim-settings.js` keeps its own, persisting a number beside its flag.
+- `js/prefs.js`: `loadFlag(key, dflt)` / `saveFlag(key, on)` for on/off preferences (panel-only mode, show-metabolites, show-twins, animations) and `loadString` / `saveString` for the rest (theme, animation speed, tour seen, changelog seen, interactions grouping): the only module that touches `localStorage` (storage throws in private mode, so a read falls back to the default and a write is best-effort). `js/i18n.js` keeps its own guarded access, being a classic script that runs before any module; `tools/tests/test_prefs_storage.py` enforces this.
 
 Deployment (`docker/`): `docker-compose.yml` (hardened Caddy), `Dockerfile`
 (two-stage: `xcaddy build`s a custom binary with the `caddy-ratelimit` module,

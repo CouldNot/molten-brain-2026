@@ -76,6 +76,8 @@
 //                                  // exact state it wants, not toggle).
 //   }
 
+import { loadString, saveString } from "./prefs.js";
+
 const GAP = 14; // px between the spotlight ring and the bubble
 const MARGIN = 12; // px min gap from the viewport edge
 const RING_PAD = 6; // px the ring extends past the target on each side
@@ -128,21 +130,10 @@ export function createTour({ steps, labels, onEnd, seenKey }) {
   let arrowTimer = null; // the linger timeout once the arrow has reached its target
   let arrowFade = null; // the timeout that display:none-s it after the fade-out
 
-  const seen = () => {
-    if (!seenKey) return false;
-    try {
-      return localStorage.getItem(seenKey) === "1";
-    } catch (e) {
-      return false; // storage blocked: treat as unseen, no worse than a re-show
-    }
-  };
+  // Storage blocked reads as unseen (no worse than a re-show); the mark is best-effort.
+  const seen = () => !!seenKey && loadString(seenKey) === "1";
   const markSeen = () => {
-    if (!seenKey) return;
-    try {
-      localStorage.setItem(seenKey, "1");
-    } catch (e) {
-      /* best-effort, like the Animations toggle persistence */
-    }
+    if (seenKey) saveString(seenKey, "1");
   };
 
   function build() {
