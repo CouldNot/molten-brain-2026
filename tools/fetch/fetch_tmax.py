@@ -65,6 +65,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 
 import drugs_io                                                 # noqa: E402
+from page_file import page_file  # noqa: E402 (refuses a path-like page)
 import worklist_io  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki                            # noqa: E402 (page_for)
 import fetch_pharmacokinetics as pk                              # noqa: E402 (spans, units)
@@ -265,7 +266,7 @@ def _label_candidates(drug: dict, labels_path: Path, key: str, pages: Path,
         _LABELS[labels_path] = (json.loads(labels_path.read_text(encoding="utf-8"))
                                 if labels_path.exists() else {})
     page = (_LABELS[labels_path].get(drug["id"]) or {}).get(key)
-    path = pages / f"{page}.md" if page else None
+    path = page_file(pages, page)
     if not path or not path.exists():
         return []
     return candidates_in(path.read_text(encoding="utf-8", errors="replace"),

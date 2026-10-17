@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from drugs_io import is_combination
+from page_file import page_file
 
 from . import clinpgx, cpic, pharmfreq
 
@@ -1073,10 +1074,8 @@ def corpus_page_path(corpus: str, page: Any) -> Path | None:
     ('bdpm', 'pages', '69071035.md')
     """
     pages_dir = SOURCE_CORPORA.get(corpus, {}).get("pages_dir")
-    page = str(page if page is not None else "").strip()
-    if not pages_dir or not page:
-        return None
-    return Path(__file__).resolve().parent.parent.parent / pages_dir / f"{page}.md"
+    rel = page_file(pages_dir, page)   # None for an empty or path-like page too
+    return Path(__file__).resolve().parent.parent.parent / rel if rel else None
 
 
 def build_enzymes(enzymes: dict[str, Any]) -> dict[str, Any]:

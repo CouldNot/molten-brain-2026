@@ -1245,10 +1245,9 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             entry = corpora.get(corpus) or {}
             pages_dir = entry.get("pages_dir")
             text = None
-            if pages_dir:
-                md = REPO_ROOT / pages_dir / f"{page}.md"
-                if md.exists():
-                    text = normalize_for_match(md.read_text(encoding="utf-8"))
+            md = page_file(REPO_ROOT / pages_dir, page) if pages_dir else None
+            if md and md.exists():
+                text = normalize_for_match(md.read_text(encoding="utf-8"))
             page_cache[key] = text
         return page_cache[key]
 
@@ -2091,6 +2090,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators import clinpgx, cpic, freshness, node_id, pharmfreq, unknown  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
 from drugs_io import is_combination  # noqa: E402
+from page_file import page_file  # noqa: E402 (refuses a path-like page)
 from data_generators import release_modulation as RELMOD  # noqa: E402
 from data_generators import demographics as DEMOG  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the

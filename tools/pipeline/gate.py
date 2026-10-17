@@ -28,6 +28,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402 (the gate's one normalizer)
+from page_file import page_file  # noqa: E402 (refuses a path-like page)
 from pipeline.judged import resolve_all  # noqa: E402
 
 
@@ -47,8 +48,7 @@ class PageGate:
     def _load(self, corpus: str, page) -> str | None:
         if self._read is not None:
             return self._read(corpus, page)
-        path = self.pages.get(corpus)
-        path = Path(path) / f"{page}.md" if path else None
+        path = page_file(self.pages.get(corpus), page)
         return (normalize_for_match(path.read_text("utf-8", errors="replace"))
                 if path and path.exists() else None)
 
