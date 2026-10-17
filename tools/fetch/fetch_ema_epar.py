@@ -53,6 +53,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 import chirality  # noqa: E402
 import polite_http  # noqa: E402 (the one polite GET)
+import salt_words  # noqa: E402 (the shared English salt words)
 import fetch_bdpm  # noqa: E402 (fold, molecule_key)
 
 EMA = "https://www.ema.europa.eu/en/documents/report/"
@@ -63,20 +64,9 @@ MEDICINES_FILE = RAW_DIR / "medicines.json"
 DOCUMENTS_FILE = RAW_DIR / "epar_documents.json"
 LICENCE = "European Medicines Agency, reproduction authorised, source acknowledged"
 
-# English counter-ion / hydrate words EMA's ``active_substance`` wraps a molecule in
-# ("guanfacine hydrochloride"). Not merged with the French ``fetch_bdpm.SALT_WORDS``:
-# its "D" / "DE" would strip the "d-" of an English stereo prefix.
-EN_SALT_WORDS = frozenset({
-    "HYDROCHLORIDE", "DIHYDROCHLORIDE", "HYDROBROMIDE", "BROMIDE", "CHLORIDE", "MESYLATE",
-    "MESILATE", "MALEATE", "FUMARATE", "HEMIFUMARATE", "TARTRATE", "HEMITARTRATE",
-    "SULPHATE", "SULFATE", "SUCCINATE", "BESYLATE", "BESILATE", "CITRATE", "ACETATE",
-    "PHOSPHATE", "OXALATE", "TOSYLATE", "TOSILATE", "PAMOATE", "PALMITATE", "LAURATE",
-    "MONOHYDRATE", "DIHYDRATE", "HEMIHYDRATE", "SESQUIHYDRATE", "TRIHYDRATE", "ANHYDROUS",
-    "HYDRATE", "HYDROGEN", "SODIUM", "POTASSIUM", "CALCIUM", "MAGNESIUM", "LACTATE",
-    "DIMESYLATE", "DIMESILATE", "BITARTRATE", "NAPADISYLATE", "XINAFOATE",
-    "METHANESULFONATE", "METHANESULPHONATE", "BENZOATE", "EMBONATE", "GLUCONATE", "MALATE",
-    "NITRATE", "CARBONATE", "IODIDE", "ESILATE", "EDISILATE", "HEMISULFATE",
-})
+# EMA's ``active_substance`` wraps a molecule in English salt words ("guanfacine
+# hydrochloride"): the shared list, see ``tools/salt_words.py``.
+EN_SALT_WORDS = salt_words.EN_SALT_WORDS
 COMBO_SPLIT = re.compile(r"\s*(?:;|/|\+|\band\b)\s*", re.I)
 
 

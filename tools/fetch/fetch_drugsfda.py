@@ -58,6 +58,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 import chirality  # noqa: E402
 import drugs_io  # noqa: E402
+import salt_words  # noqa: E402
 
 EXPORT_URL = "https://download.open.fda.gov/drug/drugsfda/drug-drugsfda-0001-of-0001.json.zip"
 BASE = ROOT / "data_sources" / "drugsfda"
@@ -67,19 +68,9 @@ CACHE_PATH = ROOT / "tools" / "generated_cache" / "drugsfda_approvals.json"
 APP_URL = ("https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm"
            "?event=overview.process&ApplNo={num}")
 
-# Counter-ion, hydrate and ester words a US active-ingredient name carries around the
-# moiety. Dropped before the join; an ester that makes a long-acting form of the same
-# molecule (haloperidol DECANOATE) joins too, and as a later NDA never wins the earliest.
-SALT_WORDS = frozenset("""
-    hydrochloride hcl dihydrochloride hydrobromide hydroiodide maleate dimaleate fumarate
-    hemifumarate succinate tartrate bitartrate hemitartrate citrate mesylate mesilate
-    dimesylate besylate sulfate bisulfate hemisulfate phosphate diphosphate acetate
-    sodium disodium potassium calcium magnesium carbonate oxalate napsylate pamoate
-    decanoate enanthate lactate gluconate malate tosylate saccharate aspartate adipate
-    bromide chloride iodide nitrate edisylate palmitate hydrate monohydrate dihydrate
-    trihydrate sesquihydrate hemihydrate pentahydrate anhydrous salicylate sulfonate xinafoate
-    dipotassium benzoate polacrilex
-""".split())
+# Counter-ion, hydrate and ester words around the moiety, dropped before the join (the
+# shared English list, see ``tools/salt_words.py``), folded to this module's lower case.
+SALT_WORDS = frozenset(w.lower() for w in salt_words.EN_SALT_WORDS)
 
 # Our drug id -> the US (USAN / FDA) name(s), when the roster's name is not it.
 FDA_NAMES: dict[str, list[str]] = {
