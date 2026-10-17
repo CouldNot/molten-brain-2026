@@ -23,7 +23,7 @@ import apply_drugsfda as A  # noqa: E402
 import fetch_drugsfda as F  # noqa: E402
 from data_generators import history  # noqa: E402
 from judged_fixture import refs  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 
 
 def app(num, ingredients, date, cls="Type 1 - New Molecular Entity", brand="BRAND"):

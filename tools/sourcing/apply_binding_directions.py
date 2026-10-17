@@ -78,6 +78,7 @@ sys.path.insert(0, os.path.join(REPO, "tools"))
 import drugs_io  # noqa: E402
 import target_aliases as ta  # noqa: E402  (the same matcher the fetcher offered with)
 from check_data import normalize_for_match  # noqa: E402  (one canonical quote gate)
+from pipeline.gate import PageGate, Tally  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
 from data_generators.drugs import DRUG_ACTIONS  # noqa: E402  (the live action vocabulary)
 
@@ -136,7 +137,7 @@ def apply(worklist: list[dict], judged: dict, drugs: list[dict],
     by_work = {rec["drug"]: rec for rec in worklist}
     by_drug = {d["id"]: d for d in drugs}
     aliases = ta.aliases_by_target()
-    gate = _Gate(read_page)
+    gate = BindingGate(read_page)
     stats, rejected, reject = gate.stats, gate.rejected, gate.reject
 
     for drug_id in sorted(judged):
@@ -163,27 +164,23 @@ def apply(worklist: list[dict], judged: dict, drugs: list[dict],
     return stats, rejected
 
 
-class _Gate:
-    """Gates 3 to 6 and the write, shared by both inputs (a judged sentence, a table row).
+class BindingGate(Tally):
+    """Gates 3 to 6 and the write, shared by both inputs (a judged sentence, a table row)
+    and by ``apply_binding_gaps``.
 
-    Holds the tally, the rejection log and the page cache so each caller only supplies
-    what differs: how gate 5 decides the quote names the target, and how the source is
-    stamped (a chosen sentence carries no ``extraction``; a copied cell is ``code``).
+    Holds the tally, the rejection log and the page cache (a :class:`PageGate`) so each
+    caller only supplies what differs: how gate 5 decides the quote names the target, and
+    how the source is stamped (a chosen sentence carries no ``extraction``; a copied cell
+    is ``code``). ``read_page(slug)`` reads corpus #9; ``read_other(corpus, page)`` any
+    other corpus (the --search input cites French Wikipedia and Europe PMC abstracts too).
     """
 
     def __init__(self, read_page, extraction: str | None = None, read_other=None) -> None:
-        self.read_page = read_page
-        # (corpus, page) -> normalized text, for a citation outside corpus #9 (the
-        # --search input cites French Wikipedia and Europe PMC abstracts too).
-        self.read_other = read_other
+        super().__init__()
+        self.pages = PageGate(read=lambda corpus, page: (
+            read_page(page) if corpus == CORPUS
+            else read_other(corpus, page) if read_other else None))
         self.extraction = extraction
-        self.stats: collections.Counter = collections.Counter()
-        self.rejected: list[str] = []
-        self.pages: dict[str, str | None] = {}
-
-    def reject(self, why: str, detail: str) -> None:
-        self.stats[f"rejected: {why}"] += 1
-        self.rejected.append(f"[{why}] {detail}")
 
     def write(self, drug: dict, target: str, action: str, quote: str, slug: str,
               label: str, names_target, corpus: str = CORPUS) -> bool:
@@ -206,12 +203,7 @@ class _Gate:
         if not names_target():
             self.reject("quote does not name the target", f"{label}: {quote[:80]}")
             return False
-        key = (corpus, str(slug))
-        if key not in self.pages:
-            self.pages[key] = (self.read_page(slug) if corpus == CORPUS
-                               else self.read_other(corpus, slug) if self.read_other
-                               else None)
-        body = self.pages[key]
+        body = self.pages.text(corpus, slug)
         if body is None:
             self.reject("no stored page for the citation", f"{label} ({slug})")
             return False
@@ -247,7 +239,7 @@ def apply_tables(proposals: dict, drugs: list[dict], read_page,
         have offered.
     """
     by_drug = {d["id"]: d for d in drugs}
-    gate = _Gate(read_page, extraction="code")
+    gate = BindingGate(read_page, extraction="code")
     for drug_id in sorted(proposals):
         drug = by_drug.get(drug_id)
         rec = proposals[drug_id]
@@ -304,7 +296,7 @@ def apply_search(worklist: list[dict], judged: dict, drugs: list[dict], read_pag
     as :func:`apply`, the citation carrying the candidate's own corpus and page."""
     by_site = {rec["site"]: rec for rec in worklist}
     aliases = ta.aliases_by_target()
-    gate = _Gate(read_page, read_other=read_other_page)
+    gate = BindingGate(read_page, read_other=read_other_page)
     for site in sorted(judged):
         rec, row = by_site.get(site), judged[site]
         index, action = row.get("index"), row.get("action")

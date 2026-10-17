@@ -18,7 +18,7 @@ with an open claim, an LLM answers by index into ``projection_judged.json``
 * the picked candidate was offered *for that attribute* (its ``attrs``), and a
   transmitter / sign pick still carries the stored value's word
   (``attestation.pattern_for``), so the claim it is meant to close really moves;
-* the quote is re-found verbatim on its page (``prose_gate.PageGate``, i.e.
+* the quote is re-found verbatim on its page (``pipeline.gate.PageGate``, i.e.
   ``check_data.normalize_for_match``).
 
 Idempotent (dedup by quote). It writes no ``llm`` stamp, so
@@ -43,7 +43,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "tools"))
-from prose_gate import PageGate, add_source  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
+from prose_gate import add_source  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 from data_generators.quotes.attestation import pattern_for  # noqa: E402
 from data_generators.presentation import KIND_TO_SIGN  # noqa: E402

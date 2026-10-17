@@ -62,7 +62,7 @@ sys.path.insert(0, os.path.join(REPO, "tools"))
 import binding_gaps as bg  # noqa: E402  (the predicates the fetcher offered with)
 import drugs_io  # noqa: E402
 import target_aliases as ta  # noqa: E402
-from apply_binding_directions import CORPUS, PAGES, _Gate, page_text  # noqa: E402
+from apply_binding_directions import CORPUS, PAGES, BindingGate, page_text  # noqa: E402
 from check_data import normalize_for_match  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 from data_generators.drugs import DRUG_ACTIONS  # noqa: E402
@@ -72,7 +72,7 @@ WORKLIST = os.path.join(CACHE, "binding_gaps_worklist.json")
 JUDGED = os.path.join(CACHE, "binding_gaps_judged.json")
 
 
-class _GapGate(_Gate):
+class GapGate(BindingGate):
     """The direction pass's tally / rejection log / page cache, with an ``add`` write."""
 
     def __init__(self, read_page) -> None:
@@ -101,12 +101,11 @@ class _GapGate(_Gate):
             if not ok:
                 self.reject(why, f"{label}: {quote[:80]}")
                 return False
-        if slug not in self.pages:
-            self.pages[slug] = self.read_page(slug)
-        if self.pages[slug] is None:
+        body = self.pages.text(CORPUS, slug)
+        if body is None:
             self.reject("no stored page for the citation", f"{label} ({slug})")
             return False
-        if normalize_for_match(quote) not in self.pages[slug]:
+        if normalize_for_match(quote) not in body:
             self.reject("quote not verbatim on the cited page", f"{label}: {quote[:80]}")
             return False
         if bg.is_stahl(drug):
@@ -120,14 +119,14 @@ class _GapGate(_Gate):
         return True
 
 
-def apply(worklist: list[dict], judged: dict, drugs: list[dict], read_page) -> _GapGate:
+def apply(worklist: list[dict], judged: dict, drugs: list[dict], read_page) -> GapGate:
     """Run every gate over a judged file, adding the survivors to ``drugs`` in place.
 
     Pure apart from ``read_page`` (``slug -> normalized page text or None``), so the
     gates are testable without the gitignored corpus.
     """
     by_drug = {d["id"]: d for d in drugs}
-    gate = _GapGate(read_page)
+    gate = GapGate(read_page)
     for rec in worklist:
         rows = judged.get(rec["drug"], [])
         seen = {r.get("index") for r in rows}

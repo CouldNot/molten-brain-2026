@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_drug_history as A  # noqa: E402
 from judged_fixture import fill_tree  # noqa: E402
 import fetch_drug_history as F  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from data_generators import history as H  # noqa: E402
 
 LINES = [

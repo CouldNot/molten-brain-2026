@@ -25,7 +25,7 @@ A node lands only when every gate passes, all or nothing per node:
 3. every picked candidate was offered for that effect (its keyword hit), so a pick
    cannot attach a sentence to an effect it never mentions;
 4. every pick carries an ``evidence`` reading from ``EFFECT_EVIDENCE``;
-5. every picked sentence is still verbatim on its stored page (``prose_gate.PageGate``).
+5. every picked sentence is still verbatim on its stored page (``pipeline.gate.PageGate``).
 
 It writes no ``llm`` stamp, so ``tools/sourcing/recheck_quotes.py`` (``--kinds
 receptor_effect``) must judge the new citations afterwards, or ``check_data.py`` family 5

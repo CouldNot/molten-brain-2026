@@ -43,7 +43,6 @@ quote gate could not run). Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
 import sys
 from pathlib import Path
@@ -53,18 +52,16 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 
 import drugs_io  # noqa: E402
+from check_data import normalize_for_match  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 import fetch_workup  # noqa: E402
 from data_generators import workup as W  # noqa: E402
-from data_generators.provenance import SOURCE_CORPORA, corpus_page_path  # noqa: E402
+from data_generators.provenance import SOURCE_CORPORA  # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "workup_judged.json"
 CORPUS = fetch_workup.CORPUS
 
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
 
 
 def gate(judged: dict, offered: dict, drug_ids: set[str], page_text
@@ -150,18 +147,11 @@ def main() -> int:
               file=sys.stderr)
         return 1
     judged = json.loads(JUDGED_PATH.read_text(encoding="utf-8"))
-    cache: dict[str, str] = {}
-
-    def page_text(page: str) -> str:
-        if page not in cache:
-            path = corpus_page_path(CORPUS, page)
-            cache[page] = (normalize_for_match(path.read_text(encoding="utf-8"))
-                           if path and path.exists() else "")
-        return cache[page]
-
+    pages = PageGate({CORPUS: pages_dir})
     drug_ids = {d["id"] for d in drugs_io.load_drugs()}
     offered = fetch_workup.build()
-    out, rejected = gate(judged, offered, drug_ids, page_text)
+    out, rejected = gate(judged, offered, drug_ids,
+                          lambda page: pages.text(CORPUS, page) or "")
     for r in rejected:
         print(f"[reject] {r}")
     pending = undecided(judged, offered)

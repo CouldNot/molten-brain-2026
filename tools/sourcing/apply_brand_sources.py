@@ -33,7 +33,6 @@ tree).
 Usage (from the repo root): python tools/sourcing/apply_brand_sources.py [--dry-run]
 """
 import argparse
-import importlib.util
 import json
 import re
 import sys
@@ -51,10 +50,7 @@ DUMP = STAHL / "stahl_dump.jsonl"
 
 # Reuse the exact normalization the checker uses, so "accepted here" == "passes
 # check_data" (no second, drifting implementation).
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+from check_data import normalize_for_match  # noqa: E402
 
 _ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 _BR = re.compile(r"<br\s*/?>", re.IGNORECASE)

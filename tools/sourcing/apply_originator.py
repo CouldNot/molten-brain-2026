@@ -27,7 +27,7 @@ judged file:
   company's country), else the drug gets the originator only;
 * a country is a :data:`history.COUNTRIES` id (not a scope) that its quote attests
   (``history.attests``); a ``now`` name sits verbatim in one of its ``origin.SUCCESSOR_RE`` quotes;
-* every quote is verbatim on its stored page (``prose_gate.PageGate``).
+* every quote is verbatim on its stored page (``pipeline.gate.PageGate``).
 
 Writes ``provenance: "verified"`` with no ``llm`` stamp, so
 ``tools/sourcing/recheck_quotes.py`` (``--kinds drug_originator,drug_originator_country``)
@@ -54,7 +54,7 @@ import drugs_io  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402
 import fetch_originator as fo  # noqa: E402
 from data_generators import history, origin  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
 
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "originator_judged.json"

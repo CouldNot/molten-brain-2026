@@ -33,7 +33,6 @@ Usage:
 Built with the help of Claude Code.
 """
 import argparse
-import importlib.util
 import json
 import re
 import sys
@@ -49,10 +48,7 @@ INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
 
 # Reuse the exact normalization the checker uses, so "accepted here" == "passes
 # check_data" by construction (no second, drifting implementation).
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+from check_data import normalize_for_match  # noqa: E402
 
 _ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 # The NbN line, tolerant of the markdown bullet / optional bold markers Stahl's

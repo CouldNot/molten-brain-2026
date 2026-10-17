@@ -48,7 +48,6 @@ quotes).
 Built with the help of Claude Code.
 """
 import argparse
-import importlib.util
 import json
 import sys
 from pathlib import Path
@@ -72,10 +71,7 @@ MAX_TMAX_HOURS = 24.0
 
 # Reuse check_data's canonical quote-gate normalization (single source of truth), so a
 # quote that passes here also passes check_data's later re-gate.
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+from check_data import normalize_for_match  # noqa: E402
 
 
 # The stored page a candidate's ``(corpus, page)`` pair cites, via the corpus

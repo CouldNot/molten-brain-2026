@@ -65,7 +65,7 @@ DATA = os.path.join(ROOT, "public", "data")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from data_generators.quote_table import quote_id  # noqa: E402
 from check_data import emitted_page_dirs, normalize_for_match  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 import citation_site as CS  # noqa: E402
 
 # The applier-written caches that can hold a quote-bearing source. The hand-authored

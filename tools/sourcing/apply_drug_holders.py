@@ -18,7 +18,7 @@ run): ONE node per (drug, market), off a regulator register already stored autho
   its own quote; ``page`` the CIS.
 
 Gates, re-derived from the pages, never trusted: the name is non-empty and a verbatim
-substring of its quote, and the quote is verbatim on its page (``prose_gate.PageGate``).
+substring of its quote, and the quote is verbatim on its page (``pipeline.gate.PageGate``).
 Sole writer of ``holders``, idempotent: every drug's holders are rebuilt from the current
 caches on each run.
 
@@ -41,7 +41,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators import origin  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 import fetch_drugsfda as fda  # noqa: E402
 import fetch_bdpm as bdpm  # noqa: E402
 

@@ -70,7 +70,8 @@ SITES = {"presynaptic": {"presynaptic"}, "postsynaptic": {"postsynaptic"},
 
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
-from prose_gate import PageGate, add_source  # noqa: E402  (the shared by-index gate)
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
+from prose_gate import add_source  # noqa: E402
 
 # GtoPdb target type -> our receptor `receptor_class` vocabulary. Absent = no claim:
 # `other_protein` (sigma-1) does not assert our "chaperone", so sigma-1 stays llm.

@@ -20,7 +20,7 @@ sys.path.insert(0, str(TOOLS))
 import fetch_gtopdb_function as gf  # noqa: E402
 import fetch_receptor_effects as fre  # noqa: E402
 from judged_fixture import refs  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 
 PAYLOAD = {
     "owner": "beta3", "gene": "ADRB3", "target_id": 30, "target_name": "β3-adrenoceptor",

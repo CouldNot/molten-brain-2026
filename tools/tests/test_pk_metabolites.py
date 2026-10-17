@@ -20,7 +20,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_pharmacokinetics as PK  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 
 STAHL = "Venlafaxine active metabolite O-desmethylvenlafaxine (ODV)\nElimination half-life 40-50 hours\n"
 WIKI = "Elimination half-life | 36-200 hours\n"

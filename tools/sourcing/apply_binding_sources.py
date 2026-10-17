@@ -40,7 +40,6 @@ Run from the repo root:
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import sys
 from pathlib import Path
 from typing import Any
@@ -49,14 +48,9 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io  # noqa: E402
 
-# check_data.py is a script, not a package module: load it by path (same trick as
-# apply_nbn_sources.py) to reuse the *exact* normalizer the quote gate applies, so
-# a quote accepted here cannot be rejected by the checker afterwards.
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-assert _spec.loader is not None
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+# Reuse the *exact* normalizer check_data's quote gate applies, so a quote accepted
+# here cannot be rejected by the checker afterwards.
+from check_data import normalize_for_match  # noqa: E402
 
 # Imported as a package member: provenance.py uses relative imports.
 from data_generators.provenance import corpus_page_path  # noqa: E402

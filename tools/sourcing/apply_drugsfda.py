@@ -37,7 +37,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators import history  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 import fetch_drugsfda as fda  # noqa: E402
 
 CORPUS = "drugsfda"

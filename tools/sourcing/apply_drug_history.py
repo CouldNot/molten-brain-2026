@@ -22,7 +22,7 @@ Every gate is re-derived here, never trusted from the judged file:
 5. every vocabulary value published (country, agency, reason) is in its closed
    vocabulary AND attested by the quote (``history.attests``); a withdrawal needs a
    country and a reason (``unstated`` when the sentence gives no why);
-6. the quote is verbatim on its page (``prose_gate.PageGate``, the checker's normalizer).
+6. the quote is verbatim on its page (``pipeline.gate.PageGate``, the checker's normalizer).
 
 A drug's picks land all or nothing per node: a bad approval drops only the approval, a
 bad withdrawal only that withdrawal. Sole writer of ``withdrawals`` and of a Wikipedia
@@ -56,7 +56,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators import history  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
 import fetch_drug_history  # noqa: E402
 import fetch_category_worklist as catwl  # noqa: E402 (PAGES_FR)

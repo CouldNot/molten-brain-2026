@@ -48,7 +48,7 @@ PAGES = {"stahl": ROOT / "data_sources" / "books" / "stahl" / "pages",
 JUDGED_PATH = ROOT / "tools" / "generated_cache" / "pk_judged.json"
 
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
-from prose_gate import PageGate  # noqa: E402 (check_data's normalizer, cached pages)
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 
 
 norm_name = drugs_io._fold          # one name fold (lowercase, alphanumerics only)

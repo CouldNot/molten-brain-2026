@@ -51,7 +51,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
 import re
 import sys
@@ -71,10 +70,7 @@ JUDGED = ROOT / "tools" / "generated_cache" / "metabolite_bindings_judged.json"
 
 # Reuse check_data's canonical quote-gate normalization (single source of truth), so a
 # quote that passes here also passes check_data's later re-gate.
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+from check_data import normalize_for_match  # noqa: E402
 
 
 def _page_text(slug: str) -> str | None:

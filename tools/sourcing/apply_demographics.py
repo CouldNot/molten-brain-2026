@@ -20,7 +20,7 @@ lands only when every gate passes, all or nothing per node:
    (``generated_cache/europepmc_species.json``) names ``human`` (animal studies are out);
 5. ``magnitude`` (when given) is verbatim in one of the picked sentences, and rides that
    source only;
-6. every picked sentence is still verbatim on its stored page (``prose_gate.PageGate``).
+6. every picked sentence is still verbatim on its stored page (``pipeline.gate.PageGate``).
 
 The loop and command line are ``prose_gate.apply_picks`` / ``run_applier``, shared with
 ``apply_receptor_effects.py`` and ``apply_release_modulation.py``. It writes no ``llm``

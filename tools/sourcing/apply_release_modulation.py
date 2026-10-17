@@ -18,7 +18,7 @@ lands only when every gate passes, all or nothing per node:
    given) is a modeled structure, and an autoreceptor sits on a terminal or cell body and
    modulates its receptor's own transmitter (``release_modulation.vocab_error``);
 3. every picked candidate was offered for ``modulates`` (the sentence names it);
-4. every picked sentence is still verbatim on its stored page (``prose_gate.PageGate``).
+4. every picked sentence is still verbatim on its stored page (``pipeline.gate.PageGate``).
 
 The loop and the command line are ``prose_gate.apply_picks`` / ``run_applier``, shared with
 ``apply_receptor_effects.py``. It writes no ``llm`` stamp, so ``recheck_quotes.py``

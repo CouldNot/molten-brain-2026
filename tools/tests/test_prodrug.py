@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import apply_prodrug as A  # noqa: E402
 from judged_fixture import fill  # noqa: E402
 import generate_data as G  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 
 LINES = [
     "Psilocybin is a prodrug that is converted into the pharmacologically active "

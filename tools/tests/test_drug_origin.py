@@ -23,7 +23,7 @@ import apply_drug_holders as AH  # noqa: E402
 import apply_originator as AO  # noqa: E402
 from judged_fixture import fill_tree  # noqa: E402
 from data_generators import origin  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 
 FDA_PAGE = ("# Drugs@FDA application NDA020639 (CHEPLAPHARM)\n"
             "application: NDA020639\n\n"
@@ -152,6 +152,23 @@ class OriginatorTest(unittest.TestCase):
         d = self.run_apply({"index": 0, "name": "Lundbeck", "company": "lundbeck"},
                            {"now": {"index": [1, 2], "name": "Novartis"}})
         self.assertNotIn("now", d["originator"])
+
+    def test_a_bool_is_never_an_index(self):
+        """``True == 1`` in Python: a judge writing ``"index": true`` must not land on
+        candidate 1, even with that candidate's own qid."""
+        from pipeline.judged import ref
+        cands = self.wl["companies"]["lundbeck"]["candidates"]
+        good = self.run_apply({"index": 0, "name": "Lundbeck", "company": "lundbeck"},
+                              {"now": {"index": 1, "name": "Novartis"}})
+        self.assertEqual(good["originator"]["now"], "Novartis")
+        drugs = [{"id": "x"}]
+        judged = {"drugs": {"x": fill_tree({"index": 0, "name": "Lundbeck",
+                                            "company": "lundbeck"},
+                                           self.wl["drugs"]["x"]["candidates"])},
+                  "companies": {"lundbeck": {"now": {**ref(cands, 1), "index": True,
+                                                     "name": "Novartis"}}}}
+        AO.apply(self.wl, judged, drugs, self.pages, {"lundbeck": ["Lundbeck"]})
+        self.assertEqual(drugs[0]["originator"], {"name": "Lundbeck"})
 
     def test_company_must_list_the_picked_name(self):
         """A drug naming another lab never borrows the company's country."""

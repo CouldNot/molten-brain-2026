@@ -28,7 +28,6 @@ Usage (from the repo root): python tools/sourcing/apply_brand_names.py [--dry-ru
 a code read, gated on the product's stored page, no LLM in the loop (see ``apply_bdpm``).
 """
 import argparse
-import importlib.util
 import json
 import os
 import sys
@@ -45,10 +44,7 @@ WORKLIST = ROOT / "tools" / "generated_cache" / "brand_worklist.json"
 JUDGED = ROOT / "tools" / "generated_cache" / "brand_judged.json"
 
 # Reuse the checker's normalization so "accepted here" == "passes check_data".
-_spec = importlib.util.spec_from_file_location("cd", ROOT / "tools" / "check_data.py")
-_cd = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_cd)
-normalize_for_match = _cd.normalize_for_match
+from check_data import normalize_for_match  # noqa: E402
 
 
 BDPM_LABELS = ROOT / "tools" / "generated_cache" / "bdpm_labels.json"

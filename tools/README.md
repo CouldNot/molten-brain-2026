@@ -531,12 +531,12 @@ Screenshots).
   target (`tools/target_aliases.py`, the matcher the fetcher offered it with); the quote is verbatim on
   `data_sources/wikipedia/pages/<slug>.md`. Writes no `llm` stamp (`recheck_quotes.py`'s job).
   Idempotent, `--dry-run`/`--verbose`. **`--tables`** applies the table proposals instead
-  (`binding_directions_tables.json`): gates 3, 4 and 6 are the same shared `_Gate`, there is no index
+  (`binding_directions_tables.json`): gates 3, 4 and 6 are the same shared `BindingGate`, there is no index
   to resolve, and gate 5 becomes "the row opens with its target cell and that cell resolves to the
   target claimed" under the fetcher's own resolver; the source is stamped `extraction: "code"`, so this
   input needs no `recheck_quotes.py` pass. Needs beautifulsoup4 on the path for that resolver.
   **`--search`** applies the UNKNOWN search's picks (`binding_directions_search_judged.json`, index
-  per site into `binding_directions_search_worklist.json`) through the same `_Gate`, the citation
+  per site into `binding_directions_search_worklist.json`) through the same `BindingGate`, the citation
   carrying the candidate's own corpus (EN/FR Wikipedia or a Europe PMC abstract) and page; a metabolite
   pick is written once, on its `metabolites_data.jsonl` record. **`--unknown-log`** (run after the recheck) writes
   `tools/generated_cache/unknown_searches.json`: every searched binding still `affinity_only` whose

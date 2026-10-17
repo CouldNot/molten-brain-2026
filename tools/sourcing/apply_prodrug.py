@@ -14,7 +14,7 @@ Every gate is re-derived here, never trusted from the judged file:
 3. the quote itself says prodrug / inactive (``fetch_prodrug_worklist.PRODRUG_RE``);
 4. the quote names the active metabolite (its name, or its parenthesised synonym);
 5. a ``drug_id`` link, when given, is another drug of the dataset;
-6. the quote is verbatim on its page (``prose_gate.PageGate``, the checker's normalizer).
+6. the quote is verbatim on its page (``pipeline.gate.PageGate``, the checker's normalizer).
 
 A gated drug gets ``prodrug: true`` + ``prodrug_sources``, its active metabolite (added,
 sourced by the same quote, when the drug did not list it yet; linked to a modeled drug
@@ -45,7 +45,7 @@ sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
 from data_generators.drugs import PRODRUG_OWN_ACTIONS  # noqa: E402
-from prose_gate import PageGate  # noqa: E402
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
 import fetch_prodrug_worklist as wl  # noqa: E402
 

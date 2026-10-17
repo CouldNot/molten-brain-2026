@@ -78,7 +78,9 @@ from data_generators.quotes.attestation import pattern_for  # noqa: E402  (the t
 
 # The shared prose gate re-finds a quote under check_data's own normalization, so a quote
 # accepted here is one check_data.py accepts too.
-from prose_gate import PageGate, add_source, normalize_for_match  # noqa: E402
+from check_data import normalize_for_match  # noqa: E402 (the gate's normalizer)
+from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
+from prose_gate import add_source  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 
 CACHE = os.path.join(REPO, "tools", "generated_cache")
