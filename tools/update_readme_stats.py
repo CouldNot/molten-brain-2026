@@ -43,6 +43,8 @@ import json
 import sys
 from pathlib import Path
 
+from io_atomic import atomic_write_text
+
 REPO = Path(__file__).resolve().parent.parent
 META = REPO / "public" / "data" / "meta.json"
 # The English README is canonical; the French translation carries the same generated
@@ -345,7 +347,7 @@ def main() -> int:
                   f"(run tools/update_readme_stats.py)", file=sys.stderr)
             rc = 1
             continue
-        readme.write_text(new_text, encoding="utf-8")
+        atomic_write_text(readme, new_text)
         print(f"updated the sourcing block in {readme.name} "
               f"({stats['nodes']['pct_backed']}% of "
               f"{stats['nodes']['total']} nodes).")

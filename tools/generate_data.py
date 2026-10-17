@@ -207,6 +207,7 @@ import citation_site as CS  # noqa: E402
 # to public/data/changelog.json (docs/ is not web-exposed, so the emit is what makes
 # them reachable).
 from data_generators.changelog import load_changelog  # noqa: E402
+from io_atomic import atomic_write_json, atomic_write_text  # noqa: E402
 from data_generators import llms_txt  # noqa: E402 (public/llms.txt for LLM agents)
 from data_generators import effect_index as EFFECT_INDEX  # noqa: E402 (llms.txt effects, BETA)
 
@@ -2118,16 +2119,13 @@ def write_artifacts(root: Path) -> None:
         emitted["meta"]["source_corpora"], QUOTES.values())
 
     meta_path = data_dir / "meta.json"
-    meta_path.write_text(
-        json.dumps(emitted["meta"], ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8")
+    atomic_write_json(meta_path, emitted["meta"], indent=2)
     log.info("wrote %s", meta_path)
 
     for name in CW.COLLECTIONS:
         path = data_dir / f"{name}.jsonl"
-        with path.open("w", encoding="utf-8") as fh:
-            for record in emitted[name]:
-                fh.write(json.dumps(record, ensure_ascii=False) + "\n")
+        atomic_write_text(path, "".join(
+            json.dumps(record, ensure_ascii=False) + "\n" for record in emitted[name]))
         log.info("wrote %s (%d lines)", path, len(data[name]))
 
     # The per-version "what's new" bullets, newest version first. Authored under
@@ -2138,38 +2136,32 @@ def write_artifacts(root: Path) -> None:
     changelog_path = data_dir / "changelog.json"
     releases = [_emit(release) for release in
                 load_changelog(Path(__file__).resolve().parent.parent / "docs")]
-    changelog_path.write_text(
-        json.dumps({"versions": releases}, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8")
+    atomic_write_json(changelog_path, {"versions": releases}, indent=2)
     log.info("wrote %s (%d versions)", changelog_path, len(releases))
 
     # The site explained to an LLM agent (data files, fields, how to read a claim),
     # written at the site root next to robots.txt rather than under data/. The version
     # is the repo's own (like the changelog), so a --root elsewhere still renders.
     llms_path = root / "llms.txt"
-    llms_path.write_text(llms_txt.render(
+    atomic_write_text(llms_path, llms_txt.render(
         llms_txt.app_version(Path(__file__).resolve().parent.parent / "public"), {name: emitted[name] for name in CW.COLLECTIONS},
         list(emitted["meta"]), len(QUOTES),
         EFFECT_INDEX.summary_lines(
             EFFECT_INDEX.build(emitted["receptors"], emitted["drugs"], emitted["metabolites"],
                                emitted["meta"]),
-            emitted["meta"].get("receptor_effect_modes") or {}, llms_txt.SITE_URL)),
-        encoding="utf-8")
+            emitted["meta"].get("receptor_effect_modes") or {}, llms_txt.SITE_URL)))
     log.info("wrote %s", llms_path)
 
     # The deduplicated quote table, one quote node per line, sorted by id for
     # stable diffs. Fetched by the viewer (rehydrated onto each source at load).
     quotes_path = data_dir / "quotes.jsonl"
-    quotes_path.write_text(
-        "".join(line + "\n" for line in quote_lines()), encoding="utf-8")
+    atomic_write_text(quotes_path, "".join(line + "\n" for line in quote_lines()))
     log.info("wrote %s (%d quotes)", quotes_path, len(QUOTES))
 
     # The deduplicated French side table, keys sorted for stable diffs. Fetched by
     # the viewer only when the active language is French (see js/data.js).
     tr_path = data_dir / "translations.fr.json"
-    tr_path.write_text(
-        json.dumps(TRANSLATIONS, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8")
+    atomic_write_json(tr_path, TRANSLATIONS, indent=2, sort_keys=True)
     log.info("wrote %s (%d pairs)", tr_path, len(TRANSLATIONS))
 
     # The bilingual search table: just the searchable NAMES (en -> fr), so a visitor
@@ -2178,14 +2170,12 @@ def write_artifacts(root: Path) -> None:
     # when the search popup first opens (see js/data.js loadSearchNames).
     sn_path = data_dir / "search_names.fr.json"
     names = search_names(data)
-    sn_path.write_text(
-        json.dumps(names, ensure_ascii=False, indent=0, sort_keys=True) + "\n",
-        encoding="utf-8")
+    atomic_write_json(sn_path, names, indent=0, sort_keys=True)
     log.info("wrote %s (%d names)", sn_path, len(names))
 
     for sid, payload in shapes.items():
         path = shapes_dir / f"{sid}.json"
-        path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        atomic_write_json(path, payload, indent=2, ensure_ascii=True)
     log.info("wrote %d shape files to %s/", len(shapes), shapes_dir)
 
 
