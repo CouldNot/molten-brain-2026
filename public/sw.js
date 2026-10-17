@@ -28,7 +28,7 @@
  *
  * Bump CACHE when the caching logic itself changes; activate() prunes older caches.
  */
-const CACHE = "neurarium-v5";
+const CACHE = "neurarium-v6";
 
 // Minimal app shell precached on install so a first offline launch has a page +
 // icons even before anything else was visited. The stylesheets ride with it, since a
@@ -90,7 +90,11 @@ self.addEventListener("activate", (event) => {
 // full `200` only when it did. `cache: "no-store"` bypasses the browser HTTP
 // cache so OUR conditional headers are the only ones in play (a plain fetch would
 // otherwise just re-download the full body). Falls back to the cached copy offline.
-async function revalidate(req) {
+//
+// `waitUntil` is the fetch event's: the cache write runs after the response is
+// handed back, so a large mesh/data file is not held until it is fully copied into
+// the Cache API, while the worker is still kept alive until that write finishes.
+async function revalidate(req, waitUntil) {
   const cached = await caches.match(req);
   const headers = new Headers();
   if (cached) {
@@ -107,9 +111,12 @@ async function revalidate(req) {
     throw err;
   }
   if (res.status === 304 && cached) return cached; // unchanged: cheap hit
+  // A server error (a 502 while the container restarts) must not beat the last good
+  // copy: the cached one is the same "last known" answer the offline branch gives.
+  if (!res.ok && cached) return cached;
   if (res.ok) {
-    const cache = await caches.open(CACHE);
-    await cache.put(req, res.clone());
+    const copy = res.clone();
+    waitUntil(caches.open(CACHE).then((cache) => cache.put(req, copy)));
   }
   return res;
 }
@@ -125,7 +132,7 @@ self.addEventListener("fetch", (event) => {
   // `revalidate` already returns the cached copy; the catch below only handles the
   // case where there is nothing cached for this request at all.
   event.respondWith(
-    revalidate(req).catch(async () => {
+    revalidate(req, (p) => event.waitUntil(p)).catch(async () => {
       // A navigation with nothing cached for it falls back to the app shell.
       if (req.mode === "navigate") {
         const shell = await caches.match("index.html");
