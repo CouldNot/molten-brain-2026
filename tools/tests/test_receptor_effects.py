@@ -166,6 +166,15 @@ class EmitterTest(unittest.TestCase):
         self.assertNotIn("uncertainty", nodes["vasodilation"])
         self.assertNotIn("evidence", nodes["vasoconstriction"]["sources"][0])
 
+    def test_isolated_tissue_bullet_cites_every_isolated_source(self):
+        def src(quote):
+            return {"corpus": "stahl_essential", "page": 56, "quote": quote,
+                    "provenance": "verified", "evidence": "isolated_tissue"}
+        cache = {"h3": {"agonism:vasoconstriction": [src(SED), src(HYPO)]}}
+        node = RE.effect_nodes("h3", cache, "receptor")[0]
+        bullet = node["uncertainty"][0]
+        self.assertEqual([s["quote"] for s in bullet["sources"]], [SED, HYPO])
+
     def test_unknown_effect_in_cache_fails_the_build(self):
         with self.assertRaises(KeyError):
             RE.effect_nodes("h1", {"h1": {"antagonism:telepathy": []}}, "receptor")

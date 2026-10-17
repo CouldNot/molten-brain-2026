@@ -164,7 +164,7 @@ def effect_nodes(owner: str, cache: dict[str, dict[str, list]],
                                            for s in sources) else "sourced"}
         if all(s.get("evidence") == "isolated_tissue" for s in srcs):
             node["uncertainty"] = [_uncertainty_bullet("isolated_tissue", what=what,
-                                                       node=node, source=sources[0])]
+                                                       node=node, source=sources)]
         out.append(node)
     return out
 
