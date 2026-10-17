@@ -42,7 +42,6 @@ from __future__ import annotations
 import argparse
 import json
 import logging
-import math
 from pathlib import Path
 from typing import Any
 
@@ -132,26 +131,18 @@ from data_generators.provenance import (  # noqa: E402
     DEFAULT_PROVENANCE,
     DENSITY_MIN_RELIABILITY,
     DRUG_CATEGORY_PROVENANCE,
-    PROVENANCE_LEVELS,
     QUOTE_PIPELINES,
     RECEPTOR_CLASSIFICATION_SOURCES,
     RECEPTOR_DENSITY,
     RECEPTOR_LOCATION_SOURCES,
-    RECEPTOR_PROVENANCE,
     SOURCE_CORPORA,
-    STRUCTURE_PROVENANCE,
     TARGET_CLASSIFICATION_SOURCES,
     TARGET_DENSITY,
     TARGET_LOCATION_SOURCES,
     TARGET_POLARITY_PROVENANCE,
-    TARGET_PROVENANCE,
     WIKIPEDIA_DEFAULT_PROVENANCE,
-    _kandel,
-    _nieuwenhuys,
-    _stahl_ess,
     WIKIPEDIA_PROVENANCE,
     _GRADE_RANK,
-    _binding_sources,
     _drug_brands,
     _hours_value,
     _ki_annotation,
@@ -175,10 +166,7 @@ from data_generators.provenance import (  # noqa: E402
 # wrappers and the missing-translation guard live in data_generators.i18n.
 # ---------------------------------------------------------------------------
 from data_generators.i18n import (  # noqa: E402
-    FR,
     TRANSLATIONS,
-    _FR_LEFT,
-    _FR_RIGHT,
     _MISSING_TRANSLATIONS,
     _side_name,
     _t,

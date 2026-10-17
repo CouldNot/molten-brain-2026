@@ -65,7 +65,6 @@ Built with the help of Claude Code.
 import argparse
 import html
 import json
-import os
 import re
 import sys
 import time

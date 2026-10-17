@@ -56,7 +56,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 from io_atomic import atomic_write_json  # noqa: E402
 import polite_http  # noqa: E402 (the one polite GET + User-Agent)
 from data_generators.cpic import (  # noqa: E402
-    ASSUMED, EXPORT_DIR, EXPORT_NAME, PHENOTYPE_SLUGS, POPULATIONS, export_path,
+    ASSUMED, EXPORT_NAME, PHENOTYPE_SLUGS, POPULATIONS, export_path,
     guidance_for, read_export, sha256)
 from data_generators.pharmfreq import GENE_ENZYMES  # noqa: E402
 

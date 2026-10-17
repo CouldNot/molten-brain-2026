@@ -18,7 +18,6 @@ Made with the help of Claude Code.
 from __future__ import annotations
 
 import glob
-import json
 import os
 import re
 from typing import Any, Iterable

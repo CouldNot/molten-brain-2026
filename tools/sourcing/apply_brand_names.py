@@ -29,7 +29,6 @@ a code read, gated on the product's stored page, no LLM in the loop (see ``apply
 """
 import argparse
 import json
-import os
 import sys
 from pathlib import Path
 
