@@ -174,10 +174,19 @@ def target_id(owner: str, gene: str) -> dict | None:
 
 
 def fetch_one(owner: str, gene: str, kind: str, refresh: bool, offline: bool) -> dict | None:
-    """Fetch (or reuse) one owner's function payload and write its page; returns it."""
+    """Fetch (or reuse) one owner's function payload and write its page; returns it.
+
+    A cached payload is reused only when it was fetched for ``gene``: after a gene remap
+    the old target's rows would otherwise be republished under the owner (refetched
+    online; offline the owner is skipped with a warning)."""
     raw_path = RAW / f"{owner}.json"
-    if raw_path.exists() and (offline or not refresh):
-        payload = json.loads(raw_path.read_text("utf-8"))
+    cached = json.loads(raw_path.read_text("utf-8")) if raw_path.exists() else None
+    stale = cached is not None and cached.get("gene") != gene
+    if stale:
+        print(f"  [stale] {owner}: cached for {cached.get('gene')}, now {gene}",
+              file=sys.stderr)
+    if cached is not None and not stale and (offline or not refresh):
+        payload = cached
     elif offline:
         return None
     else:

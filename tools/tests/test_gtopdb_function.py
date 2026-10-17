@@ -93,6 +93,32 @@ class OfferTest(unittest.TestCase):
         self.assertIn("sert", owners)
 
 
+class GeneRemapTest(unittest.TestCase):
+    """A raw payload cached for another gene is never reused under the owner."""
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        d = Path(tmp.name)
+        for name, path in (("RAW", d / "raw"), ("PAGES", d / "pages")):
+            path.mkdir()
+            p = mock.patch.object(gf, name, path)
+            p.start()
+            self.addCleanup(p.stop)
+        (d / "raw" / "x.json").write_text(json.dumps(
+            {"owner": "x", "kind": "receptor", "gene": "OLD", "target_id": 1, "target_name": "X",
+             "fetched": "2026-01-01"}), encoding="utf-8")
+
+    def test_same_gene_reuses_the_cache_offline(self):
+        self.assertEqual(gf.fetch_one("x", "OLD", "receptor", False, True)["gene"], "OLD")
+
+    def test_remapped_gene_is_refetched_not_reused(self):
+        with mock.patch("sys.stderr"):
+            self.assertIsNone(gf.fetch_one("x", "NEW", "receptor", False, True))
+            with mock.patch.object(gf, "target_id", return_value=None) as tid:
+                self.assertIsNone(gf.fetch_one("x", "NEW", "receptor", False, False))
+        tid.assert_called_once_with("x", "NEW")
+
+
 class CandidateTest(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
