@@ -412,11 +412,33 @@ def _merge_external_location_sources() -> None:
         TARGET_LOCATION_SOURCES.setdefault(owner, {}).update(per_base)
 
 
-_merge_external_location_sources()
-_merge_external_density()
-_merge_enzyme_variability()
-_merge_cpic_guidance()
-_merge_external_classification_sources()
+_REGISTRIES_LOADED = False
+
+
+def load_external_registries() -> None:
+    """Fill the machine-written registries above from their ``generated_cache`` files.
+
+    Called by ``generate_data.build_records`` (and by anything else that reads those
+    registries), never at import time: the PharmFreq and CPIC merges re-hash their pinned
+    exports and raise on drift, so loading at import made every importer of this module
+    (a fetch script, a unit test that only wants a quote constructor) pay that disk I/O
+    and fail on an unrelated stale cache. Idempotent, so a second call (a second
+    ``build_records`` run in one process) does not append the classification sources
+    twice.
+    """
+    global _REGISTRIES_LOADED
+    if _REGISTRIES_LOADED:
+        return
+    _merge_external_location_sources()
+    _merge_external_density()
+    _merge_enzyme_variability()
+    _merge_cpic_guidance()
+    _merge_external_classification_sources()
+    # SOURCE_CORPORA is a module-level literal built before any load, so the two corpus
+    # records that publish their export pins take the loaded values here.
+    SOURCE_CORPORA["pharmfreq"]["export_sha256"] = dict(ENZYME_VARIABILITY_PINS)
+    SOURCE_CORPORA["cpic"]["export_sha256"] = dict(CPIC_GUIDANCE_PINS)
+    _REGISTRIES_LOADED = True
 
 
 def _receptor_provenance(receptor_id: str) -> str:
@@ -803,7 +825,7 @@ SOURCE_CORPORA: dict[str, dict] = {
                     "pharmacogenomics. pharmfreq.com, metabolizer status tool.",
         "url": "https://pharmfreq.com",
         "tsv_dir": pharmfreq.EXPORT_DIR,
-        "export_sha256": dict(ENZYME_VARIABILITY_PINS),
+        "export_sha256": {},  # filled by load_external_registries()
         "machine": True,
         "editable": True,
         "page_kind": "gene",
@@ -926,7 +948,7 @@ SOURCE_CORPORA: dict[str, dict] = {
                     "guideline content is subject to update, so the export is dated.",
         "url": "https://cpicpgx.org/",
         "tsv_dir": cpic.EXPORT_DIR,
-        "export_sha256": dict(CPIC_GUIDANCE_PINS),
+        "export_sha256": {},  # filled by load_external_registries()
         "machine": True,
         "editable": True,
         "page_kind": "guideline",

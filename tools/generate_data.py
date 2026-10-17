@@ -125,11 +125,11 @@ from data_generators.drugs import (  # noqa: E402
 # Source provenance: grades, override registries, SOURCE_CORPORA + the quote /
 # binding / Ki source validators live in data_generators.provenance.
 # ---------------------------------------------------------------------------
+from data_generators import provenance as provenance_registry  # noqa: E402 (registry loader)
 from data_generators.provenance import (  # noqa: E402
     CPIC_GUIDANCE,
     ENZYME_VARIABILITY,
     DEFAULT_PROVENANCE,
-    DENSITY_MIN_RELIABILITY,
     DRUG_CATEGORY_PROVENANCE,
     QUOTE_PIPELINES,
     RECEPTOR_CLASSIFICATION_SOURCES,
@@ -1553,6 +1553,9 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     shapes
         Mapping of shape-file basename -> shape payload dict.
     """
+    # The machine-written registries (location / density / classification sources,
+    # enzyme variability, CPIC) are read from tools/generated_cache/ here, not at import.
+    provenance_registry.load_external_registries()
     structures: list[dict[str, Any]] = []
     projections: list[dict[str, Any]] = []
     circuits: list[dict[str, Any]] = []
@@ -2038,8 +2041,8 @@ def build_records() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         # published (see the density pass in tools/fetch/fetch_allen.py). Emitted so the
         # panel can state the real threshold instead of restating the constant. Absent
         # when no density has been applied.
-        **({"density_min_reliability": DENSITY_MIN_RELIABILITY}
-           if DENSITY_MIN_RELIABILITY is not None else {}),
+        **({"density_min_reliability": provenance_registry.DENSITY_MIN_RELIABILITY}
+           if provenance_registry.DENSITY_MIN_RELIABILITY is not None else {}),
         # Programmatic sourcing tally over the shipped data (per-kind + headline);
         # the About panel + README read it so the "% sourced" figure is a real
         # count, never hand-typed. See _provenance_stats.
