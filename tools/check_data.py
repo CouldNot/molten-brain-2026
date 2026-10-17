@@ -1690,14 +1690,10 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
     n_ki = 0
     ki_skipped = set()
 
-    def check_ki(ctx, binding):
-        """Gate one binding's PDSP-CSV Ki (a metabolite binding's Ki is checked the same
-        way as a drug's). Returns 1 if a CSV row was confirmed, else 0."""
+    def check_ki_source(ctx, src):
+        """Gate one source citing a PDSP-CSV row by ki_id: a binding's Ki, or an
+        uncertainty bullet's measurement (a curated denial included)."""
         nonlocal n_ki
-        ki = binding.get("ki")
-        if not ki:
-            return
-        src = ki.get("source") or {}
         corpus, ki_id = src.get("corpus"), src.get("ki_id")
         # Only a CSV corpus (PDSP) cites a row by ki_id; a quote-gated Ki corpus
         # (wikipedia_pharm) was already verified by the source-quote gate above.
@@ -1725,14 +1721,27 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
             pass
         n_ki += 1
 
+    def check_bullet_ki(ctx, node):
+        """The CSV-row sources of a node's uncertainty bullets, which the bullet gate
+        (``check_uncertainty``) hands over to this family."""
+        for j, u in enumerate(node.get("uncertainty") or []):
+            for k, src in enumerate(u.get("sources") or []):
+                if src.get("ki_id") is not None:
+                    check_ki_source(f"{ctx} uncertainty[{j}] sources[{k}]", src)
+
+    def check_ki(ctx, binding):
+        """Gate one binding's PDSP-CSV Ki (a metabolite binding's Ki is checked the same
+        way as a drug's) and its bullets' CSV rows."""
+        check_ki_source(f"{ctx} ki", (binding.get("ki") or {}).get("source") or {})
+        check_bullet_ki(ctx, binding)
+
     for drug in drugs:
         did = drug.get("id")
         for binding in drug.get("bindings", []):
-            check_ki(f"drug {did} binding {binding.get('target')} ki", binding)
+            check_ki(f"drug {did} binding {binding.get('target')}", binding)
     for m in metabolites:
         for binding in m.get("bindings", []) or []:
-            check_ki(f"metabolite {m.get('id')} binding {binding.get('target')} ki",
-                     binding)
+            check_ki(f"metabolite {m.get('id')} binding {binding.get('target')}", binding)
     if ki_skipped:
         report.warn(f"Ki CSV absent for {sorted(ki_skipped)} (author-only material); "
                     f"skipped the ki-row-in-CSV check there")
@@ -1760,6 +1769,7 @@ def check_sources(report, meta, drugs, projections, structures, receptors, addon
                          f"bullet (stale data/: rerun tools/generate_data.py)")
         if id(node) not in gated:
             check_uncertainty(site, node)
+            check_bullet_ki(site, node)
 
     if unjudged:
         report.error(f"{len(unjudged)} LLM-picked quote citation(s) were never judged "

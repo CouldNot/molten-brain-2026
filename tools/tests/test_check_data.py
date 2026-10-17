@@ -481,6 +481,29 @@ class UncertaintyBulletTest(unittest.TestCase):
               "sources": [{"corpus": "pdsp_ki", "ki_id": 7,
                            "provenance": "verified"}]}])), 0)
 
+    def test_a_measured_ki_bullet_is_gated_against_the_csv(self):
+        """Regression: family 8 walked only a binding's own ``ki``, so a bullet citing
+        a PDSP row (a curated denial like MDMA 5-HT1B "> 10000 nM") reached no gate."""
+        import tempfile
+
+        def errors(ki_id, value):
+            with tempfile.TemporaryDirectory(dir=check_data.REPO_ROOT) as tmp:
+                Path(tmp, "ki.csv").write_text("Number,ki Val\n7,10000\n", encoding="utf-8")
+                rel = str(Path(tmp, "ki.csv").relative_to(check_data.REPO_ROOT))
+                meta = {**self.META, "source_corpora": {
+                    **self.META["source_corpora"], "pdsp_ki": {"ref": "PDSP", "csv": rel}}}
+                report = check_data.Report()
+                binding = self._binding([{"kind": "contradicted", "sources": [
+                    {"corpus": "pdsp_ki", "ki_id": ki_id, "value_nm": value,
+                     "provenance": "verified"}]}])
+                with redirect_stdout(io.StringIO()):
+                    check_data.check_sources(report, meta, [{"id": "d", "bindings": [binding]}],
+                                             [], [], [], [])
+                return report.errors
+        self.assertEqual(errors(7, 10000), 0)
+        self.assertEqual(errors(8, 10000), 1)
+        self.assertEqual(errors(7, 5), 1)
+
     def test_declaring_uncertainty_stands_the_subjectless_guard_down(self):
         """The two mechanisms answer the same problem, so they must not both fire:
         the guard bans such a quote outright, the badge keeps it and says why."""
