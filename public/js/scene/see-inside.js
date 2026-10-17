@@ -6,13 +6,13 @@ import * as THREE from "three";
 // "See inside": how far past the orbit-centre plane (toward the camera) an
 // outer-shell structure's centre must sit before it fades. Small and positive, so a
 // shell straddling the plane stays solid rather than flickering at every crossing.
-export const NEAR_CULL_BIAS = 0.3;
+const NEAR_CULL_BIAS = 0.3;
 
 // The opacity a near shell fades to: faint enough to see the nuclei through, still
 // there as a ghost so the brain keeps its outline. Eased per frame, never popped.
-export const SEE_INSIDE_OPACITY = 0.08;
+const SEE_INSIDE_OPACITY = 0.08;
 
-export const SEE_INSIDE_EASE = 0.18; // per-frame approach fraction toward the target fade
+const SEE_INSIDE_EASE = 0.18; // per-frame approach fraction toward the target fade
 
 // The outer shell: the structures big enough to wrap the core and hide it. Only
 // these are ever faded. Fading by position alone (the whole near half, deep nuclei
@@ -22,9 +22,9 @@ export const SEE_INSIDE_EASE = 0.18; // per-frame approach fraction toward the t
 // brain still looked whole. Fading only the shell is the anatomical cutaway instead:
 // the near cortex turns to glass, every nucleus stays, and the far cortex remains as
 // the backdrop that gives them their place.
-export const SHELL_STRUCTURE_IDS = new Set(["cerebellum"]); // the one non-lobe that wraps
+const SHELL_STRUCTURE_IDS = new Set(["cerebellum"]); // the one non-lobe that wraps
 
-export const isShellMesh = (mesh) =>
+const isShellMesh = (mesh) =>
   mesh.userData.structure?.group === "lobe"
   || SHELL_STRUCTURE_IDS.has(mesh.userData.id);
 

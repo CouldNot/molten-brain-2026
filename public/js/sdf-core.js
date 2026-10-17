@@ -232,7 +232,7 @@ function accumulateBounds(node, box) {
   for (const c of kids) accumulateBounds(c, box);
 }
 
-export function fieldBounds(spec) {
+function fieldBounds(spec) {
   if (spec.bounds) {
     return { min: spec.bounds[0].slice(), max: spec.bounds[1].slice() };
   }
@@ -273,7 +273,7 @@ export function fieldBounds(spec) {
  * @param {object} spec
  * @returns {[number, number, number]}
  */
-export function sdfGridDims(spec) {
+function sdfGridDims(spec) {
   const { min, max } = fieldBounds(spec);
   const span = [max[0] - min[0], max[1] - min[1], max[2] - min[2]];
   if (Array.isArray(spec.resolution)) {

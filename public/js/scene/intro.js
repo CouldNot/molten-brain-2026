@@ -17,17 +17,17 @@ import { applyExplode } from "./explode.js";
 //   4. INTRO_ASSEMBLE_MS the regions alone glide back together (camera azimuth
 //                      parked; only the distance tracks the spread)
 // Each beat is eased on its own, so it departs and arrives smoothly.
-export const INTRO_HOLD_MS = 1000;
+const INTRO_HOLD_MS = 1000;
 
-export const INTRO_ROTATE_MS = 2000;
+const INTRO_ROTATE_MS = 2000;
 
-export const INTRO_PAUSE_MS = 300;
+const INTRO_PAUSE_MS = 300;
 
-export const INTRO_ASSEMBLE_MS = 2400;
+const INTRO_ASSEMBLE_MS = 2400;
 
 // How much of a full turn the camera sweeps during the intro before settling on
 // the resting orientation (0.75 = three-quarters of a revolution).
-export const INTRO_ROTATION_TURNS = 0.75;
+const INTRO_ROTATION_TURNS = 0.75;
 
 /**
  * Auto-play intro: start the regions fully blown out and let them glide back

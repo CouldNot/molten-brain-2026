@@ -22,7 +22,7 @@ export function parseVersion(version) {
 }
 
 /** -1 / 0 / +1, comparing two version strings numerically (unparseable sorts low). */
-export function compareVersions(a, b) {
+function compareVersions(a, b) {
   const pa = parseVersion(a) || [0, 0, 0];
   const pb = parseVersion(b) || [0, 0, 0];
   for (let i = 0; i < 3; i += 1) {
@@ -36,7 +36,7 @@ export function compareVersions(a, b) {
  * A version newer than the running build is skipped (a stale cached changelog.json
  * must never announce a feature this build does not have).
  */
-export function releasesSince(versions, seen, current) {
+function releasesSince(versions, seen, current) {
   return (versions || []).filter((release) =>
     compareVersions(release.version, seen) > 0
     && compareVersions(release.version, current) <= 0);
@@ -49,7 +49,7 @@ export function releasesSince(versions, seen, current) {
  * bare public-site domain, where /commit/<sha> would 404, so a bare domain yields no
  * link and the sha renders as plain text. Nothing about the repo is hardcoded here.
  */
-export function commitUrl(sourceUrl, sha) {
+function commitUrl(sourceUrl, sha) {
   const base = String(sourceUrl || "").trim();
   if (!isWebUrl(base) || !/^[0-9a-f]{7,40}$/i.test(sha)) return "";
   try {
@@ -68,7 +68,7 @@ export function commitUrl(sourceUrl, sha) {
  * EN/FR switch without the popup having to be rebuilt. Built from the parts instead of
  * `new Date(iso)`, which would read the string as UTC and slide a day west of Greenwich.
  */
-export function formatDate(iso, lang) {
+function formatDate(iso, lang) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ""));
   if (!m) return "";
   const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));

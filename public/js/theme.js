@@ -28,7 +28,7 @@ import { loadString, saveString } from "./prefs.js";
 
 const KEY = "neurarium.theme";
 /** The themes the token block defines. Dark is the fallback; see the module note. */
-export const THEMES = ["dark", "light"];
+const THEMES = ["dark", "light"];
 
 const readStored = () => {
   // No stored choice (or storage disabled, or a stale value) reads as null.

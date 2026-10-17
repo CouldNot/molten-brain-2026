@@ -260,7 +260,7 @@ export function buildAboutSourcing(meta, opts = {}) {
  *                         `go` closes the popup and focuses its owner)
  * @returns {HTMLElement|null} the example line, or null when this kind has no clean example
  */
-export function buildKindExample(kind, rows) {
+function buildKindExample(kind, rows) {
   const row = exampleRow(rows, kind);
   if (!row) return null;
   // Locale-aware quotation marks around the notion (French uses guillemets + NBSP).

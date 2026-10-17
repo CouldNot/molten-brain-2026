@@ -16,7 +16,7 @@ const { t } = window.__I18N__;
  * @param {Object<string,string>} effectColors
  * @returns {string} hex colour
  */
-export function drugSwatchColor(drug, effectColors) {
+function drugSwatchColor(drug, effectColors) {
   const counts = {};
   for (const b of drug.bindings || []) counts[b.effect] = (counts[b.effect] || 0) + 1;
   let best = null, bestN = -1;
@@ -40,7 +40,7 @@ export function drugSwatchColor(drug, effectColors) {
 // localStorage key for the drug panel's Interactions grouping ("drug" | "enzyme").
 // A reading preference rather than a per-drug state, so it persists and applies to
 // every drug panel, like the metabolites toggle below.
-export const PK_GROUP_KEY = "neurarium.pkGroup";
+const PK_GROUP_KEY = "neurarium.pkGroup";
 
 export function loadPkGrouping() {
   return loadString(PK_GROUP_KEY) === "enzyme" ? "enzyme" : "drug";
@@ -52,7 +52,7 @@ export function savePkGrouping(mode) {
 
 // localStorage key for the Drugs list's "show active metabolites" toggle (default
 // on). Persisted so the choice survives reloads (see js/prefs.js).
-export const METAB_TOGGLE_KEY = "neurarium.metabolites";
+const METAB_TOGGLE_KEY = "neurarium.metabolites";
 
 export function buildDrugLegend(data, onPick) {
   const container = document.getElementById("drugs-list");

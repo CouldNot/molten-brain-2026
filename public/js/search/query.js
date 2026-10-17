@@ -12,7 +12,7 @@
 // the data uses the glyph (the receptor names: "\u03b12A", "\u03bc (MOR)", "\u03c31") or the user
 // types the name they CAN reach on a keyboard ("alpha2a", "mu", "sigma1"). Folding
 // both sides through this means "beta" finds "\u03b21" and "alpha" finds "\u03b12A".
-export const GREEK_NAMES = {
+const GREEK_NAMES = {
   "\u03b1": "alpha", "\u03b2": "beta", "\u03b3": "gamma", "\u03b4": "delta",
   "\u03b5": "epsilon", "\u03b6": "zeta", "\u03b7": "eta", "\u03b8": "theta",
   "\u03b9": "iota", "\u03ba": "kappa", "\u03bb": "lambda", "\u03bc": "mu",

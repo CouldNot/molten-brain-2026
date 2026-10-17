@@ -23,7 +23,7 @@ const { t } = window.__I18N__;
  * Fill `el` with `str`, rendering `*emphasis*` spans as <em>. Builds real text +
  * <em> DOM nodes (never innerHTML), so it is injection-safe for any string.
  */
-export function setInlineEmphasis(el, str) {
+function setInlineEmphasis(el, str) {
   el.replaceChildren();
   // Odd-indexed capture groups are the emphasized runs.
   (str || "").split(/\*([^*]+)\*/g).forEach((part, i) => {

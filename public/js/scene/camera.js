@@ -6,11 +6,11 @@ import { EXPLODE_STRENGTH } from "./explode.js";
 
 // Padding around the whole assembled brain when a load / the reset button frames it
 // (createCameraFocus fitAll): 1 would touch the viewport edge.
-export const FIT_ALL_MARGIN = 1.15;
+const FIT_ALL_MARGIN = 1.15;
 
 // Camera directions for `?view=` (unit vectors from the framed target back to
 // the camera). World axes: x right, y up, z toward the viewer / anterior.
-export const VIEW_DIRS = {
+const VIEW_DIRS = {
   front: [0, 0, 1],
   back: [0, 0, -1],
   right: [1, 0, 0],
@@ -27,7 +27,7 @@ export const VIEW_DIRS = {
  * @param {{camera:THREE.PerspectiveCamera, controls:OrbitControls, meshes:THREE.Mesh[]}} bundle
  * @param {string} viewName  Key of VIEW_DIRS (defaults to "iso").
  */
-export function frameVisible({ camera, controls, meshes }, viewName, onlyIds = null) {
+function frameVisible({ camera, controls, meshes }, viewName, onlyIds = null) {
   // `onlyIds` (a comma-joined id string) restricts the framing box to those
   // meshes, used by the solo review view so the camera frames the studied
   // structure while its ghosted neighbours stay in shot as context.

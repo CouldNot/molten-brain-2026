@@ -5,7 +5,7 @@
 // pin the grouping and the wording. Built with the help of Claude Code.
 
 /** Display order of the two timings (the generator already sorts each drug's rows). */
-export const WORKUP_TIMINGS = ["before", "during"];
+const WORKUP_TIMINGS = ["before", "during"];
 
 /**
  * Split a drug's workup rows by timing, keeping the authored order inside each group.

@@ -85,10 +85,10 @@
 export const TMAX_HOURS = 2; // assumed oral time-to-peak, for a drug with no sourced one
 export const ASSUMED_PKI = 7; // a directed binding with no Ki: assumed 100 nM
 export const P_FLOOR = 1e-4; // 1/Ki at 10 µM, the PDSP "inactive" cut-off
-export const LN2 = Math.log(2);
+const LN2 = Math.log(2);
 
 // Net-effect -> sign. `modulate` covers partial agonists + allosteric modulators.
-export const EFFECT_SIGN = { boost: 1, block: -1, modulate: 0.5 };
+const EFFECT_SIGN = { boost: 1, block: -1, modulate: 0.5 };
 
 /** The signed direction of one resolved binding, or null when unknown. */
 export function bindingSign(b) {
@@ -98,7 +98,7 @@ export function bindingSign(b) {
 }
 
 /** 1/Ki in nM^-1 from a resolved Ki, else the assumed potency (and a flag). */
-export function bindingPotency(b) {
+function bindingPotency(b) {
   const med = b && b.ki && b.ki.median;
   if (med > 0) return { p: 1 / med, assumed: false };
   return { p: Math.pow(10, ASSUMED_PKI - 9), assumed: true };
@@ -152,7 +152,7 @@ export function oralDuration(drug, field) {
  * unreachable: the peak is then clamped just under that bound (a very short-lived
  * drug simply peaks early). Bisection on log(ka).
  */
-export function absorptionRate(ke, tmax) {
+function absorptionRate(ke, tmax) {
   const tCap = 0.99 / ke;
   const t = Math.min(tmax, tCap);
   let lo = Math.log(ke * 1.000001), hi = Math.log(ke * 1e6);
@@ -215,7 +215,7 @@ export function ligandsOf(drug, { metabolites = true } = {}) {
  * `signed`/`unknown`: Map target -> potency sum (signed, resp. direction-less);
  * `flags`: assumed-Ki + unknown-direction notes for the warnings box.
  */
-export function accumulate(ligand, weight, signed, unknown, flags) {
+function accumulate(ligand, weight, signed, unknown, flags) {
   for (const b of ligand.bindings) {
     if (!b || !b.target) continue;
     const { p, assumed } = bindingPotency(b);
