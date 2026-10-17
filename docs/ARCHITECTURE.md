@@ -336,7 +336,7 @@ The per-file detail behind CLAUDE.md's one-line file map. Section names cited as
 
 Viewer (`public/`):
 
-- `index.html`: page shell: loads three.js (vendored import map) and, on `?debug=1`, vendored
+- `index.html`: page shell (markup only; styles live in `css/`): loads three.js (vendored import map) and, on `?debug=1`, vendored
   eruda. Holds the `#controls` panel, the popups (`#shortcuts-modal`, `#legend-modal`,
   `#sourcing-modal`, `#about-modal`, `#image-lightbox`, all `.modal-overlay`), the `#banners`
   stack, the startup `#loading` overlay. An author **byline** ("by Olivier Cornelis", linking
@@ -456,10 +456,29 @@ Viewer (`public/`):
   replayed from the About popup's "See the tutorial" button (`#about-tour`).
 - `js/changelog.js`: `createChangelog()`, the "What's new" popup (`#changelog-modal`). See
   Versioning / Changelog.
-- `js/main.js`: scene/camera/renderer/lights/OrbitControls; explode + transparency; the intro,
-  auto-rotate, hover/pick raycasting; `createInfoPanel`; search; the legend builders
-  (`buildLegend`/`buildLegendKey`/`buildTargetLegend`/`buildEnzymeLegend`/`buildDrugLegend`); the
-  on-demand render loop.
+- `js/main.js`: the boot/orchestration entry: loads data, builds meshes + arrows, creates the
+  controllers, defines the cross-cutting `focus*` / `select*` helpers, hands them to the wiring
+  modules below, and runs the on-demand render loop.
+- `js/scene/`: `setup.js` (renderer, camera, lights, OrbitControls, theme repaint), `camera.js`
+  (named views + focus tween), `explode.js`, `see-inside.js`, `intro.js`, `quality.js`
+  (adaptive quality), `selection.js` (halo + isolate state).
+- `js/boot/`: one `wire*()` per UI concern, called once from `main.js`: `controls.js` (Settings
+  pane), `toolbar.js` (reset + search popup), `shortcuts.js`, `picking.js` (canvas click / tap /
+  hover), `header-toggles.js` (theme + panel-only mode), `speed-slider.js`, `tour-steps.js` (the
+  guided tour's steps), `url-bindings.js` (data-bound deep-link keys).
+- `js/panel/`: the detail panel: `info.js` (`createInfoPanel`, dispatching to `views/<kind>.js`,
+  one `show*()` per node kind), `tabs.js` (detail-tab strip), and the shared row builders
+  (`pills.js`, `tooltip.js`, `bindings.js`, `metabolism.js`, `expression.js`, `pathways.js`,
+  `sections.js`, `addons.js`, `reference.js`, `format.js`, `dom.js`).
+- `js/legend/`: the browse sections (`anatomy.js`, `targets.js`, `drugs.js`, `browse.js` for
+  enzymes + effects, `key.js`, shared `item.js`). `js/about/`: the popups (`modals.js`) and the
+  Sources & provenance tally (`sourcing.js`). `js/search/query.js`: search text folding.
+- `css/`: the stylesheets, linked from `index.html` in cascade order (order matters):
+  `tokens.css` (both theme palettes, see Theme), `base.css`, `controls.css`, `modals.css`,
+  `tour.css`, `segmented.css`, `search.css`, `labels.css`, `popups.css`, `legend.css`,
+  `node-browser.css`, `simulation.css`, `panel.css`, `pills.css`, `panel-drug.css`,
+  `loading.css`, `banners.css`. `sw.js` precaches them with the shell
+  (`tools/tests/test_stylesheets.py` guards both lists).
 - `app-config.js`: `window.__APP_CONFIG__`. This committed copy is the local-dev
   fallback (feature fields empty). In the container `entrypoint.sh` renders an
   env-filled copy into `/gen` and Caddy serves that. Generic name (not
