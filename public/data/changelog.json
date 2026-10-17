@@ -1,6 +1,103 @@
 {
   "versions": [
     {
+      "version": "3.131.0",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "A doubted holder, originator, physchem value or NbN class now shows its orange \"uncertain\" pill instead of a green one",
+          "commits": [
+            "b11e305"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The Effects section hides itself when its index cannot be loaded, instead of showing an empty list",
+          "commits": [
+            "3c98c70"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "The new-version check retries later when a reload still lands on the old build, and never reloads under an open guided tour",
+          "commits": [
+            "fe50219"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "Opening another panel closes a pinned tooltip; the dev banner is built without innerHTML",
+          "commits": [
+            "32b595a",
+            "e3e740b"
+          ]
+        },
+        {
+          "category": "fixed",
+          "text": "A PDSP measurement cited by an uncertainty reason now reads in full in its tooltip (row, Ki, species, radioligand, paper) instead of a bare database name",
+          "commits": [
+            "d56f48b"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "MDMA's 5-HT1B and 5-HT1D partial agonism is marked contradicted: two human receptor screens found MDMA inactive at both up to 10000 nM",
+          "commits": [
+            "d56f48b"
+          ]
+        },
+        {
+          "category": "data",
+          "text": "GtoPdb function rows are offered for receptor effects only when human, as documented; an isolated-tissue flag cites every isolated-tissue source",
+          "commits": [
+            "c644036",
+            "ddbf79d"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "Every model-picked quote now carries a fingerprint of its sentence, so a rebuilt worklist can never attach a verdict to a different sentence",
+          "commits": [
+            "d471ac3",
+            "7571ac1"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The data checks gate more: one walk for grades and quotes, measured Ki rows behind uncertainty reasons, node ids, and every viewer module for unbound names",
+          "commits": [
+            "7a90d40",
+            "bf1af98",
+            "e33e863",
+            "0f875c1"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The viewer's code is split from one 10 500-line file into focused modules, and its styles move out of the page into stylesheets; nothing on screen changes",
+          "commits": [
+            "2899be7",
+            "40c380d",
+            "87b9225",
+            "73bbe06",
+            "c1ee254"
+          ]
+        },
+        {
+          "category": "improved",
+          "text": "The sourcing tools share one HTTP helper, one quote gate, one cache loader and one salt-word list instead of copies, and the EMA fetcher only follows EMA links",
+          "commits": [
+            "861662d",
+            "b866d94",
+            "b134d7b",
+            "2ea5e4a",
+            "dc28798"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.130.0",
       "date": "2026-10-16",
       "entries": [
