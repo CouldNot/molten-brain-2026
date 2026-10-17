@@ -14,9 +14,9 @@ const { t } = window.__I18N__;
 export function showTarget(P, target) {
   const {
     PDSP_KIDB_URL, addFactRow, appendAddons, appendDemographics, appendEffects,
-    appendInteractingDrugs, appendLookupLink, appendReference,
+    appendFoundIn, appendInteractingDrugs, appendLookupLink, appendReference,
     appendSubtypeInteractors, appendVariants, body, clearBody, clinpgxSearchUrl, el,
-    foldBody, locationList, nodePill,
+    foldBody, nodePill,
   } = P;
   clearBody("target");
   body.appendChild(el("h2", "info-title", target.name));
@@ -65,16 +65,8 @@ export function showTarget(P, target) {
   }
   if (facts.childElementCount) body.appendChild(facts);
 
-  // Where it sits (same "Found in" list as a receptor; empty -> no footprint).
-  const where = el("div", "info-locations");
-  where.appendChild(el("h3", null, t("receptor.foundIn")));
-  if (!target.locationNames.length) {
-    where.appendChild(el("p", "info-desc", t("receptor.noRole")));
-  } else {
-    where.appendChild(locationList(target.locationNames, target.locationBases,
-      target.locationInfo, target.densityInfo));
-  }
-  body.appendChild(where);
+  // Where it sits (the same "Found in" list as a receptor; empty -> no footprint).
+  appendFoundIn(target, target.locationBases);
   appendEffects(target.effectInfo, target.effectsUnknown);
   appendDemographics(target.demographicInfo);
   appendVariants(target.variantInfo);

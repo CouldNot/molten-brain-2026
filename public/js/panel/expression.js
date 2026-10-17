@@ -174,7 +174,40 @@ export function makeExpression(P) {
     body.appendChild(wrap);
   };
 
+  /**
+   * The "Found in" section a receptor and a target panel share: a heading, then the
+   * graded region list, or the "no regional role" note when there is none. Only a
+   * receptor can be `ubiquitous` (expressed everywhere, one sourced sentence instead
+   * of a list). `P.sourcesTip` / `P.makeProvenancePill` are read at call time: the
+   * pills factory is assembled onto P after this one.
+   * @param {{locationNames: string[], ubiquitous?: boolean, ubiquitousInfo?: object,
+   *   locationInfo: object, densityInfo: object}} owner
+   * @param {string[]} bases the side-stripped base id of each location name
+   * @param {?string} [tourSec] guided-tour section anchor (`data-tour-sec`)
+   */
+  const appendFoundIn = (owner, bases, tourSec = null) => {
+    const where = el("div", "info-locations");
+    if (tourSec) where.dataset.tourSec = tourSec;
+    where.appendChild(el("h3", null, t("receptor.foundIn")));
+    if (owner.ubiquitous) {
+      const p = el("p", "info-desc info-desc-pilled", t("receptor.ubiquitous"));
+      const u = owner.ubiquitousInfo;
+      if (u) {
+        const tip = u.sources && u.sources.length
+          ? P.sourcesTip(u.sources) : t("receptor.locUnsourced");
+        p.appendChild(P.makeProvenancePill(u.provenance, tip));
+      }
+      where.appendChild(p);
+    } else if (!owner.locationNames.length) {
+      where.appendChild(el("p", "info-desc", t("receptor.noRole")));
+    } else {
+      where.appendChild(locationList(owner.locationNames, bases,
+        owner.locationInfo, owner.densityInfo));
+    }
+    body.appendChild(where);
+  };
+
   return {
-    appendExpressedTargets, EXPRESSED_CAP, locationList, locationRow,
+    appendExpressedTargets, appendFoundIn, EXPRESSED_CAP, locationList, locationRow,
   };
 }

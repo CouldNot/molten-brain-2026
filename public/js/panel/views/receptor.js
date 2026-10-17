@@ -14,9 +14,9 @@ const { t } = window.__I18N__;
 export function showReceptor(P, receptor) {
   const {
     PDSP_KIDB_URL, addFactRow, appendAddons, appendDemographics, appendDownstream,
-    appendEffects, appendInteractingDrugs, appendLookupLink, appendReference,
+    appendEffects, appendFoundIn, appendInteractingDrugs, appendLookupLink, appendReference,
     appendVariants, body, clearBody, clinpgxSearchUrl, el, foldBody, gtopdbSearchUrl,
-    locationList, makeProvenancePill, sourceBackedPill, sourcesTip, uniprotSearchUrl,
+    sourceBackedPill, uniprotSearchUrl,
   } = P;
   clearBody("receptor");
   body.appendChild(el("h2", "info-title", receptor.name));
@@ -63,25 +63,7 @@ export function showReceptor(P, receptor) {
   body.appendChild(facts);
 
   // Where it is expressed.
-  const where = el("div", "info-locations");
-  where.dataset.tourSec = "regions"; // guided-tour section anchor
-  where.appendChild(el("h3", null, t("receptor.foundIn")));
-  if (receptor.ubiquitous) {
-    const p = el("p", "info-desc info-desc-pilled", t("receptor.ubiquitous"));
-    const u = receptor.ubiquitousInfo;
-    if (u) {
-      const tip = u.sources && u.sources.length
-        ? sourcesTip(u.sources) : t("receptor.locUnsourced");
-      p.appendChild(makeProvenancePill(u.provenance, tip));
-    }
-    where.appendChild(p);
-  } else if (receptor.locationNames.length === 0) {
-    where.appendChild(el("p", "info-desc", t("receptor.noRole")));
-  } else {
-    where.appendChild(locationList(receptor.locationNames, receptor.locations,
-      receptor.locationInfo, receptor.densityInfo));
-  }
-  body.appendChild(where);
+  appendFoundIn(receptor, receptor.locations, "regions"); // guided-tour section anchor
   appendEffects(receptor.effectInfo, receptor.effectsUnknown);
   appendDownstream(receptor.modulationInfo);
   appendDemographics(receptor.demographicInfo);
