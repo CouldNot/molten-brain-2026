@@ -86,7 +86,7 @@ def add_source(bucket: list, src: dict, key=None) -> bool:
 
 
 def apply_picks(worklist: dict, judged: dict, owners_ok, check, pages: dict,
-                ) -> tuple[dict[str, dict[str, list]], list[str]]:
+                stamp=None) -> tuple[dict[str, dict[str, list]], list[str]]:
     """The shared loop of an owner-keyed by-index applier: ``(cache, misses)``.
 
     ``judged["owners"][oid]`` is a list of node dicts, each with ``picks``. A node lands
@@ -94,6 +94,8 @@ def apply_picks(worklist: dict, judged: dict, owners_ok, check, pages: dict,
     ``check(oid, node, cands)`` returns ``(key, None)`` (else ``(None, reason)``: a
     vocabulary or "cue not offered" refusal), it has picks, and every pick passes the
     page gate. All or nothing per node; the cache is rebuilt from scratch on every run.
+    ``stamp(node, pick, source)``, when given, annotates each source of a node that
+    landed, before it is merged (so a refused node is never read).
     """
     owners = worklist.get("owners", {})
     gate = PageGate(pages)
@@ -117,6 +119,9 @@ def apply_picks(worklist: dict, judged: dict, owners_ok, check, pages: dict,
             srcs = gate.sources(cands, node["picks"], what, misses)
             if not srcs:
                 continue
+            if stamp:
+                for pick, src in zip(node["picks"], srcs):
+                    stamp(node, pick, src)
             bucket = out.setdefault(oid, {}).setdefault(key, [])
             for s in srcs:
                 add_source(bucket, s)

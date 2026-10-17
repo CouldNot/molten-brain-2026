@@ -102,17 +102,9 @@ def apply(worklist: dict, judged: dict, kinds: dict[str, str],
         if unread:
             return key, f"pick(s) {unread} carry no evidence reading in {EFFECT_EVIDENCE}"
         return key, None
-    cache, misses = apply_picks(worklist, judged, kinds, check, pages)
-    # Stamp each landed source with its pick's evidence reading, matched by quote.
-    for oid, nodes in (judged.get("owners") or {}).items():
-        cands = ((worklist.get("owners") or {}).get(oid) or {}).get("candidates", [])
-        for node in nodes or []:
-            bucket = (cache.get(oid) or {}).get(f"{node.get('mode')}:{node.get('effect')}")
-            by_quote = {cands[p["index"]]["line"]: node["evidence"][str(p["index"])]
-                        for p in node.get("picks") or [] if bucket}
-            for src in bucket or []:
-                src["evidence"] = by_quote.get(src["quote"], src.get("evidence"))
-    return cache, misses
+    def stamp(node, pick, src):  # each landed source carries its pick's evidence reading
+        src["evidence"] = node["evidence"][str(pick["index"])]
+    return apply_picks(worklist, judged, kinds, check, pages, stamp)
 
 
 def unknown_log(worklist: dict, cache: dict, kinds: dict[str, str], ledger: dict,

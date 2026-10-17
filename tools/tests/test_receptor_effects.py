@@ -92,6 +92,15 @@ class ApplierGateTest(unittest.TestCase):
                                       "picks": [0], "evidence": {"0": "isolated_tissue"}}]})
         self.assertEqual(cache["h1"]["antagonism:sedation"][0]["evidence"], "isolated_tissue")
 
+    def test_a_refused_duplicate_node_never_crashes_the_stamp(self):
+        """A second node with the same (mode, effect) and no evidence reading is refused;
+        the evidence stamp must not then read its missing ``evidence`` (a KeyError)."""
+        good = {"effect": "sedation", "mode": "antagonism", "picks": [0], "evidence": IV0}
+        dup = {"effect": "sedation", "mode": "antagonism", "picks": [0]}
+        cache, misses = self.run_({"h1": [good, dup]})
+        self.assertEqual(cache["h1"]["antagonism:sedation"][0]["evidence"], "in_vivo")
+        self.assertIn("evidence reading", misses[0])
+
     def test_owner_no_longer_modeled_is_refused(self):
         self.kinds.pop("h1")
         cache, misses = self.run_({"h1": [{"effect": "sedation", "mode": "antagonism",
