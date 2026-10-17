@@ -94,11 +94,10 @@ def _permalink(slug: str) -> str:
 def _pdsp_ki(name: str, target: str) -> dict | None:
     """A measured PDSP Ki for (metabolite name, target), or None. Preferred over the
     Wikipedia table value when it exists (a raw assay beats a literature figure)."""
-    try:
-        rows, _mapping = fetch_ki.resolve_rows(name, None)   # resolve_rows -> (rows, mapping)
-        s = fetch_ki.summarize_target(rows, target)
-    except Exception:
+    rows = fetch_ki.rows_by_name(name)
+    if rows is None:   # no PDSP CSV on this checkout: keep the Wikipedia value
         return None
+    s = fetch_ki.summarize_target(rows, target)
     if s and s.get("ki_nm"):
         return fetch_ki._ki_from_summary(s)
     return None

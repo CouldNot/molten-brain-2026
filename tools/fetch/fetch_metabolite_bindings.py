@@ -246,10 +246,7 @@ def pdsp_targets(name: str) -> list[dict]:
     but present in PDSP (norfluoxetine: 40 assays across 15 sites) still gets its measured
     bindings. The applier turns each into an ``affinity_only`` binding (a measured Ki, no
     functional direction); the judge may still attach an action from prose."""
-    try:
-        rows, _ = ki.resolve_rows(name, None)
-    except Exception:
-        return []
+    rows = ki.rows_by_name(name) or []   # None: no PDSP CSV on this checkout
     out = []
     for tid in sorted({ki.resolve_target(r) for r in rows} - {None}):
         s = ki.summarize_target(rows, tid)

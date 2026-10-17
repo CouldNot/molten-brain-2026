@@ -301,6 +301,31 @@ def _stem_tag(raw):
     return norm(stem), tag
 
 
+_CSV_MISSING_WARNED = False
+
+
+def rows_by_name(name: str) -> list[dict] | None:
+    """Every PDSP row measured on ``name`` alone (no roster drug id, so no alias or
+    synonym map), or None when the CSV itself is absent (a clone without the
+    author-side ``data_sources/`` tree), warned once on stderr.
+
+    Used by the metabolite pass, which looks a metabolite up by its own name. Only a
+    missing CSV is folded into None: any other error (a malformed row, a bug in the
+    join) raises, so "PDSP has no assay" can never be faked by a crash that would
+    silently drop a measured Ki (norfluoxetine's PDSP-discovered sites, for one).
+    """
+    global _CSV_MISSING_WARNED
+    try:
+        rows, _mapping = resolve_rows(name, None)
+    except FileNotFoundError:
+        if not _CSV_MISSING_WARNED:
+            print(f"warning: PDSP CSV missing ({CSV_PATH}): metabolite PDSP lookups "
+                  "skipped", file=sys.stderr)
+            _CSV_MISSING_WARNED = True
+        return None
+    return rows
+
+
 def resolve_rows(name, drug_id):
     """Return (rows, mapping) for a drug. mapping is None for a direct name match,
     else {pdsp_names, relation, note} when recovered through the alias map."""

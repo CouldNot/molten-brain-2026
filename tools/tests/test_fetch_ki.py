@@ -253,5 +253,30 @@ class NonKiRowFilterTest(unittest.TestCase):
         self.assertEqual(s["qualified_excluded"], 1)
 
 
+class RowsByNameTest(unittest.TestCase):
+    """``rows_by_name`` folds ONLY a missing CSV into None. The metabolite pass used
+    to wrap the lookup in ``except Exception``, so a bug in the join read exactly
+    like "PDSP has no assay" and silently dropped measured bindings."""
+
+    def setUp(self):
+        saved = (fetch_ki._ALL_ROWS, fetch_ki.CSV_PATH)
+        self.addCleanup(lambda: (setattr(fetch_ki, "_ALL_ROWS", saved[0]),
+                                 setattr(fetch_ki, "CSV_PATH", saved[1])))
+        fetch_ki._ALL_ROWS = None
+
+    def test_missing_csv_is_none(self):
+        fetch_ki.CSV_PATH = str(Path(__file__).parent / "no_such_pdsp.csv")
+        self.assertIsNone(fetch_ki.rows_by_name("norfluoxetine"))
+
+    def test_other_errors_raise(self):
+        def boom(name, drug_id):
+            raise KeyError("broken join")
+        orig = fetch_ki.resolve_rows
+        fetch_ki.resolve_rows = boom
+        self.addCleanup(setattr, fetch_ki, "resolve_rows", orig)
+        with self.assertRaises(KeyError):
+            fetch_ki.rows_by_name("norfluoxetine")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
