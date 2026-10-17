@@ -1118,31 +1118,10 @@ _NO_SUBJECT_QUOTE = re.compile(
 # monograph per drug over a contiguous page span, so a page outside the span is a
 # quote read off a neighbour's entry, which no amount of verbatim matching would
 # catch (the sentence really is on the page, just not that drug's page).
-_STAHL_INDEX = REPO_ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
-_STAHL_INDEX_ROW = re.compile(r"\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
-
-
 def _fold_name(name):
     """A drug name reduced to its letters+digits, so ``Amphetamine (d,l)`` and the
     index's ``Amphetamine (D,L)`` compare equal."""
     return alnum_key(name)
-
-
-def stahl_index_rows():
-    """``[(display drug name, first page, last page)]`` from Stahl's generated
-    INDEX.md, in book order; empty when the author-side tree is absent.
-
-    The one parser for that table: :func:`stahl_monograph_ranges` folds it for the
-    monograph-range gate, and ``tools/fetch/fetch_quote_headers.py`` reads the
-    display title (what a reader sees above a quote) off the same rows."""
-    if not _STAHL_INDEX.exists():
-        return []
-    rows = []
-    for line in _STAHL_INDEX.read_text(encoding="utf-8").splitlines():
-        m = _STAHL_INDEX_ROW.match(line)
-        if m:
-            rows.append((m.group(1), int(m.group(2)), int(m.group(3))))
-    return rows
 
 
 def stahl_monograph_ranges():
@@ -1150,7 +1129,7 @@ def stahl_monograph_ranges():
 
     ``None`` when the author-side book tree is absent (a plain clone), so the
     caller skips the check exactly like the verbatim-quote gate does."""
-    ranges = {_fold_name(title): (lo, hi) for title, lo, hi in stahl_index_rows()}
+    ranges = stahl_index.ranges(_fold_name, missing_ok=True)
     return ranges or None
 
 
@@ -2091,6 +2070,7 @@ from data_generators import clinpgx, cpic, freshness, node_id, pharmfreq, unknow
 from text_fold import alnum_key  # noqa: E402
 from drugs_io import is_combination  # noqa: E402
 from page_file import page_file  # noqa: E402 (refuses a path-like page)
+import stahl_index  # noqa: E402 (the one INDEX.md reader)
 from data_generators import release_modulation as RELMOD  # noqa: E402
 from data_generators import demographics as DEMOG  # noqa: E402
 # The drug + its formulations, the holders of brands / Tmax / T½ (one walker, so the

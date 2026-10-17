@@ -64,7 +64,8 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
 from io_atomic import atomic_write_json  # noqa: E402
-import check_data  # noqa: E402  (reuse the quote gate's normalizer + INDEX parser)
+import check_data  # noqa: E402  (reuse the quote gate's normalizer + range gate)
+import stahl_index  # noqa: E402  (the one INDEX.md reader)
 
 STAHL = "stahl"
 QUOTES = os.path.join(REPO, "public", "data", "quotes.jsonl")
@@ -173,7 +174,7 @@ class StahlPages:
         self._section_of: dict[str, str] | None = None
         if not self.ok:
             return
-        for title, lo, hi in check_data.stahl_index_rows():
+        for title, lo, hi in stahl_index.rows(missing_ok=True):
             self.drug_names.add(check_data.normalize_for_match(title))
             for page in range(lo, hi + 1):
                 self.page_drug[page] = title

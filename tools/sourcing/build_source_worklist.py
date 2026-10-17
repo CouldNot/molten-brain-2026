@@ -21,31 +21,17 @@ Built with the help of Claude Code.
 """
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in tools/sourcing/)
 DATA = ROOT / "public" / "data"
-INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared text_fold module
 from text_fold import alnum_key  # noqa: E402
-
-# "| 54 | Fluoxetine | [329-334](pages/329.md) |"
-_ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
+import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
 
 
 _norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
-
-
-def page_ranges():
-    """Normalized drug name -> [start, end] from the generated INDEX.md."""
-    out = {}
-    for line in INDEX.read_text(encoding="utf-8").splitlines():
-        m = _ROW.match(line)
-        if m:
-            out[_norm(m.group(1))] = [int(m.group(2)), int(m.group(3))]
-    return out
 
 
 def load_jsonl(name):
@@ -67,7 +53,7 @@ def main():
     meta = json.loads((DATA / "meta.json").read_text(encoding="utf-8"))
     targets = meta["drug_targets"]
     actions = meta["drug_actions"]
-    ranges = page_ranges()
+    ranges = stahl_index.ranges()
     drugs = load_jsonl("drugs")
 
     worklist = []

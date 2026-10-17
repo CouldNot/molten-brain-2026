@@ -65,6 +65,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(HERE))
 
 import drugs_io                                                 # noqa: E402
+import stahl_index                                              # noqa: E402 (the one INDEX.md reader)
 from page_file import page_file  # noqa: E402 (refuses a path-like page)
 import worklist_io  # noqa: E402
 import fetch_cyp_wikipedia as cypwiki                            # noqa: E402 (page_for)
@@ -247,7 +248,7 @@ def stahl_candidates(drug: dict, spans: dict, pattern=PEAK_RE) -> list[dict]:
         return []
     out: list[dict] = []
     for page in range(span[0], span[1] + 1):
-        path = pk.PAGES_DIR / f"{page}.md"
+        path = stahl_index.PAGES / f"{page}.md"
         if path.exists():
             out += candidates_in(path.read_text(encoding="utf-8", errors="replace"),
                                  "stahl", page, pattern)
@@ -290,7 +291,7 @@ def build(only: set[str] | None = None, pattern=PEAK_RE, skip=None) -> dict[str,
 
     ``skip(drug)`` true leaves a drug out (a fact another pass already owns).
     """
-    spans = pk.load_index() if pk.INDEX_PATH.exists() else {}
+    spans = pk.load_index() if stahl_index.INDEX.exists() else {}
     worklist: dict[str, dict] = {}
     for drug in drugs_io.load_drugs():
         if only and drug["id"] not in only:

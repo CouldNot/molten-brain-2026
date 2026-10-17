@@ -42,15 +42,13 @@ ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in to
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
+import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
 DRUGS_JSON = drugs_io.DRUGS_PATH
-PAGES = ROOT / "data_sources" / "books" / "stahl" / "pages"
-INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
 
 # Reuse the exact normalization the checker uses, so "accepted here" == "passes
 # check_data" by construction (no second, drifting implementation).
 from check_data import normalize_for_match  # noqa: E402
 
-_ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 # The NbN line, tolerant of the markdown bullet / optional bold markers Stahl's
 # PDF->Markdown pipeline emits. The captured group (the line from "Neuroscience"
 # onward) is stored verbatim, so whatever raw characters it holds still pass the
@@ -65,21 +63,12 @@ _CLASS_HEAD = re.compile(r"^#+\s*\*\*Class\*\*", re.IGNORECASE)
 _norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
 
 
-def page_ranges():
-    out = {}
-    for line in INDEX.read_text(encoding="utf-8").splitlines():
-        m = _ROW.match(line)
-        if m:
-            out[_norm(m.group(1))] = (int(m.group(2)), int(m.group(3)))
-    return out
-
-
 def find_nbn_line(start, end):
     """Return (page, verbatim_line) for the first NbN line in [start, end], or
     (None, None). The line is stripped of surrounding markdown emphasis markers so
     the stored quote reads cleanly, but stays a contiguous span of the page text."""
     for p in range(start, end + 1):
-        f = PAGES / f"{p}.md"
+        f = stahl_index.PAGES / f"{p}.md"
         if not f.exists():
             continue
         for raw in f.read_text(encoding="utf-8").splitlines():
@@ -97,7 +86,7 @@ def find_class_line(start, end):
     heading, stripped of its list bullet + emphasis markers but still a contiguous
     span of the page text (so the verbatim check passes)."""
     for p in range(start, end + 1):
-        f = PAGES / f"{p}.md"
+        f = stahl_index.PAGES / f"{p}.md"
         if not f.exists():
             continue
         lines = f.read_text(encoding="utf-8").splitlines()
@@ -116,7 +105,7 @@ def main():
     args = ap.parse_args()
 
     drugs = drugs_io.load_drugs()
-    ranges = page_ranges()
+    ranges = stahl_index.ranges()
 
     applied = skipped = no_line = mismatch = no_range = 0
     misses = []

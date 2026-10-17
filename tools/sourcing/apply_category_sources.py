@@ -46,7 +46,6 @@ Built with the help of Claude Code.
 """
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -55,8 +54,8 @@ sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_
 import drugs_io  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
+import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
 DRUGS_JSON = drugs_io.DRUGS_PATH
-PAGES = ROOT / "data_sources" / "books" / "stahl" / "pages"
 CACHE = ROOT / "tools" / "generated_cache"
 WORKLIST = CACHE / "category_worklist.json"
 JUDGED = CACHE / "category_judged.json"
@@ -65,40 +64,13 @@ WIKI_PAGES = {
     "wikipedia_pharm": ROOT / "data_sources" / "wikipedia" / "pages",
     "wikipedia_fr": ROOT / "data_sources" / "wikipedia" / "pages_fr",
 }
-INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
 
 # Reuse the exact normalization the checker uses, so "accepted here" == "passes
 # check_data" by construction (no second, drifting implementation).
 from check_data import normalize_for_match  # noqa: E402
 
-_ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
-
 
 _norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
-
-
-def page_ranges():
-    out = {}
-    for line in INDEX.read_text(encoding="utf-8").splitlines():
-        m = _ROW.match(line)
-        if m:
-            out[_norm(m.group(1))] = (int(m.group(2)), int(m.group(3)))
-    return out
-
-
-def find_page(start, end, quote):
-    """Return the page in [start, end] whose text contains the normalized quote,
-    or None. Searches the whole range so the located page is authoritative."""
-    needle = normalize_for_match(quote)
-    if not needle:
-        return None
-    for p in range(start, end + 1):
-        f = PAGES / f"{p}.md"
-        if not f.exists():
-            continue
-        if needle in normalize_for_match(f.read_text(encoding="utf-8")):
-            return p
-    return None
 
 
 def apply_wikipedia(drugs, worklist, judged, pages=WIKI_PAGES):
@@ -191,7 +163,7 @@ def main():
 
     results = json.loads(Path(args.results).read_text(encoding="utf-8"))
     by_id = {d["id"]: d for d in drugs}
-    ranges = page_ranges()
+    ranges = stahl_index.ranges()
 
     applied = skipped = no_range = 0
     misses = []
@@ -211,7 +183,7 @@ def main():
             continue
         sources = []
         for quote in r.get("quotes", []):
-            page = find_page(rng[0], rng[1], quote)
+            page = stahl_index.find_page(rng[0], rng[1], quote)
             if page is None:
                 misses.append(f"{did}: quote not found in pp.{rng[0]}-{rng[1]}: {quote!r}")
                 continue

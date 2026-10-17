@@ -42,32 +42,17 @@ ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in to
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
+import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
 DRUGS_JSON = drugs_io.DRUGS_PATH
 STAHL = ROOT / "data_sources" / "books" / "stahl"
-PAGES = STAHL / "pages"
-INDEX = STAHL / "INDEX.md"
 DUMP = STAHL / "stahl_dump.jsonl"
 
-# Reuse the exact normalization the checker uses, so "accepted here" == "passes
-# check_data" (no second, drifting implementation).
-from check_data import normalize_for_match  # noqa: E402
 
-_ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 _BR = re.compile(r"<br\s*/?>", re.IGNORECASE)
 _TAG = re.compile(r"<[^>]+>")
 
 
 _norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
-
-
-def page_ranges():
-    """Map _norm(drug name) -> (start_page, end_page) from INDEX.md."""
-    out = {}
-    for line in INDEX.read_text(encoding="utf-8").splitlines():
-        m = _ROW.match(line)
-        if m:
-            out[_norm(m.group(1))] = (int(m.group(2)), int(m.group(3)))
-    return out
 
 
 def parse_brands(answer):
@@ -110,36 +95,18 @@ def load_dump_brands():
     return out
 
 
-def find_brand_page(brand, start, end):
-    """First page in [start, end] whose text states `brand` verbatim, else None.
-
-    Verbatim under check_data's normalization (case- and punctuation-insensitive),
-    so the stored quote provably appears on the cited page.
-    """
-    needle = normalize_for_match(brand)
-    if not needle:
-        return None
-    for p in range(start, end + 1):
-        f = PAGES / f"{p}.md"
-        if not f.exists():
-            continue
-        if needle in normalize_for_match(f.read_text(encoding="utf-8")):
-            return p
-    return None
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    if not DUMP.exists() or not INDEX.exists():
-        print(f"Stahl material not present ({DUMP} / {INDEX}); this is an author-side "
+    if not DUMP.exists() or not stahl_index.INDEX.exists():
+        print(f"Stahl material not present ({DUMP} / {stahl_index.INDEX}); this is an author-side "
               "script, nothing to do on a clone without the gitignored book tree.")
         return
 
     drugs = drugs_io.load_drugs()
-    ranges = page_ranges()
+    ranges = stahl_index.ranges()
     dump = load_dump_brands()
 
     applied = brands_added = skipped = no_dump = no_range = 0
@@ -159,7 +126,7 @@ def main():
             continue
         brands = []
         for name in names:
-            page = find_brand_page(name, rng[0], rng[1])
+            page = stahl_index.find_page(rng[0], rng[1], name)
             if page is None:
                 misses.append(f"{d['id']}: brand {name!r} not verbatim in pp.{rng[0]}-{rng[1]}")
                 continue

@@ -21,7 +21,6 @@ Built with the help of Claude Code.
 """
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -29,40 +28,11 @@ ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in to
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
+import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
 DRUGS_JSON = drugs_io.DRUGS_PATH
-PAGES = ROOT / "data_sources" / "books" / "stahl" / "pages"
-INDEX = ROOT / "data_sources" / "books" / "stahl" / "INDEX.md"
-
-# Reuse the exact normalization the checker uses, so "accepted here" == "passes
-# check_data" by construction (no second, drifting implementation).
-from check_data import normalize_for_match  # noqa: E402
-
-_ROW = re.compile(r"^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 
 
 _norm = alnum_key  # lowercase alphanumerics only (tools/text_fold.py)
-
-
-def page_ranges():
-    out = {}
-    for line in INDEX.read_text(encoding="utf-8").splitlines():
-        m = _ROW.match(line)
-        if m:
-            out[_norm(m.group(1))] = (int(m.group(2)), int(m.group(3)))
-    return out
-
-
-def find_page(start, end, quote):
-    """Return the page in [start, end] whose text contains the normalized quote,
-    or None. Searches the whole range so the located page is authoritative."""
-    needle = normalize_for_match(quote)
-    if len(needle.replace(" ", "")) < 12:
-        return None  # too short to trust (see check_data _MIN_QUOTE_CHARS)
-    for p in range(start, end + 1):
-        f = PAGES / f"{p}.md"
-        if f.exists() and needle in normalize_for_match(f.read_text(encoding="utf-8")):
-            return p
-    return None
 
 
 def main():
@@ -74,7 +44,7 @@ def main():
     results = json.loads(Path(args.results).read_text(encoding="utf-8"))
     drugs = drugs_io.load_drugs()
     by_id = {d["id"]: d for d in drugs}
-    ranges = page_ranges()
+    ranges = stahl_index.ranges()
 
     applied = rejected = skipped = 0
     rejects = []
@@ -91,7 +61,7 @@ def main():
             if b.get("sources"):
                 skipped += 1
                 continue
-            page = find_page(rng[0], rng[1], acc["quote"]) if rng else None
+            page = stahl_index.find_page(rng[0], rng[1], acc["quote"], min_chars=12) if rng else None
             if page is None:
                 rejected += 1
                 rejects.append(f"{r['id']}[{idx}] {b['target']}: {acc['quote']!r}")

@@ -42,16 +42,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io                                                 # noqa: E402
+import stahl_index                                              # noqa: E402 (the one INDEX.md reader)
 from io_atomic import atomic_write_json  # noqa: E402
 
-STAHL_DIR = ROOT / "data_sources" / "books" / "stahl"
-INDEX_PATH = STAHL_DIR / "INDEX.md"
-PAGES_DIR = STAHL_DIR / "pages"
 OUT_PATH = ROOT / "tools" / "generated_cache" / "pk_worklist.json"
-
-# INDEX.md row: "| 5 | Amitriptyline | [39-46](pages/39.md) |" (or a single "[39]").
-_INDEX_ROW = re.compile(
-    r"^\|\s*\d+\s*\|\s*(?P<name>[^|]+?)\s*\|\s*\[(?P<start>\d+)(?:-(?P<end>\d+))?\]")
 
 # A line worth keeping for the T½ node: mentions a half-life.
 _HALF_LIFE = re.compile(r"half-?life", re.IGNORECASE)
@@ -107,16 +101,8 @@ def parse_duration(line: str) -> dict | None:
 
 
 def load_index() -> dict[str, tuple[int, int]]:
-    """Parse INDEX.md into ``normalized drug name -> (start_page, end_page)``."""
-    spans: dict[str, tuple[int, int]] = {}
-    for line in INDEX_PATH.read_text(encoding="utf-8").splitlines():
-        m = _INDEX_ROW.match(line)
-        if not m:
-            continue
-        start = int(m.group("start"))
-        end = int(m.group("end") or start)
-        spans[_norm_name(m.group("name"))] = (start, end)
-    return spans
+    """``_norm_name(drug name) -> (start_page, end_page)`` from Stahl's INDEX.md."""
+    return stahl_index.ranges(_norm_name)
 
 
 def scan_pages(start: int, end: int) -> tuple[list[dict], list[dict]]:
@@ -138,7 +124,7 @@ def scan_pages(start: int, end: int) -> tuple[list[dict], list[dict]]:
     seen_hl: set[str] = set()
     seen_met: set[str] = set()
     for page in range(start, end + 1):
-        path = PAGES_DIR / f"{page}.md"
+        path = stahl_index.PAGES / f"{page}.md"
         if not path.exists():
             continue
         for raw in path.read_text(encoding="utf-8").splitlines():
@@ -164,8 +150,8 @@ def main() -> int:
                     help="worklist output path")
     args = ap.parse_args()
 
-    if not INDEX_PATH.exists():
-        print(f"[error] Stahl INDEX not found at {INDEX_PATH} (author-side tree "
+    if not stahl_index.INDEX.exists():
+        print(f"[error] Stahl INDEX not found at {stahl_index.INDEX} (author-side tree "
               f"missing); nothing to do.", file=sys.stderr)
         return 1
 

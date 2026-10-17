@@ -39,16 +39,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
+import stahl_index  # noqa: E402 (the one INDEX.md reader)
 import check_data  # noqa: E402  (reuse the quote gate's normalizer, one definition)
 from data_generators.drugs import ENZYMES  # noqa: E402  (the modeled isoform ids)
 
 STAHL = os.path.join(REPO, "data_sources", "books", "stahl")
 DUMP = os.path.join(STAHL, "stahl_dump.jsonl")
 PAGES = os.path.join(STAHL, "pages")
-INDEX = os.path.join(STAHL, "INDEX.md")
 
 CYP_RE = re.compile(r"CYP\s?([1-4][A-Z]\d{1,2})((?:\s*/\s*\d?[A-Z]?\d{1,2})*)", re.I)
-INDEX_ROW = re.compile(r"\|\s*\d+\s*\|\s*(.+?)\s*\|\s*\[(\d+)-(\d+)\]")
 
 # The non-cytochrome clearance routes the ENZYMES vocabulary carries, as the phrases a
 # source spells them with. Lives here, beside CYP_RE, because both this Stahl pass and
@@ -79,14 +78,11 @@ def strip_html(s: str) -> str:
 
 
 def load_index() -> dict[str, tuple[int, int]]:
-    """Stahl drug name (lowercased) -> its (first, last) page-file number."""
-    out = {}
-    with open(INDEX, encoding="utf-8") as f:
-        for line in f:
-            m = INDEX_ROW.match(line)
-            if m:
-                out[m.group(1).strip().lower()] = (int(m.group(2)), int(m.group(3)))
-    return out
+    """Stahl drug name (lowercased) -> its (first, last) page-file number.
+
+    Lowercase only (not ``alnum_key``), so the keys line up with :func:`load_pk_blocks`,
+    which keys the dump's ``Drug`` field the same way."""
+    return stahl_index.ranges(key=str.lower)
 
 
 def load_pk_blocks() -> dict[str, str]:
