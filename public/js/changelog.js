@@ -215,12 +215,13 @@ export function createChangelog({ version, sourceUrl, t, pick, wireModal }) {
 
   /** Open showing the full history (the About link's behaviour). */
   async function open() {
-    let releases = [];
-    try {
-      releases = await load();
-    } catch { /* offline / missing file: the empty message says so */ }
+    // Only a loaded changelog may be recorded as seen: offline, seenMark() falls
+    // back to the running build, which would silently mark notes the visitor never
+    // got to read (they would then never pop up once back online).
+    let loaded = false;
+    try { await load(); loaded = true; } catch { /* offline / missing file: the empty message says so */ }
     render(shippedReleases());
-    markSeen(seenMark());
+    if (loaded) markSeen(seenMark());
     ctrl.open();
   }
 
