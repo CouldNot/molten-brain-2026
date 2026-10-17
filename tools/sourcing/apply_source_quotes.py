@@ -20,13 +20,13 @@ Usage:
 Built with the help of Claude Code.
 """
 import argparse
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in tools/sourcing/)
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from text_fold import alnum_key  # noqa: E402
 import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
 DRUGS_JSON = drugs_io.DRUGS_PATH
@@ -41,7 +41,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    results = json.loads(Path(args.results).read_text(encoding="utf-8"))
+    results = worklist_io.read(args.results)
     drugs = drugs_io.load_drugs()
     by_id = {d["id"]: d for d in drugs}
     ranges = stahl_index.ranges()

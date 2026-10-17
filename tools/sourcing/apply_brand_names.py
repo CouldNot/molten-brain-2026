@@ -35,6 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from data_generators.provenance import brand_regions  # noqa: E402
 from text_fold import ascii_key, strip_accents  # noqa: E402
 
@@ -190,8 +191,8 @@ def main():
         print(f"{PAGES_FR} absent; this is author-side, nothing to do on a clone.")
         return
 
-    worklist = load_json(WORKLIST)
-    judged = load_json(JUDGED)
+    worklist = worklist_io.read(WORKLIST)
+    judged = worklist_io.read(JUDGED)
     drugs = drugs_io.load_drugs()
     by_id = {d["id"]: d for d in drugs}
 

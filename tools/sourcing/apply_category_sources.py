@@ -45,13 +45,13 @@ Usage:
 Built with the help of Claude Code.
 """
 import argparse
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent   # repo root (script in tools/sourcing/)
 sys.path.insert(0, str(ROOT / "tools"))                # reach the shared drugs_io module
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from pipeline.judged import resolve  # noqa: E402
 from text_fold import alnum_key  # noqa: E402
 import stahl_index  # noqa: E402 (the one INDEX.md reader + span search)
@@ -152,8 +152,8 @@ def main():
 
     drugs = drugs_io.load_drugs()
     if args.wikipedia:
-        worklist = json.loads(args.worklist.read_text(encoding="utf-8"))["drugs"]
-        judged = json.loads(args.judged.read_text(encoding="utf-8"))
+        worklist = worklist_io.read(args.worklist)["drugs"]
+        judged = worklist_io.read(args.judged)
         applied, misses = apply_wikipedia(drugs, worklist, judged)
         _report(applied, misses, args.dry_run, drugs,
                 f"applied {applied}, misses {len(misses)}")
@@ -161,7 +161,7 @@ def main():
     if not args.results:
         ap.error("RESULTS.json is required unless --wikipedia")
 
-    results = json.loads(Path(args.results).read_text(encoding="utf-8"))
+    results = worklist_io.read(args.results)
     by_id = {d["id"]: d for d in drugs}
     ranges = stahl_index.ranges()
 

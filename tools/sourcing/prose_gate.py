@@ -19,6 +19,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
 from pipeline.gate import PageGate  # noqa: E402 (the page gate, written once)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from pipeline.judged import resolve  # noqa: E402
 from io_atomic import atomic_write_json  # noqa: E402
 
@@ -95,13 +96,12 @@ def run_applier(doc: str, worklist_path: Path, judged_path: Path, cache_path: Pa
     """The shared ``--dry-run`` command line of an owner-keyed applier: run ``apply(worklist,
     judged)``, print the misses, write the cache sorted (unless dry run)."""
     import argparse
-    import json
     ap = argparse.ArgumentParser(description=doc,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true", help="report, write nothing")
     args = ap.parse_args()
-    cache, misses = apply(json.loads(worklist_path.read_text("utf-8")),
-                          json.loads(judged_path.read_text("utf-8")))
+    cache, misses = apply(worklist_io.read(worklist_path),
+                          worklist_io.read(judged_path))
     for m in misses:
         print(f"  [miss] {m}", file=sys.stderr)
     n = sum(len(v) for v in cache.values())

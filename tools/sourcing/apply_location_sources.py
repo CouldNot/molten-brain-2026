@@ -47,6 +47,7 @@ OUT = TOOLS / "generated_cache" / "location_sources.json"
 
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from io_atomic import atomic_write_text  # noqa: E402
 
 
@@ -54,7 +55,7 @@ def load_worklist() -> dict[str, dict]:
     """Index the GtoPdb worklist by owner id (receptor_id)."""
     if not WORKLIST.exists():
         raise SystemExit(f"error: {WORKLIST} missing; run tools/fetch/fetch_gtopdb.py first")
-    return {w["receptor_id"]: w for w in json.loads(WORKLIST.read_text("utf-8"))}
+    return {w["receptor_id"]: w for w in worklist_io.read(WORKLIST)}
 
 
 def page_text(target_id: int) -> str:
@@ -81,7 +82,7 @@ def collect_gtopdb(judged_path: str, llm: str | None = None) -> tuple[list[tuple
     model that ran the judge, stamped onto each source (Allen's path takes no llm: its
     PACall present/absent call is deterministic, not model-sourced)."""
     worklist = load_worklist()
-    judged = json.loads(Path(judged_path).read_text("utf-8"))
+    judged = worklist_io.read(judged_path)
     out, warnings, skipped = [], [], 0
     for entry in judged:
         rid = entry.get("receptor_id") or entry.get("target_id")

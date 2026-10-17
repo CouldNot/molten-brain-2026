@@ -42,7 +42,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -51,6 +50,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 import fetch_cyp_wikipedia as cypwiki  # noqa: E402
 import fetch_originator as fo  # noqa: E402
 from data_generators import history, origin  # noqa: E402
@@ -154,7 +154,7 @@ def main() -> int:
     if not Path(cypwiki.PAGES).is_dir():
         print("[error] data_sources/wikipedia/pages missing (author-side)", file=sys.stderr)
         return 1
-    judged = json.loads(args.judged.read_text("utf-8"))
+    judged = worklist_io.read(args.judged)
     drugs = drugs_io.load_drugs()
     counts = apply(fo.build(), judged, drugs,
                    PageGate({fo.CORPUS: Path(cypwiki.PAGES)}))

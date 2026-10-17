@@ -70,6 +70,7 @@ SITES = {"presynaptic": {"presynaptic"}, "postsynaptic": {"postsynaptic"},
 
 sys.path.insert(0, str(TOOLS))
 from check_data import normalize_for_match  # noqa: E402  (reuse the gate's normalizer)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from prose_gate import add_source  # noqa: E402
 from io_atomic import atomic_write_json  # noqa: E402
@@ -291,8 +292,8 @@ def main() -> int:
         receptors, targets = current_values()
         existing = json.loads(OUT.read_text("utf-8")) if OUT.exists() else {}
         rec_out, tgt_out = existing.get("receptors", {}), existing.get("targets", {})
-        applied, misses = apply_prose(json.loads(WORKLIST.read_text("utf-8")),
-                                      json.loads(JUDGED.read_text("utf-8")),
+        applied, misses = apply_prose(worklist_io.read(WORKLIST),
+                                      worklist_io.read(JUDGED),
                                       receptors, targets, rec_out, tgt_out)
         for m in misses:
             print(f"  [miss] {m}", file=sys.stderr)

@@ -43,7 +43,6 @@ quote gate could not run). Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -52,6 +51,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from check_data import normalize_for_match  # noqa: E402
 from pipeline.gate import PageGate  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
@@ -147,7 +147,7 @@ def main() -> int:
         print(f"[error] {pages_dir.relative_to(ROOT)} missing: the quote gate cannot run",
               file=sys.stderr)
         return 1
-    judged = json.loads(JUDGED_PATH.read_text(encoding="utf-8"))
+    judged = worklist_io.read(JUDGED_PATH)
     pages = PageGate({CORPUS: pages_dir})
     drug_ids = {d["id"] for d in drugs_io.load_drugs()}
     offered = fetch_workup.build()

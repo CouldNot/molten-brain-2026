@@ -8,8 +8,14 @@ scoped build is **merged** into the existing worklist instead.
 :func:`write` is the one way a fetcher saves a worklist: it stamps every candidate's
 ``qid`` fingerprint first (``pipeline.judged``), so the judge can echo it and the applier
 can refuse a pick whose index has since shifted onto another sentence.
+
+:func:`read` is the matching way an applier loads its worklist or ``*_judged.json``.
 """
 from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
 
 from io_atomic import atomic_write_json
 from pipeline.judged import stamp
@@ -43,3 +49,31 @@ def merge_scoped_list(existing: list, scoped: list, key: str) -> list:
 def write(path, worklist, indent: int = 1, sort_keys: bool = False) -> None:
     """Stamp ``qid`` on every candidate of ``worklist`` and write it as UTF-8 JSON."""
     atomic_write_json(path, stamp(worklist), indent=indent, sort_keys=sort_keys)
+
+
+def read(path, required: bool = True, default: Any = None) -> Any:
+    """The parsed JSON of a worklist or judged file.
+
+    Parameters
+    ----------
+    path
+        The file (``str`` or ``Path``), read as UTF-8.
+    required
+        When true (the default) a missing file raises ``FileNotFoundError``: an applier
+        run before its fetcher should stop, not apply nothing. When false a missing
+        file returns ``default`` (a judge pass that has not run yet is "no picks").
+    default
+        What an absent, not-required file reads as.
+
+    Returns
+    -------
+    Any
+        The parsed document, or ``default``.
+
+    A file that exists but does not parse always raises (``json.JSONDecodeError``),
+    whatever ``required`` says: a truncated judged file must never read as "no picks".
+    """
+    path = Path(path)
+    if not required and not path.exists():
+        return default
+    return json.loads(path.read_text(encoding="utf-8"))

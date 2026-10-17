@@ -44,7 +44,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import sys
 from pathlib import Path
@@ -54,6 +53,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from data_generators import formulations as F  # noqa: E402
 from pipeline.gate import PageGate, registry_pages  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
@@ -191,7 +191,7 @@ def main() -> int:
     if not PAGES["wikipedia_pharm"].is_dir():
         print("[error] data_sources/ absent: the quote gate cannot run.", file=sys.stderr)
         return 1
-    judged = (json.loads(args.judged.read_text("utf-8")) if args.judged.exists() else {})
+    judged = worklist_io.read(args.judged, required=False, default={})
     offered = W.build()["drugs"]                       # freshly re-derived
     drugs = drugs_io.load_drugs()
     stats = apply(drugs, judged, offered, PageGate(PAGES))

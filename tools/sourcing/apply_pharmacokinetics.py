@@ -33,13 +33,13 @@ a clone that lacks it the quote gate cannot run, so the applier refuses rather t
 writing ungated quotes).
 """
 import argparse
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 import drugs_io                                                 # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 
 # The corpora a judged quote may cite (``corpus`` defaults to ``stahl``): Stahl's
 # monograph prose, then the drug's (or the metabolite's) own English Wikipedia article.
@@ -192,7 +192,7 @@ def main() -> int:
               file=sys.stderr)
         return 1
 
-    judged = json.loads(args.judged.read_text(encoding="utf-8"))
+    judged = worklist_io.read(args.judged)
     drugs = drugs_io.load_drugs()
     metabolites = drugs_io.load_metabolites()
     n_hl, n_met, warnings = apply(judged, drugs, PageGate(PAGES), only, metabolites)

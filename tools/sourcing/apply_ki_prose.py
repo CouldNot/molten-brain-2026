@@ -42,7 +42,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import sys
 from pathlib import Path
@@ -53,6 +52,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS / "fetch"))
 
 from check_data import normalize_for_match                     # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from pipeline.judged import resolve  # noqa: E402
 import drugs_io                                                # noqa: E402
 from fetch_europepmc import (ARTICLE_URL, FULL_TEXT_MARKER, KI_PROSE_WORKLIST,  # noqa: E402
@@ -128,8 +128,8 @@ def main() -> int:
         print("[error] data_sources/europepmc/pages is missing (author-side): the gate "
               "cannot run", file=sys.stderr)
         return 1
-    worklist = json.loads(KI_PROSE_WORKLIST.read_text("utf-8"))["drugs"]
-    judged = json.loads(JUDGED.read_text("utf-8"))["drugs"]
+    worklist = worklist_io.read(KI_PROSE_WORKLIST)["drugs"]
+    judged = worklist_io.read(JUDGED)["drugs"]
     drugs = drugs_io.load_drugs()
     strip_previous(drugs)
     by_id = {d["id"]: d for d in drugs}

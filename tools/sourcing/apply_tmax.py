@@ -48,7 +48,6 @@ quotes).
 Built with the help of Claude Code.
 """
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -57,6 +56,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 
 import drugs_io                                                 # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from pipeline.judged import resolve  # noqa: E402
 from data_generators.provenance import corpus_page_path         # noqa: E402
 import fetch_tmax                                               # noqa: E402
@@ -213,7 +213,7 @@ def run(doc: str, judged_default: Path, build, field: str, max_hours: float,
               file=sys.stderr)
         return 1
 
-    judged = json.loads(args.judged.read_text(encoding="utf-8"))
+    judged = worklist_io.read(args.judged)
     offered = build()                                  # gate 2: freshly re-derived
     drugs = drugs_io.load_drugs()
     written, rejected, skipped = apply_judged(judged, offered, drugs, field, max_hours,

@@ -63,7 +63,6 @@ from __future__ import annotations
 
 import argparse
 import collections
-import json
 import os
 import sys
 
@@ -74,6 +73,7 @@ sys.path.insert(0, os.path.join(REPO, "tools", "fetch"))
 sys.path.insert(0, HERE)
 
 from fetch_cyp import isoforms  # noqa: E402  (one definition of the isoform vocabulary)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from data_generators.quotes.attestation import pattern_for  # noqa: E402  (the tier word test)
 
 # The shared prose gate re-finds a quote under check_data's own normalization, so a quote
@@ -236,10 +236,9 @@ def main() -> int:
             print(f"missing {os.path.relpath(path, REPO)}", file=sys.stderr)
             return 1
 
-    work = json.load(open(WORKLIST, encoding="utf-8"))
-    judged = json.load(open(args.judged, encoding="utf-8"))
-    strength_judged = (json.load(open(args.strength_judged, encoding="utf-8"))
-                       if os.path.exists(args.strength_judged) else None)
+    work = worklist_io.read(WORKLIST)
+    judged = worklist_io.read(args.judged)
+    strength_judged = worklist_io.read(args.strength_judged, required=False)
     out, stats, rejected = apply(work, judged, PageGate(PAGE_DIR), args.llm, strength_judged)
 
     for corpus, path in OUT.items():

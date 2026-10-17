@@ -50,7 +50,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import os
 import sys
 
@@ -60,6 +59,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
 import binding_gaps as bg  # noqa: E402  (the predicates the fetcher offered with)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 import drugs_io  # noqa: E402
 import target_aliases as ta  # noqa: E402
 from apply_binding_directions import CORPUS, PAGES, BindingGate, page_text  # noqa: E402
@@ -167,10 +167,8 @@ def main() -> int:
         print(f"missing the author-side corpus tree ({PAGES}); see CLAUDE.local.md",
               file=sys.stderr)
         return 1
-    with open(WORKLIST, encoding="utf-8") as f:
-        worklist = json.load(f)
-    with open(JUDGED, encoding="utf-8") as f:
-        judged = json.load(f)
+    worklist = worklist_io.read(WORKLIST)
+    judged = worklist_io.read(JUDGED)
     drugs = drugs_io.load_drugs()
     gate = apply(worklist, judged, drugs, page_text)
 

@@ -46,7 +46,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -55,6 +54,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 sys.path.insert(0, str(ROOT / "tools" / "sourcing"))
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from data_generators import history  # noqa: E402
 from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
 from pipeline.judged import resolve  # noqa: E402
@@ -193,7 +193,7 @@ def main() -> int:
         print("[error] data_sources/wikipedia/pages absent: the quote gate cannot run, "
               "refusing to write ungated quotes (see CLAUDE.local.md).", file=sys.stderr)
         return 1
-    judged = json.loads(args.judged.read_text("utf-8"))
+    judged = worklist_io.read(args.judged)
     offered = fetch_drug_history.build()["drugs"]
     drugs = drugs_io.load_drugs()
     touched, rejected = apply(judged, offered, drugs, PageGate(PAGES))

@@ -57,6 +57,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from data_generators.receptor_effects import (  # noqa: E402
     CACHE, EFFECT_EVIDENCE, RECEPTOR_EFFECT_MODES, RECEPTOR_EFFECTS)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from prose_gate import apply_picks, not_offered, run_applier  # noqa: E402
 from apply_classification_sources import PROSE_PAGES as _PROSE  # noqa: E402
 from data_generators.provenance import corpus_page_path  # noqa: E402
@@ -172,7 +173,7 @@ def _main_unknown_log() -> int:
                     help="the model that read the offered candidates and picked none")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
-    log = unknown_log(json.loads(WORKLIST.read_text("utf-8")),
+    log = unknown_log(worklist_io.read(WORKLIST),
                       json.loads(CACHE.read_text("utf-8")), current_kinds(),
                       json.loads(epmc.EFFECT_SEARCH_LEDGER.read_text("utf-8")),
                       {"harness": "Claude Code", "model": args.model}, unknown.load_log())

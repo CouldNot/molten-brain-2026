@@ -44,6 +44,7 @@ ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "tools"))
 from pipeline.gate import PageGate  # noqa: E402 (the applier's page gate)
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from prose_gate import add_source  # noqa: E402
 from pipeline.judged import resolve  # noqa: E402
 from data_generators.quotes.attestation import pattern_for  # noqa: E402
@@ -123,8 +124,8 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true",
                     help="report what would be written, change nothing")
     args = ap.parse_args()
-    worklist = json.loads(WORKLIST.read_text("utf-8"))
-    judged = json.loads(JUDGED.read_text("utf-8"))
+    worklist = worklist_io.read(WORKLIST)
+    judged = worklist_io.read(JUDGED)
     data = json.loads(OUT.read_text("utf-8")) if OUT.exists() else {}
     out = data.setdefault("projections", {})
     applied, misses = apply(worklist, judged, current_projections(), out)

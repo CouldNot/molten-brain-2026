@@ -51,7 +51,6 @@ Built with the help of Claude Code.
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -59,6 +58,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent           # repo root
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "fetch"))
 import drugs_io                                                 # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 import fetch_ki                                                 # noqa: E402  (PDSP Ki lookup)
 import fetch_wikipedia_pharmacology as wp                       # noqa: E402  (Ki obj + page store)
 from data_generators.drugs import DRUG_ACTIONS                  # noqa: E402  (valid action keys)
@@ -202,8 +202,8 @@ def main() -> int:
     args = ap.parse_args()
     only = {d.strip() for d in args.only.split(",") if d.strip()} if args.only else None
 
-    worklist = {e["key"]: e for e in json.loads(WORKLIST.read_text(encoding="utf-8"))}
-    judged = json.loads(JUDGED.read_text(encoding="utf-8")) if JUDGED.exists() else {}
+    worklist = {e["key"]: e for e in worklist_io.read(WORKLIST)}
+    judged = worklist_io.read(JUDGED, required=False, default={})
     valid_ids = wp.load_valid_ids()
     drugs = drugs_io.load_drugs()
     store = drugs_io.load_metabolites()

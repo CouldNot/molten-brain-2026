@@ -67,7 +67,6 @@ from __future__ import annotations
 
 import argparse
 import collections
-import json
 import os
 import sys
 
@@ -76,6 +75,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
 import drugs_io  # noqa: E402
+import worklist_io  # noqa: E402 (the one judged / worklist reader)
 from io_atomic import atomic_write_json  # noqa: E402
 import target_aliases as ta  # noqa: E402  (the same matcher the fetcher offered with)
 from check_data import normalize_for_match  # noqa: E402  (one canonical quote gate)
@@ -390,15 +390,12 @@ def main() -> int:
                   "tools/sourcing/apply_binding_directions.py --tables", file=sys.stderr)
             return 1
         valid_ids = wiki.load_valid_ids()
-        with open(args.tables, encoding="utf-8") as f:
-            proposals = json.load(f)
+        proposals = worklist_io.read(args.tables)
         stats, rejected = apply_tables(proposals, drugs, page_text,
                                        lambda name: wiki.resolve_wiki_target(name, valid_ids))
     else:
-        with open(WORKLIST, encoding="utf-8") as f:
-            worklist = json.load(f)
-        with open(args.judged, encoding="utf-8") as f:
-            judged = json.load(f)
+        worklist = worklist_io.read(WORKLIST)
+        judged = worklist_io.read(args.judged)
         stats, rejected = apply(worklist, judged, drugs, page_text)
 
     written = sum(n for key, n in stats.items() if key.startswith("node: "))
@@ -424,13 +421,11 @@ def main() -> int:
 def _main_search(args) -> int:
     import datetime
     from data_generators import unknown
-    with open(SEARCH_WORKLIST, encoding="utf-8") as f:
-        worklist = json.load(f)
+    worklist = worklist_io.read(SEARCH_WORKLIST)
     drugs = drugs_io.load_drugs()
     metabolites = drugs_io.load_metabolites()
     if args.search:
-        with open(SEARCH_JUDGED, encoding="utf-8") as f:
-            judged = json.load(f)
+        judged = worklist_io.read(SEARCH_JUDGED)
         stats, rejected = apply_search(worklist, judged, drugs, page_text, read_other,
                                        metabolites)
         for key, n in sorted(stats.items()):
