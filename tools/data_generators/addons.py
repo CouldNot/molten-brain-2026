@@ -17,7 +17,7 @@ an unknown slot.
 
 **A slot only exists if the viewer actually calls it.** Every key of
 :data:`ADDON_SLOTS` has a matching ``appendAddons(...)`` call site in
-``js/main.js``; adding a slot here without one would silently swallow the node.
+the viewer (``js/panel/views/*.js``, ``js/legend/anatomy.js``); adding a slot here without one would silently swallow the node.
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ from .provenance import _quote_sources
 
 # Insertion points the viewer offers, slot -> the node kind whose panel it is in.
 # The name is "<owner kind>.<where>", so a reader can see the anchor kind without
-# looking it up. Each is one appendAddons() call in js/main.js; see the module
+# looking it up. Each is one appendAddons() call in js/panel/views/*.js (or js/legend/anatomy.js); see the module
 # docstring before adding one.
 ADDON_SLOTS: dict[str, str] = {
     # Top of a drug panel, under the title/class and the combo warning: a caveat
@@ -73,7 +73,7 @@ ADDON_SECTIONS: dict[str, dict[str, str]] = {
     "metabolism": {"en": "Metabolism", "fr": "Métabolisme"},
 }
 
-# How an addon draws (dispatched by ADDON_RENDERERS in js/main.js): `admonition` is
+# How an addon draws (dispatched by ADDON_RENDERERS in js/panel/addons.js): `admonition` is
 # an always-open boxed callout; `collapsible` is the same box folded to its title
 # line until clicked, for a background caveat that should not push the data it
 # qualifies down the panel.

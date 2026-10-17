@@ -80,7 +80,7 @@ attribute a *different* quote than the main one, or several to back a compound v
      (`admonition`), `tone` (`caution`/`info`), optional `title`, `text` (both inline
      `{en,fr}`) and `sources` (graded like any node). Use it for a claim no existing kind
      has a home for. A **new slot** is two edits: the `ADDON_SLOTS` entry here and the one
-     matching `appendAddons(...)` call in `js/main.js`; a slot with no call site would
+     matching `appendAddons(...)` call in the viewer (`js/panel/views/*.js`, `js/legend/anatomy.js`); a slot with no call site would
      swallow the node silently. A **new display** is an `ADDON_DISPLAYS` entry plus one
      `ADDON_RENDERERS` function.
    - **Translations**: every display string is wrapped with `_t()`; add the French to the

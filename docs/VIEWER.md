@@ -92,7 +92,7 @@ focus uses `setCircuit` but never `play`).
 
 ## Folded panel sections
 
-Every `show*()` detail panel (drug, receptor, target, enzyme, structure, circuit, projection group) ends with `foldBody()` (`js/main.js`, `foldSections` then reopen): each `h3`-headed section becomes a collapsed `details.disclosure.panel-sec`, body indented; the unheaded top (title, group line, addons, image, description, receptor facts) stays visible. Sections the reader unfolded are remembered per kind of view (`openByView`, keyed by `clearBody(view)`) and reopened on every later panel of that kind, so drug -> drug keeps the same sections open; each tab's scroll is restored by the tab strip (`scrollByKey`). A jump into a section opens it first: `flashRow` opens every ancestor `<details>`, and a tour step uses `tourOpenSec(ensure, sec)`. The projection panel has no headed section, so it is not folded.
+Every `show*()` detail panel (drug, receptor, target, enzyme, structure, circuit, projection group) ends with `foldBody()` (`js/panel/info.js`, `foldSections` then reopen): each `h3`-headed section becomes a collapsed `details.disclosure.panel-sec`, body indented; the unheaded top (title, group line, addons, image, description, receptor facts) stays visible. Sections the reader unfolded are remembered per kind of view (`openByView`, keyed by `clearBody(view)`) and reopened on every later panel of that kind, so drug -> drug keeps the same sections open; each tab's scroll is restored by the tab strip (`scrollByKey`). A jump into a section opens it first: `flashRow` opens every ancestor `<details>`, and a tour step uses `tourOpenSec(ensure, sec)`. The projection panel has no headed section, so it is not folded.
 
 ## Circuit + projection-group panels
 
@@ -232,10 +232,10 @@ a line in the tally.
   `ADDON_BASES` (`meta.addon_bases`): `claim` (default, knowledge, sourced + tallied) or `dataset` (a
   statement about this dataset itself, see the two section anchors below).
 - **A slot exists only if the viewer calls it.** Each `ADDON_SLOTS` key has exactly one
-  `appendAddons(host, ownerKind, ownerId, slot)` call in `js/main.js`; a slot with no call site
+  `appendAddons(host, ownerKind, ownerId, slot)` call in the viewer (`js/panel/views/*.js`, `js/legend/anatomy.js`); a slot with no call site
   would swallow its node silently (well-formed, graded, counted, never drawn), which is why the
   generator AND `check_data.py` both reject an unknown slot / display / tone or an anchor naming
-  no real node, and why `test_generate.AddonTest` looks each slot's literal up in `main.js`.
+  no real node, and why `test_generate.AddonTest` looks each slot's literal up across `public/js/**/*.js`.
   Today: `drug.top`, `drug.metabolism`, `drug.timing` (under the Tmax / half-life chips, drawn
   whenever the drug has either duration, so it does not need enzyme rows), `receptor.top`, `target.top`,
   `structure.top` (a structure addon anchors the hemisphere-less **base**, so it shows on both),
@@ -248,7 +248,7 @@ a line in the tally.
   `createInfoPanel` exports `appendAddons` instead of the box being redrawn there.
 - **Viewer.** `js/data.js` resolves each addon's owner once (`ownerName` + a `focus` `{nav, arg}`
   recipe the Data browser and the Sources popup both hand to their own nav table) and indexes them
-  as `addonsBySlot` keyed `${ownerKind}:${owner}:${slot}`. `js/main.js` `ADDON_RENDERERS` dispatches
+  as `addonsBySlot` keyed `${ownerKind}:${owner}:${slot}`. `js/panel/addons.js` `ADDON_RENDERERS` dispatches
   on `display`; a second form is one entry there plus one string in `ADDON_DISPLAYS`. Every form shares the `addonBox` shell (tone class, label, pill); `collapsible` is a `<details>` closed by default whose summary carries the label + pill (a pill click opens the Sources popup, never toggles), used for a caveat a reader needs once, not on every panel (`enzyme_list_not_exhaustive`).
 - Five today. One `drug.timing`: lithium's brain half-life (7Li MRS, 28 h) outlasting its serum one
   (16 h), from corpus #17. Two `drug.metabolism`: paroxetine + MDMA inhibit the CYP2D6 that clears them
