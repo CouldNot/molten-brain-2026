@@ -83,6 +83,10 @@ API = "https://dailymed.nlm.nih.gov/dailymed/services/v2"
 LABEL_URL = "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={setid}"
 RAW_DIR = ROOT / "data_sources" / "dailymed" / "raw"
 PAGES_DIR = ROOT / "data_sources" / "dailymed" / "pages"
+# A set id is a lowercase UUID. It comes from the API's JSON and becomes the file
+# name of raw/<setid>.xml and pages/<setid>.md, so anything else is dropped at the
+# boundary rather than trusted as a path component.
+SETID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
 CACHE_PATH = ROOT / "tools" / "generated_cache" / "dailymed_labels.json"
 
 SEARCH_PAGESIZE = 50
@@ -136,9 +140,10 @@ def search(name: str) -> list[dict]:
     if not body:
         return []
     try:
-        return json.loads(body).get("data", []) or []
+        data = json.loads(body).get("data", []) or []
     except json.JSONDecodeError:
         return []
+    return [c for c in data if SETID.fullmatch(str(c.get("setid") or ""))]
 
 
 def rank(candidates: list[dict], name: str) -> list[dict]:
@@ -238,6 +243,8 @@ def _store(meta: dict, xml: str, lines: list[str]) -> None:
 
 def fetch_quote_label(setid: str, *, refresh: bool) -> str:
     """Store one :data:`QUOTE_LABELS` label by set id. Returns a one-word outcome."""
+    if not SETID.fullmatch(setid):
+        raise ValueError(f"QUOTE_LABELS: {setid!r} is not a DailyMed set id (a UUID)")
     if not refresh and (PAGES_DIR / f"{setid}.md").exists():
         return "cached"
     query = urllib.parse.urlencode({"setid": setid})
