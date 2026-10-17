@@ -29,6 +29,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from .caches import attests, labels  # noqa: F401 (history.attests / labels, shared)
 from .provenance import _quote_sources
 
 # A sentence is about approval when it says the drug was approved, licensed,
@@ -173,20 +174,6 @@ def drug_history(drug: dict[str, Any]) -> dict[str, Any]:
     if rows:
         out["withdrawals"] = sorted(rows, key=lambda r: (r["year"], r["country"]))
     return out
-
-
-def attests(vocab: dict[str, dict[str, str]], key: str, quote: str) -> bool:
-    """Whether ``quote`` names vocabulary entry ``key`` (an empty pattern always does)."""
-    entry = vocab.get(key)
-    if entry is None:
-        return False
-    pat = entry.get("attests", "")
-    return not pat or re.search(pat, quote, re.IGNORECASE) is not None
-
-
-def labels(vocab: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
-    """The ``{id: {en, fr}}`` label map emitted into meta (patterns stay author-side)."""
-    return {k: {"en": v["en"], "fr": v["fr"]} for k, v in vocab.items()}
 
 
 def earliest_wins(new: dict[str, Any], current: dict[str, Any] | None) -> bool:

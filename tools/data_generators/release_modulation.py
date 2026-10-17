@@ -22,14 +22,12 @@ Built with the help of Claude Code.
 """
 from __future__ import annotations
 
-import functools
-import json
-from pathlib import Path
 from typing import Any
 
+from . import caches
 from .provenance import _quote_sources
 
-CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "release_modulation.json"
+CACHE = caches.CACHE_DIR / "release_modulation.json"
 
 # auto = on the neuron that releases the transmitter (its own terminal or soma); hetero =
 # any other arrangement (a receptor for another transmitter, or on an interneuron).
@@ -102,10 +100,9 @@ def vocab_error(f: dict[str, Any], receptor_system: str | None,
     return None
 
 
-@functools.lru_cache(maxsize=None)
-def load_cache(path: Path = CACHE) -> dict[str, dict[str, list]]:
+def load_cache() -> dict[str, dict[str, list]]:
     """``{receptor id: {node_key: [source, ...]}}`` (empty when not built yet)."""
-    return json.loads(path.read_text("utf-8")) if path.exists() else {}
+    return caches.load(CACHE.name, required=False)
 
 
 def modulation_nodes(rec: dict[str, Any], cache: dict[str, dict[str, list]],

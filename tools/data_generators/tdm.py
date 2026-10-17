@@ -22,11 +22,11 @@ Built with the help of Claude Code.
 """
 from __future__ import annotations
 
-import json
-from pathlib import Path
 from typing import Any, Callable
 
-CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "agnp_tdm.json"
+from . import caches
+
+CACHE = caches.CACHE_DIR / "agnp_tdm.json"
 
 # Closed vocabulary: the concentration units Table 5 prints, written as the viewer
 # shows them in both languages.
@@ -34,11 +34,7 @@ TDM_UNITS = ("ng/mL", "µg/mL", "pg/mL", "mmol/L")
 TDM_LEVELS = (1, 2, 3, 4)
 
 
-def _load() -> dict[str, Any]:
-    return json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
-
-
-_DATA = _load()
+_DATA = caches.load(CACHE.name, required=False)
 
 
 def _value(v: Any, what: str) -> float:

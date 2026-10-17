@@ -18,15 +18,13 @@ Built with the help of Claude Code.
 """
 from __future__ import annotations
 
-import functools
-import json
-from pathlib import Path
 from typing import Any
 
+from . import caches
 from .provenance import _quote_sources
 from .quotes.uncertainty import _uncertainty_bullet
 
-CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "receptor_effects.json"
+CACHE = caches.CACHE_DIR / "receptor_effects.json"
 
 # mode -> label + the binding actions that inherit it in the drug-panel join. The join is
 # direction-aware: an antagonist inherits only antagonism effects, an affinity_only
@@ -135,10 +133,9 @@ def _key(mode: str, effect: str) -> str:
     return f"{mode}:{effect}"
 
 
-@functools.lru_cache(maxsize=None)
-def load_cache(path: Path = CACHE) -> dict[str, dict[str, list]]:
+def load_cache() -> dict[str, dict[str, list]]:
     """``{owner id: {"<mode>:<effect>": [source, ...]}}`` (empty when not built yet)."""
-    return json.loads(path.read_text("utf-8")) if path.exists() else {}
+    return caches.load(CACHE.name, required=False)
 
 
 def effect_nodes(owner: str, cache: dict[str, dict[str, list]],

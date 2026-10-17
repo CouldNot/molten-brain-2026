@@ -24,12 +24,12 @@ Built with the help of Claude Code.
 
 from __future__ import annotations
 
-import json
-import re
-from pathlib import Path
 from typing import Any, Callable
 
-CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "workup.json"
+from . import caches
+from .caches import attests, labels  # noqa: F401 (W.attests / W.labels, shared)
+
+CACHE = caches.CACHE_DIR / "workup.json"
 
 # Test id -> {en, fr, attests}. Order is display order (cardiac, blood, organs, then
 # the rest). ``attests`` is matched case-insensitively against the French quote.
@@ -102,29 +102,12 @@ TIMINGS: dict[str, dict[str, str]] = {
 }
 
 
-def attests(vocab: dict[str, dict[str, str]], key: str, *texts: str) -> bool:
-    """Whether any of ``texts`` names vocabulary entry ``key`` (an unknown key never)."""
-    entry = vocab.get(key)
-    if entry is None:
-        return False
-    return any(re.search(entry["attests"], t or "", re.IGNORECASE) for t in texts)
-
-
 def tests_named(text: str) -> list[str]:
     """Every test id ``text`` names, in :data:`TESTS` order."""
     return [k for k in TESTS if attests(TESTS, k, text)]
 
 
-def labels(vocab: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
-    """The ``{id: {en, fr}}`` label map emitted into meta (patterns stay author-side)."""
-    return {k: {"en": v["en"], "fr": v["fr"]} for k, v in vocab.items()}
-
-
-def _load() -> dict[str, Any]:
-    return json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
-
-
-_DATA = _load()
+_DATA = caches.load(CACHE.name, required=False)
 
 
 def _fold(text: str) -> str:

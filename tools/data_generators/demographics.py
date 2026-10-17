@@ -18,14 +18,12 @@ Built with the help of Claude Code.
 """
 from __future__ import annotations
 
-import functools
-import json
-from pathlib import Path
 from typing import Any
 
+from . import caches
 from .provenance import _quote_sources
 
-CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "receptor_demographics.json"
+CACHE = caches.CACHE_DIR / "receptor_demographics.json"
 
 # factor -> bilingual label + the directions a node of that factor may state.
 DEMOGRAPHIC_FACTORS: dict[str, dict[str, Any]] = {
@@ -73,10 +71,9 @@ def vocab_error(f: dict[str, Any], structures: set[str] | None = None) -> str | 
     return None
 
 
-@functools.lru_cache(maxsize=None)
-def load_cache(path: Path = CACHE) -> dict[str, dict[str, list]]:
+def load_cache() -> dict[str, dict[str, list]]:
     """``{owner id: {node key: [source, ...]}}`` (empty when not built yet)."""
-    return json.loads(path.read_text("utf-8")) if path.exists() else {}
+    return caches.load(CACHE.name, required=False)
 
 
 def demographic_nodes(owner: str, cache: dict[str, dict[str, list]], owner_kind: str,

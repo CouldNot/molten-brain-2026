@@ -21,20 +21,16 @@ Built with the help of Claude Code.
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
 from typing import Any, Callable
 
-CACHE = Path(__file__).resolve().parent.parent / "generated_cache" / "physchem.json"
+from . import caches
+
+CACHE = caches.CACHE_DIR / "physchem.json"
 
 BBB_LABELS = ("BBB+", "BBB-")
 
 
-def _load() -> dict[str, Any]:
-    return json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
-
-
-_DATA = _load()
+_DATA = caches.load(CACHE.name, required=False)
 
 
 def _number(v: Any, what: str) -> float:
