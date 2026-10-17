@@ -185,5 +185,18 @@ class EmitterTest(unittest.TestCase):
             self.assertLessEqual(set(v["actions"]), set(DRUG_ACTIONS), mode)
 
 
+class EffectSearchTermsTest(unittest.TestCase):
+    """The UNKNOWN search's Europe PMC terms (``fetch_europepmc.effect_terms``)."""
+
+    def test_an_alias_already_naming_the_receptor_is_kept_once(self):
+        sys.path.insert(0, str(ROOT / "tools" / "fetch"))
+        import fetch_europepmc as E
+        terms = E.effect_terms("gaba_a_rho", {"gaba_a_rho": ["GABA-C", "GABAC receptor"]},
+                               {"gaba_a_rho": {"GABRR1"}})
+        self.assertEqual(terms, ["GABA-C receptor", "GABAC receptor", "GABRR1",
+                                 "GABAA-rho receptor", "GABA rho receptor"])
+        self.assertEqual(len({t.lower() for t in terms}), len(terms))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -640,10 +640,10 @@ HUMAN_WORDS = ("human", "humans", "patients", "volunteers", '"healthy subjects"'
 # action too (a DRD4 repeat-polymorphism association study states none).
 MODE_WORDS = DIRECTION_WORDS + ("agonism", "antagonism", "blockade", "activation",
                                 "stimulation")
-# Names the alias table lacks because no drug-binding prose uses them, but a paper does.
+# Names the alias table (``target_aliases``) lacks because no drug-binding prose uses
+# them, but a paper does. An alias the table already has (GABA-C) is never repeated here.
 EFFECT_EXTRA_TERMS: dict[str, tuple[str, ...]] = {
-    "gaba_a_rho": ("GABAC receptor", "GABA-C receptor", "GABAA-rho receptor",
-                   "GABA rho receptor"),
+    "gaba_a_rho": ("GABAA-rho receptor", "GABA rho receptor"),
     "nachr_muscle": ("muscle nicotinic receptor", "muscle-type nicotinic",
                      "neuromuscular nicotinic"),
 }
@@ -652,18 +652,27 @@ EFFECT_EXTRA_TERMS: dict[str, tuple[str, ...]] = {
 def effect_terms(owner: str, aliases: dict, genes: dict) -> list[str]:
     """The ASCII names a receptor goes by, made specific enough for a literature query:
     its genes, then each alias as ``"<alias> receptor"`` (a bare "D4" or "glycine" is
-    a word in any abstract), plus the alias alone when it already names the receptor
-    (has a digit and is at least four characters: ``mGluR5``, ``5-HT1E``)."""
+    a word in any abstract; an alias already ending in "receptor" is kept as it is),
+    plus the alias alone when it already names the receptor (has a digit and is at
+    least four characters: ``mGluR5``, ``5-HT1E``), then :data:`EFFECT_EXTRA_TERMS`.
+
+    >>> effect_terms("gaba_a_rho", {"gaba_a_rho": ["GABA-C", "GABAC receptor"]}, {})
+    ['GABA-C receptor', 'GABAC receptor', 'GABAA-rho receptor', 'GABA rho receptor']
+    """
     out: list[str] = []
     for term in target_terms(owner, aliases, genes):
-        forms = [term] if term in genes.get(owner, set()) else (
-            [f"{term} receptor"] + ([term] if re.search(r"\d", term) and len(term) >= 4
-                                    else []))
+        if term in genes.get(owner, set()) or term.lower().endswith(" receptor"):
+            forms = [term]
+        else:
+            forms = [f"{term} receptor"] + (
+                [term] if re.search(r"\d", term) and len(term) >= 4 else [])
         for form in forms:
-            if "receptor receptor" not in form and form.lower() not in {
-                    o.lower() for o in out}:
+            if form.lower() not in {o.lower() for o in out}:
                 out.append(form)
-    return out + list(EFFECT_EXTRA_TERMS.get(owner, ()))
+    for form in EFFECT_EXTRA_TERMS.get(owner, ()):
+        if form.lower() not in {o.lower() for o in out}:
+            out.append(form)
+    return out
 
 
 def effect_query(terms: list[str]) -> str:
