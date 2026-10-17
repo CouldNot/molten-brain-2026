@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -336,8 +337,12 @@ def write_effects(data_dir: Path, path: Path) -> int:
     index = effect_index.build(data["receptors"], data["drugs"], data["metabolites"],
                                data["meta"])
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(effect_index.to_json(index), ensure_ascii=False,
-                               separators=(",", ":")), encoding="utf-8")
+    # Written aside then renamed over, so a concurrent reader (tools/serve.py) sees the
+    # old file or the new one, never a truncated one.
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(effect_index.to_json(index), ensure_ascii=False,
+                              separators=(",", ":")), encoding="utf-8")
+    os.replace(tmp, path)
     return len(index)
 
 

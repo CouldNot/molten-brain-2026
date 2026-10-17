@@ -17,7 +17,7 @@ refetches every ES module each reload. Plain `http.server` lets browsers heurist
 cache JS modules, which can serve a stale `js/*.js` and cause baffling mismatch
 crashes; if you see one after editing JS, hard-reload (Ctrl/Cmd+Shift+R) or use `serve.py`.
 
-`serve.py` also serves `/derived/effects.json` (the effect index, built from `public/data` on each request by `tools/render_api.py`'s `write_effects`, never written into the repo). Plain `http.server` lacks it, so the viewer shows a red banner and an empty Effects section.
+`serve.py` also serves `/derived/effects.json` (the effect index, built from `public/data` by `tools/render_api.py`'s `write_effects` whenever a data file changed, never written into the repo; any other `/derived/` path is a 404). Plain `http.server` lacks it, so the viewer shows a red banner and an empty Effects section.
 
 Debugging: [eruda](https://github.com/liriliri/eruda) on-screen console, **gated**
 on `?debug=1` exactly (normal visitors never download it), vendored same-origin at

@@ -17,9 +17,12 @@ each module on every load, so a plain reload always runs the code currently on
 disk. Use this instead of ``python -m http.server`` while developing.
 
 It also serves ``/derived/effects.json``, the viewer's effect index, which is never
-committed nor under ``public/``: rebuilt from ``<root>/data`` on each request by
-``render_api.write_effects`` (the same writer the Docker image runs at build time), so
-a fresh ``generate_data.py`` run shows up on reload.
+committed nor under ``public/``: rebuilt from ``<root>/data`` by
+``render_api.write_effects`` (the same writer the Docker image runs at build time)
+whenever a file under ``<root>/data`` changed since the last build, so a fresh
+``generate_data.py`` run shows up on reload. The writer renames a finished file into
+place, so a concurrent request never reads a half-written one. Any other ``/derived/``
+path answers 404.
 
 Stdlib-only on purpose (like ``generate_data.py``): it must run with a bare
 ``python`` interpreter and no third-party packages.
@@ -45,6 +48,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_api  # noqa: E402 (write_effects: the build-time effect index)
 
 DERIVED = "/derived/"
+EFFECTS = "effects.json"
 
 
 class NoCacheHandler(SimpleHTTPRequestHandler):
@@ -79,22 +83,43 @@ class NoCacheHandler(SimpleHTTPRequestHandler):
         ".jsonl": "text/plain; charset=utf-8",
     }
 
-    # Set per server (see main): the scratch dir /derived/* is served from.
+    # Set per server (see main): the scratch dir /derived/effects.json is served from.
     derived_dir: Path | None = None
     _derive_lock = threading.Lock()
+    _built_from: tuple | None = None    # the data signature effects.json was built from
+
+    @staticmethod
+    def _derived_name(path: str) -> str | None:
+        clean = path.split("?", 1)[0].split("#", 1)[0]
+        return clean[len(DERIVED):] if clean.startswith(DERIVED) else None
+
+    def _effects(self) -> Path:
+        """``effects.json``, rebuilt only when a file under ``<root>/data`` changed."""
+        data = Path(self.directory) / "data"
+        out = self.derived_dir / EFFECTS
+        with self._derive_lock:
+            sig = tuple(sorted((p.name, p.stat().st_mtime_ns, p.stat().st_size)
+                               for p in data.iterdir() if p.is_file()))
+            if sig != NoCacheHandler._built_from or not out.exists():
+                render_api.write_effects(data, out)
+                NoCacheHandler._built_from = sig
+        return out
+
+    def send_head(self):
+        """404 for any ``/derived/`` path but ``effects.json`` (no listing, no scratch
+        file); everything else is the stock handler."""
+        name = self._derived_name(self.path)
+        if self.derived_dir is not None and name is not None and name != EFFECTS:
+            self.send_error(404, "File not found")
+            return None
+        return super().send_head()
 
     def translate_path(self, path: str) -> str:
-        """``/derived/<file>`` maps into the scratch dir (``effects.json`` rebuilt from
-        the served data first); every other path is the stock lookup under ``--root``."""
-        clean = path.split("?", 1)[0].split("#", 1)[0]
-        if self.derived_dir is None or not clean.startswith(DERIVED):
-            return super().translate_path(path)
-        name = clean[len(DERIVED):]
-        if name == "effects.json":
-            with self._derive_lock:
-                render_api.write_effects(Path(self.directory) / "data",
-                                         self.derived_dir / name)
-        return str(self.derived_dir / Path(name).name)
+        """``/derived/effects.json`` maps into the scratch dir; every other path is the
+        stock lookup under ``--root``."""
+        if self.derived_dir is not None and self._derived_name(path) == EFFECTS:
+            return str(self._effects())
+        return super().translate_path(path)
 
     def end_headers(self) -> None:
         if self.path.startswith("/data/"):
