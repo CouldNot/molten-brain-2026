@@ -30,7 +30,6 @@ import { createChangelog } from "./changelog.js";
 import { createNodeBrowser } from "./node-browser.js";
 import { KIND_LABELS } from "./kinds.js";
 import { createSimulation } from "./simulation.js";
-import { loadFlag, saveFlag } from "./prefs.js";
 import { createUrlState } from "./url-state.js";
 import { foldText } from "./search/query.js";
 import { formatHalfLife, stripSide } from "./panel/format.js";
@@ -59,6 +58,8 @@ import { wireShortcuts } from "./boot/shortcuts.js";
 import { createViewerTour } from "./boot/tour-steps.js";
 import { wireUrlBindings } from "./boot/url-bindings.js";
 import { wireCanvasPicking } from "./boot/picking.js";
+import { wireHeaderToggles } from "./boot/header-toggles.js";
+import { wireSpeedSlider } from "./boot/speed-slider.js";
 
 // UI string lookup (js/i18n.js, a classic script that ran before this module).
 // `t(key, vars)` returns the current-language UI string; data strings are
@@ -1126,115 +1127,11 @@ async function main() {
     window.addEventListener(ev, invalidate, { capture: true, passive: true });
   }
 
-  // Animation-speed slider (Controls > Settings): a persisted multiplier that every
-  // animated module applies (js/anim-settings.js `speed`). Revealed only while an
-  // animation is actually on screen (a focused drug / receptor / circuit); its
-  // visibility is recomputed each rendered frame below, so it appears the instant one
-  // starts and hides the instant the focus clears, with no per-controller bookkeeping.
-  // The input is a linear 0..1; map it GEOMETRICALLY onto the [min,max] speed range so
-  // the midpoint (0.5) reads as 1x (min*max == 1 by construction, see anim-settings.js).
-  const speedRow = document.getElementById("anim-speed-row");
-  const speedSlider = document.getElementById("anim-speed");
-  const { min: SPD_MIN, max: SPD_MAX } = animSettings.speedRange;
-  const sliderToSpeed = (v) => SPD_MIN * Math.pow(SPD_MAX / SPD_MIN, v);
-  const speedToSlider = (s) => Math.log(s / SPD_MIN) / Math.log(SPD_MAX / SPD_MIN);
-  if (speedSlider) {
-    speedSlider.value = String(speedToSlider(animSettings.speed));
-    speedSlider.addEventListener("input", () => {
-      animSettings.setSpeed(sliderToSpeed(parseFloat(speedSlider.value)));
-      invalidate(); // repaint so the new pace takes visible effect at once
-    });
-    // `speed=<multiplier>`: the multiplier itself (1 = the reference pace), not the
-    // slider's linear position, so the link stays meaningful if the mapping changes.
-    const writeSpeed = (v) => {
-      if (!Number.isFinite(parseFloat(v))) return;
-      animSettings.setSpeed(parseFloat(v));
-      speedSlider.value = String(speedToSlider(animSettings.speed));
-      invalidate();
-    };
-    // Apply-only, like `anim`: the speed is a persisted personal preference.
-    urlState.register("speed", { read: () => null, write: writeSpeed,
-      reset: () => writeSpeed("1") });
-  }
-  const animationShown = () => animSettings.enabled
-    && (drugAnim.active || receptorMarkers.active || circuitAnim.active);
-  const updateSpeedRow = () => {
-    if (!speedRow) return;
-    const show = animationShown();
-    if (speedRow.hidden === show) speedRow.hidden = !show; // write only on a change
-  };
-  updateSpeedRow(); // initial: hidden (nothing focused yet)
+  const updateSpeedRow = wireSpeedSlider({ invalidate, urlState,
+    animating: () => drugAnim.active || receptorMarkers.active || circuitAnim.active });
 
-  // Panel-only ("reading") mode (#toggle-3d in the panel header): the stylesheet
-  // hides the canvas + label overlay and lets the expanded panel fill the viewport,
-  // for reading the sourced texts without a brain behind them. Persisted, since it
-  // is a lasting preference about how the site is used, not a per-visit action.
-  // Day/night (#toggle-theme, beside it): a pure viewing preference, so it owns no
-  // app state at all. js/theme.js persists the choice and repaints the scene; the
-  // button only flips it and re-announces itself, since its label names the theme a
-  // click would GIVE you, not the one showing.
-  const themeBtn = document.getElementById("toggle-theme");
-  if (themeBtn) {
-    const labelTheme = () => {
-      const next = theme.get() === "dark" ? "light" : "dark";
-      const label = t(next === "light" ? "panel.themeLight" : "panel.themeDark");
-      themeBtn.setAttribute("title", label);
-      themeBtn.setAttribute("aria-label", label);
-    };
-    labelTheme();
-    themeBtn.addEventListener("click", () => { theme.toggle(); labelTheme(); });
-  }
-
-  const NO3D_KEY = "neurarium.no3d";
-  const toggle3d = document.getElementById("toggle-3d");
-  const no3dOn = () => document.body.classList.contains("no-3d");
-  // Like the theme button just above, this one's label names the state a click would
-  // GIVE you, so it is re-announced on every flip rather than filled once from the
-  // markup: `aria-pressed` alone left the tooltip, the accessible name AND the search
-  // row (which reads a control's title, see commandRows) offering to hide a 3D model
-  // that was already hidden.
-  const label3d = () => {
-    const label = t(no3dOn() ? "panel.show3d" : "panel.no3d");
-    toggle3d?.setAttribute("title", label);
-    toggle3d?.setAttribute("aria-label", label);
-  };
-  label3d();
-  // `persist` is what separates the two ways in: the header button states a lasting
-  // preference, while a view that merely wants the room (the Data browser) borrows
-  // the mode for this visit and must not rewrite what the visitor chose.
-  const setNo3d = (on, { persist = true } = {}) => {
-    if (on === no3dOn()) return;
-    // With no brain behind it a collapsed panel would leave a blank viewport, so
-    // entering the reading mode maximizes the panel rather than hiding everything.
-    if (on) expandPanel();
-    document.body.classList.toggle("no-3d", on);
-    toggle3d?.setAttribute("aria-pressed", String(on));
-    label3d();
-    if (persist) saveFlag(NO3D_KEY, on);
-    if (!on) invalidate(); // the scene is back and holds a stale frame; repaint it
-    else intro.cancel(); // nothing renders while hidden, so don't resume mid-pose
-    urlState.sync(); // whether the brain is shown is part of the shareable link
-  };
-  toggle3d?.addEventListener("click", () => setNo3d(!no3dOn()));
-  // The mirror of setNo3d's expandPanel: entering the reading mode opens the panel so
-  // it has something to fill, and folding the panel back down leaves the reading mode
-  // for the same reason. A collapsed panel with no brain behind it is a bare black
-  // viewport, which is never a state the visitor asked for. This listener is added
-  // after wireControls' own (it runs second), so the body's `hidden` already reflects
-  // the click; a collapse is therefore read off the DOM rather than re-derived.
-  document.getElementById("controls-toggle")?.addEventListener("click", () => {
-    if (document.getElementById("controls-body")?.hidden && no3dOn()) setNo3d(false);
-  });
-  // The persisted preference first, so the link registered below (which may have been
-  // parked since the hash was applied) is the one that wins: `#panel=0` must be able to
-  // force the brain back on for a visitor whose stored preference is the reading mode.
-  if (loadFlag(NO3D_KEY, false)) setNo3d(true);
-  // `#panel=1` opens straight into the reading mode, `#panel=0` forces the brain back
-  // on; a link that says nothing about it leaves the persisted preference alone.
-  urlState.register("panel", {
-    read: () => (no3dOn() ? "1" : null),
-    write: (v) => setNo3d(v !== "0"),
-  });
+  // Panel header toggles: day/night + the panel-only "reading" mode.
+  const { no3dOn, setNo3d } = wireHeaderToggles({ theme, expandPanel, invalidate, intro, urlState });
 
   // A framing tween (focusing a node, recentering, the explode re-aim) moves the
   // camera over several frames, so the URL's `cam` is only right once it settles:
