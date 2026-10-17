@@ -24,6 +24,7 @@ import re
 from typing import Any, Iterable
 
 from .freshness import ROOT, _repo, header_field
+from .freshness import load_ledger as _load_json_ledger
 from .provenance import SOURCE_CORPORA
 
 LEDGER_PATH = os.path.join(ROOT, "tools", "generated_cache", "page_links.json")
@@ -58,12 +59,9 @@ def scan(corpus: str) -> dict[str, str] | None:
 
 
 def load_ledger(path: str = LEDGER_PATH) -> dict[str, dict[str, str]]:
-    """The committed ``{corpus: {page: url}}`` ledger, or {} when absent."""
-    try:
-        with open(path, encoding="utf-8") as fh:
-            return json.load(fh)
-    except (FileNotFoundError, ValueError):
-        return {}
+    """The committed ``{corpus: {page: url}}`` ledger (``freshness.load_ledger``'s
+    reader: {} when absent, a corrupt file raises)."""
+    return _load_json_ledger(path)
 
 
 def build_ledger(prior: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:

@@ -10,6 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from data_generators import page_links  # noqa: E402
+from data_generators import freshness  # noqa: E402
 from data_generators.freshness import header_field  # noqa: E402
 
 LEDGER = {"wikipedia_pharm": {"agom_latine": "https://en.wikipedia.org/w/index.php?oldid=1",
@@ -49,6 +50,21 @@ class HeaderTest(unittest.TestCase):
         self.assertEqual(self.read("europepmc", "# T\npmid: 1\ndoi: 10.1038/x.1\n"),
                          "https://doi.org/10.1038/x.1")
         self.assertIsNone(self.read("europepmc", "# T\npmid: 1\ndoi: None\n"))
+
+
+class LedgerLoadTest(unittest.TestCase):
+    """A missing ledger reads as {}; a corrupt one raises instead of being rebuilt from
+    this disk alone (which would silently drop every corpus it does not hold)."""
+
+    def test_missing_is_empty_and_corrupt_raises(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertEqual(page_links.load_ledger(os.path.join(d, "none.json")), {})
+            bad = os.path.join(d, "bad.json")
+            Path(bad).write_text("{not json", encoding="utf-8")
+            with self.assertRaises(ValueError):
+                page_links.load_ledger(bad)
+            with self.assertRaises(ValueError):
+                freshness.load_ledger(bad)
 
 
 if __name__ == "__main__":

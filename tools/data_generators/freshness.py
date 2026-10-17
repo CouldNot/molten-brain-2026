@@ -147,11 +147,13 @@ def scan(corpus: str) -> str | dict[str, str] | None:
 
 
 def load_ledger(path: str = LEDGER_PATH) -> dict[str, Any]:
-    """The committed ``{corpus: date | {page: date}}`` ledger, or {} when absent."""
+    """The committed ``{corpus: date | {page: date}}`` ledger, or {} when absent. A
+    corrupt file raises: read as empty, the next stamp run would rewrite it from this
+    disk alone and silently drop every corpus this machine does not hold."""
     try:
         with open(path, encoding="utf-8") as fh:
             return json.load(fh)
-    except (FileNotFoundError, ValueError):
+    except FileNotFoundError:
         return {}
 
 
