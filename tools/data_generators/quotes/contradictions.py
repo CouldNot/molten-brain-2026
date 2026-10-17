@@ -84,6 +84,14 @@ def _gtopdb_ki(ligand: str, quote: str) -> dict[str, Any]:
             "provenance": "verified"}
 
 
+def _pdsp(ki_id: int, radioligand: str, reference: str) -> dict[str, Any]:
+    """A measurement read off the PDSP Ki CSV (corpus #5, cited by row like a binding's
+    own Ki and gated by check_data family 8): here an inactive ceiling, "> 10000 nM"."""
+    return {"corpus": "pdsp_ki", "ki_id": ki_id, "value_nm": 10000,
+            "species": "HUMAN", "preparation": "CLONED", "radioligand": radioligand,
+            "reference": reference, "note": ">", "provenance": "verified"}
+
+
 def _europepmc(pmid: str, quote: str) -> dict[str, Any]:
     """A sentence read off a stored Europe PMC abstract (corpus #17, ``page`` = PMID),
     judged like any LLM-picked quote."""
@@ -218,4 +226,16 @@ CONTRADICTIONS: dict[str, dict[str, Any] | list[dict[str, Any]]] = {
         "Salvinorin A had no significant activity against a battery of 50 receptors, "
         "transporters, and ion channels and showed a distinctive profile compared with the "
         "prototypic hallucinogen lysergic acid diethylamide."),
+    # Wikipedia's lead lists 5-HT1B and 5-HT1D among MDMA's partial-agonist targets.
+    # PDSP holds two independent human cloned-receptor screens, Setola 2003 and Ray
+    # 2010, and both found MDMA inactive at each up to 10000 nM: a measured "does not
+    # bind" against an uncited summary sentence.
+    "drug:mdma/bindings[5ht1b:partial_agonist]": [
+        _pdsp(50642, "3H-GR-125743", "Setola V, et al., 2003"),
+        _pdsp(78899, "3H-5-CT", "Ray TS 2010"),
+    ],
+    "drug:mdma/bindings[5ht1d:partial_agonist]": [
+        _pdsp(50641, "3H-GR-125743", "Setola V, et al., 2003"),
+        _pdsp(78930, "3H-5-CT", "Ray TS 2010"),
+    ],
 }

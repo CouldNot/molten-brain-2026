@@ -845,8 +845,11 @@ class ContradictionTest(unittest.TestCase):
             bullets = [b for b in self.nodes[key].get("uncertainty", [])
                        if b["kind"] == "contradicted"]
             self.assertEqual(len(bullets), 1, f"{key} carries no (or two) badges")
-            cited = [self.quotes[s["quote_id"]]["quote"] for s in bullets[0]["sources"]]
-            want = [s["quote"] for s in self.uncertainty.contradicted_sources(entry)]
+            # A quote by its id; a PDSP CSV row (no prose) by its row number.
+            cited = [self.quotes[s["quote_id"]]["quote"] if "quote_id" in s else s["ki_id"]
+                     for s in bullets[0]["sources"]]
+            want = [s.get("quote", s.get("ki_id"))
+                    for s in self.uncertainty.contradicted_sources(entry)]
             self.assertEqual(cited, want, f"{key} bullet does not cite the denial")
 
     def test_the_migrated_entries_kept_their_sites(self):

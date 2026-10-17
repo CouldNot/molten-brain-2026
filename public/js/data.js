@@ -894,6 +894,12 @@ export async function loadBrainData(dataDir = "data", onProgress = null) {
       // The reuse licence of an open-access text quoted from (a Europe PMC full-text
       // paper, e.g. "CC BY-NC"), credited in the tooltip; null for every other source.
       licence: s.licence || null,
+      // A PDSP CSV row cited in place of a quote (a measured Ki, or an inactive
+      // ceiling a curated denial rests on): the tooltip spells the row out.
+      kiRow: s.ki_id != null ? {
+        id: s.ki_id, valueNm: s.value_nm, note: s.note || "", species: s.species || "",
+        radioligand: s.radioligand || "", reference: s.reference || "",
+      } : null,
     }));
   // The per-claim split (tools/data_generators/quotes/attestation.py): a node that
   // asserts several things at once carries one graded entry per part, so the part a

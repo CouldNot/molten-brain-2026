@@ -148,9 +148,14 @@ export function makePills(P) {
     // rule it prints without a subject), so the breadcrumb is what lets a reader
     // judge the quote rather than just confirm it exists.
     const trail = headingTrail(s.heading);
+    const k = s.kiRow;
     const line = s.quote
       ? `${trail}“${s.quote}”\n— ${ref}`
-      : `${trail}— ${ref}`;
+      : k ? `${t("info.kiRow", {
+        id: k.id, value: `${k.note === ">" || k.note === "<" ? k.note + " " : ""}${k.valueNm}`,
+        species: k.species ? speciesLabel(k.species) : "?", radioligand: k.radioligand || "?",
+        reference: k.reference || "?" })}\n— ${ref}`
+        : `${trail}— ${ref}`;
     // An expression source (GtoPdb tissue distribution) names the assay species;
     // show it so a non-human claim is explicit on the pill itself, not only the tag.
     const withSpecies = s.species
