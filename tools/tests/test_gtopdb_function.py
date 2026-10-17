@@ -74,7 +74,7 @@ class FlattenTest(unittest.TestCase):
 class OfferTest(unittest.TestCase):
     def test_species_rule(self):
         self.assertTrue(gf.offerable({"species": "Human"}))
-        self.assertTrue(gf.offerable({"species": "Monkey"}))
+        self.assertFalse(gf.offerable({"species": "Monkey"}))  # non-human: never offered
         self.assertTrue(gf.offerable({"species": None}))
         self.assertFalse(gf.offerable({"species": "Rat"}))
         self.assertFalse(gf.offerable({"species": "Mouse"}))

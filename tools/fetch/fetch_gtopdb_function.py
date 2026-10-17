@@ -59,7 +59,7 @@ sys.path.insert(0, str(HERE.parent))
 from fetch_gtopdb import BASE, clean, file_date, http_json  # noqa: E402
 from fetch_gtopdb_class import subject, target_record  # noqa: E402
 from data_generators import genes  # noqa: E402
-from species import is_primate, species_key  # noqa: E402
+from species import species_key  # noqa: E402
 
 REPO = HERE.parent.parent
 OUT = REPO / "data_sources" / "gtopdb"
@@ -135,11 +135,9 @@ def flatten(payload: dict) -> list[dict]:
 
 def offerable(item: dict) -> bool:
     """Whether a line may be offered as a candidate: a row whose species GtoPdb states is
-    offered only when that species is human or primate (an unnamed label stays out)."""
-    if item.get("species") is None:
-        return True
-    key = species_key(item["species"])
-    return key is not None and is_primate(key)
+    offered only when that species is human (a monkey row is animal evidence like a rat
+    one, and an unnamed label stays out); a species-less row is offered."""
+    return item.get("species") is None or species_key(item["species"]) == "human"
 
 
 def page_text(payload: dict, lines: list[dict]) -> str:

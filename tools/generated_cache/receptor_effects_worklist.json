@@ -2281,16 +2281,6 @@
     {
      "corpus": "gtopdb_function",
      "page": 27,
-     "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Monkey): Locomotor activity and hand-eye coordination. | tissue: α2C-AR antagonist treatment improves locomotor activity and hand-eye coordination in model of Parkinson’s disease.",
-     "effects": [
-      "antiparkinsonian"
-     ],
-     "species": "Monkey",
-     "qid": "fd5a1f1a"
-    },
-    {
-     "corpus": "gtopdb_function",
-     "page": 27,
      "line": "α2C-adrenoceptor (ADRA2C), GtoPdb target 27 | physiological function (Human): Exaggerated cold induced vasoconstriction. | tissue: Skin blood vessels.",
      "effects": [
       "vasoconstriction"
