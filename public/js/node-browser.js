@@ -15,6 +15,7 @@
 // this module never touches the scene.
 
 import { loadFlag, saveFlag } from "./prefs.js";
+import { el } from "./panel/dom.js";
 import {
   approvalLabel, formatApproval, formatHolder, formatOriginator, formatWithdrawal,
 } from "./drug-history.js";
@@ -500,12 +501,6 @@ export function createNodeBrowser({ body, data, deps, ui }) {
   let matches = [];
   let limit = PAGE_FIRST;
 
-  const el = (tag, cls, text) => {
-    const n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  };
 
   const filterInput = document.createElement("input");
   filterInput.type = "text";

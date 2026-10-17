@@ -2,6 +2,22 @@
 // a jump landed on (unfolding the section holding it).
 
 /**
+ * `document.createElement(tag)` with an optional class name and text. The one
+ * builder every panel, tab and popup uses, so text always goes in through
+ * `textContent` (never markup) the same way everywhere.
+ * @param {string} tag
+ * @param {?string} [cls]
+ * @param {?string} [text] omitted / null / undefined leaves the node empty
+ * @returns {HTMLElement}
+ */
+export function el(tag, cls, text) {
+  const node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text != null) node.textContent = text;
+  return node;
+}
+
+/**
  * Scroll an element into view and flash it, for an action that lands the reader
  * somewhere they did not choose to scroll to: a click that navigates to another node
  * *because of* one row (arriving on the target's panel, the row that explains the jump

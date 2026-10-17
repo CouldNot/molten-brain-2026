@@ -4,6 +4,7 @@
 import { exampleRow, KIND_LABELS } from "../kinds.js";
 import { formatHalfLife, NOSOURCE_GLYPH } from "../panel/format.js";
 import { collectNodes } from "../node-browser.js";
+import { el } from "../panel/dom.js";
 
 const { t } = window.__I18N__;
 
@@ -29,22 +30,15 @@ export function buildAboutSourcing(meta, opts = {}) {
   if (!host) return;
   host.replaceChildren();
 
-  const h = (tag, cls, text) => {
-    const node = document.createElement(tag);
-    if (cls) node.className = cls;
-    if (text != null) node.textContent = text;
-    return node;
-  };
-
   // The "Sources & provenance" title is the #sourcing-modal's own <h2>; this block
   // is the intro + grade key + coverage tally. The intro + grade key need no loaded
   // data, so render them always: the popup is meaningful the instant it opens (on
   // demand), called first with no meta, then again with data.meta once loaded to
   // fill the tally.
-  host.appendChild(h("p", "about-text", t("about.sourcingIntro")));
+  host.appendChild(el("p", "about-text", t("about.sourcingIntro")));
   // A source is not proof: sources err, quote-to-claim mapping can slip, and the
   // viewer has bugs. Keep this prominent so nobody reads a pill as "true".
-  host.appendChild(h("p", "about-caveat", t("about.sourcingCaveat")));
+  host.appendChild(el("p", "about-caveat", t("about.sourcingCaveat")));
 
   // Grade key: a pill swatch + its meaning, in weakest-to-strongest order (NOSOURCE
   // first, then LLM-only, then verified). The swatches reuse the info-panel CSS classes
@@ -53,7 +47,7 @@ export function buildAboutSourcing(meta, opts = {}) {
   // ever graded `sourced` (only Wikipedia references are, and they render as the green
   // link, not a coverage bar), so both rows explained pills that never label a tallied
   // node here and only added noise.
-  const key = h("ul", "src-key");
+  const key = el("ul", "src-key");
   const keyRows = [
     ["src-todo", NOSOURCE_GLYPH, "about.gradeNone"],
     ["src-prov-unknown", "∅", "about.gradeUnknown"],
@@ -63,15 +57,15 @@ export function buildAboutSourcing(meta, opts = {}) {
   ];
   for (const [cls, glyph, tip] of keyRows) {
     const li = document.createElement("li");
-    li.appendChild(h("span", `src-pill ${cls}`, glyph));
-    li.appendChild(h("span", null, t(tip)));
+    li.appendChild(el("span", `src-pill ${cls}`, glyph));
+    li.appendChild(el("span", null, t(tip)));
     key.appendChild(li);
   }
   // The grade key answers "how well is this backed"; this paragraph answers the
   // question it leaves open, "backed by what process". Two nodes can be equally green
   // and have got there by different routes, so rather than split the pill into tiers
   // nobody could rank, each source tooltip ends with its own chain of custody.
-  key.appendChild(h("li", "src-key-note", t("about.quoteChains")));
+  key.appendChild(el("li", "src-key-note", t("about.quoteChains")));
 
   // Coverage tally: needs the loaded dataset's provenance stats, so it is skipped
   // on the first (pre-load, meta=null) call and filled in on the second. The grade
@@ -82,7 +76,7 @@ export function buildAboutSourcing(meta, opts = {}) {
 
   // A headline over the knowledge nodes, then a per-node-kind bar.
   const a = stats.nodes || {};
-  const wrap = h("div", "src-stats");
+  const wrap = el("div", "src-stats");
   // Rows are sorted best-coverage-first (highest % of backed nodes), ties broken by
   // the larger node count, so the strongest-sourced kinds head the list.
   const rows = [];
@@ -121,11 +115,11 @@ export function buildAboutSourcing(meta, opts = {}) {
   // One flush segment per non-empty grade, width proportional to its share, so a
   // partly-sourced kind reads as green+yellow+grey+red instead of green-on-empty.
   const buildBar = (counts, total) => {
-    const bar = h("div", "src-stat-bar");
+    const bar = el("div", "src-stat-bar");
     for (const [field, cls] of SEGMENTS) {
       const n = counts[field] || 0;
       if (!n || !total) continue;
-      const seg = h("span", cls);
+      const seg = el("span", cls);
       seg.style.width = `${(100 * n) / total}%`;
       bar.appendChild(seg);
     }
@@ -148,40 +142,40 @@ export function buildAboutSourcing(meta, opts = {}) {
     verified: a.verified || 0, uncertain: a.uncertain || 0, sourced: a.sourced || 0,
     llm: a.llm || 0, nosource: a.nosource || 0,
   };
-  const globalBtn = h("button", "src-global");
+  const globalBtn = el("button", "src-global");
   globalBtn.type = "button";
   globalBtn.setAttribute("aria-expanded", "false");
-  globalBtn.appendChild(h("p", "src-stat-headline",
+  globalBtn.appendChild(el("p", "src-stat-headline",
     t("about.sourcingHeadline", { pct: a.pct_backed, total: a.total })));
   globalBtn.appendChild(buildBar(globalCounts, a.total));
   if (a.unknown) {
-    globalBtn.appendChild(h("p", "src-stat-unknown",
+    globalBtn.appendChild(el("p", "src-stat-unknown",
       t("about.sourcingUnknown", { n: a.unknown })));
   }
-  globalBtn.appendChild(h("span", "src-global-hint", t("about.sourcingByKind")));
+  globalBtn.appendChild(el("span", "src-global-hint", t("about.sourcingByKind")));
   wrap.appendChild(globalBtn);
 
   // The per-kind breakdown, hidden until the global bar is clicked. Each kind is itself
   // a button revealing its grade counts + one clickable example node (built from the
   // loaded dataset when available, so it navigates to a real drug/receptor/structure).
-  const kindsBox = h("div", "src-kinds");
+  const kindsBox = el("div", "src-kinds");
   kindsBox.hidden = true;
   let rowsCache = null;
   const exampleRows = () => rowsCache
     || (rowsCache = collectNodes(opts.data, { t, formatHalfLife, nav: opts.nav },
       { twins: false }));
   for (const r of rows) {
-    const row = h("div", "src-stat-row");
-    const head = h("button", "src-stat-head");
+    const row = el("div", "src-stat-row");
+    const head = el("button", "src-stat-head");
     head.type = "button";
     head.setAttribute("aria-expanded", "false");
-    head.appendChild(h("span", "src-stat-label", t(r.labelKey)));
-    head.appendChild(h("span", "src-stat-count", `${r.backed} / ${r.total} (${r.pct}%)`));
+    head.appendChild(el("span", "src-stat-label", t(r.labelKey)));
+    head.appendChild(el("span", "src-stat-count", `${r.backed} / ${r.total} (${r.pct}%)`));
     head.appendChild(buildBar(r, r.total));
 
-    const detail = h("div", "src-ex-wrap");
+    const detail = el("div", "src-ex-wrap");
     detail.hidden = true;
-    detail.appendChild(h("div", "src-ex-counts", gradeCountsText(r)));
+    detail.appendChild(el("div", "src-ex-counts", gradeCountsText(r)));
     // The example is built on the first expand: it needs every node collected, and a
     // visitor who never expands a bar should not pay for that walk.
     let exampleBuilt = false;
@@ -214,7 +208,7 @@ export function buildAboutSourcing(meta, opts = {}) {
   // exhaustively measured.
   const ki = stats.ki_coverage;
   if (ki && ki.bindings_total) {
-    wrap.appendChild(h("p", "src-stat-kifoot", t("about.kiCoverage", {
+    wrap.appendChild(el("p", "src-stat-kifoot", t("about.kiCoverage", {
       pct: ki.pct_bindings_with_ki,
       total: ki.bindings_total,
       drugsNone: ki.drugs_without_ki,
@@ -227,8 +221,8 @@ export function buildAboutSourcing(meta, opts = {}) {
   // Skipped when no `browser` callback was handed in (the pre-load call, and any host
   // with no panel to open it in).
   if (opts.nav && opts.nav.browser) {
-    const line = h("p", "src-stat-browser", t("about.sourcingBrowser"));
-    const btn = h("button", "src-browser-link", t("about.sourcingBrowserLink"));
+    const line = el("p", "src-stat-browser", t("about.sourcingBrowser"));
+    const btn = el("button", "src-browser-link", t("about.sourcingBrowserLink"));
     btn.type = "button";
     btn.addEventListener("click", () => opts.nav.browser());
     line.appendChild(document.createTextNode(" "));
@@ -243,9 +237,9 @@ export function buildAboutSourcing(meta, opts = {}) {
   const cites = [...new Set(Object.values(meta.sourceCorpora || {})
     .flatMap((c) => c.required_citations || []))];
   if (cites.length) {
-    host.appendChild(h("p", "about-text", t("about.requiredCitations")));
-    const list = h("ul", "src-cite-list");
-    for (const c of cites) list.appendChild(h("li", null, c));
+    host.appendChild(el("p", "about-text", t("about.requiredCitations")));
+    const list = el("ul", "src-cite-list");
+    for (const c of cites) list.appendChild(el("li", null, c));
     host.appendChild(list);
   }
 }
@@ -269,12 +263,6 @@ export function buildAboutSourcing(meta, opts = {}) {
 export function buildKindExample(kind, rows) {
   const row = exampleRow(rows, kind);
   if (!row) return null;
-  const el = (tag, cls, text) => {
-    const n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  };
   // Locale-aware quotation marks around the notion (French uses guillemets + NBSP).
   const fr = (document.documentElement.lang || "").startsWith("fr");
   const quoted = (s) => (fr ? `\u00ab\u00a0${s}\u00a0\u00bb` : `\u201c${s}\u201d`);

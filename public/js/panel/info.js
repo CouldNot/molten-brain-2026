@@ -2,7 +2,7 @@
 // reference links, addon slots) and returns the show*() views, each in panel/views/.
 
 import { closeOpenTip } from "./tooltip.js";
-import { flashRow, foldSections } from "./dom.js";
+import { el, flashRow, foldSections } from "./dom.js";
 import { showEffect } from "./views/effect.js";
 import { showCircuit } from "./views/circuit.js";
 import { showProjectionGroup } from "./views/projection-group.js";
@@ -123,13 +123,6 @@ export function createInfoPanel(data, sourcingModal) {
   const drugById = new Map((data.drugs || []).map((d) => [d.id, d]));
   const enzymeById = new Map((data.enzymes || []).map((e) => [e.id, e]));
   const effectById = new Map((data.effects || []).map((e) => [e.id, e]));
-
-  const el = (tag, className, text) => {
-    const node = document.createElement(tag);
-    if (className) node.className = className;
-    if (text !== undefined) node.textContent = text;
-    return node;
-  };
 
   // True when a structure *base* id maps to a modeled structure (the base itself
   // for a midline form, or its _R / _L hemispheres), i.e. it is reachable in the

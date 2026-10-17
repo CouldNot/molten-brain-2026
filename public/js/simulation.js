@@ -19,6 +19,7 @@
  */
 
 import { loadFlag, saveFlag } from "./prefs.js";
+import { el } from "./panel/dom.js";
 import {
   receptorProfile, ligandsOf, pkFlags, solveCombination,
   toAxis, fromAxis, TMAX_HOURS, P_FLOOR, ASSUMED_PKI,
@@ -95,12 +96,6 @@ export function createSimulation({ body, data, deps, ui }) {
   const meta = data.meta || {};
   const candidates = (data.drugs || []).filter((d) => d.bindings.length && !d.combo);
 
-  const el = (tag, cls, text) => {
-    const n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  };
   const button = (cls, text, title) => {
     const b = el("button", cls, text);
     b.type = "button";
