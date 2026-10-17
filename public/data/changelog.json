@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "3.131.1",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "fixed",
+          "text": "The site image builds again: a file the agent pages need was left out of the build",
+          "commits": [
+            "df4983f"
+          ]
+        }
+      ]
+    },
+    {
       "version": "3.131.0",
       "date": "2026-10-17",
       "entries": [
