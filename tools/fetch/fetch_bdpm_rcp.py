@@ -147,6 +147,27 @@ def load_manifest(repo: Path, name: str = ".scrape-manifest.json") -> dict:
         return {}
 
 
+def _scraped(repo: Path, folder: str, cis: str) -> tuple[str, Path, str] | None:
+    """justelesRCP's copy of ``cis`` under ``data/<folder>/`` (gzipped or not) as
+    ``(file name, path, html)``, or None when it has none (or a zero-byte one)."""
+    for name in (f"{cis}.html.gz", f"{cis}.html"):
+        path = repo / "data" / folder / name
+        if not path.exists() or not path.stat().st_size:
+            continue
+        raw = path.read_bytes()
+        text = (gzip.decompress(raw) if name.endswith(".gz") else raw).decode(
+            "utf-8", errors="replace")
+        return name, path, text
+    return None
+
+
+def _manifest_date(entry: dict, how: str) -> tuple[str, str] | None:
+    """A scrape manifest entry's ``(last_fetch day, how)`` when it fetched ok, else None."""
+    if entry.get("status") == "ok" and entry.get("last_fetch"):
+        return entry["last_fetch"][:10], how
+    return None
+
+
 def copies(cis: str, repo: Path, manifest: dict) -> list[dict]:
     """Every local RCP copy of product ``cis``: ``{html, fetched, date_source,
     copied_from}``. A copy known to hold no RCP (zero bytes, manifest ``empty``) is
@@ -158,20 +179,13 @@ def copies(cis: str, repo: Path, manifest: dict) -> list[dict]:
                     "fetched": _mtime_date(local), "date_source": "file mtime",
                     "copied_from": f"neurarium data_sources/bdpm/raw/{cis}.html"})
     entry = manifest.get(cis) or {}
-    for name in (f"{cis}.html.gz", f"{cis}.html"):
-        path = repo / "data" / "rcp" / name
-        if not path.exists() or not path.stat().st_size or entry.get("status") == "empty":
-            continue
-        raw = path.read_bytes()
-        text = (gzip.decompress(raw) if name.endswith(".gz") else raw).decode(
-            "utf-8", errors="replace")
-        if entry.get("status") == "ok" and entry.get("last_fetch"):
-            fetched, how = entry["last_fetch"][:10], "justelesRCP scrape manifest last_fetch"
-        else:
-            fetched, how = _mtime_date(path), "file mtime"
+    found = None if entry.get("status") == "empty" else _scraped(repo, "rcp", cis)
+    if found:
+        name, path, text = found
+        fetched, how = (_manifest_date(entry, "justelesRCP scrape manifest last_fetch")
+                        or (_mtime_date(path), "file mtime"))
         out.append({"html": text, "fetched": fetched, "date_source": how,
                     "copied_from": f"justelesRCP data/rcp/{name}"})
-        break
     return out
 
 
@@ -183,28 +197,21 @@ def ema_copies(cis: str, repo: Path, ema: dict) -> list[dict]:
     stores under ``data/eu/<cis>.html.gz`` (ANSM publishes no text of its own for
     it). Dated by the EMA scrape manifest's ``last_fetch``, else the page's own
     ``data-ema-fetched``; cited at the EMA PDF it was read from."""
-    for name in (f"{cis}.html.gz", f"{cis}.html"):
-        path = repo / "data" / "eu" / name
-        if not path.exists() or not path.stat().st_size:
-            continue
-        raw = path.read_bytes()
-        text = (gzip.decompress(raw) if name.endswith(".gz") else raw).decode(
-            "utf-8", errors="replace")
-        attrs = dict(_EMA_ATTR.findall(text[:4000]))
-        entry = ema.get(cis) or {}
-        if entry.get("status") == "ok" and entry.get("last_fetch"):
-            fetched, how = entry["last_fetch"][:10], "justelesRCP EMA scrape manifest last_fetch"
-        elif attrs.get("fetched"):
-            fetched, how = attrs["fetched"][:10], "data-ema-fetched"
-        else:
-            fetched, how = _mtime_date(path), "file mtime"
-        copy = {"html": text, "fetched": fetched, "date_source": how,
-                "copied_from": f"justelesRCP data/eu/{name}"}
-        if entry.get("ema_pdf") or attrs.get("pdf"):
-            copy["source"] = entry.get("ema_pdf") or attrs["pdf"]
-        copy["licence"] = "European Medicines Agency, reproduction authorised, source acknowledged"
-        return [copy]
-    return []
+    found = _scraped(repo, "eu", cis)
+    if not found:
+        return []
+    name, path, text = found
+    attrs = dict(_EMA_ATTR.findall(text[:4000]))
+    entry = ema.get(cis) or {}
+    fetched, how = (_manifest_date(entry, "justelesRCP EMA scrape manifest last_fetch")
+                    or ((attrs["fetched"][:10], "data-ema-fetched") if attrs.get("fetched")
+                        else (_mtime_date(path), "file mtime")))
+    copy = {"html": text, "fetched": fetched, "date_source": how,
+            "copied_from": f"justelesRCP data/eu/{name}"}
+    if entry.get("ema_pdf") or attrs.get("pdf"):
+        copy["source"] = entry.get("ema_pdf") or attrs["pdf"]
+    copy["licence"] = fetch_ema_epar.LICENCE
+    return [copy]
 
 
 def freshest(found: list[dict]) -> dict | None:
