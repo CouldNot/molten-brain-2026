@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var user = null;
+        try { user = sessionStorage.getItem('haptiq_user') || localStorage.getItem('haptiq_user'); } catch (e) {}
+        if (/\/haptiq\/overview\/(?:index\.html)?$/.test(location.pathname) && location.port !== '5173' && !user)
+          location.replace('../login.html?next=overview.html');
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <meta name="theme-color" content="#121518" />
+    <title>Overview — Haptiq</title>
+    <script type="module" crossorigin src="./assets/index-gOBHvcRC.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BlLewZeS.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

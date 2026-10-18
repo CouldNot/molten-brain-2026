@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in — Haptiq</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<svg class="noise" aria-hidden="true"><filter id="noiseF"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#noiseF)"/></svg>
+
+<main class="auth">
+
+  <!-- left: visual -->
+  <section class="auth-visual" aria-hidden="true">
+    <div class="glow" style="width:900px;height:900px;left:50%;top:50%;margin:-450px 0 0 -450px"></div>
+    <a class="brand" href="index.html" style="position:relative" tabindex="-1">
+      <svg width="30" height="30" viewBox="0 0 30 30"><rect x=".5" y=".5" width="29" height="29" rx="10" fill="#3B465E" stroke="#E8D7BC" stroke-opacity=".25"/><path d="M5 15 C7.5 9 10 9 12.5 15 S17.5 21 20 15 S22.5 9 25 15" fill="none" stroke="#E8D7BC" stroke-width="2.2" stroke-linecap="round"/></svg>
+      Haptiq
+    </a>
+
+    <div class="wearable">
+      <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="float">
+        <svg viewBox="0 0 600 380">
+          <defs>
+            <linearGradient id="lBand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B465E"/><stop offset=".6" stop-color="#7B7C90"/><stop offset="1" stop-color="#AE9E91"/></linearGradient>
+            <linearGradient id="lSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8D7BC" stop-opacity="0"/><stop offset=".5" stop-color="#E8D7BC" stop-opacity=".8"/><stop offset="1" stop-color="#E8D7BC" stop-opacity="0"/></linearGradient>
+            <radialGradient id="lPod" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#7B7C90"/><stop offset=".5" stop-color="#3B465E"/><stop offset="1" stop-color="#1F2840"/></radialGradient>
+            <radialGradient id="lGlow"><stop offset="0" stop-color="#E8D7BC" stop-opacity=".9"/><stop offset="1" stop-color="#E8D7BC" stop-opacity="0"/></radialGradient>
+            <radialGradient id="lShadow"><stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+          </defs>
+          <ellipse cx="300" cy="350" rx="220" ry="22" fill="url(#lShadow)"/>
+          <circle cx="300" cy="96" r="90" fill="url(#lGlow)" opacity=".28" class="pulse"/>
+          <path d="M150 262 C80 210 110 92 300 84 C490 92 520 210 450 262" fill="none" stroke="#1F2840" stroke-width="32" stroke-linecap="round" transform="translate(0 10)"/>
+          <path d="M150 262 C80 210 110 92 300 84 C490 92 520 210 450 262" fill="none" stroke="url(#lBand)" stroke-width="30" stroke-linecap="round"/>
+          <path d="M150 262 C80 210 110 92 300 84 C490 92 520 210 450 262" fill="none" stroke="url(#lSheen)" stroke-width="3" stroke-linecap="round" transform="translate(0 -9)" opacity=".8"/>
+          <rect x="260" y="82" width="20" height="9" rx="4.5" fill="#E8D7BC" class="pulse"/>
+          <rect x="290" y="80" width="20" height="9" rx="4.5" fill="#E8D7BC" class="pulse" style="animation-delay:.3s"/>
+          <rect x="320" y="82" width="20" height="9" rx="4.5" fill="#E8D7BC" class="pulse" style="animation-delay:.6s"/>
+          <g transform="rotate(-28 160 268)"><ellipse cx="160" cy="268" rx="52" ry="32" fill="url(#lPod)" stroke="#E8D7BC" stroke-opacity=".22"/><ellipse cx="146" cy="256" rx="24" ry="8" fill="#E8D7BC" opacity=".16"/></g>
+          <g transform="rotate(28 440 268)"><ellipse cx="440" cy="268" rx="52" ry="32" fill="url(#lPod)" stroke="#E8D7BC" stroke-opacity=".22"/><ellipse cx="426" cy="256" rx="24" ry="8" fill="#E8D7BC" opacity=".16"/></g>
+          <circle cx="172" cy="266" r="3.5" fill="#E8D7BC"/><circle cx="428" cy="266" r="3.5" fill="#E8D7BC"/>
+        </svg>
+      </div>
+    </div>
+
+    <div style="position:relative">
+      <span class="eyebrow">Your dashboard</span>
+      <h2>Your pattern, your settings, all in one place.</h2>
+    </div>
+  </section>
+
+  <!-- right: form -->
+  <section class="auth-form-wrap">
+    <a class="back" href="index.html">← Back to site</a>
+    <div class="card auth-card">
+      <span class="eyebrow">Welcome back</span>
+      <h1>Log in</h1>
+      <p class="lede">See your check-ins, sessions, and monthly summary.</p>
+
+      <!-- TODO(auth): point action at your auth endpoint, or keep the JS handler in js/auth.js -->
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="pw">
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required minlength="6">
+            <button class="icon-btn" type="button" id="togglePw" aria-label="Show password">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="auth-row">
+          <label class="check"><input type="checkbox" name="remember"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <div class="form-err" id="formErr" role="alert"></div>
+        <button class="btn btn-p" type="submit" style="width:100%;margin-top:8px">
+          Log in <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <div class="auth-alt">New to Haptiq? <a href="#">Request access</a></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/shared.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — Haptiq</title>
+  <!-- SIGN-IN WALL: no session → send to login. Replace with a server-side check once auth is real. -->
+  <script>
+    (function () {
+      var u = null;
+      try { u = sessionStorage.getItem('haptiq_user') || localStorage.getItem('haptiq_user'); } catch (e) {}
+      if (!u) { location.replace('login.html?next=dashboard.html'); }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/styles.css?v=3.132.2">
+</head>
+<body>
+
+<svg class="noise" aria-hidden="true"><filter id="noiseF"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#noiseF)"/></svg>
+
+<div class="dash">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="10" fill="#3B465E" stroke="#E8D7BC" stroke-opacity=".25"/><path d="M5 15 C7.5 9 10 9 12.5 15 S17.5 21 20 15 S22.5 9 25 15" fill="none" stroke="#E8D7BC" stroke-width="2.2" stroke-linecap="round"/></svg>
+      Haptiq
+    </a>
+    <nav aria-label="Dashboard">
+      <a href="overview.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg><span>Overview</span></a>
+      <a href="#attacks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg><span>Attacks</span></a>
+      <a href="#sessions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9.5a3.5 3.5 0 0 1 0 5"/><path d="M10 6.5a8 8 0 0 1 0 11"/><path d="M14 3.5a12.5 12.5 0 0 1 0 17"/></svg><span>Sessions</span></a>
+      <a href="#signals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>Signals</span></a>
+      <a href="brain.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 4a4 4 0 0 0-7 3 4 4 0 0 0 0 7 4 4 0 0 0 7 4V4zM12 4a4 4 0 0 1 7 3 4 4 0 0 1 0 7 4 4 0 0 1-7 4"/></svg><span>Brain view</span></a>
+      <a href="#summary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><span>Summary</span></a>
+    </nav>
+    <div class="side-foot">
+      <div class="device-pill"><span class="lbl" style="display:block;margin-bottom:10px">Devices</span><div class="dev-list" id="deviceList"></div></div>
+      <a class="btn btn-s" href="login.html" id="logout" style="height:44px;font-size:14px">Log out</a>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main" id="overview">
+    <div class="glow" style="width:900px;height:700px;right:-200px;top:-200px"></div>
+
+    <header class="topbar">
+      <div>
+        <span class="eyebrow" id="phaseEyebrow" style="margin-bottom:10px">—</span>
+        <h1 id="greeting">Welcome</h1>
+        <p class="sub2" id="phaseLine">Loading your data…</p>
+      </div>
+      <div class="top-r">
+        <a class="btn btn-p" href="#daily-checkin" id="checkinBtn">Today’s check-in <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="avatar" id="avatar" aria-hidden="true">–</div>
+      </div>
+    </header>
+
+    <div class="banner" id="sampleBanner"><span class="live"></span>Preview with sample data. Your own data will show here once it’s connected.</div>
+
+    <section class="card checkin-hero" id="daily-checkin" aria-labelledby="checkinTitle">
+      <div class="checkin-intro">
+        <span class="eyebrow">Your daily routine</span>
+        <h2 id="checkinTitle">How are you feeling today?</h2>
+        <p>Take a minute to log how you feel. Your daily check-ins help build your migraine pattern.</p>
+        <div class="checkin-state" id="checkinState" role="status">Ready for today’s check-in</div>
+      </div>
+      <form id="checkinForm" class="checkin-form">
+        <fieldset>
+          <legend>Did you have a migraine today?</legend>
+          <div class="checkin-choice">
+            <label><input type="radio" name="migraine" value="no" checked><span>No migraine</span></label>
+            <label><input type="radio" name="migraine" value="yes"><span>Yes, migraine</span></label>
+          </div>
+        </fieldset>
+        <div class="checkin-pain">
+          <label for="painLevel">Pain level <strong id="painValue">0 / 10</strong></label>
+          <input id="painLevel" name="pain" type="range" min="0" max="10" value="0">
+        </div>
+        <fieldset>
+          <legend>Any symptoms? <span class="optional">Optional</span></legend>
+          <div class="checkin-symptoms">
+            <label><input type="checkbox" name="symptom" value="Light sensitivity"><span>Light sensitivity</span></label>
+            <label><input type="checkbox" name="symptom" value="Sound sensitivity"><span>Sound sensitivity</span></label>
+            <label><input type="checkbox" name="symptom" value="Nausea"><span>Nausea</span></label>
+            <label><input type="checkbox" name="symptom" value="Aura"><span>Aura</span></label>
+          </div>
+        </fieldset>
+        <button class="btn btn-p" id="saveCheckin" type="submit">Save today’s check-in</button>
+        <p class="checkin-preview-note" id="checkinPreviewNote" hidden>Preview check-ins are saved on this device.</p>
+        <p class="checkin-error" id="checkinError" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <div class="dgrid">
+      <!-- today's tasks -->
+      <div class="card panel s6 fu" id="today">
+        <div class="row"><h2>Today’s tasks</h2><span class="tag" id="todayDate">—</span></div>
+        <div class="todo" id="todayList"></div>
+      </div>
+
+      <!-- calendar -->
+      <div class="card panel s6 fu d1" id="calendar">
+        <div class="row"><div><h2>Check-in calendar</h2><p class="t-p">A little progress, day by day.</p></div><span class="tag" id="calendarMonth">—</span></div>
+        <div class="checkin-calendar" id="calendarGrid" aria-label="This month’s check-ins"></div>
+        <div class="calendar-key"><span><i class="checked"></i>Checked in</span><span><i class="today"></i>Today</span></div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="card kpi s3 fu">
+        <div class="row"><span class="k">Migraine days this month</span><span class="tag" id="kpiDaysTag">—</span></div>
+        <div class="val" id="kpiDays">–</div>
+        <div class="spark" id="kpiDaysSpark"></div>
+      </div>
+      <div class="card kpi s3 fu d1">
+        <span class="k">Avg pain at 2 hours</span>
+        <div class="val" id="kpiPain">–<small>/ 10</small></div>
+        <div class="delta" id="kpiPainDelta">—</div>
+      </div>
+      <div class="card kpi s3 fu d2">
+        <span class="k">Sessions this month</span>
+        <div class="val" id="kpiSessions">–</div>
+        <div class="delta" id="kpiSessionsSub">—</div>
+      </div>
+      <div class="card kpi s3 fu d3">
+        <span class="k">Check-in streak</span>
+        <div class="val" id="kpiStreak">–<small>days</small></div>
+        <div class="delta" id="kpiStreakSub">—</div>
+      </div>
+
+      <!-- monthly chart -->
+      <div class="card panel s8 fu">
+        <div class="row" style="align-items:flex-start"><div><h2>Monthly migraine days</h2><p class="t-p">Month 1 is your baseline.</p></div><div class="legend"><span><span class="sw"></span>Days</span><span><span class="sw g"></span>Baseline</span></div></div>
+        <div id="monthlyChart"></div>
+      </div>
+
+      <!-- latest session gauge -->
+      <div class="card panel s4 fu" id="sessions">
+        <div class="row"><h2>Last session</h2><span class="tag" id="lastSessionDate">—</span></div>
+        <div class="gauge">
+          <svg viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="56" fill="none" stroke="#7B7C90" stroke-opacity=".25" stroke-width="10"/><circle id="gaugeArc" cx="70" cy="70" r="56" fill="none" stroke="#E8D7BC" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 352" transform="rotate(-90 70 70)" style="transition:stroke-dasharray 1.4s cubic-bezier(.16,.84,.3,1)"/></svg>
+          <div class="c"><strong id="gaugeVal">–</strong><span id="gaugeSub">pain at 2 h</span></div>
+        </div>
+        <p class="t-p" id="lastSessionNote" style="text-align:center">—</p>
+      </div>
+
+      <!-- settings -->
+      <div class="card panel s4 fu d1">
+        <div class="row"><h2>Wearable settings</h2><span class="tag">DataFeel · tuned to you</span></div>
+        <div id="settingsList" style="display:flex;flex-direction:column;gap:18px"></div>
+        <div class="row" style="font-size:12px;margin-top:auto"><span style="display:inline-flex;align-items:center;gap:6px"><span class="limkey"></span>Safety limit</span><span>Can’t be exceeded</span></div>
+      </div>
+
+      <!-- phase -->
+      <div class="card panel s4 fu d2">
+        <div class="row"><h2 id="phaseTitle">This month</h2><span class="tag" id="phaseTag">—</span></div>
+        <div class="phase" id="phaseGrid"></div>
+        <p class="t-p" id="phaseNote">—</p>
+      </div>
+
+      <!-- sessions chart -->
+      <div class="card panel s7 fu">
+        <div class="row" style="align-items:flex-start"><div><h2>Pain before and 2 hours after</h2><p class="t-p">Each pair is one session.</p></div><div class="legend"><span><span class="sw g"></span>Start</span><span><span class="sw"></span>At 2 h</span></div></div>
+        <div id="sessionsChart"></div>
+      </div>
+
+      <!-- brain -->
+      <div class="card panel s5 fu d1" id="brain">
+        <div class="row"><h2>Brain view</h2><span class="tag">Illustration</span></div>
+        <div data-gl="brain" role="img" aria-label="3D brain illustration with the targeted pathway" style="height:260px;background:radial-gradient(closest-side,rgba(232,215,188,.16),rgba(174,158,145,.06) 60%,rgba(174,158,145,0))"><div class="gl-fallback" data-brain style="height:100%"></div></div>
+        <div class="btn-pair">
+          <a class="btn btn-p" href="brain.html">Explore brain <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-s" href="#">Open in Vision Pro</a>
+        </div>
+      </div>
+
+      <!-- eye signals -->
+      <div class="card panel s6 fu" id="signals">
+        <div class="row"><h2>Eye signals <span style="font-weight:400;font-size:14px;color:#7B7C90">· Neon</span></h2><div class="legend"><span><span class="sw"></span>Attack days</span><span><span class="sw g"></span>Other days</span></div></div>
+        <div id="eyeSignals" style="display:flex;flex-direction:column;gap:16px"></div>
+      </div>
+
+      <!-- voice -->
+      <div class="card panel s6 fu d1">
+        <div class="row"><h2>Voice note scores</h2><span class="tag">Scored on-device</span></div>
+        <div id="voiceChart"></div>
+      </div>
+
+      <!-- attacks table -->
+      <div class="card panel s12 fu" id="attacks">
+        <div class="row"><h2>Recent attacks</h2><span class="tag" id="attackCount">—</span></div>
+        <div class="table-wrap">
+          <table class="log">
+            <thead><tr><th>Date</th><th>Pain</th><th>Location</th><th>Symptoms</th><th>Medication</th><th>Session</th><th>At 2 h</th></tr></thead>
+            <tbody id="attackRows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- summary -->
+      <div class="card panel s12 fu" id="summary">
+        <div class="summary">
+          <div>
+            <span class="eyebrow" style="margin-bottom:10px" id="summaryPeriod">Monthly summary</span>
+            <h2 style="font-size:28px;letter-spacing:-.02em" id="summaryHeadline">—</h2>
+            <p class="t-p" id="summaryText" style="margin-top:8px;max-width:70ch">—</p>
+          </div>
+          <div class="row" style="gap:10px">
+            <a class="btn btn-s" href="#" id="summaryDownload">Download PDF</a>
+            <a class="btn btn-p" href="#" id="summarySend">Send to my doctor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="dash-note">Research prototype. Not a medical device. Talk to your doctor before changing any treatment.</p>
+  </main>
+</div>
+
+<script src="js/shared.js"></script>
+<script src="js/data.js?v=3.132.2"></script>
+<script type="module" src="js/site-boot.js?v=3.132.2"></script>
+</body>
+</html>

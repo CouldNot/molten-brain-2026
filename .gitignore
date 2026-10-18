@@ -21,3 +21,7 @@ __pycache__
 # Archived / obsolete working folders (e.g. the completed geometry-refinement
 # runbook plus its scratch refs/renders); kept on disk but out of version control.
 /obsolete/
+
+# Imported private Migraine Loop source remains local; only its built browser app
+# under public/haptiq/overview/ is published from this public repository.
+/integrations/molten-hackathon/

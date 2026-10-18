@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brain view — Haptiq</title>
+  <script>
+    (function () {
+      var u = null;
+      try { u = sessionStorage.getItem('haptiq_user') || localStorage.getItem('haptiq_user'); } catch (e) {}
+      if (!u) location.replace('login.html?next=brain.html');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+</head>
+<body>
+<svg class="noise" aria-hidden="true"><filter id="noiseF"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#noiseF)"/></svg>
+<div class="dash">
+  <aside class="side">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="10" fill="#3B465E" stroke="#E8D7BC" stroke-opacity=".25"/><path d="M5 15 C7.5 9 10 9 12.5 15 S17.5 21 20 15 S22.5 9 25 15" fill="none" stroke="#E8D7BC" stroke-width="2.2" stroke-linecap="round"/></svg>Haptiq</a>
+    <nav aria-label="Dashboard">
+      <a href="overview.html">Overview</a>
+      <a href="dashboard.html#attacks">Attacks</a>
+      <a href="dashboard.html#sessions">Sessions</a>
+      <a href="dashboard.html#signals">Signals</a>
+      <a class="active" href="brain.html" aria-current="page">Brain view</a>
+      <a href="dashboard.html#summary">Summary</a>
+    </nav>
+    <div class="side-foot"><div class="device-pill"><span class="lbl">Devices</span><div class="dev-list" id="deviceList"></div></div><a class="btn btn-s" href="login.html" id="logout">Log out</a></div>
+  </aside>
+  <main class="main brain-main">
+    <header class="topbar">
+      <div><span class="eyebrow">Haptiq · Explore</span><h1>Brain view</h1><p class="sub2">Explore the pathways behind the Haptiq concept.</p></div>
+      <a class="btn btn-s" href="overview.html">Back to overview</a>
+    </header>
+    <div class="banner" id="sampleBanner" hidden><span class="live"></span>Preview with sample data. This illustration does not show measured brain activity.</div>
+    <div class="brain-modes" role="tablist" aria-label="Brain view mode">
+      <button class="dtab" id="modePathways" type="button" role="tab" aria-selected="true" aria-controls="pathwayPanel">Pathways</button>
+      <button class="dtab" id="modeResults" type="button" role="tab" aria-selected="false" aria-controls="resultsPanel">My results</button>
+    </div>
+    <div class="brain-layout">
+      <section class="card brain-view" aria-label="Interactive 3D brain model">
+        <div id="brainStage" class="brain-stage"></div>
+        <div id="brainLoading" class="brain-loading" role="status">Loading brain model… <span id="brainProgress">0%</span></div>
+        <div class="brain-hint">Drag to rotate · Scroll to zoom · Tap a region to learn more</div>
+      </section>
+      <div class="brain-side">
+        <section class="card panel" id="pathwayPanel" role="tabpanel" aria-labelledby="modePathways">
+          <div><span class="eyebrow">Illustrated pathways</span><h2>Choose what to explore</h2><p class="t-p">Pathway highlights explain anatomy. They do not represent live readings.</p></div>
+          <div><h3 class="brain-section-title">Wearable placement</h3><div class="chips" id="placementControls"></div></div>
+          <div><h3 class="brain-section-title">Show pathways</h3><div class="chips" id="layerControls"></div></div>
+          <div id="pathwayDetails" class="brain-details"></div>
+        </section>
+        <section class="card panel" id="resultsPanel" role="tabpanel" aria-labelledby="modeResults" hidden>
+          <div><span class="eyebrow">Your dashboard</span><h2>Session results</h2><p class="t-p">The brain is neutral in this view. Your outcomes come from check-ins, not a brain scan.</p></div>
+          <div class="brain-results" id="brainResults"></div>
+          <a class="btn btn-s" href="dashboard.html#sessions">See all sessions</a>
+        </section>
+        <section class="card panel brain-info" aria-live="polite"><span class="eyebrow">Tap to explain</span><h2 id="siteName">Explore a region</h2><p class="t-p" id="siteText">Select a part of the brain or a highlighted relay to learn what it does.</p></section>
+      </div>
+    </div>
+    <p class="dash-note">Research prototype. Not a medical device. The brain is an anatomical illustration, not a scan or a measure of treatment response.</p>
+  </main>
+</div>
+<script src="js/data.js"></script>
+<script type="module" src="js/brain-page.js"></script>
+</body>
+</html>

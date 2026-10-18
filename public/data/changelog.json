@@ -1,6 +1,50 @@
 {
   "versions": [
     {
+      "version": "3.132.3",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Haptiq's Overview now opens the Migraine Loop daily flow, experiments, simulated recommendation, portfolio, and history, with the original hub and Vision Pro source preserved.",
+          "commits": []
+        }
+      ]
+    },
+    {
+      "version": "3.132.2",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "The personalized Haptiq dashboard now starts with a daily check-in, today's tasks, and a calendar before the monthly charts and summary cards.",
+          "commits": []
+        }
+      ]
+    },
+    {
+      "version": "3.132.1",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "improved",
+          "text": "Removed the Careful by design section from the Haptiq landing page.",
+          "commits": []
+        }
+      ]
+    },
+    {
+      "version": "3.132.0",
+      "date": "2026-10-17",
+      "entries": [
+        {
+          "category": "added",
+          "text": "Haptiq is the default site, with its dashboard and interactive brain pathways after the demo login.",
+          "commits": []
+        }
+      ]
+    },
+    {
       "version": "3.131.3",
       "date": "2026-10-17",
       "entries": [

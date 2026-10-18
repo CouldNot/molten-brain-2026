@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview — Haptiq</title>
+  <script>
+    (function () {
+      var user = null;
+      try { user = sessionStorage.getItem('haptiq_user') || localStorage.getItem('haptiq_user'); } catch (e) {}
+      if (!user) { location.replace('login.html?next=overview.html'); return; }
+      location.replace('overview/' + location.search + location.hash);
+    })();
+  </script>
+</head>
+<body></body>
+</html>

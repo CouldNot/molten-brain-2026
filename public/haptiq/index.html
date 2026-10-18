@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haptiq — Personalized migraine relief</title>
+  <meta name="description" content="Haptiq learns your migraine pattern and tunes a wearable to you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<svg class="noise" aria-hidden="true"><filter id="noiseF"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#noiseF)"/></svg>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav" aria-label="Main">
+  <a class="brand" href="#top">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="10" fill="#3B465E" stroke="#E8D7BC" stroke-opacity=".25"/><path d="M5 15 C7.5 9 10 9 12.5 15 S17.5 21 20 15 S22.5 9 25 15" fill="none" stroke="#E8D7BC" stroke-width="2.2" stroke-linecap="round"/></svg>
+    Haptiq
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#project">Project</a>
+    <a href="#simulations">Simulations</a>
+    <a href="#devices">Devices</a>
+  </div>
+  <div class="nav-r">
+    <button class="icon-btn" type="button" aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+    <a class="nav-login" href="login.html">Log in</a>
+    <a class="btn btn-p" href="#simulations">Try demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</nav>
+
+<!-- ================= 1. HERO ================= -->
+<section class="hero" id="top">
+  <div class="glow" style="width:1200px;height:900px;left:50%;top:420px;margin-left:-600px"></div>
+  <div class="wrap fu">
+    <span class="eyebrow">Personalized migraine relief</span>
+    <h1 class="h1">Relief shouldn’t be <span class="grad">average</span>.</h1>
+    <p class="sub">Haptiq learns your migraine pattern and tunes a wearable to you.</p>
+    <div class="cta-row">
+      <a class="btn btn-p" href="#simulations">Try demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn-s" href="#loop">See how it works</a>
+    </div>
+    <div class="built"><span>Built on</span><strong>Pupil Labs Neon</strong><strong>DataFeel Gen 10</strong><strong>Apple Vision Pro</strong></div>
+  </div>
+  <div class="render fu d2">
+    <div class="render-inner">
+      <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div>
+      <div class="gl-hero" data-gl="neckband" role="img" aria-label="3D model of the Haptiq neck-worn wearable">
+      <div class="float gl-fallback">
+        <svg viewBox="0 0 600 380" aria-hidden="true">
+          <defs>
+            <linearGradient id="hBand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B465E"/><stop offset=".6" stop-color="#7B7C90"/><stop offset="1" stop-color="#AE9E91"/></linearGradient>
+            <linearGradient id="hSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8D7BC" stop-opacity="0"/><stop offset=".5" stop-color="#E8D7BC" stop-opacity=".8"/><stop offset="1" stop-color="#E8D7BC" stop-opacity="0"/></linearGradient>
+            <radialGradient id="hPod" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#7B7C90"/><stop offset=".5" stop-color="#3B465E"/><stop offset="1" stop-color="#1F2840"/></radialGradient>
+            <radialGradient id="hGlow"><stop offset="0" stop-color="#E8D7BC" stop-opacity=".9"/><stop offset="1" stop-color="#E8D7BC" stop-opacity="0"/></radialGradient>
+            <radialGradient id="hShadow"><stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+          </defs>
+          <ellipse cx="300" cy="350" rx="220" ry="22" fill="url(#hShadow)"/>
+          <circle cx="300" cy="96" r="90" fill="url(#hGlow)" opacity=".28" class="pulse"/>
+          <path d="M150 262 C80 210 110 92 300 84 C490 92 520 210 450 262" fill="none" stroke="#1F2840" stroke-width="32" stroke-linecap="round" transform="translate(0 10)"/>
+          <path d="M150 262 C80 210 110 92 300 84 C490 92 520 210 450 262" fill="none" stroke="url(#hBand)" stroke-width="30" stroke-linecap="round"/>
+          <path d="M150 262 C80 210 110 92 300 84 C490 92 520 210 450 262" fill="none" stroke="url(#hSheen)" stroke-width="3" stroke-linecap="round" transform="translate(0 -9)" opacity=".8"/>
+          <rect x="260" y="82" width="20" height="9" rx="4.5" fill="#E8D7BC" class="pulse"/>
+          <rect x="290" y="80" width="20" height="9" rx="4.5" fill="#E8D7BC" class="pulse" style="animation-delay:.3s"/>
+          <rect x="320" y="82" width="20" height="9" rx="4.5" fill="#E8D7BC" class="pulse" style="animation-delay:.6s"/>
+          <rect x="118" y="148" width="22" height="12" rx="6" fill="#AE9E91" transform="rotate(-62 129 154)"/>
+          <g transform="rotate(-28 160 268)"><ellipse cx="160" cy="268" rx="52" ry="32" fill="url(#hPod)" stroke="#E8D7BC" stroke-opacity=".22"/><ellipse cx="146" cy="256" rx="24" ry="8" fill="#E8D7BC" opacity=".16"/></g>
+          <g transform="rotate(28 440 268)"><ellipse cx="440" cy="268" rx="52" ry="32" fill="url(#hPod)" stroke="#E8D7BC" stroke-opacity=".22"/><ellipse cx="426" cy="256" rx="24" ry="8" fill="#E8D7BC" opacity=".16"/></g>
+          <circle cx="172" cy="266" r="14" fill="url(#hGlow)" class="pulse"/><circle cx="172" cy="266" r="3.5" fill="#E8D7BC"/>
+          <circle cx="428" cy="266" r="14" fill="url(#hGlow)" class="pulse" style="animation-delay:1.2s"/><circle cx="428" cy="266" r="3.5" fill="#E8D7BC"/>
+        </svg>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. ABOUT ================= -->
+<section class="sec alt" id="about">
+  <div class="glow" style="width:900px;height:700px;left:-240px;top:40px"></div>
+  <div class="wrap">
+    <div class="head fu">
+      <span class="eyebrow">About · The problem</span>
+      <h2 class="h2">One size fits no one.</h2>
+      <p class="lede">Drugs often fall short. Most people track attacks on paper, or not at all. And today’s devices use the same settings for everyone.</p>
+    </div>
+    <div class="stats">
+      <div class="card stat fu d1">
+        <div class="stat-vis iso"><div class="floor" data-people></div></div>
+        <div><div class="big">1 in <span data-count-from="1" data-count-to="7">1</span></div><p>people worldwide live with migraine</p></div>
+      </div>
+      <div class="card stat fu d2">
+        <div class="stat-vis iso"><div class="bars3d" data-bars3d></div></div>
+        <div><div class="big">#<span data-count-from="10" data-count-to="1">10</span></div><p>cause of disability under 50</p></div>
+      </div>
+      <div class="card stat fu d3">
+        <div class="stat-vis iso" style="flex-direction:column;align-items:stretch;justify-content:flex-end"><div class="dials3d" data-dials></div><div class="dial-labels"><span>Person A</span><span>Person B</span><span>Person C</span></div></div>
+        <div><div class="big">Same settings</div><p>for everyone on today’s devices</p></div>
+      </div>
+    </div>
+    <div class="note fu d3">Approximate figures.</div>
+  </div>
+</section>
+
+<!-- ================= 3. THE LOOP ================= -->
+<section id="loop" style="position:relative">
+  <div class="loop-pin" data-loop>
+    <div class="loop-stick">
+      <div class="glow" style="width:900px;height:900px;left:50%;top:50%;margin:-400px 0 0 -620px"></div>
+      <div class="wrap center fu" style="width:100%">
+        <span class="eyebrow">The loop</span>
+        <h2 class="h2">It learns. Then it adapts.</h2>
+      </div>
+      <div class="loop-grid fu d2">
+        <div class="dia">
+          <svg class="ringsvg" viewBox="0 0 520 520" aria-hidden="true"><circle cx="260" cy="260" r="250" fill="none" stroke="#E8D7BC" stroke-opacity=".06"/><circle cx="260" cy="260" r="220" fill="none" stroke="#7B7C90" stroke-opacity=".4" stroke-width="1.5"/><circle cx="260" cy="260" r="160" fill="none" stroke="#7B7C90" stroke-opacity=".22" stroke-dasharray="2 8"/></svg>
+          <div class="orbit t2"><div class="odot"></div></div>
+          <div class="orbit t1"><div class="odot"></div></div>
+          <div class="orbit"><div class="odot"></div></div>
+          <div class="dia-core" data-core></div>
+          <div class="dia-center"><div class="lbl">Your profile</div><div class="num" data-profile>1,240</div><div class="dc-sub">data points</div><div class="dc-step">Step <span data-loop-num>01</span> · <span data-loop-name>Track</span></div></div>
+          <div class="lnode on" data-node style="left:50%;top:7.7%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>Track</div>
+          <div class="lnode" data-node style="left:90.2%;top:36.9%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>Detect</div>
+          <div class="lnode" data-node style="left:74.9%;top:84.2%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9.5a3.5 3.5 0 0 1 0 5"/><path d="M10 6.5a8 8 0 0 1 0 11"/><path d="M14 3.5a12.5 12.5 0 0 1 0 17"/></svg>Stimulate</div>
+          <div class="lnode" data-node style="left:25.1%;top:84.2%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17l4-5"/></svg>Measure</div>
+          <div class="lnode" data-node style="left:9.8%;top:36.9%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M19 7h1M4 17h3M11 17h9"/><circle cx="16" cy="7" r="2.5"/><circle cx="9" cy="17" r="2.5"/></svg>Adjust</div>
+        </div>
+        <div class="card lpanel">
+          <span class="lbl">Step <span data-loop-num>01</span> of 05</span>
+          <h3 data-loop-name>Track</h3>
+          <p data-loop-line>A daily check-in, a short eye-and-motion task, and a voice note.</p>
+          <div class="lsegs" data-lsegs></div>
+          <p style="font-size:14px;margin-top:28px;color:#7B7C90">Every data point adds to your personal profile. Month 1 is tracking only. Stimulation starts in month 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. PROJECT ================= -->
+<section class="sec alt" id="project">
+  <div class="wrap">
+    <div class="head center fu">
+      <span class="eyebrow">Project · How it works</span>
+      <h2 class="h2">A few minutes a day.</h2>
+      <p class="lede">Five parts build the record your doctor never had.</p>
+    </div>
+  </div>
+  <div class="proj">
+    <div>
+      <div class="pcol">
+        <div class="glow" style="width:640px;height:640px;left:50%;top:50%;margin:-320px 0 0 -320px"></div>
+        <div class="pstack">
+
+          <!-- screen 1: check-in -->
+          <div class="layer on" data-layer>
+            <div class="phone"><div class="scr">
+              <div class="isl"></div>
+              <div class="row"><span class="s-lbl">Daily check-in</span><span class="s-lbl" style="color:#7B7C90">Today</span></div>
+              <div class="s-h">Migraine today?</div>
+              <div class="yn"><div class="pill f">Yes</div><div class="pill">No</div></div>
+              <div>
+                <div class="row" style="margin-bottom:10px"><span>Pain</span><span class="v">6 / 10</span></div>
+                <div class="trk"><span class="fill" style="width:60%"></span><span class="knob" style="left:60%"></span></div>
+                <div class="row" style="margin-top:6px;font-size:11px"><span>0</span><span>10</span></div>
+              </div>
+              <div><div style="margin-bottom:8px">Where</div><div class="chips"><span class="chip on">Left temple</span><span class="chip">Behind eyes</span><span class="chip">Neck</span></div></div>
+              <div><div style="margin-bottom:8px">Symptoms</div><div class="chips"><span class="chip">Aura</span><span class="chip on">Nausea</span><span class="chip on">Light</span><span class="chip">Sound</span></div></div>
+              <div class="row" style="margin-top:auto;padding:12px 14px;border-radius:16px;background:rgba(59,70,94,.55)"><span style="color:#E8D7BC">Took medication</span><span class="tog"></span></div>
+            </div></div>
+            <div class="cap"><h3>Check-in</h3><p>“Migraine today?” Yes logs the attack. No logs sleep, stress, and caffeine.</p></div>
+          </div>
+
+          <!-- screen 2: tracking task -->
+          <div class="layer" data-layer>
+            <div class="phone"><div class="scr">
+              <div class="isl"></div>
+              <div class="row"><span class="s-lbl">Tracking task · 1:42</span><span class="spill"><span class="live"></span>Neon</span></div>
+              <div class="s-h">Follow the dot.</div>
+              <div class="neon-view">
+                <svg viewBox="0 0 260 100" aria-hidden="true">
+                  <defs><clipPath id="eyeL"><path d="M38 50 C52 32 90 32 104 50 C90 68 52 68 38 50 Z"/></clipPath><clipPath id="eyeR"><path d="M156 50 C170 32 208 32 222 50 C208 68 170 68 156 50 Z"/></clipPath></defs>
+                  <g fill="#192136" stroke="#7B7C90" stroke-width="1.2"><path d="M38 50 C52 32 90 32 104 50 C90 68 52 68 38 50 Z"/><path d="M156 50 C170 32 208 32 222 50 C208 68 170 68 156 50 Z"/></g>
+                  <g clip-path="url(#eyeL)"><g class="eyeball"><circle cx="71" cy="50" r="12" fill="#3B465E" stroke="#AE9E91"/><circle cx="71" cy="50" r="5.5" fill="#E8D7BC"/></g><rect class="lid" x="36" y="30" width="70" height="40" fill="#1F2840"/></g>
+                  <g clip-path="url(#eyeR)"><g class="eyeball"><circle cx="189" cy="50" r="12" fill="#3B465E" stroke="#AE9E91"/><circle cx="189" cy="50" r="5.5" fill="#E8D7BC"/></g><rect class="lid" x="154" y="30" width="70" height="40" fill="#1F2840"/></g>
+                  <g fill="none" stroke="#3B465E" stroke-width="5"><rect x="22" y="20" width="98" height="62" rx="28"/><rect x="140" y="20" width="98" height="62" rx="28"/></g>
+                  <rect x="112" y="24" width="36" height="22" rx="7" fill="#3B465E" stroke="#AE9E91" stroke-opacity=".6"/>
+                  <circle cx="130" cy="35" r="4" fill="#E8D7BC"/>
+                  <circle cx="117" cy="56" r="2.5" fill="#AE9E91" class="pulse"/><circle cx="143" cy="56" r="2.5" fill="#AE9E91" class="pulse"/>
+                </svg>
+              </div>
+              <div class="gz sm"><div class="gz-h"></div><div class="gz-v"></div><div class="gring"></div><div class="gdot"></div></div>
+              <div class="m3"><div class="mini">Pupil<strong>4.2 mm</strong></div><div class="mini">Blinks<strong>16 / min</strong></div><div class="mini">Squint<strong>Low</strong></div></div>
+              <div>
+                <div class="row" style="margin-bottom:8px"><span>Head movement</span><span class="s-lbl" style="color:#7B7C90">Live</span></div>
+                <div class="hg" style="height:54px"><div class="hg-in"><svg viewBox="0 0 520 66" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C22 16 42 16 62 32 S104 52 126 36 S168 14 190 30 S236 48 260 34 C282 16 302 16 322 32 S364 52 386 36 S428 14 450 30 S496 48 520 34" fill="none" stroke="#AE9E91" stroke-width="2" vector-effect="non-scaling-stroke"/></svg></div></div>
+              </div>
+            </div></div>
+            <div class="cap"><h3>Tracking task</h3><p>Pupil Labs Neon glasses track your eyes for 3–5 minutes.</p></div>
+          </div>
+
+          <!-- screen 3: voice note -->
+          <div class="layer" data-layer>
+            <div class="phone"><div class="scr">
+              <div class="isl"></div>
+              <div class="s-lbl">Voice note</div>
+              <div class="s-h">How do you feel today?</div>
+              <div>Talk for 30–60 seconds. Scored on-device.</div>
+              <div class="wave" data-wave style="height:120px;margin-top:16px"></div>
+              <div style="text-align:center"><span style="font-size:34px;font-weight:700;color:#E8D7BC;font-variant-numeric:tabular-nums">0:34</span> <span>/ 1:00</span></div>
+              <div class="rec" style="margin-top:auto"><span></span></div>
+              <div style="text-align:center;font-size:12px">Tap to stop</div>
+            </div></div>
+            <div class="cap"><h3>Voice note</h3><p>30–60 seconds on how you feel. Scored on-device.</p></div>
+          </div>
+
+          <!-- screen 4: wearable -->
+          <div class="layer" data-layer>
+            <div class="phone"><div class="scr">
+              <div class="isl"></div>
+              <div class="row"><span class="s-lbl">Wearable</span><span class="spill"><span class="live"></span>Connected</span></div>
+              <div class="s-h">Your settings</div>
+              <div style="height:64px;display:flex;justify-content:center"><svg viewBox="0 0 120 66" style="height:100%" aria-hidden="true"><path d="M28 50 C12 38 20 12 60 10 C100 12 108 38 92 50" fill="none" stroke="#AE9E91" stroke-width="7" stroke-linecap="round"/><ellipse cx="28" cy="51" rx="12" ry="7.5" fill="#3B465E" stroke="#AE9E91" stroke-width="1.5" transform="rotate(-28 28 51)"/><ellipse cx="92" cy="51" rx="12" ry="7.5" fill="#3B465E" stroke="#AE9E91" stroke-width="1.5" transform="rotate(28 92 51)"/><circle cx="60" cy="10" r="3.5" fill="#E8D7BC" class="pulse"/></svg></div>
+              <div><div class="row" style="margin-bottom:10px"><span>Frequency</span><span class="v">110 Hz</span></div><div class="trk"><span class="fill" style="width:52%"></span><span class="lim" style="left:86%"></span><span class="knob" style="left:52%"></span></div></div>
+              <div><div class="row" style="margin-bottom:10px"><span>Intensity</span><span class="v">45%</span></div><div class="trk"><span class="fill" style="width:56%"></span><span class="lim" style="left:80%"></span><span class="knob" style="left:56%"></span></div></div>
+              <div><div class="row" style="margin-bottom:10px"><span>Session</span><span class="v">20 min</span></div><div class="trk"><span class="fill" style="width:60%"></span><span class="lim" style="left:90%"></span><span class="knob" style="left:60%"></span></div></div>
+              <div class="row" style="font-size:11px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="limkey"></span>Safety limit</span><span>Can’t be exceeded</span></div>
+              <div class="pill f" style="margin-top:auto;height:50px">Start session</div>
+            </div></div>
+            <div class="cap"><h3>Wearable controls</h3><p>Tuned to you, inside hard safety limits.</p></div>
+          </div>
+
+          <!-- screen 5: brain view -->
+          <div class="layer" data-layer>
+            <div class="phone"><div class="scr">
+              <div class="isl"></div>
+              <div class="row"><span class="s-lbl">Brain view</span><span class="tag" style="height:22px;font-size:10px">Illustration</span></div>
+              <div class="s-h">Your target pathway</div>
+              <div style="height:210px;border-radius:20px;background:radial-gradient(closest-side,rgba(174,158,145,.2),rgba(174,158,145,0));padding:8px" data-brain></div>
+              <div class="row"><span>Monthly migraine days</span><span class="s-lbl" style="color:#7B7C90">Example</span></div>
+              <div class="mbars"><span style="height:100%"></span><span style="height:92%"></span><span style="height:76%"></span><span style="height:66%"></span><span style="height:58%"></span><span class="on" style="height:50%"></span></div>
+              <div class="row" style="padding:12px 14px;border-radius:16px;background:rgba(59,70,94,.55);margin-top:auto"><span style="color:#E8D7BC">Open in Vision Pro</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="#E8D7BC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </div></div>
+            <div class="cap"><h3>Brain view</h3><p>A 3D illustration of the target pathway and your progress.</p></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="pblocks">
+      <div class="pb on" data-pb><span class="n">01 · CHECK-IN</span><h3>One question a day.</h3><p>“Migraine today?” Yes logs pain, location, aura, nausea, light and sound sensitivity, and medication. No logs sleep, stress, and caffeine.</p></div>
+      <div class="pb" data-pb><span class="n">02 · TRACKING TASK</span><h3>Neon watches your eyes.</h3><p>During a 3–5 minute task, Pupil Labs Neon glasses track gaze, pupil size, blink rate, and squinting. Their motion sensor tracks head movement.</p></div>
+      <div class="pb" data-pb><span class="n">03 · VOICE NOTE</span><h3>Say how you feel.</h3><p>30–60 seconds, once a day. Scored on-device.</p></div>
+      <div class="pb" data-pb><span class="n">04 · WEARABLE</span><h3>Settings made for you.</h3><p>A neck-worn device built on DataFeel haptic disks uses vibration aimed at easing migraine pain. Frequency, intensity, and session length are tuned to you, inside hard safety limits.</p></div>
+      <div class="pb" data-pb><span class="n">05 · BRAIN VIEW</span><h3>See the pathway.</h3><p>A 3D brain in Vision Pro shows the targeted nerve pathway and your progress over time. It’s an illustration, not a brain scan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. BENTO ================= -->
+<section class="sec">
+  <div class="glow" style="width:1000px;height:800px;right:-300px;top:200px"></div>
+  <div class="wrap">
+    <div class="head center fu">
+      <span class="eyebrow">The system</span>
+      <h2 class="h2">One system. Five signals.</h2>
+    </div>
+    <div class="bento fu d1">
+
+      <div class="card tile t-lg">
+        <div class="row" style="align-items:flex-start"><div><h3 class="t-h">Monthly migraine days</h3><p class="t-p" style="margin-top:6px">Tracked from baseline, month by month.</p></div><span class="tag">Illustrative</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="big" data-count-from="12" data-count-to="6">12</span><span style="color:rgba(232,215,188,.7)">days in month 6 · from 12</span></div>
+        <div class="t-vis">
+          <svg viewBox="0 0 560 270" aria-hidden="true">
+            <defs><linearGradient id="bArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AE9E91" stop-opacity=".35"/><stop offset="1" stop-color="#AE9E91" stop-opacity="0"/></linearGradient></defs>
+            <rect x="20" y="20" width="76" height="220" rx="10" fill="#AE9E91" fill-opacity=".08"/>
+            <text x="58" y="38" text-anchor="middle" fill="#AE9E91" font-size="11" font-weight="600" letter-spacing="1.4">BASELINE</text>
+            <g stroke="#7B7C90" stroke-opacity=".18"><path d="M20 240 H540"/><path d="M20 183 H540"/><path d="M20 126 H540"/><path d="M20 69 H540"/></g>
+            <path d="M58 69 L150 83 L242 111 L334 126 L426 140 L518 154 L518 240 L58 240 Z" fill="url(#bArea)"/>
+            <path class="ldraw" d="M58 69 L150 83 L242 111 L334 126 L426 140 L518 154" fill="none" stroke="#E8D7BC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#192136" stroke="#AE9E91" stroke-width="2"><circle cx="58" cy="69" r="5"/><circle cx="150" cy="83" r="5"/><circle cx="242" cy="111" r="5"/><circle cx="334" cy="126" r="5"/><circle cx="426" cy="140" r="5"/></g>
+            <circle cx="518" cy="154" r="16" fill="#E8D7BC" fill-opacity=".18" class="pulse"/><circle cx="518" cy="154" r="6" fill="#E8D7BC"/>
+            <g fill="#7B7C90" font-size="12" text-anchor="middle"><text x="58" y="262">M1</text><text x="150" y="262">M2</text><text x="242" y="262">M3</text><text x="334" y="262">M4</text><text x="426" y="262">M5</text><text x="518" y="262">M6</text></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="row"><h3 class="t-h">Pain at 2 hours</h3><span class="tag">Example</span></div>
+        <div class="t-vis" style="display:flex;align-items:center;justify-content:center">
+          <div class="gauge" style="width:168px;height:168px">
+            <svg viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="56" fill="none" stroke="#7B7C90" stroke-opacity=".25" stroke-width="10"/><circle data-ring cx="70" cy="70" r="56" fill="none" stroke="#E8D7BC" stroke-width="10" stroke-linecap="round" stroke-dasharray="246 352" transform="rotate(-90 70 70)"/></svg>
+            <div class="c"><strong data-count-from="7" data-count-to="3" data-decimals="1" data-ring-value>7.0</strong><span>of 10 · from 7</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="row"><div><h3 class="t-h">Eye signals</h3><p class="t-p" style="margin-top:4px">From Neon glasses.</p></div><span class="tag">Illustrative</span></div>
+        <div class="legend"><span><span class="sw"></span>Attack day</span><span><span class="sw g"></span>Normal day</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;flex:1">
+          <div><div style="font-size:13px">Blink rate</div><svg viewBox="0 0 240 56" style="width:100%;height:50px" aria-hidden="true"><path d="M0 40 C20 38 40 42 60 39 S100 41 120 38 S160 42 180 40 S220 38 240 40" fill="none" stroke="#7B7C90" stroke-width="2" stroke-dasharray="4 4"/><path d="M0 36 C20 30 40 22 60 26 S100 14 120 18 S160 10 180 16 S220 8 240 12" fill="none" stroke="#E8D7BC" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div><div style="font-size:13px">Pupil size</div><svg viewBox="0 0 240 56" style="width:100%;height:50px" aria-hidden="true"><path d="M0 24 C30 22 60 26 90 24 S150 22 180 25 S220 23 240 24" fill="none" stroke="#7B7C90" stroke-width="2" stroke-dasharray="4 4"/><path d="M0 24 C30 28 60 34 90 32 S150 40 180 38 S220 44 240 42" fill="none" stroke="#E8D7BC" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div><h3 class="t-h">Voice note</h3><p class="t-p" style="margin-top:6px">30–60 seconds, scored on-device.</p></div>
+        <div class="t-vis wave" data-wave style="gap:4px"></div>
+      </div>
+
+      <div class="card tile">
+        <div><h3 class="t-h">Stimulation settings</h3><p class="t-p" style="margin-top:6px">Tuned per person. Capped.</p></div>
+        <div style="display:flex;flex-direction:column;gap:18px;flex:1;justify-content:center;font-size:13px">
+          <div><div class="row" style="margin-bottom:8px"><span>Frequency</span><span class="v">110 Hz</span></div><div class="trk"><span class="fill" style="width:52%"></span><span class="lim" style="left:86%"></span><span class="knob" style="left:52%;width:14px;height:14px;margin:-7px 0 0 -7px"></span></div></div>
+          <div><div class="row" style="margin-bottom:8px"><span>Intensity</span><span class="v">45%</span></div><div class="trk"><span class="fill" style="width:56%"></span><span class="lim" style="left:80%"></span><span class="knob" style="left:56%;width:14px;height:14px;margin:-7px 0 0 -7px"></span></div></div>
+          <div><div class="row" style="margin-bottom:8px"><span>Session</span><span class="v">20 min</span></div><div class="trk"><span class="fill" style="width:60%"></span><span class="lim" style="left:90%"></span><span class="knob" style="left:60%;width:14px;height:14px;margin:-7px 0 0 -7px"></span></div></div>
+        </div>
+      </div>
+
+      <div class="card tile t-wide">
+        <div style="flex:0 1 380px;display:flex;flex-direction:column;justify-content:space-between;gap:18px">
+          <div><span class="tag">Illustration</span><h3 class="t-h" style="font-size:30px;margin-top:18px">Brain view</h3><p class="t-p" style="margin-top:10px;font-size:17px">The targeted nerve pathway in 3D, with your progress over time. On Vision Pro, optional.</p></div>
+          <div class="legend"><span><span class="sw"></span>Target pathway</span><span><span class="live"></span>Stimulation site</span><span>Drag to turn</span></div>
+        </div>
+        <div class="t-vis" data-gl="brain" role="img" aria-label="3D brain illustration with the targeted pathway" style="background:radial-gradient(closest-side,rgba(232,215,188,.16),rgba(174,158,145,.06) 60%,rgba(174,158,145,0));min-height:240px"><div class="gl-fallback" data-brain style="height:100%"></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. TIMELINE ================= -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="head center fu">
+      <span class="eyebrow">Timeline</span>
+      <h2 class="h2">Month 1 learns. Month 2 relieves.</h2>
+    </div>
+    <div class="tl fu d1" data-tl>
+      <div class="tl-line"><div class="tl-fill"></div></div>
+
+      <div class="stop" data-stop><div class="sdot"></div><div class="card scard">
+        <div class="svis"><svg viewBox="0 0 220 90" aria-hidden="true"><g fill="none" stroke="#7B7C90" stroke-width="1.5" stroke-dasharray="3 5"><path d="M68 45 H90"/><path d="M130 45 H150"/></g><rect x="36" y="18" width="30" height="54" rx="7" fill="#3B465E" stroke="#AE9E91" stroke-width="1.5"/><rect x="45" y="24" width="12" height="3" rx="1.5" fill="#AE9E91"/><path d="M94 45 C100 35 120 35 126 45 C120 55 100 55 94 45 Z" fill="none" stroke="#AE9E91" stroke-width="1.5"/><circle cx="110" cy="45" r="5" fill="#E8D7BC"/><path d="M160 60 C152 52 156 32 178 31 C200 32 204 52 196 60" fill="none" stroke="#AE9E91" stroke-width="5" stroke-linecap="round"/><circle cx="178" cy="31" r="3" fill="#E8D7BC" class="pulse"/></svg></div>
+        <span class="when">Day 0</span><h3>Onboarding</h3><p>Set up the app, Neon glasses, and the wearable.</p>
+      </div></div>
+
+      <div class="stop" data-stop><div class="sdot"></div><div class="card scard">
+        <div class="svis"><svg viewBox="0 0 220 90" aria-hidden="true"><rect x="10" y="36" width="200" height="20" rx="10" fill="#AE9E91" fill-opacity=".1"/><path d="M10 46 H210" stroke="#AE9E91" stroke-width="1.5" stroke-dasharray="4 4"/><g fill="#7B7C90"><circle cx="22" cy="50" r="3.5"/><circle cx="38" cy="40" r="3.5"/><circle cx="54" cy="56" r="3.5"/><circle cx="70" cy="44" r="3.5"/><circle cx="102" cy="52" r="3.5"/><circle cx="118" cy="40" r="3.5"/><circle cx="134" cy="58" r="3.5"/><circle cx="166" cy="48" r="3.5"/><circle cx="182" cy="42" r="3.5"/><circle cx="198" cy="54" r="3.5"/></g><g fill="#E8D7BC"><circle cx="86" cy="22" r="5"/><circle cx="150" cy="18" r="5"/></g></svg></div>
+        <span class="when">Month 1</span><h3>Baseline</h3><p>Tracking only. Haptiq learns your pattern.</p>
+      </div></div>
+
+      <div class="stop" data-stop><div class="sdot"></div><div class="card scard">
+        <div class="svis"><svg viewBox="0 0 220 90" aria-hidden="true"><path d="M10 45 H50 C54 45 56 22 60 22 S66 68 70 68 S76 22 80 22 S86 68 90 68 S96 45 100 45 H128 C132 45 134 32 138 32 S144 58 148 58 S154 32 158 32 S164 45 168 45 H210" fill="none" stroke="#AE9E91" stroke-opacity=".3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 45 H50 C54 45 56 22 60 22 S66 68 70 68 S76 22 80 22 S86 68 90 68 S96 45 100 45 H128 C132 45 134 32 138 32 S144 58 148 58 S154 32 158 32 S164 45 168 45 H210" fill="none" stroke="#E8D7BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path class="tpulse" d="M10 45 H50 C54 45 56 22 60 22 S66 68 70 68 S76 22 80 22 S86 68 90 68 S96 45 100 45 H128 C132 45 134 32 138 32 S144 58 148 58 S154 32 158 32 S164 45 168 45 H210" fill="none" stroke="#E8D7BC" stroke-width="5" stroke-linecap="round"/></svg></div>
+        <span class="when">Month 2+</span><h3>Adaptive stimulation</h3><p>Each attack starts a session. A pain check at 2 hours guides the next one.</p>
+      </div></div>
+
+      <div class="stop" data-stop><div class="sdot"></div><div class="card scard">
+        <div class="svis"><svg viewBox="0 0 220 90" aria-hidden="true"><rect x="70" y="8" width="80" height="74" rx="9" fill="#3B465E" stroke="#AE9E91" stroke-opacity=".6"/><g stroke="#7B7C90" stroke-width="3" stroke-linecap="round"><path d="M82 22 H124"/><path d="M82 32 H112"/></g><g fill="#AE9E91"><rect x="82" y="58" width="8" height="14" rx="2"/><rect x="94" y="52" width="8" height="20" rx="2"/><rect x="106" y="60" width="8" height="12" rx="2"/><rect x="118" y="64" width="8" height="8" rx="2" fill="#E8D7BC"/></g><circle cx="150" cy="70" r="14" fill="#E8D7BC"/><path d="M144 70 l4 4 8-8" fill="none" stroke="#192136" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="when">Every month</span><h3>Doctor review</h3><p>A summary goes to you and your doctor.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. SIMULATIONS ================= -->
+<section class="sec" id="simulations">
+  <div class="glow" style="width:1000px;height:800px;left:-300px;top:260px"></div>
+  <div class="wrap">
+    <div class="head center fu">
+      <span class="eyebrow">Simulations</span>
+      <h2 class="h2">Tune it. Run it. Compare.</h2>
+      <p class="lede">Each run simulates one session for a sample person. Find the settings that bring pain down most at 2 hours.</p>
+    </div>
+    <div class="sim fu d1">
+      <div class="card ctrl">
+        <div class="row"><span class="lbl">Session settings</span><span class="tag">Simulated data</span></div>
+        <div class="sl">
+          <label for="simFreq"><span>Vibration frequency</span><strong id="freqOut">60 Hz</strong></label>
+          <input class="rng" id="simFreq" type="range" min="20" max="250" step="5" value="60">
+          <div class="limrow"><span>20 Hz</span><span>250 Hz</span></div>
+        </div>
+        <div class="sl">
+          <label for="simInt"><span>Intensity</span><strong id="intOut">30%</strong></label>
+          <input class="rng" id="simInt" type="range" min="10" max="80" step="1" value="30">
+          <div class="limrow"><span>10%</span><span><span class="limkey"></span>Safety limit 80%</span></div>
+        </div>
+        <div class="sl">
+          <label for="simLen"><span>Session length</span><strong id="lenOut">10 min</strong></label>
+          <input class="rng" id="simLen" type="range" min="5" max="30" step="1" value="10">
+          <div class="limrow"><span>5 min</span><span><span class="limkey"></span>Safety limit 30 min</span></div>
+        </div>
+        <button class="btn btn-p" id="runBtn" type="button" style="width:100%;margin-top:auto"><span id="runLabel">Run session</span> <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3l9 5-9 5z" fill="currentColor"/></svg></button>
+      </div>
+
+      <div class="card chart">
+        <div class="row"><div><span class="lbl">Pain score</span><div style="font-size:15px;color:rgba(232,215,188,.7);margin-top:4px">0–10, over 2 hours</div></div><div class="legend"><span><span class="sw"></span>This run</span><span><span class="sw g"></span>Last run</span></div></div>
+        <div class="chart-box">
+          <svg viewBox="0 0 640 290" aria-hidden="true">
+            <defs><linearGradient id="sArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AE9E91" stop-opacity=".32"/><stop offset="1" stop-color="#AE9E91" stop-opacity="0"/></linearGradient></defs>
+            <g stroke="#7B7C90" stroke-opacity=".16"><path d="M48 20 H608"/><path d="M48 68 H608"/><path d="M48 116 H608"/><path d="M48 164 H608"/><path d="M48 212 H608"/><path d="M48 260 H608"/></g>
+            <g fill="#7B7C90" font-size="12" text-anchor="end"><text x="36" y="24">10</text><text x="36" y="72">8</text><text x="36" y="120">6</text><text x="36" y="168">4</text><text x="36" y="216">2</text><text x="36" y="264">0</text></g>
+            <g fill="#7B7C90" font-size="12" text-anchor="middle"><text x="48" y="284">0</text><text x="188" y="284">30</text><text x="328" y="284">60</text><text x="468" y="284">90</text><text x="608" y="284">2 h</text></g>
+            <path d="M608 14 V260" stroke="#AE9E91" stroke-width="1.5" stroke-dasharray="4 5"/>
+            <text x="600" y="12" text-anchor="end" fill="#AE9E91" font-size="11" font-weight="600" letter-spacing="1.2">PAIN CHECK</text>
+            <path id="simGhost" d="M48 92" fill="none" stroke="#7B7C90" stroke-width="2" stroke-dasharray="5 5" opacity="0"/>
+            <path id="simArea" d="M48 92" fill="url(#sArea)" opacity="0"/>
+            <path id="simPath" d="M48 92" fill="none" stroke="#E8D7BC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+            <circle id="simTipGlow" cx="48" cy="92" r="14" fill="#E8D7BC" fill-opacity=".18" opacity="0"/>
+            <circle id="simTip" cx="48" cy="92" r="6" fill="#E8D7BC" opacity="0"/>
+          </svg>
+          <div class="empty" id="simEmpty">Pick settings, then press Run session.</div>
+        </div>
+        <div class="readout">
+          <div class="ro"><div class="k">Start</div><div class="val">7.0</div></div>
+          <div class="ro"><div class="k" id="roK2">Pain at 2 h</div><div class="val" id="roP2">—</div></div>
+          <div class="ro"><div class="k">Change · <span id="roT">0 min</span></div><div class="val" id="roChg">—</div></div>
+        </div>
+      </div>
+
+      <div class="card best">
+        <div>
+          <div class="row" style="justify-content:flex-start;gap:14px"><span class="lbl">Best settings so far</span><span class="tag" id="runCount">0 runs</span></div>
+          <div class="bgrid" id="bestGrid" hidden>
+            <div><div class="k">Frequency</div><div class="val" id="bF"></div></div>
+            <div><div class="k">Intensity</div><div class="val" id="bI"></div></div>
+            <div><div class="k">Length</div><div class="val" id="bL"></div></div>
+            <div><div class="k">Pain at 2 h · <span id="bN"></span></div><div class="val" id="bP"></div></div>
+          </div>
+          <p id="bestEmpty" style="margin:14px 0 0;color:rgba(232,215,188,.7)">Run a session to start. Each run updates this card.</p>
+        </div>
+        <div><div style="font-size:12px;margin-bottom:8px">Relief per run</div><div class="hist" id="hist"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. DEVICES ================= -->
+<section class="sec alt" id="devices">
+  <div class="glow" style="width:1100px;height:900px;left:50%;top:220px;margin-left:-550px"></div>
+  <div class="wrap">
+    <div class="head center fu">
+      <span class="eyebrow">Devices</span>
+      <h2 class="h2">Three devices. One profile.</h2>
+      <p class="lede">Research hardware, tied together by Haptiq.</p>
+    </div>
+
+    <div class="dev-tabs fu d1" role="tablist" aria-label="Devices">
+      <button class="dtab" role="tab" aria-selected="true" data-dev="0" type="button">Pupil Labs Neon<span class="dprog"></span></button>
+      <button class="dtab" role="tab" aria-selected="false" data-dev="1" type="button">DataFeel Gen 10<span class="dprog"></span></button>
+      <button class="dtab" role="tab" aria-selected="false" data-dev="2" type="button">Apple Vision Pro<span class="dprog"></span></button>
+    </div>
+
+    <div class="dev-stage2 fu d2">
+      <div class="dev-view" data-par-dev>
+        <div class="dev-inner">
+          <div class="dev-canvas" data-gl="devices" role="img" aria-label="3D models of the Haptiq devices">
+            <div class="gl-fallback dev-fb">
+              <svg viewBox="0 0 64 64" width="120" height="120" aria-hidden="true"><path d="M6 32 C16 16 48 16 58 32 C48 48 16 48 6 32 Z" fill="#3B465E" stroke="#AE9E91" stroke-width="1.8"/><g class="pup"><circle cx="32" cy="32" r="10" fill="#192136" stroke="#AE9E91" stroke-width="1.5"/><circle cx="32" cy="32" r="4.5" fill="#E8D7BC"/></g></svg>
+            </div>
+          </div>
+        </div>
+        <span class="dev-hint">Drag to turn</span>
+      </div>
+
+      <div class="card dev-info">
+        <div class="dev-fade" data-dev-body>
+          <span class="tag" data-dev-role>Eye tracking</span>
+          <h3 data-dev-name>Pupil Labs Neon</h3>
+          <p data-dev-line>Eye-tracking glasses for the daily task. Cameras near the nose watch both eyes.</p>
+        </div>
+        <div class="dev-specs dev-fade" data-dev-specs></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 9. CLOSING CTA ================= -->
+<section class="sec" style="padding-top:40px">
+  <div class="wrap fu">
+    <div class="ctab">
+      <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+      <span class="eyebrow" style="position:relative">Haptiq</span>
+      <h2>Your migraine isn’t average. Your treatment shouldn’t be either.</h2>
+      <div class="cta-row">
+        <a class="btn btn-p" href="#simulations">Try demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-s" href="login.html">Log in</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10. FOOTER ================= -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-col" style="gap:14px">
+      <a class="brand" href="#top"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="10" fill="#3B465E" stroke="#E8D7BC" stroke-opacity=".25"/><path d="M5 15 C7.5 9 10 9 12.5 15 S17.5 21 20 15 S22.5 9 25 15" fill="none" stroke="#E8D7BC" stroke-width="2.2" stroke-linecap="round"/></svg>Haptiq</a>
+      <span>Built at [Hackathon name]</span>
+    </div>
+    <div class="foot-col"><span class="lbl">Team</span><span style="color:#E8D7BC">[Team member names]</span></div>
+    <div class="foot-col"><span class="lbl">Code</span><a href="https://github.com/kailicata">GitHub ↗</a></div>
+  </div>
+  <div class="fine">Research prototype. Not a medical device.</div>
+</footer>
+
+<script src="js/shared.js"></script>
+<script type="module" src="js/site-boot.js"></script>
+</body>
+</html>
